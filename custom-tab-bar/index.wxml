@@ -1,0 +1,13 @@
+<wr-tabbar
+  active="{{ active }}"
+  bind:change="onChange"
+  active-color="{{theme.custom.colorPrimary}}"
+  inactiveColor="#999"
+  activeColor="#333"
+  border>
+  <wr-tabbar-item wx:for="{{ list }}" wx:key="index">
+    <wr-icon slot="icon" name="{{ item.icon }}" size="44rpx"></wr-icon>
+    <wr-icon slot="icon-active" name="{{ item.icon }}" size="44rpx"></wr-icon>
+    <view class="text">{{ item.text }}</view>
+  </wr-tabbar-item>
+</wr-tabbar>

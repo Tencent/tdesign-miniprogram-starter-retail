@@ -1,0 +1,57 @@
+@import '/miniprogram_npm/@tencent/retailwe-ui-goods-list/external.wxss';
+
+page {
+  box-sizing: border-box;
+  padding-bottom: 140rpx;
+}
+
+.search {
+  padding: 0 24rpx;
+  margin-top: 10rpx;
+  background-color: #fff;
+}
+
+.search .search-component .input-box,
+.search .search-component .input-box.focus {
+  caret-color: transparent;
+  border-color: #ddd;
+}
+
+.search .search-component .input-box input {
+  color: #ddd;
+  text-align: center;
+  font-size: 26rpx;
+}
+
+.search .search-component .input-box .wr-clear {
+  display: none;
+}
+
+.wr-swiper .slide-image {
+  height: 300rpx;
+}
+
+.tab.order-nav {
+  background-color: transparent;
+  line-height: 80rpx;
+  font-size: 28rpx;
+  color: #333;
+}
+
+/* 半个字 */
+.tab.order-nav .order-nav-item.scroll-width {
+  min-width: 165rpx;
+}
+.tab .order-nav-item.active {
+  color: #fa550f !important;
+}
+
+.tab .bottom-line {
+  /* height: 8rpx; */
+  border-radius: 4rpx;
+  /* width: 50rpx; */
+}
+
+.tab .order-nav-item.active .bottom-line {
+  background-color: #fa550f !important;
+}

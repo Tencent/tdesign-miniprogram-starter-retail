@@ -1,0 +1,17 @@
+{
+  "navigationBarTitleText": "首页",
+  "onReachBottomDistance": 10,
+  "backgroundTextStyle": "light",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "wr-loading": "@tencent/retailwe-ui-loading/index",
+    "wr-swiper": "@tencent/retailwe-ui-swiper/index",
+    "wr-image": "@tencent/retailwe-ui-image/index",
+    "wr-tab": "@tencent/retailwe-ui-tab/index",
+    "goods-list": "@tencent/retailwe-ui-goods-list/index",
+    "wr-search": "@tencent/retailwe-ui-search/index",
+    "wr-load-more": "@tencent/retailwe-ui-load-more/index",
+    "wr-toast": "@tencent/retailwe-ui-toast/index",
+    "wr-dialog": "@tencent/retailwe-ui-dialog/index"
+  }
+}

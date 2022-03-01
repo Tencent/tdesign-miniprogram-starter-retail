@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "优惠券",
+  "usingComponents": {
+    "wr-pull-down-refresh": "@tencent/retailwe-ui-pull-down-refresh/index",
+    "wr-tab": "@tencent/retailwe-ui-tab/index",
+    "wr-icon": "@tencent/retailwe-ui-icon/index",
+    "wr-coupon-list": "@tencent/retailwe-ui-coupon-list/index",
+    "custom-coupon-card": "./components/coupon/index"
+  }
+}

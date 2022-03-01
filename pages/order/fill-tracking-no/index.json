@@ -1,0 +1,12 @@
+{
+  "navigationBarTitleText": "填写运单号",
+  "usingComponents": {
+    "wr-icon": "@tencent/retailwe-ui-icon/index",
+    "wr-cell": "@tencent/retailwe-ui-cell/index",
+    "wr-notice-bar": "@tencent/retailwe-ui-notice-bar/index",
+    "wr-textarea": "@tencent/retailwe-ui-textarea/index",
+    "wr-reason-sheet": "../components/reason-sheet/index",
+    "wr-toast": "@tencent/retailwe-ui-toast/index",
+    "wr-dialog": "@tencent/retailwe-ui-dialog/index"
+  }
+}

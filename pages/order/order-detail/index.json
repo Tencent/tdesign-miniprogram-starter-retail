@@ -1,0 +1,18 @@
+{
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "wr-pull-down-refresh": "@tencent/retailwe-ui-pull-down-refresh/index",
+    "wr-navbar": "@tencent/retailwe-ui-navbar/index",
+    "wr-cell": "@tencent/retailwe-ui-cell/index",
+    "wr-icon": "@tencent/retailwe-ui-icon/index",
+    "wr-price": "@tencent/retailwe-ui-price/index",
+    "wr-count-down": "@tencent/retailwe-ui-count-down/index",
+    "wr-order-card": "@tencent/retailwe-ui-order-card/index",
+    "wr-order-goods-card": "@tencent/retailwe-ui-order-goods-card/index",
+    "wr-dialog": "@tencent/retailwe-ui-dialog/index",
+    "wr-toast": "@tencent/retailwe-ui-toast/index",
+    "wr-customer-service": "../components/customer-service",
+    "wr-order-button-bar": "../components/order-button-bar/index",
+    "groupon-avatars": "../components/groupon-avatars/index"
+  }
+}

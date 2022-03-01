@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "发票",
+  "usingComponents": {
+    "wr-cell": "@tencent/retailwe-ui-cell/index",
+    "wr-dialog": "@tencent/retailwe-ui-dialog/index",
+    "wr-toast": "@tencent/retailwe-ui-toast/index",
+    "wr-icon": "@tencent/retailwe-ui-icon/index"
+  }
+}

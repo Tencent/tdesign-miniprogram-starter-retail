@@ -1,0 +1,45 @@
+<view class="page-container">
+  <view class="tab-bar">
+    <view class="tab-bar__placeholder"></view>
+    <wr-tab wr-class="tab-bar__inner" wr-class-active="tab-bar__active" tab-list="{{tabs}}" is-scroll="{{false}}" line-color="{{theme.custom.colorPrimary}}" line-height="4" line-width="48" status="{{curTab}}" bindtabChange="onTabChange" />
+  </view>
+  <wr-pull-down-refresh id="wr-pull-down-refresh" bindrefresh="onPullDownRefresh_">
+    <wr-order-card wx:for="{{orderList}}" wx:key="id" wx:for-item="order" wx:for-index="oIndex" order="{{order}}" defaultShowNum="{{3}}" data-order="{{order}}" bindcardtap="onOrderCardTap">
+      <wr-specs-goods-card
+        wx:for="{{order.goodsList}}" wx:key="id" wx:for-item="goods" wx:for-index="gIndex"
+        data="{{goods}}"
+        no-top-line="{{gIndex === 0}}"
+      />
+      <view slot="more">
+        <view class="price-total">
+          <view class="float">
+            共 {{goodsCount}} 件商品 合计：
+            <view class="symbol">¥</view>
+            <wr-price
+              fill
+              wr-class="order-price"
+              decimal-class="order-price__decimal"
+              price="{{order.amount + ''}}"
+              symbol="">
+            </wr-price>
+          </view>
+          <view class="clear"></view>
+        </view>
+        <!-- 订单按钮栏 -->
+        <wr-order-button-bar order="{{order}}" bindrefresh="onRefresh" data-order="{{order}}" />
+      </view>
+    </wr-order-card>
+    <!-- 列表加载中/已全部加载 -->
+    <wr-load-more wx:if="{{!pullDownRefreshing}}" list-is-empty="{{!orderList.length}}" status="{{listLoading}}" bindretry="onReTryLoad">
+      <!-- 空态 -->
+      <view slot="empty" class="empty-wrapper">
+        <wr-empty size="240rpx" textColor="#999999" textSize="28rpx" src="{{emptyImg}}">
+          暂无相关订单
+        </wr-empty>
+      </view>
+    </wr-load-more>
+  </wr-pull-down-refresh>
+</view>
+
+<wr-toast id="wr-toast"/>
+<wr-dialog id="wr-dialog"/>

@@ -1,0 +1,15 @@
+{
+  "navigationBarTitleText": "搜索",
+  "usingComponents": {
+    "wr-dialog": "@tencent/retailwe-ui-dialog/index",
+    "wr-icon": "@tencent/retailwe-ui-icon/index",
+    "wr-popup": "@tencent/retailwe-ui-popup/index",
+    "wr-filter": "@tencent/retailwe-ui-filter/index",
+    "wr-filter-popup": "@tencent/retailwe-ui-filter-popup/index",
+    "wr-good-list": "@tencent/retailwe-ui-goods-list/index",
+    "wr-empty": "@tencent/retailwe-ui-empty/index",
+    "wr-load-more": "@tencent/retailwe-ui-load-more/index",
+    "wr-search": "@tencent/retailwe-ui-search/index"
+  },
+  "onReachBottomDistance": 50
+}

@@ -1,0 +1,53 @@
+<wr-user-center-card userInfo="{{userInfo}}" isPhoneHide="{{true}}" name-class="custom-name-class" phone-class="custom-phone-class" avatar-class="custome-avatar-class">
+    <view class="counts-wrapper" slot="inside">
+        <view class="count" wx:for="{{countsData}}" wx:key="item" data-item="{{item}}" bind:tap="tapCountDetailHandle">
+            <view class="num">{{item.num <= 999 ? item.num: '999+'  }}</view>
+            <view class="label">{{item.name}}</view>
+        </view>
+    </view>
+    <view slot="outside" class="main-content">
+        <view class='order-group-wrapper'>
+            <wr-cell-group>
+                <wr-cell title-class="order-title" title="我的订单" value="全部订单" is-link url="" bind:tap="jumpAllOrder" />
+            </wr-cell-group>
+            <view class="order-content">
+                <view class="order-item" wx:for="{{orderTagInfos}}" wx:for-item="item" wx:key="index" data-item="{{item}}" bindtap="jumpNav">
+                    <view class="order-content-box">
+                        <view class="sprite-ico ">
+                            <wr-icon name="{{item.iconName}}" color="#333" size="48" />
+                            <view wx:if="{{item.orderNum&&item.orderNum != 0}}" class="order-val {{item.orderNum>99?'order-len':item.orderNum<99&&item.orderNum>9?'order-cn':'order-sm'}}">
+                                {{item.orderNum>99?'99+':item.orderNum}}
+                            </view>
+                        </view>
+                        <view class="order-content-t fw-Regular">{{item.title}}</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view wx:for="{{menuData}}" wx:key="item" class="cell-box">
+            <wr-cell-group>
+                <wr-cell wx:for="{{item}}" wx:for-item="xitem" wx:for-index="xindex" wx:key="xindex" title="{{xitem.title}}" value="{{xitem.tit}}" data-type="{{xitem.type}}" border="{{item.length > 1}}" bind:click="onClickCell" isLink="{{true}}" />
+            </wr-cell-group>
+        </view>
+    </view>
+    <!-- <view slot="outside">
+        <view wx:for="{{menuData}}" wx:key="item" wx:if="{{hasUser}}">
+            <wr-cell-group>
+                <wr-cell wx:for="{{item}}" wx:for-item="xitem" wx:for-index="xindex" wx:key="xindex" title="{{xitem.title}}" value="{{xitem.tit}}" data-type="{{xitem.type}}" border="{{item.length > 1}}" bind:click="cellClick" isLink="{{true}}" wr-class="cell-class" right-icon-class="icon-color" />
+            </wr-cell-group>
+        </view>
+    </view> -->
+</wr-user-center-card>
+
+<wr-popup show="{{showMakePhone}}" position="bottom" bindclose="closeMakePhone" data-index="2">
+  <view class="popup-content">
+    <view class="popup-title" wx:if="{{customerServiceInfo.serviceTimeDuration}}">
+      <text class="popup-title-tag">服务时间</text>
+      : {{customerServiceInfo.serviceTimeDuration}}
+    </view>
+    <!-- <view class="popup-phone" bind:tap="call">呼叫 {{phone}}</view> -->
+    <view class="popup-phone" bind:tap="call">电话客服</view>
+    <view class="popup-phone online" bind:tap="callOnlineService" wx:if="{{showKefu}}">在线客服</view>
+    <view class="popup-close" bind:tap="closeMakePhone">取消</view>
+  </view>
+</wr-popup>

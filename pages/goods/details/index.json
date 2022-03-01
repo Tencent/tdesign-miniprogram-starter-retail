@@ -1,0 +1,16 @@
+{
+  "navigationBarTitleText": "商品详情",
+  "usingComponents": {
+    "goods-tab": "@tencent/retailwe-ui-goods-tab/index",
+    "tx-swiper": "@tencent/retailwe-ui-swiper/index",
+    "price": "@tencent/retailwe-ui-price/index",
+    "wr-icon": "@tencent/retailwe-ui-icon/index",
+    "wr-coupon-popup": "@tencent/retailwe-ui-coupon-popup/index",
+    "wr-promotion-popup": "@tencent/retailwe-ui-promotion-popup/index",
+    "wr-buy-bar": "@tencent/retailwe-ui-buy-bar/index",
+    "wr-toast": "@tencent/retailwe-ui-toast/index",
+    "goods-specs-popup": "@tencent/retailwe-ui-goods-specs-popup/index",
+    "popup": "@tencent/retailwe-ui-popup/index",
+    "wr-rate": "@tencent/retailwe-ui-rate/index"
+  }
+}

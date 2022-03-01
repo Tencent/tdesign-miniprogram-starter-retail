@@ -1,0 +1,18 @@
+page {
+  background-color: #f5f5f5;
+}
+
+.get-address-wrap {
+  margin: 20rpx 24rpx;
+  --cell-vertical-padding: 26rpx;
+  --cell-horizontal-padding: 30rpx;
+}
+
+.get-address-wrap .wr-weixin {
+  margin-right: 20rpx;
+}
+
+.get-address-wrap .wr-cell__title {
+  font-size: 30rpx;
+  color: #333;
+}

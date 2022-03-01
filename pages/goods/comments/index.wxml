@@ -1,0 +1,26 @@
+<view class="comments-header">
+    <wr-tag wr-class="comments-header-tag {{commentType === '' ? 'comments-header-active' : ''}}" data-commentType="" round bindtap="changeTag" color="#fff4e5" text-color="#333">
+        全部({{countObj.commentCount}})
+    </wr-tag>
+    <wr-tag wr-class="comments-header-tag {{commentType === '5' ? 'comments-header-active' : ''}}" wx:if="{{countObj.uidCount !== '0'}}" data-commentType="5" round bindtap="changeTag" color="#fff4e5" text-color="#333">
+        自己({{countObj.uidCount}})
+    </wr-tag>
+    <wr-tag wr-class="comments-header-tag {{commentType === '4' ? 'comments-header-active' : ''}}" data-commentType="4" round bindtap="changeTag" color="#fff4e5" text-color="#333">
+        带图({{countObj.hasImageCount}})
+    </wr-tag>
+    <wr-tag wr-class="comments-header-tag {{commentType === '3' ? 'comments-header-active' : ''}}" data-commentType="3" round bindtap="changeTag" color="#fff4e5" text-color="#333">
+        好评({{countObj.goodCount}})
+    </wr-tag>
+    <wr-tag wr-class="comments-header-tag {{commentType === '2' ? 'comments-header-active' : ''}}" data-commentType="2" round bindtap="changeTag" color="#fff4e5" text-color="#333">
+        中评({{countObj.middleCount}})
+    </wr-tag>
+    <wr-tag wr-class="comments-header-tag {{commentType === '1' ? 'comments-header-active' : ''}}" data-commentType="1" round bindtap="changeTag" color="#fff4e5" text-color="#333">
+        差评({{countObj.badCount}})
+    </wr-tag>
+</view>
+<view class="comments-card-list">
+<block wx:for="{{commentList}}" wx:key="index">
+    <wr-comments-card commentScore="{{item.commentScore}}" userName="{{item.userName}}" commentImageUrls="{{item.commentImageUrls}}" commentContent="{{item.commentContent}}" isAnonymity="{{item.isAnonymity}}" commentTime="{{item.commentTime}}" isAutoComment="{{item.isAutoComment}}" userHeadUrl="{{item.userHeadUrl}}" specInfo="{{item.specInfo}}"></wr-comments-card>
+</block>
+<wr-load-more wr-class="no-more" status="{{loadMoreStatus}}" no-more-text="没有更多了"></wr-load-more>
+</view>

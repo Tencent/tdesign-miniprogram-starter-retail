@@ -1,0 +1,32 @@
+<view class="tab-bar__placeholder"></view>
+<wr-tab
+  status="{{status}}"
+  bind:tabChange="tabChange"
+  tabList="{{list}}"
+  isScroll="{{false}}"
+
+  wr-class="tab-bar__inner"
+  wr-class-active="tab-bar__active"
+  line-height="4"
+  line-width="48"
+/>
+<view
+  class="coupon-list-wrap"
+>
+  <wr-pull-down-refresh
+    id="wr-pull-down-refresh"
+    bind:refresh="onPullDownRefresh_"
+  >
+    <wr-coupon-list
+      data="{{couponList}}"
+      generic:coupon-card="custom-coupon-card"
+    />
+  </wr-pull-down-refresh>
+
+  <view class="center-entry">
+    <view class="center-entry-btn" bind:tap="goCouponCenterHandle">
+      领券中心
+      <wr-icon name="right" color="#FA550F" />
+    </view>
+  </view>
+</view>

@@ -1,0 +1,23 @@
+import { config } from '../../../config/index';
+import { queryCommentDetail } from '../../../model/comments/queryDetail';
+/** 获取商品评价数据 */
+function mockQueryCommentDetail(params) {
+  const { delay } = require('../../_utils/delay');
+  // const { getSearchResult } = require('../../../model/comments/queryDetail');
+
+  const data = queryCommentDetail(params);
+  console.log('data:', data);
+  return delay().then(() => {
+    return data;
+  });
+}
+
+/** 获取评价详情 */
+export function getCommentDetail(params) {
+  if (config.useMock) {
+    return mockQueryCommentDetail(params);
+  }
+  return new Promise((resolve) => {
+    resolve('real api');
+  });
+}

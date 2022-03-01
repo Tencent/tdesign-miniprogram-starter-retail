@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "搜索",
+  "usingComponents": {
+    "wr-dialog": "@tencent/retailwe-ui-dialog/index",
+    "wr-icon": "@tencent/retailwe-ui-icon/index",
+    "wr-search": "@tencent/retailwe-ui-search/index"
+  }
+}

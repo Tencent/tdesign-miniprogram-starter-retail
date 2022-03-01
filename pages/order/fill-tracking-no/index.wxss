@@ -1,0 +1,88 @@
+:host {
+  background-color: #f5f5f5;
+}
+
+.fill-tracking-no {
+
+
+}
+
+.fill-tracking-no .notice-bar {
+    padding: 16rpx 30rpx;
+    font-size: 26rpx;
+}
+
+.fill-tracking-no .fill-tracking-no__form {
+    margin-top: 20rpx;
+}
+
+.fill-tracking-no .fill-tracking-no__form .wr-cell {
+  padding: 30rpx;
+}
+
+.fill-tracking-no .fill-tracking-no__form .wr-cell__title {
+    color: #333333;
+    font-size: 30rpx;
+    flex: none;
+    margin-right: 30rpx;
+    width: 140rpx;
+}
+.fill-tracking-no .fill-tracking-no__form .wr-cell__value {
+    color: #666666;
+    font-size: 30rpx;
+    text-align: left;
+}
+
+.fill-tracking-no .fill-tracking-no__form .wr-cell__value.textarea {
+  width: 100%;
+  min-height: 150rpx;
+}
+
+.fill-tracking-no .fill-tracking-no__form .wr-cell__placeholder {
+    color: #bbbbbb;
+    font-size: 30rpx;
+}
+.fill-tracking-no .fill-tracking-no__form .wr-cell .icon-scan {
+    font-size: 48rpx !important;
+}
+
+.fill-tracking-no .fill-tracking-no__form .wr-cell .icon-scan:active {
+  opacity: 0.5;
+}
+
+.fill-tracking-no .fill-tracking-no__button-bar {
+    margin: 38rpx 30rpx 0;
+}
+
+.fill-tracking-no .fill-tracking-no__button-bar .btn {
+  background-color: transparent;
+  color: #fa550f;
+  font-size: 32rpx;
+}
+
+.fill-tracking-no .fill-tracking-no__button-bar .btn:active {
+    opacity: 0.5;
+}
+.fill-tracking-no .fill-tracking-no__button-bar .btn:not(:first-child) {
+    margin-top: 20rpx;
+}
+.fill-tracking-no .fill-tracking-no__button-bar .btn::after {
+     border-color: #fa550f;
+}
+.fill-tracking-no .fill-tracking-no__button-bar .btn.primary {
+    background-color: #fa550f;
+    color: white;
+}
+
+.fill-tracking-no .fill-tracking-no__button-bar .btn.primary {
+    background-color: #fa550f;
+    color: white;
+}
+
+.fill-tracking-no .fill-tracking-no__button-bar .btn.primary.disabled {
+  background-color: #c6c6c6;
+}
+
+.fill-tracking-no .fill-tracking-no__button-bar .btn.primary.disabled::after {
+    border-color: #c6c6c6;
+}

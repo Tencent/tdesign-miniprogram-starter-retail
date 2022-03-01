@@ -1,0 +1,47 @@
+page {
+  background-color: #f5f5f5;
+}
+
+.get-address-wrap {
+  margin: 20rpx 24rpx;
+  --cell-vertical-padding: 26rpx;
+  --cell-horizontal-padding: 30rpx;
+}
+
+.get-address-wrap .wr-weixin {
+  margin-right: 20rpx;
+}
+
+.get-address-wrap .wr-cell__title {
+  font-size: 30rpx;
+  color: #333;
+}
+
+.create-btn-placeholfer,
+.create-btn-wrap {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+  padding-top: 10rpx;
+  box-sizing: border-box;
+  background-color: #fff;
+
+  height: 100rpx;
+  padding-bottom: calc(constant(safe-area-inset-top) + 100rpx);
+  padding-bottom: calc(env(safe-area-inset-bottom) + 100rpx);
+
+  padding-bottom: 10rpx;
+  padding-bottom: calc(constant(safe-area-inset-top) + 10rpx);
+  padding-bottom: calc(env(safe-area-inset-bottom) + 10rpx);
+}
+
+.create-btn-placeholfer {
+  position: relative;
+  left: initial;
+  right: initial;
+  bottom: initial;
+  opacity: 0;
+}

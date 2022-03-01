@@ -1,0 +1,38 @@
+<view class="page-container">
+  <view class="tab-bar">
+    <view class="tab-bar__placeholder"></view>
+    <wr-tab wr-class="tab-bar__inner" wr-class-active="tab-bar__active" tab-list="{{tabs}}" is-scroll="{{false}}" line-color="{{theme.custom.colorPrimary}}" line-height="4" line-width="48" status="{{curTab}}" bindtabChange="onTabChange" />
+  </view>
+  <wr-pull-down-refresh id="wr-pull-down-refresh" bindrefresh="onPullDownRefresh_">
+    <wr-order-card wx:for="{{dataList}}" wx:key="id" wx:for-item="order" wx:for-index="oIndex" order="{{order}}" data-order="{{order}}" bindcardtap="onAfterServiceCardTap" useTopRightSlot>
+      <view class="text-btn" slot="top-right">
+        <view class="header__right">
+          <wr-icon wr-class="header__right__icon" name="{{order.typeDescIcon}}" />
+          {{order.typeDesc}}
+        </view>
+      </view>
+      <wr-goods-card
+        wx:for="{{order.goodsList}}" wx:key="id" wx:for-item="goods" wx:for-index="gIndex"
+        data="{{goods}}"
+        no-top-line="{{gIndex === 0}}"
+      />
+      <view slot="more">
+        <view class="status-desc">{{order.statusDesc}}</view>
+        <!-- 订单按钮栏 -->
+        <wr-after-service-button-bar service="{{order}}" bindrefresh="onRefresh" />
+      </view>
+    </wr-order-card>
+    <!-- 列表加载中/已全部加载 -->
+    <wr-load-more wx:if="{{!pullDownRefreshing}}" list-is-empty="{{!dataList.length}}" status="{{listLoading}}" bindretry="onReTryLoad">
+      <!-- 空态 -->
+      <view slot="empty" class="empty-wrapper">
+        <wr-empty size="240rpx" textColor="#999999" textSize="28rpx" src="{{emptyImg}}">
+          暂无退款或售后申请记录
+        </wr-empty>
+      </view>
+    </wr-load-more>
+  </wr-pull-down-refresh>
+</view>
+
+<wr-toast id="wr-toast"/>
+<wr-dialog id="wr-dialog"/>

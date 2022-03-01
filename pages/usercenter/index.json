@@ -1,0 +1,12 @@
+{
+  "navigationBarTitleText": "个人中心",
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "wr-user-center-card": "@tencent/retailwe-ui-user-center-card/index",
+    "wr-cell": "@tencent/retailwe-ui-cell/index",
+    "wr-cell-group": "@tencent/retailwe-ui-cell-group/index",
+    "wr-icon": "@tencent/retailwe-ui-icon/index",
+    "wr-popup": "@tencent/retailwe-ui-popup/index"
+  },
+  "enablePullDownRefresh": true
+}

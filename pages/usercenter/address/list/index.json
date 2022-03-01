@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "收货地址",
+  "usingComponents": {
+    "wr-button": "@tencent/retailwe-ui-button/index",
+    "wr-cell": "@tencent/retailwe-ui-cell/index",
+    "wr-dialog": "@tencent/retailwe-ui-dialog/index",
+    "wr-address-list": "@tencent/retailwe-ui-address-list/index"
+  }
+}

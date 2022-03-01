@@ -1,0 +1,117 @@
+/* 层级定义
+@z-index-0: 1;
+@z-index-1: 100;
+@z-index-2: 200;
+@z-index-5: 500;
+@z-index-component: 1000; // 通用组件级别
+@z-index-dropdown: @z-index-component;
+@z-index-sticky: @z-index-component + 20;
+@z-index-fixed: @z-index-component + 30;
+@z-index-modal-backdrop:@z-index-component + 40;
+@z-index-modal:@z-index-component + 50;
+@z-index-popover:@z-index-component + 60;
+@z-index-tooltip:@z-index-component + 70;
+*/
+/* var() css变量适配*/
+.select-coupons {
+  background: #fff;
+  width: 100%;
+  position: relative;
+  border-radius: 20rpx 20rpx 0 0;
+  padding-top: 28rpx;
+}
+.select-coupons .title {
+  width: 100%;
+  text-align: center;
+  font-size: 32rpx;
+  color: #333;
+  font-weight: 600;
+  line-height: 44rpx;
+}
+.select-coupons .info {
+  width: 100%;
+  height: 34rpx;
+  font-size: 24rpx;
+  color: #999;
+  line-height: 34rpx;
+  margin-top: 58rpx;
+  padding: 0 20rpx;
+}
+.select-coupons .info .price {
+  color: #fa550f;
+  color: var(--color-primary, #fa550f);
+}
+.select-coupons .coupons-list {
+  max-height: 500rpx;
+}
+.select-coupons .coupons-list .coupons-wrap {
+  padding: 0rpx 20rpx;
+}
+.select-coupons .coupons-list .disable {
+  font-size: 24rpx;
+  color: #ff2525;
+  padding-top: 20rpx;
+}
+.select-coupons .coupons-list .slot-radio {
+  position: absolute;
+  right: 22rpx;
+  top: 50%;
+  transform: translateY(-50%);
+  display: inline-block;
+}
+.select-coupons .coupons-list .slot-radio .wr-check-filled {
+  font-size: 36rpx;
+}
+.select-coupons .coupons-list .slot-radio .check {
+  width: 36rpx;
+}
+.select-coupons .coupons-list .slot-radio .text-primary {
+  color: #fa550f;
+  color: var(--color-primary, #fa550f);
+}
+.select-coupons .coupons-list .slot-radio .wr-check {
+  font-size: 36rpx;
+}
+.select-coupons .coupons-list .slot-radio .wr-uncheck {
+  font-size: 36rpx;
+  color: #999;
+}
+.select-coupons .couponp-empty-wrap {
+  padding: 40rpx;
+}
+.select-coupons .couponp-empty-wrap .couponp-empty-img {
+  display: block;
+  width: 240rpx;
+  height: 240rpx;
+  margin: 0 auto;
+}
+.select-coupons .couponp-empty-wrap .couponp-empty-title {
+  font-size: 28rpx;
+  color: #999;
+  text-align: center;
+  line-height: 40rpx;
+  margin-top: 40rpx;
+}
+.select-coupons .coupons-cover {
+  height: 100rpx;
+  margin-top: 30rpx;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.select-coupons .coupons-cover .btn {
+  width: 336rpx;
+  height: 80rpx;
+  text-align: center;
+  line-height: 80rpx;
+  font-size: 32rpx;
+  border-radius: 8rpx;
+  box-sizing: border-box;
+  border: 1px solid #999999;
+}
+.select-coupons .coupons-cover .red {
+  border-color: #fa550f;
+  border-color: var(--color-primary, #fa550f);
+  color: #fa550f;
+  color: var(--color-primary, #fa550f);
+}

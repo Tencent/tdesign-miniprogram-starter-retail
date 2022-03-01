@@ -1,0 +1,12 @@
+{
+  "navigationBarTitleText": "商品分类",
+  "usingComponents": {
+    "wr-goods-category": "@tencent/retailwe-ui-goods-category/index",
+    "wr-loading-content": "@tencent/retailwe-ui-loading-content/index",
+    "wr-empty": "@tencent/retailwe-ui-empty/index",
+    "wr-goods-list": "@tencent/retailwe-ui-goods-list/index",
+    "wr-tabbar-item": "@tencent/retailwe-ui-tabbar/tabbar-item/index",
+    "wr-tabbar": "@tencent/retailwe-ui-tabbar/index",
+    "wr-load-more": "@tencent/retailwe-ui-load-more/index"
+  }
+}

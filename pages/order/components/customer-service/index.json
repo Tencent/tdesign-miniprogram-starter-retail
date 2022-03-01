@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "wr-popup": "@tencent/retailwe-ui-popup/index"
+  }
+}

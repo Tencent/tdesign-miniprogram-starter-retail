@@ -1,0 +1,94 @@
+
+.popup-content {
+  background-color: white;
+  color: #222427;
+  border-radius: 20rpx 20rpx 0 0;
+  overflow: hidden;
+}
+
+.popup-content .header {
+    height: 100rpx;
+    line-height: 100rpx;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 32rpx;
+    font-weight: bold;
+    position: relative;
+}
+
+/* .popup-content .header::after {
+  display: block;
+  content: ' ';
+  position: absolute;
+  bottom: 0;
+  height: 2rpx;
+  left: -50%;
+  right: -50%;
+  scale: 0.5;
+  background-color: #DCE0E4;
+} */
+
+.popup-content .header .close-icon-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.popup-content .header .close-icon-btn .icon {
+    font-size: 25rpx !important;
+    padding: 30rpx;
+}
+
+.popup-content .header .close-icon-btn .icon:active {
+  opacity: 0.5;
+}
+.popup-content .options {
+    max-height: 60vh;
+    overflow-y: scroll;
+}
+
+.popup-content .options .cell {
+  height: 100rpx;
+  align-items: center;
+  font-size: 30rpx;
+  color: #333333;
+}
+
+.popup-content .button-bar {
+    height: 100rpx;
+    padding: 0 30rpx;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.popup-content .button-bar .btn {
+    font-size: 32rpx;
+    color: #666666;
+    line-height: 80rpx;
+    background-color: white;
+    margin: 1px;
+    overflow: visible;
+    flex: 1;
+}
+
+.popup-content .button-bar .btn::after {
+    border-color: #999999;
+}
+
+.popup-content .button-bar .btn.primary {
+   color: #fa550f;
+}
+
+.popup-content .button-bar .btn:not(:first-child) {
+    margin-left: 30rpx;
+}
+
+.popup-content .button-bar .btn:active {
+    opacity: 0.5;
+}
+
+.popup-content .button-bar .btn.primary::after {
+    border-color: #fa550f;
+}

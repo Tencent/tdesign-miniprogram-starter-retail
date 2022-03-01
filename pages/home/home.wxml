@@ -1,0 +1,67 @@
+<view style="text-align: center;" wx:if="{{pageLoading}}">
+  <wr-loading>加载中</wr-loading>
+</view>
+
+<!-- wr-search 自带10padding -->
+<view
+  class="search"
+  bind:tap="navToSearchPage"
+>
+  <wr-search
+    keyword="{{keyword}}"
+    wr-class="search"
+  />
+</view>
+
+<!-- wr-search 自带10padding -->
+<view
+  style="padding: 0 24rpx;margin-top: 10rpx;"
+>
+  <wr-swiper
+    imgSrcs="{{imgSrcs}}"
+    mode="dot"
+    bind:tapImage="navToActivityDetail"
+    wr-class="wr-swiper"
+  />
+</view>
+
+<view
+  style="text-align: center;margin-top: 20rpx;"
+  bind:tap="navToActivityDetail"
+>
+  <wr-image
+    src="{{activityImg}}"
+    width="702"
+    height="160"
+  />
+</view>
+
+<wr-tab
+  isScroll="{{true}}"
+  status="{{tabIndex}}"
+  tabList="{{tabList}}"
+  bind:tabChange="tabChangeHandle"
+  wr-class="tab"
+  line-height="{{8}}"
+  line-width="{{50}}"
+/>
+
+<view style="text-align: center;" wx:if="{{goodsRefreshing}}">
+  <wr-loading>加载中</wr-loading>
+</view>
+
+<goods-list
+  goodsList="{{goodsList}}"
+  layout="vertical"
+  bind:click="goodlistClickHandle"
+  bind:addcart="goodlistAddCartHandle"
+/>
+
+<wr-load-more
+  list-is-empty="{{!goodsList.length}}"
+  status="{{goodsListLoadStatus}}"
+  bind:retry="onReTry"
+/>
+
+<wr-toast id="wr-toast"/>
+<wr-dialog id="wr-dialog"/>

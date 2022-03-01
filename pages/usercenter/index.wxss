@@ -1,0 +1,124 @@
+/* pages/usercenter/index.wxss */
+page {
+  background-color: #f5f5f5;
+}
+.container {
+  padding-top: 88rpx;
+}
+
+.counts-wrapper {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+.counts-wrapper .count {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  color: #333;
+}
+.counts-wrapper .num {
+  font-size: 32rpx;
+  font-weight: bolder;
+  color: #333;
+}
+.counts-wrapper .label {
+  font-size: 24rpx;
+}
+.main-content {
+  margin: -100rpx 24rpx 0 24rpx;
+  height: 500rpx;
+  border: 1px solid white;
+  border-radius: 16rpx;
+}
+
+.order-group-wrapper {
+  margin-bottom: 16rpx;
+}
+
+.cell-box {
+  border-radius: 10rpx;
+  overflow: hidden;
+  margin-bottom: 20rpx;
+}
+.icon-color {
+  color: #aaa;
+}
+.cell-class {
+  height: 100rpx;
+  display: flex;
+  align-items: center;
+}
+
+.order-content {
+  overflow: hidden;
+  width: 100%;
+  display: flex;
+  background-color: #fff;
+  border-radius: 16rpx;
+}
+
+.order-item {
+  flex: 1;
+  height: 180rpx;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+}
+
+.order-content-box {
+  margin: auto;
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+.order-content-t {
+  margin-top: 10rpx;
+  font-size: 24rpx;
+  color: #333;
+  letter-spacing: 0;
+  text-align: center;
+}
+
+page .popup__content--bottom {
+  bottom: calc(100rpx + env(safe-area-inset-bottom));
+}
+.popup-content {
+  background-color: #f5f5f5;
+}
+.popup-content .popup-title-tag {
+  font-weight: 500;
+}
+.popup-content .popup-title {
+  background: #f5f5f5;
+  text-align: center;
+  font-size: 24rpx;
+  color: #999;
+  padding: 20rpx;
+}
+.popup-content .popup-phone,
+.popup-content .popup-close {
+  background: #fff;
+  height: 100rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 30rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #fa550f;
+  color: var(--color-primary, #fa550f);
+}
+.popup-content .popup-phone.online {
+  border-top: 1rpx solid #e6e6e6;
+  margin-bottom: 20rpx;
+}
+.popup-content .popup-close {
+  color: #333;
+  border: 0;
+}

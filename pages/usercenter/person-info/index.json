@@ -1,0 +1,11 @@
+{
+  "navigationBarTitleText": "个人中心",
+  "usingComponents": {
+    "wr-button": "@tencent/retailwe-ui-button/index",
+    "wr-cell": "@tencent/retailwe-ui-cell/index",
+    "wr-cell-group": "@tencent/retailwe-ui-cell-group/index",
+    "wr-datetime-picker": "@tencent/retailwe-ui-datetime-picker/index",
+    "wr-dialog": "@tencent/retailwe-ui-dialog/index",
+    "wr-image": "@tencent/retailwe-ui-image/index"
+  }
+}

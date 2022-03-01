@@ -1,0 +1,26 @@
+<view class="page-section cells" wx:if="{{logisticsData.logisticsNo || logisticsData.company}}">
+  <wr-cell-group>
+    <wr-cell title="快递单号" wx:if="{{logisticsData.logisticsNo}}">
+      <span class="logistics-no">{{logisticsData.logisticsNo}}</span>
+      <view class="text-btn" bindtap="onLogisticsNoCopy">复制</view>
+    </wr-cell>
+    <wr-cell title="物流公司" wx:if="{{logisticsData.company}}">
+      {{logisticsData.company + (logisticsData.phoneNumber ? '-' + logisticsData.phoneNumber : '')}}
+      <view class="text-btn" bindtap="onCall" wx:if="{{logisticsData.phoneNumber}}">拨打</view>
+    </wr-cell>
+  </wr-cell-group>
+</view>
+<view class="page-section">
+  <wr-steps
+    class="steps"
+    wr-title-class="step-title"
+    wr-desc-class="step-desc"
+    wr-date-class="step-date"
+    steps="{{ logisticsData.nodes }}"
+    active="{{ active }}"
+    direction="vertical"
+    active-icon=""
+    active-color=""
+    inactive-color=""
+  ></wr-steps>
+</view>

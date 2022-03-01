@@ -1,0 +1,95 @@
+page {
+  background-color: #f5f5f5;
+}
+.page-section {
+  margin: 20rpx 24rpx 0;
+  background-color: white;
+  border-radius: 8rpx;
+  overflow: hidden;
+}
+.cells .wr-cell__title {
+  flex: none;
+  font-size: 26rpx;
+  color: #333333;
+}
+.cells .wr-cell__value {
+  flex: auto;
+  margin-left: 30rpx;
+  font-size: 26rpx;
+  color: #666666;
+}
+.cells .wr-cell .text-btn {
+  margin-left: 20rpx;
+}
+.logistics-no {
+  display: inline-block;
+  text-align: left;
+  word-break: break-all;
+}
+.text-btn {
+  display: inline;
+  font-size: 26rpx;
+  color: #fa550f;
+}
+.text-btn:active {
+  opacity: 0.5;
+}
+.steps .step-title {
+  font-weight: bold;
+  color: #333333;
+  font-size: 30rpx;
+}
+.steps .step-desc {
+  color: #333333;
+  font-size: 24rpx;
+}
+.steps .step-date {
+  color: #999999;
+  font-size: 22rpx;
+}
+.steps .steps--vertical .step__wrapper {
+  padding-left: 78rpx;
+}
+.steps .steps--vertical .step__wrapper .step--vertical {
+  line-height: 1.5;
+}
+.steps .steps--vertical .step__wrapper .step--vertical::after {
+  border-width: 0;
+}
+.steps .steps--vertical .step__wrapper .step--vertical .step__icon,
+.steps .steps--vertical .step__wrapper .step--vertical .step__circle,
+.steps .steps--vertical .step__wrapper .step--vertical .step__line {
+  top: 45rpx;
+  left: -54rpx;
+}
+.steps .steps--vertical .step__wrapper .step--vertical .step__circle,
+.steps .steps--vertical .step__wrapper .step--vertical .step__line {
+  background-color: #dddddd;
+}
+.steps .steps--vertical .step__wrapper .step--vertical .step__icon .wr-icon {
+  font-size: 24rpx;
+  padding: 12rpx;
+  background-color: #f5f5f5;
+  border-radius: 50%;
+  color: #999999;
+}
+.steps .steps--vertical .step__wrapper .step--vertical .step__circle {
+  width: 14rpx;
+  height: 14rpx;
+}
+.steps
+  .steps--vertical
+  .step__wrapper
+  .step--vertical.step--process
+  .step__icon
+  .wr-icon {
+  background-color: #fa550f;
+  color: white;
+}
+.steps
+  .steps--vertical
+  .step__wrapper
+  .step--vertical.step--process
+  .step__circle {
+  background-color: #fa550f;
+}

@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "添加新地址",
+  "usingComponents": {
+    "wr-address-edit": "./component/edit-panel"
+  }
+}

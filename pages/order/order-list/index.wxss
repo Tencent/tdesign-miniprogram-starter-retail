@@ -1,0 +1,80 @@
+@import '/miniprogram_npm/@tencent/retailwe-ui-order-goods-card/external.wxss';
+
+:host {
+  background-color: #f5f5f5;
+}
+.page-container .tab-bar__placeholder,
+.page-container .tab-bar__inner {
+  height: 88rpx;
+  line-height: 88rpx;
+}
+.page-container .tab-bar__inner {
+  font-size: 26rpx;
+  color: #333333;
+  position: fixed;
+  width: 100vw;
+  top: 0;
+  left: 0;
+}
+.page-container .tab-bar__inner.order-nav .order-nav-item .bottom-line {
+  bottom: 12rpx;
+}
+.page-container .tab-bar__active {
+  font-size: 28rpx;
+}
+.page-container .specs-popup .bottom-btn {
+  color: #fa550f;
+  color: var(--color-primary, #fa550f);
+}
+.page-container .specs-popup .bottom-btn::after {
+  border-color: #fa550f;
+  border-color: var(--color-primary, #fa550f);
+}
+.dialog .dialog__button-confirm {
+  color: #fa550f;
+  color: var(--color-primary, #fa550f);
+}
+.list-loading {
+  height: 100rpx;
+}
+.empty-wrapper {
+  height: calc(100vh - 88rpx);
+}
+.btn-bar {
+  margin-top: 20rpx;
+}
+.load-more {
+  margin: 0 24rpx;
+}
+wr-order-goods-card:not(:first-child) .wr-goods-card {
+  margin-top: 40rpx;
+}
+
+.price-total {
+  font-size: 24rpx;
+  color: #666666;
+  padding-top: 10rpx;
+}
+.price-total .float {
+  float: right;
+}
+.price-total .symbol {
+  font-size: 24rpx;
+  color: #fa550f;
+  color: var(--color-price, #fa550f);
+  font-weight: bold;
+  display: inline;
+  margin-right: 5rpx;
+}
+.price-total .order-price {
+  font-size: 32rpx;
+  color: #fa550f;
+  color: var(--color-price, #fa550f);
+  font-weight: bold;
+}
+.price-total .order-price__decimal {
+  font-size: 24rpx;
+}
+.price-total .clear {
+  clear: both;
+}

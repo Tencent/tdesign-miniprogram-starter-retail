@@ -1,0 +1,49 @@
+page {
+  background-color: #f8f8f8;
+}
+.page-container {
+  padding-bottom: 258rpx;
+  padding-bottom: calc(258rpx + env(safe-area-inset-bottom));
+  min-height: 725rpx;
+}
+.page-container .store-comment {
+  font-size: 28rpx;
+  line-height: 40rpx;
+  background-color: #fff;
+  padding: 24rpx 32rpx;
+}
+.page-container .store-comment .title {
+  color: #333;
+  font-weight: bold;
+}
+.page-container .store-comment .finished-icon-wrap {
+  position: relative;
+}
+.page-container .store-comment .finished-icon-wrap .finished-icon {
+  font-weight: 100;
+  position: absolute;
+  right: 30rpx;
+  bottom: -30rpx;
+}
+.page-container .store-comment .label {
+  color: #333;
+  margin-right: 30rpx;
+}
+.page-container .store-comment .rate {
+  margin-top: 32rpx;
+}
+.page-container .submmit-bar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 12;
+  padding: 12rpx 32rpx;
+  padding-bottom: env(safe-area-inset-bottom);
+  background-color: #fff;
+  height: 112rpx;
+}
+.page-container .submmit-bar-button {
+  border-radius: 48rpx !important;
+  padding: 0 !important;
+}

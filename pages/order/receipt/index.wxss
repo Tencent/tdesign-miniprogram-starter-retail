@@ -1,0 +1,204 @@
+/* 层级定义
+@z-index-0: 1;
+@z-index-1: 100;
+@z-index-2: 200;
+@z-index-5: 500;
+@z-index-component: 1000; // 通用组件级别
+@z-index-dropdown: @z-index-component;
+@z-index-sticky: @z-index-component + 20;
+@z-index-fixed: @z-index-component + 30;
+@z-index-modal-backdrop:@z-index-component + 40;
+@z-index-modal:@z-index-component + 50;
+@z-index-popover:@z-index-component + 60;
+@z-index-tooltip:@z-index-component + 70;
+*/
+/* var() css变量适配*/
+.receipt {
+  height: 100vh;
+  background: #f5f5f5;
+  position: relative;
+  padding-top: 20rpx;
+}
+.receipt .flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.receipt .head-title {
+  color: #333;
+  font-size: 30rpx;
+  font-weight: bold;
+}
+.receipt .btn-wrap {
+  display: flex;
+}
+.receipt .btn-wrap .btn {
+  width: 128rpx;
+  background: #f5f5f5;
+  font-size: 24rpx;
+  color: #333;
+  margin-left: 22rpx;
+  text-align: center;
+  border-radius: 8rpx;
+  padding: 10rpx 0;
+  position: relative;
+  border: 2rpx solid #f5f5f5;
+}
+.receipt .btn-wrap .active-btn {
+  background-color: transparent;
+  border-color: #fa550f;
+  border-color: var(--color-primary, #fa550f);
+  color: #fa550f;
+  color: var(--color-primary, #fa550f);
+}
+.receipt .cell-title {
+  width: 100%;
+  height: 100rpx;
+  background-color: #fff;
+}
+.receipt .cell-title .head {
+  height: 100rpx;
+  padding: 0 30rpx;
+}
+.receipt .receipt-label {
+  display: flex;
+}
+.receipt .receipt-label .btn {
+  width: 128rpx;
+  background: #f5f5f5;
+  font-size: 24rpx;
+  color: #333;
+  margin-left: 22rpx;
+  text-align: center;
+  border-radius: 8rpx;
+  border: 2rpx solid #f5f5f5;
+}
+.receipt .receipt-label .active-btn {
+  background-color: transparent;
+  border-color: #fa550f;
+  border-color: var(--color-primary, #fa550f);
+  color: #fa550f;
+  color: var(--color-primary, #fa550f);
+}
+.receipt .receipt-label .wr-cell__title {
+  font-size: 30rpx;
+  color: #333;
+  font-weight: bold;
+}
+.receipt .receipt-content {
+  background: #fff;
+  margin-top: 20rpx;
+}
+.receipt .receipt-content .addressTags {
+  padding: 0 30rpx;
+  height: 100rpx;
+}
+.receipt .receipt-content .addressTags .btn-wrap {
+  display: flex;
+}
+.receipt .receipt-content .line {
+  width: 720rpx;
+  margin-left: 30rpx;
+  background-color: #e6e6e6;
+  height: 1rpx;
+}
+.receipt .receipt-content .receipt-input {
+  display: flex;
+  padding: 0 30rpx;
+  align-items: center;
+  height: 100rpx;
+  color: #666;
+}
+.receipt .receipt-content .receipt-input .title {
+  color: #333;
+  display: inline-block;
+  width: 140rpx;
+  margin-right: 30rpx;
+  font-size: 30rpx;
+  font-weight: bold;
+}
+.receipt .receipt-content .receipt-input .input-com {
+  display: inline-block;
+  flex: 1;
+  height: 30rpx;
+  font-size: 30rpx;
+  font-weight: 400;
+  line-height: 30rpx;
+  color: #666;
+}
+.receipt .receipt-content .receipt-input .input-placeholder {
+  color: #bbb;
+}
+.receipt .receipt-content .receipt-input .wr-icon {
+  font-size: 28rpx !important;
+  margin-left: 20rpx;
+}
+.receipt .receipt-info {
+  background: #fff;
+  margin-top: 20rpx;
+}
+.receipt .receipt-info .info-con {
+  padding: 0 30rpx;
+  height: 100rpx;
+}
+.receipt .receipt-info .title {
+  font-size: 24rpx;
+  color: #999999;
+  line-height: 36rpx;
+  padding: 0 30rpx 20rpx;
+}
+.receipt .receipt-know {
+  display: flex;
+  align-items: center;
+  font-size: 26rpx;
+  font-weight: 400;
+  color: #999999;
+  padding: 20rpx 30rpx;
+}
+.receipt .receipt-know .icon {
+  margin-left: 16rpx;
+  font-size: 26rpx;
+}
+.receipt .dialog-receipt .dialog__message {
+  padding: 0;
+}
+.receipt .dialog-receipt .dialog-info {
+  max-height: 612rpx;
+}
+.receipt .dialog-receipt .info-wrap {
+  padding: 0 18rpx;
+}
+.receipt .dialog-receipt .info .title {
+  display: inline-block;
+  font-size: 28rpx;
+  font-weight: 400;
+  color: #666666;
+  line-height: 40rpx;
+  margin-bottom: 40rpx;
+  text-align: left;
+}
+.receipt .receipt-btn {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: #fff;
+  height: 120rpx;
+  padding: 0 30rpx;
+}
+.receipt .receipt-btn .receipt-btn-con {
+  margin-top: 20rpx;
+  display: inline-block;
+  width: 690rpx;
+  line-height: 80rpx;
+  background: #fa550f;
+  background: var(--color-primary, #fa550f);
+  border-radius: 8rpx;
+  text-align: center;
+  color: #fff;
+}
+.dialog .dialog__button-confirm {
+  color: #fa550f;
+  color: var(--color-primary, #fa550f);
+}

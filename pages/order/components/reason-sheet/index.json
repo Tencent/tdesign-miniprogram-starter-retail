@@ -1,0 +1,11 @@
+{
+  "component": true,
+  "usingComponents": {
+    "wr-popup": "@tencent/retailwe-ui-popup/index",
+    "wr-cell": "@tencent/retailwe-ui-cell/index",
+    "wr-radio": "@tencent/retailwe-ui-radio/index",
+    "wr-radio-group": "@tencent/retailwe-ui-radio-group/index",
+    "wr-icon": "@tencent/retailwe-ui-icon/index",
+    "wr-toast": "@tencent/retailwe-ui-toast/index"
+  }
+}

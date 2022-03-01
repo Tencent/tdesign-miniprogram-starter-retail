@@ -1,0 +1,92 @@
+<wr-cell-group>
+  <wr-cell
+    title="头像"
+    value=""
+    center="{{true}}"
+    data-type="avatarUrl"
+
+    bind:click="onClickCell"
+  >
+    <wr-image
+      src="{{personInfo.avatarUrl}}"
+      width="{{80}}"
+      height="{{80}}"
+      mode="aspectFill"
+      imgStyle="border-radius: 50%;"
+    />
+  </wr-cell>
+  
+  <wr-cell
+    title="昵称"
+    value="{{personInfo.name}}"
+    data-type="name"
+
+    bind:click="onClickCell"
+  />
+  
+  <wr-cell
+    title="性别"
+    value="{{personInfo.gender === 1 ? '男' : '女'}}"
+    data-type="gender"
+
+    bind:click="onClickCell"
+  />
+
+  <wr-cell
+    title="手机号"
+    value="{{personInfo.phoneNumber}}"
+    data-type="phoneNumber"
+
+    bind:click="onClickCell"
+  />
+
+  <wr-cell
+    title="地区"
+    value="{{addressString}}"
+    data-type="addressString"
+
+    bind:click="onClickCell"
+  />
+
+  <wr-cell
+    title="生日"
+    value="{{brithString}}"
+    is-link="{{personInfo.brith < 0}}"
+    data-type="brithString"
+    value-class="brith-string-value"
+
+    bind:click="onClickCell"
+  />
+  
+</wr-cell-group>
+
+<wr-button
+  wx:if="{{!!personInfo.phoneNumber}}"
+
+  block="{{true}}"
+  no-border="{{true}}"
+  text="解绑手机号"
+  btn-style="background-color: #fff;color: #ff2525;margin-top: 22rpx;"
+  bind:click="openUnbindConfirm"
+/>
+
+<wr-datetime-picker
+  is-pop="{{showDatePicker}}"
+
+  title="选择生日"
+  type="date"
+  rows="{{3}}"
+  value="{{personInfo.brith}}"
+
+  bind:onConfirm="confirmDatePicker"
+  bind:onCancel="closeDatePicker"
+/>
+
+<wr-dialog
+  show="{{showUnbindConfirm}}"
+  title="是否解绑手机号？"
+  message="解绑后，须重新绑定手机号"
+  show-cancel-button="{{true}}"
+  bind:confirm="unbindPhoneHandle"
+  bind:cancel="closeUnbindConfirm"
+/>

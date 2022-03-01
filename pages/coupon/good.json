@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "活动商品",
+  "usingComponents": {
+    "wr-icon": "@tencent/retailwe-ui-icon/index",
+    "wr-goods-list": "@tencent/retailwe-ui-goods-list/index",
+    "wr-popup": "@tencent/retailwe-ui-popup/index"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "物流信息",
+  "usingComponents": {
+    "wr-cell": "@tencent/retailwe-ui-cell/index",
+    "wr-cell-group": "@tencent/retailwe-ui-cell-group/index",
+    "wr-steps": "@tencent/retailwe-ui-steps/index"
+  }
+}

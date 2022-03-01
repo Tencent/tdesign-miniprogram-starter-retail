@@ -1,0 +1,8 @@
+page {
+  background-color: #f5f5f5;
+  --cell-value-color: #666;
+}
+
+.brith-string-value {
+  --cell-value-color: #bbb;
+}

@@ -1,0 +1,13 @@
+node_modules/
+yarn-error.log
+miniprogram/
+miniprogram_npm/
+miniprogram_dist/
+.DS_Store
+$node_modules/
+.history/
+**/dist
+components/**/*.lock
+components/**/package-lock.json
+package-lock.json
+yarn.lock

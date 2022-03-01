@@ -1,0 +1,1 @@
+<wr-address-edit detail="{{detail}}" areaData="{{areaData}}" bind:formSubmit="formSubmit" />

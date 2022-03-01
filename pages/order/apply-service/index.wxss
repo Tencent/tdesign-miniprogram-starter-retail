@@ -1,0 +1,238 @@
+/* 层级定义
+@z-index-0: 1;
+@z-index-1: 100;
+@z-index-2: 200;
+@z-index-5: 500;
+@z-index-component: 1000; // 通用组件级别
+@z-index-dropdown: @z-index-component;
+@z-index-sticky: @z-index-component + 20;
+@z-index-fixed: @z-index-component + 30;
+@z-index-modal-backdrop:@z-index-component + 40;
+@z-index-modal:@z-index-component + 50;
+@z-index-popover:@z-index-component + 60;
+@z-index-tooltip:@z-index-component + 70;
+*/
+/* var() css变量适配*/
+@import '/miniprogram_npm/@tencent/retailwe-ui-order-goods-card/external.wxss';
+:host {
+  background-color: #f5f5f5;
+}
+.select-service .wr-cell-group {
+  margin-top: 20rpx;
+}
+.select-service .wr-cell {
+  padding: 24rpx 30rpx;
+  align-items: center;
+}
+.select-service .wr-cell__left-icon-wrap {
+  margin-right: 20rpx;
+}
+.select-service .wr-cell__left-icon-wrap .wr-icon {
+  font-size: 56rpx !important;
+  color: #959595;
+}
+.select-service .wr-cell__title {
+  font-size: 30rpx;
+  color: #333333;
+  word-wrap: break-word;
+}
+.select-service .wr-cell__right-icon-wrap {
+  color: #aaaaaa;
+}
+.select-service .wr-cell__value {
+  color: #666666;
+}
+.select-service .wr-cell__label {
+  margin-top: 12rpx;
+  font-size: 24rpx;
+  color: #999999;
+  word-wrap: break-word;
+}
+.select-service .wr-cell .remark {
+  min-height: 200rpx;
+  border: none;
+}
+.select-service .wr-cell .remark::after {
+  border: none;
+}
+.select-service .service-choice .wr-cell__title {
+  font-weight: bold;
+}
+.select-service .service-choice .wr-cell__label {
+  font-weight: normal;
+  font-size: 26rpx;
+}
+.select-service .service-choice .non-returnable .wr-cell {
+  filter: opacity(0.6);
+}
+.select-service .service-choice .non-returnable .wr-cell__label {
+  color: #ff2525;
+}
+.select-service .special-cell .wr-cell__title {
+  margin-right: 100rpx;
+}
+.select-service .special-cell .wr-cell__value {
+  position: absolute;
+  top: 24rpx;
+  right: 30rpx;
+  font-size: 32rpx;
+  color: #fa550f;
+  color: var(--color-price, #fa550f);
+  font-weight: bold;
+}
+.select-service .special-cell .wr-cell__value .price .symbol,
+.select-service .special-cell .wr-cell__value .price .decimal {
+  font-size: 24rpx;
+}
+.select-service .special-cell .wr-cell__right-icon-wrap {
+  position: absolute;
+  bottom: 24rpx;
+  right: 30rpx;
+}
+.select-service .upload {
+  margin-top: 40rpx;
+}
+.select-service .upload__desc {
+  font-size: 24rpx;
+  color: #666666;
+}
+.select-service .bottom-bar__placeholder,
+.select-service .bottom-bar__content {
+  height: 100rpx;
+  width: 100vw;
+}
+.select-service .bottom-bar__content {
+  position: fixed;
+  z-index: 5;
+  left: 0;
+  bottom: 0;
+  background-color: white;
+  display: flex;
+}
+.select-service .bottom-bar__btn {
+  flex: 1;
+  margin: auto 30rpx;
+  background-color: #fa550f;
+  background-color: var(--color-primary, #fa550f);
+  color: white;
+  font-size: 32rpx;
+}
+.select-service .bottom-bar__btn::after {
+  border: none;
+}
+.select-service .bottom-bar__btn.disabled {
+  background-color: #c6c6c6;
+}
+.select-service .bottom-bar__btn.disabled::after {
+  border: none;
+}
+.select-service .order-goods-card .wr-goods-card {
+  padding: 30rpx;
+  margin-top: 20rpx;
+}
+.select-service .stepper {
+  display: inline-flex;
+  border: none;
+}
+.select-service .stepper .stepper__minus,
+.select-service .stepper .stepper__plus,
+.select-service .stepper .stepper__input {
+  border-radius: 4rpx;
+  background-color: #f5f5f5;
+  height: 44rpx;
+  line-height: 44rpx;
+}
+.select-service .stepper .stepper__minus,
+.select-service .stepper .stepper__plus {
+  width: 44rpx;
+  font-size: 24rpx;
+  color: #999999;
+}
+.select-service .stepper .stepper__minus:active,
+.select-service .stepper .stepper__plus:active {
+  opacity: 0.5;
+}
+.select-service .stepper .stepper__minus--disabled,
+.select-service .stepper .stepper__plus--disabled {
+  color: #c4c4c4;
+}
+.select-service .stepper .stepper__input {
+  width: 72rpx;
+  min-height: 44rpx;
+  font-size: 30rpx;
+  color: #333333;
+  font-weight: bold;
+  border-left: 4rpx solid white;
+  border-right: 4rpx solid white;
+}
+.input-dialog__content {
+  text-align: left;
+}
+.input-dialog__content .input {
+  font-size: 32rpx;
+  height: 80rpx;
+  box-sizing: border-box;
+  padding: 0 16rpx;
+  position: relative;
+}
+.input-dialog__content .input::after {
+  display: block;
+  content: ' ';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 200%;
+  box-sizing: border-box;
+  transform: scale(0.5);
+  transform-origin: 0 0;
+  border: 1px solid #c9ced3;
+  border-radius: 16rpx;
+}
+.input-dialog__content .tips {
+  margin-top: 20rpx;
+  font-size: 24rpx;
+  color: #999999;
+}
+.dialog--service-status {
+  background-color: #f3f4f5;
+  overflow: hidden;
+}
+.dialog--service-status .options .option {
+  color: #333333;
+  font-size: 30rpx;
+  text-align: center;
+  height: 100rpx;
+  line-height: 100rpx;
+  background-color: white;
+}
+.dialog--service-status .options .option:not(:last-child) {
+  border-bottom: 1rpx solid #e6e6e6;
+}
+.dialog--service-status .options .option:active {
+  opacity: 0.5;
+}
+.dialog--service-status .options .option.main {
+  color: #fa550f;
+}
+.dialog--service-status .cancel {
+  color: #333333;
+  font-size: 30rpx;
+  text-align: center;
+  height: 100rpx;
+  line-height: 100rpx;
+  background-color: white;
+  margin-top: 20rpx;
+}
+.dialog--service-status .cancel:active {
+  opacity: 0.5;
+}
+.amount-dialog--focus .popup__content--center,
+.remark-dialog--focus .popup__content--center {
+  top: 100rpx;
+  transform: translate(-50%, 0);
+}
+.dialog .dialog__button-confirm {
+  color: #fa550f;
+  color: var(--color-primary, #fa550f);
+}

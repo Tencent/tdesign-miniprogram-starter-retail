@@ -1,0 +1,179 @@
+<view class="select-service">
+  <wr-order-goods-card
+    goods="{{goodsInfo}}"
+    no-top-line
+  />
+
+  <!-- 服务选择 -->
+  <view wx:if="{{!serviceType}}" class="service-choice">
+    <wr-cell-group>
+      <wr-cell
+        icon="money"
+        title="申请退款（无需退货）"
+        label="没收到货，或与商家协商同意不用退货只退款"
+        is-link
+        bindtap="onApplyOnlyRefund"
+      ></wr-cell>
+    </wr-cell-group>
+    <wr-cell-group wx:if="{{canApplyReturn}}">
+      <wr-cell
+        icon="return-goods"
+        title="退货退款"
+        label="已收到货，需要退还收到的商品"
+        is-link
+        bindtap="onApplyReturnGoods"
+      ></wr-cell>
+    </wr-cell-group>
+    <wr-cell-group wx:else class="non-returnable">
+      <wr-cell
+        icon="return-goods"
+        title="退货退款"
+        label="该商品不支持退货"
+        is-link
+      ></wr-cell>
+    </wr-cell-group>
+  </view>
+
+  <!-- 售后表单 -->
+  <view wx:else class="service-form">
+    <wr-cell-group>
+      <wr-cell
+        title="退款商品数量">
+        <wr-stepper
+          value="{{serviceFrom.returnNum}}"
+          min="1"
+          max="{{maxApplyNum}}"
+          bindminus="onMinusReturnNum"
+          bindplus="onPlusReturnNum"
+        />
+      </wr-cell>
+    </wr-cell-group>
+    <wr-cell-group>
+      <wr-cell
+        wx:if="{{serviceType === 20}}"
+        title="商品收货状态"
+        is-link
+        value="{{serviceFrom.receiptStatus.desc}}"
+        bindtap="onReceiptStatusTap"
+      ></wr-cell>
+      <wr-cell
+        title="退款原因"
+        is-link
+        value="{{serviceFrom.applyReason.desc}}"
+        bindtap="onApplyReasonTap"
+      ></wr-cell>
+    </wr-cell-group>
+    <wr-cell-group>
+      <wr-cell
+        class="special-cell"
+        title="退款金额"
+        label="{{amountTip}}"
+        is-link
+        bindtap="onAmountTap">
+        <wr-price price="{{serviceFrom.amount.current}}" fill/>
+      </wr-cell>
+    </wr-cell-group>
+    <wr-cell-group>
+      <wr-cell
+        title="退款说明"
+        use-label-slot>
+        <view slot="label">
+          <wr-textarea
+            wr-class="remark"
+            placeholder="退款说明（选填）"
+            value="{{serviceFrom.remark.current}}"
+            border
+            show-count
+            maxlength="100"
+            disabled
+            auto-height
+            bindtap="onRemarkTap"
+          ></wr-textarea>
+          <view class="upload">
+            <view class="upload__desc">上传照片（最多6张）</view>
+            <wr-uploader
+              media-type="{{['image']}}"
+              add-text="添加图片"
+              limit="6"
+              img-size-limit="{{10*1024*1024}}"
+              upload-method="{{uploadMethod}}"
+              bindupload="onUploadStart"
+              binduploaded="onUploadend"
+              binddelete="onDelete"
+            ></wr-uploader>
+          </view>
+        </view>
+      </wr-cell>
+    </wr-cell-group>
+
+    <view class="bottom-bar">
+      <view class="bottom-bar__placeholder safe-area-bottom"></view>
+      <view class="bottom-bar__content safe-area-bottom">
+        <button
+          class="bottom-bar__btn {{validateRes.valid && !uploading ? '' : 'disabled'}}"
+          bindtap="onSubmit"
+          loading="{{submitting}}"
+        >提交</button>
+      </view>
+    </view>
+  </view>
+</view>
+
+<!-- 收货状态选择 -->
+<wr-popup
+  show="{{showReceiptStatusDialog}}"
+  position="bottom"
+  bindclose="onReceiptStatusDialogConfirm"
+>
+  <view class="dialog--service-status">
+    <view class="options">
+      <view
+        wx:for="{{receiptStatusList}}" wx:key="status"
+        class="option"
+        bindtap="onReceiptStatusDialogConfirm"
+        data-index="{{index}}"
+      >{{item.desc}}</view>
+    </view>
+    <view class="cancel" bindtap="onReceiptStatusDialogConfirm">取消</view>
+  </view>
+</wr-popup>
+
+<!-- 理由选择 -->
+<wr-reason-sheet id="wr-reason-sheet"/>
+
+<!-- 金额填写 -->
+<wr-dialog id="input-dialog" class="{{serviceFrom.amount.focus ? 'amount-dialog--focus' : ''}}">
+  <view class="input-dialog__content">
+    <input
+      class="input"
+      placeholder="请输入退款金额"
+      value="{{serviceFrom.amount.temp}}"
+      type="digit"
+      focus="{{serviceFrom.amount.focus}}"
+      bindinput="onAmountInput"
+      bindfocus="onAmountFocus"
+      bindblur="onAmountBlur"
+    />
+    <view class="tips">{{amountTip}}</view>
+  </view>
+</wr-dialog>
+
+<!-- 退款说明填写 -->
+<wr-dialog id="remark-dialog" class="{{serviceFrom.remark.focus ? 'remark-dialog--focus' : ''}}">
+  <view class="input-dialog__content">
+    <wr-textarea
+      placeholder="退款说明（选填）"
+      value="{{serviceFrom.remark.temp}}"
+      border
+      show-count
+      maxlength="100"
+      focus="{{serviceFrom.remark.focus}}"
+      bindinput="onRemarkInput"
+      bindfocus="onRemarkFocus"
+      bindblur="onRemarkBlur"
+    ></wr-textarea>
+  </view>
+</wr-dialog>
+
+<wr-dialog id="wr-dialog"/>
+<wr-toast id="wr-toast"/>

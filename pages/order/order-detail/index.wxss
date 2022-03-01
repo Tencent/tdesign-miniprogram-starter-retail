@@ -1,0 +1,242 @@
+/* 层级定义
+@z-index-0: 1;
+@z-index-1: 100;
+@z-index-2: 200;
+@z-index-5: 500;
+@z-index-component: 1000; // 通用组件级别
+@z-index-dropdown: @z-index-component;
+@z-index-sticky: @z-index-component + 20;
+@z-index-fixed: @z-index-component + 30;
+@z-index-modal-backdrop:@z-index-component + 40;
+@z-index-modal:@z-index-component + 50;
+@z-index-popover:@z-index-component + 60;
+@z-index-tooltip:@z-index-component + 70;
+*/
+/* var() css变量适配*/
+@import '/miniprogram_npm/@tencent/retailwe-ui-order-goods-card/external.wxss';
+:host {
+  background-color: #f5f5f5;
+}
+.page-background {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  overflow: hidden;
+}
+.page-background-img {
+  width: 100%;
+}
+.order-detail {
+  position: relative;
+}
+.order-detail .order-detail__header {
+  padding: 60rpx 0 48rpx 40rpx;
+  width: 460rpx;
+  min-height: 126rpx;
+}
+.order-detail .order-detail__header .title,
+.order-detail .order-detail__header .desc {
+  color: white;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+}
+.order-detail .order-detail__header .title {
+  -webkit-line-clamp: 1;
+  font-size: 48rpx;
+  font-weight: bold;
+}
+.order-detail .order-detail__header .desc {
+  -webkit-line-clamp: 2;
+  margin-top: 10rpx;
+  font-size: 28rpx;
+}
+.order-detail .order-detail__header .desc .count-down {
+  color: #fff185;
+  display: inline;
+}
+.order-detail .order-section {
+  margin: 0 24rpx 20rpx 24rpx;
+  width: auto;
+  border-radius: 8rpx;
+  background-color: white;
+  overflow: hidden;
+}
+.order-detail .order-section:not(.order-card) {
+  padding: 13rpx 0 17rpx 0;
+}
+.order-detail .cell-split-line {
+  height: 1rpx;
+  scale: 1 0.5;
+  background-color: #e6e6e6;
+  margin: 12rpx 20rpx;
+}
+.order-detail .section-title {
+  color: #222427;
+  padding: 17rpx 20rpx 16rpx;
+  display: flex;
+}
+.order-detail .section-title .icon,
+.order-detail .section-title .title {
+  font-size: 30rpx;
+  font-weight: bold;
+}
+.order-detail .section-title .icon {
+  flex: none;
+  margin-right: 16rpx;
+  font-size: 30rpx !important;
+}
+.order-detail .section-title .title {
+  flex: auto;
+}
+.order-detail .section-title .title .phone-num {
+  display: inline;
+  margin-left: 0.5em;
+}
+.order-detail .section-title .right {
+  flex: none;
+}
+.order-detail .section-content {
+  padding: 0 20rpx 0 66rpx;
+}
+.order-detail .section-content .other-cell {
+  padding: 15rpx 0;
+}
+.order-detail .section-content .label {
+  color: #666666;
+  font-size: 26rpx;
+  word-wrap: break-word;
+}
+.order-detail .other-cell {
+  padding: 15rpx 20rpx;
+  color: #333333;
+  font-size: 26rpx;
+}
+.order-detail .other-cell .value,
+.order-detail .other-cell .title {
+  color: #333333;
+  line-height: 1.5;
+}
+.order-detail .other-cell .title {
+  margin-right: 90rpx;
+}
+.order-detail .other-cell .value {
+  color: #999999;
+}
+.order-detail .other-cell .remark {
+  display: flex;
+  justify-content: space-between;
+  text-align: left;
+}
+.order-detail .other-cell .remark::before {
+  display: inline;
+  content: ' ';
+  flex: none;
+}
+.order-detail .other-cell .text-btn {
+  margin-left: 20rpx;
+}
+.order-detail .other-cell .price {
+  font-size: 24rpx;
+  color: #222427;
+  font-weight: 400;
+  flex: none;
+}
+.order-detail .other-cell .price.main .integer {
+  font-size: 32rpx;
+}
+.order-detail .other-cell .red,
+.order-detail .other-cell .price.red {
+  color: #fa550f;
+  color: var(--color-price, #fa550f);
+}
+.order-detail .other-cell .pay-icon {
+  color: #4cc367;
+  margin-right: 12rpx;
+  font-size: 36rpx !important;
+}
+.order-detail .other-cell.main .value {
+  font-size: 32rpx;
+}
+.order-detail .c-order-card .customer-service {
+  font-size: 26rpx;
+}
+.order-detail .text-btn {
+  display: inline;
+  color: #fa550f;
+  color: var(--color-primary, #fa550f);
+  font-size: 26rpx;
+}
+.order-detail .text-btn:active {
+  opacity: 0.5;
+}
+.order-detail .footer-bar-wrapper {
+  height: 100rpx;
+}
+.order-detail .footer-bar-wrapper .btn-bar {
+  padding: 0 24rpx !important;
+}
+.order-detail .footer-bar-wrapper .footer-bar {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  height: 100rpx;
+  width: 100vw;
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.order-detail .goods-button-bar .btn-bar {
+  margin-top: 0;
+}
+.order-detail .goods-button-bar:not(:last-child) .btn-bar {
+  margin-bottom: 40rpx;
+}
+.order-detail .bold {
+  font-weight: bold;
+}
+.order-detail .bold .price {
+  font-weight: bold;
+}
+.order-detail .groupon-section {
+  padding: 15rpx 20rpx !important;
+  box-sizing: border-box;
+}
+.order-detail .groupon-section .top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.order-detail .groupon-section .top .status {
+  font-size: 28rpx;
+  font-weight: 500;
+  color: #333;
+  line-height: 1.5;
+  margin-left: 16rpx;
+}
+.order-detail .groupon-section .top .link {
+  font-size: 26rpx;
+  line-height: 1.38;
+  color: #fa550f;
+  color: var(--color-primary, #fa550f);
+}
+.order-detail .groupon-section .bottom {
+  display: flex;
+  justify-content: center;
+  padding: 20rpx 0 10rpx;
+}
+.specs-popup .bottom-btn {
+  color: #fa550f;
+  color: var(--color-primary, #fa550f);
+}
+.specs-popup .bottom-btn::after {
+  border-color: #fa550f;
+  border-color: var(--color-primary, #fa550f);
+}
+.dialog .dialog__button-confirm {
+  color: #fa550f;
+  color: var(--color-primary, #fa550f);
+}

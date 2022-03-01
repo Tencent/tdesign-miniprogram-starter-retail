@@ -1,0 +1,33 @@
+<wr-loading-content position="fixed" type="spinner" wx:if="{{loading}}" />
+<view class="wrap">
+    <wr-goods-category wx:if="{{datatype === '0'}}" level="{{3}}" custom-class="goods-category-class" category="{{list}}" initActive="{{initActive}}" bind:changeCategory="onChange"></wr-goods-category>
+     <wr-goods-category wx:if="{{datatype === '2' || datatype === '1'}}" level="{{2}}" custom-class="goods-category-class" category="{{list}}" initActive="{{initActive}}" bind:changeCategory="onChange" isSlotRight="{{true}}">
+        <view class="center" wx:if="{{datatype === '1'}}">
+            <wr-empty size="150rpx">暂无二级分类</wr-empty>
+        </view>
+        <block wx:if="{{datatype === '2'}}">
+            <view class="category-content-wrap goods-content-wrap-lppz">
+                <view class="category-content">
+                    <view class="category-goods-list">
+                    <scroll-view scroll-y="{{true}}" lower-threshold="100" style="height: 100vh"
+                        bindscrolltolower="getScollBottom">
+                      <wr-goods-list wx:if="{{goodsList.length}}" wr-class="rec-good-list" layout="horizontal" goodsList="{{goodsList}}" storeType="{{2}}" bindaddcart="handleAddCart" />
+                      <wr-load-more wx:if="{{goodsList.length > 0}}" wr-class="no-more" status="{{loadMoreStatus}}" no-more-text="没有更多了"></wr-load-more>
+                    </scroll-view>
+                    </view>
+                </view>
+            </view>
+            
+        </block>
+     </wr-goods-category>
+    <view class="floatButton" bindtap="showButton">
+        切
+    </view>
+    <view class="overlay" wx:if="{{show}}" bindtap="hideOverlay">
+        <view class="buttonGroup">
+            <button class="buttonCls" catchtap="changeType" data-datatype="0">基本状态</button>
+            <button class="buttonCls" catchtap="changeType" data-datatype="1">空状态</button>
+            <button class="buttonCls" catchtap="changeType" data-datatype="2">slot状态</button>
+        </view>
+    </view>
+</view> 

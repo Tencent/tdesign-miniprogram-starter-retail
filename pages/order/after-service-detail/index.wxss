@@ -1,0 +1,313 @@
+
+:host {
+  background-color: #f5f5f5;
+}
+
+.service-detail {
+  position: relative;
+}
+
+.service-detail .service-detail__header {
+    padding: 60rpx 0 48rpx 40rpx;
+    width: 500rpx;
+    min-height: 126rpx;
+}
+.service-detail .service-detail__header .title,
+.service-detail .service-detail__header .desc {
+  color: white;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+}
+
+.service-detail .service-detail__header .title {
+  -webkit-line-clamp: 1;
+  font-size: 48rpx;
+  font-weight: bold;
+}
+
+.service-detail .service-detail__header .desc {
+  -webkit-line-clamp: 2;
+  margin-top: 10rpx;
+  font-size: 28rpx;
+}
+
+.service-detail .service-detail__header .desc .count-down {
+    color: #fff185;
+    display: inline;
+}
+
+.service-detail .service-section {
+    margin: 0 24rpx 20rpx 24rpx;
+    padding: 30rpx 20rpx;
+    width: auto;
+    border-radius: 8rpx;
+    background-color: white;
+    overflow: hidden;
+}
+.service-detail .service-section__title {
+  font-size: 30rpx;
+  color: #333333;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 10rpx;
+}
+.service-detail .service-section__title .icon {
+    margin-right: 16rpx;
+    font-size: 30rpx !important;
+}
+.service-detail .service-section__title .right {
+    flex: none;
+    font-weight: normal;
+    font-size: 26rpx;
+}
+.service-detail .section-content {
+  margin: 16rpx 0 0 52rpx;
+}
+
+.service-detail .main {
+    font-size: 28rpx;
+    color: #222427;
+    font-weight: bold;
+}
+
+.service-detail .main .phone-num {
+  margin-left: 16rpx;
+  display: inline;
+}
+.service-detail .label {
+    color: #666666;
+    font-size: 26rpx;
+}
+.service-detail .wr-cell {
+    padding: 9rpx 0;
+    line-height: 36rpx;
+}
+.service-detail wr-cell:last-child .wr-cell {
+  margin-bottom: -16rpx;
+}
+.service-detail .wr-cell {
+  padding: 16rpx 0;
+  font-size: 26rpx;
+  line-height: 36rpx;
+}
+.service-detail .wr-cell .wr-cell__title {
+    flex: none;
+    margin-right: 30rpx;
+    color: #333333;
+}
+.service-detail .wr-cell .wr-cell__value {
+    flex: auto;
+    color: #666666;
+}
+.service-detail .wr-cell .wr-cell .text-btn {
+    margin-left: 1em;
+}
+.service-detail .custom-remark {
+  font-size: 26rpx;
+  line-height: 36rpx;
+  color: #333333;
+  word-wrap: break-word;
+}
+.service-detail .proofs {
+  margin-top: 20rpx;
+}
+
+.service-detail .proofs .proof {
+    width: 100%;
+    height: 100%;
+    background-color: #f9f9f9;
+}
+
+.service-detail .pay-result {
+
+}
+
+.service-detail .pay-result .wr-cell__title,
+.service-detail .pay-result .wr-cell__value {
+    color: #666666;
+}
+
+.service-detail .pay-result .wr-cell__value {
+    font-weight: bold;
+}
+.service-detail .pay-result .service-section__title .right {
+    font-size: 36rpx;
+    color: #fa550f;
+    font-weight: bold;
+}
+
+.service-detail .pay-result .service-section__title .right.integer {
+  font-size: 48rpx;
+}
+.service-detail .pay-result .split-line {
+    position: relative;
+}
+
+.service-detail .pay-result .split-line::after {
+  position: absolute;
+  display: block;
+  content: ' ';
+  height: 1px;
+  left: -50%;
+  right: -50%;
+  transform: scale(0.5);
+  background-color: #e6e6e6;
+}
+
+.service-detail .pay-result .section-content {
+    margin-left: 0;
+}
+
+.service-detail .pay-result .section-content .label {
+  color: #999999;
+  font-size: 24rpx;
+}
+
+.service-detail .pay-result .wr-cell::after {
+    left: 0;
+}
+
+.service-detail .footer-bar-wrapper {
+    height: 100rpx;
+}
+
+.service-detail .footer-bar-wrapper .footer-bar {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    height: 100rpx;
+    width: 100vw;
+    box-sizing: border-box;
+    padding: 0 20rpx;
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.service-detail .text-btn {
+    display: inline;
+    color: #fa550f;
+    margin-left: 10rpx;
+}
+.service-detail .text-btn:active {
+  opacity: 0.5;
+}
+
+
+.service-detail .specs-popup {
+
+}
+.service-detail .specs-popup .bottom-btn {
+  color: #fa550f;
+}
+.service-detail .specs-popup .bottom-btn::after {
+  color: #fa550f;
+}
+
+.dialog .dialog__button-confirm {
+  color: #fa550f;
+}
+
+.page-container .order-goods-card>wr-goods-card .wr-goods-card__bottom .price {
+  top: 100rpx;
+  left: 10rpx;
+  position: absolute;
+  color: #333;
+
+}
+
+.page-container .order-goods-card>wr-goods-card .wr-goods-card__num {
+  top: 100rpx;
+  right: 0;
+  position: absolute;
+}
+
+.page-container .order-goods-card>wr-goods-card .wr-goods-card__bottom .price::before {
+  display: inline;
+  content: '退款金额:';
+  margin-right: 1em;
+  font-size: 24rpx;
+  color: #333333;
+  font-weight: normal;
+}
+
+.page-container .wr-goods-card__specs {
+  margin: 14rpx 20rpx 0 0;
+}
+
+.page-container .order-goods-card>wr-goods-card .wr-goods-card__title {
+  margin-right: 0;
+  -webkit-line-clamp: 1;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  width: 80%;
+}
+
+.page-container .order-card .header .store-name {
+  -webkit-line-clamp: 1;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  width: 80%;
+}
+
+.page-container .status-desc {
+  box-sizing: border-box;
+  padding: 22rpx 20rpx;
+  font-size: 26rpx;
+  line-height: 1.3;
+  text-align: left;
+  color: #333333;
+  background-color: #F5F5F5;
+  border-radius: 8rpx;
+  word-wrap: break-word;
+  margin-top: 40rpx;
+  margin-bottom: 20rpx;
+}
+
+.page-container .header__right {
+  font-size: 24rpx;
+  color: #333333;
+  display: flex;
+  align-items: center;
+}
+
+.page-container .header__right__icon {
+  color: #D05B27;
+  font-size: 16px !important;
+  margin-right: 10rpx;
+}
+
+.page-container .wr-goods-card__thumb {
+    width: 140rpx;
+    height: 140rpx;
+}
+.page-container .page-background {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  overflow: hidden;
+}
+.page-container .page-background-img {
+  width: 100%;
+}
+.page-container .navbar-bg .nav-back,
+.page-container .navbar-bg .page-background {
+  background: linear-gradient(to right, rgba(250, 85, 15 , 1) 0%, rgba(250, 85, 15 , 0.6) 100%) !important;
+}
+
+.page-container .navigation-bar__btn .wr-icon {
+    font-size: 16px !important;
+    font-weight: bold !important;
+}
+
+.page-container .navigation-bar__inner .navigation-bar__left {
+    padding-left: 8px;
+}
