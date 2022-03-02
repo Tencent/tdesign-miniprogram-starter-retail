@@ -14,9 +14,9 @@ Component({
     onChange(event) {
       this.setData({ active: event.detail });
       wx.switchTab({
-        url: this.data.list[event.detail].url.startsWith('/')
-          ? this.data.list[event.detail].url
-          : '/' + this.data.list[event.detail].url,
+        url: this.data.list[event.detail.value].url.startsWith('/')
+          ? this.data.list[event.detail.value].url
+          : '/' + this.data.list[event.detail.value].url,
       });
     },
 
