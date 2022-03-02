@@ -1,4 +1,4 @@
-@import '/miniprogram_npm/@tencent/retailwe-ui-goods-list/external.wxss';
+/* @import '/miniprogram_npm/@tencent/retailwe-ui-goods-list/external.wxss'; */
 
 .tabbar-position {
   position: fixed !important;
@@ -38,7 +38,7 @@ page {
   align-items: center;
   font-size: 24rpx;
   color: #fff;
-  bottom: 120rpx;
+  bottom: 180rpx;
   right: 40rpx;
   border-radius: 50%;
 }
@@ -54,13 +54,14 @@ page {
 .buttonGroup {
   margin: 0 auto;
   position: relative;
-  top: 50%;
-  display: grid;
-  grid-template-columns: 33.33% 33.33% 33.33%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  top: 42%;
 }
 .buttonCls {
-  background-color: #ff5f15;
-  color: #fff;
+  background-color: #ff5f15 !important;
+  color: #fff !important;
   font-size: 24rpx;
   width: 220rpx !important;
 }

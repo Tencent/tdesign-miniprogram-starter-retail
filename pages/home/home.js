@@ -1,5 +1,3 @@
-import Toast from '@tencent/retailwe-ui-toast/toast';
-
 import { fetchHome } from '../../services/home/home';
 import { fetchGoodsList } from '../../services/good/fetchGoods';
 
@@ -14,6 +12,10 @@ Page({
     goodsListLoadStatus: 0,
     pageLoading: false,
     goodsRefreshing: false,
+    current: 1,
+    autoplay: true,
+    duration: 500,
+    interval: 5000,
   },
 
   goodListPagination: {
@@ -115,7 +117,7 @@ Page({
     });
   },
   goodlistAddCartHandle() {
-    Toast({ text: '加入购物车成功' });
+    // Toast({ text: '加入购物车成功' });
   },
 
   navToSearchPage() {

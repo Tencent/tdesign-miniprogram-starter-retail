@@ -1,15 +1,17 @@
 {
   "navigationBarTitleText": "订单确认",
   "usingComponents": {
-    "wr-toast": "@tencent/retailwe-ui-toast/index",
-    "wr-icon": "@tencent/retailwe-ui-icon/index",
-    "wr-cell": "@tencent/retailwe-ui-cell/index",
+    "t-popup": "tdesign-miniprogram/popup/popup",
+    "t-toast": "tdesign-miniprogram/toast/toast",
+    "t-icon": "tdesign-miniprogram/icon/icon",
+    "t-cell": "tdesign-miniprogram/cell/cell",
+    "t-dialog": "tdesign-miniprogram/dialog/dialog",
+    "t-textarea": "tdesign-miniprogram/textarea/textarea",
+
     "wr-order-card": "@tencent/retailwe-ui-order-card/index",
+    "wr-address-card": "@tencent/retailwe-ui-address-card/index",
     "wr-order-goods-card": "@tencent/retailwe-ui-order-goods-card/index",
-    "wr-dialog": "@tencent/retailwe-ui-dialog/index",
-    "wr-popup": "@tencent/retailwe-ui-popup/index",
     "wr-price": "@tencent/retailwe-ui-price/index",
-    "wr-textarea": "@tencent/retailwe-ui-textarea/index",
     "select-coupons": "../components/selectCoupons/selectCoupons",
     "no-goods": "../components/noGoods/noGoods",
     "groupon-avatars": "../components/groupon-avatars/index"

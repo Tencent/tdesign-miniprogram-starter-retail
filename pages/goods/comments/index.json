@@ -1,8 +1,8 @@
 {
   "navigationBarTitleText": "全部评价",
   "usingComponents": {
-    "wr-comments-card": "@tencent/retailwe-ui-comments-card/index",
     "wr-tag": "@tencent/retailwe-ui-tag/index",
+    "wr-comments-card": "@tencent/retailwe-ui-comments-card/index",
     "wr-load-more": "@tencent/retailwe-ui-load-more/index"
   }
 }

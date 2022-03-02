@@ -1,4 +1,4 @@
-import Toast from '@tencent/retailwe-ui-toast/toast';
+import Toast from 'tdesign-miniprogram/toast/index';
 import { fetchPromotion } from '../../services/promotion/detail';
 
 Page({
@@ -18,8 +18,13 @@ Page({
   getGoodsList(promotionID) {
     fetchPromotion(promotionID).then(
       ({ list, banner, time, showBannerDesc, statusTag }) => {
+        const goods = list.map((item) => ({
+          ...item,
+          tags: item.tags.map((v) => v.title),
+        }));
+        console.log('statusTag: ', list);
         this.setData({
-          list,
+          list: goods,
           banner,
           time,
           showBannerDesc,
@@ -34,8 +39,9 @@ Page({
     console.log('点击desc: ', e);
 
     Toast({
-      text: '点击规则',
-      icon: '',
+      context: this,
+      selector: '#t-toast',
+      message: '点击desc',
     });
   },
   /** 点击商品 */
@@ -52,8 +58,9 @@ Page({
     console.log('点击加购: ', e);
 
     Toast({
-      text: '点击加购',
-      icon: '',
+      context: this,
+      selector: '#t-toast',
+      message: '点击加购',
     });
 
     // 加购动画

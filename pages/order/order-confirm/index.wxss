@@ -109,6 +109,9 @@
   font-weight: 600;
   margin: 30rpx 0;
 }
+.order-sure .order-list {
+  padding: 0 24rpx;
+}
 .order-sure .order-list .flex-space {
   display: flex;
   justify-content: space-between;
@@ -366,12 +369,27 @@
 .order-sure .wx-pay-cover .wx-pay .btn-gray {
   background: #c6c6c6;
 }
+.add-notes .add-notes__confirm {
+  color: #fa550f;
+}
+
+.add-notes .add-notes__placeholder {
+  color: #aeb3b7;
+}
+.add-notes .add-notes__textarea__font {
+  font-size: 26rpx;
+}
+.add-notes .add-notes__textarea {
+  border: 2rpx solid #c6c6c6;
+  font-size: 24rpx;
+  border-radius: 10rpx;
+  color: #f5f5f5;
+  margin-top: 30rpx;
+}
 .order-sure .add-notes .dialog__message {
   border-radius: 8rpx;
 }
-.order-sure .add-notes .notes textarea {
-  text-align: left;
-}
+
 .order-sure .add-notes .dialog__button-cancel::after {
   border-right: 0;
 }

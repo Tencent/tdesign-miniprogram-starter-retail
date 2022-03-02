@@ -7,18 +7,18 @@ page {
   border-radius: 8rpx;
   overflow: hidden;
 }
-.cells .wr-cell__title {
+.wr-cell__title {
   flex: none;
   font-size: 26rpx;
   color: #333333;
 }
-.cells .wr-cell__value {
+.wr-cell__value {
   flex: auto;
   margin-left: 30rpx;
   font-size: 26rpx;
   color: #666666;
 }
-.cells .wr-cell .text-btn {
+.wr-cell .text-btn {
   margin-left: 20rpx;
 }
 .logistics-no {
@@ -33,6 +33,9 @@ page {
 }
 .text-btn:active {
   opacity: 0.5;
+}
+.steps {
+  padding: 24rpx;
 }
 .steps .step-title {
   font-weight: bold;

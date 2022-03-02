@@ -30,12 +30,25 @@ page {
   background-color: #fff;
 
   height: 100rpx;
-  padding-bottom: calc(constant(safe-area-inset-top) + 100rpx);
+  /* padding-bottom: calc(constant(safe-area-inset-top) + 100rpx); */
   padding-bottom: calc(env(safe-area-inset-bottom) + 100rpx);
 
-  padding-bottom: 10rpx;
+  /* padding-bottom: 10rpx;
   padding-bottom: calc(constant(safe-area-inset-top) + 10rpx);
-  padding-bottom: calc(env(safe-area-inset-bottom) + 10rpx);
+  padding-bottom: calc(env(safe-area-inset-bottom) + 10rpx); */
+}
+
+.create-btn {
+  width: 100% !important;
+  background-color: #fa550f !important;
+  color: #fff !important;
+  min-height: 80rpx;
+  line-height: 80rpx;
+  border: none;
+}
+
+.create-btn::after {
+  border: none;
 }
 
 .create-btn-placeholfer {
@@ -44,4 +57,12 @@ page {
   right: initial;
   bottom: initial;
   opacity: 0;
+}
+
+.t-cell-class {
+  margin-bottom: 20rpx;
+}
+
+.t-cell-title {
+  font-size: 30rpx;
 }

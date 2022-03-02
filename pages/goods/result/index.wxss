@@ -21,6 +21,31 @@ page {
   background-color: #fff;
   padding: 0 30rpx;
 }
+.search {
+  padding: 0 24rpx;
+  margin-top: 10rpx;
+  background-color: #fff;
+}
+
+.t-search {
+  background: #fff;
+  padding: 0 20rpx;
+}
+
+
+.t-search > view {
+  background-color: #fff;
+}
+
+.t-search__left-icon {
+  display: flex;
+  align-items: center;
+}
+
+.t-search__input {
+  color: rgb(116, 116, 116) !important;
+}
+
 .category-goods-list {
   background-color: #f5f5f5;
   overflow-y: scroll;
@@ -149,4 +174,8 @@ page {
 .wr-info {
   background-color: #fa550f !important;
   background-color: var(--color-primary, #fa550f) !important;
+}
+
+.rec-good-list {
+  --ui-goods-card-height: 650rpx;
 }

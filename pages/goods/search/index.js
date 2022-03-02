@@ -135,8 +135,9 @@ Page({
     );
   },
 
-  // 取消
-  cancelIptAction() {
-    this.setData({ val: '' });
+  handleCancel() {
+    wx.navigateTo({
+      url: '/pages/goods/search/index',
+    });
   },
 });

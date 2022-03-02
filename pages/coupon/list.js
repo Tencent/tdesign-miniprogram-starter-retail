@@ -58,9 +58,10 @@ Page({
   },
 
   tabChange(e) {
-    const { detail: status } = e;
-    this.setData({ status });
-    this.fetchList(status);
+    const { value } = e.detail;
+    
+    this.setData({ status: value });
+    this.fetchList(value);
   },
 
   /** 领券中心 */

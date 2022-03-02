@@ -2,38 +2,23 @@
 page {
   background-color: #f5f5f5;
 }
-.container {
-  padding-top: 88rpx;
+
+.content-wrapper {
+  margin-top: 340rpx;
+  position: relative;
+  padding: 0 30rpx;
 }
 
-.counts-wrapper {
-  display: flex;
-  justify-content: space-around;
-  align-items: flex-start;
-}
-.counts-wrapper .count {
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  color: #333;
-}
-.counts-wrapper .num {
-  font-size: 32rpx;
-  font-weight: bolder;
-  color: #333;
-}
-.counts-wrapper .label {
-  font-size: 24rpx;
-}
 .main-content {
-  margin: -100rpx 24rpx 0 24rpx;
   height: 500rpx;
-  border: 1px solid white;
-  border-radius: 16rpx;
 }
 
 .order-group-wrapper {
   margin-bottom: 16rpx;
+}
+
+.order-group-note {
+  font-size: 28rpx;
 }
 
 .cell-box {
@@ -89,6 +74,7 @@ page .popup__content--bottom {
 }
 .popup-content {
   background-color: #f5f5f5;
+  margin-bottom: 160rpx;
 }
 .popup-content .popup-title-tag {
   font-weight: 500;
@@ -121,4 +107,8 @@ page .popup__content--bottom {
 .popup-content .popup-close {
   color: #333;
   border: 0;
+}
+
+.my-order {
+  border-radius: 10rpx;
 }

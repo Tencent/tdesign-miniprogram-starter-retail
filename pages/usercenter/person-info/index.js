@@ -62,11 +62,14 @@ Page({
   closeDatePicker() {
     this.setData({ showDatePicker: false });
   },
-  confirmDatePicker({ detail: brith }) {
+  confirmDatePicker(e) {
+    console.log('e: ', e);
+    const {formatValue} = e.detail;
+
     this.closeDatePicker();
     this.setData({
-      'personInfo.brith': brith,
-      brithString: dayjs(brith).format('YYYY年MM月DD日'),
+      'personInfo.brith': formatValue,
+      brithString: dayjs(formatValue).format('YYYY年MM月DD日'),
     });
   },
 });

@@ -75,6 +75,7 @@
     "@tencent/retailwe-ui-uploader": "0.0.29",
     "@tencent/retailwe-ui-user-center-card": "0.0.15",
     "dayjs": "^1.9.3",
+    "tdesign-miniprogram": "^0.1.0-alpha.1",
     "tslib": "^1.11.1"
   },
   "devDependencies": {

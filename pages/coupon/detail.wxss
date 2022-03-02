@@ -15,6 +15,17 @@ page {
 
   margin-top: 40rpx;
   margin-bottom: 40rpx;
+  color: #fa550f !important;
+}
+
+.desc-group-wrap .t-class-title {
+  font-size: 26rpx;
+}
+
+.desc-group-wrap .t-class-description {
+  font-size: 24rpx;
+  word-break: break-all;
+  white-space: pre-line;
 }
 
 .desc-group-wrap {
@@ -37,11 +48,11 @@ page {
   font-size: 28rpx;
 }
 
-.desc-group-wrap .max-width-cell {
+/* .desc-group-wrap .max-width-cell {
   overflow: hidden;
-}
+} */
 
-.desc-group-wrap .signal-line-label {
+/* .desc-group-wrap .signal-line-label {
   word-break: keep-all;
   white-space: nowrap;
   overflow: hidden;
@@ -50,7 +61,7 @@ page {
 .desc-group-wrap .multi-line-label {
   word-break: break-all;
   white-space: pre-line;
-}
+} */
 
 .popup-content-wrap {
   background-color: #fff;

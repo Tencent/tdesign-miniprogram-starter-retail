@@ -121,6 +121,10 @@ Page({
         }
 
         const _goodsList = reset ? spuList : goodsList.concat(spuList);
+        _goodsList.forEach(v => {
+          v.tags = v.spuTagList.map(u => u.title);
+          v.hideKey = { desc: true};
+        })
         const _loadMoreStatus = _goodsList.length === totalCount ? 2 : 0;
 
         this.setData({
@@ -175,11 +179,20 @@ Page({
 
   // 单击购物车，跳转
   handleCartTap() {
-    navigator.gotoPage('/cart');
+    wx.switchTab({
+      url: '/pages/cart/index',
+    })
+    // navigateTo 需要跳转的应用内非 tabBar 的页面的路径
+    // 跳转tabBar请用 wx.switchTab(OBJECT)，跳转到 tabBar 页面，并关闭其他所有非 tabBar 页面
+    // wx.navigateTo({
+    //   url: '/pages/cart/index',
+    // });
   },
 
   handleCancel() {
-    navigator.gotoPage('/search');
+    wx.navigateTo({
+      url: '/pages/goods/search/index',
+    });
   },
 
   handleSubmit(e) {
@@ -211,12 +224,17 @@ Page({
     const { res } = e.detail;
     if (res && String(res.code).toUpperCase() === RESPONSE_CODE.SUCCESS) {
       Toast({
-        icon: 'success',
-        text: '加购成功',
+        context: this,
+        selector: '#t-toast',
+        message: '加购成功',
+        icon: 'check-circle'
       });
     } else {
       Toast({
-        text: '加购失败，请稍候重试',
+        context: this,
+        selector: '#t-toast',
+        message: '加购失败，请稍候重试',
+        icon: 'close-circle'
       });
     }
   },

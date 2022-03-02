@@ -28,8 +28,8 @@ page .navigation-bar__btn_goback {
 page .navigation-bar__btn_goback:active {
   opacity: 0.5;
 }
-.navbar-bg .nav-back,
-.navbar-bg .page-background {
+.nav-back,
+.page-background {
   background: linear-gradient(
     to right,
     rgba(250, 85, 15, 1) 0%,
@@ -142,4 +142,8 @@ page .navigation-bar__btn_goback:active {
   top: 0;
   bottom: 0;
   opacity: 0.99;
+}
+
+.navigation-bar__btn {
+  color: #fff;
 }

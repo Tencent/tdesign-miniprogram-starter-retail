@@ -1,4 +1,4 @@
-import Toast from '../../../miniprogram_npm/@tencent/retailwe-ui-toast/toast';
+import Toast from 'tdesign-miniprogram/toast/index';
 import { fetchSettleDetail } from '../../../services/order/orderConfirm';
 import { commitPay, wechatPayOrder } from './pay';
 import { getAddressPromise } from '../../usercenter/address/list/util';
@@ -48,6 +48,7 @@ Page({
     currentStoreId: null, //当前优惠券storeId
     grouponAvatars: [], //拼团成员头像
     groupInfo: null, //拼团活动参数
+    userAddress: null,
   },
 
   payLock: false,
@@ -107,10 +108,13 @@ Page({
 
     let { goodsRequestList } = this; // 商品列表
     let { userAddressReq } = this; // 收货地址
+    console.log('this: ', this);
+    console.log('options: ', options);
     let storeInfoList = []; // 门店列表
     // 如果是从地址选择页面返回，则使用地址显选择页面新选择的地址去获取结算数据
     if (options.userAddressReq) {
       userAddressReq = options.userAddressReq;
+      console.log('userAddressReq: ', userAddressReq);
     }
     if (options.type === 'cart') {
       // 从购物车跳转过来时，获取传入的商品列表数据
@@ -141,6 +145,7 @@ Page({
     };
     fetchSettleDetail(params).then(
       (res) => {
+        console.log('res: ', res);
         this.setData({
           loading: false,
           grouponAvatars,
@@ -157,7 +162,11 @@ Page({
   initData(resData) {
     // 转换商品卡片显示数据
     const data = this.handleResToGoodsCard(resData);
-    this.userAddressReq = data.userAddress;
+    this.userAddressReq = resData.userAddress;
+
+    if (resData.userAddress) {
+      this.setData({ userAddress: resData.userAddress });
+    }
     this.setData({ settleDetailData: data });
     this.isInvalidOrder(data);
   },
@@ -182,9 +191,13 @@ Page({
 
   handleError() {
     Toast({
-      text: '结算异常, 请稍后重试',
+      context: this,
+      selector: '#t-toast',
+      message: '结算异常, 请稍后重试',
+      duration: 2000,
       icon: '',
     });
+
     setTimeout(() => {
       wx.navigateBack();
     }, 1500);
@@ -250,8 +263,8 @@ Page({
         ele.skuDetailVos.forEach((item, index) => {
           orderCard.goodsList.push({
             id: index,
-            imgUrl: item.image,
-            name: item.goodsName,
+            thumb: item.image,
+            title: item.goodsName,
             specs: item.skuSpecLst.map((s) => s.specValue), // 规格列表 string[]
             price: item.tagPrice || item.settlePrice || '0', // 优先取限时活动价
             settlePrice: item.settlePrice,
@@ -262,6 +275,7 @@ Page({
             storeId: item.storeId,
           });
         });
+        console.log('orderCard: ', orderCard);
         storeInfoList.push({
           storeId: ele.storeId,
           storeName: ele.storeName,
@@ -345,11 +359,8 @@ Page({
   onSureCommit() {
     // 商品库存不足继续结算
     const { settleDetailData } = this.data;
-    const {
-      outOfStockGoodsList,
-      storeGoodsList,
-      inValidGoodsList,
-    } = settleDetailData;
+    const { outOfStockGoodsList, storeGoodsList, inValidGoodsList } =
+      settleDetailData;
     if (
       (outOfStockGoodsList && outOfStockGoodsList.length > 0) ||
       (inValidGoodsList && storeGoodsList)
@@ -386,9 +397,13 @@ Page({
 
     if (!userAddressReq && !settleDetailData.userAddress) {
       Toast({
-        icon: 'none',
-        text: '请添加收货地址',
+        context: this,
+        selector: '#t-toast',
+        message: '请添加收货地址',
+        duration: 2000,
+        icon: 'help-circle',
       });
+
       return;
     }
     if (
@@ -425,8 +440,11 @@ Page({
           this.handlePay(data, settleDetailData);
         } else {
           Toast({
+            context: this,
+            selector: '#t-toast',
+            message: res.msg || '提交订单超时，请稍后重试',
+            duration: 2000,
             icon: '',
-            text: res.msg || '提交订单超时，请稍后重试',
           });
           setTimeout(() => {
             // 提交支付失败   返回购物车
@@ -441,30 +459,43 @@ Page({
           err.code === 'TOTAL_AMOUNT_DIFFERENT'
         ) {
           Toast({
+            context: this,
+            selector: '#t-toast',
+            message: err.msg || '支付异常',
+            duration: 2000,
             icon: '',
-            text: err.msg || '支付异常',
           });
           this.init();
         } else if (err.code === 'ORDER_PAY_FAIL') {
           Toast({
-            icon: 'tips',
-            text: '支付失败',
+            context: this,
+            selector: '#t-toast',
+            message: '支付失败',
+            duration: 2000,
+            icon: 'close-circle',
           });
           setTimeout(() => {
             wx.redirectTo({ url: '/order/list' });
           });
         } else if (err.code === 'ILLEGAL_CONFIG_PARAM') {
           Toast({
-            icon: 'tips',
-            text: '支付失败，微信支付商户号设置有误，请商家重新检查支付设置。',
+            context: this,
+            selector: '#t-toast',
+            message:
+              '支付失败，微信支付商户号设置有误，请商家重新检查支付设置。',
+            duration: 2000,
+            icon: 'close-circle',
           });
           setTimeout(() => {
             wx.redirectTo({ url: '/order/list' });
           });
         } else {
           Toast({
+            context: this,
+            selector: '#t-toast',
+            message: err.msg || '提交支付超时，请稍后重试',
+            duration: 2000,
             icon: '',
-            text: err.msg || '提交支付超时，请稍后重试',
           });
           setTimeout(() => {
             // 提交支付失败  返回购物车
@@ -477,14 +508,8 @@ Page({
 
   // 处理支付
   handlePay(data, settleDetailData) {
-    const {
-      channel,
-      payInfo,
-      tradeNo,
-      interactId,
-      transactionId,
-      groupId,
-    } = data;
+    const { channel, payInfo, tradeNo, interactId, transactionId, groupId } =
+      data;
     const { totalAmount, totalPayAmount } = settleDetailData;
     const { groupInfo } = this.data;
     const payOrderInfo = {
@@ -582,5 +607,11 @@ Page({
       );
       this.handleOptionsParams({ goodsRequestList });
     }
+  },
+
+  onPopupChange() {
+    this.setData({
+      popupShow: !this.data.popupShow,
+    });
   },
 });

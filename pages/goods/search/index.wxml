@@ -1,20 +1,50 @@
 <!-- miniprogram/pages/search/search/search.wxml -->
 <view class="search-page">
-  <wr-search actionText="取消" bind:submit="handleSubmit"></wr-search>
-  <view class="search-wrap">
-    <!-- 历史搜索 -->
-    <view class="history-wrap" wx:if="{{searchWords.length}}">
-      <view class="search-header">
-        <text class="history">历史搜索</text>
-        <wr-icon name="trash" color='rgba(187,187,187,1)' size='34' class="ipt-delete" bind:tap="handleClearHistory"></wr-icon>
-      </view>
-      <view class="history-content">
-        <view class="history-item" hover-class="hover-history-item" wx:for="{{searchWords}}" bind:tap="handleHistoryTap" bindlongpress="deleteCurr" data-index="{{index}}" wx:key="*this">
-          {{item}}
-        </view>
-      </view>
-    </view>
-  </view>
-  <!-- 提示框 -->
-  <wr-dialog show="{{dialogShow}}" message="{{dialog.message}}" bindconfirm="confirm" showCancelButton="{{dialog.showCancelButton}}"></wr-dialog>
+	<t-search
+	 t-class="t-search"
+	 t-class-left="t-search__left-icon"
+	 t-class-input="t-search__input"
+	 shape="round"
+	 keyword="{{keyword}}"
+	 actionText="取消"
+	 bind:cancel="handleCancel"
+	 bind:submit="handleSubmit"
+	/>
+	<view class="search-wrap">
+		<!-- 历史搜索 -->
+		<view class="history-wrap" wx:if="{{searchWords.length}}">
+			<view class="search-header">
+				<text class="history">历史搜索</text>
+				<t-icon
+				 name="clear"
+				 color='rgba(187,187,187,1)'
+				 size='34rpx'
+				 t-class="ipt-delete"
+				 bind:tap="handleClearHistory"
+				/>
+			</view>
+			<view class="history-content">
+				<view
+				 class="history-item"
+				 hover-class="hover-history-item"
+				 wx:for="{{searchWords}}"
+				 bind:tap="handleHistoryTap"
+				 bindlongpress="deleteCurr"
+				 data-index="{{index}}"
+				 wx:key="*this"
+				>
+					{{item}}
+				</view>
+			</view>
+		</view>
+	</view>
+	<!-- 提示框 -->
+	<t-dialog
+	 visible="{{dialogShow}}"
+	 content="{{dialog.message}}"
+	 bindconfirm="confirm"
+	 confirm-btn="确定"
+	 cancel-btn="{{dialog.showCancelButton ? '取消' : null}}"
+	/>
 </view>
+

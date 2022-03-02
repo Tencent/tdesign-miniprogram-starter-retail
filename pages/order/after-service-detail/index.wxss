@@ -45,6 +45,13 @@
     background-color: white;
     overflow: hidden;
 }
+.service-section__pay {
+    margin: 0 24rpx 20rpx 24rpx;
+    width: auto;
+    border-radius: 8rpx;
+    background-color: white;
+    overflow: hidden;
+}
 .service-detail .service-section__title {
   font-size: 30rpx;
   color: #333333;
@@ -78,33 +85,10 @@
   display: inline;
 }
 .service-detail .label {
-    color: #666666;
+    color: #999999;
     font-size: 26rpx;
 }
-.service-detail .wr-cell {
-    padding: 9rpx 0;
-    line-height: 36rpx;
-}
-.service-detail wr-cell:last-child .wr-cell {
-  margin-bottom: -16rpx;
-}
-.service-detail .wr-cell {
-  padding: 16rpx 0;
-  font-size: 26rpx;
-  line-height: 36rpx;
-}
-.service-detail .wr-cell .wr-cell__title {
-    flex: none;
-    margin-right: 30rpx;
-    color: #333333;
-}
-.service-detail .wr-cell .wr-cell__value {
-    flex: auto;
-    color: #666666;
-}
-.service-detail .wr-cell .wr-cell .text-btn {
-    margin-left: 1em;
-}
+
 .service-detail .custom-remark {
   font-size: 26rpx;
   line-height: 36rpx;
@@ -121,22 +105,31 @@
     background-color: #f9f9f9;
 }
 
-.service-detail .pay-result {
-
+.service-detail .pay-result .t-cell-title,
+.service-detail .pay-result .t-cell-value {
+    color: #666666;
+    font-size: 28rpx;
 }
 
-.service-detail .pay-result .wr-cell__title,
-.service-detail .pay-result .wr-cell__value {
-    color: #666666;
+.t-class-wrapper {
+  padding: 10rpx 24rpx !important;
+}
+
+.t-class-wrapper-first-child {
+  padding: 24rpx !important;
 }
 
 .service-detail .pay-result .wr-cell__value {
     font-weight: bold;
 }
-.service-detail .pay-result .service-section__title .right {
+.service-detail .right {
     font-size: 36rpx;
     color: #fa550f;
     font-weight: bold;
+}
+
+.service-detail .title {
+  font-weight: bold;
 }
 
 .service-detail .pay-result .service-section__title .right.integer {
@@ -192,15 +185,14 @@
     display: inline;
     color: #fa550f;
     margin-left: 10rpx;
+    flex: none;
+    font-weight: normal;
+    font-size: 26rpx;
 }
 .service-detail .text-btn:active {
   opacity: 0.5;
 }
 
-
-.service-detail .specs-popup {
-
-}
 .service-detail .specs-popup .bottom-btn {
   color: #fa550f;
 }
@@ -297,17 +289,40 @@
 }
 .page-container .page-background-img {
   width: 100%;
+  height: 320rpx !important;
 }
 .page-container .navbar-bg .nav-back,
 .page-container .navbar-bg .page-background {
   background: linear-gradient(to right, rgba(250, 85, 15 , 1) 0%, rgba(250, 85, 15 , 0.6) 100%) !important;
 }
 
-.page-container .navigation-bar__btn .wr-icon {
-    font-size: 16px !important;
+.page-container .navigation-bar__btn {
+    font-size: 40rpx !important;
     font-weight: bold !important;
+    color: #fff;
+}
+
+.t-class-title {
+  color: #fff;
+}
+
+.refresh-bar {
+  background: linear-gradient(90deg,#FF6B44 0%,#ED3427 100%) !important;
 }
 
 .page-container .navigation-bar__inner .navigation-bar__left {
-    padding-left: 8px;
+    padding-left: 16rpx;
+}
+
+.t-refund-info {
+  font-size: 26rpx;
+  color: #333333;
+}
+
+.t-refund-wrapper {
+  padding: 10rpx 24rpx !important;
+}
+
+.safe-bottom {
+  padding-bottom: env(safe-area-inset-bottom);
 }

@@ -21,8 +21,15 @@
 .btn-bar .order-btn:active {
   opacity: 0.5;
 }
-.btn-bar .left .order-btn:not(:first-child),
-.btn-bar .right .order-btn:not(:first-child) {
+
+.btn-bar .right {
+  display: flex;
+  align-items: center;
+}
+.btn-bar .t-button {
+  width: 120rpx;
+  height: 60rpx;
+  border-radius: 8rpx;
   margin-left: 20rpx;
 }
 .btn-bar .left .delete-btn {
@@ -40,8 +47,7 @@
 .btn-bar .right .primary {
   color: #fa550f;
   color: var(--color-primary, #fa550f);
-}
-.btn-bar .right .primary:after {
   border-color: #fa550f;
-  border-color: var(--color-primary, #fa550f);
+  border-color: var(--color-primary, #fa550f);  
 }
+

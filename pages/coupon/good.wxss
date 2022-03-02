@@ -19,17 +19,14 @@ page {
   position: relative;
   z-index: 0;
 }
-
 .notice-bar-content {
   height: 68rpx;
-
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
 }
 .notice-bar-text {
-  color: #666;
   font-size: 26rpx;
 }
 .notice-bar-text .height-light {
@@ -37,35 +34,30 @@ page {
 }
 .notice-bar-icon {
   margin-left: 12rpx;
+  height: 68rpx;
+  line-height: 68rpx !important;
 }
-
 .popup-content-wrap {
   background-color: #fff;
   border-top-left-radius: 20rpx;
   border-top-right-radius: 20rpx;
 }
-
 .popup-content-title {
   font-size: 32rpx;
   color: #333;
-
   text-align: center;
   height: 104rpx;
   line-height: 104rpx;
-
   position: relative;
 }
-
 .popup-content-title .close-icon {
   position: absolute;
   top: 24rpx;
   right: 24rpx;
 }
-
 .desc-group-wrap {
-  padding-bottom: 30rpx;
+  padding-bottom: env(safe-area-inset-bottom);
 }
-
 .desc-group-wrap .item-wrap {
   margin-left: 30rpx;
   margin-right: 30rpx;
@@ -80,7 +72,6 @@ page {
   font-size: 24rpx;
   color: #666;
   margin-top: 12rpx;
-
   white-space: pre-line;
   word-break: break-all;
   line-height: 34rpx;

@@ -1,5 +1,5 @@
-import Dialog from '../../../miniprogram_npm/@tencent/retailwe-ui-dialog/dialog';
-import Toast from '../../../miniprogram_npm/@tencent/retailwe-ui-toast/toast';
+import Dialog from 'tdesign-miniprogram/dialog/index';
+import Toast from 'tdesign-miniprogram/toast/index';
 import { priceFormat } from '../../../utils/util';
 import { OrderStatus, ServiceType, ServiceReceiptStatus } from '../config';
 import reasonSheet from '../components/reason-sheet/reasonSheet';
@@ -44,6 +44,8 @@ Page({
     },
     submitting: false,
     uploadMethod: { method: () => {} },
+    inputDialogVisible: false,
+    remarkDialogVisible: false,
   },
 
   setWatcher(key, callback) {
@@ -86,6 +88,7 @@ Page({
 
   onLoad(query) {
     this.query = query;
+    console.log('query: ', query);
     if (!this.checkQuery()) return;
     this.setData({
       canApplyReturn: query.canApplyReturn === 'true',
@@ -114,7 +117,7 @@ Page({
     const { orderNo, skuId, spuId } = this.query;
     if (!orderNo) {
       Dialog.alert({
-        message: '请先选择订单',
+        content: '请先选择订单',
       }).then(() => {
         wx.redirectTo({ url: 'pages/order/order-list/index' });
       });
@@ -122,7 +125,7 @@ Page({
     }
     if (!skuId || !spuId) {
       Dialog.alert({
-        message: '请先选择商品',
+        content: '请先选择商品',
       }).then(() => {
         wx.redirectTo(`pages/order/order-detail/index?orderNo=${orderNo}`);
       });
@@ -138,8 +141,8 @@ Page({
       wx.hideLoading();
       const goodsInfo = {
         id: res.data.skuId,
-        imgUrl: res.data.goodsInfo && res.data.goodsInfo.skuImage,
-        name: res.data.goodsInfo && res.data.goodsInfo.goodsName,
+        thumb: res.data.goodsInfo && res.data.goodsInfo.skuImage,
+        title: res.data.goodsInfo && res.data.goodsInfo.goodsName,
         spuId: res.data.spuId,
         skuId: res.data.skuId,
         specs: ((res.data.goodsInfo && res.data.goodsInfo.specInfo) || []).map(
@@ -170,7 +173,7 @@ Page({
   async getRightsPreview() {
     const params = {
       orderNo: this.query.orderNo,
-      skuId: this.query.skuId,
+      skuId: '1327025',
       spuId: '1011147', //this.query.spuId, //'1011147'
       numOfSku: this.data.serviceFrom.returnNum,
     };
@@ -190,9 +193,9 @@ Page({
         if (orderStatus === OrderStatus.PENDING_RECEIPT) {
           return Dialog.confirm({
             title: '订单商品是否已经收到货',
-            message: '',
-            confirmButtonText: '确认收货，并申请退货',
-            cancelButtonText: '未收到货',
+            content: '',
+            confirmBtn: '确认收货，并申请退货',
+            cancelBtn: '未收到货',
           }).then(() => {
             return dispatchConfirmReceived({
               parameter: {
@@ -219,6 +222,10 @@ Page({
         this.refresh();
       },
     );
+  },
+
+  onChangeReturnNum(e) {
+    console.log(e);
   },
 
   onPlusReturnNum() {
@@ -287,7 +294,12 @@ Page({
 
   onApplyReasonTap() {
     if (!this.data.applyReasons.length) {
-      Toast({ text: '请先选择收货状态', duration: 1000, icon: 'none' });
+      Toast({
+        context: this,
+        selector: '#t-toast',
+        message: '请先选择收货状态',
+        icon: 'close-circle',
+      });
       return;
     }
     reasonSheet({
@@ -314,9 +326,9 @@ Page({
       'serviceFrom.amount.focus': true,
     });
     this.inputDialog.setData({
-      show: true,
+      inputDialogVisible: true,
       title: '退款金额',
-      showCancelButton: true,
+      cancelBtn: '取消',
     });
     this.inputDialog._onComfirm = () => {
       this.setData({
@@ -358,7 +370,7 @@ Page({
       'serviceFrom.remark.focus': true,
     });
     this.remarkDialog.setData({
-      show: true,
+      remarkDialogVisible: true,
       title: '填写退款说明',
       showCancelButton: true,
     });
@@ -410,8 +422,10 @@ Page({
       dispatchApplyService(params)
         .then((res) => {
           Toast({
+            context: this,
+            selector: '#t-toast',
+            message: '申请成功',
             icon: '',
-            text: '申请成功',
           });
 
           wx.redirectTo({
@@ -430,7 +444,12 @@ Page({
       if (!this.data.validateRes.valid) return; // 校验表单必填内容
       // 校验表单内容
       if (this.data.validateRes.msg) {
-        Toast({ icon: '', text: this.data.validateRes.msg });
+        Toast({
+          context: this,
+          selector: '#t-toast',
+          message: this.data.validateRes.msg,
+          icon: '',
+        });
         return;
       }
       if (this.uploadFailedCount !== 0) {
@@ -471,16 +490,28 @@ Page({
       }); */
   },
 
-  onUploadStart() {
-    this.setData({ uploading: true });
-    this.uploadFailedCount = 0;
-    wx.showLoading({ title: '上传中...' });
+  onUploadStart({ detail, currentTarget }) {
+    const { tempFiles } = detail;
+    const {
+      serviceFrom: { rightsImageUrls },
+    } = this.data;
+    const images = tempFiles.map((v) => ({
+      url: v.path,
+      name: '',
+      type: 'image',
+    }));
+    this.setData({
+      'serviceFrom.rightsImageUrls': [...rightsImageUrls, ...images],
+    });
   },
 
-  onUploadend(e) {
-    this.setData({ uploading: false });
-    wx.hideLoading();
-    const { urls } = e.detail;
-    this.setData({ 'serviceFrom.rightsImageUrls': urls });
+  onDelete(e) {
+    const { index } = e.detail;
+    const nextImages = [...this.data.serviceFrom.rightsImageUrls];
+    nextImages.splice(index, 1);
+
+    this.setData({
+      'serviceFrom.rightsImageUrls': [...nextImages],
+    });
   },
 });

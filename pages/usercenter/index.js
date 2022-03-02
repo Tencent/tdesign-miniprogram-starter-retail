@@ -9,6 +9,18 @@ const menuData = [
       url: '',
       type: 'address',
     },
+    {
+      title: '优惠券',
+      tit: '',
+      url: '',
+      type: 'coupon',
+    },
+    {
+      title: '积分',
+      tit: '',
+      url: '',
+      type: 'point',
+    },
   ],
   [
     {
@@ -60,13 +72,14 @@ const getDefaultData = () => ({
   showMakePhone: false,
   userInfo: {
     avatarUrl: `${cdnBase}/usercenter/avatar.png`,
-    name: '正在登录...',
+    nickName: '正在登录...',
     phoneNumber: '',
   },
   countsData: [],
   menuData,
   orderTagInfos,
   customerServiceInfo: {},
+  currAuthStep: 1,
 });
 
 Page({
@@ -102,21 +115,23 @@ Page({
   },
 
   fetUseriInfoHandle() {
-    // this.setData(getDefaultData());
-
     fetchUserCenter().then(
       ({ userInfo, countsData, orderTagInfos, customerServiceInfo }) => {
+        menuData?.[0].forEach(v=>{
+          countsData.forEach((counts) => {
+            counts.num = counts.num <= 999 ? counts.num : '999+'
+            if(counts.type === v.type) {
+              v.tit = counts.num
+            }
+          })
+        })
         this.setData({
           userInfo,
           countsData,
           menuData,
-          orderTagInfos: this.data.orderTagInfos.map((orderTagInfo, idx) => {
-            return {
-              ...orderTagInfo,
-              orderNum: (orderTagInfos[idx] || {}).orderNum || 0,
-            };
-          }),
+          orderTagInfos,
           customerServiceInfo,
+          currAuthStep: 2,
         });
 
         // 关闭自带的loading效果
@@ -141,15 +156,25 @@ Page({
         wx.navigateTo({ url: '/pages/usercenter/person-info/index' });
         break;
       }
+      case 'point': {
+        console.log('point');
+        break;
+      }
+      case 'coupon': {
+        wx.navigateTo({ url: '/pages/coupon/list' });
+        break;
+      }
       default: {
         console.log('未知跳转', type);
+        break;
       }
     }
   },
 
   jumpNav(e) {
     // const status =e.detail.tabType;
-    const status = e.currentTarget.dataset.item.tabType;
+    const status = e.detail.tabType;
+    
     if (status === 0) {
       wx.navigateTo({ url: '/pages/order/after-service-list/index' });
     } else {
@@ -161,30 +186,26 @@ Page({
     wx.navigateTo({ url: '/pages/order/order-list/index' });
   },
 
-  tapCountDetailHandle(e) {
-    /** @todo 这里暂时使用中文名称来进行跳转适配，但理应使用key/id等固定的名称来进行跳转 */
-    const { item } = e.currentTarget.dataset;
-
-    switch (item.name) {
-      case '优惠券': {
-        wx.navigateTo({ url: '/pages/coupon/list' });
-        break;
-      }
-      default: {
-        console.log('未知跳转', item);
-      }
-    }
-  },
-
   openMakePhone() {
     this.setData({ showMakePhone: true });
   },
+
   closeMakePhone() {
     this.setData({ showMakePhone: false });
   },
+  
   call() {
     wx.makePhoneCall({
       phoneNumber: this.data.customerServiceInfo.servicePhone,
     });
   },
+
+  gotoUserEditPage() {
+    const {currAuthStep} = this.data;
+    if(currAuthStep === 2) {
+      wx.navigateTo({ url: '/pages/usercenter/person-info/index' });
+    }else {
+      this.fetUseriInfoHandle();
+    }
+  }
 });

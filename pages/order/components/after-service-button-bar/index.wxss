@@ -14,13 +14,10 @@
   line-height: 1;
   border-radius: unset;
   min-width: 160rpx;
-}
-.btn-bar .order-btn::after {
   border-radius: 16rpx;
+  height: 60rpx;
 }
-.btn-bar .order-btn:active {
-  opacity: 0.5;
-}
+
 .btn-bar .left .order-btn:not(:first-child),
 .btn-bar .right .order-btn:not(:first-child) {
   margin-left: 20rpx;

@@ -115,7 +115,7 @@ Page({
         console.log('xxxx');
         const { pageList, totalCount = 0 } = data;
         pageList.forEach((item) => {
-          item.commentScore = this.getScoreArray(item.commentScore);
+          // item.commentScore = this.getScoreArray(item.commentScore);
           item.commentTime = dayjs(Number(item.commentTime)).format(
             'YYYY/MM/DD HH:mm',
           );

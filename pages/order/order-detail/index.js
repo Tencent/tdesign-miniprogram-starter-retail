@@ -49,16 +49,14 @@ Page({
   },
 
   onPageScroll(e) {
-    this.navbar && this.navbar.methods.onScroll.call(this.navbar, e.scrollTop);
+    // this.navbar && this.navbar.methods.onScroll.call(this.navbar, e.scrollTop);
     this.pullDownRefresh && this.pullDownRefresh.onPageScroll(e);
   },
 
-  onImgLoaded(e) {
-    this.navbar && this.navbar.onImgLoaded(e);
-  },
-
   onImgError(e) {
-    this.navbar && this.navbar.onImgError(e);
+    if(e.detail) {
+      console.error('img 加载失败')
+    }
   },
 
   // 页面初始化，会展示pageLoading
@@ -68,6 +66,7 @@ Page({
     this.getDetail()
       .then(() => {
         this.setData({ pageLoading: false });
+        console.log('this.data', this.data);
       })
       .catch((e) => {
         console.error(e);
@@ -275,7 +274,7 @@ Page({
   },
 
   onToInvoice() {
-    wx.navigateTo({ url: `pages//order/invoice/index?id=1` });
+    wx.navigateTo({ url: `pages/order/invoice/index?id=1` });
   },
 
   onSuppleMentInvoice() {
@@ -316,4 +315,10 @@ Page({
       url: `/groupon/detail/index?promotionId=${promotionId}&groupId=${groupId}&storeId=${storeId}`,
     }); */
   },
+
+  goBack() {
+    wx.navigateTo({
+      url: `/pages/order/order-list/index`,
+    });
+  }
 });

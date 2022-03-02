@@ -1,67 +1,72 @@
 <view style="text-align: center;" wx:if="{{pageLoading}}">
-  <wr-loading>加载中</wr-loading>
+	<t-loading
+	 theme="circular"
+	 size="40rpx"
+	 loading
+	 style="color: #ddd"
+	>
+		<span slot="text">加载中...</span>
+	</t-loading>
 </view>
-
-<!-- wr-search 自带10padding -->
-<view
-  class="search"
-  bind:tap="navToSearchPage"
->
-  <wr-search
-    keyword="{{keyword}}"
-    wr-class="search"
-  />
+<view class="search" bind:tap="navToSearchPage">
+	<t-search
+	 t-class="t-search"
+	 t-class-left="t-search__left-icon"
+	 t-class-input="t-search__input"
+	 center
+	 shape="round"
+	 keyword="{{keyword}}"
+	 wr-class="search"
+	/>
 </view>
-
-<!-- wr-search 自带10padding -->
-<view
-  style="padding: 0 24rpx;margin-top: 10rpx;"
->
-  <wr-swiper
-    imgSrcs="{{imgSrcs}}"
-    mode="dot"
-    bind:tapImage="navToActivityDetail"
-    wr-class="wr-swiper"
-  />
+<view style="padding: 0 24rpx;margin-top: 10rpx;">
+	<t-swiper
+	 t-class="swiper-wrap"
+	 current="{{current}}"
+	 autoplay="{{autoplay}}"
+	 duration="{{duration}}"
+	 interval="{{interval}}"
+	 navigation
+	>
+		<t-swiper-item
+		 wx:for="{{imgSrcs}}"
+		 wx:for-item="item"
+		 wx:for-index="index"
+		 wx:key="index"
+		>
+			<t-image src="{{item}}" t-class="swipe-img" bind:tap="navToActivityDetail" />
+		</t-swiper-item>
+	</t-swiper>
 </view>
-
-<view
-  style="text-align: center;margin-top: 20rpx;"
-  bind:tap="navToActivityDetail"
->
-  <wr-image
-    src="{{activityImg}}"
-    width="702"
-    height="160"
-  />
+<view style="text-align: center;margin-top: 20rpx;" bind:tap="navToActivityDetail">
+	<t-image src="{{activityImg}}" t-class="t-image" lazy-load="{{true}}" />
 </view>
-
-<wr-tab
-  isScroll="{{true}}"
-  status="{{tabIndex}}"
-  tabList="{{tabList}}"
-  bind:tabChange="tabChangeHandle"
-  wr-class="tab"
-  line-height="{{8}}"
-  line-width="{{50}}"
-/>
-
+<t-tabs t-class="t-tabs" value="{{0}}" bind:change="tabChangeHandle">
+	<t-tab-panel
+	 wx:for="{{tabList}}"
+	 wx:for-index="index"
+	 wx:key="index"
+	 label="{{item.text}}"
+	 value="{{item.index}}"
+	/>
+</t-tabs>
 <view style="text-align: center;" wx:if="{{goodsRefreshing}}">
-  <wr-loading>加载中</wr-loading>
+	<t-loading
+	 theme="circular"
+	 size="40rpx"
+	 loading
+	 style="color: #ddd"
+	>
+		<span slot="text">加载中...</span>
+	</t-loading>
 </view>
-
 <goods-list
-  goodsList="{{goodsList}}"
-  layout="vertical"
-  bind:click="goodlistClickHandle"
-  bind:addcart="goodlistAddCartHandle"
+ goodsList="{{goodsList}}"
+ layout="vertical"
+ bind:click="goodlistClickHandle"
+ bind:addcart="goodlistAddCartHandle"
 />
+<wr-load-more list-is-empty="{{!goodsList.length}}" status="{{goodsListLoadStatus}}" bind:retry="onReTry" />
+<t-toast id="t-toast" />
+<t-dialog id="t-dialog" />
 
-<wr-load-more
-  list-is-empty="{{!goodsList.length}}"
-  status="{{goodsListLoadStatus}}"
-  bind:retry="onReTry"
-/>
-
-<wr-toast id="wr-toast"/>
-<wr-dialog id="wr-dialog"/>

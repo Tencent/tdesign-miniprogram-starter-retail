@@ -5,7 +5,6 @@ import {
   ServiceButtonTypes,
 } from '../config';
 import { formatTime, getRightsDetail } from './api';
-import Toast from '../../../miniprogram_npm/@tencent/retailwe-ui-toast/toast';
 
 const TitleConfig = {
   [ServiceType.ORDER_CANCEL]: '退款详情',
@@ -108,8 +107,8 @@ Page({
         amount: serviceRaw.rights.refundRequestAmount,
         goodsList: (serviceRaw.rightsItem || []).map((item, i) => ({
           id: i,
-          imgUrl: item.goodsPictureUrl,
-          name: item.goodsName,
+          thumb: item.goodsPictureUrl,
+          title: item.goodsName,
           specs: (item.specInfo || []).map((s) => s.specValues || ''),
           // amount: item.itemRefundAmount,
           price: item.itemRefundAmount,
@@ -191,16 +190,12 @@ Page({
   },
 
   onFillTrackingNo(service) {
-    // console.log('service', service);
-    // Toast({text: '你点击了填写运单号'});
     wx.navigateTo({
       url: '/pages/order/fill-tracking-no/index?rightsNo=' + service.id,
     });
   },
 
   onChangeTrackingNo(service) {
-    // console.log('service', service);
-    // Toast({text: '你点击了修改运单号'});
     wx.navigateTo({
       url:
         '/pages/order/fill-tracking-no/index?rightsNo=' +

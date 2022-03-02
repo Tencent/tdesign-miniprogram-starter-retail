@@ -2,7 +2,9 @@
   "navigationBarTitleText": "支付结果",
   "navigationStyle": "custom",
   "usingComponents": {
-    "wr-navbar": "@tencent/retailwe-ui-navbar/index",
+    "t-navbar": "tdesign-miniprogram/navbar/navbar",
+    "t-icon": "tdesign-miniprogram/icon/icon",
+
     "wr-icon": "@tencent/retailwe-ui-icon/index",
     "wr-price": "@tencent/retailwe-ui-price/index",
     "groupon-card": "../components/groupon-card/index"

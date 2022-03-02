@@ -1,6 +1,6 @@
 {
   "navigationBarTitleText": "添加新地址",
   "usingComponents": {
-    "wr-address-edit": "./component/edit-panel"
+    "wr-address-edit": "@tencent/retailwe-ui-address-edit/index"
   }
 }

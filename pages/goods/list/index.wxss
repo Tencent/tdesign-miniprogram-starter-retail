@@ -1,4 +1,4 @@
-@import '/miniprogram_npm/@tencent/retailwe-ui-goods-list/external.wxss';
+/* @import '/miniprogram_npm/@tencent/retailwe-ui-goods-list/external.wxss'; */
 page {
   background-color: #f5f5f5;
 }

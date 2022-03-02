@@ -26,6 +26,7 @@ Page({
     emptyImg:
       'https://cdn-we-retail.ym.tencent.com/miniapp/order/empty-order-list.png',
     backRefresh: false,
+    status: -1,
   },
 
   onLoad(query) {
@@ -68,6 +69,9 @@ Page({
 
   init(status) {
     status = status !== undefined ? status : this.data.curTab;
+    this.setData({
+      status,
+    })
     this.refreshList(status);
   },
 
@@ -138,10 +142,8 @@ Page({
   },
 
   onTabChange(e) {
-    const key = e.detail;
-    const tab = this.data.tabs.find((t) => t.key === key);
-    if (!tab) return;
-    this.refreshList(tab.key);
+    const { value } = e.detail;
+    this.refreshList(value);
   },
 
   getOrdersCount() {

@@ -1,18 +1,15 @@
 <view id='js-page-wrap'>
-  <wr-promotion-detail
-    banner-src="{{banner}}"
-    show-banner-desc="{{showBannerDesc}}"
-    status-tag="{{statusTag}}"
-    banner-desc-icon-color="#999"
-
-    gl-goods-list="{{list}}"
-
-    cd-time="{{time}}"
-
-    bind:banner-desc-click="bannerDescClickHandle"
-    bind:gl-click="goodClickHandle"
-    bind:gl-addcart="cardClickHandle"
-  />
+	<wr-promotion-detail
+	 banner-src="{{banner}}"
+	 show-banner-desc="{{showBannerDesc}}"
+	 status-tag="{{statusTag}}"
+	 banner-desc-icon-color="#999"
+	 gl-goods-list="{{list}}"
+	 cd-time="{{time}}"
+	 bind:banner-desc-click="bannerDescClickHandle"
+	 bind:gl-click="goodClickHandle"
+	 bind:gl-addcart="cardClickHandle"
+	/>
 </view>
+<t-toast id="t-toast" />
 
-<wr-toast id="wr-toast"/>

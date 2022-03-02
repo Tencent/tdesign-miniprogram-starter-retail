@@ -3,10 +3,6 @@
   "backgroundColor": "#f8f8f8",
   "navigationStyle": "custom",
   "usingComponents": {
-    "wr-button": "@tencent/retailwe-ui-button/index",
-    "wr-navbar": "@tencent/retailwe-ui-navbar/index",
-    "wr-icon": "@tencent/retailwe-ui-icon/index",
-    "wr-rate": "../components/rate/index",
-    "sku-comment": "../components/sku-comment/index"
+    "wr-goods-review-submit": "@tencent/retailwe-ui-goods-review-submit/index"
   }
 }

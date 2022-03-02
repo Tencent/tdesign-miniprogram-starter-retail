@@ -1,11 +1,11 @@
 {
   "navigationBarTitleText": "个人中心",
   "usingComponents": {
-    "wr-button": "@tencent/retailwe-ui-button/index",
-    "wr-cell": "@tencent/retailwe-ui-cell/index",
-    "wr-cell-group": "@tencent/retailwe-ui-cell-group/index",
-    "wr-datetime-picker": "@tencent/retailwe-ui-datetime-picker/index",
-    "wr-dialog": "@tencent/retailwe-ui-dialog/index",
-    "wr-image": "@tencent/retailwe-ui-image/index"
+    "t-date-time-picker": "tdesign-miniprogram/date-time-picker/date-time-picker",
+    "t-cell-group": "tdesign-miniprogram/cell-group/cell-group",
+    "t-cell": "tdesign-miniprogram/cell/cell",
+    "t-button": "tdesign-miniprogram/button/button",
+    "t-image": "tdesign-miniprogram/image/image",
+    "t-dialog": "tdesign-miniprogram/dialog/dialog"
   }
 }

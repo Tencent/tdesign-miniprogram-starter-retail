@@ -6,3 +6,18 @@ page {
 .brith-string-value {
   --cell-value-color: #bbb;
 }
+
+.personInfo {
+  background-color: #fff;
+  color: #ff2525 !important;
+  margin-top: 22rpx;
+}
+
+.avatarUrl {
+  width: 80rpx;
+  height: 80rpx;
+}
+
+.t-class-confirm {
+  color: #fa550f !important;
+}

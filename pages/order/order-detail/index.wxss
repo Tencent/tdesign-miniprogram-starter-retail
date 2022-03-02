@@ -27,6 +27,14 @@
 }
 .page-background-img {
   width: 100%;
+  height: 300rpx !important;
+}
+.navbar-title {
+  color: #fff;
+}
+.navbar-left-icon {
+  font-size: 50rpx;
+  color: #fff;
 }
 .order-detail {
   position: relative;
@@ -101,9 +109,9 @@
 .order-detail .section-content {
   padding: 0 20rpx 0 66rpx;
 }
-.order-detail .section-content .other-cell {
+/* .order-detail .section-content .other-cell {
   padding: 15rpx 0;
-}
+} */
 .order-detail .section-content .label {
   color: #666666;
   font-size: 26rpx;
@@ -114,10 +122,11 @@
   color: #333333;
   font-size: 26rpx;
 }
-.order-detail .other-cell .value,
-.order-detail .other-cell .title {
+.order-section .value,
+.order-section .title {
   color: #333333;
   line-height: 1.5;
+  font-size: 26rpx;
 }
 .order-detail .other-cell .title {
   margin-right: 90rpx;
@@ -239,4 +248,25 @@
 .dialog .dialog__button-confirm {
   color: #fa550f;
   color: var(--color-primary, #fa550f);
+}
+
+.order-logistics {
+  display: flex;
+  font-weight: bold;
+  font-size: 30rpx;
+}
+
+.order-logistics__icon {
+  margin-right: 20rpx;
+}
+
+.order-logistics__desc {
+  color: #666666;
+  font-size: 26rpx;
+  word-wrap: break-word;
+  padding: 20rpx 0 10rpx 40rpx;
+}
+
+.desc__title {
+  margin: 10rpx 0;
 }

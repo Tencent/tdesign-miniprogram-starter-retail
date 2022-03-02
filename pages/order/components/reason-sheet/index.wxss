@@ -55,40 +55,21 @@
 }
 
 .popup-content .button-bar {
-    height: 100rpx;
+    height: 140rpx;
     padding: 0 30rpx;
     display: flex;
     flex-wrap: nowrap;
     align-items: center;
     justify-content: space-between;
+    padding-bottom: env(safe-area-inset-bottom);
+
 }
 
 .popup-content .button-bar .btn {
-    font-size: 32rpx;
-    color: #666666;
-    line-height: 80rpx;
-    background-color: white;
-    margin: 1px;
-    overflow: visible;
-    flex: 1;
+    width: 330rpx;
 }
 
-.popup-content .button-bar .btn::after {
-    border-color: #999999;
-}
-
-.popup-content .button-bar .btn.primary {
-   color: #fa550f;
-}
-
-.popup-content .button-bar .btn:not(:first-child) {
-    margin-left: 30rpx;
-}
-
-.popup-content .button-bar .btn:active {
-    opacity: 0.5;
-}
-
-.popup-content .button-bar .btn.primary::after {
+.popup-content .button-bar .confirmBtn {
     border-color: #fa550f;
+    color: #fa550f;
 }

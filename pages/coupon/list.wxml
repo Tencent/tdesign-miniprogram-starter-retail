@@ -1,32 +1,33 @@
-<view class="tab-bar__placeholder"></view>
-<wr-tab
-  status="{{status}}"
-  bind:tabChange="tabChange"
-  tabList="{{list}}"
-  isScroll="{{false}}"
-
-  wr-class="tab-bar__inner"
-  wr-class-active="tab-bar__active"
-  line-height="4"
-  line-width="48"
-/>
-<view
-  class="coupon-list-wrap"
+<view class="tab-bar__placeholder" />
+<t-tabs
+ value="{{status}}"
+ bind:change="tabChange"
+ tabList="{{list}}"
+ t-class="tab-bar__inner"
+ t-class-active="tab-bar__active"
 >
-  <wr-pull-down-refresh
-    id="wr-pull-down-refresh"
-    bind:refresh="onPullDownRefresh_"
-  >
-    <wr-coupon-list
-      data="{{couponList}}"
-      generic:coupon-card="custom-coupon-card"
-    />
-  </wr-pull-down-refresh>
-
-  <view class="center-entry">
-    <view class="center-entry-btn" bind:tap="goCouponCenterHandle">
-      领券中心
-      <wr-icon name="right" color="#FA550F" />
-    </view>
-  </view>
+	<t-tab-panel
+	 wx:for="{{list}}"
+	 wx:for-index="index"
+	 wx:for-item="tab"
+	 label="{{tab.text}}"
+	 value="{{tab.key}}"
+	/>
+</t-tabs>
+<view class="coupon-list-wrap">
+	<t-pull-down-refresh id="t-pull-down-refresh" bind:refresh="onPullDownRefresh_">
+		<wr-coupon-list data="{{couponList}}" generic:coupon-card="custom-coupon-card" />
+	</t-pull-down-refresh>
+	<view class="center-entry">
+		<view class="center-entry-btn" bind:tap="goCouponCenterHandle">
+			<view>领券中心</view>
+			<t-icon
+			 name="chevron-right"
+			 color="#FA550F"
+			 size="40rpx"
+			 style="line-height: 28rpx;"
+			/>
+		</view>
+	</view>
 </view>
+

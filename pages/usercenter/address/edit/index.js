@@ -1,3 +1,11 @@
+/*
+ * @Author: oliverppeng
+ * @LastEditors: oliverppeng
+ * @Date: 2021-12-01 17:33:43
+ * @LastEditTime: 2021-12-26 21:39:48
+ * @Description: 
+ * @FilePath: /retail-mp/pages/usercenter/address/edit/index.js
+ */
 import { fetchDeliveryAddress } from '../../../../services/address/fetchAddress';
 import { areaData } from '../../../../config/index';
 
@@ -32,30 +40,41 @@ Page({
       this.setData({ detail });
     });
   },
+  updateValue(e) {
+    const content = e.detail;
+    const detail = {
+      ...this.data.detail,
+      ...content,
+    }
+    this.setData({ 
+      detail,
+    })
+  },
   formSubmit({ detail }) {
+    const { locationState } = detail;
     this.hasSava = true;
 
     resolveAddress({
       saasId: '88888888',
       uid: `88888888205500`,
       authToken: null,
-      id: detail.addressId,
-      addressId: detail.addressId,
-      phone: detail.phone,
-      name: detail.name,
-      countryName: detail.countryName,
-      countryCode: detail.countryCode,
-      provinceName: detail.provinceName,
-      provinceCode: detail.provinceCode,
-      cityName: detail.cityName,
-      cityCode: detail.cityCode,
-      districtName: detail.districtName,
-      districtCode: detail.districtCode,
-      detailAddress: detail.detailAddress,
-      isDefault: detail.isDefault === 1 ? 1 : 0,
-      addressTag: detail.addressTag,
-      latitude: detail.latitude,
-      longitude: detail.longitude,
+      id: locationState.addressId,
+      addressId: locationState.addressId,
+      phone: locationState.phone,
+      name: locationState.name,
+      countryName: locationState.countryName,
+      countryCode: locationState.countryCode,
+      provinceName: locationState.provinceName,
+      provinceCode: locationState.provinceCode,
+      cityName: locationState.cityName,
+      cityCode: locationState.cityCode,
+      districtName: locationState.districtName,
+      districtCode: locationState.districtCode,
+      detailAddress: locationState.detailAddress,
+      isDefault: locationState.isDefault === 1 ? 1 : 0,
+      addressTag: locationState.addressTag,
+      latitude: locationState.latitude,
+      longitude: locationState.longitude,
       storeId: null,
     });
 

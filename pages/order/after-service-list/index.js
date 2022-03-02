@@ -158,7 +158,6 @@ Page({
               remark: _data.logisticsVO.remark, // 退货备注
             };
           });
-          console.log('dataList', dataList);
         }
         return new Promise((resolve) => {
           if (reset) {
@@ -190,10 +189,10 @@ Page({
   },
 
   onTabChange(e) {
-    const key = e.detail;
-    const tab = this.data.tabs.find((t) => t.key === key);
+    const { value } = e.detail;
+    const tab = this.data.tabs.find(v => v.key === value);
     if (!tab) return;
-    this.refreshList(tab.key);
+    this.refreshList(value);
   },
 
   refreshList(status = -1) {

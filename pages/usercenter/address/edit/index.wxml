@@ -1,1 +1,7 @@
-<wr-address-edit detail="{{detail}}" areaData="{{areaData}}" bind:formSubmit="formSubmit" />
+<wr-address-edit
+ locationState="{{detail}}"
+ areaData="{{areaData}}"
+ bind:onHandleSubmit="formSubmit"
+ bind:triggerUpdateValue="updateValue"
+/>
+

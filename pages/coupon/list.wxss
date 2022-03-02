@@ -15,6 +15,14 @@ page {
   top: 0;
   left: 0;
 }
+.tab-bar__inner .t-tabs-is-active {
+  color: #fa550f !important;
+}
+
+.tab-bar__inner .t-tabs-track {
+  background: #fa550f !important;
+}
+
 .tab-bar__inner.order-nav .order-nav-item .bottom-line {
   bottom: 12rpx;
 }
@@ -26,9 +34,7 @@ page {
   margin-top: 20rpx;
   margin-left: 24rpx;
   margin-right: 24rpx;
-
   overflow-y: auto;
-
   padding-bottom: 100rpx;
   padding-bottom: calc(constant(safe-area-inset-top) + 100rpx);
   padding-bottom: calc(env(safe-area-inset-bottom) + 100rpx);
@@ -38,14 +44,11 @@ page {
   box-sizing: content-box;
   border-top: 1rpx solid #dce0e4;
   background-color: #fff;
-
   position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
-
   height: 100rpx;
-
   padding-bottom: 0;
   padding-bottom: constant(safe-area-inset-top);
   padding-bottom: env(safe-area-inset-bottom);
@@ -56,12 +59,8 @@ page {
   font-size: 32rpx;
   text-align: center;
   line-height: 100rpx;
-}
-
-.wr-coupon.useless .wr-coupon__left {
-  background-image: url('https://we-retail-static-1300977798.cos.ap-guangzhou.myqcloud.com/miniapp/coupon/coupon-bg-select-disabled.png');
-}
-
-.wr-coupon__mask {
-  display: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100rpx;
 }

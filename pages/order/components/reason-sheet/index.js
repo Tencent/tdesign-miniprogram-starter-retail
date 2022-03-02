@@ -39,7 +39,7 @@ Component ({
 
   methods: {
     attached() {
-      this.toast = this.selectComponent('#wr-toast');
+      this.toast = this.selectComponent('#t-toast');
     },
 
     init() {

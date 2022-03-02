@@ -1,5 +1,5 @@
-import Dialog from '../../../../miniprogram_npm/@tencent/retailwe-ui-dialog/dialog';
-import Toast from '../../../../miniprogram_npm/@tencent/retailwe-ui-toast/toast';
+import Toast from 'tdesign-miniprogram/toast/index';
+import Dialog from 'tdesign-miniprogram/dialog/index';
 
 import { OrderButtonTypes } from '../../config';
 
@@ -26,7 +26,7 @@ Component({
         }
         // 订单的button bar 不显示申请售后按钮
         const buttonsRight = (order.buttons || [])
-          .filter((b) => b.type !== OrderButtonTypes.APPLY_REFUND)
+          // .filter((b) => b.type !== OrderButtonTypes.APPLY_REFUND)
           .map((button) => {
             //邀请好友拼团按钮
             if (
@@ -118,33 +118,58 @@ Component({
     },
 
     onCancel(order) {
-      Toast({ text: '你点击了取消订单' });
+      Toast({
+        context: this,
+        selector: '#t-toast',
+        message: '你点击了取消订单',
+        icon: 'check-circle'
+      });
     },
 
     onConfirm(order) {
       Dialog.confirm({
         title: '确认是否已经收到货？',
-        message: '',
-        confirmButtonText: '确认收货',
+        content: '',
+        confirmBtn: '确认收货',
+        cancelBtn: '取消'
       }).then(() => {
-        Toast({ text: '你确认收货了' });
+        Toast({ 
+          context: this,
+          selector: '#t-toast',
+          message: '你确认收货了',
+          icon: 'check-circle'
+        });
+      }).catch(() => {
+        Toast({ 
+          context: this,
+          selector: '#t-toast',
+          message: '你取消收货了',
+          icon: 'check-circle'
+        });
       });
     },
 
     onPay(order) {
-      Toast({ text: '你点击了去支付' });
+      Toast({ 
+        context: this,
+        selector: '#t-toast',
+        message: '你点击了去支付',
+        icon: 'check-circle'
+      });
     },
 
     onApplyRefund(order) {
+      console.log('order: ', order);
       const goods = order.goodsList[this.properties.goodsIndex];
+      console.log('goods: ', goods);
       const params = {
         orderNo: order.orderNo,
-        skuId: goods.skuId,
-        spuId: goods.spuId,
+        skuId: goods?.skuId ?? '19384938948343',
+        spuId: goods?.spuId ?? '28373847384343',
         orderStatus: order.status,
         logisticsNo: order.logisticsNo,
-        price: goods.price,
-        num: goods.num,
+        price: goods?.price ?? 89,
+        num: goods?.num ?? 89,
         createTime: order.createTime,
         orderAmt: order.totalAmount,
         payAmt: order.amount,
@@ -157,7 +182,12 @@ Component({
     },
 
     onViewRefund(order) {
-      Toast({ text: '你点击了查看退款' });
+      Toast({ 
+        context: this,
+        selector: '#t-toast',
+        message: '你点击了查看退款',
+        icon: ''
+      });
     },
 
     /** 添加订单评论 */

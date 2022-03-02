@@ -17,7 +17,7 @@
 :host {
   background-color: #f5f5f5;
 }
-.select-service .wr-cell-group {
+/* .select-service .wr-cell-group {
   margin-top: 20rpx;
 }
 .select-service .wr-cell {
@@ -47,15 +47,17 @@
   font-size: 24rpx;
   color: #999999;
   word-wrap: break-word;
-}
-.select-service .wr-cell .remark {
+} */
+.select-service .remark {
   min-height: 200rpx;
+  border: 2rpx solid #c9ced3;
+  border-radius: 10rpx;
+  margin-top: 20rpx;
+}
+.select-service .remark::after {
   border: none;
 }
-.select-service .wr-cell .remark::after {
-  border: none;
-}
-.select-service .service-choice .wr-cell__title {
+/* .select-service .service-choice .wr-cell__title {
   font-weight: bold;
 }
 .select-service .service-choice .wr-cell__label {
@@ -67,8 +69,8 @@
 }
 .select-service .service-choice .non-returnable .wr-cell__label {
   color: #ff2525;
-}
-.select-service .special-cell .wr-cell__title {
+} */
+/* .select-service .special-cell .wr-cell__title {
   margin-right: 100rpx;
 }
 .select-service .special-cell .wr-cell__value {
@@ -88,7 +90,7 @@
   position: absolute;
   bottom: 24rpx;
   right: 30rpx;
-}
+} */
 .select-service .upload {
   margin-top: 40rpx;
 }
@@ -107,11 +109,11 @@
   left: 0;
   bottom: 0;
   background-color: white;
-  display: flex;
+  padding: 0 40rpx;
+  box-sizing: border-box;
 }
 .select-service .bottom-bar__btn {
-  flex: 1;
-  margin: auto 30rpx;
+  width: 100%;
   background-color: #fa550f;
   background-color: var(--color-primary, #fa550f);
   color: white;

@@ -1,5 +1,5 @@
-import Dialog from '../../../miniprogram_npm/@tencent/retailwe-ui-dialog/dialog';
-import Toast from '../../../miniprogram_npm/@tencent/retailwe-ui-toast/toast';
+import Dialog from 'tdesign-miniprogram/dialog/index';
+import Toast from 'tdesign-miniprogram/toast/index';
 import { dispatchSupplementInvoice } from '../../../services/order/orderConfirm';
 
 const invoiceJson = {
@@ -43,6 +43,7 @@ Page({
   },
   onLoad(query) {
     const { orderNo, invoiceData } = query;
+    console.log('invoiceData: ', invoiceData);
     const tempData = JSON.parse(invoiceData || '{}');
     const invoice = {
       receiptIndex: tempData.invoiceType == 5 ? 1 : 0,
@@ -81,7 +82,11 @@ Page({
   onSure() {
     const result = this.checkSure();
     if (!result) {
-      Dialog.alert({ title: '请填写发票信息', message: '' });
+      Dialog.alert({
+        title: '请填写发票信息',
+        content: '',
+        confirmBtn: '确认',
+      });
       return;
     }
     const {
@@ -106,6 +111,7 @@ Page({
       contentType: goodsClassesIndex == 0 ? 1 : 2, //发票内容 1-明细 2类别
       invoiceType: receiptIndex == 1 ? 5 : 0, //是否开票 0-不开 5-电子发票
     };
+    console.log('data: ', data);
     if (this.orderNo) {
       if (this.submitting) return;
       const params = {
@@ -117,7 +123,13 @@ Page({
       this.submitting = true;
       dispatchSupplementInvoice(params)
         .then(() => {
-          Toast({ icon: '', text: '保存成功', duration: 2000 });
+          Toast({
+            context: this,
+            selector: '#t-toast',
+            message: '保存成功',
+            duration: 2000,
+            icon: '',
+          });
           setTimeout(() => {
             this.submitting = false;
             wx.navigateBack({ delta: 1 });

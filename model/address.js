@@ -7,7 +7,7 @@ export function genAddress(id) {
     id: `${id}`,
     addressId: `${id}`,
     phone: '17612345678',
-    name: `恶魔人 - ${id}`,
+    name: `恶魔人${id}`,
     countryName: '中国',
     countryCode: 'chn',
     provinceName: '甘肃省',

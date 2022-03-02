@@ -1,8 +1,8 @@
 {
   "component": true,
   "usingComponents": {
-    "wr-tabbar": "@tencent/retailwe-ui-tabbar/index",
-    "wr-icon": "@tencent/retailwe-ui-icon/index",
-    "wr-tabbar-item": "@tencent/retailwe-ui-tabbar/tabbar-item/index"
+    "t-tab-bar": "tdesign-miniprogram/tab-bar/tab-bar",
+    "t-tab-bar-item": "tdesign-miniprogram/tab-bar/tab-bar-item",
+    "t-icon": "tdesign-miniprogram/icon/icon"
   }
 }

@@ -1,38 +1,46 @@
-<wr-popup show="{{show}}" position="bottom" bindclose="onCancel" catchTouchMove="{{false}}">
-  <view class="popup-content">
-    <view class="header">
-      {{title}}
-      <view class="close-icon-btn" wx:if="{{showCloseButton}}">
-        <wr-icon name="close" wr-class="icon" bindtap="onCancel"/>
-      </view>
-    </view>
-    <view class="options">
-      <wr-cell
-        wx:for="{{_options}}" wx:key="title"
-        wr-class="cell"
-        title="{{item.title}}"
-        bindclick="onOptionTap"
-        data-index="{{index}}"
-        border="{{false}}"
-      >
-        <view slot="right-icon">
-          <wr-icon name="check-filled" size="36rpx" color="#fa550f" wx:if="{{item.checked}}"/>
-          <wr-icon name="uncheck" size="36rpx" color="#C7C7C7" wx:else/>
-        </view>
-      </wr-cell>
-    </view>
-    <view class="button-bar" wx:if="{{showCancelButton || showConfirmButton}}">
-      <button
-        wx:if="{{showCancelButton}}"
-        class="btn"
-        bindtap="onCancel"
-      >{{cancelButtonText}}</button>
-      <button
-        wx:if="{{showConfirmButton}}"
-        class="btn primary"
-        bindtap="onConfirm"
-      >{{confirmButtonText}}</button>
-    </view>
-  </view>
-</wr-popup>
-<wr-toast id="wr-toast"/>
+<t-popup visible="{{show}}" placement="bottom" bind:visible-change="onCancel">
+	<view class="popup-content" slot="content">
+		<view class="header">
+			{{title}}
+			<view class="close-icon-btn" wx:if="{{showCloseButton}}">
+				<wr-icon name="close" wr-class="icon" bindtap="onCancel" />
+			</view>
+		</view>
+		<view class="options">
+			<t-cell
+			 wx:for="{{_options}}"
+			 wx:key="title"
+			 t-class="cell"
+			 title="{{item.title}}"
+			 bindclick="onOptionTap"
+			 data-index="{{index}}"
+			 border="{{false}}"
+			>
+				<view slot="right-icon">
+					<wr-icon
+					 name="check-filled"
+					 size="36rpx"
+					 color="#fa550f"
+					 wx:if="{{item.checked}}"
+					/>
+					<wr-icon
+					 name="uncheck"
+					 size="36rpx"
+					 color="#C7C7C7"
+					 wx:else
+					/>
+				</view>
+			</t-cell>
+		</view>
+		<view class="button-bar" wx:if="{{showCancelButton || showConfirmButton}}">
+			<t-button wx:if="{{showCancelButton}}" t-class="btn" bindtap="onCancel">
+				{{cancelButtonText}}
+			</t-button>
+			<t-button wx:if="{{showConfirmButton}}" t-class="btn confirmBtn" bindtap="onConfirm">
+				{{confirmButtonText}}
+			</t-button>
+		</view>
+	</view>
+</t-popup>
+<t-toast id="t-toast" />
+

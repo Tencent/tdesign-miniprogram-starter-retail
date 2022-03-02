@@ -59,5 +59,9 @@ Page({
       }); */
   },
 
+  navBackHandle() {
+    wx.navigateBack();
+  },
+
   onShareAppMessage: onGrouponShare,
 });

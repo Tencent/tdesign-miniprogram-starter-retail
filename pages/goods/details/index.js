@@ -1,3 +1,4 @@
+import Toast from 'tdesign-miniprogram/toast/index';
 import { fetchGood } from '../../../services/good/fetchGood';
 import { fetchActivityList } from '../../../services/activity/fetchActivityList';
 import {
@@ -19,6 +20,7 @@ const obj2Params = (obj = {}, encode = false) => {
 
   return result.join('&');
 };
+
 Page({
   data: {
     show: false,
@@ -52,7 +54,7 @@ Page({
       {
         title: '首页',
         url: '/pages/home/home',
-        iconName: 'shangxiangye-shouye',
+        iconName: 'home',
       },
       {
         title: '购物车',
@@ -81,6 +83,11 @@ Page({
     maxSalePrice: 0,
     list: [],
     spuId: '',
+    navigation: { type: 'fraction' },
+    current: 1,
+    autoplay: true,
+    duration: 500,
+    interval: 5000,
   },
 
   handlePopupHide() {
@@ -205,29 +212,34 @@ Page({
   },
   addCart() {
     const { isAllSelectedSku } = this.data;
-    if (!isAllSelectedSku) {
-      const toast = this.selectComponent(`#toast2`);
-      toast.show({
-        text: '请选择规格',
-        icon: '',
-        duration: 1000,
-      });
-      return;
-    }
-    console.log('===');
-    const toast = this.selectComponent(`#toast2`);
-    toast.show({
-      text: '库存不足',
+    console.log('isAllSelectedSku: ', isAllSelectedSku);
+
+    // if (!isAllSelectedSku) {
+    Toast({
+      context: this,
+      selector: '#t-toast',
+      message: isAllSelectedSku ? '库存不足' : '请选择规格',
       icon: '',
       duration: 1000,
     });
+    // return;
+    // }
+    // console.log('===');
+    // Toast({
+    //   context: this,
+    //   selector: '#t-toast',
+    //   message: '库存不足',
+    //   icon: '',
+    //   duration: 1000,
+    // });
   },
   gotoBuy(type) {
     const { isAllSelectedSku, buyNum } = this.data;
     if (!isAllSelectedSku) {
-      const toast = this.selectComponent(`#toast2`);
-      toast.show({
-        text: '请选择规格',
+      Toast({
+        context: this,
+        selector: '#t-toast',
+        message: '请选择规格',
         icon: '',
         duration: 1000,
       });
@@ -346,10 +358,7 @@ Page({
               goodsSpu: item.goodsSpu,
               isAnonymity: item.isAnonymity,
               uid: item.uid,
-
-              commentScore: new Array(5).fill(0).map((_, index) => {
-                return index + 1 <= (item.commentScore || 0) ? 2 : 0;
-              }),
+              commentScore: Math.floor(Math.random() * 4),
               commentContent: item.commentContent || '用户未填写评价',
               commentImageUrls: item.commentImageUrls || [],
               userHeadUrl: item.isAnonymity

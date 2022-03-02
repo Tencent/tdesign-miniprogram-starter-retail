@@ -1,5 +1,6 @@
-import Dialog from '../../../../miniprogram_npm/@tencent/retailwe-ui-dialog/dialog';
-import Toast from '../../../../miniprogram_npm/@tencent/retailwe-ui-toast/toast';
+import Dialog from 'tdesign-miniprogram/dialog/index';
+import Toast from 'tdesign-miniprogram/toast/index';
+
 import { cancelRights } from '../../after-service-detail/api';
 import { ServiceButtonTypes } from '../../config';
 
@@ -73,14 +74,14 @@ Component({
     onConfirm(service) {
       Dialog.confirm({
         title: '是否撤销退货申请？',
-        message: '',
-        confirmButtonText: '撤销申请',
-        cancelButtonText: '不撤销',
+        content: '',
+        confirmBtn: '撤销申请',
+        cancelBtn: '不撤销',
       }).then(() => {
         const params = { rightsNo: this.data.service.id };
         return cancelRights(params).then((res) => {
           console.log('res', res);
-          Toast({ text: '你确认撤销申请' });
+          Toast({ context: this, selector: '#t-toast', message: '你确认撤销申请' });
         });
       });
     },

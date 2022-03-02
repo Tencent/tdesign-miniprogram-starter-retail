@@ -6,6 +6,26 @@
   padding: 0 30rpx;
 }
 
+.search {
+  padding: 0 24rpx;
+  margin-top: 10rpx;
+  background-color: #fff;
+}
+
+.t-search > view {
+  background-color: #fff;
+}
+
+.t-search__left-icon {
+  display: flex;
+  align-items: center;
+}
+
+.t-search__input {
+  color: rgb(116, 116, 116) !important;
+}
+
+
 .search-wrap {
   margin-top: 44rpx;
 }

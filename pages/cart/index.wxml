@@ -1,27 +1,30 @@
 <!-- 分层购物车 -->
 <wr-cart-group
-  wx:if="{{cartGroupData.isNotEmpty}}"
-  store-goods="{{ cartGroupData.storeGoods }}"
-  invalid-good-items="{{ cartGroupData.invalidGoodItems }}"
-  bindselectgoods="onGoodsSelect"
-  bindselectstore="onStoreSelect"
-  bindchangequantity="onQuantityChange"
-  bindgocollect="goCollect"
-  bindgoodsclick="goGoodsDetail"
-  bindclearinvalidgoods="clearInvalidGoods"
-  binddelete="onGoodsDelete"
+ wx:if="{{cartGroupData.isNotEmpty}}"
+ store-goods="{{ cartGroupData.storeGoods }}"
+ invalid-good-items="{{ cartGroupData.invalidGoodItems }}"
+ bindselectgoods="onGoodsSelect"
+ bindselectstore="onStoreSelect"
+ bindchangequantity="onQuantityChange"
+ bindgocollect="goCollect"
+ bindgoodsclick="goGoodsDetail"
+ bindclearinvalidgoods="clearInvalidGoods"
+ binddelete="onGoodsDelete"
 />
 <!-- 购物车空态 -->
-<wr-cart-empty wx:else bindbtnclick="onBtnClick"/>
+<wr-cart-empty wx:else bindbtnclick="onBtnClick" />
+<view class="gap" />
 <!-- 商品小计以及结算按钮 -->
 <wr-cart-bar
-  is-all-selected="{{cartGroupData.isAllSelected}}"
-  total-amount="{{cartGroupData.totalAmount}}"
-  total-goods-num="{{cartGroupData.selectedGoodsCount}}"
-  total-discount-amount="{{cartGroupData.totalDiscountAmount}}"
-  bindselectall="onSelectAll"
-  bindtosettle="onToSettle"
+ is-all-selected="{{cartGroupData.isAllSelected}}"
+ total-amount="{{cartGroupData.totalAmount}}"
+ total-goods-num="{{cartGroupData.selectedGoodsCount}}"
+ total-discount-amount="{{cartGroupData.totalDiscountAmount}}"
+ fixed="{{true}}"
+ bottomHeight="{{94}}"
+ bindselectall="onSelectAll"
+ bindtosettle="onToSettle"
 />
+<t-toast id="t-toast" />
+<t-dialog id="t-dialog" />
 
-<wr-toast id="wr-toast"/>
-<wr-dialog id="wr-dialog"/>

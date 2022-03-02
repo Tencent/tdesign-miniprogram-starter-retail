@@ -1,93 +1,74 @@
-
 <view class="wrap">
-  <!-- 优惠券 -->
-  <wr-coupon-card
-    wx:if="{{detail}}"
-    status="{{detail.status}}"
-    type="{{detail.type}}"
-    value="{{detail.value}}"
-    tag="{{detail.tag}}"
-    desc="{{detail.desc}}"
-    title="{{detail.title}}"
-    time-limit="{{detail.timeLimit}}"
-    currency="{{detail.currency}}"
-    key="{{detail.key}}"
-    nav="{{false}}"
-  />
-
-  <!-- 查看适用产品 -->
-  <wr-button
-    block="{{true}}"
-    wr-class="view-good-list-btn"
-    custom-class="view-good-list-btn"
-    noBorder="{{true}}"
-    class="view-good-list-btn"
-    text="查看使用商品"
-    bind:click="navGoodListHandle"
-  />
-
-  <!-- 说明 -->
-  <wr-cell-group wr-class="desc-group-wrap">
-    <wr-cell
-      wx:if="{{detail && detail.desc}}"
-      title="优惠券说明"
-      label="{{detail && detail.desc}}"
-      is-link="{{false}}"
-    />
-    <wr-cell
-      wx:if="{{detail && detail.useNotes}}"
-      title="使用须知"
-      label="{{detail && detail.useNotes}}"
-      is-link="{{false}}"
-      label-class="multi-line-label"
-    />
-    <wr-cell
-      wx:if="{{storeInfoStr}}"
-      title="适用门店"
-      label="{{storeInfoStr}}"
-      is-link="{{true}}"
-      url=""
-      bind:tap="openStoreList"
-      title-class="max-width-cell"
-      label-class="signal-line-label"
-    />
-  </wr-cell-group>
+	<!-- 优惠券 -->
+	<wr-coupon-card
+	 wx:if="{{detail}}"
+	 status="{{detail.status}}"
+	 type="{{detail.type}}"
+	 value="{{detail.value}}"
+	 tag="{{detail.tag}}"
+	 desc="{{detail.desc}}"
+	 title="{{detail.title}}"
+	 time-limit="{{detail.timeLimit}}"
+	 currency="{{detail.currency}}"
+	 key="{{detail.key}}"
+	 nav="{{false}}"
+	/>
+	<!-- 查看适用产品 -->
+	<t-button t-class="view-good-list-btn" block="{{true}}" bindtap="navGoodListHandle">
+		查看使用商品
+	</t-button>
+	<!-- 说明 -->
+	<t-cell-group t-class="desc-group-wrap">
+		<t-cell
+		 wx:if="{{detail && detail.desc}}"
+		 t-class-title="t-class-title"
+		 t-class-description="t-class-description"
+		 title="优惠券说明"
+		 description="{{detail && detail.desc}}"
+		/>
+		<t-cell
+		 wx:if="{{detail && detail.useNotes}}"
+		 t-class-title="t-class-title"
+		 t-class-description="t-class-description"
+		 title="使用须知"
+		 description="{{detail && detail.useNotes}}"
+		/>
+		<t-cell
+		 wx:if="{{storeInfoStr}}"
+		 t-class-title="t-class-title"
+		 t-class-description="t-class-description"
+		 title="适用门店"
+		 arrow="{{true}}"
+		 description="{{storeInfoStr}}"
+		 bind:tap="openStoreList"
+		/>
+	</t-cell-group>
 </view>
-
 <!-- 弹层 -->
-<wr-popup
-  isIcon="{{true}}"
-  fixed="{{true}}"
-  show="{{showStoreInfoList}}"
-  position="bottom"
-  bind:close="closeStoreList"
->
+<t-popup visible="{{showStoreInfoList}}" placement="bottom" bind:visible-change="closeStoreList">
+	<view class="popup-content-wrap" slot="content">
+		<view class="popup-content-title">
+			适用门店
+			<t-icon
+			 t-class="close-icon"
+			 name="close"
+			 size="25"
+			 bind:tap="closeStoreList"
+			/>
+		</view>
+		<t-cell-group t-class="desc-group-wrap in-popup">
+			<t-cell
+			 wx:if="{{storeInfoStr}}"
+			 wx:for="{{storeInfoList}}"
+			 wx:for-index="idx"
+			 wx:for-item="itemName"
+			 wx:key="id"
+			 title="{{itemName.storeName}}"
+			 description="{{'' + itemName.provinceName + itemName.cityName + itemName.districtName + itemName.detailAddress}}"
+			 title-class="max-width-cell"
+			 label-class="signal-line-label"
+			/>
+		</t-cell-group>
+	</view>
+</t-popup>
 
-  <view class="popup-content-wrap">
-    <view class="popup-content-title">
-      适用门店
-      <wr-icon
-        wr-class="close-icon"
-        name="close"
-        size="25"
-        bind:tap="closeStoreList"
-      />
-    </view>
-    <wr-cell-group wr-class="desc-group-wrap in-popup">
-      <wr-cell
-        wx:if="{{storeInfoStr}}"
-        wx:for="{{storeInfoList}}"
-        wx:for-index="idx"
-        wx:for-item="itemName"
-        wx:key="id"
-
-        title="{{itemName.storeName}}"
-        label="{{'' + itemName.provinceName + itemName.cityName + itemName.districtName + itemName.detailAddress}}"
-        is-link="{{false}}"
-
-        title-class="max-width-cell"
-        label-class="signal-line-label"
-      />
-    </wr-cell-group>
-  </view>
-</wr-popup>

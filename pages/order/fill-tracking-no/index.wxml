@@ -1,58 +1,55 @@
 <view class="fill-tracking-no">
-<wr-notice-bar
-  wr-class="notice-bar"
-  color="#E17349"
-  backgroundColor="#FEFCEF"
-  scrollable="{{false}}"
-  wrapable
-  text="请填写正确的退货包裹运单信息，以免影响退款进度"
-/>
-
-<view class="fill-tracking-no__form">
-  <wr-cell title="运单号">
-    <input
-      class="wr-cell__value"
-      placeholder-class="wr-cell__placeholder"
-      type="text"
-      value="{{trackingNo}}"
-      maxlength="30"
-      placeholder="请输入物流单号"
-      bindinput="onInput"
-      data-key="trackingNo"
-    />
-    <wr-icon slot="right-icon" name="scan" wr-class="icon-scan" bindtap="onScanTap"/>
-  </wr-cell>
-  <wr-cell
-    value-class="{{deliveryCompany && deliveryCompany.name ? 'wr-cell__value' : 'wr-cell__placeholder'}}"
-    title="物流公司" is-link
-    value="{{deliveryCompany && deliveryCompany.name || '请选择物流公司'}}"
-    bindtap="onCompanyTap"
-  ></wr-cell>
-  <wr-cell title="备注信息">
-    <wr-textarea
-      wr-class="wr-cell__value textarea"
-      wr-class-placeholder="wr-cell__placeholder"
-      auto-height
-      type="text"
-      value="{{remark}}"
-      maxlength="140"
-      placeholder="选填项，如有多个包裹寄回，请注明其运单信息"
-      bindinput="onInput" data-key="remark"
-    />
-  </wr-cell>
+	<view class="notice-bar">请填写正确的退货包裹运单信息，以免影响退款进度</view>
+	<view class="fill-tracking-no__form">
+		<t-cell title="运单号" t-class-title="t-cell-title-width">
+			<t-input
+			 slot="note"
+			 t-class="t-cell__value"
+			 t-class-placeholder="t-cell__placeholder"
+			 type="text"
+			 value="{{trackingNo}}"
+			 maxlength="30"
+			 placeholder="请输入物流单号"
+			 bindinput="onInput"
+			 data-key="trackingNo"
+			/>
+			<t-icon
+			 slot="right-icon"
+			 name="scan"
+			 t-class="icon-scan"
+			 bindtap="onScanTap"
+			/>
+		</t-cell>
+		<t-cell
+		 t-class-title="t-cell-title-width"
+		 t-class-note="{{deliveryCompany && deliveryCompany.name ? 't-cell__value' : 't-cell__placeholder'}}"
+		 title="物流公司"
+		 note="{{deliveryCompany && deliveryCompany.name || '请选择物流公司'}}"
+		 arrow
+		 bindtap="onCompanyTap"
+		/>
+		<t-cell title="备注信息">
+			<view class="" slot="description">
+				<t-textarea
+				 t-class="t-cell_desc_remark"
+				 type="text"
+				 value="{{remark}}"
+				 maxlength="140"
+				 placeholder="选填项，如有多个包裹寄回，请注明其运单信息"
+				 bindinput="onInput"
+				 data-key="remark"
+				/>
+			</view>
+		</t-cell>
+	</view>
+	<view class="fill-tracking-no__button-bar">
+		<t-button t-class="btn {{ submitActived ? 'confirmBtn' : 'disabled' }}" loading="{{submitting}}" bindtap="onSubmit">
+			保存
+		</t-button>
+		<t-button t-class="btn cancelBtn" bindtap="onCancel">取消</t-button>
+	</view>
 </view>
+<wr-reason-sheet id="wr-reason-sheet" />
+<t-toast id="t-toast" />
+<t-dialog t-class-confirm="t-class-confirm" id="t-dialog" />
 
-<view class="fill-tracking-no__button-bar">
-  <button
-    class="btn primary {{ submitActived ? '' : 'disabled' }}"
-    loading="{{submitting}}"
-    bindtap="onSubmit"
-  >保存</button>
-  <button class="btn" bindtap="onCancel">取消</button>
-</view>
-</view>
-
-<wr-reason-sheet id="wr-reason-sheet"/>
-
-<wr-toast id="wr-toast"/>
-<wr-dialog id="wr-dialog"/>

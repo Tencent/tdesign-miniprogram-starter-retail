@@ -1,7 +1,14 @@
 <wr-navbar title="评价商品" homePath="/supermarket/pages/home/home/home" back="{{ false }}">
-    <wr-icon slot="left" wr-class="navigation-back" name="left" color="#333" size="30rpx" bindtap="onBackTap" />
-  </wr-navbar>
-  <view class="page-container">
+	<wr-icon
+	 slot="left"
+	 wr-class="navigation-back"
+	 name="left"
+	 color="#333"
+	 size="30rpx"
+	 bindtap="onBackTap"
+	/>
+</wr-navbar>
+<!-- <view class="page-container">
     <view wx:for="{{ commentList }}" class="{{ 'sku-comment-' + index }}" wx:key="skuId">
       <sku-comment data-field="{{ 'commentList[' + index + ']' }}" data="{{ item }}" bindchange="onFieldChange" />
     </view>
@@ -10,9 +17,6 @@
         物流服务评价
         <wr-icon name="yilingqu"  wx:if="{{isFinished}}" color="#979797" classPrefix="ym" wr-class="finished-icon" size="98" />
       </view>
-      <!-- <block wx:if="{{isFinished}}">
-        <image class="finishedIcon" src="{{finishedIcon}}" />
-      </block> -->
       <block wx:if="{{!isFinished}}">
         <view class="rate">
           <text class="label">物流评价</text>
@@ -29,4 +33,5 @@
         提交评价
       </wr-button>
     </view>
-  </view>
+  </view> -->
+

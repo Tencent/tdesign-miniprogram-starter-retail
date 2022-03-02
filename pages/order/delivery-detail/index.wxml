@@ -1,26 +1,48 @@
 <view class="page-section cells" wx:if="{{logisticsData.logisticsNo || logisticsData.company}}">
-  <wr-cell-group>
-    <wr-cell title="快递单号" wx:if="{{logisticsData.logisticsNo}}">
-      <span class="logistics-no">{{logisticsData.logisticsNo}}</span>
-      <view class="text-btn" bindtap="onLogisticsNoCopy">复制</view>
-    </wr-cell>
-    <wr-cell title="物流公司" wx:if="{{logisticsData.company}}">
-      {{logisticsData.company + (logisticsData.phoneNumber ? '-' + logisticsData.phoneNumber : '')}}
-      <view class="text-btn" bindtap="onCall" wx:if="{{logisticsData.phoneNumber}}">拨打</view>
-    </wr-cell>
-  </wr-cell-group>
+	<t-cell-group>
+		<t-cell
+		 title="快递单号"
+		 t-class-title="wr-cell__title"
+		 t-class-note="wr-cell__value"
+		 wx:if="{{logisticsData.logisticsNo}}"
+		>
+			<text slot="note" class="logistics-no">{{logisticsData.logisticsNo}}</text>
+			<view slot="right-icon" class="text-btn" bindtap="onLogisticsNoCopy">复制</view>
+		</t-cell>
+		<t-cell
+		 title="物流公司"
+		 t-class-title="wr-cell__title"
+		 t-class-note="wr-cell__value"
+		 wx:if="{{logisticsData.company}}"
+		 note="{{logisticsData.company + (logisticsData.phoneNumber ? '-' + logisticsData.phoneNumber : '')}}"
+		>
+			<view
+			 slot="right-icon"
+			 class="text-btn"
+			 bindtap="onCall"
+			 wx:if="{{logisticsData.phoneNumber}}"
+			>
+				拨打
+			</view>
+		</t-cell>
+	</t-cell-group>
 </view>
 <view class="page-section">
-  <wr-steps
-    class="steps"
-    wr-title-class="step-title"
-    wr-desc-class="step-desc"
-    wr-date-class="step-date"
-    steps="{{ logisticsData.nodes }}"
-    active="{{ active }}"
-    direction="vertical"
-    active-icon=""
-    active-color=""
-    inactive-color=""
-  ></wr-steps>
+	<t-steps t-class="steps" layout="vertical" current="{{active}}">
+		<t-step
+		 t-class-title="step-title"
+		 wx:for="{{logisticsData.nodes}}"
+		 wx:for-item="item"
+		 wx:for-index="index"
+		 wx:key="index"
+		 title="{{item.title}}"
+		>
+			<t-image slot="icon" src="{{item.icon}}" />
+			<view slot="content">
+				<view class="step-desc">{{item.desc}}</view>
+				<view class="step-date">{{item.date}}</view>
+			</view>
+		</t-step>
+	</t-steps>
 </view>
+

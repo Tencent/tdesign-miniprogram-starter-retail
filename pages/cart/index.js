@@ -1,5 +1,5 @@
-import Dialog from '../../miniprogram_npm/@tencent/retailwe-ui-dialog/dialog';
-import Toast from '../../miniprogram_npm/@tencent/retailwe-ui-toast/toast';
+import Dialog from 'tdesign-miniprogram/dialog/index';
+import Toast from 'tdesign-miniprogram/toast/index';
 
 import { fetchCartGroupData } from '../../services/cart/cart';
 
@@ -177,7 +177,9 @@ Page({
     } = e.detail;
     const { currentGoods } = this.findGoods(spuId, skuId);
     Toast({
-      text: `${isSelected ? '选择' : '取消'}"${
+      context: this,
+      selector: '#t-toast',
+      message: `${isSelected ? '选择' : '取消'}"${
         currentGoods.title.length > 5
           ? currentGoods.title.slice(0, 5) + '...'
           : currentGoods.title
@@ -214,13 +216,18 @@ Page({
         currentGoods.quantity === stockQuantity &&
         quantity - stockQuantity === 1
       ) {
-        Toast({ text: '当前商品库存不足' });
+        Toast({
+          context: this,
+          selector: '#t-toast',
+          message: '当前商品库存不足',
+        });
         return;
       }
       Dialog.confirm({
         title: '商品库存不足',
-        message: `当前商品库存不足，最大可购买数量为${stockQuantity}件`,
-        confirmButtonText: '修改为最大可购买数量',
+        content: `当前商品库存不足，最大可购买数量为${stockQuantity}件`,
+        confirmBtn: '修改为最大可购买数量',
+        cancelBtn: '取消',
       })
         .then(() => {
           this.changeQuantityService({
@@ -268,17 +275,17 @@ Page({
       goods: { spuId, skuId },
     } = e.detail;
     Dialog.confirm({
-      message: '确认删除该商品吗?',
+      content: '确认删除该商品吗?',
     }).then(() => {
       this.deleteGoodsService({ spuId, skuId }).then(() => {
-        Toast({ text: '商品删除成功' });
+        Toast({ context: this, selector: '#t-toast', message: '商品删除成功' });
         this.refreshData();
       });
     });
   },
 
   onSelectAll() {
-    Toast({ text: '点击了全选按钮' });
+    Toast({ context: this, selector: '#t-toast', message: '点击了全选按钮' });
     // 调用接口改变全选
   },
 

@@ -1,36 +1,33 @@
 <view class="get-address-wrap">
-  <wr-cell
-    is-link="{{true}}"
-    title="获取微信收货地址"
-    icon="weixin"
-    iconColor="#00C800"
-    iconSize="{{48}}"
-    bind:click="getWXAddressHandle"
-  />
+	<t-cell
+	 title="获取微信收货地址"
+	 arrow="{{true}}"
+	 t-class="t-cell-class"
+	 t-class-title="t-cell-title"
+	 bind:click="getWXAddressHandle"
+	>
+		<wr-icon
+		 name="weixin"
+		 size="48"
+		 color="#00C800"
+		 slot="left-icon"
+		/>
+	</t-cell>
+	<wr-address-list
+	 addresses="{{addressList}}"
+	 bind:onSelect="selectHandle"
+	 bind:onDelete="confirmDelteHandle"
+	 bind:onEdit="editAddressHandle"
+	/>
 </view>
-
-<wr-address-list
-  addresses="{{addressList}}"
-  bind:onSelect="selectHandle"
-  bind:onDelete="confirmDelteHandle"
-  bind:onEdit="editAddressHandle"
-/>
-
 <view class="create-btn-placeholfer" />
 <view class="create-btn-wrap">
-  <wr-button
-    noBorder="{{true}}"
-    block="{{true}}"
-    text="新建收货地址"
-    btn-style="background-color: #FA550F;color: #fff;min-height: 80rpx;line-height: 80rpx;"
-    bind:click="createHandle"
-  />
+	<t-button t-class="create-btn" bind:tap="createHandle">新建收货地址</t-button>
 </view>
+<t-dialog
+ show="{{showDeleteConfirm}}"
+ title="是否删除收货地址"
+ bindconfirm="deleteAddressHandle"
+ showCancelButton="{{true}}"
+/>
 
-<wr-dialog
-  show="{{showDeleteConfirm}}"
-  title="是否删除收货地址"
-  bindconfirm="deleteAddressHandle"
-  showCancelButton="{{true}}"
->
-</wr-dialog>

@@ -1,7 +1,7 @@
 {
   "navigationBarTitleText": "营销详情",
   "usingComponents": {
-    "wr-toast": "@tencent/retailwe-ui-toast/index",
+    "t-toast": "tdesign-miniprogram/toast/toast",
     "wr-promotion-detail": "@tencent/retailwe-ui-promotion-detail/index"
   }
 }

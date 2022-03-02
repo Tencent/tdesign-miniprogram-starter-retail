@@ -3,6 +3,11 @@ Component({
   data: {
     active: 0,
     list: TabMenu,
+    theme: {
+      custom: {
+        colorPrimary: '#fa550f',
+      },
+    },
   },
 
   methods: {

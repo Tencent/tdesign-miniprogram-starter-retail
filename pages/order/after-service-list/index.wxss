@@ -5,22 +5,28 @@
 }
 
 .page-container .tab-bar__placeholder,
-.page-container .tab-bar__inner {
+.tab-bar {
   height: 88rpx;
   line-height: 88rpx;
 }
 
-.page-container .tab-bar__inner {
-  font-size: 26rpx;
-  color: #333333;
-  position: fixed;
-  width: 100vw;
-  top: 0;
-  left: 0;
+.tab-bar .t-tabs-scroll {
+  border: none !important;
 }
 
-.page-container .tab-bar__inner.order-nav .order-nav-item .bottom-line {
-  bottom: 12rpx;
+.tab-bar .t-tabs-is-active {
+  color: #fa550f !important;
+}
+
+.tab-bar .t-tabs-track {
+  background: #fa550f !important;
+}
+
+.tab-bar {
+  font-size: 26rpx;
+  color: #333333;
+  width: 100vw;
+  background: #fff
 }
 
 .page-container .tab-bar__active {
@@ -132,11 +138,14 @@ wr-order-goods-card:not(:first-child) .wr-goods-card {
 }
 
 .page-container .order-card .header .store-name {
-  -webkit-line-clamp: 1;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
   width: 80%;
+}
+
+.page-container .order-card .header .store-name > view {
+  overflow: hidden;
+  width: 100%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .page-container .status-desc {
