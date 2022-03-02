@@ -12,12 +12,12 @@ const countsData = [
   {
     num: 22,
     name: '积分',
-    type: 'point'
+    type: 'point',
   },
   {
     num: 1000,
     name: '优惠券',
-    type: 'coupon'
+    type: 'coupon',
   },
 ];
 
@@ -39,8 +39,15 @@ const orderTagInfos = [
   {
     title: '待收货',
     iconName: 'packaging',
-    orderNum: 3,
+    orderNum: 0,
     tabType: 40,
+    status: 1,
+  },
+  {
+    title: '待评价',
+    iconName: 'packaging',
+    orderNum: 3,
+    tabType: 60,
     status: 1,
   },
   {

@@ -1,4 +1,4 @@
-<wr-user-center-card
+<t-user-center-card
  userInfo="{{userInfo}}"
  isPhoneHide="{{true}}"
  name-class="custom-name-class"
@@ -9,7 +9,7 @@
 />
 <view class="content-wrapper">
 	<view class='order-group-wrapper'>
-		<wr-order-group orderTagInfos="{{orderTagInfos}}" bind:onClickTop="jumpAllOrder" bind:onClickItem="jumpNav" />
+		<t-order-group orderTagInfos="{{orderTagInfos}}" bind:onClickTop="jumpAllOrder" bind:onClickItem="jumpNav" />
 	</view>
 	<view wx:for="{{menuData}}" wx:key="item" class="cell-box">
 		<t-cell-group>
@@ -36,12 +36,11 @@
  data-index="2"
 >
 	<view class="popup-content" slot="content">
-		<view class="popup-title" wx:if="{{customerServiceInfo.serviceTimeDuration}}">
-			<text class="popup-title-tag">服务时间</text>
-			: {{customerServiceInfo.serviceTimeDuration}}
+		<view class="popup-title border-bottom-1px" wx:if="{{customerServiceInfo.serviceTimeDuration}}">
+			服务时间: {{customerServiceInfo.serviceTimeDuration}}
 		</view>
 		<!-- <view class="popup-phone" bind:tap="call">呼叫 {{phone}}</view> -->
-		<view class="popup-phone" bind:tap="call">电话客服</view>
+		<view class="popup-phone {{showKefu ? 'border-bottom-1px' : ''}}" bind:tap="call">电话客服</view>
 		<view class="popup-phone online" bind:tap="callOnlineService" wx:if="{{showKefu}}">在线客服</view>
 		<view class="popup-close" bind:tap="closeMakePhone">取消</view>
 	</view>

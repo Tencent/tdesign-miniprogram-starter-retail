@@ -1,0 +1,38 @@
+<view class="user-center-card">
+	<!-- 未登录的情况 -->
+	<block wx:if="{{currAuthStep === AuthStepType.ONE}}">
+		<view class="user-center-card__header" bind:tap="gotoUserEditPage">
+			<open-data type="userAvatarUrl" class="user-center-card__header__avatar" />
+			<view class="user-center-card__header__name">{{'请登录'}}</view>
+			<!-- <t-icon name="chevron-right" size="48rpx" t-class="user-center-card__icon" /> -->
+		</view>
+	</block>
+	<!-- 已登录但未授权用户信息情况 -->
+	<block wx:if="{{currAuthStep === AuthStepType.TWO}}">
+		<view class="user-center-card__header">
+			<open-data type="userAvatarUrl" class="user-center-card__header__avatar" />
+			<open-data type="userNickName" class="user-center-card__header__name" />
+			<!-- 需要授权用户信息，通过slot添加弹窗 -->
+			<view class="user-center-card__header__transparent" wx:if="{{isNeedGetUserInfo}}">
+				<slot name="getUserInfo" />
+			</view>
+			<!-- 不需要授权用户信息，仍然触发gotoUserEditPage事件 -->
+			<view class="user-center-card__header__transparent" bind:tap="gotoUserEditPage" wx:else></view>
+		</view>
+	</block>
+	<!-- 已登录且已经授权用户信息的情况 -->
+	<block wx:if="{{currAuthStep === AuthStepType.THREE}}">
+		<view class="user-center-card__header" bind:tap="gotoUserEditPage">
+			<t-image
+			 width="96"
+			 height="96"
+			 t-class="avatar"
+			 mode="aspectFill"
+			 class="user-center-card__header__avatar"
+			 src="{{userInfo.avatarUrl || defaultAvatarUrl}}"
+			/>
+			<view class="user-center-card__header__name">{{userInfo.nickName || '微信用户'}}</view>
+		</view>
+	</block>
+</view>
+

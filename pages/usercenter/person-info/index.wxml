@@ -1,13 +1,13 @@
 <t-cell-group>
 	<t-cell
 	 title="头像"
-	 note=""
 	 center="{{true}}"
 	 data-type="avatarUrl"
 	 bind:click="onClickCell"
+	 arrow
 	>
 		<t-image
-		 slot="right-icon"
+		 slot="note"
 		 src="{{personInfo.avatarUrl}}"
 		 t-class="avatarUrl"
 		 mode="aspectFill"
@@ -15,35 +15,24 @@
 	</t-cell>
 	<t-cell
 	 title="昵称"
+	 arrow
 	 note="{{personInfo.nickName}}"
 	 data-type="name"
 	 bind:click="onClickCell"
 	/>
 	<t-cell
 	 title="性别"
+	 arrow
 	 note="{{personInfo.gender === 1 ? '男' : '女'}}"
 	 data-type="gender"
 	 bind:click="onClickCell"
 	/>
 	<t-cell
 	 title="手机号"
+	 arrow
 	 note="{{personInfo.phoneNumber}}"
 	 data-type="phoneNumber"
 	 bind:click="onClickCell"
-	/>
-	<t-cell
-	 title="地区"
-	 note="{{addressString}}"
-	 data-type="addressString"
-	 bind:click="onClickCell"
-	/>
-	<t-cell
-	 title="生日"
-	 note="{{brithString}}"
-	 data-type="brithString"
-	 arrow="{{true}}"
-	 value-class="brith-string-value"
-	 bind:tap="onClickCell"
 	/>
 </t-cell-group>
 <t-button

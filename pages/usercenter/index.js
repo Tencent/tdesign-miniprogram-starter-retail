@@ -5,7 +5,7 @@ const menuData = [
   [
     {
       title: '收货地址',
-      tit: '收货地址管理',
+      tit: '',
       url: '',
       type: 'address',
     },
@@ -24,10 +24,10 @@ const menuData = [
   ],
   [
     {
-      title: '个人信息',
+      title: '帮助中心',
       tit: '',
       url: '',
-      type: 'userinfo',
+      type: 'help-center',
     },
     {
       title: '客服热线',
@@ -60,6 +60,13 @@ const orderTagInfos = [
     status: 1,
   },
   {
+    title: '待评价',
+    iconName: 'comment',
+    orderNum: 0,
+    tabType: 60,
+    status: 1,
+  },
+  {
     title: '退款/售后',
     iconName: 'money',
     orderNum: 0,
@@ -83,13 +90,7 @@ const getDefaultData = () => ({
 });
 
 Page({
-  /**
-   * Page initial data
-   */
   data: getDefaultData(),
-  /**
-   * Lifecycle function--Called when page load
-   */
   // onLoad: function (options) {
   //   const {
   //     statusBarHeight,
@@ -117,14 +118,14 @@ Page({
   fetUseriInfoHandle() {
     fetchUserCenter().then(
       ({ userInfo, countsData, orderTagInfos, customerServiceInfo }) => {
-        menuData?.[0].forEach(v=>{
+        menuData?.[0].forEach((v) => {
           countsData.forEach((counts) => {
-            counts.num = counts.num <= 999 ? counts.num : '999+'
-            if(counts.type === v.type) {
-              v.tit = counts.num
+            counts.num = counts.num <= 999 ? counts.num : '999+';
+            if (counts.type === v.type) {
+              v.tit = counts.num;
             }
-          })
-        })
+          });
+        });
         this.setData({
           userInfo,
           countsData,
@@ -152,7 +153,7 @@ Page({
         this.openMakePhone();
         break;
       }
-      case 'userinfo': {
+      case 'help-center': {
         wx.navigateTo({ url: '/pages/usercenter/person-info/index' });
         break;
       }
@@ -172,9 +173,8 @@ Page({
   },
 
   jumpNav(e) {
-    // const status =e.detail.tabType;
     const status = e.detail.tabType;
-    
+
     if (status === 0) {
       wx.navigateTo({ url: '/pages/order/after-service-list/index' });
     } else {
@@ -193,7 +193,7 @@ Page({
   closeMakePhone() {
     this.setData({ showMakePhone: false });
   },
-  
+
   call() {
     wx.makePhoneCall({
       phoneNumber: this.data.customerServiceInfo.servicePhone,
@@ -201,11 +201,11 @@ Page({
   },
 
   gotoUserEditPage() {
-    const {currAuthStep} = this.data;
-    if(currAuthStep === 2) {
+    const { currAuthStep } = this.data;
+    if (currAuthStep === 2) {
       wx.navigateTo({ url: '/pages/usercenter/person-info/index' });
-    }else {
+    } else {
       this.fetUseriInfoHandle();
     }
-  }
+  },
 });

@@ -2,7 +2,7 @@
 <wxs module="handleInvoice" src="./handleInvoice.wxs" />
 <wxs module="getNotes" src="./getNotes.wxs" />
 <view class="order-sure" wx:if="{{!loading}}">
-	<wr-address-card addressData="{{userAddress}}" bind:addclick="onGotoAddress" bind:addressclick="onGotoAddress" />
+	<!-- <wr-address-card addressData="{{userAddress}}" bind:addclick="onGotoAddress" bind:addressclick="onGotoAddress" /> -->
 	<view wx:if="{{ grouponAvatars.length }}" class="groupon-card">
 		<view class="tips">立即支付，即可开团成功</view>
 		<groupon-avatars items="{{ grouponAvatars }}" />

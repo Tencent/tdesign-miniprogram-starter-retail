@@ -73,18 +73,37 @@ page .popup__content--bottom {
   bottom: calc(100rpx + env(safe-area-inset-bottom));
 }
 .popup-content {
-  background-color: #f5f5f5;
-  margin-bottom: 160rpx;
-}
-.popup-content .popup-title-tag {
-  font-weight: 500;
+  background: #f5f5f5;
+  margin-bottom: calc(96rpx + env(safe-area-inset-bottom));
+  border-radius: 16rpx 16rpx 0 0;
 }
 .popup-content .popup-title {
-  background: #f5f5f5;
+  background: #fff;
   text-align: center;
   font-size: 24rpx;
   color: #999;
-  padding: 20rpx;
+  height: 112rpx;
+  text-align: center;
+  line-height: 112rpx;
+  border-radius: 16rpx 16rpx 0 0;
+}
+
+.border-bottom-1px {
+  position: relative;
+}
+
+.border-bottom-1px::after {
+  position: absolute;
+  display: block;
+  content: '';
+  box-sizing: border-box;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 200%;
+  transform: scale(0.5);
+  transform-origin: left top;
+  border-bottom: 2rpx solid #e5e5e5;
 }
 .popup-content .popup-phone,
 .popup-content .popup-close {
@@ -97,8 +116,7 @@ page .popup__content--bottom {
   font-size: 30rpx;
   font-family: PingFangSC-Regular, PingFang SC;
   font-weight: 400;
-  color: #fa550f;
-  color: var(--color-primary, #fa550f);
+  color: #333;
 }
 .popup-content .popup-phone.online {
   border-top: 1rpx solid #e6e6e6;
@@ -107,6 +125,7 @@ page .popup__content--bottom {
 .popup-content .popup-close {
   color: #333;
   border: 0;
+  margin-top: 16rpx;
 }
 
 .my-order {

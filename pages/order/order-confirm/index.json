@@ -7,9 +7,7 @@
     "t-cell": "tdesign-miniprogram/cell/cell",
     "t-dialog": "tdesign-miniprogram/dialog/dialog",
     "t-textarea": "tdesign-miniprogram/textarea/textarea",
-
     "wr-order-card": "@tencent/retailwe-ui-order-card/index",
-    "wr-address-card": "@tencent/retailwe-ui-address-card/index",
     "wr-order-goods-card": "@tencent/retailwe-ui-order-goods-card/index",
     "wr-price": "@tencent/retailwe-ui-price/index",
     "select-coupons": "../components/selectCoupons/selectCoupons",
