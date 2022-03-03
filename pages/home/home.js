@@ -3,7 +3,6 @@ import { fetchGoodsList } from '../../services/good/fetchGoods';
 
 Page({
   data: {
-    keyword: '',
     imgSrcs: [],
     activityImg: '',
     tabList: [],
@@ -50,12 +49,11 @@ Page({
     this.setData({
       pageLoading: true,
     });
-    fetchHome().then(({ swiper, tabList, keyword, activityImg }) => {
+    fetchHome().then(({ swiper, tabList, activityImg }) => {
       this.setData({
         tabList,
         imgSrcs: swiper,
         activityImg,
-        keyword,
         pageLoading: false,
       });
       this.loadGoodsList(true);

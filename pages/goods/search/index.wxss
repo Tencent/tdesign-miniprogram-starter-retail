@@ -12,11 +12,7 @@
   background-color: #fff;
 }
 
-.t-search > view {
-  background-color: #fff;
-}
-
-.t-class-input-container {
+.t-class__input-container {
   height: 64rpx !important;
 }
 
@@ -28,10 +24,6 @@
 .t-search__input {
   font-size: 28rpx !important;
   color: rgb(116, 116, 116) !important;
-}
-
-.t-search__input ::placeholder {
-  color: red !important;
 }
 
 .search-wrap {

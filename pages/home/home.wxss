@@ -11,8 +11,8 @@ page {
   background-color: #fff;
 }
 
-.t-search > view {
-  background-color: #fff;
+.t-class__input-container {
+  height: 64rpx !important;
 }
 
 .t-search__left-icon {
@@ -21,10 +21,7 @@ page {
 }
 
 .t-search__input {
-  color: rgb(116, 116, 116) !important;
-}
-
-.t-search__placeholder {
+  font-size: 28rpx !important;
   color: rgb(116, 116, 116) !important;
 }
 

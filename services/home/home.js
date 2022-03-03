@@ -38,7 +38,6 @@ function mockFetchHome() {
           key: 6,
         },
       ],
-      keyword: 'iPhone 12火热发售中',
       activityImg: `${cdnBase}/activity/banner.png`,
     };
   });
