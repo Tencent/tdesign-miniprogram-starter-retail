@@ -2,11 +2,10 @@
   "pages": [
     "pages/home/home",
     "pages/entry/index",
-
     "pages/usercenter/index",
+    "pages/usercenter/person-info/index",
     "pages/usercenter/address/list/index",
     "pages/usercenter/address/edit/index",
-
     "pages/goods/list/index",
     "pages/goods/details/index",
     "pages/goods/category/index",
