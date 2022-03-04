@@ -39,18 +39,17 @@ Component({
   data: {
     isDisabled: false,
   },
-  /**
-   * 组件的初始数据
-   */
 
-  selectAll() {
-    this.triggerEvent('selectall', {
-      isAllSelected: !this.properties.isAllSelected,
-    });
-  },
+  methods: {
+    handleSelectAll() {
+      this.triggerEvent('handleSelectAll', {
+        isAllSelected: !this.properties.isAllSelected,
+      });
+    },
 
-  toSettle() {
-    if (this.data.isDisabled) return;
-    this.triggerEvent('tosettle');
+    handleToSettle() {
+      if (this.data.isDisabled) return;
+      this.triggerEvent('handleToSettle');
+    },
   },
 });
