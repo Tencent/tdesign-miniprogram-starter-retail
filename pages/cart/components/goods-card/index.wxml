@@ -1,0 +1,122 @@
+<view
+ id="{{independentID}}"
+ class="wr-goods-card card-class {{ layout }} {{ centered ? 'center' : ''}}"
+ bind:tap="clickHandle"
+ data-goods="{{ goods }}"
+ hidden="{{hiddenInData}}"
+>
+	<view class="wr-goods-card__main">
+		<view class="wr-goods-card__thumb thumb-class" bind:tap="clickThumbHandle">
+			<!-- data-src 是方便加购动画读取图片用的 -->
+			<wr-image
+			 class="wr-goods-card__thumb-com"
+			 wx:if="{{ !!goods.thumb && !goods.hideKey.thumb }}"
+			 src="{{ goods.thumb }}"
+			 width="{{thumbWidth}}"
+			 height="{{thumbHeight}}"
+			 no-inline-size="{{true}}"
+			 no-img-mogr="{{thumbSize.width < 0 || thumbSize.height < 0}}"
+			 data-src="{{ goods.thumb }}"
+			 wr-class="wr-goods-card__img"
+			 mode="{{ thumbMode }}"
+			 lazy-load="{{ lazyLoad }}"
+			/>
+			<slot name="thumb-cover" />
+		</view>
+
+		<view class="wr-goods-card__body">
+			<view class="wr-goods-card__long_content">
+				<view wx:if="{{ goods.title && !goods.hideKey.title }}" class="wr-goods-card__title title-class" style="-webkit-line-clamp: {{ goods.lineClamp }};">
+					<view wx:if="{{ goods.titlePrefixTags && goods.titlePrefixTags.length && !goods.hideKey.titlePrefixTags }}" class="wr-goods-card__title__prefix-tags">
+						<wr-tag
+						 class="prefix-tag"
+						 wx:for="{{ goods.titlePrefixTags }}"
+						 wx:key="index"
+						 wx:for-item="titlePrefixTag"
+						 textColor="{{titlePrefixTag.textColor || 'white'}}"
+						 color="{{ titlePrefixTag.color || '#FF7940' }}"
+						>
+							{{ titlePrefixTag.text }}
+						</wr-tag>
+					</view>
+					<slot name="before-title" />
+					{{ goods.title }}
+				</view>
+				<slot name="after-title" />
+				<view wx:if="{{ goods.desc && !goods.hideKey.desc }}" class="wr-goods-card__desc desc-class">{{ goods.desc }}</view>
+				<slot name="after-desc" />
+				<view wx:if="{{ goods.specsDesc && !goods.hideKey.specs }}" class="wr-goods-card__specs__desc specs-class" bind:tap="clickSpecsHandle">
+					<view class="wr-goods-card__specs__desc-text">{{ goods.specsDesc }}</view>
+					<wr-icon
+					 wr-class="wr-goods-card__specs__desc-icon"
+					 name="{{specsIcon}}"
+					 size=""
+					 class-prefix="{{specsIconClassPrefix}}"
+					/>
+				</view>
+				<view wx:if="{{ goods.specsText && !goods.hideKey.specs }}" class="wr-goods-card__specs__text specs-class">{{ goods.specsText }}</view>
+				<slot name="after-specs" />
+				<view wx:if="{{ goods.tags && !goods.hideKey.tags && !!goods.tags.length }}" class="wr-goods-card__tags">
+					<view
+					 wx:for="{{ goods.tags }}"
+					 wx:key="index"
+					 wx:for-item="tag"
+					 bind:tap="clickTagHandle"
+					 data-index="{{index}}"
+					>
+						<wr-tag wr-class="wr-goods-card__tag">
+							{{ tag }}
+						</wr-tag>
+					</view>
+				</view>
+				<slot name="after-tags" />
+			</view>
+
+			<view class="wr-goods-card__short_content">
+				<view wx:if="{{ pricePrefix }}" class="wr-goods-card__price__prefix price-prefix-class">{{ pricePrefix }}</view>
+				<slot name="price-prefix" />
+
+				<view wx:if="{{ goods.price && !goods.hideKey.price }}" class="wr-goods-card__price">
+					<wr-price
+					 wr-class="price-class"
+					 symbol="{{currency}}"
+					 price="{{goods.price}}"
+					 fill="{{priceFill}}"
+					/>
+				</view>
+				<view wx:if="{{ goods.originPrice && !goods.hideKey.originPrice && isValidityLinePrice }}" class="wr-goods-card__origin-price">
+					<wr-price
+					 wr-class="origin-price-class"
+					 symbol="{{currency}}"
+					 price="{{goods.originPrice}}"
+					 fill="{{priceFill}}"
+					/>
+				</view>
+				<slot name="origin-price" />
+
+				<view wx:if="{{goods.num && !goods.hideKey.num}}" class="wr-goods-card__num num-class">
+					<text class="wr-goods-card__num__prefix">x </text>
+					{{ goods.num }}</view>
+
+				<!-- <wr-add-cart
+				 wx:if="{{showCart}}"
+				 id="{{independentID}}-cart"
+				 data-id="{{independentID}}"
+				 class="wr-goods-card__add-cart"
+				 icon="{{addCartIcon}}"
+				 class-prefix="{{addCartIconClassPrefix}}"
+				 size="{{cartSize}}"
+				 color="{{cartColor}}"
+				 bind:click="addCartHandle"
+				/>
+				<slot name="add-cart" /> -->
+			</view>
+
+			<slot name="append-body" />
+		</view>
+
+		<slot name="footer" />
+	</view>
+	<slot name="append-card" />
+</view>
+
