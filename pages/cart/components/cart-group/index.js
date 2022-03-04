@@ -73,22 +73,13 @@ Component({
         quantity: num,
       });
     },
-
-    minus(e) {
+    changeStepper(e) {
       const { value } = e.detail;
       const { goods } = e.currentTarget.dataset;
       let num = value;
       if (value > goods.stack) {
         num = goods.stack;
       }
-      this.changeQuantity(num, goods);
-    },
-
-    plus(e) {
-      const { value } = e.detail;
-      const { goods } = e.currentTarget.dataset;
-      const num = value;
-
       this.changeQuantity(num, goods);
     },
 
@@ -160,6 +151,7 @@ Component({
     },
 
     goGoodsDetail(e) {
+      console.log('🚀 ~ file: index.js ~ line 154 ~ goGoodsDetail ~ e', e);
       if (this.isSpecsTap) {
         this.isSpecsTap = false;
         return;

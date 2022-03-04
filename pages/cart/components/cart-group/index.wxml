@@ -79,15 +79,15 @@
 							 centered="{{true}}"
 							 data="{{goods}}"
 							 data-goods="{{goods}}"
-							 bindspecs="specsTap"
-							 bindclick="goGoodsDetail"
+							 catchspecs="specsTap"
+							 catchclick="goGoodsDetail"
 							>
 								<view slot="thumb-cover" class="stock-mask" wx:if="{{goods.shortageStock || goods.stockQuantity <= 3}}">
 									仅剩{{goods.stockQuantity}}件
 								</view>
 								<view slot="append-body" class="goods-stepper">
 									<view class="stepper-tip" wx:if="{{goods.shortageStock}}">库存不足</view>
-									<wr-stepper
+									<t-stepper
 									 classname="stepper-info"
 									 value="{{goods.quantity}}"
 									 min="{{1}}"
@@ -95,10 +95,10 @@
 									 data-goods="{{goods}}"
 									 data-gi="{{gi}}"
 									 data-si="{{si}}"
-									 bindminus="minus"
-									 bindplus="plus"
-									 bindblur="input"
-									 bindoverlimit="overlimit"
+									 catchchange="changeStepper"
+									 catchblur="input"
+									 catchoverlimit="overlimit"
+									 theme="grey"
 									/>
 								</view>
 							</wr-goods-card>

@@ -3,10 +3,9 @@
   "usingComponents": {
     "t-toast": "tdesign-miniprogram/toast/toast",
     "t-icon": "tdesign-miniprogram/icon/icon",
-    "wr-icon": "@tencent/retailwe-ui-icon/index",
+    "t-stepper": "tdesign-miniprogram/stepper/stepper",
     "wr-swipeout": "/components/swipeout/index",
     "wr-goods-card": "@tencent/retailwe-ui-goods-card/index",
-    "wr-specs-popup": "@tencent/retailwe-ui-specs-popup/index",
-    "wr-stepper": "@tencent/retailwe-ui-stepper/index"
+    "wr-specs-popup": "@tencent/retailwe-ui-specs-popup/index"
   }
 }

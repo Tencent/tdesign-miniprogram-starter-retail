@@ -40,44 +40,45 @@ Component({
   /**
    * Component methods
    */
-
-  open(position) {
-    this.setData({ closed: false });
-    this.triggerEvent('close', {
-      position,
-      instance: this,
-      name: this.properties.name,
-    });
-  },
-
-  close() {
-    this.setData({ closed: true });
-  },
-
-  closeOther() {
-    ARRAY.filter((item) => item !== this).forEach((item) => item.close());
-  },
-
-  noop() {
-    return;
-  },
-
-  onClick(event) {
-    const { key: position = 'outside' } = event.currentTarget.dataset;
-    this.triggerEvent('click', position);
-
-    if (this.data.closed) {
-      return;
-    }
-
-    if (this.data.asyncClose) {
+  methods: {
+    open(position) {
+      this.setData({ closed: false });
       this.triggerEvent('close', {
         position,
         instance: this,
         name: this.properties.name,
       });
-    } else {
-      this.close();
-    }
+    },
+
+    close() {
+      this.setData({ closed: true });
+    },
+
+    closeOther() {
+      ARRAY.filter((item) => item !== this).forEach((item) => item.close());
+    },
+
+    noop() {
+      return;
+    },
+
+    onClick(event) {
+      const { key: position = 'outside' } = event.currentTarget.dataset;
+      this.triggerEvent('click', position);
+
+      if (this.data.closed) {
+        return;
+      }
+
+      if (this.data.asyncClose) {
+        this.triggerEvent('close', {
+          position,
+          instance: this,
+          name: this.properties.name,
+        });
+      } else {
+        this.close();
+      }
+    },
   },
 });
