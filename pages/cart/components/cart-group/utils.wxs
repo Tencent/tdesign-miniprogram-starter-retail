@@ -1,0 +1,20 @@
+module.exports.slice = function(arr) {
+  return arr.slice(0, 2);
+};
+module.exports.imgCut = function(url, width, height) {
+  if (url && (url.slice(0, 5) === 'http:' || url.slice(0, 6) === 'https:' || url.slice(0, 2) === '//')) {
+    var argsStr = 'imageMogr2/thumbnail/!' + width +  'x' + height + 'r';
+    if (url.indexOf('?') > -1) {
+      url = url + '&' + argsStr;
+    } else {
+      url = url + '?' + argsStr;
+    }
+    if (url.slice(0, 5) === 'http:') {
+      url = 'https://' + url.slice(5)
+    }
+    if (url.slice(0, 2) === '//') {
+      url = 'https:' + url
+    }
+  }
+  return url;
+};

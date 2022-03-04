@@ -1,0 +1,36 @@
+<view class="cart-bar__placeholder" wx:if="{{fixed}}" />
+<view class="cart-bar {{fixed ? 'cart-bar--fixed' : ''}} flex flex-v-center" style="bottom: {{fixed ? 'calc(' + bottomHeight + 'rpx + env(safe-area-inset-bottom))' : ''}};">
+	<view class="left flex flex1 flex-v-center">
+		<view catchtap="selectAll" class="check-all flex flex-v-center">
+			<wr-icon
+			 wx:if="{{isAllSelected}}"
+			 name="check"
+			 wr-class="check--text-primary"
+			 size=""
+			/>
+			<wr-icon
+			 wx:else
+			 name="uncheck"
+			 wr-class="check"
+			 size=""
+			/>
+			<text class="select-text">全选</text>
+		</view>
+		<!-- <view class="clear" catchtap="clearCart">清空购物车</view> -->
+	</view>
+	<view class="center flex flex-v-center">
+		<view class="total-amount-wrap">
+			合计
+			<wr-price price="{{totalAmount || '0'}}" fill="{{false}}" />
+		</view>
+		<view class="description">
+			已优惠
+			<wr-price price="{{totalDiscountAmount || '0'}}" fill="{{false}}" />
+			不含配送费
+		</view>
+	</view>
+	<view bind:tap="toSettle" class="{{!isDisabled ? '' : 'disabled-btn'}} account-btn" hover-class="{{!isDisabled ? '' : 'btn-hover'}}">
+		结算({{totalGoodsNum}})
+	</view>
+</view>
+

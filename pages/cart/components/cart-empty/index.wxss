@@ -1,0 +1,34 @@
+/* var() css变量适配*/
+.tip-wrap {
+  padding: 120rpx 0 100rpx;
+}
+.tip-wrap .img {
+  width: 240rpx;
+  height: 240rpx;
+  margin: 0 auto;
+}
+.tip-wrap .img .cart-img {
+  width: 100%;
+  height: 100%;
+}
+.tip-wrap .tip {
+  font-size: 28rpx;
+  color: #999;
+  text-align: center;
+  margin-top: 40rpx;
+}
+.tip-wrap .btn {
+  width: 260rpx;
+  height: 80rpx;
+  text-align: center;
+  line-height: 80rpx;
+  border: 2rpx solid #fa550f;
+  border: 2rpx solid var(--color-primary, #fa550f);
+  color: #fa550f;
+  color: var(--color-primary, #fa550f);
+  font-size: 30rpx;
+  border-radius: 8rpx;
+  background-color: #f6f6f6;
+  margin: 60rpx auto 0;
+  font-weight: 600;
+}

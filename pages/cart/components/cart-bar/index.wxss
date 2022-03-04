@@ -1,0 +1,100 @@
+/* var() css变量适配*/
+.cart-bar__placeholder {
+  height: 100rpx;
+}
+.flex {
+  display: flex;
+}
+.flex-v-center {
+  align-items: center;
+}
+.flex1 {
+  flex: 1;
+}
+.cart-bar {
+  height: 96rpx;
+  background-color: #fff;
+  font-weight: 400;
+  box-shadow: 0 -1rpx 10rpx 0 rgba(0, 0, 0, 0.1);
+  border-bottom: 1rpx solid #f6f6f6;
+}
+.cart-bar--fixed {
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: 99;
+  bottom: calc(100rpx + env(safe-area-inset-bottom));
+}
+.cart-bar .check-all {
+  font-size: 26rpx;
+  line-height: 60rpx;
+  padding-left: 40rpx;
+}
+.cart-bar .check-all .select-text {
+  margin-left: 16rpx;
+  color: #999;
+  font-size: 24rpx;
+}
+.cart-bar .check-all .market {
+  font-size: 40rpx;
+  padding-bottom: 4rpx;
+}
+.cart-bar .check-all .wr-uncheck {
+  color: #999;
+}
+.cart-bar .check-all .check,
+.cart-bar .check-all .check--text-primary {
+  font-size: 36rpx;
+}
+.cart-bar .check-all .check--text-primary {
+  color: #fa550f;
+  color: var(--color-primary, #fa550f);
+}
+.cart-bar .delete-text {
+  font-size: 26rpx;
+  color: #0071ce;
+  padding: 20rpx 10rpx;
+  margin-left: 10rpx;
+}
+.cart-bar .account-btn {
+  background-color: #ff5f15;
+  width: 244rpx;
+  height: 96rpx;
+  text-align: center;
+  line-height: 96rpx;
+  color: #fff;
+  font-size: 28rpx;
+  font-weight: 500;
+}
+.cart-bar .disabled-btn {
+  background-color: #dce0e4;
+  color: #999;
+}
+.cart-bar .left,
+.cart-bar .center {
+  height: 100%;
+}
+.cart-bar .center {
+  padding-right: 20rpx;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+}
+.cart-bar .center .total-amount-wrap {
+  text-align: right;
+  font-size: 24rpx;
+  color: #333;
+}
+.cart-bar .center .description {
+  font-size: 22rpx;
+  color: #999;
+  text-align: right;
+}
+.clear {
+  font-size: 26rpx;
+  color: #5d5d5d;
+  font-weight: bold;
+}
+.btn-hover {
+  opacity: 0.5;
+}

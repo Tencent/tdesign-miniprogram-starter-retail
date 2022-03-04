@@ -1,0 +1,95 @@
+<wxs module="handlePromotion">
+  var hasPromotion = function (code) {
+  return code && code !== 'EMPTY_PROMOTION';
+  }
+  module.exports.hasPromotion = hasPromotion;
+</wxs>
+<wxs src="./utils.wxs" module="utils"/>
+<view class="cart-group">
+  <view class="goods-wrap" wx:for="{{_storeGoods}}" wx:for-item="store" wx:for-index="si" wx:key="storeId">
+    <view class="cart-store">
+      <view class="check-wrap" bindtap="selectStore" data-store-index="{{si}}">
+        <wr-icon name="{{store.isSelected ? 'check':'uncheck'}}" size="" class="check-component {{store.isSelected ? 'text-primary' : ''}}" wr-class="check"></wr-icon>
+      </view>
+      <view class="cart-store__content">
+        <view class="store-title">
+          <wr-icon name="store" size=""></wr-icon>
+          <view class="store-name">{{store.storeName}}</view>
+        </view>
+        <view class="delivery-promotion" wx:if="{{store.postageFreePromotionVo && store.postageFreePromotionVo.promotionCode && store.postageFreePromotionVo.promotionCode !== 'EMPTY_PROMOTION'}}">
+          <block wx:if="{{store.postageFreePromotionVo.isNeedAddOnShop === 1}}">
+            <view class="delivery-promotion-title">{{store.postageFreePromotionVo.description}}</view>
+            <view class="delivery-promotion-action action-btn" hover-class="action-btn--active" bindtap="gotoBuyMore" data-promotion="{{store.postageFreePromotionVo}}" data-store-id="{{store.storeId}}">
+              <view class="promotion-action-label">去凑运费</view>
+              <wr-icon name="arrow_forward" size="" wr-class="action-btn-arrow"></wr-icon>
+            </view>
+          </block>
+          <view wx:else class="delivery-promotion-title">
+            {{store.postageFreePromotionVo.description}}
+          </view>
+        </view>
+      </view>
+    </view>
+    <block wx:for="{{store.promotionGoodsList}}" wx:for-item="promotion" wx:for-index="promoindex" wx:key="promoindex">
+      <view class="promotion-wrap" wx:if="{{handlePromotion.hasPromotion(promotion.promotionCode)}}" bindtap="gotoBuyMore" data-promotion="{{promotion}}" data-store-id="{{store.storeId}}">
+        <view class="promotion-title">
+          <view class="promotion-icon">{{promotion.tag}}</view>
+          <view class="promotion-text">{{promotion.description}}</view>
+        </view>
+        <view class="promotion-action action-btn" hover-class="action-btn--active">
+          <view class="promotion-action-label">
+            {{promotion.isNeedAddOnShop == 1 ? '去凑单' : '再逛逛'}}
+          </view>
+          <wr-icon name="arrow_forward" size="" wr-class="action-btn-arrow"></wr-icon>
+        </view>
+      </view>
+      <view class="goods-item" wx:for="{{promotion.goodsPromotionList}}" wx:for-item="goods" wx:for-index="gi" wx:key="extKey">
+        <wr-swipeout right-width="{{ 60 }}">
+          <view class="goods-item-info {{handlePromotion.hasPromotion(promotion.promotionCode) ? 'promotion-goods-item-info' : ''}}">
+            <view class="check-wrap" catchtap="selectGoods" data-goods="{{goods}}">
+              <wr-icon name="{{goods.isSelected ? 'check':'uncheck'}}" size="" class="check-component {{goods.isSelected ? 'text-primary' : ''}}" wr-class="check"></wr-icon>
+            </view>
+            <view class="goods-sku-info">
+              <wr-goods-card layout="horizontal-wrap" thumb-width="{{thumbWidth}}" thumb-height="{{thumbHeight}}" centered="{{true}}" data="{{goods}}" data-goods="{{goods}}" bindspecs="specsTap" bindclick="goGoodsDetail">
+                <view slot="thumb-cover" class="stock-mask" wx:if="{{goods.shortageStock || goods.stockQuantity <= 3}}">
+                  仅剩{{goods.stockQuantity}}件
+                </view>
+                <view slot="append-body" class="goods-stepper">
+                  <view class="stepper-tip" wx:if="{{goods.shortageStock}}">库存不足</view>
+                  <wr-stepper classname="stepper-info" value="{{goods.quantity}}" min="{{1}}" max="{{999}}" data-goods="{{goods}}" data-gi="{{gi}}" data-si="{{si}}" bindminus="minus" bindplus="plus" bindblur="input" bindoverlimit="overlimit" />
+                </view>
+              </wr-goods-card>
+            </view>
+          </view>
+          <view slot="right" class="swiper-right-del" bindtap="deleteGoods" data-goods="{{goods}}">
+            删除
+          </view>
+        </wr-swipeout>
+      </view>
+      <view class="promotion-line-wrap" wx:if="{{handlePromotion.hasPromotion(promotion.promotionCode) && promoindex != (store.promotionGoodsList.length - 2)}}">
+        <view class="promotion-line"></view>
+      </view>
+    </block>
+    <view class="shortage-goods-wrap invalid-card" wx:if="{{store.shortageGoodsList.length > 0}}">
+      <view class="shortage-line"></view>
+      <view class="shortage-tip-title">以下商品无货，暂不支持购买</view>
+      <invalid-goods wx:for="{{store.shortageGoodsList}}" wx:for-item="shortageGoods" wx:for-index="gi" shortageImg="{{shortageImg}}" wx:key="gi" data-goods="{{shortageGoods}}" thumb-width="{{thumbWidth}}" thumb-height="{{thumbHeight}}" goodsInfo="{{shortageGoods}}" maskType="shortage" bindgogoods="goGoodsDetail" bindbuttontap="deleteGoods" />
+    </view>
+  </view>
+  <!-- 失效商品 -->
+  <view class="invalid-goods-wrap" wx:if="{{_invalidGoodItems && _invalidGoodItems.length > 0}}">
+    <view class="invalid-head">
+      <view class="invalid-title">失效商品 ( {{_invalidGoodItems.length}} )</view>
+      <view class="invalid-clear" bindtap="clearInvalidGoods">清空失效商品</view>
+    </view>
+    <view class="invalid-goods-list invalid-card">
+      <invalid-goods wx:for="{{isShowToggle ? _invalidGoodItems : utils.slice(_invalidGoodItems)}}" wx:for-item="goodsInfo" wx:for-index="gi" wx:key="gi" data-goods="{{goodsInfo}}" data-gi="{{gi}}" thumb-width="{{thumbWidth}}" thumb-height="{{thumbHeight}}" goodsInfo="{{goodsInfo}}" maskType="invalid" bindgogoods="goGoodsDetail" bindbuttontap="deleteGoods" />
+      <view class="toggle" bindtap="showToggle" wx:if="{{_invalidGoodItems.length > 2}}">
+        <text class="m-r-6">{{isShowToggle ? '收起失效信息' : '展开失效信息'}}</text>
+        <view class="{{isShowToggle ? 'top-icon' : 'down-icon'}}"></view>
+      </view>
+    </view>
+  </view>
+</view>
+<wr-specs-popup show="{{isShowSpecs}}" title="{{currentGoods.title}}" price="{{currentGoods.price}}" thumb="{{utils.imgCut(currentGoods.thumb, 180, 180)}}" specs="{{currentGoods.specs}}" zIndex="{{999}}" bindclose='hideSpecsPopup' />
+<wr-toast id="wr-toast"/>
