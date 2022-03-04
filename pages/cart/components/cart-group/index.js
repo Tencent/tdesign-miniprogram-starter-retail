@@ -3,7 +3,7 @@ import Toast from 'tdesign-miniprogram/toast/index';
 const shortageImg =
   'https://cdn-we-retail.ym.tencent.com/miniapp/cart/shortage.png';
 
-Page({
+Component({
   isSpecsTap: false, // 标记本次点击事件是否因为点击specs触发（由于底层goods-card组件没有catch specs点击事件，只能在此处加状态来避免点击specs时触发跳转商品详情）
   externalClasses: ['wr-class'],
   properties: {

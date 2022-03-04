@@ -1,21 +1,23 @@
-Page({
+Component({
   properties: {
     imgUrl: {
       type: String,
       value:
-        'https://cdn-we-retail.ym.tencent.com/miniapp/cart/cart.png?20200410',
+        'https://cdn-we-retail.ym.tencent.com/miniapp/template/empty-cart.png',
     },
     tip: {
       type: String,
-      value: '你的购物车是空的',
+      value: '购物车是空的',
     },
     btnText: {
       type: String,
-      value: '逛一逛',
+      value: '去首页',
     },
   },
   data: {},
-  handleClick() {
-    this.triggerEvent('btnclick');
+  methods: {
+    handleClick() {
+      this.triggerEvent('handleClick');
+    },
   },
 });

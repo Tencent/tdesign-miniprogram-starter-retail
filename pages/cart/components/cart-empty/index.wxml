@@ -1,8 +1,6 @@
-<view class="tip-wrap">
-	<view class="img">
-		<image class="cart-img" src="{{imgUrl}}" />
-	</view>
+<view class="cart-empty">
+	<image class="cart-img" src="{{imgUrl}}" />
 	<view class="tip">{{tip}}</view>
-	<view class="btn" bindtap="handleClick">{{btnText}}</view>
+	<view class="btn" bind:tap="handleClick">{{btnText}}</view>
 </view>
 

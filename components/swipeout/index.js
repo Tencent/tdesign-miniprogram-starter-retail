@@ -1,4 +1,4 @@
-Page({
+Component({
   externalClasses: ['wr-class'],
 
   options: {

@@ -307,4 +307,7 @@ Page({
     );
     wx.navigateTo({ url: '/pages/order/order-confirm/index?type=cart' });
   },
+  onGotoHome() {
+    wx.switchTab({ url: '/pages/home/home' });
+  },
 });
