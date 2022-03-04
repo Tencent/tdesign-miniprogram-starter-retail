@@ -56,11 +56,11 @@
   margin: 0 0 0 4rpx;
 }
 .integer {
-  color: inherit
-  font-size: inherit
+  color: inherit;
+  font-size: inherit;
 }
 .decimal {
-  color:inherit;
+  color: inherit;
   font-size: inherit;
 }
 .decimal.smaller {

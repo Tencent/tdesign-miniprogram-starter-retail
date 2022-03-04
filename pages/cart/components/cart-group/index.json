@@ -1,8 +1,8 @@
 {
   "component": true,
   "usingComponents": {
-    "invalid-goods": "./components/invalid-goods/index",
-    "wr-toast": "@tencent/retailwe-ui-toast/index",
+    "t-toast": "tdesign-miniprogram/toast/toast",
+    "t-icon": "tdesign-miniprogram/icon/icon",
     "wr-icon": "@tencent/retailwe-ui-icon/index",
     "wr-swipeout": "/components/swipeout/index",
     "wr-goods-card": "@tencent/retailwe-ui-goods-card/index",
