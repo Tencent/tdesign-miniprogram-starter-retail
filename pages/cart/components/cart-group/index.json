@@ -4,7 +4,7 @@
     "invalid-goods": "./components/invalid-goods/index",
     "wr-toast": "@tencent/retailwe-ui-toast/index",
     "wr-icon": "@tencent/retailwe-ui-icon/index",
-    "wr-swipeout": "@tencent/retailwe-ui-swipeout/index",
+    "wr-swipeout": "/components/swipeout/index",
     "wr-goods-card": "@tencent/retailwe-ui-goods-card/index",
     "wr-specs-popup": "@tencent/retailwe-ui-specs-popup/index",
     "wr-stepper": "@tencent/retailwe-ui-stepper/index"
