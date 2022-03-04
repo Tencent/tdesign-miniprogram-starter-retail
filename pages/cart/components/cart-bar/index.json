@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "wr-price": "/components/price/index",
+    "t-icon": "tdesign-miniprogram/icon/icon"
+  }
+}

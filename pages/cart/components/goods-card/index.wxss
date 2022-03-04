@@ -1,0 +1,272 @@
+.wr-goods-card {
+  box-sizing: border-box;
+  font-size: 24rpx;
+  border-radius: var(--ui-goods-card-radius);
+}
+.wr-goods-card__main {
+  position: relative;
+  display: flex;
+  line-height: var(--ui-goods-card-l-height, 1);
+  flex-direction: var(--ui-goods-card-direction, row);
+  padding: var(--ui-goods-card-padding, 0);
+  background: var(--ui-goods-card-bg, transparent);
+  width: var(--ui-goods-card-width);
+  height: var(--ui-goods-card-height);
+  border-radius: var(--ui-goods-card-radius);
+  overflow: var(--ui-goods-card-overflow);
+}
+.wr-goods-card.center .wr-goods-card__main {
+  align-items: center;
+  justify-content: center;
+}
+.wr-goods-card__thumb {
+  flex-shrink: 0;
+  position: relative;
+  width: var(--ui-goods-card-thumb-width, 140rpx);
+  height: var(--ui-goods-card-thumb-height, 140rpx);
+}
+.wr-goods-card__thumb-com {
+  width: 100%;
+  height: 100%;
+}
+.wr-goods-card__thumb:empty {
+  display: none;
+  margin: 0;
+}
+.wr-goods-card__img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: var(--ui-goods-card-thumb-radius);
+  overflow: hidden;
+}
+.wr-goods-card__body {
+  display: flex;
+  margin: var(--ui-goods-card-body-margin, 0 0 0 20rpx);
+  flex-direction: var(--ui-goods-card-body-direction, row);
+  flex: var(--ui-goods-card-body-flex, 1 1 auto);
+}
+.wr-goods-card__long_content {
+  display: flex;
+  flex-direction: var(--ui-goods-card-long-direction, column);
+  height: var(--ui-goods-card-long-height);
+  overflow: var(--ui-goods-card-long-overflow);
+  flex: var(--ui-goods-card-long-flex, 1 1 auto);
+}
+.wr-goods-card__title {
+  flex-shrink: 0;
+  font-size: var(--ui-goods-card-title-size, 28rpx);
+  color: var(--ui-goods-card-title-color, #333);
+  height: var(--ui-goods-card-title-height);
+  line-height: var(--ui-goods-card-title-l-height, 40rpx);
+  font-weight: 400;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  word-break: break-word;
+}
+.wr-goods-card__title__prefix-tags {
+  display: inline-flex;
+}
+.wr-goods-card__title__prefix-tags .prefix-tag {
+  margin: 0 8rpx 0 0;
+  margin: var(--ui-goods-card-title-tag-margin, 0 8rpx 0 0);
+}
+.wr-goods-card__desc {
+  font-size: var(--ui-goods-card-desc-size, 24rpx);
+  color: var(--ui-goods-card-desc-color, #f5f5f5);
+  line-height: var(--ui-goods-card-desc-l-height, 40rpx);
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+.wr-goods-card__specs__desc,
+.wr-goods-card__specs__text {
+  font-size: var(--ui-goods-card-specs-size, 24rpx);
+  height: var(--ui-goods-card-specs-height, 32rpx);
+  line-height: var(--ui-goods-card-specs-l-height, 32rpx);
+  color: var(--ui-goods-card-specs-color, #999999);
+  margin: 8rpx 0;
+}
+.wr-goods-card__specs__desc {
+  display: flex;
+  align-self: flex-start;
+  flex-direction: row;
+  background: var(--ui-goods-card-specs-bg, #f5f5f5);
+  border-radius: var(--ui-goods-card-specs-radius, 4rpx);
+  padding: 4rpx 8rpx;
+}
+.wr-goods-card__specs__desc-text {
+  height: 100%;
+  max-width: 380rpx;
+  word-break: break-all;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+}
+.wr-goods-card__specs__desc-icon {
+  line-height: inherit;
+  margin-left: 8rpx;
+  font-size: 24rpx;
+  color: #bbb;
+}
+.wr-goods-card__specs__text {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-all;
+}
+.wr-goods-card__tags {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: var(--ui-goods-card-tags-wrap, wrap);
+  margin: var(--ui-goods-card-tags-margin, 16rpx 0 0 0);
+}
+.wr-goods-card__tag {
+  color: var(--ui-goods-card-tag-color, #fa550f);
+  background: var(--ui-goods-card-tag-bg, transparent);
+  font-size: var(--ui-goods-card-tag-size, 20rpx);
+  border: var(--ui-goods-card-tag-border, 1rpx solid #fa550f);
+  border: var(--ui-goods-card-tag-border-radius, 14rpx);
+  padding: var(--ui-goods-card-tag-padding, 0 8rpx);
+  height: var(--ui-goods-card-tag-height, 30rpx);
+  line-height: var(--ui-goods-card-tag-height, 30rpx);
+  max-width: var(--ui-goods-card-tag-max-width);
+  margin: var(--ui-goods-card-tag-margin, 0 8rpx 8rpx 0);
+  display: var(--ui-goods-card-tag-display, block);
+  overflow: var(--ui-goods-card-tag-overflow, hidden);
+  white-space: var(--ui-goods-card-tag-white-space, nowrap);
+  word-break: var(--ui-goods-card-tag-word-break, keep-all);
+  text-overflow: var(--ui-goods-card-tag-text-overflow, ellipsis);
+}
+.wr-goods-card__short_content {
+  display: flex;
+  position: var(--ui-goods-card-short-position);
+  flex-direction: var(--ui-goods-card-short-direction, column);
+  justify-content: var(--ui-goods-card-short-justify, flex-start);
+  align-items: var(--ui-goods-card-short-align, flex-start);
+  margin: var(--ui-goods-card-short-margin, 0 0 0 46rpx);
+  line-height: var(--ui-goods-card-short-line-height);
+}
+.wr-goods-card__price__prefix {
+  order: var(--ui-goods-card-price-pre-order, 0);
+  color: var(--ui-goods-card-price-pre-color, #666);
+  margin: var(--ui-goods-card-price-pre-margin, 0);
+}
+.wr-goods-card__price {
+  white-space: nowrap;
+  font-weight: var(--ui-goods-card-price-weight, 600);
+  order: var(--ui-goods-card-price-order, 1);
+  color: var(--ui-goods-card-price-color, #333);
+  font-size: var(--ui-goods-card-price-size, 28rpx);
+  margin: var(--ui-goods-card-price-margin, 0);
+  --ui-price-display: var(--ui-goods-card-price-display);
+  --ui-price-color: var(--ui-goods-card-price-color);
+  --ui-price-size: var(--ui-goods-card-price-size);
+  --ui-price-weight: var(--ui-goods-card-price-weight);
+  --ui-price-decoration: var(--ui-goods-card-price-decoration);
+  --ui-price-symbol-color: var(--ui-goods-card-price-symbol-color);
+  --ui-price-symbol-size: var(--ui-goods-card-price-symbol-size, 20rpx);
+  --ui-price-pprice-margin: var(--ui-goods-card-price-pprice-margin);
+  --ui-price-integer-color: var(--ui-goods-card-price-integer-color);
+  --ui-price-integer-size: var(--ui-goods-card-price-integer-size);
+  --ui-price-decimal-color: var(--ui-goods-card-price-decimal-color);
+  --ui-price-decimal-size: var(--ui-goods-card-price-decimal-size, 20rpx);
+}
+.wr-goods-card__origin-price {
+  white-space: nowrap;
+  font-weight: var(--ui-goods-card-o-price-weight, 400);
+  order: var(--ui-goods-card-o-price-order, 2);
+  color: var(--ui-goods-card-o-price-color, #aaaaaa);
+  font-size: var(--ui-goods-card-o-price-size, 24rpx);
+  margin: var(--ui-goods-card-o-price-margin, 0);
+  --ui-price-display: var(--ui-goods-card-o-price-display);
+  --ui-price-color: var(--ui-goods-card-o-price-color);
+  --ui-price-size: var(--ui-goods-card-o-price-size);
+  --ui-price-weight: var(--ui-goods-card-o-price-weight);
+  --ui-price-decoration: var(--ui-goods-card-o-price-decoration);
+  --ui-price-symbol-color: var(--ui-goods-card-o-price-symbol-color);
+  --ui-price-symbol-size: var(--ui-goods-card-o-price-symbol-size);
+  --ui-price-pprice-margin: var(--ui-goods-card-o-price-pprice-margin);
+  --ui-price-integer-color: var(--ui-goods-card-o-price-integer-color);
+  --ui-price-integer-size: var(--ui-goods-card-o-price-integer-size);
+  --ui-price-decimal-color: var(--ui-goods-card-o-price-decimal-color);
+  --ui-price-decimal-size: var(--ui-goods-card-o-price-decimal-size);
+}
+.wr-goods-card__num {
+  white-space: nowrap;
+  order: var(--ui-goods-card-number-order, 4);
+  font-size: var(--ui-goods-card-number-size, 24rpx);
+  color: var(--ui-goods-card-number-color, #999);
+  margin: var(--ui-goods-card-number-margin, 20rpx 0 0 auto);
+}
+.wr-goods-card__num__prefix {
+  color: inherit;
+}
+.wr-goods-card__add-cart {
+  order: var(--ui-goods-card-cart-order, 3);
+  margin: var(--ui-goods-card-cart-margin, auto 0 0 auto);
+  position: var(--ui-goods-card-cart-position);
+  bottom: var(--ui-goods-card-cart-bottom);
+  right: var(--ui-goods-card-cart-right);
+}
+.wr-goods-card.horizontal-wrap .wr-goods-card__thumb {
+  width: 192rpx;
+  height: 192rpx;
+  border-radius: 8rpx;
+  overflow: hidden;
+}
+.wr-goods-card.horizontal-wrap .wr-goods-card__body {
+  flex-direction: var(--ui-goods-card-body-direction, column);
+}
+.wr-goods-card.horizontal-wrap .wr-goods-card__short_content {
+  flex-direction: var(--ui-goods-card-short-direction, row);
+  align-items: var(--ui-goods-card-short-align, center);
+  margin: var(--ui-goods-card-short-margin, 44rpx 0 0 0);
+}
+.wr-goods-card.horizontal-wrap .wr-goods-card__price {
+  --ui-price-symbol-size: var(--ui-goods-card-price-symbol-size);
+  --ui-price-decimal-size: var(--ui-goods-card-price-decimal-size);
+}
+.wr-goods-card.horizontal-wrap .wr-goods-card__num {
+  margin: var(--ui-goods-card-number-margin, 0 0 0 auto);
+}
+.wr-goods-card.vertical .wr-goods-card__main {
+  padding: var(--ui-goods-card-padding, 0 0 22rpx 0);
+  flex-direction: var(--ui-goods-card-direction, column);
+}
+.wr-goods-card.vertical .wr-goods-card__thumb {
+  width: var(--ui-goods-card-thumb-width, 340rpx);
+  height: var(--ui-goods-card-thumb-height, 340rpx);
+}
+.wr-goods-card.vertical .wr-goods-card__body {
+  margin: var(--ui-goods-card-body-margin, 20rpx 20rpx 0 20rpx);
+  flex-direction: var(--ui-goods-card-body-direction, column);
+}
+.wr-goods-card.vertical .wr-goods-card__long_content {
+  overflow: var(--ui-goods-card-long-overflow, hidden);
+}
+.wr-goods-card.vertical .wr-goods-card__title {
+  line-height: var(--ui-goods-card-title-l-height, 36rpx);
+}
+.wr-goods-card.vertical .wr-goods-card__short_content {
+  margin: var(--ui-goods-card-short-margin, 20rpx 0 0 0);
+}
+.wr-goods-card.vertical .wr-goods-card__price {
+  order: var(--ui-goods-card-price-order, 2);
+  color: var(--ui-goods-card-price-color, #fa550f);
+  margin: var(--ui-goods-card-price-margin, 20rpx 0 0 0);
+  --ui-price-symbol-size: var(--ui-goods-card-price-symbol-size, 24rpx);
+}
+.wr-goods-card.vertical .wr-goods-card__origin-price {
+  order: var(--ui-goods-card-o-price-order, 1);
+}
+.wr-goods-card.vertical .wr-goods-card__add-cart {
+  position: var(--ui-goods-card-cart-position, absolute);
+  bottom: var(--ui-goods-card-cart-bottom, 20rpx);
+  right: var(--ui-goods-card-cart-right, 20rpx);
+}

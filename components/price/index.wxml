@@ -1,0 +1,21 @@
+<wxs module="utils">
+	var REGEXP = getRegExp('^\d+(\.\d+)?$');
+	function addUnit(value) {
+	if (value == null) {
+	return '';
+	}
+	return REGEXP.test('' + value) ? value + 'rpx' : value;
+	}
+	module.exports = {
+	addUnit: addUnit
+	};
+</wxs>
+<view class="price {{type}} wr-class">
+	<view wx:if="{{type === 'delthrough'}}" class="line" style="height:{{utils.addUnit(lineThroughWidth)}};" />
+	<view class="symbol symbol-class">{{symbol}}</view>
+	<view class="pprice">
+		<view class="integer inline">{{pArr[0]}}</view>
+		<view wx:if="{{pArr[1]}}" class="decimal inline {{decimalSmaller ? 'smaller' : ''}} decimal-class">.{{pArr[1]}}</view>
+	</view>
+</view>
+
