@@ -14,6 +14,7 @@
 
 .t-class__input-container {
   height: 64rpx !important;
+  border-radius: 32rpx !important;
 }
 
 .t-search__left-icon {

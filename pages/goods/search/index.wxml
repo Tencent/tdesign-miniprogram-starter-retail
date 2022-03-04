@@ -3,7 +3,6 @@
     t-class-input-container="t-class__input-container"
     t-class-left="t-search__left-icon"
     t-class-input="t-search__input"
-    shape="round"
     value="{{searchValue}}"
     placeholder="iPhone12pro"
     bind:submit="handleSubmit"

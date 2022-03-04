@@ -1,17 +1,15 @@
-/* @import '/miniprogram_npm/@tencent/retailwe-ui-goods-list/external.wxss'; */
-
 page {
   box-sizing: border-box;
   padding-bottom: 140rpx;
 }
 
-.search {
+.container {
+  display: block;
   padding: 0 24rpx;
-  margin-top: 10rpx;
-  background-color: #fff;
 }
 
 .t-class__input-container {
+  border-radius: 32rpx !important;
   height: 64rpx !important;
 }
 

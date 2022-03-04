@@ -3,16 +3,15 @@
     <span slot="text">加载中...</span>
   </t-loading>
 </view>
-<view class="search" bind:tap="navToSearchPage">
-  <t-search
-    t-class-left="t-search__left-icon"
-    t-class-input="t-search__input"
-    t-class-input-container="t-class__input-container"
-    shape="round"
-    placeholder="iphone 13 火热发售中"
-  />
-</view>
-<view style="padding: 0 24rpx; margin-top: 10rpx">
+<view class="container">
+  <view class="search" bind:tap="navToSearchPage">
+    <t-search
+      t-class-left="t-search__left-icon"
+      t-class-input="t-search__input"
+      t-class-input-container="t-class__input-container"
+      placeholder="iphone 13 火热发售中"
+    />
+  </view>
   <t-swiper
     t-class="swiper-wrap"
     current="{{current}}"
@@ -34,37 +33,31 @@
       />
     </t-swiper-item>
   </t-swiper>
-</view>
-<view
-  style="text-align: center; margin-top: 20rpx"
-  bind:tap="navToActivityDetail"
->
-  <t-image src="{{activityImg}}" t-class="t-image" lazy-load="{{true}}" />
-</view>
-<t-tabs t-class="t-tabs" value="{{0}}" bind:change="tabChangeHandle">
-  <t-tab-panel
-    wx:for="{{tabList}}"
-    wx:for-index="index"
-    wx:key="index"
-    label="{{item.text}}"
-    value="{{item.index}}"
+  <t-tabs t-class="t-tabs" value="{{0}}" bind:change="tabChangeHandle">
+    <t-tab-panel
+      wx:for="{{tabList}}"
+      wx:for-index="index"
+      wx:key="index"
+      label="{{item.text}}"
+      value="{{item.index}}"
+    />
+  </t-tabs>
+  <view style="text-align: center" wx:if="{{goodsRefreshing}}">
+    <t-loading theme="circular" size="40rpx" loading style="color: #ddd">
+      <span slot="text">加载中...</span>
+    </t-loading>
+  </view>
+  <goods-list
+    goodsList="{{goodsList}}"
+    layout="vertical"
+    bind:click="goodlistClickHandle"
+    bind:addcart="goodlistAddCartHandle"
   />
-</t-tabs>
-<view style="text-align: center" wx:if="{{goodsRefreshing}}">
-  <t-loading theme="circular" size="40rpx" loading style="color: #ddd">
-    <span slot="text">加载中...</span>
-  </t-loading>
+  <wr-load-more
+    list-is-empty="{{!goodsList.length}}"
+    status="{{goodsListLoadStatus}}"
+    bind:retry="onReTry"
+  />
+  <t-toast id="t-toast" />
+  <t-dialog id="t-dialog" />
 </view>
-<goods-list
-  goodsList="{{goodsList}}"
-  layout="vertical"
-  bind:click="goodlistClickHandle"
-  bind:addcart="goodlistAddCartHandle"
-/>
-<wr-load-more
-  list-is-empty="{{!goodsList.length}}"
-  status="{{goodsListLoadStatus}}"
-  bind:retry="onReTry"
-/>
-<t-toast id="t-toast" />
-<t-dialog id="t-dialog" />
