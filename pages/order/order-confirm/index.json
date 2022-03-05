@@ -7,14 +7,11 @@
     "t-cell": "tdesign-miniprogram/cell/cell",
     "t-dialog": "tdesign-miniprogram/dialog/dialog",
     "t-textarea": "tdesign-miniprogram/textarea/textarea",
-    "wr-order-card": "@tencent/retailwe-ui-order-card/index",
-    "wr-order-goods-card": "@tencent/retailwe-ui-order-goods-card/index",
-    "wr-price": "@tencent/retailwe-ui-price/index",
+    "wr-price": "/components/price/index",
     "select-coupons": "../components/selectCoupons/selectCoupons",
     "no-goods": "../components/noGoods/noGoods",
     "groupon-avatars": "../components/groupon-avatars/index",
     "t-image": "tdesign-miniprogram/image/image",
-    "wr-address-card": "./components/address-card/index",
-    "wr-image": "@tencent/retailwe-ui-image/index"
+    "wr-address-card": "./components/address-card/index"
   }
 }

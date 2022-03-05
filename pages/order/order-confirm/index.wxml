@@ -5,7 +5,7 @@
 	<wr-address-card addressData="{{userAddress}}" bind:addclick="onGotoAddress" bind:addressclick="onGotoAddress" />
 	<view
 	 class="order-wrapper"
-	 wx:for="{{orderCardList}}"
+	 wx:for="{{settleDetailData.storeGoodsList}}"
 	 wx:for-item="stores"
 	 wx:for-index="storeIndex"
 	 wx:key="storeIndex"
@@ -20,8 +20,8 @@
 			{{stores.storeName}}
 		</view>
 		<view
-		 wx:if="{{stores.goodsList.length > 0}}"
-		 wx:for="{{stores.goodsList}}"
+		 wx:if="{{orderCardList[storeIndex].goodsList.length > 0}}"
+		 wx:for="{{orderCardList[storeIndex].goodsList}}"
 		 wx:for-item="goods"
 		 wx:for-index="gIndex"
 		 class="goods-wrapper"
@@ -42,139 +42,78 @@
 			</view>
 		</view>
 	</view>
-
-	<!-- <view wx:if="{{ grouponAvatars.length }}" class="groupon-card">
-		<view class="tips">立即支付，即可开团成功</view>
-		<groupon-avatars items="{{ grouponAvatars }}" />
-	</view>
-	<view
-	 class="order-list"
-	 wx:for="{{settleDetailData.storeGoodsList}}"
-	 wx:for-item="stores"
-	 wx:for-index="storeIndex"
-	 wx:key="storeIndex"
-	>
-		<wr-order-card wr-class="order-card-info" order="{{orderCardList[storeIndex]}}">
-			<wr-order-goods-card
-			 wx:for="{{orderCardList[storeIndex].goodsList}}"
-			 wx:key="id"
-			 wx:for-item="goods"
-			 wx:for-index="gIndex"
-			 goods="{{goods}}"
-			 no-top-line="{{gIndex === 0}}"
-			 step="{{ !!groupInfo }}"
-			 data-goods="{{goods}}"
-			 bind:num-change="onGoodsNumChange"
+	<view class="pay-detail">
+		<view class="pay-item">
+			<text>商品总额</text>
+			<wr-price
+			 fill
+			 decimalSmaller
+			 wr-class="pay-item__right font-bold"
+			 price="{{settleDetailData.totalSalePrice || '0'}}"
 			/>
-			<view class="order-goods-info" slot="more">
-				<view class="flex-space colum">
-					<view class="title">运费</view>
-					<wr-price
-					 wx:if="{{stores.deliveryFee && stores.deliveryFee != 0}}"
-					 fill
-					 wr-class="price"
-					 price="{{stores.deliveryFee}}"
-					/>
-					<text wx:elif="{{settleDetailData.settleType !== 1}}" class="delivery-unknow">未知</text>
-					<text wx:else class="delivery-free">免运费</text>
-				</view>
-				<view
-				 class="flex-space colum coupon"
-				 data-storeid="{{stores.storeId}}"
-				 data-couponlist="{{stores.couponList}}"
-				 data-goodslist="{{orderCardList[storeIndex].goodsList}}"
-				 catchtap="onOpenCoupons"
-				>
-					<view class="title">
-						优惠券
-						<view class="selected-title" wx:if="{{stores.couponList && stores.couponList.length > 0}}">
-							已选{{stores.couponList && stores.couponList.length}}张
-						</view>
-					</view>
-					<view class="coupon-value">
-						<block wx:if="{{stores.storeTotalCouponAmount && stores.storeTotalCouponAmount != 0}}">
-							优惠
-							<wr-price fill="{{true}}" price="{{stores.storeTotalCouponAmount}}" />
-						</block>
-						<block wx:else>无可用</block>
-						<t-icon name="chevron-right" size="{{40}}" color="rgb(172, 172, 172)" />
-					</view>
-				</view>
-				<view class="flex-space colum" data-storenoteindex="{{storeIndex}}" bindtap="onNotes">
-					<view class="title">备注信息</view>
-					<view class="value remark {{getNotes(storeInfoList, storeIndex) ? 'notesInfo' : ''}}">
-						{{getNotes(storeInfoList, storeIndex) ? getNotes(storeInfoList, storeIndex) :'选填，建议先和商家沟通确认'}}
-					</view>
-				</view>
+		</view>
+		<view class="pay-item">
+			<text>运费</text>
+			<view class="pay-item__right font-bold">
+				<block wx:if="{{settleDetailData.totalDeliveryFee && settleDetailData.totalDeliveryFee != 0}}">
+					+
+					<wr-price fill decimalSmaller price="{{settleDetailData.totalDeliveryFee}}" />
+				</block>
+				<text wx:else>免运费</text>
 			</view>
-		</wr-order-card>
+		</view>
+		<view class="pay-item">
+			<text>活动优惠</text>
+			<view class="pay-item__right primary font-bold">
+				-
+				<wr-price fill price="{{settleDetailData.totalPromotionAmount || 0}}" />
+			</view>
+		</view>
+		<view class="pay-item">
+			<text>优惠券</text>
+			<view class="pay-item__right" catchtap="onOpenCoupons">
+				<block wx:if="{{settleDetailData.totalCouponAmount && settleDetailData.totalCouponAmount != 0}}">
+					-
+					<wr-price fill decimalSmaller price="{{settleDetailData.totalCouponAmount}}" />
+				</block>
+				<text wx:else>无可用</text>
+				<t-icon name="chevron-right" size="32rpx" color="#BBBBBB" />
+			</view>
+		</view>
+		<view class="pay-item" wx:if="{{settleDetailData.invoiceSupport}}">
+			<text>发票</text>
+			<view class="pay-item__right" catchtap="onReceipt">
+				<text >{{handleInvoice(invoiceData)}}</text>
+				<t-icon name="chevron-right" size="32rpx" color="#BBBBBB" />
+			</view>
+		</view>
+		<view class="pay-item">
+			<text>订单备注</text>
+			<view class="pay-item__right" data-storenoteindex="{{0}}" catchtap="onNotes">
+				<text class="pay-remark">{{getNotes(storeInfoList, 0) ? getNotes(storeInfoList, 0) :'选填，建议先和商家沟通确认'}}</text>
+				<t-icon name="chevron-right" size="32rpx" color="#BBBBBB" />
+			</view>
+		</view>
 	</view>
-	<view class="invoice-wrap" wx:if="{{settleDetailData.invoiceSupport}}">
-		<view class="flex-space invoice" catchtap="onReceipt">
-			<view class="title">发票</view>
-			<view class="value">
-				{{handleInvoice(invoiceData)}}
-				<t-icon name="chevron-right" size="{{40}}" color="rgb(172, 172, 172)" />
-			</view>
+	<view class="amount-wrapper">
+		<view class="pay-amount">
+			<text class="order-num">共{{settleDetailData.totalGoodsCount}}件</text>
+			<text >小计</text>
+			<wr-price
+			 class="total-price"
+			 price="{{settleDetailData.totalPayAmount}}"
+			 fill="{{false}}"
+			 decimalSmaller
+			/>
 		</view>
-	</view> -->
-	<!-- <wr-cell wr-class="other-cell receipt" border="{{false}}" bindtap="onReceipt">
-  </wr-cell> -->
-	<!-- <view class="order-section-wrap">
-		<view class="order-section">
-			<view class="flex-space goods-price">
-				<view class="title">商品金额</view>
-				<view class="value">
-					<wr-price fill wr-class="price" price="{{settleDetailData.totalSalePrice || '0'}}" />
-				</view>
-			</view>
-			<view class="flex-space colum">
-				<view class="title">运费</view>
-				<view class="value">
-					<wr-price
-					 fill="{{true}}"
-					 wx:if="{{settleDetailData.totalDeliveryFee && settleDetailData.totalDeliveryFee != 0}}"
-					 wr-class="price"
-					 price="{{settleDetailData.totalDeliveryFee}}"
-					/>
-					<text wx:elif="{{settleDetailData.settleType !== 1}}" class="delivery-unknow">未知</text>
-					<text class="delivery-zero" wx:else>￥0.00</text>
-				</view>
-			</view>
-			<view class="flex-space colum" wx:if="{{settleDetailData.totalPromotionAmount && settleDetailData.totalPromotionAmount != 0}}">
-				<view class="title">活动优惠</view>
-				<view class="value red">
-					-
-					<wr-price fill wr-class="price red" price="{{settleDetailData.totalPromotionAmount || 0}}" />
-				</view>
-			</view>
-			<view class="flex-space colum" wx:if="{{settleDetailData.totalCouponAmount && settleDetailData.totalCouponAmount != 0}}">
-				<view class="title">优惠券</view>
-				<view class="value red">
-					-
-					<wr-price fill wr-class="price red" price="{{settleDetailData.totalCouponAmount || 0}}" />
-				</view>
-			</view>
+	</view>
 
-			<view class="cell-split-line" />
-			<view class="flex-space colum act-pay">
-				<view slot="icon" class="title">应付金额</view>
-				<view class="value flex">
-					<block wx:if="{{settleDetailData.totalPayAmount}}">
-						<view class="wr wr-wx-pay pay-icon" />
-						<wr-price fill wr-class="price red" price="{{settleDetailData.totalPayAmount || '0'}}" />
-					</block>
-					<text wx:else>未知</text>
-				</view>
-			</view>
-		</view>
-	</view> -->
 	<view class="wx-pay-cover">
 		<view class="wx-pay">
 			<wr-price
 			 decimalSmaller
 			 fill
-			 wr-class="value"
+			 class="price"
 			 price="{{settleDetailData.totalPayAmount || '0'}}"
 			/>
 			<view class="submit-btn {{ settleDetailData.settleType === 1 ? '':'btn-gray'}}" bindtap="submitOrder">
