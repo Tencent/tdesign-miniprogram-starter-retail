@@ -280,3 +280,24 @@
   bottom: var(--ui-goods-card-cart-bottom, 20rpx);
   right: var(--ui-goods-card-cart-right, 20rpx);
 }
+
+.wr-goods-card__short_content .no_storage {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 40rpx;
+  color: #333;
+  font-size: 24rpx;
+  line-height: 32rpx;
+  width: 100%;
+}
+
+.no_storage .no_storage__right {
+  width: 80rpx;
+  height: 40rpx;
+  border-radius: 20rpx;
+  border: 2rpx solid #fa4126;
+  line-height: 40rpx;
+  text-align: center;
+  color: #fa4126;
+}

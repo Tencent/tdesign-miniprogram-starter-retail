@@ -82,7 +82,6 @@ Component({
         if (goods.specs.length > 0) {
           goods.specsDesc = goods.specs.join('');
         }
-        console.log(goods);
 
         this.setData({ goods, isValidityLinePrice });
       },

@@ -117,25 +117,58 @@
 			<view class="promotion-line-wrap" wx:if="{{handlePromotion.hasPromotion(promotion.promotionCode) && promoindex != (store.promotionGoodsList.length - 2)}}">
 				<view class="promotion-line" />
 			</view>
+
 		</block>
-		<!-- <view class="shortage-goods-wrap invalid-card" wx:if="{{store.shortageGoodsList.length > 0}}">
-			<view class="shortage-line" />
-			<view class="shortage-tip-title">以下商品无货，暂不支持购买</view>
-			<invalid-goods
+		<block wx:if="{{store.shortageGoodsList.length>0}}">
+			<view
+			 class="goods-item"
 			 wx:for="{{store.shortageGoodsList}}"
-			 wx:for-item="shortageGoods"
+			 wx:for-item="goods"
 			 wx:for-index="gi"
-			 shortageImg="{{shortageImg}}"
-			 wx:key="gi"
-			 data-goods="{{shortageGoods}}"
-			 thumb-width="{{thumbWidth}}"
-			 thumb-height="{{thumbHeight}}"
-			 goodsInfo="{{shortageGoods}}"
-			 maskType="shortage"
-			 bindgogoods="goGoodsDetail"
-			 bindbuttontap="deleteGoods"
-			/>
-		</view> -->
+			 wx:key="extKey"
+			>
+				<wr-swipeout right-width="{{ 72 }}">
+					<view class="goods-item-info">
+						<view class="check-wrap">
+							<t-icon
+							 size="40rpx"
+							 color="#BBBBBB"
+							 name="stop-circle-filled"
+							 class="check"
+							/>
+						</view>
+						<view class="goods-sku-info">
+							<wr-goods-card
+							 layout="horizontal-wrap"
+							 thumb-width="{{thumbWidth}}"
+							 thumb-height="{{thumbHeight}}"
+							 centered="{{true}}"
+							 data="{{goods}}"
+							 data-goods="{{goods}}"
+							 catchspecs="specsTap"
+							 catchclick="goGoodsDetail"
+							>
+								<view slot="thumb-cover" class="no-storage-mask" wx:if="{{goods.stockQuantity <=0}}">
+									<view class="no-storage-content">无货</view>
+								</view>
+							</wr-goods-card>
+						</view>
+					</view>
+					<view
+					 slot="right"
+					 class="swiper-right-del"
+					 bindtap="deleteGoods"
+					 data-goods="{{goods}}"
+					>
+						删除
+					</view>
+				</wr-swipeout>
+			</view>
+			<view class="promotion-line-wrap" wx:if="{{handlePromotion.hasPromotion(promotion.promotionCode) && promoindex != (store.promotionGoodsList.length - 2)}}">
+				<view class="promotion-line" />
+			</view>
+		</block>
+
 	</view>
 	<!-- 失效商品 -->
 	<!-- <view class="invalid-goods-wrap" wx:if="{{_invalidGoodItems && _invalidGoodItems.length > 0}}">

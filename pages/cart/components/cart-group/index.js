@@ -20,6 +20,7 @@ Component({
             goods.specs = goods.specInfo.map((item) => item.specValue); // 目前仅展示商品已选规格的值
           }
         }
+        console.log(storeGoods);
         this.setData({ _storeGoods: storeGoods });
       },
     },
