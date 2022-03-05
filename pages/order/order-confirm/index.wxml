@@ -133,14 +133,16 @@
 			</view>
 		</view>
 	</view>
-	<view class="wx-pay-cover safe-area-bottom">
+	<view class="wx-pay-cover">
 		<view class="wx-pay">
-			<view class="value">
-				合计
-				<wr-price fill wr-class="price red" price="{{settleDetailData.totalPayAmount || '0'}}" />
-			</view>
+			<wr-price
+			 decimalSmaller
+			 fill
+			 wr-class="value"
+			 price="{{settleDetailData.totalPayAmount || '0'}}"
+			/>
 			<view class="submit-btn {{ settleDetailData.settleType === 1 ? '':'btn-gray'}}" bindtap="submitOrder">
-				微信支付
+				提交订单
 			</view>
 		</view>
 	</view>
