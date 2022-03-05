@@ -31,6 +31,11 @@ Page({
       rejectAddress();
     }
   },
+  addAddress() {
+    wx.navigateTo({
+      url: '/pages/usercenter/address/edit/index',
+    });
+  },
   getAddressList() {
     fetchDeliveryAddressList().then((addressList) => {
       this.setData({ addressList });

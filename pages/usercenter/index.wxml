@@ -39,9 +39,8 @@
 		<view class="popup-title border-bottom-1px" wx:if="{{customerServiceInfo.serviceTimeDuration}}">
 			服务时间: {{customerServiceInfo.serviceTimeDuration}}
 		</view>
-		<!-- <view class="popup-phone" bind:tap="call">呼叫 {{phone}}</view> -->
 		<view class="popup-phone {{showKefu ? 'border-bottom-1px' : ''}}" bind:tap="call">电话客服</view>
-		<view class="popup-phone online" bind:tap="callOnlineService" wx:if="{{showKefu}}">在线客服</view>
+		<button class="popup-phone border-bottom-1px online" open-type="contact" wx:if="{{showKefu}}">在线客服</button>
 		<view class="popup-close" bind:tap="closeMakePhone">取消</view>
 	</view>
 </t-popup>

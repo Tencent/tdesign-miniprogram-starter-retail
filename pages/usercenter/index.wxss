@@ -119,8 +119,10 @@ page .popup__content--bottom {
   color: #333;
 }
 .popup-content .popup-phone.online {
-  border-top: 1rpx solid #e6e6e6;
   margin-bottom: 20rpx;
+}
+.popup-content .popup-phone.online::after {
+  content: none;
 }
 .popup-content .popup-close {
   color: #333;

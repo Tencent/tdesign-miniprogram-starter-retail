@@ -1,0 +1,102 @@
+.city-picker-container {
+  opacity: 0;
+  position: fixed;
+  top: 100vh;
+  left: 0;
+  right: 0;
+  height: 100vh;
+  z-index: 100;
+}
+.city-picker-container.show {
+  top: 0;
+  opacity: 1;
+}
+.city-picker-container.show .city-picker-box {
+  bottom: 0;
+}
+.city-picker-shadow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.65);
+}
+.city-picker-header {
+  height: 100rpx;
+  line-height: 100rpx;
+  text-align: center;
+  font-size: 32rpx;
+  color: #333333;
+}
+.city-picker-more {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.city-picker-footer {
+  height: 100rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.city-picker-footer .btn {
+  width: 330rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  color: #666666;
+  font-size: 32rpx;
+  position: relative;
+}
+.city-picker-footer .btn__active {
+  opacity: 0.5;
+}
+.city-picker-footer .btn::after {
+  display: block;
+  content: ' ';
+  position: absolute;
+  left: -50%;
+  right: -50%;
+  top: -50%;
+  bottom: -50%;
+  transform: scale(0.5);
+  border: 1rpx solid #999999;
+  border-radius: 16rpx;
+}
+.city-picker-footer .btn.primary {
+  color: #fa550f;
+}
+.city-picker-footer .btn.primary::after {
+  border-color: #fa550f;
+}
+.picker-column:not(:first-child) {
+  margin-left: 40rpx;
+}
+.city-picker-box {
+  position: absolute;
+  bottom: -100%;
+  transition: 0.3s bottom ease-in-out;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background-color: #fff;
+  padding: 0 30rpx;
+  color: #333333;
+  font-size: 34rpx;
+  border-radius: 20rpx 20rpx 0 0;
+  padding-bottom: env(safe-area-inset-bottom);
+}
+.show .city-picker-shadow {
+  display: block;
+}
+.picker {
+  height: 300rpx;
+  margin: 50rpx 0;
+  line-height: 88rpx;
+  text-align: center;
+}
+/* 似乎小程序picker-view的bug，indicator-class仅height生效，其他诸如line-height、text-align等放到父class中设置 */
+.picker-center-row {
+  height: 88rpx;
+}

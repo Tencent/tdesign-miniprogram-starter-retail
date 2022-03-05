@@ -87,6 +87,7 @@ const getDefaultData = () => ({
   orderTagInfos,
   customerServiceInfo: {},
   currAuthStep: 1,
+  showKefu: true,
 });
 
 Page({
@@ -141,7 +142,7 @@ Page({
     );
   },
 
-  onClickCell: function ({ currentTarget }) {
+  onClickCell({ currentTarget }) {
     const { type } = currentTarget.dataset;
 
     switch (type) {
