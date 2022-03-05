@@ -1,7 +1,7 @@
 <t-popup
+ close-on-overlay-click="{{true}}"
  visible="{{show}}"
  placement="bottom"
- catch-touch-move="{{false}}"
  z-index="{{zIndex}}"
 >
 	<view class="specs-popup" slot="content">
