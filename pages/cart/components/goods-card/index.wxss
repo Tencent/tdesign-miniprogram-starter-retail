@@ -26,20 +26,16 @@
   height: var(--ui-goods-card-thumb-height, 140rpx);
 }
 .wr-goods-card__thumb-com {
-  width: 100%;
-  height: 100%;
+  width: 192rpx;
+  height: 192rpx;
+  border-radius: 8rpx;
+  overflow: hidden;
 }
 .wr-goods-card__thumb:empty {
   display: none;
   margin: 0;
 }
-.wr-goods-card__img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  border-radius: var(--ui-goods-card-thumb-radius);
-  overflow: hidden;
-}
+
 .wr-goods-card__body {
   display: flex;
   margin: var(--ui-goods-card-body-margin, 0 0 0 20rpx);

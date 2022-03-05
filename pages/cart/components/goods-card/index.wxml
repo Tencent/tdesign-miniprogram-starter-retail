@@ -8,16 +8,10 @@
 	<view class="wr-goods-card__main">
 		<view class="wr-goods-card__thumb thumb-class" bind:tap="clickThumbHandle">
 			<!-- data-src 是方便加购动画读取图片用的 -->
-			<wr-image
-			 class="wr-goods-card__thumb-com"
+			<t-image
+			 t-class="wr-goods-card__thumb-com"
 			 wx:if="{{ !!goods.thumb && !goods.hideKey.thumb }}"
 			 src="{{ goods.thumb }}"
-			 width="{{thumbWidth}}"
-			 height="{{thumbHeight}}"
-			 no-inline-size="{{true}}"
-			 no-img-mogr="{{thumbSize.width < 0 || thumbSize.height < 0}}"
-			 data-src="{{ goods.thumb }}"
-			 wr-class="wr-goods-card__img"
 			 mode="{{ thumbMode }}"
 			 lazy-load="{{ lazyLoad }}"
 			/>

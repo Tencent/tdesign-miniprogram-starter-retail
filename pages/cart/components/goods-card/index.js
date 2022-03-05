@@ -92,7 +92,7 @@ Component({
     },
     thumbMode: {
       type: String,
-      value: 'aspectFit',
+      value: 'aspectFill',
     },
     thumbWidth: Number,
     thumbHeight: Number,
