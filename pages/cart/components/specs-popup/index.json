@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "wr-popup": "@tencent/retailwe-ui-popup/index",
+    "wr-goods-card": "../../components/goods-card/index"
+  }
+}

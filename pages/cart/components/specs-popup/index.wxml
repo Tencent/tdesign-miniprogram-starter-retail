@@ -1,0 +1,23 @@
+<wr-popup
+  show="{{show}}"
+  position="bottom"
+  catch-touch-move="{{false}}"
+  bindcloseover="onCloseOver"
+  bindclose="onClose"
+  zIndex="{{zIndex}}"
+  bottom-safe-area-style="height: constant(safe-area-inset-bottom);height: env(safe-area-inset-bottom);"
+>
+  <view class="specs-popup">
+    <wr-goods-card data="{{goods}}" layout="horizontal-wrap" thumb-mode="{{thumbMode}}" thumb-width="{{thumbWidth}}" thumb-height="{{thumbHeight}}" ></wr-goods-card>
+    <view class="section">
+      <view class="title">已选规格</view>
+      <view class="options">
+        <view
+          wx:for="{{specs}}" wx:for-item="spec" wx:key="spec"
+          class="option"
+        >{{spec}}</view>
+      </view>
+    </view>
+    <view class="bottom-btn" hover-class="bottom-btn--active" bindtap="onClose">我知道了</view>
+  </view>
+</wr-popup>
