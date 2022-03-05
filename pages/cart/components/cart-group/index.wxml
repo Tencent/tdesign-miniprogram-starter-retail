@@ -133,7 +133,7 @@
 							<t-icon
 							 size="40rpx"
 							 color="#BBBBBB"
-							 name="stop-circle-filled"
+							 name="minus-circle"
 							 class="check"
 							/>
 						</view>

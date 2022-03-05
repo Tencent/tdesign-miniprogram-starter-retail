@@ -1,7 +1,7 @@
 .specs-popup {
   width: 100vw;
   box-sizing: border-box;
-  padding: 32rpx 32rpx 132rpx 32rpx;
+  padding: 32rpx 32rpx calc(132rpx + env(safe-area-inset-bottom)) 32rpx;
   max-height: 80vh;
   display: flex;
   flex-direction: column;
