@@ -4,7 +4,116 @@
   padding: 24rpx 0 120rpx;
   min-height: 100vh;
 }
-.order-sure .flex-space {
+
+.order-sure .wx-pay-cover {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 10;
+  background: #fff;
+  height: 112rpx;
+  padding-bottom: env(safe-area-inset-bottom);
+}
+.order-sure .wx-pay-cover .wx-pay {
+  width: 100%;
+  height: 100rpx;
+  box-sizing: border-box;
+  padding: 0rpx 32rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.order-sure .wx-pay-cover .wx-pay .price {
+  color: #fa4126;
+  font-weight: bold;
+  font-size: 63rpx;
+  line-height: 88rpx;
+}
+
+.order-sure .wx-pay-cover .wx-pay .submit-btn {
+  height: 80rpx;
+  width: 240rpx;
+  border-radius: 40rpx;
+  background-color: #fa4126;
+  color: #ffffff;
+  line-height: 80rpx;
+  font-weight: bold;
+  font-size: 28rpx;
+  text-align: center;
+}
+.order-sure .wx-pay-cover .wx-pay .btn-gray {
+  background: #cccccc;
+}
+
+.order-wrapper .store-wrapper {
+  width: 100%;
+  height: 96rpx;
+  box-sizing: border-box;
+  padding: 0 32rpx;
+  display: flex;
+  align-items: center;
+  font-size: 28rpx;
+  line-height: 40rpx;
+  color: #333333;
+  background-color: #ffffff;
+}
+.order-wrapper .store-wrapper .store-logo {
+  margin-right: 16rpx;
+}
+.order-wrapper .goods-wrapper {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 16rpx 32rpx;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  font-size: 24rpx;
+  line-height: 32rpx;
+  color: #999999;
+  background-color: #ffffff;
+}
+.goods-wrapper .goods-image {
+  width: 176rpx;
+  height: 176rpx;
+  border-radius: 8rpx;
+  overflow: hidden;
+  margin-right: 16rpx;
+}
+.goods-wrapper .goods-content {
+  flex: 1;
+}
+
+.goods-wrapper .goods-content .goods-title {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 28rpx;
+  line-height: 40rpx;
+  margin-bottom: 12rpx;
+  color: #333333;
+  margin-right: 16rpx;
+}
+
+.goods-wrapper .goods-right {
+  min-width: 128rpx;
+}
+
+.goods-right .goods-price {
+  color: #333333;
+  font-size: 32rpx;
+  line-height: 48rpx;
+  font-weight: bold;
+  margin-bottom: 16rpx;
+}
+
+.goods-right .goods-num {
+  text-align: right;
+}
+
+/* .order-sure .flex-space {
   display: flex;
   justify-content: space-between;
 }
@@ -307,46 +416,7 @@
 .order-sure .receipt .title {
   margin-right: 0;
 }
-.order-sure .wx-pay-cover {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  z-index: 10;
-  background: #fff;
-  height: 112rpx;
-  padding-bottom: env(safe-area-inset-bottom);
-}
-.order-sure .wx-pay-cover .wx-pay {
-  width: 100%;
-  height: 100rpx;
-  box-sizing: border-box;
-  padding: 0rpx 32rpx;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.order-sure .wx-pay-cover .wx-pay .price {
-  color: #fa4126;
-  font-weight: bold;
-  font-size: 63rpx;
-  line-height: 88rpx;
-}
 
-.order-sure .wx-pay-cover .wx-pay .submit-btn {
-  height: 80rpx;
-  width: 240rpx;
-  border-radius: 40rpx;
-  background-color: #fa4126;
-  color: #ffffff;
-  line-height: 80rpx;
-  font-weight: bold;
-  font-size: 28rpx;
-  text-align: center;
-}
-.order-sure .wx-pay-cover .wx-pay .btn-gray {
-  background: #cccccc;
-}
 .add-notes .add-notes__confirm {
   color: #fa550f;
 }
@@ -453,4 +523,4 @@
 .delivery-unknow {
   font-size: 26rpx;
   color: #bbbbbb;
-}
+} */

@@ -3,7 +3,47 @@
 <wxs module="getNotes" src="./getNotes.wxs" />
 <view class="order-sure" wx:if="{{!loading}}">
 	<wr-address-card addressData="{{userAddress}}" bind:addclick="onGotoAddress" bind:addressclick="onGotoAddress" />
-	<view wx:if="{{ grouponAvatars.length }}" class="groupon-card">
+	<view
+	 class="order-wrapper"
+	 wx:for="{{orderCardList}}"
+	 wx:for-item="stores"
+	 wx:for-index="storeIndex"
+	 wx:key="storeIndex"
+	>
+		<view class="store-wrapper">
+			<t-icon
+			 size="40rpx"
+			 color="#333333"
+			 name="gift"
+			 class="store-logo"
+			/>
+			{{stores.storeName}}
+		</view>
+		<view
+		 wx:if="{{stores.goodsList.length > 0}}"
+		 wx:for="{{stores.goodsList}}"
+		 wx:for-item="goods"
+		 wx:for-index="gIndex"
+		 class="goods-wrapper"
+		>
+			<t-image src="{{goods.thumb}}" t-class="goods-image" mode="aspectFill" />
+			<view class="goods-content">
+				<view class="goods-title">{{goods.title}}</view>
+				<view>{{goods.specs}}</view>
+			</view>
+			<view class="goods-right">
+				<wr-price
+				 wr-class="goods-price"
+				 price="{{goods.price}}"
+				 fill="{{false}}"
+				 decimalSmaller
+				/>
+				<view class="goods-num">x{{goods.num}}</view>
+			</view>
+		</view>
+	</view>
+
+	<!-- <view wx:if="{{ grouponAvatars.length }}" class="groupon-card">
 		<view class="tips">立即支付，即可开团成功</view>
 		<groupon-avatars items="{{ grouponAvatars }}" />
 	</view>
@@ -77,10 +117,10 @@
 				<t-icon name="chevron-right" size="{{40}}" color="rgb(172, 172, 172)" />
 			</view>
 		</view>
-	</view>
+	</view> -->
 	<!-- <wr-cell wr-class="other-cell receipt" border="{{false}}" bindtap="onReceipt">
   </wr-cell> -->
-	<view class="order-section-wrap">
+	<!-- <view class="order-section-wrap">
 		<view class="order-section">
 			<view class="flex-space goods-price">
 				<view class="title">商品金额</view>
@@ -115,11 +155,7 @@
 					<wr-price fill wr-class="price red" price="{{settleDetailData.totalCouponAmount || 0}}" />
 				</view>
 			</view>
-			<!-- <wr-cell wr-class="other-cell address" border="{{false}}">
-        <view class="value">
-          <wr-price fill wr-class="price" price="{{settleDetailData.totalAmount - settleDetailData.totalDeliveryFee}}" />
-        </view>
-      </wr-cell> -->
+
 			<view class="cell-split-line" />
 			<view class="flex-space colum act-pay">
 				<view slot="icon" class="title">应付金额</view>
@@ -132,7 +168,7 @@
 				</view>
 			</view>
 		</view>
-	</view>
+	</view> -->
 	<view class="wx-pay-cover">
 		<view class="wx-pay">
 			<wr-price

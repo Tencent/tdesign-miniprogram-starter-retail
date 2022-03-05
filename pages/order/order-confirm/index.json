@@ -13,6 +13,8 @@
     "select-coupons": "../components/selectCoupons/selectCoupons",
     "no-goods": "../components/noGoods/noGoods",
     "groupon-avatars": "../components/groupon-avatars/index",
-    "wr-address-card": "./components/address-card/index"
+    "t-image": "tdesign-miniprogram/image/image",
+    "wr-address-card": "./components/address-card/index",
+    "wr-image": "@tencent/retailwe-ui-image/index"
   }
 }

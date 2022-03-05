@@ -289,6 +289,7 @@ Page({
         this.tempNoteInfo.push('');
         orderCardList.push(orderCard);
       });
+    console.log('----orderCardList----', orderCardList);
     this.setData({ orderCardList, storeInfoList, submitCouponList });
     return data;
   },
