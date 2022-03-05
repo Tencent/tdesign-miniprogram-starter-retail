@@ -47,14 +47,10 @@
 				<slot name="after-desc" />
 				<view wx:if="{{ goods.specsDesc && !goods.hideKey.specs }}" class="wr-goods-card__specs__desc specs-class" bind:tap="clickSpecsHandle">
 					<view class="wr-goods-card__specs__desc-text">{{ goods.specsDesc }}</view>
-					<wr-icon
-					 wr-class="wr-goods-card__specs__desc-icon"
-					 name="{{specsIcon}}"
-					 size=""
-					 class-prefix="{{specsIconClassPrefix}}"
-					/>
+					<t-icon name="chevron-down" size="32rpx" color="#999999" />
 				</view>
-				<view wx:if="{{ goods.specsText && !goods.hideKey.specs }}" class="wr-goods-card__specs__text specs-class">{{ goods.specsText }}</view>
+				<view class="goods_tips" wx:if="{{goods.quantity >= goods.stockQuantity}}">库存不足</view>
+				<!-- <view wx:if="{{ goods.specsText && !goods.hideKey.specs }}" class="wr-goods-card__specs__text specs-class">{{ goods.specsText }}</view>
 				<slot name="after-specs" />
 				<view wx:if="{{ goods.tags && !goods.hideKey.tags && !!goods.tags.length }}" class="wr-goods-card__tags">
 					<view
@@ -69,19 +65,19 @@
 						</wr-tag>
 					</view>
 				</view>
-				<slot name="after-tags" />
+				<slot name="after-tags" /> -->
 			</view>
 
 			<view class="wr-goods-card__short_content">
 				<view wx:if="{{ pricePrefix }}" class="wr-goods-card__price__prefix price-prefix-class">{{ pricePrefix }}</view>
 				<slot name="price-prefix" />
-
 				<view wx:if="{{ goods.price && !goods.hideKey.price }}" class="wr-goods-card__price">
 					<wr-price
 					 wr-class="price-class"
 					 symbol="{{currency}}"
 					 price="{{goods.price}}"
 					 fill="{{priceFill}}"
+					 decimalSmaller
 					/>
 				</view>
 				<view wx:if="{{ goods.originPrice && !goods.hideKey.originPrice && isValidityLinePrice }}" class="wr-goods-card__origin-price">
@@ -93,11 +89,10 @@
 					/>
 				</view>
 				<slot name="origin-price" />
-
 				<view wx:if="{{goods.num && !goods.hideKey.num}}" class="wr-goods-card__num num-class">
 					<text class="wr-goods-card__num__prefix">x </text>
-					{{ goods.num }}</view>
-
+					{{ goods.num }}
+				</view>
 				<!-- <wr-add-cart
 				 wx:if="{{showCart}}"
 				 id="{{independentID}}-cart"
@@ -111,10 +106,8 @@
 				/>
 				<slot name="add-cart" /> -->
 			</view>
-
 			<slot name="append-body" />
 		</view>
-
 		<slot name="footer" />
 	</view>
 	<slot name="append-card" />

@@ -276,6 +276,8 @@ Page({
     } = e.detail;
     Dialog.confirm({
       content: '确认删除该商品吗?',
+      confirmBtn: '确定',
+      cancelBtn: '取消',
     }).then(() => {
       this.deleteGoodsService({ spuId, skuId }).then(() => {
         Toast({ context: this, selector: '#t-toast', message: '商品删除成功' });

@@ -65,5 +65,5 @@
 }
 .decimal.smaller {
   font-size: 0.8em;
-  vertical-align: text-top;
+  vertical-align: end;
 }
