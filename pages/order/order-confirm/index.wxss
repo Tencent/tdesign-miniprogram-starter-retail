@@ -17,7 +17,7 @@
 .order-sure {
   box-sizing: border-box;
   background: #f6f6f6;
-  padding: 20rpx 0 120rpx;
+  padding: 24rpx 0 120rpx;
   min-height: 100vh;
 }
 .order-sure .flex-space {

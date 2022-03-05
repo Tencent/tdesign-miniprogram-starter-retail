@@ -12,6 +12,7 @@
     "wr-price": "@tencent/retailwe-ui-price/index",
     "select-coupons": "../components/selectCoupons/selectCoupons",
     "no-goods": "../components/noGoods/noGoods",
-    "groupon-avatars": "../components/groupon-avatars/index"
+    "groupon-avatars": "../components/groupon-avatars/index",
+    "wr-address-card": "./components/address-card/index"
   }
 }
