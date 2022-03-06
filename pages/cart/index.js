@@ -147,17 +147,17 @@ Page({
     for (const store of storeGoods) {
       for (const activity of store.promotionGoodsList) {
         if (deleteGoods(activity.goodsPromotionList) > -1) {
-          console.log('promotionGoodsList');
+          // console.log('promotionGoodsList');
           return Promise.resolve();
         }
       }
       if (deleteGoods(store.shortageGoodsList) > -1) {
-        console.log('shortageGoodsList');
+        // console.log('shortageGoodsList');
         return Promise.resolve();
       }
     }
     if (deleteGoods(invalidGoodItems) > -1) {
-      console.log('invalidGoodItems');
+      // console.log('invalidGoodItems');
       return Promise.resolve();
     }
     return Promise.reject();
@@ -250,7 +250,7 @@ Page({
 
   goCollect() {
     // Toast({ text: "你点击了去凑单" });
-    console.log('跳转营销详情');
+    // console.log('跳转营销详情');
     /** 活动肯定有一个活动ID，用来获取活动banner，活动商品列表等 */
     const promotionID = '123';
     wx.navigateTo({
@@ -298,7 +298,7 @@ Page({
 
   onToSettle() {
     const goodsRequestList = [];
-    console.log('this', this);
+    // console.log('this', this);
     this.data.cartGroupData.storeGoods.forEach((store) => {
       store.promotionGoodsList.forEach((promotion) => {
         promotion.goodsPromotionList.forEach((m) => {

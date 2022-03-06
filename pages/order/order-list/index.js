@@ -89,7 +89,6 @@ Page({
         this.page.num++;
         let orderList = [];
         if (res && res.data && res.data.orders) {
-          console.log(res.data.orders);
           orderList = (res.data.orders || []).map((order) => {
             return {
               id: order.orderId,
@@ -121,7 +120,6 @@ Page({
               freightFee: order.freightFee,
             };
           });
-          console.log('---', orderList);
         }
         return new Promise((resolve) => {
           if (reset) {

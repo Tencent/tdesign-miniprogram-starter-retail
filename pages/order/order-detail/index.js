@@ -125,7 +125,7 @@ Page({
         receiverAddress: this.composeAddress(order),
         groupInfoVo: order.groupInfoVo,
       };
-      console.log(_order);
+
       this.setData({
         order,
         _order,
