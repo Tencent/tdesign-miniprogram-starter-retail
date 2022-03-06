@@ -29,8 +29,8 @@ Component({
       value: true,
     },
     cartSize: {
-      type: Number,
-      value: 48,
+      type: String,
+      value: '48rpx',
     },
     cartColor: {
       type: String,

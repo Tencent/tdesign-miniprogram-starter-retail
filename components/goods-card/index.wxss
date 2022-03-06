@@ -27,11 +27,6 @@
   height: 140rpx;
 }
 
-.t-goods-card__thumb-com {
-  width: 100%;
-  height: 100%;
-}
-
 .t-goods-card__thumb:empty {
   display: none;
   margin: 0;

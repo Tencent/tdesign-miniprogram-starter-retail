@@ -91,8 +91,8 @@ Component({
       value: '',
     },
     cartSize: {
-      type: Number,
-      value: 48,
+      type: String,
+      value: '48rpx',
     },
     cartColor: {
       type: String,
@@ -112,7 +112,7 @@ Component({
     },
     specsIconClassPrefix: {
       type: String,
-      value: 'wr',
+      value: 't',
     },
     specsIcon: {
       type: String,
@@ -120,7 +120,7 @@ Component({
     },
     addCartIconClassPrefix: {
       type: String,
-      value: 'wr',
+      value: 't',
     },
     addCartIcon: {
       type: String,
@@ -128,14 +128,6 @@ Component({
     },
   },
 
-  lifetimes: {
-    ready() {
-      this.init();
-    },
-    detached() {
-      this.clear();
-    },
-  },
   data: {
     hiddenInData: false,
     independentID: '',
