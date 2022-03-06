@@ -10,10 +10,9 @@
     "t-count-down": "tdesign-miniprogram/count-down/count-down",
     "t-toast": "tdesign-miniprogram/toast/toast",
     "t-dialog": "tdesign-miniprogram/dialog/dialog",
-    "wr-icon": "@tencent/retailwe-ui-icon/index",
-    "wr-price": "@tencent/retailwe-ui-price/index",
-    "wr-order-card": "@tencent/retailwe-ui-order-card/index",
-    "wr-order-goods-card": "@tencent/retailwe-ui-order-goods-card/index",
+    "wr-price": "/components/ui-price/index",
+    "wr-order-card": "../components/order-card/index",
+    "wr-order-goods-card": "../components/order-goods-card/index",
     "wr-customer-service": "../components/customer-service",
     "wr-order-button-bar": "../components/order-button-bar/index",
     "groupon-avatars": "../components/groupon-avatars/index"

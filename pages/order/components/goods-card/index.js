@@ -79,6 +79,7 @@ Component({
             goods.lineClamp = 2;
           }
         }
+        console.log('item', goods);
 
         this.setData({ goods, isValidityLinePrice });
       },
