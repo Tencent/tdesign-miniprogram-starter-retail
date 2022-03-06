@@ -48,11 +48,6 @@
       value="{{item.key}}"
     />
   </t-tabs>
-  <view style="text-align: center" wx:if="{{goodsRefreshing}}">
-    <t-loading theme="circular" size="40rpx" loading style="color: #ddd">
-      <span slot="text">加载中...</span>
-    </t-loading>
-  </view>
   <goods-list
     goodsList="{{goodsList}}"
     layout="vertical"
