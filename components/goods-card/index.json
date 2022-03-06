@@ -2,6 +2,7 @@
     "component": true,
     "usingComponents": {
         "wr-price": "@tencent/retailwe-ui-price/index",
+        "t-price": "/components/price/index",
         "wr-icon": "@tencent/retailwe-ui-icon/index",
         "wr-image": "@tencent/retailwe-ui-image/index",
         "wr-add-cart": "@tencent/retailwe-ui-add-cart/index"

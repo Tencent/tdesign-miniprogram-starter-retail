@@ -104,23 +104,22 @@
           wx:if="{{ goods.price && !goods.hideKey.price }}"
           class="t-goods-card__price"
         >
-          <wr-price
-            wr-class="price-class"
+          <t-price
             symbol="{{currency}}"
             price="{{goods.price}}"
             fill="{{priceFill}}"
-          ></wr-price>
+          />
         </view>
         <view
           wx:if="{{ goods.originPrice && !goods.hideKey.originPrice && isValidityLinePrice }}"
           class="t-goods-card__origin-price"
         >
-          <wr-price
-            wr-class="origin-price-class"
+          <t-price
             symbol="{{currency}}"
             price="{{goods.originPrice}}"
             fill="{{priceFill}}"
-          ></wr-price>
+            type="delthrough"
+          />
         </view>
         <slot name="origin-price" />
 
