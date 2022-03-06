@@ -1,0 +1,18 @@
+.wr-swipeout {
+  position: relative;
+  overflow: hidden;
+}
+.wr-swipeout__left,
+.wr-swipeout__right {
+  position: absolute;
+  top: 0;
+  height: 100%;
+}
+.wr-swipeout__left {
+  left: 0;
+  transform: translate3d(-100%, 0, 0);
+}
+.wr-swipeout__right {
+  right: 0;
+  transform: translate3d(100%, 0, 0);
+}

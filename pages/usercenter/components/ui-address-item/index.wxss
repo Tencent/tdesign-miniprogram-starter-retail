@@ -1,0 +1,104 @@
+.address-item-wrapper {
+  overflow: hidden;
+}
+.swipe-out .wr-swiper-cell {
+  margin-top: 20rpx;
+}
+.swipe-out .swipe-right-del {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 144rpx;
+  height: 100%;
+  background-color: #ff5f62;
+  color: #fff;
+  font-size: 28rpx;
+  line-height: 40rpx;
+}
+.swipe-out .draw-line {
+  position: relative;
+}
+.swipe-out .draw-line ::before {
+  content: '';
+  position: absolute; /* 把父视图设置为relative，方便定位*/
+  top: 0;
+  left: 32rpx;
+  width: 200%;
+  height: 200%;
+  transform: scale(0.5);
+  transform-origin: 0 0;
+  box-sizing: border-box;
+  border-bottom: #e5e5e5 2rpx solid;
+}
+.swipe-out .address {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 32rpx;
+  background-color: #fff;
+}
+.swipe-out .address .address-edit {
+  padding: 20rpx 0 20rpx 46rpx;
+}
+.swipe-out .address-left {
+  width: 80rpx;
+  display: flex;
+  justify-content: center;
+}
+.swipe-out .address-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.swipe-out .title {
+  font-size: 32rpx;
+  color: #333333;
+  line-height: 48rpx;
+  margin-bottom: 16rpx;
+  color: #333333;
+  font-weight: bold;
+  display: flex;
+}
+.swipe-out .text-style {
+  margin-right: 8rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 280rpx;
+}
+.swipe-out .label-adds {
+  display: flex;
+}
+.swipe-out .label-adds .adds {
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  color: #999999;
+}
+.swipe-out .label-adds .tag {
+  display: inline-block;
+  padding: 0rpx 8rpx;
+  min-width: 40rpx;
+  height: 32rpx;
+  border-radius: 18rpx;
+  font-size: 20rpx;
+  line-height: 32rpx;
+  text-align: center;
+  margin-right: 8rpx;
+  vertical-align: text-top;
+}
+.swipe-out .label-adds .tag-default {
+  background: #ffece9;
+  color: #fa4126;
+}
+.swipe-out .label-adds .tag-primary {
+  background: #f0f1ff;
+  color: #5a66ff;
+}
+.swipe-out .label-adds .address-text {
+  font-size: 28rpx;
+  line-height: 40rpx;
+  color: #999999;
+}

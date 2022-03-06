@@ -1,0 +1,35 @@
+<view class="wx-address t-class" bind:tap="getWxLocation">
+	<block wx:if="{{isCustomStyle}}">
+		<t-icon
+		 t-class="weixin"
+		 slot="icon"
+		 color="#00CC00"
+		 name="logo-windows"
+		 size="48rpx"
+		/>
+		<text>{{title}}</text>
+	</block>
+	<block wx:else>
+		<t-cell
+		 title="{{title}}"
+		 title-class="cell__title"
+		 wr-class="cell"
+		 border="{{false}}"
+		>
+			<t-icon
+			 t-class="weixin"
+			 slot="icon"
+			 color="#00CC00"
+			 name="logo-windows"
+			 size="48rpx"
+			/>
+			<t-icon
+			 slot="right-icon"
+			 name="chevron-right"
+			 class="custom-icon"
+			 color="#bbb"
+			/>
+		</t-cell>
+	</block>
+</view>
+

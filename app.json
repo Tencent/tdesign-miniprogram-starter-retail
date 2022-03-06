@@ -26,7 +26,8 @@
     "pages/coupon/good",
     "pages/promotion-detail/index",
     "pages/order/fill-tracking-no/index",
-    "pages/order/delivery-detail/index"
+    "pages/order/delivery-detail/index",
+    "pages/usercenter/name-edit/index"
   ],
   "tabBar": {
     "custom": true,

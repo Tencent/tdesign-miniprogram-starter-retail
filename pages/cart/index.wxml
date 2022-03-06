@@ -22,8 +22,8 @@
  total-discount-amount="{{cartGroupData.totalDiscountAmount}}"
  fixed="{{true}}"
  bottomHeight="{{94}}"
- bindselectall="onSelectAll"
- bindtosettle="onToSettle"
+ bindhandleSelectAll="onSelectAll"
+ bindhandleToSettle="onToSettle"
 />
 <t-toast id="t-toast" />
 <t-dialog id="t-dialog" />

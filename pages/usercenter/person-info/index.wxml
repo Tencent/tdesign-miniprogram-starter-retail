@@ -23,36 +23,25 @@
 	<t-cell
 	 title="性别"
 	 arrow
-	 note="{{personInfo.gender === 1 ? '男' : '女'}}"
+	 note="{{genderMap[personInfo.gender]}}"
 	 data-type="gender"
 	 bind:click="onClickCell"
 	/>
 	<t-cell
 	 title="手机号"
 	 arrow
-	 note="{{personInfo.phoneNumber}}"
+	 note="{{personInfo.phoneNumber ? personInfo.phoneNumber : '去绑定手机号'}}"
 	 data-type="phoneNumber"
 	 bind:click="onClickCell"
 	/>
 </t-cell-group>
-<t-button
- wx:if="{{!!personInfo.phoneNumber}}"
- block="{{true}}"
- no-border="{{true}}"
- text="解绑手机号"
- t-class="personInfo"
- bind:tap="openUnbindConfirm"
->
-	解绑手机号
-</t-button>
-<t-date-time-picker
- visible="{{showDatePicker}}"
- title="选择生日"
- value="{{personInfo.brith}}"
- bind:confirm="confirmDatePicker"
- bind:cancel="closeDatePicker"
-/>
-<t-dialog
+<view class="person-info__wrapper">
+	<view class="person-info__btn" bind:tap="openUnbindConfirm">
+		切换账号登录
+	</view>
+</view>
+
+<!-- <t-dialog
  visible="{{showUnbindConfirm}}"
  title="是否解绑手机号？"
  content="解绑后，须重新绑定手机号"
@@ -62,5 +51,14 @@
  bind:confirm="unbindPhoneHandle"
  bind:close="closeUnbindConfirm"
  bind:cancel="closeUnbindConfirm"
+/> -->
+<t-select-picker
+ show="{{typeVisible}}"
+ picker-options="{{pickerOptions}}"
+ title="选择性别"
+ value="{{personInfo.gender}}"
+ bind:confirm="onConfirm"
+ bind:close="onClose"
 />
+<t-toast id="t-toast" />
 

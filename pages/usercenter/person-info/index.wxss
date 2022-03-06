@@ -1,16 +1,26 @@
 page {
   background-color: #f5f5f5;
-  --cell-value-color: #666;
+  height: 100vh;
+  position: relative;
 }
-
-.brith-string-value {
-  --cell-value-color: #bbb;
+page view {
+  box-sizing: border-box;
 }
-
-.personInfo {
-  background-color: #fff;
-  color: #ff2525 !important;
-  margin-top: 22rpx;
+.person-info__btn {
+  width: 100%;
+  border: 2rpx solid #ddd;
+  border-radius: 48rpx;
+  padding: 18rpx 0;
+  display: flex;
+  align-self: center;
+  justify-content: center;
+}
+.person-info__wrapper {
+  width: 100%;
+  padding: 0 32rpx env(safe-area-inset-bottom) 32rpx;
+  position: absolute;
+  bottom: 0;
+  left: 0;
 }
 
 .avatarUrl {

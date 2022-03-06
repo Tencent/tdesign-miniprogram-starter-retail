@@ -284,8 +284,13 @@ Page({
     });
   },
 
-  onSelectAll() {
-    Toast({ context: this, selector: '#t-toast', message: '点击了全选按钮' });
+  onSelectAll(event) {
+    const { isAllSelected } = event?.detail ?? {};
+    Toast({
+      context: this,
+      selector: '#t-toast',
+      message: `${isAllSelected ? '取消' : '点击'}了全选按钮`,
+    });
     // 调用接口改变全选
   },
 
@@ -306,5 +311,8 @@ Page({
       JSON.stringify(goodsRequestList),
     );
     wx.navigateTo({ url: '/pages/order/order-confirm/index?type=cart' });
+  },
+  onGotoHome() {
+    wx.switchTab({ url: '/pages/home/home' });
   },
 });

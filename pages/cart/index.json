@@ -1,10 +1,9 @@
 {
   "navigationBarTitleText": "购物车",
   "usingComponents": {
-    "wr-cart-group": "@tencent/retailwe-ui-cart-group/index",
-    "wr-cart-empty": "@tencent/retailwe-ui-cart-empty/index",
-    "wr-cart-bar": "@tencent/retailwe-ui-cart-bar/index",
-
+    "wr-cart-group": "./components/cart-group/index",
+    "wr-cart-empty": "./components/cart-empty/index",
+    "wr-cart-bar": "./components/cart-bar/index",
     "t-toast": "tdesign-miniprogram/toast/toast",
     "t-dialog": "tdesign-miniprogram/dialog/dialog"
   }
