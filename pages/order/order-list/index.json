@@ -7,7 +7,6 @@
     "t-toast": "tdesign-miniprogram/toast/toast",
     "t-dialog": "tdesign-miniprogram/dialog/dialog",
     "t-pull-down-refresh": "tdesign-miniprogram/pull-down-refresh/pull-down-refresh",
-
     "wr-load-more": "@tencent/retailwe-ui-load-more/index",
     "wr-order-button-bar": "../components/order-button-bar/index",
     "wr-price": "@tencent/retailwe-ui-price/index",

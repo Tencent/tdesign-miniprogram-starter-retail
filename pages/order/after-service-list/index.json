@@ -7,7 +7,6 @@
     "wr-order-card": "@tencent/retailwe-ui-order-card/index",
     "wr-specs-goods-card": "@tencent/retailwe-ui-specs-goods-card/index",
     "wr-icon": "@tencent/retailwe-ui-icon/index",
-
     "t-button": "tdesign-miniprogram/button/button",
     "t-icon": "tdesign-miniprogram/icon/icon",
     "t-toast": "tdesign-miniprogram/toast/toast",

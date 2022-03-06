@@ -17,6 +17,15 @@ Component({
     'price-prefix-class',
   ],
 
+  relations: {
+    '../order-card/index': {
+      type: 'ancestor',
+      linked(target) {
+        this.parent = target;
+      },
+    },
+  },
+
   properties: {
     hidden: {
       // 设置为null代表不做类型转换

@@ -10,8 +10,6 @@
     "t-count-down": "tdesign-miniprogram/count-down/count-down",
     "t-toast": "tdesign-miniprogram/toast/toast",
     "t-dialog": "tdesign-miniprogram/dialog/dialog",
-
-
     "wr-icon": "@tencent/retailwe-ui-icon/index",
     "wr-price": "@tencent/retailwe-ui-price/index",
     "wr-order-card": "@tencent/retailwe-ui-order-card/index",
