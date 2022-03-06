@@ -1,10 +1,10 @@
-.wr-goods-card {
+.t-goods-card {
   box-sizing: border-box;
   font-size: 24rpx;
   border-radius: 0 0 16rpx 16rpx;
 }
 
-.wr-goods-card__main {
+.t-goods-card__main {
   position: relative;
   display: flex;
   line-height: 1;
@@ -15,29 +15,29 @@
   border-radius: 0 0 16rpx 16rpx;
 }
 
-.wr-goods-card.center .wr-goods-card__main {
+.t-goods-card.center .t-goods-card__main {
   align-items: center;
   justify-content: center;
 }
 
-.wr-goods-card__thumb {
+.t-goods-card__thumb {
   flex-shrink: 0;
   position: relative;
   width: 140rpx;
   height: 140rpx;
 }
 
-.wr-goods-card__thumb-com {
+.t-goods-card__thumb-com {
   width: 100%;
   height: 100%;
 }
 
-.wr-goods-card__thumb:empty {
+.t-goods-card__thumb:empty {
   display: none;
   margin: 0;
 }
 
-.wr-goods-card__img {
+.t-goods-card__img {
   display: block;
   width: 100%;
   height: 100%;
@@ -45,14 +45,14 @@
   overflow: hidden;
 }
 
-.wr-goods-card__body {
+.t-goods-card__body {
   display: flex;
   margin: 16rpx 24rpx 0;
   flex-direction: row;
   flex: 1 1 auto;
 }
 
-.wr-goods-card__long_content {
+.t-goods-card__long_content {
   display: flex;
   flex-direction: column;
   height: 130rpx;
@@ -60,7 +60,7 @@
   flex: 1 1 auto;
 }
 
-.wr-goods-card__title {
+.t-goods-card__title {
   flex-shrink: 0;
   font-size: 28rpx;
   color: #333;
@@ -68,20 +68,21 @@
   font-weight: 400;
   display: -webkit-box;
   -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
   overflow: hidden;
   word-break: break-word;
 }
 
-.wr-goods-card__title__prefix-tags {
+.t-goods-card__title__prefix-tags {
   display: inline-flex;
 }
 
-.wr-goods-card__title__prefix-tags .prefix-tag {
+.t-goods-card__title__prefix-tags .prefix-tag {
   margin: 0 8rpx 0 0;
-  margin: 0 8rpx 0 0;
+  color: #fa550f;
 }
 
-.wr-goods-card__desc {
+.t-goods-card__desc {
   font-size: 24rpx;
   color: #f5f5f5;
   line-height: 40rpx;
@@ -92,8 +93,8 @@
   overflow: hidden;
 }
 
-.wr-goods-card__specs__desc,
-.wr-goods-card__specs__text {
+.t-goods-card__specs__desc,
+.t-goods-card__specs__text {
   font-size: 24rpx;
   height: 32rpx;
   line-height: 32rpx;
@@ -101,7 +102,7 @@
   margin: 8rpx 0;
 }
 
-.wr-goods-card__specs__desc {
+.t-goods-card__specs__desc {
   display: flex;
   align-self: flex-start;
   flex-direction: row;
@@ -110,7 +111,7 @@
   padding: 4rpx 8rpx;
 }
 
-.wr-goods-card__specs__desc-text {
+.t-goods-card__specs__desc-text {
   height: 100%;
   max-width: 380rpx;
   word-break: break-all;
@@ -120,14 +121,14 @@
   -webkit-line-clamp: 1;
 }
 
-.wr-goods-card__specs__desc-icon {
+.t-goods-card__specs__desc-icon {
   line-height: inherit;
   margin-left: 8rpx;
   font-size: 24rpx;
   color: #bbb;
 }
 
-.wr-goods-card__specs__text {
+.t-goods-card__specs__text {
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 1;
@@ -136,27 +137,22 @@
   word-break: break-all;
 }
 
-.wr-goods-card__tags {
+.t-goods-card__tags {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   margin: 16rpx 0 0 0;
 }
 
-.wr-goods-card__tag {
-  color: #fa550f;
+.t-goods-card__tag {
+  color: #fa4126;
   background: transparent;
   font-size: 20rpx;
-  border: 1rpx solid #fa550f;
-  border: 14rpx;
+  border: 1rpx solid #fa4126;
   padding: 0 8rpx;
-
-  height: 30rpx;
-
+  height: 28rpx;
+  border-radius: 16rpx;
   line-height: 30rpx;
-
-  max-width: var(--ui-goods-card-tag-max-width);
-
   margin: 0 8rpx 8rpx 0;
   display: block;
   overflow: hidden;
@@ -165,7 +161,7 @@
   text-overflow: ellipsis;
 }
 
-.wr-goods-card__short_content {
+.t-goods-card__short_content {
   display: flex;
   position: relative;
   flex-direction: row;
@@ -175,13 +171,13 @@
   line-height: 32rpx;
 }
 
-.wr-goods-card__price__prefix {
+.t-goods-card__price__prefix {
   order: 0;
   color: #666;
   margin: 0;
 }
 
-.wr-goods-card__price {
+.t-goods-card__price {
   white-space: nowrap;
   font-weight: 700;
   order: 1;
@@ -190,7 +186,7 @@
   margin: 0;
 }
 
-.wr-goods-card__origin-price {
+.t-goods-card__origin-price {
   white-space: nowrap;
   font-weight: 700;
   order: 2;
@@ -199,7 +195,7 @@
   margin: 0 0 0 8rpx;
 }
 
-.wr-goods-card__num {
+.t-goods-card__num {
   white-space: nowrap;
   order: 4;
   font-size: 24rpx;
@@ -208,7 +204,7 @@
   margin: 20rpx 0 0 auto;
 }
 
-.wr-goods-card__add-cart {
+.t-goods-card__add-cart {
   order: 3;
   margin: auto 0 0 auto;
   position: absolute;
@@ -216,63 +212,63 @@
   right: 0;
 }
 
-.wr-goods-card.horizontal-wrap .wr-goods-card__thumb {
+.t-goods-card.horizontal-wrap .t-goods-card__thumb {
   width: 180rpx;
   height: 180rpx;
 }
 
-.wr-goods-card.horizontal-wrap .wr-goods-card__body {
+.t-goods-card.horizontal-wrap .t-goods-card__body {
   flex-direction: column;
 }
 
-.wr-goods-card.horizontal-wrap .wr-goods-card__short_content {
+.t-goods-card.horizontal-wrap .t-goods-card__short_content {
   flex-direction: row;
   align-items: baseline;
   margin: 16rpx 0 0 0;
 }
 
-.wr-goods-card.horizontal-wrap .wr-goods-card__num {
+.t-goods-card.horizontal-wrap .t-goods-card__num {
   margin: 0 0 0 auto;
 }
 
-.wr-goods-card.vertical .wr-goods-card__main {
+.t-goods-card.vertical .t-goods-card__main {
   padding: 0 0 16rpx 0;
   flex-direction: column;
 }
 
-.wr-goods-card.vertical .wr-goods-card__thumb {
+.t-goods-card.vertical .t-goods-card__thumb {
   width: 340rpx;
   height: 340rpx;
 }
 
-.wr-goods-card.vertical .wr-goods-card__body {
+.t-goods-card.vertical .t-goods-card__body {
   margin: 16rpx 24rpx 0;
   flex-direction: column;
 }
 
-.wr-goods-card.vertical .wr-goods-card__long_content {
+.t-goods-card.vertical .t-goods-card__long_content {
   overflow: hidden;
 }
 
-.wr-goods-card.vertical .wr-goods-card__title {
+.t-goods-card.vertical .t-goods-card__title {
   line-height: 36rpx;
 }
 
-.wr-goods-card.vertical .wr-goods-card__short_content {
+.t-goods-card.vertical .t-goods-card__short_content {
   margin: 20rpx 0 0 0;
 }
 
-.wr-goods-card.vertical .wr-goods-card__price {
+.t-goods-card.vertical .t-goods-card__price {
   order: 1;
   color: #fa4126;
   margin: 0;
 }
 
-.wr-goods-card.vertical .wr-goods-card__origin-price {
+.t-goods-card.vertical .t-goods-card__origin-price {
   order: 2;
 }
 
-.wr-goods-card.vertical .wr-goods-card__add-cart {
+.t-goods-card.vertical .t-goods-card__add-cart {
   position: absolute;
   bottom: 0;
   right: 0;
