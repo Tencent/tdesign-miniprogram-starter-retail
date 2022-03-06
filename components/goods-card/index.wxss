@@ -273,3 +273,11 @@
   bottom: 0;
   right: 0;
 }
+
+.spec-for-price {
+  font-size: 36rpx;
+}
+
+.spec-for-symbol {
+  font-size: 24rpx;
+}
