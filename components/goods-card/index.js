@@ -172,71 +172,71 @@ Component({
         goods: this.data.goods,
       });
     },
-  },
 
-  genIndependentID(id) {
-    let independentID;
-    if (id) {
-      independentID = id;
-    } else {
-      // `goods-card-88888888`
-      independentID = `goods-card-${~~(Math.random() * 10 ** 8)}`;
-    }
-    this.setData({ independentID });
-  },
+    genIndependentID(id) {
+      let independentID;
+      if (id) {
+        independentID = id;
+      } else {
+        // `goods-card-88888888`
+        independentID = `goods-card-${~~(Math.random() * 10 ** 8)}`;
+      }
+      this.setData({ independentID });
+    },
 
-  init() {
-    const { thresholds, id, hidden } = this.properties;
-    if (hidden !== null) {
-      this.setHidden(!!hidden);
-    }
+    init() {
+      const { thresholds, id, hidden } = this.properties;
+      if (hidden !== null) {
+        this.setHidden(!!hidden);
+      }
 
-    this.genIndependentID(id);
-    if (thresholds && thresholds.length) {
-      this.createIntersectionObserverHandle();
-    }
-  },
+      this.genIndependentID(id);
+      if (thresholds && thresholds.length) {
+        this.createIntersectionObserverHandle();
+      }
+    },
 
-  clear() {
-    this.clearIntersectionObserverHandle();
-  },
+    clear() {
+      this.clearIntersectionObserverHandle();
+    },
 
-  setHidden(hidden) {
-    this.setData({ hiddenInData: !!hidden });
-  },
+    setHidden(hidden) {
+      this.setData({ hiddenInData: !!hidden });
+    },
 
-  intersectionObserverContext: null,
+    intersectionObserverContext: null,
 
-  createIntersectionObserverHandle() {
-    if (this.intersectionObserverContext || !this.data.independentID) {
-      return;
-    }
-    this.intersectionObserverContext = this.createIntersectionObserver({
-      thresholds: this.properties.thresholds,
-    }).relativeToViewport();
+    createIntersectionObserverHandle() {
+      if (this.intersectionObserverContext || !this.data.independentID) {
+        return;
+      }
+      this.intersectionObserverContext = this.createIntersectionObserver({
+        thresholds: this.properties.thresholds,
+      }).relativeToViewport();
 
-    this.intersectionObserverContext.observe(
-      `#${this.data.independentID}`,
-      (res) => {
-        this.intersectionObserverCB(res);
-      },
-    );
-  },
+      this.intersectionObserverContext.observe(
+        `#${this.data.independentID}`,
+        (res) => {
+          this.intersectionObserverCB(res);
+        },
+      );
+    },
 
-  intersectionObserverCB() {
-    this.triggerEvent('ob', {
-      goods: this.data.goods,
-      context: this.intersectionObserverContext,
-    });
-  },
+    intersectionObserverCB() {
+      this.triggerEvent('ob', {
+        goods: this.data.goods,
+        context: this.intersectionObserverContext,
+      });
+    },
 
-  clearIntersectionObserverHandle() {
-    if (this.intersectionObserverContext) {
-      try {
-        this.intersectionObserverContext.disconnect();
-      } catch (e) {}
+    clearIntersectionObserverHandle() {
+      if (this.intersectionObserverContext) {
+        try {
+          this.intersectionObserverContext.disconnect();
+        } catch (e) {}
 
-      this.intersectionObserverContext = null;
-    }
+        this.intersectionObserverContext = null;
+      }
+    },
   },
 });

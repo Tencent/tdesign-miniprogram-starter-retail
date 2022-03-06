@@ -112,20 +112,20 @@ Component({
       const { index } = e.currentTarget.dataset;
       this.triggerEvent('ob', { ...e.detail, index });
     },
-  },
 
-  init() {
-    this.genIndependentID(this.id || '');
-  },
+    init() {
+      this.genIndependentID(this.id || '');
+    },
 
-  genIndependentID(id) {
-    if (id) {
-      this.setData({ independentID: id });
-    } else {
-      // `gl-88888888`
-      this.setData({
-        independentID: `goods-list-${~~(Math.random() * 10 ** 8)}`,
-      });
-    }
+    genIndependentID(id) {
+      if (id) {
+        this.setData({ independentID: id });
+      } else {
+        // `gl-88888888`
+        this.setData({
+          independentID: `goods-list-${~~(Math.random() * 10 ** 8)}`,
+        });
+      }
+    },
   },
 });
