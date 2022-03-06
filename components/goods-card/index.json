@@ -1,0 +1,10 @@
+{
+    "component": true,
+    "usingComponents": {
+        "wr-tag": "@tencent/retailwe-ui-tag/index",
+        "wr-price": "@tencent/retailwe-ui-price/index",
+        "wr-icon": "@tencent/retailwe-ui-icon/index",
+        "wr-image": "@tencent/retailwe-ui-image/index",
+        "wr-add-cart": "@tencent/retailwe-ui-add-cart/index"
+    }
+}
