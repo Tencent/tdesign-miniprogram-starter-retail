@@ -33,13 +33,19 @@
       />
     </t-swiper-item>
   </t-swiper>
-  <t-tabs t-class="t-tabs" value="{{0}}" bind:change="tabChangeHandle">
+  <t-tabs
+    t-class="t-tabs"
+    t-class-active="t-class-item"
+    t-class-track="t-class-track"
+    defaultValue="{{0}}"
+    bind:change="tabChangeHandle"
+  >
     <t-tab-panel
       wx:for="{{tabList}}"
       wx:for-index="index"
       wx:key="index"
       label="{{item.text}}"
-      value="{{item.index}}"
+      value="{{item.key}}"
     />
   </t-tabs>
   <view style="text-align: center" wx:if="{{goodsRefreshing}}">
