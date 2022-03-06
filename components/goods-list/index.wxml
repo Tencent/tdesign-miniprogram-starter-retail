@@ -16,7 +16,7 @@
       thumb-width="{{thumbWidth}}"
       thumb-height="{{thumbHeight}}"
       class="goods-card-inside"
-      card-class="{{index === goodsList.length - 1 ? 'wr-goods-card__no-border' : 'wr-goods-card'}}"
+      card-class="{{index === goodsList.length - 1 ? 't-goods-card__no-border' : 't-goods-card'}}"
       title-class="title-class"
       desc-class="desc-class"
       num-class="num-class"

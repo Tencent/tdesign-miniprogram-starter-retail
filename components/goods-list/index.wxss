@@ -3,7 +3,7 @@
   background: #fff;
 }
 
-.wr-goods-card {
+.t-goods-card {
   border-bottom: none;
 }
 
