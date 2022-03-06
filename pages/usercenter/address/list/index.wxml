@@ -50,4 +50,5 @@
 		<view class="footer" wx:if="{{addressList.length >= 20}}">最多支持添加20个收货地址</view>
 	</view>
 </view>
+<t-toast id="t-toast" />
 

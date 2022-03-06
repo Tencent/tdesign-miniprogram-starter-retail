@@ -12,3 +12,7 @@
   font-size: 30rpx;
   color: #333333;
 }
+.wx-address-custom {
+  display: flex;
+  align-items: center;
+}

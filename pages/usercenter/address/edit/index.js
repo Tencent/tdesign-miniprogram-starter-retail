@@ -1,35 +1,64 @@
-/*
- * @Author: oliverppeng
- * @LastEditors: oliverppeng
- * @Date: 2021-12-01 17:33:43
- * @LastEditTime: 2021-12-26 21:39:48
- * @Description: 
- * @FilePath: /retail-mp/pages/usercenter/address/edit/index.js
- */
+import Toast from 'tdesign-miniprogram/toast/index';
 import { fetchDeliveryAddress } from '../../../../services/address/fetchAddress';
 import { areaData } from '../../../../config/index';
-
 import { resolveAddress, rejectAddress } from './util';
 
-Page({
-  data: {
-    detail: {},
-    areaData: areaData,
-  },
+// 内置手机号正则字符串，可通过传入字符串使用手机号扩展需求
+const innerPhoneReg =
+  '^1(?:3\\d|4[4-9]|5[0-35-9]|6[67]|7[0-8]|8\\d|9\\d)\\d{8}$';
+// 内置的昵称正则字符串，可通过传入字符串使用昵称拓展需求
+const innerNameReg = '^[a-zA-Z\\d\\u4e00-\\u9fa5]+$';
+const labelsOptions = [
+  { id: 0, name: '家' },
+  { id: 1, name: '公司' },
+];
 
-  onLoad(query) {
-    const { id } = query;
+Page({
+  options: {
+    multipleSlots: true,
+  },
+  externalClasses: ['theme-wrapper-class'],
+  data: {
+    locationState: {
+      labelIndex: null,
+      addressId: '',
+      addressTag: '',
+      cityCode: '',
+      cityName: '',
+      countryCode: '',
+      countryName: '',
+      detailAddress: '',
+      districtCode: '',
+      districtName: '',
+      isDefault: false, // 1默认地址 0非默认地址
+      name: '',
+      phone: '',
+      provinceCode: '',
+      provinceName: '',
+      isEdit: false, //  是否编辑
+      isOrderDetail: false,
+      isOrderSure: false,
+    },
+    areaData: areaData,
+    labels: labelsOptions,
+    areaPickerVisible: false,
+    submitActive: false,
+    verifyTips: '',
+    visible: false,
+    labelValue: '', // 标签名称
+    columns: 3,
+  },
+  onLoad(options) {
+    console.log('options: ', options);
+    const { id } = options;
     this.init(id);
   },
-
   onUnload() {
     if (!this.hasSava) {
       rejectAddress();
     }
   },
-
   hasSava: false,
-
   init(id) {
     if (id) {
       this.getAddressDetail(Number(id));
@@ -37,21 +66,244 @@ Page({
   },
   getAddressDetail(id) {
     fetchDeliveryAddress(id).then((detail) => {
-      this.setData({ detail });
+      this.setData({ locationState: detail });
     });
   },
-  updateValue(e) {
-    const content = e.detail;
-    const detail = {
-      ...this.data.detail,
-      ...content,
+  onInputValue(e) {
+    const { item } = e.currentTarget.dataset;
+    const { value = '', areas = [] } = e.detail;
+    if (item === 'address') {
+      this.setData(
+        {
+          'locationState.provinceCode': areas[0].code,
+          'locationState.provinceName': areas[0].name,
+          'locationState.cityName': areas[1].name,
+          'locationState.cityCode': areas[1].code,
+          'locationState.districtCode': areas[2].code,
+          'locationState.districtName': areas[2].name,
+          areaPickerVisible: false,
+        },
+        () => {
+          const { isLegal, tips } = this.onVerifyInputLegal();
+          this.setData({
+            submitActive: isLegal,
+            verifyTips: tips,
+          });
+        },
+      );
+    } else {
+      this.setData(
+        {
+          [`locationState.${item}`]: value,
+        },
+        () => {
+          const { isLegal, tips } = this.onVerifyInputLegal();
+          this.setData({
+            submitActive: isLegal,
+            verifyTips: tips,
+          });
+        },
+      );
     }
-    this.setData({ 
-      detail,
-    })
   },
-  formSubmit({ detail }) {
-    const { locationState } = detail;
+  onPickArea() {
+    this.setData({ areaPickerVisible: true });
+  },
+  onPickLabels(e) {
+    const { item } = e.currentTarget.dataset;
+    const {
+      locationState: { labelIndex = undefined },
+      labels = [],
+    } = this.data;
+    let payload = {
+      labelIndex: item,
+      addressTag: labels[item].name,
+    };
+    // 反选取消选中
+    if (item === labelIndex) {
+      payload = { labelIndex: null, addressTag: '' };
+    }
+    this.setData({
+      'locationState.labelIndex': payload.labelIndex,
+    });
+    this.triggerEvent('triggerUpdateValue', payload);
+  },
+  addLabels() {
+    this.setData({
+      visible: true,
+    });
+  },
+  confirmHandle() {
+    const { labels, labelValue } = this.data;
+    this.setData({
+      visible: false,
+      labels: [
+        ...labels,
+        { id: labels[labels.length - 1].id + 1, name: labelValue },
+      ],
+      labelValue: '',
+    });
+  },
+  cancelHandle() {
+    this.setData({
+      visible: false,
+      labelValue: '',
+    });
+  },
+  onCheckDefaultAddress({ detail }) {
+    const { value } = detail;
+    this.setData({
+      'locationState.isDefault': value,
+    });
+  },
+
+  // 校验输入是否合法
+  onVerifyInputLegal() {
+    // 校验保存收货地址信息是否有效
+    const { name, phone, detailAddress, districtName } =
+      this.data.locationState;
+    // 错误处理，避免开发者传入null、undefined，导致方法报错
+    const prefixPhoneReg = String(this.properties.phoneReg || innerPhoneReg);
+    const prefixNameReg = String(this.properties.nameReg || innerNameReg);
+    const nameRegExp = new RegExp(prefixNameReg);
+    const phoneRegExp = new RegExp(prefixPhoneReg);
+
+    if (!name || !name.trim()) {
+      return {
+        isLegal: false,
+        tips: '请填写收货人',
+      };
+    }
+    if (!nameRegExp.test(name)) {
+      return {
+        isLegal: false,
+        tips: '收货人仅支持输入中文、英文（区分大小写）、数字',
+      };
+    }
+    if (!phone || !phone.trim()) {
+      return {
+        isLegal: false,
+        tips: '请填写手机号',
+      };
+    }
+    if (!phoneRegExp.test(phone)) {
+      return {
+        isLegal: false,
+        tips: '请填写正确的手机号',
+      };
+    }
+    if (!districtName || !districtName.trim()) {
+      return {
+        isLegal: false,
+        tips: '请选择省市区信息',
+      };
+    }
+    if (!detailAddress || !detailAddress.trim()) {
+      return {
+        isLegal: false,
+        tips: '请完善详细地址',
+      };
+    }
+    if (detailAddress && detailAddress.trim().length > 50) {
+      return {
+        isLegal: false,
+        tips: '详细地址不能超过50个字符',
+      };
+    }
+    return {
+      isLegal: true,
+      tips: '添加成功',
+    };
+  },
+
+  builtInSearch({ code, name }) {
+    return new Promise((resolve, reject) => {
+      wx.getSetting({
+        success: (res) => {
+          if (res.authSetting[code] === false) {
+            wx.showModal({
+              title: `获取${name}失败`,
+              content: `获取${name}失败，请在【右上角】-小程序【设置】项中，将【${name}】开启。`,
+              confirmText: '去设置',
+              confirmColor: '#FA550F',
+              cancelColor: '取消',
+              success(res) {
+                if (res.confirm) {
+                  wx.openSetting({
+                    success(settinRes) {
+                      if (settinRes.authSetting[code] === true) {
+                        resolve();
+                      } else {
+                        console.warn('用户未打开权限', name, code);
+                        reject();
+                      }
+                    },
+                  });
+                } else {
+                  reject();
+                }
+              },
+              fail() {
+                reject();
+              },
+            });
+          } else {
+            resolve();
+          }
+        },
+        fail() {
+          reject();
+        },
+      });
+    });
+  },
+
+  onSearchAddress() {
+    this.builtInSearch({ code: 'scope.userLocation', name: '地址位置' }).then(
+      () => {
+        wx.chooseLocation({
+          success: (res) => {
+            if (res.name) {
+              this.triggerEvent('addressParse', {
+                address: res.address,
+                name: res.name,
+                latitude: res.latitude,
+                longitude: res.longitude,
+              });
+            } else {
+              wx.showToast({
+                title: '地点为空，请重新选择',
+                icon: 'none',
+              });
+            }
+          },
+          fail: function (res) {
+            console.warn('wx.chooseLocation fail: ' + JSON.stringify(res));
+            if (res.errMsg !== 'chooseLocation:fail cancel') {
+              wx.showToast({
+                title: '地点错误，请重新选择',
+                icon: 'none',
+              });
+            }
+          },
+        });
+      },
+    );
+  },
+  formSubmit() {
+    const { submitActive, verifyTips } = this.data;
+    if (!submitActive) {
+      Toast({
+        context: this,
+        selector: '#t-toast',
+        message: verifyTips,
+        icon: '',
+        duration: 1000,
+      });
+      return;
+    }
+    const { locationState } = this.data;
+
     this.hasSava = true;
 
     resolveAddress({
@@ -79,5 +331,13 @@ Page({
     });
 
     wx.navigateBack({ delta: 1 });
+  },
+
+  getWeixinAddress(e) {
+    const { locationState } = this.data;
+    const weixinAddress = e.detail;
+    this.setData({
+      locationState: { ...locationState, ...weixinAddress },
+    });
   },
 });
