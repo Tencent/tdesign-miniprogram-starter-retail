@@ -1,20 +1,30 @@
-<view class="order-card wr-class" bind:tap="bindTapHandle">
+<view class="order-card wr-class" bind:tap="onOrderCardTap">
+	<view class="header header-class">
 
-  <view class="header header-class">
-    <view class="store-name title-class">
-      <wr-image wx:if="{{order.storeLogo}}" wr-class="store-name__logo" src="{{order.storeLogo}}" width="48" height="48" />
-      <wr-icon wx:else class="store-name__logo" name="{{order.storeIcon}}" class-prefix="ym" size="inherit" color="inherit" />
-      <view class="store-name__label">{{order.storeName}}</view>
-    </view>
-    <view wx:if="{{!useTopRightSlot}}" class="order-status">{{order.statusDesc}}</view>
-    <slot wx:else name="top-right" />
-  </view>
-  <view class="slot-wrapper">
-    <slot />
-  </view>
-  <view wx:if="{{goodsCount > defaultShowNum && !showAll}}" class="more-mask" catchtap="onShowMoreTap">
-    展开商品信息（共 {{goodsCount}} 个）
-    <wr-icon wr-class="more-mask__icon" name="expand_more" />
-  </view>
-  <slot name="more" />
+		<view class="store-name title-class">
+			<block wx:if="{{!useLogoSlot}}">
+				<t-image wx:if="{{order.storeLogo}}" t-class="store-name__logo" src="{{order.storeLogo}}" />
+				<t-icon
+				 wx:else
+				 class="store-name__logo"
+				 name="gift"
+				 size="inherit"
+				 color="inherit"
+				/>
+				<view class="store-name__label">{{order.storeName}}</view>
+			</block>
+			<slot wx:else name="top-left" />
+		</view>
+		<view wx:if="{{!useTopRightSlot}}" class="order-status">{{order.statusDesc}}</view>
+		<slot wx:else name="top-right" />
+	</view>
+	<view class="slot-wrapper">
+		<slot/>
+	</view>
+	<view wx:if="{{goodsCount > defaultShowNum && !showAll}}" class="more-mask" catchtap="onShowMoreTap">
+		展开商品信息（共 {{goodsCount}} 个）
+		<t-icon name="chevron-down" size="32rpx" />
+	</view>
+	<slot name="more" />
 </view>
+

@@ -14,6 +14,7 @@
   height: var(--ui-goods-card-height);
   border-radius: var(--ui-goods-card-radius);
   overflow: var(--ui-goods-card-overflow);
+  padding: 16rpx 0rpx;
 }
 .wr-goods-card.center .wr-goods-card__main {
   align-items: center;
@@ -22,12 +23,12 @@
 .wr-goods-card__thumb {
   flex-shrink: 0;
   position: relative;
-  width: var(--ui-goods-card-thumb-width, 140rpx);
-  height: var(--ui-goods-card-thumb-height, 140rpx);
+  width: var(--ui-goods-card-thumb-width, 176rpx);
+  height: var(--ui-goods-card-thumb-height, 176rpx);
 }
 .wr-goods-card__thumb-com {
-  width: 192rpx;
-  height: 192rpx;
+  width: 176rpx;
+  height: 176rpx;
   border-radius: 8rpx;
   overflow: hidden;
 }
@@ -38,7 +39,7 @@
 
 .wr-goods-card__body {
   display: flex;
-  margin: var(--ui-goods-card-body-margin, 0 0 0 20rpx);
+  margin: var(--ui-goods-card-body-margin, 0 0 0 16rpx);
   flex-direction: var(--ui-goods-card-body-direction, row);
   flex: var(--ui-goods-card-body-flex, 1 1 auto);
 }
@@ -98,9 +99,6 @@
   display: flex;
   align-self: flex-start;
   flex-direction: row;
-  background: var(--ui-goods-card-specs-bg, #f5f5f5);
-  border-radius: var(--ui-goods-card-specs-radius, 8rpx);
-  padding: 4rpx 8rpx;
 }
 .wr-goods-card__specs__desc-text {
   height: 100%;
@@ -166,8 +164,8 @@
   white-space: nowrap;
   font-weight: var(--ui-goods-card-price-weight, bold);
   order: var(--ui-goods-card-price-order, 1);
-  color: var(--ui-goods-card-price-color, #fa4126);
-  font-size: var(--ui-goods-card-price-size, 36rpx);
+  color: var(--ui-goods-card-price-color, #333333);
+  font-size: var(--ui-goods-card-price-size, 32rpx);
   margin: var(--ui-goods-card-price-margin, 0);
   --ui-price-display: var(--ui-goods-card-price-display);
   --ui-price-color: var(--ui-goods-card-price-color);
@@ -208,7 +206,7 @@
   order: var(--ui-goods-card-number-order, 4);
   font-size: var(--ui-goods-card-number-size, 24rpx);
   color: var(--ui-goods-card-number-color, #999);
-  margin: var(--ui-goods-card-number-margin, 20rpx 0 0 auto);
+  margin: var(--ui-goods-card-number-margin, 8rpx 0 0 auto);
 }
 .wr-goods-card__num__prefix {
   color: inherit;

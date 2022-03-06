@@ -41,15 +41,12 @@
   margin: 0;
   background-color: currentColor;
 }
-.del .symbol {
-  font-size: 32rpx;
-  color: #9b9b9b;
-  font-weight: 400;
-}
+
 .symbol {
   display: inline;
   color: inherit;
   font-size: inherit;
+  font-size: 0.8em;
 }
 .pprice {
   display: inline;

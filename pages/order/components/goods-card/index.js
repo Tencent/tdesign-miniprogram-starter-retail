@@ -79,9 +79,6 @@ Component({
             goods.lineClamp = 2;
           }
         }
-        if (goods.specs && goods.specs.length > 0) {
-          goods.specsDesc = goods.specs.join('');
-        }
 
         this.setData({ goods, isValidityLinePrice });
       },
@@ -181,9 +178,6 @@ Component({
     },
     clickThumbHandle() {
       this.triggerEvent('thumb', { goods: this.data.goods });
-    },
-    clickSpecsHandle() {
-      this.triggerEvent('specs', { goods: this.data.goods });
     },
     clickTagHandle(evt) {
       const { index } = evt.currentTarget.dataset;

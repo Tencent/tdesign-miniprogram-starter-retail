@@ -1,7 +1,6 @@
 {
   "component": true,
   "usingComponents": {
-    "wr-goods-card": "../goods-card/index",
-    "wr-specs-popup": "../specs-popup/index"
+    "wr-goods-card": "../goods-card/index"
   }
 }

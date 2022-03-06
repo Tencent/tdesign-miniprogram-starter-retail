@@ -39,8 +39,8 @@
 				<slot name="after-title" />
 				<view wx:if="{{ goods.desc && !goods.hideKey.desc }}" class="wr-goods-card__desc desc-class">{{ goods.desc }}</view>
 				<slot name="after-desc" />
-				<view wx:if="{{ goods.specsDesc && !goods.hideKey.specs }}" class="wr-goods-card__specs__desc specs-class" bind:tap="clickSpecsHandle">
-					<view class="wr-goods-card__specs__desc-text">{{ goods.specsDesc }}</view>
+				<view wx:if="{{ goods.specs && goods.specs.length > 0 && !goods.hideKey.specs }}" class="wr-goods-card__specs__desc specs-class" bind:tap="clickSpecsHandle">
+					<view class="wr-goods-card__specs__desc-text">{{ goods.specs }}</view>
 					<t-icon name="chevron-down" size="32rpx" color="#999999" />
 				</view>
 				<view class="goods_tips" wx:if="{{goods.stockQuantity !== 0 && goods.quantity >= goods.stockQuantity}}">库存不足</view>

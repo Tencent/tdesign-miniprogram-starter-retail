@@ -43,7 +43,7 @@ Component({
     },
     thumbMode: {
       type: String,
-      value: 'aspectFit',
+      value: 'aspectFill',
     },
     thumbWidth: Number,
     thumbHeight: Number,
@@ -92,16 +92,6 @@ Component({
   },
 
   methods: {
-    openSpecsPopup() {
-      this.setData({
-        specsPopup: {
-          insert: true,
-          show: true,
-        },
-      });
-      this.triggerEvent('specsopen', { good: this.properties.data });
-    },
-
     closeSpecsPopup() {
       this.setData({
         'specsPopup.show': false,
@@ -135,15 +125,6 @@ Component({
       this.triggerEvent('add-cart', e.detail);
     },
 
-    onClickSpecs(e) {
-      // 为了兼容，旧的事件不移除
-      this.triggerEvent('specstap', e.detail);
-
-      if (this.properties.disablePopup) return;
-      this.triggerEvent('specs', e.detail);
-      this.currentInTapSpecs = true;
-      this.openSpecsPopup();
-    },
     setHidden(hidden) {
       this.setData({ hiddenInData: !!hidden });
     },

@@ -70,9 +70,6 @@ Component({
             goods.lineClamp = 2;
           }
         }
-        if (goods.specs && goods.specs.length > 0) {
-          goods.specsDesc = goods.specs.join('');
-        }
 
         this.setData({ goods, isValidityLinePrice });
       },

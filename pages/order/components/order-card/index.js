@@ -59,7 +59,10 @@ Component({
       type: null,
       value: 10,
     },
-    useLogoSlot: Boolean,
+    useLogoSlot: {
+      type: Boolean,
+      value: false,
+    },
   },
 
   data: {
