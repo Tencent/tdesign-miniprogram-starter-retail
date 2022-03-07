@@ -9,7 +9,7 @@
     bind:submit="handleSubmit"
   />
   <!-- 过滤组件 -->
-  <wr-filter
+  <t-filter
     wr-class="filter-container"
     bind:change="handleFilterChange"
     layout="{{layout}}"
@@ -18,7 +18,7 @@
     bind:showFilterPopup="showFilterPopup"
   >
     <view slot="filterPopup">
-      <wr-filter-popup
+      <t-filter-popup
         show="{{show}}"
         bind:showFilterPopupClose="showFilterPopupClose"
         bind:reset="reset"
@@ -30,30 +30,32 @@
             <view class="price-ipts-wrap">
               <t-input
                 type="number"
-                t-class="price-ipt {{minSalePriceFocus ? 'focus' : ''}} {{minActive ? 'active' : ''}}"
+                t-class="price-ipt {{minActive ? 'active' : ''}}"
                 bindfocus="handleMinPriceFocus"
                 bindblur="handleMinPriceBlur"
                 placeholder="最低价"
                 value="{{minVal}}"
-                bindinput="onMinValAction"
+                bindchange="onMinValAction"
+                style="border:{{minSalePriceFocus?'1rpx solid #fa550f':'1rpx solid transparent'}}"
               />
               <text class="price-divided" />
 
               <t-input
                 type="number"
-                t-class="price-ipt {{maxSalePriceFocus ? 'focus' : ''}} {{maxActive ? 'active' : ''}}"
+                t-class="price-ipt {{maxActive ? 'active' : ''}}"
                 bindfocus="handleMaxPriceFocus"
                 bindblur="handleMaxPriceBlur"
                 placeholder="最高价"
                 value="{{maxVal}}"
-                bindinput="onMaxValAction"
+                bindchange="onMaxValAction"
+                style="border:{{maxSalePriceFocus?'1rpx solid #fa550f':'1rpx solid transparent'}}"
               />
             </view>
           </view>
         </view>
-      </wr-filter-popup>
+      </t-filter-popup>
     </view>
-  </wr-filter>
+  </t-filter>
   <view class="empty-wrap" wx:if="{{goodsList.length === 0 && hasLoaded}}">
     <t-empty t-class="empty-tips" size="240rpx">暂无相关商品</t-empty>
   </view>
@@ -68,6 +70,7 @@
       bind:click="gotoGoodsDetail"
     /> -->
     <goods-list
+      wr-class="wr-goods-list"
       goodsList="{{goodsList}}"
       layout="{{layoutText}}"
       bind:click="gotoGoodsDetail"
@@ -81,3 +84,4 @@
     no-more-text="没有更多了"
   />
 </view>
+<t-toast id="t-toast" />

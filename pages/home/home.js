@@ -115,6 +115,7 @@ Page({
       url: `/pages/goods/details/index?spuId=${spuId}`,
     });
   },
+
   goodListAddCartHandle() {
     Toast({
       context: this,

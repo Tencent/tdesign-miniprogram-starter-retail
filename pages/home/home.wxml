@@ -49,6 +49,7 @@
     />
   </t-tabs>
   <goods-list
+    wr-class="goods-list-container"
     goodsList="{{goodsList}}"
     layout="vertical"
     bind:click="goodListClickHandle"

@@ -43,9 +43,13 @@ page {
 }
 
 .category-goods-list {
-  background-color: #fff;
+  background-color: #f2f2f2;
   overflow-y: scroll;
   padding: 20rpx 24rpx;
+}
+
+.wr-goods-list {
+  background: #f2f2f2 !important;
 }
 
 .t-image__mask {
@@ -173,4 +177,43 @@ page {
 
 .rec-good-list {
   --ui-goods-card-height: 650rpx;
+}
+
+.price-ipts-wrap {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-top: 24rpx;
+}
+.price-ipts-wrap .price-divided {
+  position: relative;
+  width: 22rpx;
+  padding: 0 20rpx;
+}
+
+.price-ipts-wrap .price-divided::after {
+  content: '';
+  position: absolute;
+  height: 2rpx;
+  width: 22rpx;
+  background-color: #222427;
+  top: 50%;
+  left: 20rpx;
+  transform: translateY(-50%);
+}
+
+.result-container .price-ipts-wrap .price-ipt {
+  box-sizing: border-box;
+  width: 256rpx;
+  font-size: 24rpx;
+  text-align: center;
+  border-radius: 8rpx;
+  color: #bbb;
+  background: rgba(245, 245, 245, 1);
+}
+
+.price-ipts-wrap .price-divided .price-ipt.active {
+  color: #333;
+  font-weight: 600;
 }

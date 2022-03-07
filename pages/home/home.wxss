@@ -95,3 +95,7 @@ page {
 .t-class-track {
   background-color: #fa4126 !important;
 }
+
+.goods-list-container {
+  background: #f5f5f5 !important;
+}
