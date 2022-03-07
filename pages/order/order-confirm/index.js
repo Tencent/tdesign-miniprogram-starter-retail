@@ -108,13 +108,11 @@ Page({
 
     let { goodsRequestList } = this; // 商品列表
     let { userAddressReq } = this; // 收货地址
-    console.log('this: ', this);
-    console.log('options: ', options);
+
     let storeInfoList = []; // 门店列表
     // 如果是从地址选择页面返回，则使用地址显选择页面新选择的地址去获取结算数据
     if (options.userAddressReq) {
       userAddressReq = options.userAddressReq;
-      console.log('userAddressReq: ', userAddressReq);
     }
     if (options.type === 'cart') {
       // 从购物车跳转过来时，获取传入的商品列表数据
@@ -145,7 +143,6 @@ Page({
     };
     fetchSettleDetail(params).then(
       (res) => {
-        console.log('res: ', res);
         this.setData({
           loading: false,
           grouponAvatars,
@@ -275,7 +272,7 @@ Page({
             storeId: item.storeId,
           });
         });
-        console.log('orderCard: ', orderCard);
+
         storeInfoList.push({
           storeId: ele.storeId,
           storeName: ele.storeName,
@@ -289,6 +286,7 @@ Page({
         this.tempNoteInfo.push('');
         orderCardList.push(orderCard);
       });
+
     this.setData({ orderCardList, storeInfoList, submitCouponList });
     return data;
   },

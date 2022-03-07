@@ -122,7 +122,7 @@ Component({
         context: this,
         selector: '#t-toast',
         message: '你点击了取消订单',
-        icon: 'check-circle'
+        icon: 'check-circle',
       });
     },
 
@@ -131,37 +131,38 @@ Component({
         title: '确认是否已经收到货？',
         content: '',
         confirmBtn: '确认收货',
-        cancelBtn: '取消'
-      }).then(() => {
-        Toast({ 
-          context: this,
-          selector: '#t-toast',
-          message: '你确认收货了',
-          icon: 'check-circle'
+        cancelBtn: '取消',
+      })
+        .then(() => {
+          Toast({
+            context: this,
+            selector: '#t-toast',
+            message: '你确认收货了',
+            icon: 'check-circle',
+          });
+        })
+        .catch(() => {
+          Toast({
+            context: this,
+            selector: '#t-toast',
+            message: '你取消收货了',
+            icon: 'check-circle',
+          });
         });
-      }).catch(() => {
-        Toast({ 
-          context: this,
-          selector: '#t-toast',
-          message: '你取消收货了',
-          icon: 'check-circle'
-        });
-      });
     },
 
     onPay(order) {
-      Toast({ 
+      Toast({
         context: this,
         selector: '#t-toast',
         message: '你点击了去支付',
-        icon: 'check-circle'
+        icon: 'check-circle',
       });
     },
 
     onApplyRefund(order) {
-      console.log('order: ', order);
       const goods = order.goodsList[this.properties.goodsIndex];
-      console.log('goods: ', goods);
+
       const params = {
         orderNo: order.orderNo,
         skuId: goods?.skuId ?? '19384938948343',
@@ -182,11 +183,11 @@ Component({
     },
 
     onViewRefund(order) {
-      Toast({ 
+      Toast({
         context: this,
         selector: '#t-toast',
         message: '你点击了查看退款',
-        icon: ''
+        icon: '',
       });
     },
 

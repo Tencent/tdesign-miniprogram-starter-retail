@@ -1,5 +1,3 @@
-@import '/miniprogram_npm/@tencent/retailwe-ui-order-goods-card/external.wxss';
-
 :host {
   background-color: #f5f5f5;
 }
@@ -21,27 +19,27 @@
   bottom: 12rpx;
 }
 .tab-bar__inner .t-tabs-is-active {
-  color: #fa550f !important;
+  color: #fa4126 !important;
 }
 
 .tab-bar__inner .t-tabs-track {
-  background: #fa550f !important;
+  background: #fa4126 !important;
 }
 
 .page-container .tab-bar__active {
   font-size: 28rpx;
 }
 .page-container .specs-popup .bottom-btn {
-  color: #fa550f;
-  color: var(--color-primary, #fa550f);
+  color: #fa4126;
+  color: var(--color-primary, #fa4126);
 }
 .page-container .specs-popup .bottom-btn::after {
-  border-color: #fa550f;
-  border-color: var(--color-primary, #fa550f);
+  border-color: #fa4126;
+  border-color: var(--color-primary, #fa4126);
 }
 .dialog .dialog__button-confirm {
-  color: #fa550f;
-  color: var(--color-primary, #fa550f);
+  color: #fa4126;
+  color: var(--color-primary, #fa4126);
 }
 .list-loading {
   height: 100rpx;
@@ -61,36 +59,36 @@ wr-order-goods-card:not(:first-child) .wr-goods-card {
 
 .price-total {
   font-size: 24rpx;
-  color: #666666;
+  line-height: 32rpx;
+  color: #999999;
   padding-top: 10rpx;
+  width: 100%;
+  display: flex;
+  align-items: baseline;
+  justify-content: flex-end;
 }
-.price-total .float {
-  float: right;
+.price-total .bold-price {
+  color: #333333;
+  font-size: 28rpx;
+  line-height: 40rpx;
+  color: #333333;
 }
-.price-total .symbol {
-  font-size: 24rpx;
-  color: #fa550f;
-  color: var(--color-price, #fa550f);
+.price-total .real-pay {
+  font-size: 36rpx;
+  line-height: 48rpx;
+  color: #fa4126;
   font-weight: bold;
-  display: inline;
-  margin-right: 5rpx;
 }
-.price-total .order-price {
-  font-size: 32rpx;
-  color: #fa550f;
-  color: var(--color-price, #fa550f);
-  font-weight: bold;
-}
-.price-total .order-price__decimal {
-  font-size: 24rpx;
-}
-.price-total .clear {
-  clear: both;
-}
+
 .t-tabs.t-tabs-top .t-tabs-scroll {
   border: none !important;
 }
 .t-empty-text {
   font-size: 28rpx;
   color: #999;
+}
+
+.page-container .order-number {
+  color: #666666;
+  font-size: 28rpx;
 }

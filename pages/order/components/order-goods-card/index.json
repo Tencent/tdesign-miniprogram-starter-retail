@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "wr-stepper": "@tencent/retailwe-ui-stepper/index",
+    "wr-goods-card": "../specs-goods-card/index"
+  }
+}

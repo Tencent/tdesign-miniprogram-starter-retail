@@ -54,8 +54,8 @@ Page({
   },
 
   onImgError(e) {
-    if(e.detail) {
-      console.error('img 加载失败')
+    if (e.detail) {
+      console.error('img 加载失败');
     }
   },
 
@@ -66,7 +66,6 @@ Page({
     this.getDetail()
       .then(() => {
         this.setData({ pageLoading: false });
-        console.log('this.data', this.data);
       })
       .catch((e) => {
         console.error(e);
@@ -96,38 +95,40 @@ Page({
     };
     return fetchOrderDetail(params).then((res) => {
       const order = res.data;
+      const _order = {
+        id: order.orderId,
+        orderNo: order.orderNo,
+        parentOrderNo: order.parentOrderNo,
+        storeId: order.storeId,
+        storeName: order.storeName,
+        status: order.orderStatus,
+        statusDesc: order.orderStatusName,
+        amount: order.paymentAmount,
+        totalAmount: order.goodsAmountApp,
+        logisticsNo: order.logisticsVO.logisticsNo,
+        goodsList: (order.orderItemVOs || []).map((goods) =>
+          Object.assign({}, goods, {
+            id: goods.id,
+            thumb: goods.goodsPictureUrl,
+            title: goods.goodsName,
+            skuId: goods.skuId,
+            spuId: goods.spuId,
+            specs: (goods.specifications || []).map((s) => s.specValue),
+            price: goods.tagPrice ? goods.tagPrice : goods.actualPrice, // 商品销售单价, 优先取限时活动价
+            num: goods.buyQuantity,
+            titlePrefixTags: goods.tagText ? [{ text: goods.tagText }] : [],
+            buttons: goods.buttonVOs || [],
+          }),
+        ),
+        buttons: order.buttonVOs || [],
+        createTime: order.createTime,
+        receiverAddress: this.composeAddress(order),
+        groupInfoVo: order.groupInfoVo,
+      };
+
       this.setData({
         order,
-        _order: {
-          id: order.orderId,
-          orderNo: order.orderNo,
-          parentOrderNo: order.parentOrderNo,
-          storeId: order.storeId,
-          storeName: order.storeName,
-          status: order.orderStatus,
-          statusDesc: order.orderStatusName,
-          amount: order.paymentAmount,
-          totalAmount: order.goodsAmountApp,
-          logisticsNo: order.logisticsVO.logisticsNo,
-          goodsList: (order.orderItemVOs || []).map((goods) =>
-            Object.assign({}, goods, {
-              id: goods.id,
-              imgUrl: goods.goodsPictureUrl,
-              name: goods.goodsName,
-              skuId: goods.skuId,
-              spuId: goods.spuId,
-              specs: (goods.specifications || []).map((s) => s.specValue),
-              price: goods.tagPrice ? goods.tagPrice : goods.actualPrice, // 商品销售单价, 优先取限时活动价
-              num: goods.buyQuantity,
-              titlePrefixTags: goods.tagText ? [{ text: goods.tagText }] : [],
-              buttons: goods.buttonVOs || [],
-            }),
-          ),
-          buttons: order.buttonVOs || [],
-          createTime: order.createTime,
-          receiverAddress: this.composeAddress(order),
-          groupInfoVo: order.groupInfoVo,
-        },
+        _order,
         formatCreateTime: formatTime(
           parseFloat(order.createTime + ''),
           'YYYY-MM-DD HH:mm',
@@ -320,5 +321,5 @@ Page({
     wx.navigateTo({
       url: `/pages/order/order-list/index`,
     });
-  }
+  },
 });
