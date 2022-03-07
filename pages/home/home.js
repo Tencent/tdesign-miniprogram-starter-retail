@@ -68,7 +68,12 @@ Page({
     this.setData({
       tabIndex: e.detail,
     });
-    this.loadGoodsList(true);
+    console.log('点击标签: ', e);
+    Toast({
+      context: this,
+      selector: '#t-toast',
+      message: '点击标签',
+    });
   },
 
   onReTry() {
