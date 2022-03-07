@@ -1,18 +1,4 @@
-<!-- <view id="js-page-wrap">
-  <wr-promotion-detail
-    banner-src="{{banner}}"
-    show-banner-desc="{{showBannerDesc}}"
-    status-tag="{{statusTag}}"
-    banner-desc-icon-color="#999"
-    gl-goods-list="{{list}}"
-    cd-time="{{time}}"
-    bind:banner-desc-click="bannerDescClickHandle"
-    bind:gl-click="goodClickHandle"
-    bind:gl-addcart="cardClickHandle"
-  />
-</view> -->
-
-<view id="js-page-wrap">
+<view id="js-page-wrap" class="promotion-detail-container">
   <view wx:if="{{banner}}" class="wrap" id="{{independentID}}">
     <view class="banner-header">
       <view class="banner-wrap">

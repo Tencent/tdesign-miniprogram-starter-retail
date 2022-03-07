@@ -3,7 +3,7 @@
     <span slot="text">加载中...</span>
   </t-loading>
 </view>
-<view class="container">
+<view class="home-page-container">
   <view class="search" bind:tap="navToSearchPage">
     <t-search
       t-class-left="t-search__left-icon"

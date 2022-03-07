@@ -3,22 +3,22 @@ page {
   padding-bottom: 100rpx;
 }
 
-.container {
+.home-page-container {
   display: block;
   padding: 0 24rpx;
 }
 
-.container .t-class__input-container {
+.home-page-container .t-class__input-container {
   border-radius: 32rpx !important;
   height: 64rpx !important;
 }
 
-.container .t-search__left-icon {
+.home-page-container .t-search__left-icon {
   display: flex;
   align-items: center;
 }
 
-.container .t-search__input {
+.home-page-container .t-search__input {
   font-size: 28rpx !important;
   color: rgb(116, 116, 116) !important;
 }
@@ -27,30 +27,30 @@ page {
   margin: 20rpx 0;
 }
 
-.container .t-tabs .t-tabs-nav {
+.home-page-container .t-tabs .t-tabs-nav {
   background-color: transparent;
   line-height: 80rpx;
   font-size: 28rpx;
   color: #333;
 }
 
-.container .t-tabs .t-tabs-is-active {
+.home-page-container .t-tabs .t-tabs-is-active {
   color: #fa550f !important;
 }
 
-.container .t-tabs .t-tabs-track {
+.home-page-container .t-tabs .t-tabs-track {
   background-color: #fa550f !important;
 }
 
-.container .t-tabs .t-tabs-scroll {
+.home-page-container .t-tabs .t-tabs-scroll {
   border: none !important;
 }
 
-.container .wr-swiper .slide-image {
+.home-page-container .wr-swiper .slide-image {
   height: 300rpx;
 }
 
-.container .tab.order-nav {
+.home-page-container .tab.order-nav {
   background-color: transparent;
   line-height: 80rpx;
   font-size: 28rpx;
@@ -58,39 +58,39 @@ page {
 }
 
 /* 半个字 */
-.container .tab.order-nav .order-nav-item.scroll-width {
+.home-page-container .tab.order-nav .order-nav-item.scroll-width {
   min-width: 165rpx;
 }
-.container .tab .order-nav-item.active {
+.home-page-container .tab .order-nav-item.active {
   color: #fa550f !important;
 }
 
-.container .tab .bottom-line {
+.home-page-container .tab .bottom-line {
   border-radius: 4rpx;
 }
 
-.container .tab .order-nav-item.active .bottom-line {
+.home-page-container .tab .order-nav-item.active .bottom-line {
   background-color: #fa550f !important;
 }
 
-.container .swiper-wrap {
+.home-page-container .swiper-wrap {
   margin: 20rpx 0;
 }
 
-.container .swipe-img {
+.home-page-container .swipe-img {
   width: 100%;
   height: 300rpx;
 }
 
-.container .t-class-item {
+.home-page-container .t-class-item {
   color: #333333 !important;
   font-size: 32rpx;
 }
 
-.container .t-class-track {
+.home-page-container .t-class-track {
   background-color: #fa4126 !important;
 }
 
-.container .goods-list-container {
+.home-page-container .goods-list-container {
   background: #f5f5f5 !important;
 }

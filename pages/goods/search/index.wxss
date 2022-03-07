@@ -1,4 +1,3 @@
-/* miniprogram/pages/search/search/search.wxss */
 .search-page {
   box-sizing: border-box;
   width: 100vw;
@@ -6,43 +5,37 @@
   padding: 0 30rpx;
 }
 
-.search {
-  padding: 0 24rpx;
-  margin-top: 10rpx;
-  background-color: #fff;
-}
-
-.t-class__input-container {
+.search-page .t-class__input-container {
   height: 64rpx !important;
   border-radius: 32rpx !important;
 }
 
-.t-search__left-icon {
+.search-page .t-search__left-icon {
   display: flex;
   align-items: center;
 }
 
-.t-search__input {
+.search-page .t-search__input {
   font-size: 28rpx !important;
   color: rgb(116, 116, 116) !important;
 }
 
-.search-wrap {
+.search-page .search-wrap {
   margin-top: 44rpx;
 }
 
-.history-wrap {
+.search-page .history-wrap {
   margin-bottom: 20px;
 }
 
-.search-header {
+.search-page .search-header {
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
   align-items: center;
 }
 
-.search-title {
+.search-page .search-title {
   font-size: 30rpx;
   font-family: PingFangSC-Semibold, PingFang SC;
   font-weight: 600;
@@ -50,7 +43,7 @@
   line-height: 42rpx;
 }
 
-.search-clear {
+.search-page .search-clear {
   font-size: 24rpx;
   font-family: PingFang SC;
   line-height: 32rpx;
@@ -58,7 +51,7 @@
   font-weight: normal;
 }
 
-.search-content {
+.search-page .search-content {
   overflow: hidden;
   display: flex;
   flex-flow: row wrap;
@@ -67,7 +60,7 @@
   margin-top: 24rpx;
 }
 
-.search-item {
+.search-page .search-item {
   color: #333333;
   font-size: 24rpx;
   line-height: 32rpx;
@@ -79,7 +72,7 @@
   padding: 12rpx 24rpx;
 }
 
-.hover-history-item {
+.search-page .hover-history-item {
   position: relative;
   top: 3rpx;
   left: 3rpx;
