@@ -1,63 +1,53 @@
 <view class="result-container">
-	<t-search
-	 actionText="{{keywords.length !== 0 ? '' : '取消'}}"
-	 bindsubmit="handleSubmit"
-	 keyword="{{keywords}}"
-	 bindcancel="handleCancel"
-	 bindclear="handleClear"
-	 t-class="t-search"
-	 t-class-left="t-search__left-icon"
-	 t-class-input="t-search__input"
-	 shape="round"
-	>
-		<t-badge
-		 wx:if="{{keywords.length !== 0}}"
-		 count="{{cartNum}}"
-		 show-zero="{{true}}"
-		 slot="action-text"
-		>
-			<t-icon
-			 name="cart"
-			 t-class="cancel-btn"
-			 size='44rpx'
-			 color='#222'
-			 style="font-weight: bold;margin-left: 20rpx;"
-			 bindtap="handleCartTap"
-			/>
-		</t-badge>
-	</t-search>
-	<!-- 过滤组件 -->
-	<wr-filter
-	 wr-class="filter-container"
-	 bind:change="handleFilterChange"
-	 layout="{{layout}}"
-	 sorts="{{sorts}}"
-	 overall="{{overall}}"
-	 bind:showFilterPopup="showFilterPopup"
-	>
-		<view slot="filterPopup">
-			<wr-filter-popup
-			 show="{{show}}"
-			 bind:showFilterPopupClose="showFilterPopupClose"
-			 bind:reset="reset"
-			 bind:confirm="confirm"
-			>
-				<view slot="filterSlot">
-					<view class="price-container">
-						<view class="price-between">价格区间</view>
-						<view class="price-ipts-wrap">
-							<t-input
-							 type="number"
-							 t-class="price-ipt {{minSalePriceFocus ? 'focus' : ''}} {{minActive ? 'active' : ''}}"
-							 bindfocus="handleMinPriceFocus"
-							 bindblur="handleMinPriceBlur"
-							 placeholder="最低价"
-							 value="{{minVal}}"
-							 bindinput="onMinValAction"
-							/>
-							<text class="price-divided" />
+  <t-search
+    t-class="t-search"
+    t-class-input-container="t-class__input-container"
+    t-class-left="t-search__left-icon"
+    t-class-input="t-search__input"
+    value="{{searchValue}}"
+    placeholder="iPhone12pro"
+    bind:submit="handleSubmit"
+  />
+  <!-- 过滤组件 -->
+  <wr-filter
+    wr-class="filter-container"
+    bind:change="handleFilterChange"
+    layout="{{layout}}"
+    sorts="{{sorts}}"
+    overall="{{overall}}"
+    bind:showFilterPopup="showFilterPopup"
+  >
+    <view slot="filterPopup">
+      <wr-filter-popup
+        show="{{show}}"
+        bind:showFilterPopupClose="showFilterPopupClose"
+        bind:reset="reset"
+        bind:confirm="confirm"
+      >
+        <view slot="filterSlot">
+          <view class="price-container">
+            <view class="price-between">价格区间</view>
+            <view class="price-ipts-wrap">
+              <t-input
+                type="number"
+                t-class="price-ipt {{minSalePriceFocus ? 'focus' : ''}} {{minActive ? 'active' : ''}}"
+                bindfocus="handleMinPriceFocus"
+                bindblur="handleMinPriceBlur"
+                placeholder="最低价"
+                value="{{minVal}}"
+                bindinput="onMinValAction"
+              />
+              <text class="price-divided" />
 
-              <t-input type="number" t-class="price-ipt {{maxSalePriceFocus ? 'focus' : ''}} {{maxActive ? 'active' : ''}}" bindfocus="handleMaxPriceFocus" bindblur="handleMaxPriceBlur" placeholder="最高价" value="{{maxVal}}" bindinput="onMaxValAction" />
+              <t-input
+                type="number"
+                t-class="price-ipt {{maxSalePriceFocus ? 'focus' : ''}} {{maxActive ? 'active' : ''}}"
+                bindfocus="handleMaxPriceFocus"
+                bindblur="handleMaxPriceBlur"
+                placeholder="最高价"
+                value="{{maxVal}}"
+                bindinput="onMaxValAction"
+              />
             </view>
           </view>
         </view>
@@ -69,8 +59,25 @@
   </view>
   <!-- 显示内容 -->
   <view class="category-goods-list" wx:if="{{goodsList.length}}">
-    <wr-good-list card-class="rec-good-list" layout="{{layoutText}}" goodsList="{{goodsList}}" outerService="{{outerService}}" bindaddcart="handleAddCart" bind:click="gotoGoodsDetail" />
+    <!-- <wr-good-list
+      card-class="rec-good-list"
+      layout="{{layoutText}}"
+      goodsList="{{goodsList}}"
+      outerService="{{outerService}}"
+      bindaddcart="handleAddCart"
+      bind:click="gotoGoodsDetail"
+    /> -->
+    <goods-list
+      goodsList="{{goodsList}}"
+      layout="{{layoutText}}"
+      bind:click="gotoGoodsDetail"
+      bind:addcart="handleAddCart"
+    />
   </view>
-  <wr-load-more wx:if="{{goodsList.length > 0}}" wr-class="no-more" status="{{loadMoreStatus}}" no-more-text="没有更多了" />
+  <wr-load-more
+    wx:if="{{goodsList.length > 0}}"
+    wr-class="no-more"
+    status="{{loadMoreStatus}}"
+    no-more-text="没有更多了"
+  />
 </view>
-
