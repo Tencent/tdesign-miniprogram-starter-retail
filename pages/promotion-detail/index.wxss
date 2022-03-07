@@ -1,1 +1,96 @@
-@import '/miniprogram_npm/@tencent/retailwe-ui-goods-list/external.wxss';
+/* @import '/miniprogram_npm/@tencent/retailwe-ui-goods-list/external.wxss'; */
+
+.wrap {
+  display: block;
+  margin-left: 24rpx;
+  margin-right: 24rpx;
+}
+
+.t-class-promotion-head {
+  width: 702rpx;
+  height: 160rpx;
+}
+
+.wrap .count-down-wrap {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+
+  /* 因为倒计时就有这个设定，所以这里也要设定，不然默认情况下行高对不上会导致文字不对齐 */
+  line-height: 34rpx;
+}
+
+.wrap .count-down-wrap.in-banner-count-down-wrap {
+  position: absolute;
+  bottom: 32rpx;
+  left: 32rpx;
+  right: 32rpx;
+}
+
+.wrap .count-down-wrap .status-tag {
+  height: 32rpx;
+  line-height: 32rpx;
+  border-radius: 16rpx;
+  font-size: 20rpx;
+  margin-right: 12rpx;
+  padding-left: 12rpx;
+  padding-right: 12rpx;
+}
+
+.wrap .count-down-wrap .status-tag.before {
+  color: #fff;
+  background-color: #ff9853;
+}
+
+.wrap .count-down-wrap .status-tag.finish {
+  color: #fff;
+  background-color: #ccc;
+}
+
+.wrap .count-down-wrap .count-down-label {
+  color: #666;
+  font-size: 24rpx;
+  margin-right: 0.5em;
+}
+
+.wrap .count-down-wrap .detail-entry {
+  margin-left: auto;
+  /* 满足最小点击高度的audit建议 */
+  height: 40rpx;
+}
+
+.wrap .count-down-wrap .detail-entry-label {
+  color: #fff;
+  font-size: 24rpx;
+  margin-right: 12rpx;
+}
+
+.wrap .count-down-wrap.after-banner-count-down-wrap {
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+  margin-top: 20rpx;
+}
+
+.wrap .count-down-wrap.after-banner-count-down-wrap .detail-entry-label {
+  color: #999;
+}
+
+.wrap .gl-empty-wrap {
+  margin-top: 180rpx;
+}
+
+.wrap .gl-empty-img {
+  width: 240rpx;
+  height: 240rpx;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.wrap .gl-empty-label {
+  font-size: 28rpx;
+  color: #999;
+  margin-top: 40rpx;
+  text-align: center;
+}
