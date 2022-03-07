@@ -17,6 +17,15 @@ Component({
     'price-prefix-class',
   ],
 
+  relations: {
+    '../order-card/index': {
+      type: 'ancestor',
+      linked(target) {
+        this.parent = target;
+      },
+    },
+  },
+
   properties: {
     hidden: {
       // 设置为null代表不做类型转换
@@ -169,9 +178,6 @@ Component({
     },
     clickThumbHandle() {
       this.triggerEvent('thumb', { goods: this.data.goods });
-    },
-    clickSpecsHandle() {
-      this.triggerEvent('specs', { goods: this.data.goods });
     },
     clickTagHandle(evt) {
       const { index } = evt.currentTarget.dataset;

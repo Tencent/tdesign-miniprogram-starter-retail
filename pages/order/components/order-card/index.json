@@ -1,8 +1,8 @@
 {
   "component": true,
   "usingComponents": {
-    "wr-tag": "@tencent/retailwe-ui-tag/index",
-    "wr-price": "/components/price/index",
+    "wr-icon": "@tencent/retailwe-ui-icon/index",
+    "wr-image": "@tencent/retailwe-ui-image/index",
     "t-image": "tdesign-miniprogram/image/image",
     "t-icon": "tdesign-miniprogram/icon/icon"
   }

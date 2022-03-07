@@ -1,3 +1,4 @@
+let ARRAY = [];
 Component({
   externalClasses: ['wr-class'],
 

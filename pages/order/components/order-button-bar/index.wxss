@@ -9,8 +9,7 @@
 }
 .btn-bar .order-btn {
   background-color: inherit;
-  font-size: 26rpx;
-  padding: 16rpx 28rpx;
+  font-size: 28rpx;
   line-height: 1;
   border-radius: unset;
   min-width: 160rpx;
@@ -27,10 +26,10 @@
   align-items: center;
 }
 .btn-bar .t-button {
-  width: 120rpx;
-  height: 60rpx;
-  border-radius: 8rpx;
-  margin-left: 20rpx;
+  width: 160rpx;
+  height: 56rpx;
+  border-radius: 28rpx;
+  margin-left: 24rpx;
 }
 .btn-bar .left .delete-btn {
   font-size: 22rpx;
@@ -39,15 +38,13 @@
   display: none;
 }
 .btn-bar .right .normal {
-  color: #666666;
+  color: #333333;
 }
 .btn-bar .right .normal:after {
-  border-color: #bbbbbb;
+  border-color: #dddddd;
 }
 .btn-bar .right .primary {
-  color: #fa550f;
-  color: var(--color-primary, #fa550f);
-  border-color: #fa550f;
-  border-color: var(--color-primary, #fa550f);  
+  color: #ffffff;
+  background-color: #fa4126;
+  border-color: #fa4126;
 }
-

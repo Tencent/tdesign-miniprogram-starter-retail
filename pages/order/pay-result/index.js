@@ -1,5 +1,3 @@
-import onGrouponShare from '../components/groupon-card/onGrouponShare';
-
 Page({
   data: {
     totalPaid: 0,
@@ -22,8 +20,6 @@ Page({
       orderNo,
       groupId,
     });
-
-    this.loadGroupon({ groupId, promotionId });
   },
 
   onTapReturn(e) {
@@ -42,26 +38,7 @@ Page({
     }
   },
 
-  loadGroupon(params) {
-    if (!params.groupId || !params.promotionId) {
-      return;
-    }
-    /* httpClient
-      .post(api.activity.grouponDetail, params, {
-        level: EnumRequestLevel.Negligible,
-      })
-      .then((res) => {
-        const { groups, spu } = res.data;
-        this.setData({
-          spu,
-          groupon: groups,
-        });
-      }); */
-  },
-
   navBackHandle() {
     wx.navigateBack();
   },
-
-  onShareAppMessage: onGrouponShare,
 });

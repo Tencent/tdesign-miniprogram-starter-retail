@@ -342,3 +342,27 @@
   display: flex;
   align-items: center;
 }
+
+.goods-sku-info .no-storage-mask {
+  position: absolute;
+  color: #fff;
+  bottom: 0rpx;
+  left: 0rpx;
+  background-color: rgba(0, 0, 0, 0.1);
+  height: 192rpx;
+  width: 192rpx;
+  border-radius: 8rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.no-storage-mask .no-storage-content {
+  width: 128rpx;
+  height: 128rpx;
+  border-radius: 64rpx;
+  background-color: rgba(0, 0, 0, 0.4);
+  text-align: center;
+  line-height: 128rpx;
+  font-size: 28rpx;
+}

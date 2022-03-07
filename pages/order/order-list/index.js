@@ -71,7 +71,7 @@ Page({
     status = status !== undefined ? status : this.data.curTab;
     this.setData({
       status,
-    })
+    });
     this.refreshList(status);
   },
 
@@ -117,6 +117,7 @@ Page({
               })),
               buttons: order.buttonVOs || [],
               groupInfoVo: order.groupInfoVo,
+              freightFee: order.freightFee,
             };
           });
         }
@@ -143,6 +144,9 @@ Page({
 
   onTabChange(e) {
     const { value } = e.detail;
+    this.setData({
+      status: value,
+    });
     this.refreshList(value);
   },
 

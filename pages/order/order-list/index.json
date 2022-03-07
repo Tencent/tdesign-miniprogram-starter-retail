@@ -7,11 +7,10 @@
     "t-toast": "tdesign-miniprogram/toast/toast",
     "t-dialog": "tdesign-miniprogram/dialog/dialog",
     "t-pull-down-refresh": "tdesign-miniprogram/pull-down-refresh/pull-down-refresh",
-
     "wr-load-more": "@tencent/retailwe-ui-load-more/index",
     "wr-order-button-bar": "../components/order-button-bar/index",
-    "wr-price": "@tencent/retailwe-ui-price/index",
-    "wr-order-card": "@tencent/retailwe-ui-order-card/index",
-    "wr-specs-goods-card": "@tencent/retailwe-ui-specs-goods-card/index"
+    "wr-price": "/components/price/index",
+    "wr-order-card": "../components/order-card/index",
+    "wr-specs-goods-card": "../components/specs-goods-card/index"
   }
 }
