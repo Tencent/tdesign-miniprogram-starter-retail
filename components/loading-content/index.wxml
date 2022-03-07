@@ -1,0 +1,14 @@
+<view class="t-class loading-content {{position}}" style="{{(position === 'static' || noMask) ? 'visibility: hidden;' : ''}} background-color: {{backgroundColor}}">
+	<t-loading
+	 t-class="loading"
+	 type="{{type}}"
+	 layout="{{vertical}}"
+	 size="{{size}}"
+	 textSize="{{textSize}}"
+	 color="{{color ? color : position !== 'static' ? 'white' : ''}}"
+	 text-color="{{textColor ? textColor : position !== 'static' ? 'white' : ''}}"
+	>
+		<slot/>
+	</t-loading>
+</view>
+

@@ -1,11 +1,12 @@
 {
-  "navigationBarTitleText": "个人中心",
+  "navigationBarTitleText": "个人资料",
   "usingComponents": {
-    "t-date-time-picker": "tdesign-miniprogram/date-time-picker/date-time-picker",
     "t-cell-group": "tdesign-miniprogram/cell-group/cell-group",
     "t-cell": "tdesign-miniprogram/cell/cell",
     "t-button": "tdesign-miniprogram/button/button",
     "t-image": "tdesign-miniprogram/image/image",
-    "t-dialog": "tdesign-miniprogram/dialog/dialog"
+    "t-dialog": "tdesign-miniprogram/dialog/dialog",
+    "t-toast": "tdesign-miniprogram/toast/toast",
+    "t-select-picker": "../components/ui-select-picker/index"
   }
 }
