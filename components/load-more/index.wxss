@@ -6,23 +6,16 @@
   justify-content: center;
 }
 
-.load-more--loading {
-  width: 100%;
+.load-more .t-class-loading {
+  display: flex;
+  justify-content: center;
 }
 
-.load-more--no-more__content {
-  min-width: 280rpx;
-  text-align: center;
+.load-more .t-class-loading-text {
+  color: #bbbbbb;
 }
 
-.load-more--failed {
-  text-align: center;
-}
-
-.load-more--failed .btn {
-  display: inline-block;
-}
-
-.load-more--failed .btn:active {
-  opacity: 0.5;
+.t-class-divider-content {
+  margin: 0 10rpx;
+  color: #bbbbbb;
 }

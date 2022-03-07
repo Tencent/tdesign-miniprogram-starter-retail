@@ -61,14 +61,6 @@
   </view>
   <!-- 显示内容 -->
   <view class="category-goods-list" wx:if="{{goodsList.length}}">
-    <!-- <wr-good-list
-      card-class="rec-good-list"
-      layout="{{layoutText}}"
-      goodsList="{{goodsList}}"
-      outerService="{{outerService}}"
-      bindaddcart="handleAddCart"
-      bind:click="gotoGoodsDetail"
-    /> -->
     <goods-list
       wr-class="wr-goods-list"
       goodsList="{{goodsList}}"
