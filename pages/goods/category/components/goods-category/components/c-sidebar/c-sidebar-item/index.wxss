@@ -1,0 +1,29 @@
+.c-sidebar-item {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  background-color: #fff;
+  color: #222427;
+  padding: 20rpx 0;
+  font-size: 26rpx;
+}
+.c-sidebar-item.active {
+  position: relative;
+}
+.c-sidebar-item__text {
+  width: 136rpx;
+  height: 36rpx;
+  padding: 8rpx 0;
+  line-height: 36rpx;
+  text-align: center;
+}
+.c-sidebar-item.active .c-sidebar-item__text {
+  background-color: #ff5f15;
+  border-radius: 36rpx;
+  color: #fff;
+}
+.text-overflow {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

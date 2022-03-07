@@ -4,7 +4,7 @@
     "t-loading": "tdesign-miniprogram/loading/loading",
     "t-button": "tdesign-miniprogram/button/button",
     "t-empty": "tdesign-miniprogram/empty/empty",
-    "wr-goods-category": "@tencent/retailwe-ui-goods-category/index",
+    "wr-goods-category": "./components/goods-category/index",
     "wr-goods-list": "@tencent/retailwe-ui-goods-list/index"
   }
 }
