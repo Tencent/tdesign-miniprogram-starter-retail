@@ -149,10 +149,6 @@ page {
 .empty-wrap .empty-tips .empty-content .content-text {
   margin-top: 40rpx;
 }
-.no-more {
-  padding-left: 20rpx;
-  padding-right: 20rpx;
-}
 
 .filter-wrap .filter-left-content .filter-active-item {
   color: #fa550f !important;

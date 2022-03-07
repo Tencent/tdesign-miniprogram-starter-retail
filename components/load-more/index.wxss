@@ -1,0 +1,28 @@
+.load-more {
+  font-size: 24rpx;
+  height: 100rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.load-more--loading {
+  width: 100%;
+}
+
+.load-more--no-more__content {
+  min-width: 280rpx;
+  text-align: center;
+}
+
+.load-more--failed {
+  text-align: center;
+}
+
+.load-more--failed .btn {
+  display: inline-block;
+}
+
+.load-more--failed .btn:active {
+  opacity: 0.5;
+}

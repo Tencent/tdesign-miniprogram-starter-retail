@@ -77,9 +77,8 @@
       bind:addcart="handleAddCart"
     />
   </view>
-  <wr-load-more
+  <t-load-more
     wx:if="{{goodsList.length > 0}}"
-    wr-class="no-more"
     status="{{loadMoreStatus}}"
     no-more-text="没有更多了"
   />
