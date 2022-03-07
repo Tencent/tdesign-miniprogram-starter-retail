@@ -37,7 +37,12 @@
 		 defaultShowNum="{{3}}"
 		 data-order="{{order}}"
 		 bindcardtap="onOrderCardTap"
+		 useLogoSlot
 		>
+			<view slot="top-left" class="order-number">
+				<text decode>订单号&nbsp;</text>
+				{{order.orderNo}}
+			</view>
 			<wr-specs-goods-card
 			 wx:for="{{order.goodsList}}"
 			 wx:key="id"
@@ -48,18 +53,18 @@
 			/>
 			<view slot="more">
 				<view class="price-total">
-					<view class="float">
-						共 {{goodsCount}} 件商品 合计：
-						<view class="symbol">¥</view>
-						<wr-price
-						 fill
-						 wr-class="order-price"
-						 decimal-class="order-price__decimal"
-						 price="{{order.amount + ''}}"
-						 symbol=""
-						/>
-					</view>
-					<view class="clear" />
+					<text >总价</text>
+					<wr-price fill price="{{order.totalAmount + ''}}" />
+					<text >，运费</text>
+					<wr-price fill price="{{order.freightFee + ''}}" />
+					<text decode>&nbsp;</text>
+					<text class="bold-price" decode="{{true}}">实付&nbsp;</text>
+					<wr-price
+					 fill
+					 class="real-pay"
+					 price="{{order.amount + ''}}"
+					 decimalSmaller
+					/>
 				</view>
 				<!-- 订单按钮栏 -->
 				<wr-order-button-bar order="{{order}}" bindrefresh="onRefresh" data-order="{{order}}" />

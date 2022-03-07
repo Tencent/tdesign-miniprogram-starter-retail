@@ -1,18 +1,112 @@
 page {
   background-color: #f5f5f5;
 }
-
-.get-address-wrap {
-  margin: 20rpx 24rpx;
-  --cell-vertical-padding: 26rpx;
-  --cell-horizontal-padding: 30rpx;
+page .divider-line {
+  width: 100%;
+  height: 20rpx;
+  background-color: #f5f5f5;
 }
-
-.get-address-wrap .wr-weixin {
-  margin-right: 20rpx;
+.address-flex-box {
+  display: flex;
+  flex-wrap: wrap;
 }
-
-.get-address-wrap .wr-cell__title {
+.address-detail {
   font-size: 30rpx;
+}
+.address-detail-wx-location {
+  background: #fff;
+  padding: 24rpx 32rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.address-detail-wx-arrow {
+  align-items: flex-end;
+}
+.form-address .t-cell-left {
+  margin-right: 0;
+}
+.form-address .t-cell-title {
+  width: 196rpx;
+  flex: none;
+}
+.form-address .t-cell-note {
+  margin-bottom: -20rpx;
+}
+.form-address .t-input {
+  width: 100%;
+}
+.form-address .t-textarea-cell-note {
+  margin: 0 -32rpx;
+}
+.form-address .t-textarea {
+  height: 128rpx;
+}
+.form-address .placeholder {
+  color: #bbbbbb;
+}
+page .form-address .t-dialog-confirm {
+  color: #ff5f15;
+}
+.form-address .form-content {
+  box-sizing: border-box;
+  width: 100%;
+  display: block;
+}
+.form-address .field-text {
+  flex: 1;
+  color: #666666;
+  font-size: 30rpx;
+  padding: 0;
+}
+.form-address .field-text::after {
+  border: none !important;
+}
+.form-address .map {
+  font-size: 48rpx !important;
+  margin-left: 20rpx;
+  color: #9d9d9f;
+}
+.form-address .field.text-area {
+  height: 200rpx;
+  align-items: flex-start;
+}
+.form-address .label-list {
+  line-height: 50rpx;
+  background: #f5f5f5;
   color: #333;
+  min-width: 100rpx;
+  padding: 0 20rpx;
+  height: 56rpx;
+  margin: 0 32rpx 20rpx 0;
+  font-size: 26rpx;
+  border: 2rpx solid transparent;
+  width: auto;
+}
+.form-address .label-list::after {
+  content: none;
+}
+.form-address .active-btn {
+  color: #fa4126;
+  border: 2rpx solid #fa4126;
+  background: rgba(255, 95, 21, 0.04);
+}
+.form-address .active-btn::after {
+  border: 4rpx solid #ff5f15;
+}
+.submit {
+  box-sizing: border-box;
+  padding: 64rpx 30rpx 88rpx 30rpx;
+}
+.submit .btn-submit-address {
+  width: 100%;
+  background: #fa4126;
+  color: #fff;
+  border-radius: 48rpx;
+}
+.submit .btn-submit-address.disabled {
+  background-color: #c6c6c6;
+}
+.submit .btn-submit-address.disabled::after {
+  display: none;
 }

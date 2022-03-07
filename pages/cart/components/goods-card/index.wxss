@@ -26,20 +26,16 @@
   height: var(--ui-goods-card-thumb-height, 140rpx);
 }
 .wr-goods-card__thumb-com {
-  width: 100%;
-  height: 100%;
+  width: 192rpx;
+  height: 192rpx;
+  border-radius: 8rpx;
+  overflow: hidden;
 }
 .wr-goods-card__thumb:empty {
   display: none;
   margin: 0;
 }
-.wr-goods-card__img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  border-radius: var(--ui-goods-card-thumb-radius);
-  overflow: hidden;
-}
+
 .wr-goods-card__body {
   display: flex;
   margin: var(--ui-goods-card-body-margin, 0 0 0 20rpx);
@@ -52,6 +48,15 @@
   height: var(--ui-goods-card-long-height);
   overflow: var(--ui-goods-card-long-overflow);
   flex: var(--ui-goods-card-long-flex, 1 1 auto);
+}
+.wr-goods-card__long_content .goods_tips {
+  width: 100%;
+  margin-top: 16rpx;
+  text-align: right;
+  color: #fa4126;
+  font-size: 24rpx;
+  line-height: 32rpx;
+  font-weight: bold;
 }
 .wr-goods-card__title {
   flex-shrink: 0;
@@ -94,7 +99,7 @@
   align-self: flex-start;
   flex-direction: row;
   background: var(--ui-goods-card-specs-bg, #f5f5f5);
-  border-radius: var(--ui-goods-card-specs-radius, 4rpx);
+  border-radius: var(--ui-goods-card-specs-radius, 8rpx);
   padding: 4rpx 8rpx;
 }
 .wr-goods-card__specs__desc-text {
@@ -159,10 +164,10 @@
 }
 .wr-goods-card__price {
   white-space: nowrap;
-  font-weight: var(--ui-goods-card-price-weight, 600);
+  font-weight: var(--ui-goods-card-price-weight, bold);
   order: var(--ui-goods-card-price-order, 1);
-  color: var(--ui-goods-card-price-color, #333);
-  font-size: var(--ui-goods-card-price-size, 28rpx);
+  color: var(--ui-goods-card-price-color, #fa4126);
+  font-size: var(--ui-goods-card-price-size, 36rpx);
   margin: var(--ui-goods-card-price-margin, 0);
   --ui-price-display: var(--ui-goods-card-price-display);
   --ui-price-color: var(--ui-goods-card-price-color);
@@ -176,6 +181,7 @@
   --ui-price-integer-size: var(--ui-goods-card-price-integer-size);
   --ui-price-decimal-color: var(--ui-goods-card-price-decimal-color);
   --ui-price-decimal-size: var(--ui-goods-card-price-decimal-size, 20rpx);
+  line-height: 48rpx;
 }
 .wr-goods-card__origin-price {
   white-space: nowrap;
@@ -226,7 +232,7 @@
 .wr-goods-card.horizontal-wrap .wr-goods-card__short_content {
   flex-direction: var(--ui-goods-card-short-direction, row);
   align-items: var(--ui-goods-card-short-align, center);
-  margin: var(--ui-goods-card-short-margin, 44rpx 0 0 0);
+  margin: var(--ui-goods-card-short-margin, 16rpx 0 0 0);
 }
 .wr-goods-card.horizontal-wrap .wr-goods-card__price {
   --ui-price-symbol-size: var(--ui-goods-card-price-symbol-size);
@@ -269,4 +275,25 @@
   position: var(--ui-goods-card-cart-position, absolute);
   bottom: var(--ui-goods-card-cart-bottom, 20rpx);
   right: var(--ui-goods-card-cart-right, 20rpx);
+}
+
+.wr-goods-card__short_content .no_storage {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 40rpx;
+  color: #333;
+  font-size: 24rpx;
+  line-height: 32rpx;
+  width: 100%;
+}
+
+.no_storage .no_storage__right {
+  width: 80rpx;
+  height: 40rpx;
+  border-radius: 20rpx;
+  border: 2rpx solid #fa4126;
+  line-height: 40rpx;
+  text-align: center;
+  color: #fa4126;
 }

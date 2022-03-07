@@ -4,9 +4,6 @@
   "usingComponents": {
     "t-navbar": "tdesign-miniprogram/navbar/navbar",
     "t-icon": "tdesign-miniprogram/icon/icon",
-
-    "wr-icon": "@tencent/retailwe-ui-icon/index",
-    "wr-price": "@tencent/retailwe-ui-price/index",
-    "groupon-card": "../components/groupon-card/index"
+    "wr-price": "/components/price/index"
   }
 }

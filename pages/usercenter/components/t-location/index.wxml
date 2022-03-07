@@ -1,13 +1,15 @@
 <view class="wx-address t-class" bind:tap="getWxLocation">
 	<block wx:if="{{isCustomStyle}}">
-		<t-icon
-		 t-class="weixin"
-		 slot="icon"
-		 color="#00CC00"
-		 name="logo-windows"
-		 size="48rpx"
-		/>
-		<text>{{title}}</text>
+		<view class="wx-address-custom">
+			<t-icon
+			 t-class="weixin"
+			 color="#00CC00"
+			 name="logo-windows"
+			 size="48rpx"
+			/>
+			<text>{{title}}</text>
+		</view>
+		<slot/>
 	</block>
 	<block wx:else>
 		<t-cell
@@ -32,4 +34,5 @@
 		</t-cell>
 	</block>
 </view>
+<t-toast id="t-toast" />
 

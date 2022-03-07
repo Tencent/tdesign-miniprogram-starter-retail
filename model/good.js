@@ -407,7 +407,7 @@ const allGoods = [
           },
         ],
         stockInfo: {
-          stockQuantity: -1,
+          stockQuantity: 0,
           safeStockQuantity: 0,
           soldQuantity: 0,
         },
@@ -445,7 +445,7 @@ const allGoods = [
           },
         ],
         stockInfo: {
-          stockQuantity: -1,
+          stockQuantity: 0,
           safeStockQuantity: 0,
           soldQuantity: 0,
         },
@@ -483,7 +483,7 @@ const allGoods = [
           },
         ],
         stockInfo: {
-          stockQuantity: -1,
+          stockQuantity: 0,
           safeStockQuantity: 0,
           soldQuantity: 0,
         },
@@ -521,7 +521,7 @@ const allGoods = [
           },
         ],
         stockInfo: {
-          stockQuantity: -1,
+          stockQuantity: 0,
           safeStockQuantity: 0,
           soldQuantity: 0,
         },

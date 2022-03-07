@@ -1,47 +1,22 @@
-<t-navbar background="linear-gradient( to right, rgba(var(--color-primary-rgb, 250, 85, 15), 1) 0%, rgba(var(--color-primary-rgb, 250, 85, 15), 0.6) 100% )" left-icon="slot">
-	<t-icon
-	 slot="left-icon"
-	 t-class="navigation-bar__btn"
-	 name="chevron-left"
-	 size="40rpx"
-	 bind:tap="navBackHandle"
-	/>
-</t-navbar>
-<view class="pay-status" style="height:{{ groupon ? 220 : 380 }}rpx">
-	<wr-icon name="success-filled" size="48" color="#ffffff" />
-	<text class="pay-status__text">支付成功</text>
-	<view class="pay-status__info">
-		微信支付
+<t-navbar background="#ffffff" left-icon="slot" />
+<view class="pay-result">
+	<view class="pay-status">
+		<t-icon name="check-circle-filled" size="56rpx" color="#47D368" />
+		<text>支付成功</text>
+	</view>
+	<view class="pay-money">
+		微信支付：
 		<wr-price
 		 wx:if="{{totalPaid}}"
 		 price="{{totalPaid}}"
-		 wr-class="total-price"
+		 wr-class="pay-money__price"
+		 decimalSmaller
 		 fill
 		/>
 	</view>
-	<view wx:if="{{ !groupon }}" class="pay-status__oper">
-		<view class="pay-status__oper__btn" data-type="home" bindtap="onTapReturn">返回首页</view>
-		<view class="pay-status__oper__btn" data-type="orderList" bindtap="onTapReturn">查看订单</view>
+	<view class="btn-wrapper">
+		<view class="status-btn" data-type="orderList" bindtap="onTapReturn">查看订单</view>
+		<view class="status-btn" data-type="home" bindtap="onTapReturn">返回首页</view>
 	</view>
 </view>
-<groupon-card
- wr-class="groupon-view"
- groupon="{{ groupon }}"
- spu="{{ spu }}"
- wx:if="{{ groupon }}"
- use-nav-slot
->
-	<view class="nav-actions">
-		<view class="space" />
-		<view class="nav-button" data-type="home" bindtap="onTapReturn">返回首页</view>
-		<view
-		 class="nav-button"
-		 data-type="order"
-		 bindtap="onTapReturn"
-		 style="margin-left:30rpx;"
-		>
-			订单详情
-		</view>
-	</view>
-</groupon-card>
 

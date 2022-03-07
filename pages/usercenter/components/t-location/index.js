@@ -1,5 +1,7 @@
 import { getPermission } from '../../../../utils/getPermission';
 import { phoneRegCheck } from '../../../../utils/util';
+import Toast from 'tdesign-miniprogram/toast/index';
+import { addressParse } from '../../../../utils/addressParse';
 
 Component({
   externalClasses: ['t-class'],
@@ -46,10 +48,14 @@ Component({
             } = options;
 
             // 微信添加地址未添加手机号校验，因此需要先校验手机号
-            if (!phoneRegCheck(telNumber)) {
-              toast({ text: '请填写正确的手机号' });
-              return;
-            }
+            // if (!phoneRegCheck(telNumber)) {
+            //   Toast({
+            //     context: this,
+            //     selector: '#t-toast',
+            //     message: '请填写正确的手机号',
+            //   });
+            //   return;
+            // }
 
             const target = {
               name: userName,
@@ -63,21 +69,20 @@ Component({
               isDefault: false,
               isOrderSure: this.properties.isOrderSure,
             };
-            try {
-              const { data } = await apis.userInfo.addressParse({
-                address: [provinceName, cityName, countyName, detailInfo].join(
-                  '',
-                ),
-              });
+            console.log([provinceName, cityName, countyName]);
 
-              const { provinceCode, cityCode, districtCode } = data;
+            addressParse(provinceName, cityName, countyName);
+
+            try {
+              const { provinceCode, cityCode, districtCode } =
+                await addressParse(provinceName, cityName, countyName);
 
               const params = Object.assign(target, {
                 provinceCode,
                 cityCode,
                 districtCode,
               });
-
+              console.log('params: ', params);
               // 如果是结算页面进来的,简化逻辑，直接提交地址
               if (this.properties.isOrderSure) {
                 this.onHandleSubmit(params);
@@ -85,6 +90,7 @@ Component({
                 // 选择收获地址页面点击微信地址导入,成功后跳转地址详情页面
                 Navigator.gotoPage('/address-detail', params);
               } else {
+                console.log('xxx');
                 // 其他情况触发change事件
                 this.triggerEvent('change', params);
               }

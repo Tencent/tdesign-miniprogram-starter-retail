@@ -6,6 +6,6 @@
     "t-stepper": "tdesign-miniprogram/stepper/stepper",
     "wr-swipeout": "/components/swipeout/index",
     "wr-goods-card": "../../components/goods-card/index",
-    "wr-specs-popup": "@tencent/retailwe-ui-specs-popup/index"
+    "wr-specs-popup": "../../components/specs-popup/index"
   }
 }
