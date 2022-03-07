@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText": "商品分类",
+  "navigationBarTitleText": "分类",
   "usingComponents": {
     "t-loading": "tdesign-miniprogram/loading/loading",
     "t-button": "tdesign-miniprogram/button/button",

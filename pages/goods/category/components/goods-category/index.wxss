@@ -11,6 +11,7 @@
   position: relative;
   overflow: scroll;
   -webkit-overflow-scrolling: touch;
+  background-color: white;
 }
 .flex {
   display: flex;
@@ -44,7 +45,7 @@
   color: #222427;
 }
 .goods-category .custom-sidebar {
-  background-color: #fff;
+  background-color: #f5f5f5;
 }
 .custom-sidebar {
   width: 176rpx;
