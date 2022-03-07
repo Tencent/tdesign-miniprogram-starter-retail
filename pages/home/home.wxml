@@ -55,7 +55,7 @@
     bind:click="goodListClickHandle"
     bind:addcart="goodListAddCartHandle"
   />
-  <wr-load-more
+  <t-load-more
     list-is-empty="{{!goodsList.length}}"
     status="{{goodsListLoadStatus}}"
     bind:retry="onReTry"

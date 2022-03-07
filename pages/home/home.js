@@ -31,11 +31,13 @@ Page({
   onLoad() {
     this.init();
   },
+
   onReachBottom() {
     if (this.data.goodsListLoadStatus === 0) {
       this.loadGoodsList();
     }
   },
+
   onPullDownRefresh() {
     this.init();
   },

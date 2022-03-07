@@ -1,0 +1,7 @@
+{
+    "component": true,
+    "usingComponents": {
+        "wr-loading": "@tencent/retailwe-ui-loading/index",
+        "wr-divider": "@tencent/retailwe-ui-divider/index"
+    }
+}

@@ -14,6 +14,6 @@
     "t-tabs": "tdesign-miniprogram/tabs/tabs",
     "t-tab-panel": "tdesign-miniprogram/tabs/tab-panel",
     "goods-list": "/components/goods-list/index",
-    "wr-load-more": "@tencent/retailwe-ui-load-more/index"
+    "t-load-more": "/components/load-more/index"
   }
 }

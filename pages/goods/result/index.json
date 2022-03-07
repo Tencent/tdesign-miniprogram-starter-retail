@@ -13,7 +13,7 @@
     "wr-filter": "@tencent/retailwe-ui-filter/index",
     "wr-filter-popup": "@tencent/retailwe-ui-filter-popup/index",
     "wr-good-list": "@tencent/retailwe-ui-goods-list/index",
-    "wr-load-more": "@tencent/retailwe-ui-load-more/index"
+    "t-load-more": "/components/load-more/index"
   },
   "onReachBottomDistance": 50
 }
