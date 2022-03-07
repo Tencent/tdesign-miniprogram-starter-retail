@@ -4,34 +4,32 @@
   bindtap="tapHandle"
 >
   <!-- 加载中 -->
-  <wr-loading
-    wx:if="{{status === 1}}"
-    wr-class="load-more--loading"
-    type="circular-ext"
-    size="{{size}}"
-    color="{{color}}"
-    text-color="{{color}}"
-    background-color="{{loadingBackgroundColor}}"
-    reverse
-    duration="0.5"
-    >{{loadingText}}</wr-loading
-  >
+
+  <t-loading
+    t-class="t-class-loading"
+    t-class-text="t-class-loading-text"
+    loading="{{status === 1}}"
+    text="加载中..."
+    theme="circular"
+    size="40rpx"
+  ></t-loading>
 
   <!-- 已全部加载 -->
-  <wr-divider
+  <t-divider
     wx:if="{{status === 2}}"
-    wr-class="load-more--no-more wr-class--no-more"
-    wr-class-content="load-more--no-more__content"
-    contentPosition="center"
-    text-color="{{color}}"
-    hairline
-    >{{noMoreText}}</wr-divider
+    t-class="t-class-divider"
+    t-class-content="t-class-divider-content"
   >
+    <text slot="content">{{noMoreText}}</text>
+  </t-divider>
 
   <!-- 加载失败 -->
-  <view wx:if="{{status === 3}}" class="load-more--failed">
-    <view class="btn" style="color: {{failedColor}};">{{failedText}}</view>
-  </view>
+  <t-loading
+    t-class="t-class-loading"
+    theme="error"
+    loading="{{status===3}}"
+    bind:reload="tapHandle"
+  ></t-loading>
 </view>
 
 <!-- 支持通过slot传入页面/列表的空态，load-more来控制空态的显示状态 -->

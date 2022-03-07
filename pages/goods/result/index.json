@@ -10,9 +10,6 @@
     "goods-list": "/components/goods-list/index",
     "t-filter": "/components/filter/index",
     "t-filter-popup": "/components/filter-popup/index",
-    "wr-filter": "@tencent/retailwe-ui-filter/index",
-    "wr-filter-popup": "@tencent/retailwe-ui-filter-popup/index",
-    "wr-good-list": "@tencent/retailwe-ui-goods-list/index",
     "t-load-more": "/components/load-more/index"
   },
   "onReachBottomDistance": 50
