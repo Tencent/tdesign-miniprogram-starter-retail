@@ -8,54 +8,49 @@ page {
   padding: 0 24rpx;
 }
 
-.t-class__input-container {
+.container .t-class__input-container {
   border-radius: 32rpx !important;
   height: 64rpx !important;
 }
 
-.t-search__left-icon {
+.container .t-search__left-icon {
   display: flex;
   align-items: center;
 }
 
-.t-search__input {
+.container .t-search__input {
   font-size: 28rpx !important;
   color: rgb(116, 116, 116) !important;
 }
 
-.t-image {
-  width: 702rpx;
-  height: 160rpx;
-}
-
-.t-tabs {
+.container .t-tabs {
   margin: 20rpx 0;
 }
 
-.t-tabs .t-tabs-nav {
+.container .t-tabs .t-tabs-nav {
   background-color: transparent;
   line-height: 80rpx;
   font-size: 28rpx;
   color: #333;
 }
 
-.t-tabs .t-tabs-is-active {
+.container .t-tabs .t-tabs-is-active {
   color: #fa550f !important;
 }
 
-.t-tabs .t-tabs-track {
+.container .t-tabs .t-tabs-track {
   background-color: #fa550f !important;
 }
 
-.t-tabs .t-tabs-scroll {
+.container .t-tabs .t-tabs-scroll {
   border: none !important;
 }
 
-.wr-swiper .slide-image {
+.container .wr-swiper .slide-image {
   height: 300rpx;
 }
 
-.tab.order-nav {
+.container .tab.order-nav {
   background-color: transparent;
   line-height: 80rpx;
   font-size: 28rpx;
@@ -63,39 +58,39 @@ page {
 }
 
 /* 半个字 */
-.tab.order-nav .order-nav-item.scroll-width {
+.container .tab.order-nav .order-nav-item.scroll-width {
   min-width: 165rpx;
 }
-.tab .order-nav-item.active {
+.container .tab .order-nav-item.active {
   color: #fa550f !important;
 }
 
-.tab .bottom-line {
+.container .tab .bottom-line {
   border-radius: 4rpx;
 }
 
-.tab .order-nav-item.active .bottom-line {
+.container .tab .order-nav-item.active .bottom-line {
   background-color: #fa550f !important;
 }
 
-.swiper-wrap {
+.container .swiper-wrap {
   margin: 20rpx 0;
 }
 
-.swipe-img {
+.container .swipe-img {
   width: 100%;
   height: 300rpx;
 }
 
-.t-class-item {
+.container .t-class-item {
   color: #333333 !important;
   font-size: 32rpx;
 }
 
-.t-class-track {
+.container .t-class-track {
   background-color: #fa4126 !important;
 }
 
-.goods-list-container {
+.container .goods-list-container {
   background: #f5f5f5 !important;
 }

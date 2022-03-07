@@ -68,6 +68,10 @@ Page({
     this.setData({
       tabIndex: e.detail,
     });
+    this.loadGoodsList(true);
+  },
+
+  tagClickHandle(e) {
     console.log('点击标签: ', e);
     Toast({
       context: this,
