@@ -30,8 +30,7 @@
       "disablePlugins": [],
       "outputPath": ""
     },
-    "enableEngineNative": false,
-    "useIsolateContext": true,
+    "useIsolateContext": false,
     "userConfirmedBundleSwitch": false,
     "packNpmManually": false,
     "packNpmRelationList": [],
@@ -39,11 +38,12 @@
     "disableUseStrict": false,
     "showES6CompileOption": false,
     "useCompilerPlugins": false,
+    "ignoreUploadUnusedFiles": true,
     "minifyWXML": true
   },
   "compileType": "miniprogram",
   "libVersion": "2.16.1",
-  "appid": "wx5a75208aa13eee03",
+  "appid": "wxe795f24419adb325",
   "projectname": "supermarket",
   "debugOptions": {
     "hidedInDevtools": []
@@ -145,6 +145,13 @@
           "name": "示例页-商品评价",
           "pathName": "pages/goods/comments/create/index",
           "query": "",
+          "scene": null
+        },
+        {
+          "id": 10,
+          "name": "示例页-申请售后",
+          "pathName": "pages/order/apply-service/index",
+          "query": "orderNo=332188459183707034&skuId=1327025",
           "scene": null
         }
       ]
