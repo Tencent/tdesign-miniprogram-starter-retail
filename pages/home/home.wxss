@@ -51,22 +51,6 @@ page {
   border: none !important;
 }
 
-/* .search .search-component .input-box,
-.search .search-component .input-box.focus {
-  caret-color: transparent;
-  border-color: #ddd;
-} */
-
-/* .search .search-component .input-box input {
-  color: #ddd;
-  text-align: center;
-  font-size: 26rpx;
-}
-
-.search .search-component .input-box .wr-clear {
-  display: none;
-} */
-
 .wr-swiper .slide-image {
   height: 300rpx;
 }
@@ -87,9 +71,7 @@ page {
 }
 
 .tab .bottom-line {
-  /* height: 8rpx; */
   border-radius: 4rpx;
-  /* width: 50rpx; */
 }
 
 .tab .order-nav-item.active .bottom-line {
@@ -112,4 +94,8 @@ page {
 
 .t-class-track {
   background-color: #fa4126 !important;
+}
+
+.goods-list-container {
+  background: #f5f5f5 !important;
 }

@@ -42,9 +42,11 @@
 
 .t-goods-card__body {
   display: flex;
-  margin: 16rpx 24rpx 0;
+  padding: 16rpx 24rpx 0;
   flex-direction: row;
   flex: 1 1 auto;
+  background: #fff;
+  border-radius: 0 0 16rpx 16rpx;
 }
 
 .t-goods-card__long_content {
@@ -237,7 +239,7 @@
 }
 
 .t-goods-card.vertical .t-goods-card__body {
-  margin: 16rpx 24rpx 0;
+  padding: 16rpx 24rpx 0;
   flex-direction: column;
 }
 

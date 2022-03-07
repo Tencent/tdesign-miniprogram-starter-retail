@@ -39,7 +39,6 @@ page {
 .price-ipts-wrap .price-ipt {
   box-sizing: border-box;
   width: 256rpx;
-  height: 60rpx;
   font-size: 24rpx;
   text-align: center;
   border-radius: 8rpx;

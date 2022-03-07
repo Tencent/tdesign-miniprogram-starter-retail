@@ -15,26 +15,21 @@
 /* var() css变量适配*/
 @import '../list/index.wxss';
 page {
-  background-color: #f5f5f5;
-}
-.result-container .search-component {
   background-color: #fff;
-  padding: 0 30rpx;
 }
-.search {
-  padding: 0 24rpx;
-  margin-top: 10rpx;
-  background-color: #fff;
+
+.result-container {
+  display: block;
 }
 
 .t-search {
-  background: #fff;
-  padding: 0 20rpx;
+  padding: 0 30rpx;
+  background-color: #fff;
 }
 
-
-.t-search > view {
-  background-color: #fff;
+.t-class__input-container {
+  height: 64rpx !important;
+  border-radius: 32rpx !important;
 }
 
 .t-search__left-icon {
@@ -43,13 +38,24 @@ page {
 }
 
 .t-search__input {
+  font-size: 28rpx !important;
   color: rgb(116, 116, 116) !important;
 }
 
 .category-goods-list {
-  background-color: #f5f5f5;
+  background-color: #f2f2f2;
   overflow-y: scroll;
+  padding: 20rpx 24rpx;
 }
+
+.wr-goods-list {
+  background: #f2f2f2 !important;
+}
+
+.t-image__mask {
+  display: flex !important;
+}
+
 .category-recommend {
   width: 100%;
   position: relative;
@@ -147,14 +153,7 @@ page {
   padding-left: 20rpx;
   padding-right: 20rpx;
 }
-.search-component .input-box {
-  caret-color: #fa550f !important;
-  caret-color: var(--color-primary, #fa550f) !important;
-}
-.search-component .input-box.focus {
-  border: 2rpx solid #fa550f !important;
-  border: 2rpx solid var(--color-primary, #fa550f) !important;
-}
+
 .filter-wrap .filter-left-content .filter-active-item {
   color: #fa550f !important;
   color: var(--color-primary, #fa550f) !important;
@@ -178,4 +177,43 @@ page {
 
 .rec-good-list {
   --ui-goods-card-height: 650rpx;
+}
+
+.price-ipts-wrap {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-top: 24rpx;
+}
+.price-ipts-wrap .price-divided {
+  position: relative;
+  width: 22rpx;
+  padding: 0 20rpx;
+}
+
+.price-ipts-wrap .price-divided::after {
+  content: '';
+  position: absolute;
+  height: 2rpx;
+  width: 22rpx;
+  background-color: #222427;
+  top: 50%;
+  left: 20rpx;
+  transform: translateY(-50%);
+}
+
+.result-container .price-ipts-wrap .price-ipt {
+  box-sizing: border-box;
+  width: 256rpx;
+  font-size: 24rpx;
+  text-align: center;
+  border-radius: 8rpx;
+  color: #bbb;
+  background: rgba(245, 245, 245, 1);
+}
+
+.price-ipts-wrap .price-divided .price-ipt.active {
+  color: #333;
+  font-weight: 600;
 }
