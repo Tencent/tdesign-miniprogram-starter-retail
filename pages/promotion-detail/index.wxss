@@ -67,13 +67,17 @@
 }
 
 .wrap .count-down-wrap.after-banner-count-down-wrap {
-  padding-left: 30rpx;
-  padding-right: 30rpx;
-  margin-top: 20rpx;
+  padding: 0 10rpx 10rpx;
+}
+
+.wrap .count-down-wrap.after-banner-count-down-wrap .detail-entry {
+  display: flex;
+  align-items: center;
 }
 
 .wrap .count-down-wrap.after-banner-count-down-wrap .detail-entry-label {
   color: #999;
+  margin-right: 0;
 }
 
 .wrap .gl-empty-wrap {
@@ -93,4 +97,13 @@
   color: #999;
   margin-top: 40rpx;
   text-align: center;
+}
+
+.goods-list-container {
+  background: #f5f5f5 !important;
+}
+
+.promotion-goods-list {
+  padding: 20rpx 24rpx;
+  background-color: #f5f5f5;
 }
