@@ -48,21 +48,3 @@
 .filter-left-content .filter-active-item {
   color: #fa550f;
 }
-
-/* .con2 {
-  width: 620rpx;
-  height: 100vh;
-  background: #fff;
-}
-
-.price-container {
-  padding: 24rpx;
-  height: 100vh;
-  background-color: #fff;
-}
-
-.price-between {
-  font-size: 26rpx;
-  font-weight: 500;
-  color: rgba(51, 51, 51, 1);
-} */
