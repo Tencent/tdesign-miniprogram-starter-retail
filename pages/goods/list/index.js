@@ -1,13 +1,17 @@
 import { fetchGoodsList } from '../../../services/good/fetchGoodsList';
+import Toast from 'tdesign-miniprogram/toast/index';
+
 const layoutMap = {
   0: 'vertical',
   1: 'horizontal',
 };
+
 const initFilters = {
   overall: 1,
   sorts: '',
   layout: 0,
 };
+
 Page({
   data: {
     goodsList: [],
@@ -35,6 +39,7 @@ Page({
     pageLoaded: false,
     outerService: null,
   },
+
   handleFilterChange(e) {
     const { layout, overall, sorts } = e.detail;
     this.setData({
@@ -46,6 +51,7 @@ Page({
     });
     this.init(true);
   },
+
   generalQueryData(reset = false) {
     const { filter, pageNum, pageSize, keywords, minVal, maxVal } = this.data;
     const { sorts, overall } = filter;
@@ -84,6 +90,7 @@ Page({
       pageSize,
     };
   },
+
   async init(reset = true) {
     const { loadMoreStatus, goodsList = [] } = this.data;
     const params = this.generalQueryData(reset);
@@ -142,6 +149,7 @@ Page({
       loading: false,
     });
   },
+
   onLoad() {
     this.setData(
       {
@@ -152,6 +160,7 @@ Page({
       },
     );
   },
+
   onReachBottom() {
     const { total = 0, goodsList } = this.data;
     if (goodsList.length === total) {
@@ -163,28 +172,44 @@ Page({
 
     this.init(false);
   },
+
   handleAddCart() {
-    wx.showToast({
-      title: '加入购物车成功',
+    Toast({
+      context: this,
+      selector: '#t-toast',
+      message: '点击加购',
     });
   },
-  navTo(e) {
+
+  tagClickHandle(e) {
+    console.log('点击标签: ', e);
+    Toast({
+      context: this,
+      selector: '#t-toast',
+      message: '点击标签',
+    });
+  },
+
+  gotoGoodsDetail(e) {
     const { index } = e.detail;
     const spuId = this.data.goodsList[index].spuId;
     wx.navigateTo({
       url: `/pages/goods/details/index?spuId=${spuId}`,
     });
   },
+
   showFilterPopup() {
     this.setData({
       show: true,
     });
   },
+
   showFilterPopupClose() {
     this.setData({
       show: false,
     });
   },
+
   handleMinPriceFocus() {
     this.setData({
       minSalePriceFocus: true,
@@ -208,22 +233,31 @@ Page({
       maxSalePriceFocus: false,
     });
   },
+
   // 最小值
   onMinValAction(e) {
     const { value } = e.detail;
     this.setData({ minVal: value, minActive: value.length });
   },
+
   // 最大值
   onMaxValAction(e) {
     const { value } = e.detail;
     this.setData({ maxVal: value, maxActive: value.length });
   },
+
   // 筛选重置
   reset() {
     this.setData({ minVal: '', maxVal: '' });
   },
+
   // 筛选确定
   confirm() {
+    Toast({
+      context: this,
+      selector: '#t-toast',
+      message: `价格范围${this.data.minVal}-${this.data.maxVal}`,
+    });
     this.setData({
       show: false,
     });

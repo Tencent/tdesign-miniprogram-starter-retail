@@ -1,18 +1,4 @@
-<!-- <view id="js-page-wrap">
-  <wr-promotion-detail
-    banner-src="{{banner}}"
-    show-banner-desc="{{showBannerDesc}}"
-    status-tag="{{statusTag}}"
-    banner-desc-icon-color="#999"
-    gl-goods-list="{{list}}"
-    cd-time="{{time}}"
-    bind:banner-desc-click="bannerDescClickHandle"
-    bind:gl-click="goodClickHandle"
-    bind:gl-addcart="cardClickHandle"
-  />
-</view> -->
-
-<view id="js-page-wrap">
+<view id="js-page-wrap" class="promotion-detail-container">
   <view wx:if="{{banner}}" class="wrap" id="{{independentID}}">
     <view class="banner-header">
       <view class="banner-wrap">
@@ -35,8 +21,9 @@
             <view
               wx:if="{{statusTag === 'before'}}"
               class="status-tag {{statusTag}}"
-              >未开始</view
             >
+              未开始
+            </view>
             <text class="count-down-label">距结束仅剩</text>
             <wr-count-down
               wx:if="{{time > 0}}"
@@ -46,10 +33,14 @@
               bind:finish="countDownFinishHandle"
             />
           </block>
-          <view class="detail-entry" bind:tap="bannerClickHandle"
-            ><text class="detail-entry-label">规则详情</text>
-            <wr-icon name="arrow_forward" color="{{bannerDescIconColor}}"
-          /></view>
+          <view class="detail-entry" bind:tap="bannerClickHandle">
+            <text class="detail-entry-label">规则详情</text>
+            <t-icon
+              name="chevron-right"
+              size="34rpx"
+              style="color: #999"
+            ></t-icon>
+          </view>
         </view>
         <view
           wx:if="{{showBannerDesc && (useBannerDescSlot || time >= 0 || statusTag === 'finish')}}"
@@ -68,8 +59,9 @@
                 <view
                   wx:if="{{statusTag === 'before'}}"
                   class="status-tag {{statusTag}}"
-                  >未开始</view
                 >
+                  未开始
+                </view>
                 <text class="count-down-label">距结束仅剩</text>
                 <wr-count-down
                   class="{{cdClass}}"
@@ -80,16 +72,29 @@
                   bind:finish="countDownFinishHandle"
                 />
               </block>
-              <view class="detail-entry" bind:tap="bannerClickHandle"
-                ><text class="detail-entry-label">规则详情</text
-                ><wr-icon name="arrow_forward" color="{{bannerDescIconColor}}"
-              /></view>
+              <view class="detail-entry" bind:tap="bannerClickHandle">
+                <text class="detail-entry-label">规则详情</text>
+                <t-icon
+                  name="chevron-right"
+                  size="34rpx"
+                  style="color: #999"
+                ></t-icon>
+              </view>
             </view>
           </block>
         </view>
       </view>
     </view>
   </view>
-
+  <view wx:if="{{list && list.length>0}}" class="promotion-goods-list">
+    <goods-list
+      wr-class="goods-list-container"
+      goodsList="{{list}}"
+      layout="vertical"
+      bind:click="goodClickHandle"
+      bind:addcart="cardClickHandle"
+      bind:tag="tagClickHandle"
+    />
+  </view>
   <t-toast id="t-toast" />
 </view>

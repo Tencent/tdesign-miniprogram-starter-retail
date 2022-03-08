@@ -217,6 +217,15 @@ Page({
     });
   },
 
+  tagClickHandle(e) {
+    console.log('点击标签: ', e);
+    Toast({
+      context: this,
+      selector: '#t-toast',
+      message: '点击标签',
+    });
+  },
+
   gotoGoodsDetail(e) {
     const { index } = e.detail;
     const spuId = this.data.goodsList[index].spuId;
