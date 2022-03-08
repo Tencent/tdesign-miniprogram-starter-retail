@@ -57,7 +57,11 @@
     </view>
   </t-filter>
   <view class="empty-wrap" wx:if="{{goodsList.length === 0 && hasLoaded}}">
-    <t-empty t-class="empty-tips" size="240rpx">暂无相关商品</t-empty>
+    <t-empty
+      t-class="empty-tips"
+      size="240rpx"
+      description="暂无相关商品"
+    ></t-empty>
   </view>
   <!-- 显示内容 -->
   <view class="category-goods-list" wx:if="{{goodsList.length}}">

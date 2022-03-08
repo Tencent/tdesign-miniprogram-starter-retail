@@ -2,8 +2,6 @@
   "navigationBarTitleText": "搜索",
   "usingComponents": {
     "t-search": "tdesign-miniprogram/search/search",
-    "t-icon": "tdesign-miniprogram/icon/icon",
-    "t-badge": "tdesign-miniprogram/badge/badge",
     "t-input": "tdesign-miniprogram/input/input",
     "t-empty": "tdesign-miniprogram/empty/empty",
     "t-toast": "tdesign-miniprogram/toast/toast",
