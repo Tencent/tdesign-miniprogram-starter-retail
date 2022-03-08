@@ -1,9 +1,6 @@
 {
   "navigationBarTitleText": "商品列表",
   "usingComponents": {
-    "wr-filter": "@tencent/retailwe-ui-filter/index",
-    "wr-filter-popup": "@tencent/retailwe-ui-filter-popup/index",
-    "wr-goods-list": "@tencent/retailwe-ui-goods-list",
     "t-input": "tdesign-miniprogram/input/input",
     "t-empty": "tdesign-miniprogram/empty/empty",
     "t-toast": "tdesign-miniprogram/toast/toast",
