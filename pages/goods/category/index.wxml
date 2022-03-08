@@ -9,7 +9,7 @@
 </t-loading>
 
 <view class="wrap">
-	<wr-goods-category
+	<goods-category
 	 wx:if="{{datatype === '0'}}"
 	 level="{{3}}"
 	 custom-class="goods-category-class"
@@ -17,7 +17,7 @@
 	 initActive="{{initActive}}"
 	 bind:changeCategory="onChange"
 	/>
-	<wr-goods-category
+	<goods-category
 	 wx:if="{{datatype === '2' || datatype === '1'}}"
 	 level="{{2}}"
 	 custom-class="goods-category-class"
@@ -39,7 +39,7 @@
 						 style="height: 100vh"
 						 bindscrolltolower="getScollBottom"
 						>
-							<wr-goods-list
+							<goods-list
 							 wx:if="{{goodsList.length}}"
 							 wr-class="rec-good-list"
 							 layout="horizontal"
@@ -58,7 +58,7 @@
 				</view>
 			</view>
 		</block>
-	</wr-goods-category>
+	</goods-category>
 	<view class="floatButton" bindtap="showButton">
 		切
 	</view>
