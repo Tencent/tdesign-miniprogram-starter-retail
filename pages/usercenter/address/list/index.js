@@ -2,6 +2,7 @@ import { fetchDeliveryAddressList } from '../../../../services/address/fetchAddr
 import Toast from 'tdesign-miniprogram/toast/index';
 import { resolveAddress, rejectAddress } from './util';
 import { getAddressPromise } from '../edit/util';
+import { phoneRegCheck } from '../../../../utils/util';
 
 Page({
   data: {
@@ -41,75 +42,6 @@ Page({
     wx.navigateTo({
       url: `/pages/usercenter/address/edit/index?id=${e.detail.id}`,
     });
-  },
-  async onSelect(e) {
-    console.log('e: ', e);
-    try {
-      const item = e.detail;
-
-      // 选择地址时首先进行电话号校验
-      if (!phoneRegCheck(item.phoneNumber)) {
-        throw new Error('请填写正确的手机号');
-      }
-
-      // 订单选择收货地址 的点击事件
-      if (this.data.isOrderDetail) {
-        await changeOrderAddress(item, this.orderNo);
-        Navigator.navigateBack({ backRefresh: true });
-      } else if (this.data.isExchange) {
-        // 检查地址是否在配送范围
-        const params = {
-          addressId: item.addressId,
-          goodsList: this.data.exchangeGoodsList,
-        };
-        const isCanDelivery = await checkDeliveryScope(params).then(
-          (res) => res.data?.result,
-        );
-        if (isCanDelivery) {
-          // 返回，并传递所选地址数据
-          const {
-            name: receiverName,
-            phoneNumber: receiverPhone,
-            address: receiverAddress,
-            addressId,
-          } = item;
-          Navigator.navigateBack({
-            address: {
-              receiverName,
-              receiverPhone,
-              receiverAddress,
-              addressId,
-            },
-          });
-        } else {
-          Toast({
-            context: this,
-            selector: '#t-toast',
-            message: '收货地址超过可配送范围',
-            icon: '',
-            duration: 1000,
-          });
-        }
-      } else if (this.data.isOrderSure) {
-        setReceiptAddress(item);
-        //切换收货地址，用户选择的临时地址（行政区域）生命周期结束
-        storage.removeSync(STORAGE_KEY.TEMP_ADDRESS);
-        Navigator.navigateBack({ backRefresh: true, selectedAddress: item });
-      } else if (this.data.chooseAddressSource) {
-        Navigator.navigateBack({
-          chooseAddressSource: this.data.chooseAddressSource,
-          selectedAddress: item,
-        });
-      }
-    } catch (e) {
-      Toast({
-        context: this,
-        selector: '#t-toast',
-        message: e ? e.msg || e.message || `${e}` : '未知错误',
-        icon: '',
-        duration: 1000,
-      });
-    }
   },
   getAddressList() {
     fetchDeliveryAddressList().then((addressList) => {
