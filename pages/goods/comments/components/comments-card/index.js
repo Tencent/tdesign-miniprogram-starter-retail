@@ -34,8 +34,8 @@ Component({
       },
     },
     commentScore: {
-      type: Array,
-      value: [],
+      type: Number,
+      value: 0,
     },
     commentTime: {
       type: String,
@@ -62,6 +62,7 @@ Component({
     hideWordCount: 240,
     overText: false,
     isDisabled: true,
+    startColors: ['#FFC51C', '#DDDDDD']
   },
   methods: {
     authContent(val) {

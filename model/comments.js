@@ -46,7 +46,7 @@ export function getGoodsAllComments(params) {
         specInfo: '很不错',
         commentContent: 'S1 SKU2',
         commentImageUrls: null,
-        commentScore: 5,
+        commentScore: 1,
         uid: '88881048075',
         userName: 'Dean',
         userHeadUrl:
@@ -61,7 +61,7 @@ export function getGoodsAllComments(params) {
         specInfo: '很适合',
         commentContent: 'S1 SKU1',
         commentImageUrls: null,
-        commentScore: 5,
+        commentScore: 1,
         uid: '88881048075',
         userName: 'Dean',
         userHeadUrl:
