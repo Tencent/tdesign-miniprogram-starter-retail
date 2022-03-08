@@ -1,5 +1,6 @@
 import { fetchCouponDetail } from '../../services/coupon/index';
 import { fetchGoodsList } from '../../services/good/fetchGoods';
+import Toast from 'tdesign-miniprogram/toast/index';
 
 Page({
   data: {
@@ -70,36 +71,23 @@ Page({
 
     wx.navigateTo({ url: `/pages/goods/details/index?spuId=${spuId}` });
   },
+
+  tagClickHandle(e) {
+    console.log('点击标签: ', e);
+    Toast({
+      context: this,
+      selector: '#t-toast',
+      message: '点击标签',
+    });
+  },
+
   /** 点击加购 */
   cardClickHandle(e) {
     console.log('点击加购: ', e);
-
-    /** @todo inori 下边的动画需要等goods-list发版后才能获取到相关参数 */
-
-    // 加购动画
-    const { cardID, index, callback } = e.detail;
-    const systemInfo = wx.getSystemInfoSync();
-
-    this.createSelectorQuery()
-      // 这里一定要起一个父容器选择器，方便写 >>> 这个跨组件选择器
-      .select(`#js-page-wrap >>> #${cardID} >>> .wr-goods-card__img`)
-      .boundingClientRect((res) => {
-        if (!res) {
-          return;
-        }
-        callback({
-          startPos: { x: res.left, y: res.top },
-          endPos: {
-            x: systemInfo.windowWidth * (5 / 8),
-            y: systemInfo.windowHeight - 30,
-          },
-          image: {
-            url: this.data.goods[index].thumb,
-            width: res.width,
-            height: res.height,
-          },
-        });
-      })
-      .exec();
+    Toast({
+      context: this,
+      selector: '#t-toast',
+      message: '点击加入购物车',
+    });
   },
 });
