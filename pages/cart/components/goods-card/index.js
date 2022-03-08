@@ -5,15 +5,6 @@ Component({
   },
   intersectionObserverContext: null,
 
-  //   relations:{
-  //     '../retailwe-ui-order-card/index': {
-  //       type: 'ancestor' as const,
-  //       linked(this: GoodsCard, target: WechatMiniprogram.Component.TrivialInstance) {
-  //         this.parent = target;
-  //       },
-  //     },
-  //   },
-
   externalClasses: [
     'card-class',
     'title-class',
@@ -89,7 +80,7 @@ Component({
     },
     thumbMode: {
       type: String,
-      value: 'aspectFit',
+      value: 'aspectFill',
     },
     thumbWidth: Number,
     thumbHeight: Number,

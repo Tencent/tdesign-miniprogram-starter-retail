@@ -112,7 +112,6 @@ Page({
       const code = 'SUCCESS';
       // const { data, code = '' } = result;
       if (code.toUpperCase() === 'SUCCESS') {
-        console.log('xxxx');
         const { pageList, totalCount = 0 } = data;
         pageList.forEach((item) => {
           // item.commentScore = this.getScoreArray(item.commentScore);
@@ -120,7 +119,7 @@ Page({
             'YYYY/MM/DD HH:mm',
           );
         });
-        console.log('~~~~');
+
         if (Number(totalCount) === 0 && reset) {
           this.setData({
             commentList: [],

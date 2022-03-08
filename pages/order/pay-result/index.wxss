@@ -1,149 +1,54 @@
-/* 层级定义
-@z-index-0: 1;
-@z-index-1: 100;
-@z-index-2: 200;
-@z-index-5: 500;
-@z-index-component: 1000; // 通用组件级别
-@z-index-dropdown: @z-index-component;
-@z-index-sticky: @z-index-component + 20;
-@z-index-fixed: @z-index-component + 30;
-@z-index-modal-backdrop:@z-index-component + 40;
-@z-index-modal:@z-index-component + 50;
-@z-index-popover:@z-index-component + 60;
-@z-index-tooltip:@z-index-component + 70;
-*/
-/* var() css变量适配*/
-@import '../../../style/goodsList.wxss';
-page {
-  background-color: #f5f5f5;
-  min-height: 100%;
-}
-page .navigation-bar__btn {
-  display: inline-block;
-  vertical-align: middle;
-}
-page .navigation-bar__btn_goback {
-  color: #fff;
-}
-page .navigation-bar__btn_goback:active {
-  opacity: 0.5;
-}
-.nav-back,
-.page-background {
-  background: linear-gradient(
-    to right,
-    rgba(250, 85, 15, 1) 0%,
-    rgba(250, 85, 15, 0.6) 100%
-  ) !important;
-  background: linear-gradient(
-    to right,
-    rgba(var(--color-primary-rgb, 250, 85, 15), 1) 0%,
-    rgba(var(--color-primary-rgb, 250, 85, 15), 0.6) 100%
-  ) !important;
-}
-.pay-status {
-  text-align: center;
-  padding-top: 32rpx;
-  height: 380rpx;
-  background: linear-gradient(
-    to right,
-    rgba(250, 85, 15, 1) 0%,
-    rgba(250, 85, 15, 0.6) 100%
-  ) !important;
-  background: linear-gradient(
-    to right,
-    rgba(var(--color-primary-rgb, 250, 85, 15), 1) 0%,
-    rgba(var(--color-primary-rgb, 250, 85, 15), 0.6) 100%
-  ) !important;
-  color: #ffffff;
-}
-.pay-status__text {
-  font-size: 48rpx;
-  line-height: 66rpx;
-  margin-left: 14rpx;
-  font-weight: bold;
-}
-.pay-status__info {
-  font-size: 28rpx;
-  line-height: 40rpx;
-  margin-top: 20rpx;
-}
-.pay-status__info .total-price {
-  margin-left: 20rpx;
-  font-weight: bold;
-}
-.pay-status__info .total-price .symbol,
-.pay-status__info .total-price .pprice .decimal {
-  font-size: 36rpx;
-  line-height: 50rpx;
-}
-.pay-status__info .total-price .pprice .integer {
-  font-size: 48rpx;
-  line-height: 66rpx;
-}
-.pay-status__oper {
-  margin-top: 80rpx;
-}
-.pay-status__oper__btn {
-  width: 326rpx;
-  height: 76rpx;
-  display: inline-block;
-  border-radius: 8rpx;
-  margin: 15rpx;
-  font-size: 32rpx;
-  font-weight: bold;
-  line-height: 80rpx;
-  border: 2rpx solid #ffffff;
-}
-.pay-ad {
-  padding: 20rpx 0 40rpx 0;
-  margin: 0 auto;
-}
-.pay-ad__img {
-  width: 750rpx;
-  height: 182rpx;
-}
-.pay-lottery {
-  padding: 20rpx 0;
+.pay-result {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   width: 100%;
 }
-.groupon-view {
-  margin: 20rpx auto;
-}
-.nav-actions {
+
+.pay-result .pay-status {
+  margin-top: 100rpx;
+  font-size: 48rpx;
+  line-height: 72rpx;
+  font-weight: bold;
+  color: #333333;
   display: flex;
-  margin-top: 40rpx;
-  width: 641rpx;
-  box-sizing: border-box;
+  align-items: center;
 }
-.nav-actions .space {
-  height: 80rpx;
-  width: 1rpx;
+.pay-result .pay-status text {
+  padding-left: 12rpx;
 }
-.nav-actions .nav-button {
-  width: 306rpx;
-  height: 80rpx;
-  line-height: 8rpx;
-  text-align: center;
-  color: #fa550f;
-  color: var(--color-primary, #fa550f);
-  font-size: 32rpx;
-  line-height: 80rpx;
-  position: relative;
-}
-.nav-actions .nav-button::after {
-  content: ' ';
-  position: absolute;
-  border: 1rpx solid #fa550f;
-  border: 1rpx solid var(--color-primary, #fa550f);
-  border-radius: 8rpx;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  opacity: 0.99;
+.pay-result .pay-money {
+  color: #666666;
+  font-size: 28rpx;
+  line-height: 48rpx;
+  margin-top: 28rpx;
+  display: flex;
+  align-items: baseline;
 }
 
-.navigation-bar__btn {
-  color: #fff;
+.pay-result .pay-money .pay-money__price {
+  font-size: 36rpx;
+  line-height: 48rpx;
+  color: #fa4126;
+}
+.pay-result .btn-wrapper {
+  margin-top: 48rpx;
+  padding: 12rpx 32rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.pay-result .btn-wrapper .status-btn {
+  height: 88rpx;
+  width: 334rpx;
+  border-radius: 44rpx;
+  border: 2rpx solid #fa4126;
+  color: #fa4126;
+  font-size: 28rpx;
+  font-weight: bold;
+  line-height: 88rpx;
+  text-align: center;
 }

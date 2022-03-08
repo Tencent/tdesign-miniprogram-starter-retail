@@ -50,7 +50,7 @@ Page({
   },
 
   openStoreList() {
-    console.log('1');
+    // console.log('1');
     this.setData({
       showStoreInfoList: true,
     });
