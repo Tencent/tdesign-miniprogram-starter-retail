@@ -1,0 +1,29 @@
+<view class="comments-card-item wr-class">
+    <view class="comments-card-item-userImg">
+        <image class="userImg" src="{{userHeadUrl}}" />
+    </view>
+    <view class="comments-card-item-container">
+        <view class="flex comments-card-item-container-name">
+            <view class="userName">{{userName}}</view>
+            <wr-rate stars="{{commentScore}}" iClass="comments-rate" class="rate" disabled="{{isDisabled}}"></wr-rate>
+        </view>
+        <view class="comments-card-item-container-date">
+            <text class="commentTime">{{commentTime}}</text>
+            <text class="specInfo">
+                <slot name="specInfo"></slot>
+            </text>
+        </view>
+        <view class="comments-card-item-container-content">
+            <view class="content-text {{hideText ? 'hide-text' : ''}}" hidden="{{showContent}}">
+                {{commentContent}}
+            </view>
+            <view class="showMore" wx:if="{{hideText}}" bindtap="showText">展开</view>
+            <view class="showMore" wx:if="{{!hideText && overText}}" bindtap="packupText">收起</view>
+        </view>
+        <view class="comments-card-item-container-image" wx:if="{{commentImageUrls.length > 0}}">
+            <block wx:for="{{commentImageUrls}}" wx:key="index">
+                <image class="commentImg {{commentImageUrls.length === 1 ? 'commentImg1' : commentImageUrls.length === 2 ? 'commentImg2' : 'commentImg3'}}" src="{{item}}" bindtap="showCurImg" mode="aspectFit" data-index="{{index}}"></image>
+            </block>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,6 @@
+{
+    "component": true,
+    "usingComponents": {
+        "wr-rate": "@tencent/retailwe-ui-rate/index"
+    }
+}
