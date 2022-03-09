@@ -84,10 +84,11 @@ Page({
     list: [],
     spuId: '',
     navigation: { type: 'fraction' },
-    current: 1,
+    current: 0,
     autoplay: true,
     duration: 500,
     interval: 5000,
+    soldNum: 0, // 已售数量
   },
 
   handlePopupHide() {
@@ -144,7 +145,7 @@ Page({
     const selectedSkuValues = this.getSelectedSkuValues(specList, selectedSku);
     let selectedAttrStr = ` 件  `;
     selectedSkuValues.forEach((item) => {
-      selectedAttrStr += `${item.specValue}  `;
+      selectedAttrStr += `，${item.specValue}  `;
     });
 
     const skuItem = skuArray.find((item) => {
@@ -315,6 +316,7 @@ Page({
         minSalePrice,
         maxSalePrice,
         maxLinePrice,
+        soldNum,
       } = details;
       skuList.map((item) => {
         skuArray.push({
@@ -343,6 +345,7 @@ Page({
         skuArray: skuArray,
         primaryImage,
         soldout: isPutOnSale === 0 ? true : false,
+        soldNum,
       });
     });
   },
