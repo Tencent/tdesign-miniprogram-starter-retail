@@ -19,6 +19,7 @@ const allGoods = [
     maxSalePrice: 29800,
     maxLinePrice: 40000,
     spuStockQuantity: 510,
+    soldNum: 1020,
     isPutOnSale: 1,
     categoryIds: [
       '127880527393854975',
@@ -309,6 +310,7 @@ const allGoods = [
     ],
     isAvailable: 1,
     spuStockQuantity: 371,
+    soldNum: 1032,
     isPutOnSale: 1,
     specList: [
       {
@@ -532,6 +534,7 @@ const allGoods = [
     ],
     isAvailable: 1,
     spuStockQuantity: 0,
+    soldNum: 1022,
     isPutOnSale: 1,
     specList: [
       {
@@ -851,6 +854,7 @@ const allGoods = [
     ],
     isAvailable: 1,
     spuStockQuantity: 598,
+    soldNum: 102,
     isPutOnSale: 1,
     specList: [
       {
@@ -1060,6 +1064,7 @@ const allGoods = [
     ],
     isAvailable: 1,
     spuStockQuantity: 321,
+    soldNum: 102,
     isPutOnSale: 1,
     specList: [
       {
@@ -1258,6 +1263,7 @@ const allGoods = [
     ],
     isAvailable: 1,
     spuStockQuantity: 366,
+    soldNum: 102,
     isPutOnSale: 1,
     specList: [
       {
@@ -1460,6 +1466,7 @@ const allGoods = [
     ],
     isAvailable: 1,
     spuStockQuantity: 357,
+    soldNum: 23102,
     isPutOnSale: 1,
     specList: [
       {
@@ -1524,6 +1531,7 @@ const allGoods = [
     maxSalePrice: '29900',
     maxLinePrice: '29900',
     spuStockQuantity: 0,
+    soldNum: 102,
     isPutOnSale: 1,
     categoryIds: [
       '127880527393854975',
@@ -1689,6 +1697,7 @@ const allGoods = [
     maxSalePrice: '39900',
     maxLinePrice: '39900',
     spuStockQuantity: 321,
+    soldNum: 103,
     isPutOnSale: 1,
     categoryIds: [
       '127880527393854975',

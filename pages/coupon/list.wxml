@@ -5,6 +5,7 @@
  tabList="{{list}}"
  t-class="tab-bar__inner"
  t-class-active="tab-bar__active"
+ t-class-track="tab-bar__track"
 >
 	<t-tab-panel
 	 wx:for="{{list}}"
@@ -16,7 +17,9 @@
 </t-tabs>
 <view class="coupon-list-wrap">
 	<t-pull-down-refresh id="t-pull-down-refresh" bind:refresh="onPullDownRefresh_">
-		<wr-coupon-list data="{{couponList}}" generic:coupon-card="custom-coupon-card" />
+        <view class="coupon-list-item" wx:for="{{couponList}}">
+            <coupon-card couponDTO="{{item}}"></coupon-card>
+        </view>
 	</t-pull-down-refresh>
 	<view class="center-entry">
 		<view class="center-entry-btn" bind:tap="goCouponCenterHandle">

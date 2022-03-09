@@ -30,6 +30,7 @@ function mockFetchCouponDetail(id, status) {
     };
 
     result.detail.useNotes = `1个订单限用1张，除运费券外，不能与其它类型的优惠券叠加使用（运费券除外）\n2.仅适用于各区域正常售卖商品，不支持团购、抢购、预售类商品`;
+    result.detail.storeAdapt = `商城通用`;
 
     if (result.detail.type === 'price') {
       result.detail.desc = `减免 ${result.detail.value / 100} 元`;

@@ -61,7 +61,7 @@ Page({
       //     title: '查询失败，请稍候重试',
       //     });
       // }
-    } catch (error) {}
+    } catch (error) { }
   },
   generalQueryData(reset, type) {
     const { hasImage, pageNum, pageSize, spuId, commentLevel } = this.data;
@@ -144,7 +144,7 @@ Page({
           title: '查询失败，请稍候重试',
         });
       }
-    } catch (error) {}
+    } catch (error) { }
     this.setData({
       hasLoaded: true,
     });
@@ -175,8 +175,8 @@ Page({
     this.init(true);
   },
   changeTag(e) {
-    var commenttype = e.currentTarget.dataset.commenttype;
-    var commentType = this.data.commentType;
+    var { commenttype } = e.currentTarget.dataset;
+    var { commentType } = this.data;
     if (commentType === commenttype) return;
     this.setData({
       loadMoreStatus: 0,

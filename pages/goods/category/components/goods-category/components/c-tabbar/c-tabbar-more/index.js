@@ -33,5 +33,5 @@ Component({
       this.triggerEvent('select', activeKey);
       this.changeFold();
     },
-  }
-})
+  },
+});

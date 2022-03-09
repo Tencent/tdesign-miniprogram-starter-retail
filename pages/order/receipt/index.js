@@ -60,7 +60,7 @@ Page({
   },
   onLabels(e) {
     const { item } = e.currentTarget.dataset;
-    const nameIndex = item.name + 'Index';
+    const nameIndex = `${item.name}Index`;
     this.setData({ [nameIndex]: item.id });
   },
   onInput(e) {

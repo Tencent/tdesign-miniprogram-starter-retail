@@ -153,7 +153,7 @@ Page({
   getOrdersCount() {
     return fetchOrdersCount().then((res) => {
       const tabsCount = res.data || [];
-      const tabs = this.data.tabs;
+      const { tabs } = this.data;
       tabs.forEach((tab) => {
         const tabCount = tabsCount.find((c) => c.tabType === tab.key);
         if (tabCount) {
