@@ -39,8 +39,6 @@ page {
   border: 1px solid #FA4126 !important;
 }
 
-.comments-card-list {}
-
 .no-more {
   padding-left: 20rpx;
   padding-right: 20rpx;

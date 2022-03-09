@@ -61,7 +61,7 @@ Page({
       //     title: '查询失败，请稍候重试',
       //     });
       // }
-    } catch (error) {}
+    } catch (error) { }
   },
   generalQueryData(reset, type) {
     const { hasImage, pageNum, pageSize, spuId, commentLevel } = this.data;
@@ -144,7 +144,7 @@ Page({
           title: '查询失败，请稍候重试',
         });
       }
-    } catch (error) {}
+    } catch (error) { }
     this.setData({
       hasLoaded: true,
     });

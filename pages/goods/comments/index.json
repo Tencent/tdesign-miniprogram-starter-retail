@@ -3,6 +3,6 @@
   "usingComponents": {
     "t-tag": "tdesign-miniprogram/tag/tag",
     "comments-card": "./components/comments-card/index",
-    "wr-load-more": "@tencent/retailwe-ui-load-more/index"
+    "t-load-more": "/components/load-more/index"
   }
 }

@@ -5,6 +5,14 @@ Component({
     multipleSlots: true,
   },
   properties: {
+    goodsDetailInfo: {
+      type: String,
+      value: ''
+    },
+    sellerReply: {
+      type: String,
+      value: ''
+    },
     userHeadUrl: {
       type: String,
       value: '',
@@ -12,10 +20,6 @@ Component({
     userName: {
       type: String,
       default: '',
-    },
-    commentImageUrls: {
-      type: Array,
-      value: [],
     },
     commentContent: {
       type: String,
@@ -53,7 +57,12 @@ Component({
       type: Boolean,
       value: true, // 是否开启默认点击展示图册, 默认开启，展示图片为缩略图
     },
+    commentResources: {
+      type: Array,
+      value: []
+    }
   },
+
   data: {
     showMoreStatus: false,
     showContent: false,
