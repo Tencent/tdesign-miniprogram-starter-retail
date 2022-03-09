@@ -16,11 +16,8 @@ Component({
       value: false,
       observer(couponsShow) {
         if (couponsShow) {
-          const {
-            promotionGoodsList,
-            orderSureCouponList,
-            storeId,
-          } = this.data;
+          const { promotionGoodsList, orderSureCouponList, storeId } =
+            this.data;
           const products =
             promotionGoodsList &&
             promotionGoodsList.map((goods) => {
@@ -49,13 +46,13 @@ Component({
           this.setData({
             products,
           });
-          coupons({
-            products,
-            selectedCoupons,
-            storeId,
-          }).then((res) => {
-            this.initData(res.data);
-          });
+          // coupons({
+          //   products,
+          //   selectedCoupons,
+          //   storeId,
+          // }).then((res) => {
+          //   this.initData(res.data);
+          // });
         }
       },
     },
@@ -145,13 +142,13 @@ Component({
           storeId: this.storeId,
         });
       }
-      coupons({
-        selectedCoupons: newSelectedList,
-        products,
-        storeId,
-      }).then((res) => {
-        this.initData(res.data);
-      });
+      // coupons({
+      //   selectedCoupons: newSelectedList,
+      //   products,
+      //   storeId,
+      // }).then((res) => {
+      //   this.initData(res.data);
+      // });
     },
     onSure() {
       const { selectedList, couponsList } = this.data;
