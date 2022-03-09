@@ -130,7 +130,7 @@ Page({
         order,
         _order,
         formatCreateTime: formatTime(
-          parseFloat(order.createTime + ''),
+          parseFloat(`${order.createTime}`),
           'YYYY-MM-DD HH:mm',
         ), // 格式化订单创建时间
         countDownTime: this.computeCountDownTime(order),
@@ -196,26 +196,26 @@ Page({
   getBgImgUrl(status, order) {
     switch (status) {
       case OrderStatus.PENDING_PAYMENT:
-        return STATIC_BASE_URL + 'order/bg-order-pengding-pay.png';
+        return `${STATIC_BASE_URL}order/bg-order-pengding-pay.png`;
       case OrderStatus.PENDING_DELIVERY:
         if (order.orderSubStatus === -1) {
-          return STATIC_BASE_URL + 'order/bg-cancel-order-checking.png';
+          return `${STATIC_BASE_URL}order/bg-cancel-order-checking.png`;
         }
-        return STATIC_BASE_URL + 'order/bg-order-packaged.png';
+        return `${STATIC_BASE_URL}order/bg-order-packaged.png`;
       case OrderStatus.PENDING_RECEIPT:
-        return STATIC_BASE_URL + 'order/bg-order-delivering.png';
+        return `${STATIC_BASE_URL}order/bg-order-delivering.png`;
       case OrderStatus.COMPLETE:
-        return STATIC_BASE_URL + 'order/bg-order-finished.png';
+        return `${STATIC_BASE_URL}order/bg-order-finished.png`;
       case OrderStatus.PAYMENT_TIMEOUT:
-        return STATIC_BASE_URL + 'order/bg-order-canceled.png';
+        return `${STATIC_BASE_URL}order/bg-order-canceled.png`;
       case OrderStatus.CANCELED_NOT_PAYMENT:
-        return STATIC_BASE_URL + 'order/bg-order-canceled.png';
+        return `${STATIC_BASE_URL}order/bg-order-canceled.png`;
       case OrderStatus.CANCELED_PAYMENT:
-        return STATIC_BASE_URL + 'order/bg-order-canceled.png';
+        return `${STATIC_BASE_URL}order/bg-order-canceled.png`;
       case OrderStatus.CANCELED_REJECTION:
-        return STATIC_BASE_URL + 'order/bg-order-canceled.png';
+        return `${STATIC_BASE_URL}order/bg-order-canceled.png`;
       default:
-        return STATIC_BASE_URL + 'order/bg-order-pengding-pay.png';
+        return `${STATIC_BASE_URL}order/bg-order-pengding-pay.png`;
     }
   },
 

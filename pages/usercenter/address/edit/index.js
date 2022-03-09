@@ -278,7 +278,7 @@ Page({
             }
           },
           fail: function (res) {
-            console.warn('wx.chooseLocation fail: ' + JSON.stringify(res));
+            console.warn(`wx.chooseLocation fail: ${JSON.stringify(res)}`);
             if (res.errMsg !== 'chooseLocation:fail cancel') {
               wx.showToast({
                 title: '地点错误，请重新选择',

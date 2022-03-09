@@ -175,8 +175,8 @@ Page({
     this.init(true);
   },
   changeTag(e) {
-    var commenttype = e.currentTarget.dataset.commenttype;
-    var commentType = this.data.commentType;
+    var { commenttype } = e.currentTarget.dataset;
+    var { commentType } = this.data;
     if (commentType === commenttype) return;
     this.setData({
       loadMoreStatus: 0,

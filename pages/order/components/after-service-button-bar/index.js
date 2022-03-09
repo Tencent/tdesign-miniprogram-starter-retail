@@ -49,7 +49,7 @@ Component({
       console.log('service', service);
       // Toast({text: '你点击了填写运单号'});
       wx.navigateTo({
-        url: '/pages/order/fill-tracking-no/index?rightsNo=' + service.id,
+        url: `/pages/order/fill-tracking-no/index?rightsNo=${service.id}`,
       });
     },
 
@@ -57,17 +57,7 @@ Component({
       console.log('service', service);
       // Toast({text: '你点击了修改运单号'});
       wx.navigateTo({
-        url:
-          '/pages/order/fill-tracking-no/index?rightsNo=' +
-          service.id +
-          '&logisticsNo=' +
-          service.logisticsNo +
-          '&logisticsCompanyName=' +
-          service.logisticsCompanyName +
-          '&logisticsCompanyCode=' +
-          service.logisticsCompanyCode +
-          '&remark=' +
-          service.remark,
+        url: `/pages/order/fill-tracking-no/index?rightsNo=${service.id}&logisticsNo=${service.logisticsNo}&logisticsCompanyName=${service.logisticsCompanyName}&logisticsCompanyCode=${service.logisticsCompanyCode}&remark=${service.remark}`,
       });
     },
 
@@ -81,7 +71,11 @@ Component({
         const params = { rightsNo: this.data.service.id };
         return cancelRights(params).then((res) => {
           console.log('res', res);
-          Toast({ context: this, selector: '#t-toast', message: '你确认撤销申请' });
+          Toast({
+            context: this,
+            selector: '#t-toast',
+            message: '你确认撤销申请',
+          });
         });
       });
     },

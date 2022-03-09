@@ -126,7 +126,7 @@ Page({
         refundRequestAmount: serviceRaw.rights.refundRequestAmount, // 申请退款金额
         payTraceNo: serviceRaw.rightsRefund.traceNo, // 交易流水号
         createTime: formatTime(
-          parseFloat(serviceRaw.rights.createTime + ''),
+          parseFloat(`${serviceRaw.rights.createTime}`),
           'YYYY-MM-DD HH:mm',
         ), // 申请时间
         logisticsNo: serviceRaw.logisticsVO.logisticsNo, // 退货物流单号
@@ -191,23 +191,13 @@ Page({
 
   onFillTrackingNo(service) {
     wx.navigateTo({
-      url: '/pages/order/fill-tracking-no/index?rightsNo=' + service.id,
+      url: `/pages/order/fill-tracking-no/index?rightsNo=${service.id}`,
     });
   },
 
   onChangeTrackingNo(service) {
     wx.navigateTo({
-      url:
-        '/pages/order/fill-tracking-no/index?rightsNo=' +
-        service.id +
-        '&logisticsNo=' +
-        service.logisticsNo +
-        '&logisticsCompanyName=' +
-        service.logisticsCompanyName +
-        '&logisticsCompanyCode=' +
-        service.logisticsCompanyCode +
-        '&remark=' +
-        service.remark,
+      url: `/pages/order/fill-tracking-no/index?rightsNo=${service.id}&logisticsNo=${service.logisticsNo}&logisticsCompanyName=${service.logisticsCompanyName}&logisticsCompanyCode=${service.logisticsCompanyCode}&remark=${service.remark}`,
     });
   },
 
@@ -229,7 +219,7 @@ Page({
     const { index } = e.currentTarget.dataset;
     const goods = this.data.serviceRaw.rightsItem[index];
     console.log('goods', goods);
-    wx.navigateTo({ url: '/pages/goods/details/index?skuId=' + goods.skuId });
+    wx.navigateTo({ url: `/pages/goods/details/index?skuId=${goods.skuId}` });
   },
 
   onServiceNoCopy() {

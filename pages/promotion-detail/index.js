@@ -11,7 +11,7 @@ Page({
   },
 
   onLoad(query) {
-    let promotionID = parseInt(query['promotion_id']);
+    const promotionID = parseInt(query.promotion_id);
     this.getGoodsList(promotionID);
   },
 

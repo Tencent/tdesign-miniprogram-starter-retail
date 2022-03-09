@@ -98,7 +98,7 @@ Page({
   showSkuSelectPopup(type) {
     this.setData({
       buyType: type || 0,
-      outOperateStatus: type >= 1 ? true : false,
+      outOperateStatus: type >= 1,
       isSpuSelectPopupShow: true,
     });
   },
@@ -335,14 +335,14 @@ Page({
       this.setData({
         details,
         activityList,
-        isStock: details.spuStockQuantity > 0 ? true : false,
+        isStock: details.spuStockQuantity > 0,
         maxSalePrice: maxSalePrice ? parseInt(maxSalePrice) : 0,
         maxLinePrice: maxLinePrice ? parseInt(maxLinePrice) : 0,
         minSalePrice: minSalePrice ? parseInt(minSalePrice) : 0,
         list: promotionArray,
         skuArray: skuArray,
         primaryImage,
-        soldout: isPutOnSale === 0 ? true : false,
+        soldout: isPutOnSale === 0,
       });
     });
   },
@@ -442,7 +442,7 @@ Page({
     });
   },
   onLoad(query) {
-    let spuId = query['spuId'];
+    const { spuId } = query;
     console.log('spuId:', spuId);
     this.setData({
       spuId: spuId,

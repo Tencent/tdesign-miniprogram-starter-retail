@@ -121,10 +121,10 @@ Page({
         }
 
         const _goodsList = reset ? spuList : goodsList.concat(spuList);
-        _goodsList.forEach(v => {
-          v.tags = v.spuTagList.map(u => u.title);
-          v.hideKey = { desc: true};
-        })
+        _goodsList.forEach((v) => {
+          v.tags = v.spuTagList.map((u) => u.title);
+          v.hideKey = { desc: true };
+        });
         const _loadMoreStatus = _goodsList.length === totalCount ? 2 : 0;
 
         this.setData({
@@ -181,7 +181,7 @@ Page({
   handleCartTap() {
     wx.switchTab({
       url: '/pages/cart/index',
-    })
+    });
     // navigateTo 需要跳转的应用内非 tabBar 的页面的路径
     // 跳转tabBar请用 wx.switchTab(OBJECT)，跳转到 tabBar 页面，并关闭其他所有非 tabBar 页面
     // wx.navigateTo({
@@ -227,20 +227,20 @@ Page({
         context: this,
         selector: '#t-toast',
         message: '加购成功',
-        icon: 'check-circle'
+        icon: 'check-circle',
       });
     } else {
       Toast({
         context: this,
         selector: '#t-toast',
         message: '加购失败，请稍候重试',
-        icon: 'close-circle'
+        icon: 'close-circle',
       });
     }
   },
   gotoGoodsDetail(e) {
     const { index } = e.detail;
-    const spuId = this.data.goodsList[index].spuId;
+    const { spuId } = this.data.goodsList[index];
     wx.navigateTo({
       url: `/pages/goods/details/index?spuId=${spuId}`,
     });
