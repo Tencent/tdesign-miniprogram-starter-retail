@@ -18,6 +18,7 @@
     "pages/order/order-list/index",
     "pages/order/order-detail/index",
     "pages/goods/comments/index",
+    "pages/order/apply-service/index",
     "pages/order/after-service-list/index",
     "pages/order/after-service-detail/index",
     "pages/goods/comments/create/index",

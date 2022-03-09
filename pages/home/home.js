@@ -1,5 +1,6 @@
 import { fetchHome } from '../../services/home/home';
 import { fetchGoodsList } from '../../services/good/fetchGoods';
+import Toast from 'tdesign-miniprogram/toast/index';
 
 Page({
   data: {
@@ -26,14 +27,17 @@ Page({
   onShow() {
     this.getTabBar().init();
   },
+
   onLoad() {
     this.init();
   },
+
   onReachBottom() {
     if (this.data.goodsListLoadStatus === 0) {
       this.loadGoodsList();
     }
   },
+
   onPullDownRefresh() {
     this.init();
   },
@@ -67,12 +71,21 @@ Page({
     this.loadGoodsList(true);
   },
 
+  tagClickHandle(e) {
+    console.log('点击标签: ', e);
+    Toast({
+      context: this,
+      selector: '#t-toast',
+      message: '点击标签',
+    });
+  },
+
   onReTry() {
     this.loadGoodsList();
   },
 
   // fresh 代表重新加载
-  loadGoodsList(fresh = false) {
+  async loadGoodsList(fresh = false) {
     if (fresh) {
       wx.pageScrollTo({
         scrollTop: 0,
@@ -91,31 +104,35 @@ Page({
       pageIndex = 0;
     }
 
-    return fetchGoodsList(pageIndex, pageSize)
-      .then((nextList) => {
-        this.setData({
-          goodsList: fresh ? nextList : this.data.goodsList.concat(nextList),
-          goodsListLoadStatus: 0,
-          goodsRefreshing: false,
-        });
-
-        this.goodListPagination.index = pageIndex;
-        this.goodListPagination.num = pageSize;
-      })
-      .catch((err) => {
-        this.setData({ goodsListLoadStatus: 3 });
+    try {
+      const nextList = await fetchGoodsList(pageIndex, pageSize);
+      this.setData({
+        goodsList: fresh ? nextList : this.data.goodsList.concat(nextList),
+        goodsListLoadStatus: 0,
+        goodsRefreshing: false,
       });
+
+      this.goodListPagination.index = pageIndex;
+      this.goodListPagination.num = pageSize;
+    } catch (err) {
+      this.setData({ goodsListLoadStatus: 3 });
+    }
   },
 
-  goodlistClickHandle(e) {
+  goodListClickHandle(e) {
     const { index } = e.detail;
     const spuId = this.data.goodsList[index].spuId;
     wx.navigateTo({
       url: `/pages/goods/details/index?spuId=${spuId}`,
     });
   },
-  goodlistAddCartHandle() {
-    // Toast({ text: '加入购物车成功' });
+
+  goodListAddCartHandle() {
+    Toast({
+      context: this,
+      selector: '#t-toast',
+      message: '点击加入购物车',
+    });
   },
 
   navToSearchPage() {

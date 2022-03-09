@@ -35,7 +35,7 @@ Page({
       remark: { current: '', temp: '', focus: false },
       rightsImageUrls: [],
     },
-    maxApplyNum: 1, // 最大可申请售后的商品数
+    maxApplyNum: 2, // 最大可申请售后的商品数
     amountTip: '',
     showReceiptStatusDialog: false,
     validateRes: {
@@ -46,6 +46,11 @@ Page({
     uploadMethod: { method: () => {} },
     inputDialogVisible: false,
     remarkDialogVisible: false,
+    uploadGridConfig: {
+      column: 3,
+      width: 212,
+      height: 212
+    }
   },
 
   setWatcher(key, callback) {
@@ -114,7 +119,7 @@ Page({
   },
 
   checkQuery() {
-    const { orderNo, skuId, spuId } = this.query;
+    const { orderNo, skuId } = this.query;
     if (!orderNo) {
       Dialog.alert({
         content: '请先选择订单',
@@ -123,7 +128,7 @@ Page({
       });
       return false;
     }
-    if (!skuId || !spuId) {
+    if (!skuId) {
       Dialog.alert({
         content: '请先选择商品',
       }).then(() => {
@@ -182,7 +187,6 @@ Page({
   },
 
   onApplyOnlyRefund() {
-    this.setData({ serviceType: ServiceType.ONLY_REFUND });
     this.switchReceiptStatus(-1);
   },
 
@@ -213,30 +217,16 @@ Page({
       });
   },
 
-  onMinusReturnNum() {
-    this.setData(
-      {
-        'serviceFrom.returnNum': this.data.serviceFrom.returnNum - 1,
-      },
-      () => {
-        this.refresh();
-      },
-    );
-  },
-
   onChangeReturnNum(e) {
-    console.log(e);
-  },
-
-  onPlusReturnNum() {
+    const { value } = e.detail;
     this.setData(
       {
-        'serviceFrom.returnNum': this.data.serviceFrom.returnNum + 1,
-      },
+        'serviceFrom.returnNum': value,
+      }, 
       () => {
         this.refresh();
-      },
-    );
+      }
+    )
   },
 
   onReceiptStatusTap() {
@@ -325,10 +315,12 @@ Page({
       ),
       'serviceFrom.amount.focus': true,
     });
-    this.inputDialog.setData({
+    this.setData({
       inputDialogVisible: true,
-      title: '退款金额',
+    })
+    this.inputDialog.setData({
       cancelBtn: '取消',
+      confirmBtn: '确定'
     });
     this.inputDialog._onComfirm = () => {
       this.setData({
@@ -490,28 +482,34 @@ Page({
       }); */
   },
 
-  onUploadStart({ detail, currentTarget }) {
-    const { tempFiles } = detail;
+  onUploadStart({ detail }) {
+    const { files } = detail;
     const {
       serviceFrom: { rightsImageUrls },
     } = this.data;
-    const images = tempFiles.map((v) => ({
-      url: v.path,
-      name: '',
-      type: 'image',
-    }));
+   
+    files.forEach((temp) => {
+      rightsImageUrls.push({
+        name: new Date(),
+        type: 'image',
+        url: temp.url,
+        size: temp.size,
+      });
+    });
+
     this.setData({
-      'serviceFrom.rightsImageUrls': [...rightsImageUrls, ...images],
+      'serviceFrom.rightsImageUrls': [...rightsImageUrls],
     });
   },
 
   onDelete(e) {
     const { index } = e.detail;
-    const nextImages = [...this.data.serviceFrom.rightsImageUrls];
-    nextImages.splice(index, 1);
 
+    const { rightsImageUrls } = this.data.serviceFrom;
+    rightsImageUrls.splice(index, 1);
+  
     this.setData({
-      'serviceFrom.rightsImageUrls': [...nextImages],
+      'serviceFrom.rightsImageUrls': [...rightsImageUrls],
     });
   },
 });

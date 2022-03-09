@@ -11,9 +11,9 @@
 			 extra-space="{{extraSpace}}"
 			 class-prefix="ym"
 			 address="{{address}}"
-			 bind:onSelect="onSelect"
-			 bind:onDelete="onDelete"
-			 bind:onEdit="onEdit"
+			 bind:onSelect="selectHandle"
+			 bind:onDelete="deleteAddressHandle"
+			 bind:onEdit="editAddressHandle"
 			/>
 		</block>
 	</view>

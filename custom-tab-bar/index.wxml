@@ -1,4 +1,9 @@
-<t-tab-bar value="{{active}}" bindchange="onChange" color="{{[theme.custom.colorPrimary, '#999' ]}}">
+<t-tab-bar
+ value="{{active}}"
+ bindchange="onChange"
+ split="{{false}}"
+ color="{{[theme.custom.colorPrimary, '#999' ]}}"
+>
 	<t-tab-bar-item
 	 wx:for="{{list}}"
 	 wx:for-item="item"

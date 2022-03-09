@@ -2,6 +2,10 @@
   "navigationBarTitleText": "营销详情",
   "usingComponents": {
     "t-toast": "tdesign-miniprogram/toast/toast",
-    "wr-promotion-detail": "@tencent/retailwe-ui-promotion-detail/index"
+    "t-image": "tdesign-miniprogram/image/image",
+    "t-icon": "tdesign-miniprogram/icon/icon",
+    "wr-count-down": "@tencent/retailwe-ui-count-down/index",
+    "wr-promotion-detail": "@tencent/retailwe-ui-promotion-detail/index",
+    "goods-list": "/components/goods-list/index"
   }
 }

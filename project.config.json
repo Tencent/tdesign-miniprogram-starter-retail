@@ -1,153 +1,160 @@
 {
-  "description": "项目配置文件",
-  "packOptions": {
-    "ignore": []
-  },
-  "setting": {
-    "urlCheck": true,
-    "es6": true,
-    "enhance": true,
-    "postcss": true,
-    "preloadBackgroundData": false,
-    "minified": true,
-    "newFeature": false,
-    "coverView": true,
-    "nodeModules": true,
-    "autoAudits": false,
-    "showShadowRootInWxmlPanel": true,
-    "scopeDataCheck": false,
-    "uglifyFileName": false,
-    "checkInvalidKey": true,
-    "checkSiteMap": true,
-    "uploadWithSourceMap": true,
-    "compileHotReLoad": false,
-    "lazyloadPlaceholderEnable": false,
-    "useMultiFrameRuntime": true,
-    "useApiHook": true,
-    "useApiHostProcess": true,
-    "babelSetting": {
-      "ignore": [],
-      "disablePlugins": [],
-      "outputPath": ""
+    "description": "项目配置文件",
+    "packOptions": {
+        "ignore": []
     },
-    "enableEngineNative": false,
-    "useIsolateContext": true,
-    "userConfirmedBundleSwitch": false,
-    "packNpmManually": false,
-    "packNpmRelationList": [],
-    "minifyWXSS": true,
-    "disableUseStrict": false,
-    "showES6CompileOption": false,
-    "useCompilerPlugins": false,
-    "minifyWXML": true
-  },
-  "compileType": "miniprogram",
-  "libVersion": "2.16.1",
-  "appid": "wx5a75208aa13eee03",
-  "projectname": "supermarket",
-  "debugOptions": {
-    "hidedInDevtools": []
-  },
-  "scripts": {},
-  "isGameTourist": false,
-  "simulatorType": "wechat",
-  "simulatorPluginLibVersion": {},
-  "condition": {
-    "search": {
-      "list": []
+    "setting": {
+        "urlCheck": true,
+        "es6": true,
+        "enhance": true,
+        "postcss": true,
+        "preloadBackgroundData": false,
+        "minified": true,
+        "newFeature": false,
+        "coverView": true,
+        "nodeModules": true,
+        "autoAudits": false,
+        "showShadowRootInWxmlPanel": true,
+        "scopeDataCheck": false,
+        "uglifyFileName": false,
+        "checkInvalidKey": true,
+        "checkSiteMap": true,
+        "uploadWithSourceMap": true,
+        "compileHotReLoad": false,
+        "lazyloadPlaceholderEnable": false,
+        "useMultiFrameRuntime": true,
+        "useApiHook": true,
+        "useApiHostProcess": true,
+        "babelSetting": {
+            "ignore": [],
+            "disablePlugins": [],
+            "outputPath": ""
+        },
+        "useIsolateContext": false,
+        "userConfirmedBundleSwitch": false,
+        "packNpmManually": false,
+        "packNpmRelationList": [],
+        "minifyWXSS": true,
+        "disableUseStrict": false,
+        "showES6CompileOption": false,
+        "useCompilerPlugins": false,
+        "ignoreUploadUnusedFiles": true,
+        "minifyWXML": true
     },
-    "conversation": {
-      "list": []
+    "compileType": "miniprogram",
+    "libVersion": "2.16.1",
+    "appid": "wxe795f24419adb325",
+    "projectname": "supermarket",
+    "debugOptions": {
+        "hidedInDevtools": []
     },
-    "game": {
-      "list": []
-    },
-    "plugin": {
-      "list": []
-    },
-    "gamePlugin": {
-      "list": []
-    },
-    "miniprogram": {
-      "list": [
-        {
-          "id": -1,
-          "name": "首页入口",
-          "pathName": "pages/home/home",
-          "query": "",
-          "scene": null
+    "scripts": {},
+    "isGameTourist": false,
+    "simulatorType": "wechat",
+    "simulatorPluginLibVersion": {},
+    "condition": {
+        "search": {
+            "list": []
         },
-        {
-          "id": 0,
-          "name": "示例页-商品分类",
-          "pathName": "pages/goods/category/index",
-          "query": "",
-          "scene": null
+        "conversation": {
+            "list": []
         },
-        {
-          "id": 1,
-          "name": "示例页-个人中心",
-          "pathName": "pages/usercenter/index",
-          "query": "",
-          "scene": null
+        "game": {
+            "list": []
         },
-        {
-          "id": 2,
-          "name": "示例页-商品列表",
-          "pathName": "pages/goods/list/index",
-          "query": "",
-          "scene": null
+        "plugin": {
+            "list": []
         },
-        {
-          "id": 3,
-          "name": "示例页-商品详情",
-          "pathName": "pages/goods/details/index",
-          "query": "",
-          "scene": null
+        "gamePlugin": {
+            "list": []
         },
-        {
-          "id": 4,
-          "name": "示例页-商品评论",
-          "pathName": "pages/goods/comments/index",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": 5,
-          "name": "示例页-售后列表",
-          "pathName": "pages/order/after-service-list/index",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": 6,
-          "name": "示例页-售后详情",
-          "pathName": "pages/order/after-service-detail/index",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": 7,
-          "name": "示例页-搜索页",
-          "pathName": "pages/goods/search/index",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": 8,
-          "name": "示例页-搜索结果",
-          "pathName": "pages/goods/result/index",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": 9,
-          "name": "示例页-商品评价",
-          "pathName": "pages/goods/comments/create/index",
-          "query": "",
-          "scene": null
+        "miniprogram": {
+            "list": [
+                {
+                    "id": -1,
+                    "name": "首页入口",
+                    "pathName": "pages/home/home",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "id": 0,
+                    "name": "示例页-商品分类",
+                    "pathName": "pages/goods/category/index",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "id": 1,
+                    "name": "示例页-个人中心",
+                    "pathName": "pages/usercenter/index",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "id": 2,
+                    "name": "示例页-商品列表",
+                    "pathName": "pages/goods/list/index",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "id": 3,
+                    "name": "示例页-商品详情",
+                    "pathName": "pages/goods/details/index",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "id": 4,
+                    "name": "示例页-商品评论",
+                    "pathName": "pages/goods/comments/index",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "id": 5,
+                    "name": "示例页-售后列表",
+                    "pathName": "pages/order/after-service-list/index",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "id": 6,
+                    "name": "示例页-售后详情",
+                    "pathName": "pages/order/after-service-detail/index",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "id": 7,
+                    "name": "示例页-搜索页",
+                    "pathName": "pages/goods/search/index",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "id": 8,
+                    "name": "示例页-搜索结果",
+                    "pathName": "pages/goods/result/index",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "id": 9,
+                    "name": "示例页-商品评价",
+                    "pathName": "pages/goods/comments/create/index",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "id": 10,
+                    "name": "示例页-申请售后",
+                    "pathName": "pages/order/apply-service/index",
+                    "query": "orderNo=332188459183707034&skuId=1327025",
+                    "scene": null
+                }
+            ]
         }
-      ]
     }
-  }
 }

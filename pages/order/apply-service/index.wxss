@@ -17,6 +17,10 @@
 :host {
   background-color: #f5f5f5;
 }
+
+.select-service .service-form .service-from-group {
+  margin-top: 20rpx;
+}
 /* .select-service .wr-cell-group {
   margin-top: 20rpx;
 }
@@ -49,10 +53,10 @@
   word-wrap: break-word;
 } */
 .select-service .remark {
-  min-height: 200rpx;
-  border: 2rpx solid #c9ced3;
+  min-height: 110rpx;
   border-radius: 10rpx;
   margin-top: 20rpx;
+  background-color: #F5F5F5;
 }
 .select-service .remark::after {
   border: none;
@@ -70,33 +74,55 @@
 .select-service .service-choice .non-returnable .wr-cell__label {
   color: #ff2525;
 } */
-/* .select-service .special-cell .wr-cell__title {
+
+.select-service .special-cell .special-cell-note {
+  display: flex;
+  flex-direction: column;
+}
+
+.select-service .special-cell .special-cell-note .special-cell-note-text  {
+  display: flex;
+  align-items: center;
+}
+.select-service .special-cell .special-cell-note .special-cell-note-text .special-cell-note-text-left {
+  font-size: 24rpx;
+  color: #999;
+}
+.select-service .special-cell .wr-cell__title {
   margin-right: 100rpx;
 }
-.select-service .special-cell .wr-cell__value {
-  position: absolute;
-  top: 24rpx;
-  right: 30rpx;
-  font-size: 32rpx;
-  color: #fa550f;
-  color: var(--color-price, #fa550f);
-  font-weight: bold;
+
+.select-service .special-cell .special-cell-note-price-class {
+  font-size: 36rpx;
+  color: #FA4126;
+  font-family: DIN Alternate;
 }
-.select-service .special-cell .wr-cell__value .price .symbol,
-.select-service .special-cell .wr-cell__value .price .decimal {
+.select-service .special-cell .special-cell-note-price-decimal {
+  font-size: 28rpx;
+  color: #FA4126;
+  font-family: DIN Alternate;
+
+}
+.select-service .special-cell .special-cell-note-price-symbol {
+  color: #FA4126;
   font-size: 24rpx;
+  font-family: DIN Alternate;
+
 }
-.select-service .special-cell .wr-cell__right-icon-wrap {
-  position: absolute;
-  bottom: 24rpx;
-  right: 30rpx;
-} */
+
 .select-service .upload {
   margin-top: 40rpx;
 }
 .select-service .upload__desc {
   font-size: 24rpx;
-  color: #666666;
+  color: #999;
+  text-align: center;
+  position: relative;
+  top: 25rpx;
+}
+.select-service .upload__desc .upload__desc-icon {
+  font-size: 90rpx;
+  margin-bottom: 7rpx;
 }
 .select-service .bottom-bar__placeholder,
 .select-service .bottom-bar__content {
@@ -118,6 +144,7 @@
   background-color: var(--color-primary, #fa550f);
   color: white;
   font-size: 32rpx;
+  border-radius: 48rpx;
 }
 .select-service .bottom-bar__btn::after {
   border: none;
@@ -132,7 +159,7 @@
   padding: 30rpx;
   margin-top: 20rpx;
 }
-.select-service .stepper {
+/* .select-service .stepper {
   display: inline-flex;
   border: none;
 }
@@ -166,7 +193,7 @@
   font-weight: bold;
   border-left: 4rpx solid white;
   border-right: 4rpx solid white;
-}
+} */
 .input-dialog__content {
   text-align: left;
 }
@@ -179,23 +206,18 @@
 }
 .input-dialog__content .input::after {
   display: block;
-  content: ' ';
+  content: '¥';
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 200%;
-  height: 200%;
-  box-sizing: border-box;
-  transform: scale(0.5);
-  transform-origin: 0 0;
-  border: 1px solid #c9ced3;
-  border-radius: 16rpx;
+  top: 50%;
+  left: 5rpx;
+  transform: translateY(-50%);
 }
 .input-dialog__content .tips {
   margin-top: 20rpx;
   font-size: 24rpx;
   color: #999999;
 }
+
 .dialog--service-status {
   background-color: #f3f4f5;
   overflow: hidden;

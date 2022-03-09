@@ -3,7 +3,7 @@
     <span slot="text">加载中...</span>
   </t-loading>
 </view>
-<view class="container">
+<view class="home-page-container">
   <view class="search" bind:tap="navToSearchPage">
     <t-search
       t-class-left="t-search__left-icon"
@@ -33,27 +33,30 @@
       />
     </t-swiper-item>
   </t-swiper>
-  <t-tabs t-class="t-tabs" value="{{0}}" bind:change="tabChangeHandle">
+  <t-tabs
+    t-class="t-tabs"
+    t-class-active="t-class-item"
+    t-class-track="t-class-track"
+    defaultValue="{{0}}"
+    bind:change="tabChangeHandle"
+  >
     <t-tab-panel
       wx:for="{{tabList}}"
       wx:for-index="index"
       wx:key="index"
       label="{{item.text}}"
-      value="{{item.index}}"
+      value="{{item.key}}"
     />
   </t-tabs>
-  <view style="text-align: center" wx:if="{{goodsRefreshing}}">
-    <t-loading theme="circular" size="40rpx" loading style="color: #ddd">
-      <span slot="text">加载中...</span>
-    </t-loading>
-  </view>
   <goods-list
+    wr-class="goods-list-container"
     goodsList="{{goodsList}}"
     layout="vertical"
-    bind:click="goodlistClickHandle"
-    bind:addcart="goodlistAddCartHandle"
+    bind:click="goodListClickHandle"
+    bind:addcart="goodListAddCartHandle"
+    bind:tag="tagClickHandle"
   />
-  <wr-load-more
+  <t-load-more
     list-is-empty="{{!goodsList.length}}"
     status="{{goodsListLoadStatus}}"
     bind:retry="onReTry"
