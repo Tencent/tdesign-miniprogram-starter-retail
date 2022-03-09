@@ -28,6 +28,7 @@
     "pages/promotion-detail/index",
     "pages/order/fill-tracking-no/index",
     "pages/order/delivery-detail/index",
+    "pages/order/invoice/index",
     "pages/usercenter/name-edit/index"
   ],
   "tabBar": {
