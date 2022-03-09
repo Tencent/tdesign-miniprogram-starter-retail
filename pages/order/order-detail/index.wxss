@@ -6,8 +6,11 @@
 .order-detail {
   width: 100%;
   box-sizing: border-box;
-  padding: 0rpx;
-  
+  padding: 0rpx 0rpx calc(env(safe-area-inset-bottom) + 144rpx);
+}
+
+.order-detail .count-down {
+  color: #ffffff;
 }
 .order-detail .header {
   width: 100%;
@@ -99,175 +102,135 @@
   height: 2rpx;
   background-color: #e5e5e5;
 }
-/* .order-address {
-  width: 100%;
+
+.order-detail .border-bottom-margin {
+  margin: 16rpx auto;
+}
+
+
+.order-detail .pay-detail {
   background-color: #ffffff;
-  padding: 32rpx;
+  width: 100%;
   box-sizing: border-box;
-  display: flex;
 }
 
-.order-address .address-icon {
-  width: 40rpx;
-  height: 40rpx;
-  margin-right: 16rpx;
-  margin-top: 4rpx;
-} */
-
-
-.order-detail .section-title {
-  color: #222427;
-  padding: 17rpx 20rpx 16rpx;
-  display: flex;
+.order-detail .padding-inline {
+  padding: 16rpx 32rpx;
 }
-.order-detail .section-title .icon,
-.order-detail .section-title .title {
-  font-size: 30rpx;
+
+.order-detail .pay-detail .pay-item {
+  width: 100%;
+  height: 72rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 26rpx;
+  line-height: 36rpx;
+  color: #666666;
+  background-color: #ffffff;
+}
+.order-detail .pay-detail .pay-item .pay-item__right {
+  color: #333333;
+  font-size: 24rpx;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  max-width: 400rpx;
+}
+.order-detail .pay-detail .pay-item .pay-item__right .pay-remark {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  max-width: 400rpx;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.order-detail .pay-detail .pay-item .font-bold {
   font-weight: bold;
 }
-.order-detail .section-title .icon {
-  flex: none;
-  margin-right: 16rpx;
-  font-size: 30rpx !important;
+.order-detail .pay-detail .pay-item .primary {
+  color: #fa4126;
 }
-.order-detail .section-title .title {
-  flex: auto;
-}
-.order-detail .section-title .title .phone-num {
-  display: inline;
-  margin-left: 0.5em;
-}
-.order-detail .section-title .right {
-  flex: none;
-}
-.order-detail .section-content {
-  padding: 0 20rpx 0 66rpx;
+.order-detail .pay-detail .pay-item .max-size {
+  font-size: 36rpx;
+  line-height: 48rpx;
 }
 
-.order-detail .section-content .label {
-  color: #666666;
-  font-size: 26rpx;
-  word-wrap: break-word;
-}
-
-.order-detail .other-cell .title {
-  margin-right: 90rpx;
-}
-.order-detail .other-cell .value {
-  color: #999999;
-}
-.order-detail .other-cell .remark {
-  display: flex;
-  justify-content: space-between;
-  text-align: left;
-}
-.order-detail .other-cell .remark::before {
-  display: inline;
-  content: ' ';
-  flex: none;
-}
-.order-detail .other-cell .text-btn {
-  margin-left: 20rpx;
-}
-.order-detail .other-cell .price {
+.pay-item .pay-item__right .pay-item__right__copy {
+  width: 80rpx;
+  height: 40rpx;
+  text-align: center;
   font-size: 24rpx;
-  color: #222427;
-  font-weight: 400;
-  flex: none;
+  line-height: 40rpx;
+  color: #333333;
+  position: relative;
 }
-.order-detail .other-cell .price.main .integer {
-  font-size: 32rpx;
+
+.pay-item .pay-item__right .pay-item__right__copy::before {
+  position: absolute;
+  content: '';
+  width: 200%;
+  height: 200%;
+  border-radius: 40rpx;
+  border: 2rpx solid #DDDDDD;
+  transform: scale(0.5);
+  left: 0;
+  top: 0;
+  transform-origin: left top;
 }
-.order-detail .other-cell .red,
-.order-detail .other-cell .price.red {
-  color: #fa550f;
-  color: var(--color-price, #fa550f);
-}
-.order-detail .other-cell .pay-icon {
-  color: #4cc367;
-  margin-right: 12rpx;
-  font-size: 36rpx !important;
-}
-.order-detail .other-cell.main .value {
-  font-size: 32rpx;
-}
-.order-detail .c-order-card .customer-service {
+
+.pay-item .pay-item__right .order-no {
+  color: #333333;
   font-size: 26rpx;
+  line-height: 40rpx;
+  padding-right: 16rpx;
 }
-.order-detail .text-btn {
-  display: inline;
-  color: #fa550f;
-  color: var(--color-primary, #fa550f);
-  font-size: 26rpx;
+
+.pay-item .pay-item__right .normal-color {
+  color: #333333;
 }
-.order-detail .text-btn:active {
-  opacity: 0.5;
+
+.order-detail .pay-detail .pay-service {
+  width: 100%;
+  height: 72rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32rpx;
+  line-height: 36rpx;
+  color: #333333;
+  background-color: #ffffff;
 }
-.order-detail .footer-bar-wrapper {
-  height: 100rpx;
-}
-.order-detail .footer-bar-wrapper .btn-bar {
-  padding: 0 24rpx !important;
-}
-.order-detail .footer-bar-wrapper .footer-bar {
+
+.bottom-bar {
   position: fixed;
   left: 0;
   bottom: 0;
-  height: 100rpx;
-  width: 100vw;
-  background-color: white;
+  right: 0;
+  z-index: 10;
+  background: #fff;
+  height: 112rpx;
+  width: 686rpx;
+  padding: 0rpx 32rpx env(safe-area-inset-bottom);
   display: flex;
-  justify-content: space-between;
   align-items: center;
 }
-.order-detail .goods-button-bar .btn-bar {
-  margin-top: 0;
+
+.bottom-bar::before {
+  position: absolute;
+  content: '';
+  width: 200%;
+  height: 200%;
+  border-top: 2rpx solid #DDDDDD;
+  transform: scale(0.5);
+  left: 0;
+  top: 0;
+  transform-origin: left top;
 }
-.order-detail .goods-button-bar:not(:last-child) .btn-bar {
-  margin-bottom: 40rpx;
+
+.goods-button-bar {
+  height: 112rpx;
+  width: 686rpx;
+  margin-bottom: 16rpx;
 }
-.order-detail .bold {
-  font-weight: bold;
-}
-.order-detail .bold .price {
-  font-weight: bold;
-}
-.order-detail .groupon-section {
-  padding: 15rpx 20rpx !important;
-  box-sizing: border-box;
-}
-.order-detail .groupon-section .top {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.order-detail .groupon-section .top .status {
-  font-size: 28rpx;
-  font-weight: 500;
-  color: #333;
-  line-height: 1.5;
-  margin-left: 16rpx;
-}
-.order-detail .groupon-section .top .link {
-  font-size: 26rpx;
-  line-height: 1.38;
-  color: #fa550f;
-  color: var(--color-primary, #fa550f);
-}
-.order-detail .groupon-section .bottom {
-  display: flex;
-  justify-content: center;
-  padding: 20rpx 0 10rpx;
-}
-.specs-popup .bottom-btn {
-  color: #fa550f;
-  color: var(--color-primary, #fa550f);
-}
-.specs-popup .bottom-btn::after {
-  border-color: #fa550f;
-  border-color: var(--color-primary, #fa550f);
-}
-.dialog .dialog__button-confirm {
-  color: #fa550f;
-  color: var(--color-primary, #fa550f);
-}
+

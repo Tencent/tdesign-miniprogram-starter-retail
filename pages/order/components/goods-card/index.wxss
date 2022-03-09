@@ -151,7 +151,7 @@
   position: var(--ui-goods-card-short-position);
   flex-direction: var(--ui-goods-card-short-direction, column);
   justify-content: var(--ui-goods-card-short-justify, flex-start);
-  align-items: var(--ui-goods-card-short-align, flex-start);
+  align-items: var(--ui-goods-card-short-align, flex-end);
   margin: var(--ui-goods-card-short-margin, 0 0 0 46rpx);
   line-height: var(--ui-goods-card-short-line-height);
 }
