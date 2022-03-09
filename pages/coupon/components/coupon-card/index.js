@@ -25,6 +25,9 @@ Component({
 
   observers: {
     couponDTO: function (couponDTO) {
+      if (!couponDTO) {
+        return;
+      }
       const statusInfo = statusMap[couponDTO.status];
 
       this.setData({

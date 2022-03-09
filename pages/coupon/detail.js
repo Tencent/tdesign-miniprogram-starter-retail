@@ -17,24 +17,10 @@ Page({
   },
 
   getGoodsList(id) {
-    fetchCouponDetail(id).then(({ detail, storeInfoList }) => {
+    fetchCouponDetail(id).then(({ detail }) => {
       this.setData({
         detail,
-        storeInfoList,
-        storeInfoStr: storeInfoList.map((i) => i.storeName).join('、'),
       });
-    });
-  },
-
-  openStoreList() {
-    this.setData({
-      showStoreInfoList: true,
-    });
-  },
-
-  closeStoreList() {
-    this.setData({
-      showStoreInfoList: false,
     });
   },
 
