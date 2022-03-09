@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "my-video": "../my-video/index"
+  }
+}

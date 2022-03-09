@@ -18,7 +18,7 @@
 .swipe-out .draw-line {
   position: relative;
 }
-.swipe-out .draw-line ::before {
+.swipe-out .draw-line::before {
   content: '';
   position: absolute; /* 把父视图设置为relative，方便定位*/
   top: 0;

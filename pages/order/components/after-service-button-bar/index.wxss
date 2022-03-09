@@ -14,7 +14,7 @@
   line-height: 1;
   border-radius: unset;
   min-width: 160rpx;
-  border-radius: 16rpx;
+  border-radius: 32rpx;
   height: 60rpx;
 }
 

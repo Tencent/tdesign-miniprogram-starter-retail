@@ -3,6 +3,7 @@
   "usingComponents": {
     "t-icon": "tdesign-miniprogram/icon/icon",
     "t-popup": "tdesign-miniprogram/popup/popup",
-    "wr-goods-list": "@tencent/retailwe-ui-goods-list/index"
+    "t-toast": "tdesign-miniprogram/toast/toast",
+    "goods-list": "/components/goods-list/index"
   }
 }

@@ -61,7 +61,7 @@ const orderTagInfos = [
   },
   {
     title: '待评价',
-    iconName: 'comment',
+    iconName: 'Comment',
     orderNum: 0,
     tabType: 60,
     status: 1,
@@ -92,16 +92,6 @@ const getDefaultData = () => ({
 
 Page({
   data: getDefaultData(),
-  // onLoad: function (options) {
-  //   const {
-  //     statusBarHeight,
-  //     windowHeight,
-  //     screenHeight,
-  //   } = wx.getSystemInfoSync();
-  //   this.setData({
-  //     topDist: screenHeight - windowHeight,
-  //   });
-  // },
 
   // 调用自定义tabbar的init函数，使页面与tabbar激活状态保持一致
   onShow() {
