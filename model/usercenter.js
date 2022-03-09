@@ -31,7 +31,7 @@ const orderTagInfos = [
   },
   {
     title: '待发货',
-    iconName: 'wuliu-1',
+    iconName: 'deliver',
     orderNum: 1,
     tabType: 10,
     status: 1,
