@@ -22,7 +22,7 @@ export function getGoodsAllComments(params) {
           skuId: '0',
           specInfo: '',
           commentContent: '女装大佬穿起来真好看',
-          commentImageUrls: [`${imgPrefix}/goods/goods-details-swiper-img.png`],
+          commentResources: [{ src: 'https://we-retail-static-1300977798.cos.ap-guangzhou.myqcloud.com/retail-mp/goods/goods-details-swiper-img.png', type: 'image' }, { src: 'https://upload-dianshi-1255598498.file.myqcloud.com/IMG_5005-b8774e3f58fedde7a7974776d61d8df91c7146b2.mp4', type: 'video', coverSrc: 'https://we-retail-static-1300977798.cos.ap-guangzhou.myqcloud.com/retail-mp/goods/goods-details-swiper-img.png' }, { src: 'https://upload-dianshi-1255598498.file.myqcloud.com/IMG_5005-b8774e3f58fedde7a7974776d61d8df91c7146b2.mp4', type: 'video', coverSrc: 'https://we-retail-static-1300977798.cos.ap-guangzhou.myqcloud.com/retail-mp/goods/goods-details-swiper-img.png' }, { src: 'https://upload-dianshi-1255598498.file.myqcloud.com/IMG_5005-b8774e3f58fedde7a7974776d61d8df91c7146b2.mp4', type: 'video', coverSrc: 'https://we-retail-static-1300977798.cos.ap-guangzhou.myqcloud.com/retail-mp/goods/goods-details-swiper-img.png' }],
           commentScore: 4,
           uid: '88881048075',
           userName: 'Dean',
@@ -31,6 +31,8 @@ export function getGoodsAllComments(params) {
           isAnonymity: false,
           commentTime: '1591953561000',
           isAutoComment: false,
+          sellerReply: '亲，你好，我们会联系商家和厂商给您一个满意的答复请一定妥善保管好发票',
+          goodsDetailInfo: '颜色:纯净白  尺码:S码'
         },
       ],
     };
@@ -46,7 +48,7 @@ export function getGoodsAllComments(params) {
         specInfo: '很不错',
         commentContent: 'S1 SKU2',
         commentImageUrls: null,
-        commentScore: 5,
+        commentScore: 1,
         uid: '88881048075',
         userName: 'Dean',
         userHeadUrl:
@@ -54,6 +56,8 @@ export function getGoodsAllComments(params) {
         isAnonymity: false,
         commentTime: '1592224320000',
         isAutoComment: false,
+        sellerReply: '亲，你好，我们会联系商家和厂商给您一个满意的答复请一定妥善保管好发票',
+        goodsDetailInfo: '颜色:纯净白  尺码:S码'
       },
       {
         spuId: '1722045',
@@ -61,7 +65,7 @@ export function getGoodsAllComments(params) {
         specInfo: '很适合',
         commentContent: 'S1 SKU1',
         commentImageUrls: null,
-        commentScore: 5,
+        commentScore: 1,
         uid: '88881048075',
         userName: 'Dean',
         userHeadUrl:
@@ -69,6 +73,8 @@ export function getGoodsAllComments(params) {
         isAnonymity: false,
         commentTime: '1592224320000',
         isAutoComment: false,
+        sellerReply: '亲，你好，我们会联系商家和厂商给您一个满意的答复请一定妥善保管好发票',
+        goodsDetailInfo: '颜色:纯净白  尺码:S码'
       },
       {
         spuId: '1722045',
@@ -84,6 +90,7 @@ export function getGoodsAllComments(params) {
         isAnonymity: false,
         commentTime: '1592218074000',
         isAutoComment: true,
+        sellerReply: '亲，你好，我们会联系商家和厂商给您一个满意的答复请一定妥善保管好发票'
       },
       {
         spuId: '1722045',
@@ -99,6 +106,7 @@ export function getGoodsAllComments(params) {
         isAnonymity: false,
         commentTime: '1592218074000',
         isAutoComment: false,
+        goodsDetailInfo: '颜色:纯净白  尺码:S码'
       },
       {
         spuId: '1722045',

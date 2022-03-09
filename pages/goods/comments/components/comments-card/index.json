@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "t-rate": "tdesign-miniprogram/rate/rate",
+    "images-videos": "./components/images-videos"
+  }
+}
