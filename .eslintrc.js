@@ -5,7 +5,7 @@ module.exports = {
     es6: true,
   },
   parserOptions: {
-    ecmaVersion: 2019,
+    ecmaVersion: 2020,
     // ECMAScript modules 模式
     sourceType: 'module',
   },
