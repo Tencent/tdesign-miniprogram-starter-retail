@@ -49,8 +49,8 @@ Page({
     uploadGridConfig: {
       column: 3,
       width: 212,
-      height: 212
-    }
+      height: 212,
+    },
   },
 
   setWatcher(key, callback) {
@@ -222,11 +222,11 @@ Page({
     this.setData(
       {
         'serviceFrom.returnNum': value,
-      }, 
+      },
       () => {
         this.refresh();
-      }
-    )
+      },
+    );
   },
 
   onReceiptStatusTap() {
@@ -317,10 +317,10 @@ Page({
     });
     this.setData({
       inputDialogVisible: true,
-    })
+    });
     this.inputDialog.setData({
       cancelBtn: '取消',
-      confirmBtn: '确定'
+      confirmBtn: '确定',
     });
     this.inputDialog._onComfirm = () => {
       this.setData({
@@ -487,7 +487,7 @@ Page({
     const {
       serviceFrom: { rightsImageUrls },
     } = this.data;
-   
+
     files.forEach((temp) => {
       rightsImageUrls.push({
         name: new Date(),
@@ -507,7 +507,7 @@ Page({
 
     const { rightsImageUrls } = this.data.serviceFrom;
     rightsImageUrls.splice(index, 1);
-  
+
     this.setData({
       'serviceFrom.rightsImageUrls': [...rightsImageUrls],
     });

@@ -1,6 +1,3 @@
-
-
-
 Component({
   externalClasses: ['custom-class'],
 
@@ -31,7 +28,7 @@ Component({
     subActiveKey: 0,
   },
   attached() {
-    if (this.properties.initActive && ((this.properties.initActive)).length > 0) {
+    if (this.properties.initActive && this.properties.initActive.length > 0) {
       this.setData({
         activeKey: this.properties.initActive[0],
         subActiveKey: this.properties.initActive[1] || 0,
@@ -41,12 +38,18 @@ Component({
   methods: {
     onParentChange(event) {
       this.setActiveKey(event.detail.index, 0).then(() => {
-        this.triggerEvent('change', [this.data.activeKey, this.data.subActiveKey]);
+        this.triggerEvent('change', [
+          this.data.activeKey,
+          this.data.subActiveKey,
+        ]);
       });
     },
     onChildChange(event) {
       this.setActiveKey(this.data.activeKey, event.detail.index).then(() => {
-        this.triggerEvent('change', [this.data.activeKey, this.data.subActiveKey]);
+        this.triggerEvent('change', [
+          this.data.activeKey,
+          this.data.subActiveKey,
+        ]);
       });
     },
     changCategory(event) {
@@ -67,6 +70,6 @@ Component({
           },
         );
       });
-    }
-  }
-})
+    },
+  },
+});

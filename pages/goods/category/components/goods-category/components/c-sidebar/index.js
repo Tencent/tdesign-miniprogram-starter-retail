@@ -1,4 +1,3 @@
-
 Component({
   relations: {
     './c-sidebar-item/index': {
@@ -8,7 +7,7 @@ Component({
         this.setActive(this.properties.activeKey);
       },
       unlinked(target) {
-        this.children = this.children.filter(item => item !== target);
+        this.children = this.children.filter((item) => item !== target);
         this.setActive(this.properties.activeKey);
       },
     },
@@ -56,6 +55,6 @@ Component({
       }
 
       return Promise.all(stack);
-    }
-  }
-})
+    },
+  },
+});

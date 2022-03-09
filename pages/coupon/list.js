@@ -59,7 +59,7 @@ Page({
 
   tabChange(e) {
     const { value } = e.detail;
-    
+
     this.setData({ status: value });
     this.fetchList(value);
   },

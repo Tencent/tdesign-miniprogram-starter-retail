@@ -109,7 +109,7 @@ Page({
     let { goodsRequestList } = this; // 商品列表
     let { userAddressReq } = this; // 收货地址
 
-    let storeInfoList = []; // 门店列表
+    const storeInfoList = []; // 门店列表
     // 如果是从地址选择页面返回，则使用地址显选择页面新选择的地址去获取结算数据
     if (options.userAddressReq) {
       userAddressReq = options.userAddressReq;
@@ -118,7 +118,7 @@ Page({
       // 从购物车跳转过来时，获取传入的商品列表数据
       const goodsRequestListJson = wx.getStorageSync('order.goodsRequestList');
       goodsRequestList = JSON.parse(goodsRequestListJson);
-    } else if (typeof options.goodsRequestList == 'string') {
+    } else if (typeof options.goodsRequestList === 'string') {
       goodsRequestList = JSON.parse(options.goodsRequestList);
     }
     //获取结算页请求数据列表

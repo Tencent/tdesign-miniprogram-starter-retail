@@ -13,7 +13,7 @@ Page({
   id: '',
 
   onLoad(query) {
-    let id = parseInt(query['id']);
+    const id = parseInt(query.id);
     this.id = id;
 
     this.getCouponDetail(id);
