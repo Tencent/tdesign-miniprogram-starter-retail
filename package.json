@@ -41,7 +41,7 @@
     "@tencent/retailwe-ui-goods-specs-popup": "^0.0.24",
     "@tencent/retailwe-ui-goods-tab": "0.0.17",
     "@tencent/retailwe-ui-grid": "0.0.24",
-    "@tencent/retailwe-ui-icon": "^0.0.25",
+    "@tencent/retailwe-ui-icon": "^0.0.30",
     "@tencent/retailwe-ui-image": "0.0.16",
     "@tencent/retailwe-ui-info": "^0.0.20",
     "@tencent/retailwe-ui-load-more": "0.0.20",
