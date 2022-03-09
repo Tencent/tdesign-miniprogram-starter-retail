@@ -43,7 +43,7 @@
   },
   "compileType": "miniprogram",
   "libVersion": "2.16.1",
-  "appid": "wx5a75208aa13eee03",
+  "appid": "wxe795f24419adb325",
   "projectname": "supermarket",
   "debugOptions": {
     "hidedInDevtools": []
@@ -152,6 +152,13 @@
           "name": "示例页-申请售后",
           "pathName": "pages/order/apply-service/index",
           "query": "orderNo=332188459183707034&skuId=1327025",
+          "scene": null
+        },
+        {
+          "id": 11,
+          "name": "示例页-发票详情",
+          "pathName": "pages/order/invoice/index",
+          "query": "orderNo=332188459183707034",
           "scene": null
         }
       ]
