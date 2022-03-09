@@ -1,12 +1,12 @@
 {
   "navigationBarTitleText": "退款/售后",
   "usingComponents": {
-    "wr-load-more": "@tencent/retailwe-ui-load-more/index",
+    "wr-load-more": "/components/load-more/index",
     "wr-after-service-button-bar": "../components/after-service-button-bar/index",
-    "wr-price": "@tencent/retailwe-ui-price/index",
-    "wr-order-card": "@tencent/retailwe-ui-order-card/index",
-    "wr-specs-goods-card": "@tencent/retailwe-ui-specs-goods-card/index",
-    "wr-icon": "@tencent/retailwe-ui-icon/index",
+    "wr-price": "/components/price/index",
+    "wr-order-card": "../components/order-card/index",
+    "wr-order-goods-card": "../components/order-goods-card/index",
+    "wr-goods-card": "../components/goods-card/index",
     "t-button": "tdesign-miniprogram/button/button",
     "t-icon": "tdesign-miniprogram/icon/icon",
     "t-toast": "tdesign-miniprogram/toast/toast",
