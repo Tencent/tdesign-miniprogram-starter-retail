@@ -1,0 +1,13 @@
+<ui-coupon-card 
+    title="{{couponDTO.title}}"
+    type="{{couponDTO.type}}"
+    value="{{couponDTO.value}}"
+    tag="{{couponDTO.tag}}"
+    desc="{{couponDTO.desc}}"
+    currency="{{couponDTO.currency}}"
+    timeLimit="{{couponDTO.timeLimit}}"
+>
+    <view slot="operator" class="coupon-btn-slot">
+        <t-button t-class="coupon-btn {{btnTheme}}" theme="{{btnTheme}}">{{btnText}}</t-button>
+    </view>
+</ui-coupon-card>
