@@ -38,4 +38,20 @@ Component({
   },
 
   attached() {},
+
+  methods: {
+    // 跳转到详情页
+    gotoDetail() {
+      wx.navigateTo({
+        url: `/pages/coupon/detail?id=${this.data.couponDTO.key}`,
+      });
+    },
+
+    // 跳转到商品列表
+    gotoGoodsList() {
+      wx.navigateTo({
+        url: `/pages/coupon/good?id=${this.data.couponDTO.key}`,
+      });
+    },
+  },
 });
