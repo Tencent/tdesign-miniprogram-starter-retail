@@ -17,7 +17,6 @@ Page({
     pageLoading: true,
     pageNav: {
       title: '',
-      background: '',
       color: '',
     },
     pageNavBg: '',
@@ -144,11 +143,9 @@ Page({
         serviceRaw,
         service,
         deliveryButton,
-        bgImgUrl: this.getBgImgUrl(service),
         pageNav: {
           title: TitleConfig[service.type],
-          background: 'linear-gradient(90deg,#FF6B44 0%,#ED3427 100%)',
-          color: 'white',
+          color: 'black',
         },
         'gallery.proofs': proofs,
         showProofs:
@@ -168,12 +165,6 @@ Page({
     ]
       .filter((item) => !!item)
       .join(' ');
-  },
-
-  getBgImgUrl(service) {
-    return service.type === ServiceType.ONLY_REFUND
-      ? 'https://cdn-we-retail.ym.tencent.com/miniapp/order/bg-after-service-refund.png'
-      : 'https://cdn-we-retail.ym.tencent.com/miniapp/order/bg-after-service-return.png';
   },
 
   onRefresh() {
