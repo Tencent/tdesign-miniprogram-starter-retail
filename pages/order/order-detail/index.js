@@ -316,10 +316,4 @@ Page({
       url: `/groupon/detail/index?promotionId=${promotionId}&groupId=${groupId}&storeId=${storeId}`,
     }); */
   },
-
-  goBack() {
-    wx.navigateTo({
-      url: `/pages/order/order-list/index`,
-    });
-  },
 });

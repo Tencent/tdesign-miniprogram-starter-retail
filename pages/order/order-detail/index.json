@@ -1,9 +1,8 @@
 {
-  "navigationStyle": "custom",
+  "navigationBarTitleText": "订单详情",
   "usingComponents": {
     "t-pull-down-refresh": "tdesign-miniprogram/pull-down-refresh/pull-down-refresh",
     "t-button": "tdesign-miniprogram/button/button",
-    "t-navbar": "tdesign-miniprogram/navbar/navbar",
     "t-cell": "tdesign-miniprogram/cell/cell",
     "t-icon": "tdesign-miniprogram/icon/icon",
     "t-image": "tdesign-miniprogram/image/image",
