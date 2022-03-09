@@ -9,12 +9,12 @@
 
 .service-detail .service-detail__header {
     padding: 60rpx 0 48rpx 40rpx;
-    width: 500rpx;
-    min-height: 126rpx;
+    box-sizing: border-box;
+    height: 220rpx;
+    background-color: #fff;
 }
 .service-detail .service-detail__header .title,
 .service-detail .service-detail__header .desc {
-  color: white;
   overflow: hidden;
   display: -webkit-box;
   -webkit-box-orient: vertical;
@@ -24,12 +24,14 @@
   -webkit-line-clamp: 1;
   font-size: 48rpx;
   font-weight: bold;
+  color: #333;
 }
 
 .service-detail .service-detail__header .desc {
   -webkit-line-clamp: 2;
   margin-top: 10rpx;
   font-size: 28rpx;
+  color: #999;
 }
 
 .service-detail .service-detail__header .desc .count-down {
@@ -38,7 +40,7 @@
 }
 
 .service-detail .service-section {
-    margin: 0 24rpx 20rpx 24rpx;
+    margin: 20rpx 0 20rpx 0;
     padding: 30rpx 20rpx;
     width: auto;
     border-radius: 8rpx;
@@ -46,7 +48,7 @@
     overflow: hidden;
 }
 .service-section__pay {
-    margin: 0 24rpx 20rpx 24rpx;
+    margin: 0 0 20rpx 0;
     width: auto;
     border-radius: 8rpx;
     background-color: white;
@@ -183,11 +185,13 @@
 
 .service-detail .text-btn {
     display: inline;
-    color: #fa550f;
+    color: #333;
+    border: 2rpx solid #efefef;
+    border-radius: 25rpx;
     margin-left: 10rpx;
-    flex: none;
+    padding: 0 13rpx;
     font-weight: normal;
-    font-size: 26rpx;
+    font-size: 24rpx;
 }
 .service-detail .text-btn:active {
   opacity: 0.5;
@@ -285,6 +289,7 @@
   top: 0;
   left: 0;
   width: 100vw;
+  color: #fff;
   overflow: hidden;
 }
 .page-container .page-background-img {
@@ -299,11 +304,11 @@
 .page-container .navigation-bar__btn {
     font-size: 40rpx !important;
     font-weight: bold !important;
-    color: #fff;
+    color: #333;
 }
 
 .t-class-title {
-  color: #fff;
+  color: #000;
 }
 
 .refresh-bar {
@@ -317,6 +322,11 @@
 .t-refund-info {
   font-size: 26rpx;
   color: #333333;
+}
+
+.t-refund-info-img {
+  width: 212rpx;
+  height: 212rpx;
 }
 
 .t-refund-wrapper {

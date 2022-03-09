@@ -56,6 +56,7 @@
         "search": {
             "list": []
         },
+      
         "conversation": {
             "list": []
         },
@@ -120,11 +121,11 @@
                     "scene": null
                 },
                 {
-                    "id": 6,
-                    "name": "示例页-售后详情",
-                    "pathName": "pages/order/after-service-detail/index",
-                    "query": "",
-                    "scene": null
+                  "id": 6,
+                  "name": "示例页-售后详情",
+                  "pathName": "pages/order/after-service-detail/index",
+                  "query": "rightsNo=123123423",
+                  "scene": null
                 },
                 {
                     "id": 7,
