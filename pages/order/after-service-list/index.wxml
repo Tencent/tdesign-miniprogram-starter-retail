@@ -12,7 +12,7 @@
 		>
 			<view class="text-btn" slot="top-right">
 				<view class="header__right">
-					<t-icon wr-class="header__right__icon" name="money-circle" size="xl"/>
+          <t-icon prefix="wr" color="#FA4126" name="goods_refund" size="20px" slot="left-icon" />
 					{{order.typeDesc}}
 				</view>
 			</view>

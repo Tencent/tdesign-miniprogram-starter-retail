@@ -16,6 +16,7 @@
   min-width: 160rpx;
   border-radius: 32rpx;
   height: 60rpx;
+  margin-right: 10rpx;
 }
 
 .btn-bar .left .order-btn:not(:first-child),

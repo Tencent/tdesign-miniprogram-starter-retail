@@ -223,7 +223,6 @@
 .order-goods-card-footer {
   display: flex;
   width: calc(100% - 190rpx);
-  border: 1px solid #000;
   justify-content: space-between;
   position: absolute;
   bottom: 0;
