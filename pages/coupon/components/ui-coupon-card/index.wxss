@@ -92,7 +92,7 @@
 }
 .wr-coupon__right--title .coupon-time {
   margin-top: 16rpx;
-  //   letter-spacing: -0.05em;
+  /* //   letter-spacing: -0.05em; */
 }
 .wr-coupon__right--title .coupon-desc {
   margin-top: 8rpx;
