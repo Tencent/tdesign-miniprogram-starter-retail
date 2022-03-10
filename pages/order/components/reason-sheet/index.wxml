@@ -20,7 +20,7 @@
 					<wr-icon
 					 name="check-filled"
 					 size="36rpx"
-					 color="#fa550f"
+					 color="#fa4126"
 					 wx:if="{{item.checked}}"
 					/>
 					<wr-icon
@@ -32,11 +32,13 @@
 				</view>
 			</t-cell>
 		</view>
-		<view class="button-bar" wx:if="{{showCancelButton || showConfirmButton}}">
-			<t-button wx:if="{{showCancelButton}}" t-class="btn" bindtap="onCancel">
-				{{cancelButtonText}}
-			</t-button>
-			<t-button wx:if="{{showConfirmButton}}" t-class="btn confirmBtn" bindtap="onConfirm">
+		<view class="button-bar" wx:if="{{showConfirmButton}}">
+			<t-button
+			 class="btnWrapper"
+			 wx:if="{{showConfirmButton}}"
+			 t-class="btn"
+			 bindtap="onConfirm"
+			>
 				{{confirmButtonText}}
 			</t-button>
 		</view>

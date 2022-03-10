@@ -31,6 +31,7 @@ page {
   margin-top: 24rpx;
 }
 .address-container .bottom-fixed {
+  border-top: 1rpx solid #e5e5e5;
   position: fixed;
   bottom: 0;
   left: 0;

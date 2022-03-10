@@ -85,10 +85,10 @@ export const LogisticsNodeTypes = {
 
 export const LogisticsIconMap = {
   [LogisticsNodeTypes.SUBMITTED]: '',
-  [LogisticsNodeTypes.PAYMENTED]: 'yixiadan',
-  [LogisticsNodeTypes.SHIPPED]: 'yifahuo',
+  [LogisticsNodeTypes.PAYMENTED]: 'credit_card',
+  [LogisticsNodeTypes.SHIPPED]: 'deliver',
   [LogisticsNodeTypes.CANCELED]: '',
-  [LogisticsNodeTypes.RECEIVED]: 'yiqianshou',
+  [LogisticsNodeTypes.RECEIVED]: 'check',
   [LogisticsNodeTypes.ADDRESS_CHANGED]: '',
   [LogisticsNodeTypes.IN_TRANSIT]: 'yunshuzhong',
 };

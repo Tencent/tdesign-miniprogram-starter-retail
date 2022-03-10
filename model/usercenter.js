@@ -2,7 +2,7 @@ import dayjs from 'dayjs';
 
 const userInfo = {
   avatarUrl:
-    'https://cdn-we-retail.ym.tencent.com/miniapp/usercenter/default-avatar.png',
+    'https://cdn-we-retail.ym.tencent.com/miniapp/usercenter/icon-user-center-avatar@2x.png',
   nickName: 'Tdesign 🌟',
   phoneNumber: '13438358888',
   gender: 2,
@@ -24,7 +24,7 @@ const countsData = [
 const orderTagInfos = [
   {
     title: '待付款',
-    iconName: 'wallet',
+    iconName: 'credit_card',
     orderNum: 3,
     tabType: 5,
     status: 1,
@@ -38,21 +38,21 @@ const orderTagInfos = [
   },
   {
     title: '待收货',
-    iconName: 'packaging',
+    iconName: 'package',
     orderNum: 0,
     tabType: 40,
     status: 1,
   },
-  {
-    title: '待评价',
-    iconName: 'comment',
-    orderNum: 3,
-    tabType: 60,
-    status: 1,
-  },
+  // {
+  //   title: '待评价',
+  //   iconName: 'comment',
+  //   orderNum: 3,
+  //   tabType: 60,
+  //   status: 1,
+  // },
   {
     title: '退款/售后',
-    iconName: 'money',
+    iconName: 'exchang',
     orderNum: 0,
     tabType: 0,
     status: 1,
