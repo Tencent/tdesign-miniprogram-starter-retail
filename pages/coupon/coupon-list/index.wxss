@@ -16,11 +16,11 @@ page {
   left: 0;
 }
 .tab-bar__inner .t-tabs-is-active {
-  color: #fa550f !important;
+  color: #fa4126 !important;
 }
 
 .tab-bar__inner .t-tabs-track {
-  background: #fa550f !important;
+  background: #fa4126 !important;
 }
 
 .tab-bar__inner.order-nav .order-nav-item .bottom-line {
@@ -28,11 +28,12 @@ page {
 }
 .tab-bar__active {
   font-size: 28rpx;
-  color: #fa550f !important;
+  color: #fa4126 !important;
 }
 
-.tab-bar__track {
-  background-color: #fa550f !important;
+.t-tabs.t-tabs--top .t-tabs__track,
+.t-tabs.t-tabs--bottom .t-tabs__track {
+  background-color: #fa4126 !important;
 }
 
 .coupon-list-wrap {
@@ -61,7 +62,7 @@ page {
 }
 
 .center-entry-btn {
-  color: #fa550f;
+  color: #fa4126;
   font-size: 32rpx;
   text-align: center;
   line-height: 100rpx;
@@ -69,4 +70,8 @@ page {
   align-items: center;
   justify-content: center;
   height: 100rpx;
+}
+
+.coupon-list-wrap .t-pull-down-refresh__bar {
+  background: #fff !important;
 }

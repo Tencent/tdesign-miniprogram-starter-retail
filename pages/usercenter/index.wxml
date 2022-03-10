@@ -52,4 +52,5 @@
 		<view class="popup-close" bind:tap="closeMakePhone">取消</view>
 	</view>
 </t-popup>
+<t-toast id="t-toast" />
 

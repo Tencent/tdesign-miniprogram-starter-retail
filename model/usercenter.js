@@ -1,12 +1,9 @@
-import dayjs from 'dayjs';
-
 const userInfo = {
   avatarUrl:
     'https://cdn-we-retail.ym.tencent.com/miniapp/usercenter/icon-user-center-avatar@2x.png',
   nickName: 'Tdesign 🌟',
   phoneNumber: '13438358888',
-  gender: 2,
-  brith: dayjs().startOf('M').valueOf(),
+  gender: 1,
 };
 const countsData = [
   {

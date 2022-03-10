@@ -16,17 +16,17 @@
 	/>
 </t-tabs>
 <view class="coupon-list-wrap">
-	<t-pull-down-refresh id="t-pull-down-refresh" bind:refresh="onPullDownRefresh_">
-        <view class="coupon-list-item" wx:for="{{couponList}}">
-            <coupon-card couponDTO="{{item}}"></coupon-card>
-        </view>
+	<t-pull-down-refresh id="t-pull-down-refresh" bind:refresh="onPullDownRefresh_" background="#fff">
+		<view class="coupon-list-item" wx:for="{{couponList}}">
+			<coupon-card couponDTO="{{item}}" />
+		</view>
 	</t-pull-down-refresh>
 	<view class="center-entry">
 		<view class="center-entry-btn" bind:tap="goCouponCenterHandle">
 			<view>领券中心</view>
 			<t-icon
 			 name="chevron-right"
-			 color="#FA550F"
+			 color="#fa4126"
 			 size="40rpx"
 			 style="line-height: 28rpx;"
 			/>
