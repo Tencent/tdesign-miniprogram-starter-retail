@@ -1,5 +1,6 @@
 import { getCommentDetail } from '../../../../services/good/comments/fetchCommentDetail';
 import { get } from '../../../../utils/util';
+import Toast from 'tdesign-miniprogram/toast/index';
 Page({
   data: {
     serviceRateValue: 1,
@@ -11,13 +12,16 @@ Page({
       width: 218,
       height: 218,
       column: 3
-    }
+    },
+    isAllowedSubmit: false
   },
 
   onRateChange(e) {
     const { value } = e.detail;
     const item = e?.currentTarget?.dataset?.item;
-    this.setData({ [item]: value })
+    this.setData({ [item]: value }, () => {
+      this.updateButtonStatus();
+    })
   },
 
   onAnonymousChange(e) {
@@ -41,4 +45,29 @@ Page({
       uploadFiles,
     });
   },
+
+  onTextAreaChange(e) {
+    const value = e?.detail?.value;
+    this.textAreaValue = value;
+    this.updateButtonStatus();
+  },
+
+  updateButtonStatus() {
+    const { serviceRateValue, goodRateValue, conveyRateValue, isAllowedSubmit } = this.data;
+    const { textAreaValue } = this;
+    const temp = serviceRateValue && goodRateValue && conveyRateValue && textAreaValue;
+    if (temp !== isAllowedSubmit)
+      this.setData({ isAllowedSubmit: temp })
+  },
+
+  onSubmitBtnClick() {
+    const { isAllowedSubmit } = this.data;
+    if (!isAllowedSubmit) return;
+    Toast({
+      context: this,
+      selector: '#t-toast',
+      message: '评价提交成功',
+      icon: 'check-circle',
+    });
+  }
 });

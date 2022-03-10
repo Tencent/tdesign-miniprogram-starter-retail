@@ -312,9 +312,6 @@ Page({
       storeId,
     } = this.data.order;
     wx.showToast({ title: '点击了拼团' });
-    /* wx.navigateTo({
-      url: `/groupon/detail/index?promotionId=${promotionId}&groupId=${groupId}&storeId=${storeId}`,
-    }); */
   },
 
   goBack() {

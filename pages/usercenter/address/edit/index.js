@@ -49,7 +49,6 @@ Page({
     columns: 3,
   },
   onLoad(options) {
-    console.log('options: ', options);
     const { id } = options;
     this.init(id);
   },
@@ -66,7 +65,13 @@ Page({
   },
   getAddressDetail(id) {
     fetchDeliveryAddress(id).then((detail) => {
-      this.setData({ locationState: detail });
+      this.setData({ locationState: detail }, () => {
+        const { isLegal, tips } = this.onVerifyInputLegal();
+        this.setData({
+          submitActive: isLegal,
+          verifyTips: tips,
+        });
+      });
     });
   },
   onInputValue(e) {
@@ -271,18 +276,24 @@ Page({
                 longitude: res.longitude,
               });
             } else {
-              wx.showToast({
-                title: '地点为空，请重新选择',
-                icon: 'none',
+              Toast({
+                context: this,
+                selector: '#t-toast',
+                message: '地点为空，请重新选择',
+                icon: '',
+                duration: 1000,
               });
             }
           },
           fail: function (res) {
             console.warn(`wx.chooseLocation fail: ${JSON.stringify(res)}`);
             if (res.errMsg !== 'chooseLocation:fail cancel') {
-              wx.showToast({
-                title: '地点错误，请重新选择',
-                icon: 'none',
+              Toast({
+                context: this,
+                selector: '#t-toast',
+                message: '地点错误，请重新选择',
+                icon: '',
+                duration: 1000,
               });
             }
           },

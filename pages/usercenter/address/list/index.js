@@ -9,6 +9,7 @@ Page({
     addressList: [],
     deleteID: '',
     showDeleteConfirm: false,
+    isOrderSure: false,
   },
 
   /** 选择模式 */
@@ -19,7 +20,10 @@ Page({
   onLoad(query) {
     // 传空字符串或者不传 就 等同 false
     // 否则都是true（注意 !!'false' === true ）
-    const { selectMode = '' } = query;
+    const { selectMode = '', isOrderSure = '' } = query;
+    this.setData({
+      isOrderSure: !!isOrderSure,
+    });
     this.selectMode = !!selectMode;
     this.init();
   },
@@ -38,7 +42,6 @@ Page({
     });
   },
   onEdit(e) {
-    console.log('e: ', e);
     wx.navigateTo({
       url: `/pages/usercenter/address/edit/index?id=${e.detail.id}`,
     });
@@ -181,9 +184,9 @@ Page({
       })
       .catch((e) => {
         if (e.message === 'cancel') {
-          console.log('用户取消选择');
+          console.info('用户取消选择');
         } else {
-          console.log('地址编辑发生错误: ', e);
+          console.error('地址编辑发生错误: ', e);
         }
       });
   },

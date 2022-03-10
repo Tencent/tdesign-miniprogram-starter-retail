@@ -34,9 +34,11 @@ const menuData = [
       tit: '',
       url: '',
       type: 'service',
+      icon: 'service',
     },
   ],
 ];
+
 const orderTagInfos = [
   {
     title: '待付款',
@@ -47,28 +49,28 @@ const orderTagInfos = [
   },
   {
     title: '待发货',
-    iconName: 'wuliu-1',
+    iconName: 'deliver',
     orderNum: 0,
     tabType: 10,
     status: 1,
   },
   {
     title: '待收货',
-    iconName: 'packaging',
+    iconName: 'package',
     orderNum: 0,
     tabType: 40,
     status: 1,
   },
   {
     title: '待评价',
-    iconName: 'Comment',
+    iconName: 'comment',
     orderNum: 0,
     tabType: 60,
     status: 1,
   },
   {
     title: '退款/售后',
-    iconName: 'money',
+    iconName: 'exchang',
     orderNum: 0,
     tabType: 0,
     status: 1,
@@ -149,7 +151,7 @@ Page({
         break;
       }
       case 'point': {
-        console.log('point');
+        console.info('point');
         break;
       }
       case 'coupon': {
@@ -157,7 +159,7 @@ Page({
         break;
       }
       default: {
-        console.log('未知跳转', type);
+        console.info('未知跳转', type);
         break;
       }
     }
