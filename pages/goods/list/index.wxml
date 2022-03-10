@@ -1,75 +1,36 @@
-<!-- <wr-filter
- wr-class="filter-container"
- bind:change="handleFilterChange"
- layout="{{layout}}"
- sorts="{{sorts}}"
- overall="{{overall}}"
- bind:showFilterPopup="showFilterPopup"
->
-	<view slot="filterPopup">
-		<wr-filter-popup
-		 show="{{show}}"
-		 bind:showFilterPopupClose="showFilterPopupClose"
-		 bind:reset="reset"
-		 bind:confirm="confirm"
-		>
-			<view slot="filterSlot">
-				<view class="price-container">
-					<view class="price-between">价格区间</view>
-					<view class="price-ipts-wrap">
-						<input
-						 type="number"
-						 class="price-ipt {{minSalePriceFocus ? 'focus' : ''}} {{minActive ? 'active' : ''}}"
-						 bindfocus="handleMinPriceFocus"
-						 bindblur="handleMinPriceBlur"
-						 placeholder="最低价"
-						 value="{{minVal}}"
-						 bindinput="onMinValAction"
-						/>
-						<text class="price-divided" />
-
-            <input type="number" class="price-ipt {{maxSalePriceFocus ? 'focus' : ''}} {{maxActive ? 'active' : ''}}" bindfocus="handleMaxPriceFocus" bindblur="handleMaxPriceBlur" placeholder="最高价" value="{{maxVal}}" bindinput="onMaxValAction" />
-          </view>
-        </view>
-      </view>
-    </wr-filter-popup>
-  </view>
-</wr-filter>
-<wr-goods-list wx:if="{{goodsList.length}}" wr-class="rec-good-list" layout="{{layout ? 'horizontal' : 'vertical'}}" goodsList="{{goodsList}}" storeType="{{2}}" bindaddcart="handleAddCart" bind:click="navTo" />
-<wr-load-more wx:if="{{goodsList.length > 0}}" wr-class="no-more" status="{{loadMoreStatus}}" no-more-text="没有更多了" /> -->
-
 <view class="goods-list-container">
-  <!-- 过滤组件 -->
-  <t-filter
-    wr-class="filter-container"
-    bind:change="handleFilterChange"
-    layout="{{layout}}"
-    sorts="{{sorts}}"
-    overall="{{overall}}"
-    bind:showFilterPopup="showFilterPopup"
-  >
-    <view slot="filterPopup">
-      <t-filter-popup
-        show="{{show}}"
-        bind:showFilterPopupClose="showFilterPopupClose"
-        bind:reset="reset"
-        bind:confirm="confirm"
-      >
-        <view slot="filterSlot">
-          <view class="price-container">
-            <view class="price-between">价格区间</view>
-            <view class="price-ipts-wrap">
-              <t-input
-                type="number"
-                t-class="price-ipt {{minActive ? 'active' : ''}}"
-                bindfocus="handleMinPriceFocus"
-                bindblur="handleMinPriceBlur"
-                placeholder="最低价"
-                value="{{minVal}}"
-                bindchange="onMinValAction"
-                style="border:{{minSalePriceFocus?'1rpx solid #fa550f':'1rpx solid transparent'}}"
-              />
-              <text class="price-divided" />
+	<!-- 过滤组件 -->
+	<t-filter
+	 wr-class="filter-container"
+	 bind:change="handleFilterChange"
+	 layout="{{layout}}"
+	 sorts="{{sorts}}"
+	 overall="{{overall}}"
+	 bind:showFilterPopup="showFilterPopup"
+	>
+		<view slot="filterPopup">
+			<t-filter-popup
+			 show="{{show}}"
+			 bind:showFilterPopupClose="showFilterPopupClose"
+			 bind:reset="reset"
+			 bind:confirm="confirm"
+			>
+				<view slot="filterSlot">
+					<view class="price-container">
+						<view class="price-between">价格区间</view>
+						<view class="price-ipts-wrap">
+							<t-input
+							 type="number"
+							 t-class="price-ipt {{minActive ? 'active' : ''}}"
+							 bindfocus="handleMinPriceFocus"
+							 bindblur="handleMinPriceBlur"
+							 placeholder="最低价"
+							 value="{{minVal}}"
+							 bindchange="onMinValAction"
+							 style="border:{{minSalePriceFocus?'1rpx solid #fa550f':'1rpx solid transparent'}}"
+							/>
+							<text class="price-divided" />
+
 
               <t-input
                 type="number"
@@ -112,3 +73,4 @@
   />
 </view>
 <t-toast id="t-toast" />
+

@@ -51,6 +51,7 @@
 		</t-button>
 	</view>
 </view>
+<ui-reason-sheet id="wr-reason-sheet" />
 <t-toast id="t-toast" />
 <t-dialog t-class-confirm="t-class-confirm" id="t-dialog" />
 

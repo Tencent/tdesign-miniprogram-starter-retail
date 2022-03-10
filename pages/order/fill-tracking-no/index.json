@@ -8,6 +8,7 @@
     "t-input": "tdesign-miniprogram/input/input",
     "t-toast": "tdesign-miniprogram/toast/toast",
     "t-dialog": "tdesign-miniprogram/dialog/dialog",
-    "t-button": "tdesign-miniprogram/button/button"
+    "t-button": "tdesign-miniprogram/button/button",
+    "ui-reason-sheet": "../components/reason-sheet/index"
   }
 }

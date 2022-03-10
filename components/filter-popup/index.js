@@ -12,6 +12,10 @@ Component({
         this.setData({ visible: show });
       },
     },
+    closeBtn: {
+      type: Boolean,
+      value: false,
+    },
   },
 
   data: { visible: false },

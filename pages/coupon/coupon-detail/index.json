@@ -1,7 +1,7 @@
 {
   "navigationBarTitleText": "优惠券详情",
   "usingComponents": {
-    "coupon-card": "./components/coupon-card/index",
+    "coupon-card": "../components/coupon-card/index",
     "t-cell": "tdesign-miniprogram/cell/cell",
     "t-cell-group": "tdesign-miniprogram/cell-group/cell-group",
     "t-button": "tdesign-miniprogram/button/button",

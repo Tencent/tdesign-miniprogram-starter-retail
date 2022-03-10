@@ -56,13 +56,11 @@ Component({
     },
     type: '', // 优惠金额
     value: '', // 优惠券金额
-    backgroundStyle: '',
     color: '',
   },
 
   attached() {
     this.setData({
-      backgroundStyle: `background-style${this.properties.colorStyle}`,
       color: `color${this.properties.colorStyle}`,
     });
   },

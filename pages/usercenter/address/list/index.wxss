@@ -11,6 +11,7 @@ page {
 .address-container .address-list {
   font-size: 24rpx;
   background-color: #ffffff;
+  -webkit-overflow-scrolling: touch;
 }
 .address-list .no-address {
   width: 750rpx;
