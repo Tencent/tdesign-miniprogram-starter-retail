@@ -31,7 +31,7 @@
       "outputPath": ""
     },
     "enableEngineNative": false,
-    "useIsolateContext": true,
+    "useIsolateContext": false,
     "userConfirmedBundleSwitch": false,
     "packNpmManually": false,
     "packNpmRelationList": [],
@@ -43,7 +43,7 @@
   },
   "compileType": "miniprogram",
   "libVersion": "2.16.1",
-  "appid": "wxe795f24419adb325",
+  "appid": "wx5a75208aa13eee03",
   "projectname": "tdesign-miniprogram-starter",
   "debugOptions": {
     "hidedInDevtools": []

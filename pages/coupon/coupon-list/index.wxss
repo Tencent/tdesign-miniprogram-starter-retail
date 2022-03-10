@@ -20,7 +20,7 @@ page {
 }
 
 .tab-bar__inner .t-tabs-track {
-  background: #fa4126 !important;
+  background: #fa4126;
 }
 
 .tab-bar__inner.order-nav .order-nav-item .bottom-line {
@@ -30,12 +30,6 @@ page {
   font-size: 28rpx;
   color: #fa4126 !important;
 }
-
-.t-tabs.t-tabs--top .t-tabs__track,
-.t-tabs.t-tabs--bottom .t-tabs__track {
-  background-color: #fa4126 !important;
-}
-
 .coupon-list-wrap {
   margin-top: 20rpx;
   margin-left: 24rpx;
@@ -74,4 +68,7 @@ page {
 
 .coupon-list-wrap .t-pull-down-refresh__bar {
   background: #fff !important;
+}
+.t-class-indicator {
+  color: #b9b9b9 !important;
 }

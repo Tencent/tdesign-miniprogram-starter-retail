@@ -92,3 +92,13 @@ wr-order-goods-card:not(:first-child) .wr-goods-card {
   color: #666666;
   font-size: 28rpx;
 }
+.t-class-indicator {
+  color: #b9b9b9 !important;
+}
+.tab-bar .tab-bar__active {
+  color: #fa4126 !important;
+}
+
+.tab-bar .t-tabs-track {
+  background: #fa4126;
+}

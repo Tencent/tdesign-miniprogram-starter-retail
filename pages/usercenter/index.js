@@ -146,7 +146,13 @@ Page({
         break;
       }
       case 'help-center': {
-        wx.navigateTo({ url: '/pages/usercenter/person-info/index' });
+        Toast({
+          context: this,
+          selector: '#t-toast',
+          message: '你点击了帮助中心',
+          icon: '',
+          duration: 1000,
+        });
         break;
       }
       case 'point': {
