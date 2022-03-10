@@ -151,7 +151,7 @@ Page({
         break;
       }
       case 'point': {
-        console.log('point');
+        console.info('point');
         break;
       }
       case 'coupon': {
@@ -159,7 +159,7 @@ Page({
         break;
       }
       default: {
-        console.log('未知跳转', type);
+        console.info('未知跳转', type);
         break;
       }
     }

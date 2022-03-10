@@ -42,3 +42,6 @@
 .wr-check:before {
   content: '\e053';
 }
+.wr-wechat:before {
+  content: '\e065';
+}

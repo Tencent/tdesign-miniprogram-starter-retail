@@ -5,8 +5,8 @@
 			 prefix="wr"
 			 t-class="weixin"
 			 color="#00CC00"
-			 name="weixin"
-			 size="48"
+			 name="wechat"
+			 size="48rpx"
 			/>
 			<text>{{title}}</text>
 		</view>
