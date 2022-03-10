@@ -299,6 +299,7 @@ Page({
       url: '/pages/promotion-detail/index',
     });
   },
+
   showPromotionPopup() {
     this.setData({
       isShowPromotionPop: true,
