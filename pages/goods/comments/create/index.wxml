@@ -33,7 +33,7 @@
     </view>
     <view class="upload-container">
       <t-upload
-        media-type="{{['image,video']}}"
+        media-type="{{['image','video']}}"
         files="{{uploadFiles}}"
         bind:remove="handleRemove"
         bind:success="handleSuccess"
