@@ -1,3 +1,4 @@
+import Toast from 'tdesign-miniprogram/toast/index';
 import {
   ServiceType,
   ServiceTypeDesc,
@@ -34,9 +35,8 @@ Page({
 
   onLoad(query) {
     this.rightsNo = parseInt(query.rightsNo);
+    this.inputDialog = this.selectComponent('#input-dialog');
     this.init();
-    // this.navbar = this.selectComponent('#navbar');
-    // this.pullDownRefresh = this.selectComponent('#wr-pull-down-refresh');
   },
 
   onShow() {
@@ -89,10 +89,10 @@ Page({
         ].includes(btn.type);
       });
       let deliveryButton = {};
-      if (deliveryButtonIndex > -1) {
-        deliveryButton = serviceRaw.buttonVOs[deliveryButtonIndex];
-        serviceRaw.buttonVOs.splice(deliveryButtonIndex, 1); // 物流单按钮，填写/修改
-      }
+      // if (deliveryButtonIndex > -1) {
+      //   deliveryButton = serviceRaw.buttonVOs[deliveryButtonIndex];
+      //   serviceRaw.buttonVOs.splice(deliveryButtonIndex, 1); // 物流单按钮，填写/修改
+      // }
       // 提取service-card需要的数据，以及部分需要经过转换的数据（如时间格式化、地址拼接等）
       const service = {
         id: serviceRaw.rights.rightsNo,
@@ -101,6 +101,7 @@ Page({
         type: serviceRaw.rights.rightsType,
         typeDesc: ServiceTypeDesc[serviceRaw.rights.rightsType],
         status: serviceRaw.rights.rightsStatus,
+        statusIcon: this.genStatusIcon(serviceRaw.rights),
         statusName: serviceRaw.rights.userRightsStatusName,
         statusDesc: serviceRaw.rights.userRightsStatusDesc,
         amount: serviceRaw.rights.refundRequestAmount,
@@ -139,6 +140,7 @@ Page({
         receiverAddress: this.composeAddress(serviceRaw), // 收货人地址
         applyRemark: serviceRaw.rightsRefund.refundDesc, // 申请退款时的填写的说明
         buttons: serviceRaw.buttonVOs || [],
+        logistics: serviceRaw.logisticsVO
       };
       const proofs = serviceRaw.rights.rightsImageUrls || [];
       this.setData({
@@ -171,6 +173,21 @@ Page({
 
   onRefresh() {
     this.init();
+  },
+
+  editLogistices() {
+    this.setData({
+      inputDialogVisible: true,
+    });
+    this.inputDialog.setData({
+      cancelBtn: '取消',
+      confirmBtn: '确定',
+    });
+    this.inputDialog._onComfirm = () => {
+      Toast({
+        message: '确定填写物流单号'
+      })
+    };
   },
 
   onDeliveryButtonTap(e) {
@@ -231,4 +248,31 @@ Page({
   navBackHandle() {
     wx.navigateBack({ backRefresh: true });
   },
+
+   /** 获取状态ICON */
+   genStatusIcon(item) {
+    const { userRightsStatus, afterSaleRequireType } = item;
+    switch (userRightsStatus) {
+      // 退款成功
+      case ServiceStatus.REFUNDED: {
+        return 'succeed';
+      }
+      // 已取消、已关闭
+      case ServiceStatus.CLOSED: {
+        return 'indent_close'
+      }
+      default: {
+        switch (afterSaleRequireType) {
+          case "REFUND_MONEY": {
+            return 'goods_refund';
+          }
+          case "REFUND_GOODS_MONEY":
+            return 'goods_return';
+          default: {
+            return 'goods_return';
+          }
+        }
+      }
+    }
+  }
 });

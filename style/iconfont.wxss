@@ -15,6 +15,27 @@
 .wr-deliver:before {
   content: '\e033';
 }
+
+.wr-indent_close:before {
+  content: "\e041";
+}
+
+.wr-edit:before {
+  content: "\e002";
+}
+
+.wr-location:before {
+  content: "\e016";
+}
+
+.wr-succeed:before {
+  content: "\e00d";
+}
+
+.wr-goods_return:before {
+  content: "\e03c";
+}
+
 .wr-wallet:before {
   content: '\e051';
 }

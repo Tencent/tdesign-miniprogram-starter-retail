@@ -18,7 +18,9 @@
 				 arrow
          description="没收到货，或与商家协商同意不用退货只退款"
 				 bindtap="onApplyOnlyRefund"
-			  />
+			  >
+          <t-icon prefix="wr" color="#FA4126" name="goods_refund" size="30px" slot="left-icon" />
+        </t-cell>
 			</t-cell-group>
 			<t-cell-group wx:if="{{canApplyReturn}}">
 				<t-cell
@@ -26,13 +28,17 @@
 				 description="已收到货，需要退还收到的商品"
 				 arrow
 				 bindtap="onApplyReturnGoods"
-				/>
+				>
+          <t-icon prefix="wr" color="#FA4126" name="goods_return" size="30px" slot="left-icon" />
+        </t-cell>
 			</t-cell-group>
 			<t-cell-group wx:else class="non-returnable">
 				<t-cell
 				 title="退货退款"
 				 description="该商品不支持退货"
-				></t-cell>
+				>
+          <t-icon prefix="wr" color="#FA4126" name="goods_return" size="30px" slot="left-icon" />
+        </t-cell>
 			</t-cell-group>
 		</view>
 	<!-- 售后表单 -->
