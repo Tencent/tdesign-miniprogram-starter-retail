@@ -122,7 +122,7 @@ Page({
         order,
         _order,
         formatCreateTime: formatTime(
-          parseFloat(order.createTime + ''),
+          parseFloat(`${order.createTime}`),
           'YYYY-MM-DD HH:mm',
         ), // 格式化订单创建时间
         countDownTime: this.computeCountDownTime(order),

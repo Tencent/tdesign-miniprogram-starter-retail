@@ -198,7 +198,7 @@ Component({
     /** 添加订单评论 */
     onAddComent(order) {
       wx.navigateTo({
-        url: `/pages/order/comments/index?orderNo=${order.orderNo}`,
+        url: `/pages/goods/comments/create/index?orderNo=${order.orderNo}`,
       });
     },
   },

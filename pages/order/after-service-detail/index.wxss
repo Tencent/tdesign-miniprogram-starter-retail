@@ -7,6 +7,41 @@
   position: relative;
 }
 
+.service-detail wr-service-goods-card .wr-goods-card__body  {
+  margin-left: 50rpx;
+}
+
+.order-goods-card-footer {
+  display: flex;
+  width: calc(100% - 190rpx);
+  justify-content: space-between;
+  position: absolute;
+  bottom: 0;
+  left: 190rpx;
+}
+
+.order-goods-card-footer-num {
+  color: #999;
+}
+
+.service-detail  .order-goods-card-footer .order-goods-card-footer-price-class {
+  font-size: 36rpx;
+  color: #333;
+  font-family: DIN Alternate;
+}
+
+.service-detail .order-goods-card-footer .order-goods-card-footer-price-decimal {
+  font-size: 28rpx;
+  color: #333;
+  font-family: DIN Alternate;
+}
+
+.service-detail .order-goods-card-footer .order-goods-card-footer-price-symbol {
+  color: #333;
+  font-size: 24rpx;
+  font-family: DIN Alternate;
+}
+
 .service-detail .service-detail__header {
     padding: 60rpx 0 48rpx 40rpx;
     box-sizing: border-box;

@@ -33,7 +33,10 @@ Component({
 
   methods: {
     setActive(activeKey) {
-      if (!this.properties.tabList[activeKey] || this.properties.tabList[activeKey].disabled) {
+      if (
+        !this.properties.tabList[activeKey] ||
+        this.properties.tabList[activeKey].disabled
+      ) {
         return Promise.reject('数据异常或不可操作');
       }
       return new Promise((resolve) => {
@@ -61,5 +64,5 @@ Component({
           console.error(e);
         });
     },
-  }
-})
+  },
+});

@@ -21,6 +21,40 @@
 .select-service .service-form .service-from-group {
   margin-top: 20rpx;
 }
+
+.select-service wr-order-goods-card .wr-goods-card__body  {
+  margin-left: 50rpx;
+}
+
+.order-goods-card-footer {
+  display: flex;
+  width: calc(100% - 190rpx);
+  justify-content: space-between;
+  position: absolute;
+  bottom: 0;
+  left: 190rpx;
+}
+
+.order-goods-card-footer-num {
+  color: #999;
+}
+
+.select-service .order-goods-card-footer .order-goods-card-footer-price-class {
+  font-size: 36rpx;
+  color: #333;
+  font-family: DIN Alternate;
+}
+.select-service .order-goods-card-footer .order-goods-card-footer-price-decimal {
+  font-size: 28rpx;
+  color: #333;
+  font-family: DIN Alternate;
+
+}
+.select-service .order-goods-card-footer .order-goods-card-footer-price-symbol {
+  color: #333;
+  font-size: 24rpx;
+  font-family: DIN Alternate;
+}
 /* .select-service .wr-cell-group {
   margin-top: 20rpx;
 }
@@ -61,19 +95,7 @@
 .select-service .remark::after {
   border: none;
 }
-/* .select-service .service-choice .wr-cell__title {
-  font-weight: bold;
-}
-.select-service .service-choice .wr-cell__label {
-  font-weight: normal;
-  font-size: 26rpx;
-}
-.select-service .service-choice .non-returnable .wr-cell {
-  filter: opacity(0.6);
-}
-.select-service .service-choice .non-returnable .wr-cell__label {
-  color: #ff2525;
-} */
+
 
 .select-service .special-cell .special-cell-note {
   display: flex;
@@ -107,7 +129,6 @@
   color: #FA4126;
   font-size: 24rpx;
   font-family: DIN Alternate;
-
 }
 
 .select-service .upload {
@@ -194,6 +215,28 @@
   border-left: 4rpx solid white;
   border-right: 4rpx solid white;
 } */
+
+.select-service wr-order-goods-card .wr-goods-card__body  {
+  margin-left: 50rpx;
+}
+
+.order-goods-card-footer {
+  display: flex;
+  width: calc(100% - 190rpx);
+  border: 1px solid #000;
+  justify-content: space-between;
+  position: absolute;
+  bottom: 0;
+  left: 190rpx;
+}
+
+.order-goods-card-footer-num {
+  color: #999;
+}
+
+.order-goods-card-title-class {
+  width: 10rpx!important;
+}
 .input-dialog__content {
   text-align: left;
 }

@@ -50,7 +50,8 @@ Page({
       column: 3,
       width: 212,
       height: 212
-    }
+    },
+    serviceRequireType: "",
   },
 
   setWatcher(key, callback) {
@@ -153,8 +154,10 @@ Page({
         specs: ((res.data.goodsInfo && res.data.goodsInfo.specInfo) || []).map(
           (s) => s.specValue,
         ),
-        price: res.data.paidAmountEach,
-        num: res.data.boughtQuantity,
+        // price: res.data.paidAmountEach,
+        paidAmountEach: res.data.paidAmountEach,
+        // num: res.data.boughtQuantity,
+        boughtQuantity: res.data.boughtQuantity,
       };
       this.setData({
         goodsInfo,
@@ -187,10 +190,14 @@ Page({
   },
 
   onApplyOnlyRefund() {
+    wx.setNavigationBarTitle({ title: '申请退款' });
+    this.setData({ serviceRequireType: 'REFUND_MONEY' });
     this.switchReceiptStatus(-1);
   },
 
   onApplyReturnGoods() {
+    wx.setNavigationBarTitle({ title: '申请退货退款' });
+    this.setData({ serviceRequireType: 'REFUND_GOODS' });
     const orderStatus = parseInt(this.query.orderStatus);
     Promise.resolve()
       .then(() => {
@@ -222,11 +229,11 @@ Page({
     this.setData(
       {
         'serviceFrom.returnNum': value,
-      }, 
+      },
       () => {
         this.refresh();
-      }
-    )
+      },
+    );
   },
 
   onReceiptStatusTap() {
@@ -317,10 +324,10 @@ Page({
     });
     this.setData({
       inputDialogVisible: true,
-    })
+    });
     this.inputDialog.setData({
       cancelBtn: '取消',
-      confirmBtn: '确定'
+      confirmBtn: '确定',
     });
     this.inputDialog._onComfirm = () => {
       this.setData({
@@ -487,7 +494,7 @@ Page({
     const {
       serviceFrom: { rightsImageUrls },
     } = this.data;
-   
+
     files.forEach((temp) => {
       rightsImageUrls.push({
         name: new Date(),
@@ -507,7 +514,7 @@ Page({
 
     const { rightsImageUrls } = this.data.serviceFrom;
     rightsImageUrls.splice(index, 1);
-  
+
     this.setData({
       'serviceFrom.rightsImageUrls': [...rightsImageUrls],
     });

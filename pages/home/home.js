@@ -97,7 +97,7 @@ Page({
 
     this.setData({ goodsListLoadStatus: 1 });
 
-    let pageSize = this.goodListPagination.num;
+    const pageSize = this.goodListPagination.num;
     let pageIndex =
       this.data.tabIndex * pageSize + this.goodListPagination.index + 1;
     if (fresh) {
@@ -121,7 +121,7 @@ Page({
 
   goodListClickHandle(e) {
     const { index } = e.detail;
-    const spuId = this.data.goodsList[index].spuId;
+    const { spuId } = this.data.goodsList[index];
     wx.navigateTo({
       url: `/pages/goods/details/index?spuId=${spuId}`,
     });
@@ -143,7 +143,7 @@ Page({
     /** 活动肯定有一个活动ID，用来获取活动banner，活动商品列表等 */
     const { index: promotionID = 0 } = detail || {};
     wx.navigateTo({
-      url: '/pages/promotion-detail/index?promotion_id=' + promotionID,
+      url: `/pages/promotion-detail/index?promotion_id=${promotionID}`,
     });
   },
 });

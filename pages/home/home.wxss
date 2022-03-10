@@ -93,4 +93,5 @@ page {
 
 .home-page-container .goods-list-container {
   background: #f5f5f5 !important;
+  margin-top: 24rpx;
 }

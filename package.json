@@ -4,10 +4,21 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint --cache --fix --ext .js",
+    "check": "node config/eslintCheck.js"
   },
   "author": "",
   "license": "ISC",
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged && npm run check"
+    }
+  },
+  "lint-staged": {
+    "*.{js, ts}": "eslint --cache --fix",
+    "*.{js,ts,css,less}": "prettier --write"
+  },
   "dependencies": {
     "@tencent/retailwe-ui-add-cart": "^0.0.25",
     "@tencent/retailwe-ui-address-edit": "0.0.33",
@@ -74,10 +85,16 @@
     "@tencent/retailwe-ui-uploader": "0.0.29",
     "@tencent/retailwe-ui-user-center-card": "0.0.15",
     "dayjs": "^1.9.3",
-    "tdesign-miniprogram": "0.5.4",
+    "tdesign-miniprogram": "0.6.0",
     "tslib": "^1.11.1"
   },
   "devDependencies": {
-    "prettier": "^2.1.2"
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.10.0",
+    "eslint-plugin-import": "^2.20.1",
+    "eslint-plugin-prettier": "^3.1.2",
+    "husky": "^4.3.0",
+    "prettier": "^2.1.2",
+    "lint-staged": "^10.0.8"
   }
 }

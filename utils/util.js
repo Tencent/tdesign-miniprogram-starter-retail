@@ -12,16 +12,16 @@ function priceFormat(price, fill = 0) {
   if (isNaN(price) || price === null || price === Infinity) {
     return price;
   }
-  price = Math.round(parseFloat(price + '') * 10 ** 8) / 10 ** 8; // 恢复精度丢失
-  price = Math.ceil(price) / 100 + ''; // 向上取整，单位转换为元，转换为字符串
+  price = Math.round(parseFloat(`${price}`) * 10 ** 8) / 10 ** 8; // 恢复精度丢失
+  price = `${Math.ceil(price) / 100}`; // 向上取整，单位转换为元，转换为字符串
   if (fill > 0) {
     // 补充小数位数
     if (price.indexOf('.') == -1) {
-      price = price + '.';
+      price = `${price}.`;
     }
     const n = fill - price.split('.')[1].length;
     for (let i = 0; i < n; i++) {
-      price = price + '0';
+      price = `${price}0`;
     }
   }
   return price;
@@ -43,7 +43,7 @@ const cosThumb = (url, width, height = width) => {
     url = url.replace('http://', 'https://');
   }
 
-  return url + '?imageMogr2/thumbnail/' + ~~width + 'x' + ~~height;
+  return `${url}?imageMogr2/thumbnail/${~~width}x${~~height}`;
 };
 
 const get = (source, paths, defaultValue) => {
@@ -101,7 +101,7 @@ const rpx2px = (rpx, round = false) => {
 /**
  * 手机号码*加密函数
  * @param {string} phone 电话号
- * @returns 
+ * @returns
  */
 const phoneEncryption = (phone) => {
   return phone.replace(/(\d{3})\d{4}(\d{4})/, '$1****$2');
@@ -120,8 +120,7 @@ const innerPhoneReg =
 const phoneRegCheck = (phone) => {
   const phoneRegExp = new RegExp(innerPhoneReg);
   return phoneRegExp.test(phone);
-}
-
+};
 
 module.exports = {
   formatTime,

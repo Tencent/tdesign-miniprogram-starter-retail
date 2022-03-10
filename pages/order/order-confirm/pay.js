@@ -79,7 +79,7 @@ export const payFail = (payOrderInfo, resultMsg) => {
     Toast({
       context: this,
       selector: '#t-toast',
-      message: '支付失败：' + resultMsg,
+      message: `支付失败：${resultMsg}`,
       duration: 2000,
       icon: 'close-circle',
     });
