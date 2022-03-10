@@ -16,7 +16,7 @@
   width: calc(100% - 190rpx);
   justify-content: space-between;
   position: absolute;
-  bottom: 0;
+  bottom: 20rpx;
   left: 190rpx;
 }
 
@@ -60,6 +60,7 @@
   font-size: 48rpx;
   font-weight: bold;
   color: #333;
+  display: flex;
 }
 
 .service-detail .service-detail__header .desc {
@@ -93,10 +94,9 @@
   font-size: 30rpx;
   color: #333333;
   font-weight: bold;
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
   margin-bottom: 10rpx;
+  height: 200rpx;
+  position: relative;
 }
 .service-detail .service-section__title .icon {
     margin-right: 16rpx;
@@ -316,7 +316,6 @@
 
 .page-container .wr-goods-card__thumb {
     width: 140rpx;
-    height: 140rpx;
 }
 .page-container .page-background {
   position: absolute;
@@ -370,4 +369,12 @@
 
 .safe-bottom {
   padding-bottom: env(safe-area-inset-bottom);
+}
+
+.service-section-logistics {
+  display: flex;
+  justify-content: center;
+  color: #FA4126;
+  align-items: center;
+  margin-top: 24rpx;
 }

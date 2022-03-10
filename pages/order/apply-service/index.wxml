@@ -42,14 +42,28 @@
 				 title="商品收货状态"
 				 note="{{serviceFrom.receiptStatus.desc}}"
 				 arrow
-				 bindclick="onReceiptStatusTap"
-				/>
-				<t-cell
-				 title="退款原因"
-				 arrow
-				 note="{{serviceFrom.applyReason.desc}}"
-				 bindclick="onApplyReasonTap"
-				/>
+				 description="没收到货，或与商家协商同意不用退货只退款"
+				 bindtap="onApplyOnlyRefund"
+				>
+					<t-icon
+					 prefix="wr"
+					 color="#FA4126"
+					 name="goods_refund"
+					 size="30px"
+					 slot="left-icon"
+					/>
+				</t-cell>
+			</t-cell-group>
+			<t-cell-group wx:if="{{canApplyReturn}}">
+				<t-cell title="退款原因" arrow bindtap="onApplyReturnGoods">
+					<t-icon
+					 prefix="wr"
+					 color="#FA4126"
+					 name="goods_return"
+					 size="30px"
+					 slot="left-icon"
+					/>
+				</t-cell>
 			</t-cell-group>
 		</view>
 		<view class="service-from-group">
@@ -64,59 +78,14 @@
 					 bindchange="onChangeReturnNum"
 					/>
 				</t-cell>
-				<t-cell
-				 class="special-cell"
-				 title="退款金额"
-				 description="{{amountTip}}"
-				 bindtap="onAmountTap"
-				>
-					<view slot="note" class="special-cell-note">
-						<wr-price
-						 price="{{serviceFrom.amount.current}}"
-						 fill
-						 wr-class="special-cell-note-price-class"
-						 symbol-class="special-cell-note-price-symbol"
-						 decimal-class="special-cell-note-price-decimal"
-						/>
-						<view class="special-cell-note-text">
-							<text class="special-cell-note-text-left">修改</text>
-							<t-icon name="chevron-right" size="xl" />
-						</view>
-					</view>
-				</t-cell>
-			</t-cell-group>
-		</view>
-		<view class="service-from-group">
-			<t-cell-group>
-				<t-cell title="退款说明">
-					<view slot="description">
-						<t-textarea
-						 t-class="remark"
-						 placeholder="退款说明（选填）"
-						 value="{{serviceFrom.remark.current}}"
-						 maxlength="100"
-						 bindchange="onRemarkTap"
-						/>
-						<view class="upload">
-							<t-uploader
-							 files="{{serviceFrom.rightsImageUrls}}"
-							 media-type="{{['image']}}"
-							 max="3"
-							 add-content="slot"
-							 grid-config="{{uploadGridConfig}}"
-							 size-limit="{{10*1024*1024}}"
-							 request-method="{{uploadMethod}}"
-							 bind:success="onUploadStart"
-							 bind:remove="onDelete"
-							>
-								<view slot="addContent" class="upload__desc">
-									<view class="upload__desc-icon">+</view>
-									<view>上传凭证</view>
-									<view>（最多3张）</view>
-								</view>
-							</t-uploader>
-						</view>
-					</view>
+				<t-cell title="退货退款" description="该商品不支持退货">
+					<t-icon
+					 prefix="wr"
+					 color="#FA4126"
+					 name="goods_return"
+					 size="30px"
+					 slot="left-icon"
+					/>
 				</t-cell>
 			</t-cell-group>
 		</view>

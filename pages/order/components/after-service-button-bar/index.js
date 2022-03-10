@@ -10,6 +10,7 @@ Component({
       type: Object,
       observer(service) {
         const buttonsRight = service.buttons || service.buttonVOs || [];
+        console.log(buttonsRight);
         this.setData({
           buttons: {
             left: [],
@@ -42,6 +43,9 @@ Component({
         case ServiceButtonTypes.CHANGE_TRACKING_NO:
           this.onChangeTrackingNo(this.data.service);
           break;
+        case ServiceButtonTypes.VIEW_DELIVERY:
+          this.viewDelivery(this.data.service);
+          break;
       }
     },
 
@@ -50,6 +54,13 @@ Component({
       // Toast({text: '你点击了填写运单号'});
       wx.navigateTo({
         url: `/pages/order/fill-tracking-no/index?rightsNo=${service.id}`,
+      });
+    },
+
+    viewDelivery(service) {
+      console.log('service', service);
+      wx.navigateTo({
+        url: `/pages/order/delivery-detail/index?data=${JSON.stringify(service.logistics)}`,
       });
     },
 

@@ -362,7 +362,7 @@ Page({
               goodsSpu: item.goodsSpu,
               isAnonymity: item.isAnonymity,
               uid: item.uid,
-              commentScore: Math.floor(Math.random() * 4),
+              commentScore: item.commentScore,
               commentContent: item.commentContent || '用户未填写评价',
               commentImageUrls: item.commentImageUrls || [],
               userHeadUrl: item.isAnonymity

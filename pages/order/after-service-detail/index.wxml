@@ -18,8 +18,7 @@
 			<!-- 状态及描述 -->
 			<view class="service-detail__header">
 				<view class="title">
-					<t-icon wx:if="{{service.status === 100}}" name="money-circle" size="xl"></t-icon>
-					<t-icon wx:if="{{service.status === 1}}" name="check-circle"  size="xl"></t-icon>
+					<t-icon prefix="wr" name="{{service.statusIcon}}" size="30px"></t-icon>
 					{{service.statusName}}
 				</view>
 				<view class="desc">
@@ -27,7 +26,7 @@
 				</view>
 			</view>
 			<!-- 退款金额 -->
-			<view class="service-section__pay pay-result" wx:if="{{service.isRefunded || byOrderCancel}}">
+			<view class="service-section__pay pay-result" wx:if="{{service.isRefunded}}">
 				<t-cell
 				 t-class-title="title"
 				 t-class-note="right"
@@ -60,48 +59,41 @@
 				</block>
 			</view>
 			<!-- 物流 -->
-			<view class="service-section" wx:if="{{deliveryButton.name || service.logisticsNo}}">
+			<view class="service-section" wx:if="{{service.logisticsNo}}">
 				<view class="service-section__title">
-					<t-cell bordered="{{false}}">
+					<t-cell bordered="{{false}}" description="买家已寄出" arrow>
 						<view slot="title">
 							<wr-icon name="wuliu" wr-class="icon" />
-							退货物流
+							<text>{{service.logisticsCompanyName + ' '}} </text>
+							<text>{{service.logisticsNo}}</text>
+							<!-- 退货物流 -->
 						</view>
-						<view
-						 slot="note"
-						 wx:if="{{deliveryButton.name}}"
-						 class="right text-btn"
-						 bindtap="onDeliveryButtonTap"
-						 data-type="{{deliveryButton.type}}"
-						>
-							{{deliveryButton.name}}
+						<view slot="note" style="position: absolute; bottom: -45rpx;right: 45rpx">
+							<wr-after-service-button-bar service="{{service}}"/>
 						</view>
 					</t-cell>
 				</view>
-				<view class="section-content" wx:if="{{service.logisticsNo}}">
-					<t-cell bordered="{{false}}" title="运单号" note="{{service.logisticsNo}}" />
-					<t-cell bordered="{{false}}" title="物流公司" note="{{service.logisticsCompanyName}}" />
-				</view>
 			</view>
 			<!-- 收货地址 -->
-			<!-- <view class="service-section" wx:if="{{service.receiverName}}">
-				<view class="service-section__title">
-					<view>
-						<t-icon name="location" t-class="icon" />
-						退货地址
-					</view>
-					<view class="right text-btn" bindtap="onAddressCopy">复制</view>
-				</view>
-				<view class="section-content">
-					<view class="main">
-						{{service.receiverName}}
-						<view class="phone-num">{{service.receiverPhone}}</view>
-					</view>
-				</view>
-				<view class="section-content">
-					<view class="label">{{service.receiverAddress}}</view>
-				</view>
-			</view> -->
+			<view class="service-section" wx:if="{{service.receiverName}}">
+				<t-cell-group>
+					<t-cell title="退货地址" >
+						<view slot="note" class="right text-btn" bindtap="onAddressCopy" style="position: absolute; top: 22rpx; rihgt:0">复制</view>
+						<view slot="description" >
+							<view >
+								{{service.receiverAddress}}
+							</view>
+							<view >收获人：{{service.receiverName}}</view>
+							<view >收获人手机：{{service.receiverName}}</view>
+						</view>
+          	<t-icon prefix="wr" color="#333333" name="location" size="20px" slot="left-icon" style="position: absolute; top: 25rpx; left:0"/>
+					</t-cell>
+				</t-cell-group>
+				<!-- <view class="service-section-logistics">
+          	<t-icon prefix="wr" color="#FA4126" name="edit" size="20px" style="margin-right: 12rpx"/>
+						<text class="service-section-logistics-text" bind:tap="editLogistices">填写物流单号</text>
+				</view> -->
+			</view>
 			<!-- 商品卡片 -->
 			<view class="service-section" wx:if="{{service.goodsList && service.goodsList.length > 0}}">
 				<wr-service-goods-card
@@ -202,15 +194,26 @@
 			 bindtap="onProofTap"
 			/>
 			<!-- 底部栏 -->
-			<view wx:if="{{serviceRaw.buttonVOs && serviceRaw.buttonVOs.length > 0}}" class="footer-bar-wrapper safe-area-bottom">
+			<!-- <view wx:if="{{serviceRaw.buttonVOs && serviceRaw.buttonVOs.length > 0}}" class="footer-bar-wrapper safe-area-bottom">
 				<view class="footer-bar">
 					<wr-service-button-bar service="{{service}}" bindrefresh="onRefresh" />
 					<view class="safe-area-bottom" />
 				</view>
-			</view>
+			</view> -->
 		</view>
 	</t-pull-down-refresh>
 </view>
 <t-toast id="t-toast" />
+<!-- 退款说明填写 -->
+<t-dialog id="input-dialog" visible="{{inputDialogVisible}}">
+	<view class="input-dialog__content" slot="content">
+		<view style="color: #333333;padding-left: 32rpx">物流单号</view>
+		<t-input
+		 class="input"
+		 placeholder="请输入物流单号"
+		/>
+		<view class="tips">{{amountTip}}</view>
+	</view>
+</t-dialog>
 <t-dialog id="t-dialog" />
 
