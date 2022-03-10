@@ -128,6 +128,14 @@ page {
   height: 88rpx;
 }
 
+.submit-button-container .submit-button-disabled {
+  background-color: rgba(0, 0, 0, 0.4);
+  border: 0;
+  border-radius: 48rpx;
+  width: 686rpx;
+  height: 88rpx;
+}
+
 .page-container .upload-container {
   margin-top: 24rpx;
 }

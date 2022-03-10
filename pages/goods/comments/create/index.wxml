@@ -25,7 +25,11 @@
       ></t-rate>
     </view>
     <view class="textarea-container">
-      <t-textarea t-class="textarea" maxlength="{{500}}"></t-textarea>
+      <t-textarea
+        t-class="textarea"
+        maxlength="{{500}}"
+        bind:change="onTextAreaChange"
+      ></t-textarea>
     </view>
     <view class="upload-container">
       <t-upload
@@ -83,9 +87,11 @@
       shape="round"
       theme="danger"
       content="提交"
-      t-class="submit-button"
+      t-class="submit-button{{isAllowedSubmit ? '' : '-disabled'}}"
+      bind:tap="onSubmitBtnClick"
     />
   </view>
+  <t-toast id="t-toast" />
   <!-- <view wx:if="{{ commentList.length }}" class="store-comment">
     <view class="{{isFinished ? 'finished-icon-wrap title' : 'title'}}">
       物流服务评价
