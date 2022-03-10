@@ -19,7 +19,7 @@
         <!-- 已选规格 -->
         <view class="popup-sku__selected-spec">
           <view>选择：</view>
-          <view wx:for="{{specList}}">
+          <view wx:for="{{specList}}" wx:key="index">
             <view
               class="popup-sku__selected-item"
               wx:for="{{item.specValueList}}"
