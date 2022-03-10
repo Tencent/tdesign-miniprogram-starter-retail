@@ -153,3 +153,14 @@ page {
   border-radius: 48rpx !important;
   padding: 0 !important;
 }
+
+.page-container .t-upload__close-btn {
+  background-color: rgba(0, 0, 0, 0.4);
+  border-bottom-left-radius: 8rpx;
+  width: 36rpx;
+  height: 36rpx;
+}
+
+.upload-container .upload-addcontent-slot {
+  font-size: 26rpx;
+}

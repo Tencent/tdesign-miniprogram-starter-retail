@@ -10,6 +10,7 @@
     "t-textarea": "tdesign-miniprogram/textarea/textarea",
     "t-checkbox": "tdesign-miniprogram/checkbox/checkbox",
     "t-button": "tdesign-miniprogram/button/button",
-    "t-upload": "tdesign-miniprogram/upload/upload"
+    "t-upload": "tdesign-miniprogram/upload/upload",
+    "t-icon": "tdesign-miniprogram/icon/icon"
   }
 }

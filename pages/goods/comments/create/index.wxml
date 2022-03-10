@@ -29,12 +29,18 @@
     </view>
     <view class="upload-container">
       <t-upload
-        media-type="{{['image']}}"
-        files="{{originFiles}}"
+        media-type="{{['image,video']}}"
+        files="{{uploadFiles}}"
         bind:remove="handleRemove"
         bind:success="handleSuccess"
         gridConfig="{{gridConfig}}"
-      ></t-upload>
+        addContent="slot"
+      >
+        <view slot="addContent" class="upload-addcontent-slot">
+          <t-icon name="photo" size="60rpx"></t-icon>
+          <text>添加图片/视频</text>
+        </view>
+      </t-upload>
     </view>
     <view class="anonymous-box">
       <t-checkbox

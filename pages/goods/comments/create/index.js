@@ -6,7 +6,7 @@ Page({
     goodRateValue: 1,
     conveyRateValue: 1,
     isAnonymous: false,
-    originFiles: [],
+    uploadFiles: [],
     gridConfig: {
       width: 218,
       height: 218,
@@ -26,19 +26,19 @@ Page({
   },
 
   handleSuccess(e) {
-    const { originFiles } = this.data;
-
-    // 图片上传处理
     const { files } = e.detail;
 
-    files.forEach((temp) => {
-      const name = temp.name;
-      originFiles.push(temp);
-    });
-
     this.setData({
-      originFiles,
+      uploadFiles: files,
     });
   },
 
+  handleRemove(e) {
+    const { index } = e.detail;
+    const { uploadFiles } = this.data;
+    uploadFiles.splice(index, 1);
+    this.setData({
+      uploadFiles,
+    });
+  },
 });
