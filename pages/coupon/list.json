@@ -1,11 +1,10 @@
 {
   "navigationBarTitleText": "优惠券",
-  "usingComponents": {    
+  "usingComponents": {
     "t-pull-down-refresh": "tdesign-miniprogram/pull-down-refresh/pull-down-refresh",
     "t-tabs": "tdesign-miniprogram/tabs/tabs",
     "t-tab-panel": "tdesign-miniprogram/tabs/tab-panel",
     "t-icon": "tdesign-miniprogram/icon/icon",
-    "wr-coupon-list": "@tencent/retailwe-ui-coupon-list/index",
-    "custom-coupon-card": "./components/coupon/index"
+    "coupon-card": "./components/coupon-card/index"
   }
 }

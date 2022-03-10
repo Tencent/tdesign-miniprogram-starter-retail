@@ -2,7 +2,6 @@
 <view class="page-container">
 	<t-navbar
 	 title="{{pageNav.title}}"
-	 background="{{pageNav.background}}"
 	 left-icon="slot"
 	 t-class-title="t-class-title"
 	>
@@ -14,23 +13,18 @@
 		/>
 	</t-navbar>
 	<t-pull-down-refresh id="t-pull-down-refresh" bind:refresh="onPullDownRefresh_">
-		<!-- 页面背景 需要将图片加载事件传递给navbar，以便动态计算navbar背景色 -->
-		<view class="page-background">
-			<t-image
-			 t-class="page-background-img"
-			 src="{{bgImgUrl}}"
-			 mode="aspectFill"
-			 style="margin-top: -176rpx"
-			 bindload="onImgLoaded"
-			 binderror="onImgError"
-			/>
-		</view>
 		<!-- 页面内容 -->
 		<view class="service-detail safe-bottom">
 			<!-- 状态及描述 -->
 			<view class="service-detail__header">
-				<view class="title">{{service.statusName}}</view>
-				<view class="desc">{{service.statusDesc}}</view>
+				<view class="title">
+					<t-icon wx:if="{{service.status === 100}}" name="money-circle" size="xl"></t-icon>
+					<t-icon wx:if="{{service.status === 1}}" name="check-circle"  size="xl"></t-icon>
+					{{service.statusName}}
+				</view>
+				<view class="desc">
+					{{service.statusDesc}}
+				</view>
 			</view>
 			<!-- 退款金额 -->
 			<view class="service-section__pay pay-result" wx:if="{{service.isRefunded || byOrderCancel}}">
@@ -90,7 +84,7 @@
 				</view>
 			</view>
 			<!-- 收货地址 -->
-			<view class="service-section" wx:if="{{service.receiverName}}">
+			<!-- <view class="service-section" wx:if="{{service.receiverName}}">
 				<view class="service-section__title">
 					<view>
 						<t-icon name="location" t-class="icon" />
@@ -107,7 +101,7 @@
 				<view class="section-content">
 					<view class="label">{{service.receiverAddress}}</view>
 				</view>
-			</view>
+			</view> -->
 			<!-- 商品卡片 -->
 			<view class="service-section" wx:if="{{service.goodsList && service.goodsList.length > 0}}">
 				<wr-service-goods-card
@@ -118,7 +112,18 @@
 				 no-top-line
 				 bindtap="onGoodsCardTap"
 				 data-index="{{index}}"
-				/>
+				>
+					<view slot="footer" class="order-goods-card-footer">
+						<wr-price  
+							price="{{goods.itemRefundAmount}}" 
+							fill
+							wr-class="order-goods-card-footer-price-class"
+							symbol-class="order-goods-card-footer-price-symbol"
+							decimal-class="order-goods-card-footer-price-decimal"
+						/>
+      			<view class="order-goods-card-footer-num">x {{goods.rightsQuantity}}</view>
+    			</view>
+				</wr-service-goods-card>
 			</view>
 			<!-- 退款信息 -->
 			<view class="service-section__pay">
@@ -136,7 +141,7 @@
 				 t-class="t-refund-wrapper"
 				 t-class-title="t-refund-info"
 				 t-class-note="t-refund-info"
-				 title="退款编号"
+				 title="服务单号"
 				 note="{{service.rightsNo}}"
 				>
 					<view slot="right-icon" class="text-btn" bindtap="onServiceNoCopy">复制</view>
@@ -156,7 +161,7 @@
 				 t-class-note="t-refund-info"
 				 title="退款金额"
 				>
-					<wr-price price="{{service.refundRequestAmount}}" fill />
+					<wr-price slot="note" price="{{service.refundRequestAmount}}" fill />
 				</t-cell>
 				<t-cell
 				 bordered="{{false}}"
@@ -176,14 +181,16 @@
 				 t-class-title="t-refund-info"
 				 description="{{service.applyRemark}}"
 				/>
-				<t-grid border="{{true}}" gutter="{{10}}" column="{{4}}">
+				<t-grid border="{{false}}" gutter="{{10}}" column="{{3}}">
 					<t-grid-item
 					 wx:for="{{gallery.proofs}}"
 					 wx:key="index"
-					 image="{{item}}"
+					 image="slot"
 					 bindclick="onProofTap"
 					 data-index="{{index}}"
-					/>
+					>
+						<t-image slot="image" t-class="t-refund-info-img" src="{{item}}"></t-image>
+					</t-grid-item>
 				</t-grid>
 			</view>
 			<t-swiper

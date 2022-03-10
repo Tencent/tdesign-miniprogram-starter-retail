@@ -1,5 +1,4 @@
-
-Component ({
+Component({
   properties: {
     show: Boolean,
     title: String,
@@ -74,14 +73,13 @@ Component ({
         if (checkedIndexes[0] === index) {
           // 单选不可取消选择
           return;
-        } else {
-          data = {
-            [`_options[${index}].checked`]: true,
-            checkedIndexes: [index],
-          };
-          if (checkedIndexes[0] !== undefined) {
-            data[`_options[${checkedIndexes[0]}].checked`] = false;
-          }
+        }
+        data = {
+          [`_options[${index}].checked`]: true,
+          checkedIndexes: [index],
+        };
+        if (checkedIndexes[0] !== undefined) {
+          data[`_options[${checkedIndexes[0]}].checked`] = false;
         }
       }
       this.setData(data);

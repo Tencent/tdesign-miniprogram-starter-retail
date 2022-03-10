@@ -17,7 +17,6 @@ Page({
     pageLoading: true,
     pageNav: {
       title: '',
-      background: '',
       color: '',
     },
     pageNavBg: '',
@@ -111,8 +110,10 @@ Page({
           title: item.goodsName,
           specs: (item.specInfo || []).map((s) => s.specValues || ''),
           // amount: item.itemRefundAmount,
-          price: item.itemRefundAmount,
-          num: item.rightsQuantity,
+          // price: item.itemRefundAmount,
+          itemRefundAmount: item.itemRefundAmount,
+          // num: item.rightsQuantity,
+          rightsQuantity: item.rightsQuantity,
         })),
         orderNo: serviceRaw.rights.orderNo, // 订单编号
         rightsNo: serviceRaw.rights.rightsNo, // 售后服务单号
@@ -126,7 +127,7 @@ Page({
         refundRequestAmount: serviceRaw.rights.refundRequestAmount, // 申请退款金额
         payTraceNo: serviceRaw.rightsRefund.traceNo, // 交易流水号
         createTime: formatTime(
-          parseFloat(serviceRaw.rights.createTime + ''),
+          parseFloat(`${serviceRaw.rights.createTime}`),
           'YYYY-MM-DD HH:mm',
         ), // 申请时间
         logisticsNo: serviceRaw.logisticsVO.logisticsNo, // 退货物流单号
@@ -144,11 +145,9 @@ Page({
         serviceRaw,
         service,
         deliveryButton,
-        bgImgUrl: this.getBgImgUrl(service),
         pageNav: {
           title: TitleConfig[service.type],
-          background: 'linear-gradient(90deg,#FF6B44 0%,#ED3427 100%)',
-          color: 'white',
+          color: 'black',
         },
         'gallery.proofs': proofs,
         showProofs:
@@ -170,12 +169,6 @@ Page({
       .join(' ');
   },
 
-  getBgImgUrl(service) {
-    return service.type === ServiceType.ONLY_REFUND
-      ? 'https://cdn-we-retail.ym.tencent.com/miniapp/order/bg-after-service-refund.png'
-      : 'https://cdn-we-retail.ym.tencent.com/miniapp/order/bg-after-service-return.png';
-  },
-
   onRefresh() {
     this.init();
   },
@@ -191,23 +184,13 @@ Page({
 
   onFillTrackingNo(service) {
     wx.navigateTo({
-      url: '/pages/order/fill-tracking-no/index?rightsNo=' + service.id,
+      url: `/pages/order/fill-tracking-no/index?rightsNo=${service.id}`,
     });
   },
 
   onChangeTrackingNo(service) {
     wx.navigateTo({
-      url:
-        '/pages/order/fill-tracking-no/index?rightsNo=' +
-        service.id +
-        '&logisticsNo=' +
-        service.logisticsNo +
-        '&logisticsCompanyName=' +
-        service.logisticsCompanyName +
-        '&logisticsCompanyCode=' +
-        service.logisticsCompanyCode +
-        '&remark=' +
-        service.remark,
+      url: `/pages/order/fill-tracking-no/index?rightsNo=${service.id}&logisticsNo=${service.logisticsNo}&logisticsCompanyName=${service.logisticsCompanyName}&logisticsCompanyCode=${service.logisticsCompanyCode}&remark=${service.remark}`,
     });
   },
 
@@ -229,7 +212,7 @@ Page({
     const { index } = e.currentTarget.dataset;
     const goods = this.data.serviceRaw.rightsItem[index];
     console.log('goods', goods);
-    wx.navigateTo({ url: '/pages/goods/details/index?skuId=' + goods.skuId });
+    wx.navigateTo({ url: `/pages/goods/details/index?skuId=${goods.skuId}` });
   },
 
   onServiceNoCopy() {

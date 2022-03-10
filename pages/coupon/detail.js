@@ -11,30 +11,16 @@ Page({
   id: '',
 
   onLoad(query) {
-    let id = parseInt(query['id']);
+    const id = parseInt(query.id);
     this.id = id;
     this.getGoodsList(id);
   },
 
   getGoodsList(id) {
-    fetchCouponDetail(id).then(({ detail, storeInfoList }) => {
+    fetchCouponDetail(id).then(({ detail }) => {
       this.setData({
         detail,
-        storeInfoList,
-        storeInfoStr: storeInfoList.map((i) => i.storeName).join('、'),
       });
-    });
-  },
-
-  openStoreList() {
-    this.setData({
-      showStoreInfoList: true,
-    });
-  },
-
-  closeStoreList() {
-    this.setData({
-      showStoreInfoList: false,
     });
   },
 

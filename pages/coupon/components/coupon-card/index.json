@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "ui-coupon-card": "../ui-coupon-card/index",
+    "t-button": "tdesign-miniprogram/button/button"
+  }
+}

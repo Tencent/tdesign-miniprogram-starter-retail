@@ -3,10 +3,9 @@
   "usingComponents": {
     "wr-loading-content": "@tencent/retailwe-ui-loading-content/index",
     "wr-icon": "@tencent/retailwe-ui-icon/index",
-    "wr-price": "@tencent/retailwe-ui-price/index",
-    "wr-service-goods-card": "@tencent/retailwe-ui-order-goods-card/index",
+    "wr-price": "/components/price/index",
+    "wr-service-goods-card": "../components/order-goods-card/index",
     "wr-service-button-bar": "../components/after-service-button-bar/index",
-
     "t-cell": "tdesign-miniprogram/cell/cell",
     "t-icon": "tdesign-miniprogram/icon/icon",
     "t-cell-group": "tdesign-miniprogram/cell-group/cell-group",

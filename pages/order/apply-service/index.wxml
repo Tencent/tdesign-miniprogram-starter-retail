@@ -1,9 +1,42 @@
 <view class="select-service">
 	<wr-order-goods-card goods="{{goodsInfo}}" no-top-line thumb-class="order-goods-card-title-class">
-  	<!-- <view slot="append-card" ></view> -->
+  	<view slot="footer" class="order-goods-card-footer">
+      <wr-price  
+        price="{{goodsInfo.paidAmountEach}}" 
+        fill
+        wr-class="order-goods-card-footer-price-class"
+        symbol-class="order-goods-card-footer-price-symbol"
+        decimal-class="order-goods-card-footer-price-decimal"
+      />
+      <view class="order-goods-card-footer-num">x {{goodsInfo.boughtQuantity}}</view>
+    </view>
   </wr-order-goods-card>
+  	<view wx:if="{{!serviceRequireType}}" class="service-choice">
+			<t-cell-group>
+				<t-cell
+				 title="申请退款（无需退货）"
+				 arrow
+         description="没收到货，或与商家协商同意不用退货只退款"
+				 bindtap="onApplyOnlyRefund"
+			  />
+			</t-cell-group>
+			<t-cell-group wx:if="{{canApplyReturn}}">
+				<t-cell
+				 title="退货退款"
+				 description="已收到货，需要退还收到的商品"
+				 arrow
+				 bindtap="onApplyReturnGoods"
+				/>
+			</t-cell-group>
+			<t-cell-group wx:else class="non-returnable">
+				<t-cell
+				 title="退货退款"
+				 description="该商品不支持退货"
+				></t-cell>
+			</t-cell-group>
+		</view>
 	<!-- 售后表单 -->
-	<view class="service-form">
+	<view wx:else class="service-form">
     <view class="service-from-group">
       <t-cell-group>
         <t-cell

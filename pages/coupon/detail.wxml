@@ -1,74 +1,47 @@
 <view class="wrap">
 	<!-- 优惠券 -->
-	<wr-coupon-card
-	 wx:if="{{detail}}"
-	 status="{{detail.status}}"
-	 type="{{detail.type}}"
-	 value="{{detail.value}}"
-	 tag="{{detail.tag}}"
-	 desc="{{detail.desc}}"
-	 title="{{detail.title}}"
-	 time-limit="{{detail.timeLimit}}"
-	 currency="{{detail.currency}}"
-	 key="{{detail.key}}"
-	 nav="{{false}}"
+	<coupon-card
+        couponDTO="{{detail}}"
 	/>
-	<!-- 查看适用产品 -->
-	<t-button t-class="view-good-list-btn" block="{{true}}" bindtap="navGoodListHandle">
-		查看使用商品
-	</t-button>
 	<!-- 说明 -->
 	<t-cell-group t-class="desc-group-wrap">
 		<t-cell
 		 wx:if="{{detail && detail.desc}}"
+         t-class="t-class-cell"
 		 t-class-title="t-class-title"
-		 t-class-description="t-class-description"
-		 title="优惠券说明"
-		 description="{{detail && detail.desc}}"
+         t-class-note="t-class-note"
+		 title="规则说明"
+		 note="{{detail && detail.desc}}"
+		/>
+		<t-cell
+		 wx:if="{{detail && detail.timeLimit}}"
+         t-class="t-class-cell"
+		 t-class-title="t-class-title"
+         t-class-note="t-class-note"
+		 title="有效时间"
+		 note="{{detail && detail.timeLimit}}"
+		/>
+		<t-cell
+		 wx:if="{{detail && detail.storeAdapt}}"
+         t-class="t-class-cell"
+		 t-class-title="t-class-title"
+         t-class-note="t-class-note"
+		 title="适用范围"
+		 note="{{detail && detail.storeAdapt}}"
 		/>
 		<t-cell
 		 wx:if="{{detail && detail.useNotes}}"
+         t-class="t-class-cell"
 		 t-class-title="t-class-title"
-		 t-class-description="t-class-description"
+         t-class-note="t-class-note"
 		 title="使用须知"
-		 description="{{detail && detail.useNotes}}"
-		/>
-		<t-cell
-		 wx:if="{{storeInfoStr}}"
-		 t-class-title="t-class-title"
-		 t-class-description="t-class-description"
-		 title="适用门店"
-		 arrow="{{true}}"
-		 description="{{storeInfoStr}}"
-		 bind:tap="openStoreList"
+		 note="{{detail && detail.useNotes}}"
 		/>
 	</t-cell-group>
+	<!-- 查看可用商品 -->
+    <view class="button-wrap">
+        <t-button t-class="view-good-list-btn" block="{{true}}" bindtap="navGoodListHandle">
+            查看可用商品
+        </t-button>
+    </view>
 </view>
-<!-- 弹层 -->
-<t-popup visible="{{showStoreInfoList}}" placement="bottom" bind:visible-change="closeStoreList">
-	<view class="popup-content-wrap" slot="content">
-		<view class="popup-content-title">
-			适用门店
-			<t-icon
-			 t-class="close-icon"
-			 name="close"
-			 size="25"
-			 bind:tap="closeStoreList"
-			/>
-		</view>
-		<t-cell-group t-class="desc-group-wrap in-popup">
-			<t-cell
-			 wx:if="{{storeInfoStr}}"
-			 wx:for="{{storeInfoList}}"
-			 wx:for-index="idx"
-			 wx:for-item="itemName"
-			 wx:key="id"
-			 title="{{itemName.storeName}}"
-			 description="{{'' + itemName.provinceName + itemName.cityName + itemName.districtName + itemName.detailAddress}}"
-			 title-class="max-width-cell"
-			 label-class="signal-line-label"
-			/>
-		</t-cell-group>
-	</view>
-</t-popup>
-

@@ -28,6 +28,11 @@ page {
 }
 .tab-bar__active {
   font-size: 28rpx;
+  color: #fa550f !important;
+}
+
+.tab-bar__track {
+  background-color: #fa550f !important;
 }
 
 .coupon-list-wrap {

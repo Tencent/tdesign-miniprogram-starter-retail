@@ -8,24 +8,36 @@ page {
   margin-right: 24rpx;
 }
 
-.view-good-list-btn {
-  height: 80rpx;
-  line-height: 80rpx;
-  font-size: 32rpx !important;
+.wrap .button-wrap .view-good-list-btn {
+  width: 686rpx;
+  height: 88rpx;
+  margin-top: 50rpx;
+  background: #fa4126;
+  border-radius: 44rpx;
+  color: #fff;
+  font-size: 32rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-  margin-top: 40rpx;
-  margin-bottom: 40rpx;
-  color: #fa550f !important;
+.desc-group-wrap .t-class-cell {
+  align-items: flex-start;
 }
 
 .desc-group-wrap .t-class-title {
   font-size: 26rpx;
+  width: 140rpx;
+  flex: none;
+  color: #888;
 }
 
-.desc-group-wrap .t-class-description {
-  font-size: 24rpx;
+.desc-group-wrap .t-class-note {
+  font-size: 26rpx;
   word-break: break-all;
   white-space: pre-line;
+  justify-content: flex-start;
+  color: #333;
 }
 
 .desc-group-wrap {

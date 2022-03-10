@@ -105,7 +105,7 @@ Page({
       .then((res) => {
         this.page.num++;
         let dataList = [];
-        let tabs = this.data.tabs;
+        let { tabs } = this.data;
         if (res && res.data && res.data.states) {
           tabs = this.data.tabs.map((item) => {
             switch (item.key) {
@@ -135,7 +135,7 @@ Page({
               typeDesc: ServiceTypeDesc[_data.rights.rightsType],
               typeDescIcon:
                 _data.rightsType === ServiceType.ONLY_REFUND
-                  ? 'money'
+                  ? 'money-circle'
                   : 'return-goods-1',
               status: _data.rights.rightsStatus,
               statusName: _data.rights.userRightsStatusName,
@@ -147,8 +147,10 @@ Page({
                 title: item.goodsName,
                 specs: (item.specInfo || []).map((s) => s.specValues || ''),
                 // amount: item.itemRefundAmount,
-                price: item.itemRefundAmount,
-                num: item.rightsQuantity,
+                // price: item.itemRefundAmount,
+                itemRefundAmount: item.itemRefundAmount,
+                rightsQuantity: item.itemRefundAmount,
+                // num: item.rightsQuantity,
               })),
               storeId: _data.storeId,
               buttons: _data.buttonVOs || [],
@@ -190,7 +192,7 @@ Page({
 
   onTabChange(e) {
     const { value } = e.detail;
-    const tab = this.data.tabs.find(v => v.key === value);
+    const tab = this.data.tabs.find((v) => v.key === value);
     if (!tab) return;
     this.refreshList(value);
   },
@@ -214,9 +216,7 @@ Page({
   // 点击订单卡片
   onAfterServiceCardTap(e) {
     wx.navigateTo({
-      url:
-        '/pages/order/after-service-detail/index?rightsNo=' +
-        e.currentTarget.dataset.order.id,
+      url: `/pages/order/after-service-detail/index?rightsNo=${e.currentTarget.dataset.order.id}`,
     });
   },
 });

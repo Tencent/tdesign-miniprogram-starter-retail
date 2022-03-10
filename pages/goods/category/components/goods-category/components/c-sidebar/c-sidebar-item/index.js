@@ -32,5 +32,5 @@ Component({
         parent.triggerEvent('change', { index });
       });
     },
-  }
-})
+  },
+});

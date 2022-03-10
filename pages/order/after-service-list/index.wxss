@@ -64,9 +64,38 @@
   margin: 0 24rpx;
 }
 
-wr-order-goods-card:not(:first-child) .wr-goods-card {
-  margin-top: 40rpx;
+.order-goods-card-footer {
+  display: flex;
+  width: calc(100% - 190rpx);
+  justify-content: space-between;
+  position: absolute;
+  bottom: 20rpx;
+  left: 190rpx;
 }
+
+.order-goods-card-footer-num {
+  color: #999;
+}
+
+.page-container .order-goods-card-footer .order-goods-card-footer-price-class {
+  font-size: 36rpx;
+  color: #333;
+  font-family: DIN Alternate;
+}
+
+.page-container .order-goods-card-footer .order-goods-card-footer-price-decimal {
+  font-size: 28rpx;
+  color: #333;
+  font-family: DIN Alternate;
+
+}
+
+.page-container .order-goods-card-footer .order-goods-card-footer-price-symbol {
+  color: #333;
+  font-size: 24rpx;
+  font-family: DIN Alternate;
+}
+
 
 .price-total {
   font-size: 24rpx;
@@ -102,20 +131,20 @@ wr-order-goods-card:not(:first-child) .wr-goods-card {
   clear: both;
 }
 
-.page-container
+/* .page-container
   .order-goods-card
   > wr-goods-card
   .wr-goods-card__bottom
   .price {
   top: 100rpx;
   left: 10rpx;
-}
+} */
 
-.page-container .order-goods-card > wr-goods-card .wr-goods-card__num {
+/* .page-container .order-goods-card > wr-goods-card .wr-goods-card__num {
   top: 100rpx;
-}
+} */
 
-.page-container
+/* .page-container
   .order-goods-card
   > wr-goods-card
   .wr-goods-card__bottom
@@ -126,7 +155,7 @@ wr-order-goods-card:not(:first-child) .wr-goods-card {
   font-size: 24rpx;
   color: #333333;
   font-weight: normal;
-}
+} */
 
 .page-container .wr-goods-card__specs {
   margin: 14rpx 20rpx 0 0;
@@ -139,6 +168,7 @@ wr-order-goods-card:not(:first-child) .wr-goods-card {
 
 .page-container .order-card .header .store-name {
   width: 80%;
+  -webkit-line-clamp: 1;
 }
 
 .page-container .order-card .header .store-name > view {
@@ -164,7 +194,7 @@ wr-order-goods-card:not(:first-child) .wr-goods-card {
 
 .page-container .header__right {
   font-size: 24rpx;
-  color: #333333;
+  color: #FA4126;
   display: flex;
   align-items: center;
 }

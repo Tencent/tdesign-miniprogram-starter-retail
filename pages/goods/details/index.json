@@ -11,8 +11,9 @@
     "t-icon": "tdesign-miniprogram/icon/icon",
     "t-popup": "tdesign-miniprogram/popup/popup",
     "wr-price": "@tencent/retailwe-ui-price/index",
+    "t-price": "/components/price/index",
     "wr-promotion-popup": "@tencent/retailwe-ui-promotion-popup/index",
     "goods-specs-popup": "@tencent/retailwe-ui-goods-specs-popup/index",
-    "wr-buy-bar": "@tencent/retailwe-ui-buy-bar/index"
+    "t-buy-bar": "./components/buy-bar/index"
   }
 }

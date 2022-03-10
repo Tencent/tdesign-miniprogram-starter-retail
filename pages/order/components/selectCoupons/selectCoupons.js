@@ -16,11 +16,8 @@ Component({
       value: false,
       observer(couponsShow) {
         if (couponsShow) {
-          const {
-            promotionGoodsList,
-            orderSureCouponList,
-            storeId,
-          } = this.data;
+          const { promotionGoodsList, orderSureCouponList, storeId } =
+            this.data;
           const products =
             promotionGoodsList &&
             promotionGoodsList.map((goods) => {

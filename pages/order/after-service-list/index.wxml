@@ -1,20 +1,4 @@
 <view class="page-container">
-	<t-tabs
-	 t-class="tab-bar"
-	 value="{{curTab}}"
-	 bind:change="onTabChange"
-	 style="margin-bottom: 88rpx;position: fixed;top: 0;left: 0;z-index: 100;"
-	>
-		<t-tab-panel
-		 wx:for="{{tabs}}"
-		 wx:for-item="item"
-		 wx:for-index="index"
-		 wx:key="index"
-		 label="{{item.text}}"
-		 value="{{item.key}}"
-		/>
-	</t-tabs>
-	<view style="margin-bottom: 88rpx" />
 	<t-pull-down-refresh id="t-pull-down-refresh" bindrefresh="onPullDownRefresh_">
 		<wr-order-card
 		 wx:for="{{dataList}}"
@@ -28,21 +12,31 @@
 		>
 			<view class="text-btn" slot="top-right">
 				<view class="header__right">
-					<wr-icon wr-class="header__right__icon" name="{{order.typeDescIcon}}" />
+					<t-icon wr-class="header__right__icon" name="money-circle" size="xl"/>
 					{{order.typeDesc}}
 				</view>
 			</view>
-			<wr-specs-goods-card
+			<wr-goods-card
 			 wx:for="{{order.goodsList}}"
 			 wx:key="id"
 			 wx:for-item="goods"
 			 wx:for-index="gIndex"
 			 data="{{goods}}"
 			 no-top-line="{{gIndex === 0}}"
-			/>
+			>
+				<view slot="footer" class="order-goods-card-footer">
+					<wr-price  
+						price="{{goods.itemRefundAmount}}" 
+						fill
+						wr-class="order-goods-card-footer-price-class"
+						symbol-class="order-goods-card-footer-price-symbol"
+						decimal-class="order-goods-card-footer-price-decimal"
+					/>
+      		<view class="order-goods-card-footer-num">x {{goods.rightsQuantity}}</view>
+    		</view>
+			</wr-goods-card>
 			<view slot="more">
 				<view class="status-desc">{{order.statusDesc}}</view>
-				<!-- 订单按钮栏 -->
 				<wr-after-service-button-bar service="{{order}}" bindrefresh="onRefresh" />
 			</view>
 		</wr-order-card>

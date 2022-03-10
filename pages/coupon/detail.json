@@ -1,11 +1,10 @@
 {
   "navigationBarTitleText": "优惠券详情",
   "usingComponents": {
-    "wr-coupon-card": "./components/coupon/index",
+    "coupon-card": "./components/coupon-card/index",
     "t-cell": "tdesign-miniprogram/cell/cell",
     "t-cell-group": "tdesign-miniprogram/cell-group/cell-group",
     "t-button": "tdesign-miniprogram/button/button",
-    "t-popup": "tdesign-miniprogram/popup/popup",
     "t-icon": "tdesign-miniprogram/icon/icon"
   }
 }
