@@ -22,6 +22,70 @@
   margin-top: 20rpx;
 }
 
+.select-service wr-order-goods-card .wr-goods-card__body  {
+  margin-left: 50rpx;
+}
+
+.order-goods-card-footer {
+  display: flex;
+  width: calc(100% - 190rpx);
+  justify-content: space-between;
+  position: absolute;
+  bottom: 0;
+  left: 190rpx;
+}
+
+.order-goods-card-footer-num {
+  color: #999;
+}
+
+.select-service .order-goods-card-footer .order-goods-card-footer-price-class {
+  font-size: 36rpx;
+  color: #333;
+  font-family: DIN Alternate;
+}
+.select-service .order-goods-card-footer .order-goods-card-footer-price-decimal {
+  font-size: 28rpx;
+  color: #333;
+  font-family: DIN Alternate;
+
+}
+.select-service .order-goods-card-footer .order-goods-card-footer-price-symbol {
+  color: #333;
+  font-size: 24rpx;
+  font-family: DIN Alternate;
+}
+/* .select-service .wr-cell-group {
+  margin-top: 20rpx;
+}
+.select-service .wr-cell {
+  padding: 24rpx 30rpx;
+  align-items: center;
+}
+.select-service .wr-cell__left-icon-wrap {
+  margin-right: 20rpx;
+}
+.select-service .wr-cell__left-icon-wrap .wr-icon {
+  font-size: 56rpx !important;
+  color: #959595;
+}
+.select-service .wr-cell__title {
+  font-size: 30rpx;
+  color: #333333;
+  word-wrap: break-word;
+}
+.select-service .wr-cell__right-icon-wrap {
+  color: #aaaaaa;
+}
+.select-service .wr-cell__value {
+  color: #666666;
+}
+.select-service .wr-cell__label {
+  margin-top: 12rpx;
+  font-size: 24rpx;
+  color: #999999;
+  word-wrap: break-word;
+} */
 .select-service .remark {
   min-height: 110rpx;
   border-radius: 10rpx;
@@ -31,6 +95,7 @@
 .select-service .remark::after {
   border: none;
 }
+
 
 .select-service .special-cell .special-cell-note {
   display: flex;
@@ -158,6 +223,7 @@
 .order-goods-card-footer {
   display: flex;
   width: calc(100% - 190rpx);
+  border: 1px solid #000;
   justify-content: space-between;
   position: absolute;
   bottom: 0;
@@ -168,23 +234,9 @@
   color: #999;
 }
 
-.select-service .order-goods-card-footer .order-goods-card-footer-price-class {
-  font-size: 36rpx;
-  color: #333;
-  font-family: DIN Alternate;
+.order-goods-card-title-class {
+  width: 10rpx!important;
 }
-.select-service .order-goods-card-footer .order-goods-card-footer-price-decimal {
-  font-size: 28rpx;
-  color: #333;
-  font-family: DIN Alternate;
-
-}
-.select-service .order-goods-card-footer .order-goods-card-footer-price-symbol {
-  color: #333;
-  font-size: 24rpx;
-  font-family: DIN Alternate;
-}
-
 .input-dialog__content {
   text-align: left;
 }

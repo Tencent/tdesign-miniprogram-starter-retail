@@ -8,7 +8,7 @@
         symbol-class="order-goods-card-footer-price-symbol"
         decimal-class="order-goods-card-footer-price-decimal"
       />
-      <view class="order-goods-card-footer-num">x1</view>
+      <view class="order-goods-card-footer-num">x {{goodsInfo.boughtQuantity}}</view>
     </view>
   </wr-order-goods-card>
   	<view wx:if="{{!serviceRequireType}}" class="service-choice">
