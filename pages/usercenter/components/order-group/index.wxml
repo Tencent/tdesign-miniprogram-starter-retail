@@ -26,7 +26,7 @@
 					<t-icon
 					 prefix="{{classPrefix}}"
 					 name="{{item.iconName}}"
-					 size="56"
+					 size="56rpx"
 					 customStyle="background-image: -webkit-linear-gradient(90deg, #6a6a6a 0%,#929292 100%);-webkit-background-clip: text;-webkit-text-fill-color: transparent;"
 					/>
 				</t-badge>

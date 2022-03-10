@@ -2,6 +2,7 @@ import { getPermission } from '../../../../utils/getPermission';
 import { phoneRegCheck } from '../../../../utils/util';
 import Toast from 'tdesign-miniprogram/toast/index';
 import { addressParse } from '../../../../utils/addressParse';
+import { resolveAddress, rejectAddress } from '../../address/list/util';
 
 Component({
   externalClasses: ['t-class'],
@@ -69,7 +70,6 @@ Component({
               isDefault: false,
               isOrderSure: this.properties.isOrderSure,
             };
-            console.log([provinceName, cityName, countyName]);
 
             addressParse(provinceName, cityName, countyName);
 
@@ -82,7 +82,6 @@ Component({
                 cityCode,
                 districtCode,
               });
-              console.log('params: ', params);
               // 如果是结算页面进来的,简化逻辑，直接提交地址
               if (this.properties.isOrderSure) {
                 this.onHandleSubmit(params);
@@ -90,7 +89,6 @@ Component({
                 // 选择收获地址页面点击微信地址导入,成功后跳转地址详情页面
                 Navigator.gotoPage('/address-detail', params);
               } else {
-                console.log('xxx');
                 // 其他情况触发change事件
                 this.triggerEvent('change', params);
               }
@@ -118,54 +116,25 @@ Component({
 
     // 返回结算页面
     findPage(pageRouteUrl) {
-      const currentPages = getCurrentPages();
-      const pageRoute = getRouterPath(pageRouteUrl);
-      if (pageRoute) {
-        const pageRoutePath = pageRoute.path.replace(/^\//, '');
-        for (let i = 0; i < currentPages.length; i++) {
-          if (currentPages[i].route === pageRoutePath) {
-            return currentPages.length - i - 1;
-          }
-        }
-      }
-      return -1;
+      const currentRoutes = getCurrentPages().map((v) => v.route);
+      return currentRoutes.indexOf(pageRouteUrl);
     },
 
     // 结算页面进入定制化开发，直接提交
     async onHandleSubmit(params) {
       try {
-        const res = await apis.userInfo.addressAdd(dataConvertAddress(params));
-        const addressId = res.data?.addressId;
-        const addressData = await this.queryAddress(addressId);
-        // 自动将该地址作为当前结算地址
-        setReceiptAddress(addressData);
-        try {
-          // 结算页新增地址成功后自动选择该地址并跳转回结算页
-          const orderPageDeltaNum = this.findPage('/order/sure');
-          if (orderPageDeltaNum > -1) {
-            Navigator.navigateBack({ backRefresh: true }, orderPageDeltaNum);
-            return;
-          }
-        } catch (err) {
-          console.error(err);
-        }
-
-        try {
-          // 视频落地页新增地址成功后自动选择该地址并跳转回视频落地页
-          const videoLandingPageDeltaNum = this.findPage('/videoLandingPage');
-          if (videoLandingPageDeltaNum > -1) {
-            Navigator.navigateBack(
-              { backRefresh: true },
-              videoLandingPageDeltaNum,
-            );
-            return;
-          }
-        } catch (err) {
-          console.error(err);
+        // 结算页新增地址成功后自动选择该地址并跳转回结算页
+        const orderPageDeltaNum = this.findPage(
+          'pages/order/order-confirm/index',
+        );
+        if (orderPageDeltaNum > -1) {
+          wx.navigateBack({ delta: 1 });
+          resolveAddress(params);
+          return;
         }
       } catch (err) {
-        if (err.msg) toast({ text: err.msg });
-        // console.error(err);
+        rejectAddress(params);
+        console.error(err);
       }
     },
   },

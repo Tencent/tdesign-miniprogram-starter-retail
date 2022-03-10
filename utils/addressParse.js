@@ -4,7 +4,6 @@ const addressParse = (provinceName, cityName, countyName) => {
   return new Promise((resolve, reject) => {
     try {
       const province = areaData.find((v) => v.name === provinceName);
-      console.log('province: ', province);
       const { code: provinceCode } = province;
       const city = province.children.find((v) => v.name === cityName);
       const { code: cityCode } = city;
