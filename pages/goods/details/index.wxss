@@ -140,6 +140,10 @@ page {
   color: #999;
 }
 
+.goods-detail-page .goods-info .goods-title .goods-tag .btn-icon .share-text {
+  line-height: 32rpx;
+}
+
 .goods-detail-page .goods-info .goods-intro {
   font-size: 26rpx;
   color: #888;
@@ -185,7 +189,7 @@ page {
 .goods-detail-page .desc-content {
   margin-top: 20rpx;
   background-color: #fff;
-  padding-bottom: 100rpx;
+  padding-bottom: 120rpx;
 }
 
 .goods-detail-page .desc-content__title {
@@ -221,6 +225,54 @@ page {
   width: 100%;
   background-color: #fff;
   padding-bottom: env(safe-area-inset-bottom);
+}
+
+.popup-sku-header .popup-sku-header__goods-info .popup-sku__price {
+  display: flex;
+  align-items: center;
+  color: #fa4126;
+  margin-top: 48rpx;
+}
+
+.popup-sku-header
+  .popup-sku-header__goods-info
+  .popup-sku__price
+  .popup-sku__price-num {
+  font-size: 64rpx;
+  color: #fa4126;
+  font-weight: bold;
+  font-family: DIN Alternate;
+}
+.popup-sku-header
+  .popup-sku-header__goods-info
+  .popup-sku__price
+  .popup-sku__price-symbol {
+  font-size: 36rpx;
+  color: #fa4126;
+}
+
+.popup-sku-header
+  .popup-sku-header__goods-info
+  .popup-sku__price
+  .popup-sku__price-max-num {
+  font-size: 48rpx;
+}
+
+.goods-detail-page .single-confirm-btn {
+  border-radius: 48rpx;
+  color: #ffffff;
+  margin: 0 32rpx;
+  font-size: 32rpx;
+  height: 88rpx;
+  text-align: center;
+  line-height: 88rpx;
+  background-color: #fa4126;
+}
+
+.goods-detail-page .single-confirm-btn.disabled {
+  font-size: 32rpx;
+  color: #fff;
+  background-color: #dddddd;
 }
 
 /* 
@@ -357,7 +409,7 @@ page {
   margin-left: 16rpx;
 } */
 
-.recommend-wrap {
+/* .recommend-wrap {
   margin-top: 20rpx;
   padding-bottom: 128rpx;
 }
@@ -368,8 +420,8 @@ page {
     bottom: env(safe-area-inset-bottom);
     background-color: #fff;
   }
-}
-.coupon-style {
+} */
+/* .coupon-style {
   display: inline-block;
   padding: 0 12rpx;
   font-size: 22rpx;
@@ -407,13 +459,15 @@ page {
   right: 0;
   transform: translate(50%, -50%) rotate(45deg);
   -webkit-transform: translate(50%, -50%) rotate(45deg);
-}
-.popup-container {
+} */
+
+/* .popup-container {
   background-color: #ffffff;
   position: relative;
   z-index: 100;
   border-radius: 16rpx 16rpx 0 0;
 }
+
 .popup-container .popup-close {
   position: absolute;
   right: 30rpx;
@@ -421,10 +475,12 @@ page {
   z-index: 9;
   color: #999999;
 }
+
 .popup-container .popup-close .market {
   font-size: 25rpx;
   color: #999;
 }
+
 .popup-container .popup-title {
   height: 100rpx;
   position: relative;
@@ -432,16 +488,19 @@ page {
   align-items: center;
   justify-content: center;
 }
+
 .popup-container .popup-title .title {
   font-size: 32rpx;
   color: #222427;
   font-weight: 600;
 }
+
 .popup-container .popup-content {
   min-height: 400rpx;
   max-height: 600rpx;
   overflow-y: scroll;
 }
+
 .popup-container .popup-content .desc {
   padding: 16rpx 32rpx 32rpx;
   font-size: 24rpx;
@@ -449,7 +508,29 @@ page {
   line-height: 40rpx;
 }
 
-.to-gain-center {
+.popup-container .popup-content .desc .limit-content {
+  font-size: 28rpx;
+}
+
+.popup-container .popup-content .coupon-card {
+  margin: 24rpx;
+}
+
+.popup-container .popup-content .to-gain-center {
+  width: 100%;
+  height: 100rpx;
+  background: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fa550f;
+}
+
+.popup-container .popup-content .to-gain-center .icon {
+  margin-left: 12rpx;
+} */
+
+/* .to-gain-center {
   width: 100%;
   height: 100rpx;
   background: #ffffff;
@@ -462,12 +543,12 @@ page {
 }
 .to-gain-center .icon {
   margin-left: 12rpx;
-}
-.coupon-popup .coupon-card {
+} */
+/* .coupon-popup .coupon-card {
   margin: 24rpx;
-}
+} */
 
-.free-shipping .promotion-list .list-item {
+/* .free-shipping .promotion-list .list-item {
   margin-bottom: 0 !important;
 }
 .hasNextLayer {
@@ -477,9 +558,9 @@ page {
   width: 100%;
   border-bottom: 1rpx solid #e6e6e6;
   padding-bottom: 32rpx;
-}
+} */
 
-.popup-sku-header {
+/* .popup-sku-header {
   display: flex;
   padding: 30rpx 28rpx 0 30rpx;
 }
@@ -720,8 +801,8 @@ page {
   width: 3rpx;
   height: 24rpx;
   background-color: #999999;
-}
-.popup-sku-actions {
+} */
+/* .popup-sku-actions {
   font-size: 32rpx;
   height: 96rpx;
   text-align: center;
@@ -735,11 +816,9 @@ page {
 }
 .popup-sku-actions .sku-operate .sku-operate-addCart {
   background-color: #ef9301;
-  background-color: var(--color-secondary, #ef9301);
 }
 .popup-sku-actions .sku-operate .sku-operate-buyNow {
   background-color: #fa550f;
-  background-color: var(--color-primary, #fa550f);
 }
 .popup-sku-actions .sku-operate .selected-sku-btn {
   width: 100%;
@@ -760,7 +839,7 @@ page {
 }
 .popup-sku-actions .sku-operate-booking .selected-sku-btn {
   background-color: #ff9301;
-}
+} */
 
 .buy-bar-buttons .group-addCart-disabled {
   background: #dddddd !important;
@@ -811,6 +890,7 @@ page {
 .recommend-wrap .goods-list-wrap {
   background-color: #f8f8f8 !important;
 }
+
 .skuToast {
   top: 50% !important;
   position: absolute !important;
@@ -833,80 +913,4 @@ page {
   color: #666;
   margin-top: 24rpx;
   margin-left: 32rpx;
-}
-
-.tag-cart-num {
-  left: 83rpx !important;
-}
-.bookingWrap {
-  display: flex;
-  height: 92rpx;
-  width: 100%;
-}
-.booking {
-  background-color: #ef9301;
-  color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-}
-
-.popup-container {
-  background-color: #ffffff;
-  position: relative;
-  z-index: 100;
-  border-radius: 16rpx 16rpx 0 0;
-}
-.popup-container .popup-close {
-  position: absolute;
-  right: 30rpx;
-  top: 30rpx;
-  z-index: 9;
-  color: #999999;
-}
-.popup-container .popup-close .market {
-  font-size: 25rpx;
-  color: #999;
-}
-.popup-container .popup-title {
-  height: 100rpx;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.popup-container .popup-title .title {
-  font-size: 32rpx;
-  color: #222427;
-  font-weight: 600;
-}
-.popup-container .popup-content {
-  min-height: 400rpx;
-  max-height: 600rpx;
-  overflow-y: scroll;
-}
-.popup-container .popup-content .desc {
-  padding: 16rpx 32rpx 32rpx;
-  font-size: 24rpx;
-  color: #222427;
-  line-height: 40rpx;
-}
-.popup-container .popup-content .desc .limit-content {
-  font-size: 28rpx;
-}
-.popup-container .popup-content .coupon-card {
-  margin: 24rpx;
-}
-.popup-container .popup-content .to-gain-center {
-  width: 100%;
-  height: 100rpx;
-  background: #ffffff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #fa550f;
-}
-.popup-container .popup-content .to-gain-center .icon {
-  margin-left: 12rpx;
 }

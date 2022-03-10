@@ -19,7 +19,6 @@
         <t-image src="{{item}}" t-class="swipe-img" />
       </t-swiper-item>
     </t-swiper>
-
     <!-- 商品信息 -->
     <view class="goods-info">
       <view class="goods-number">
@@ -66,7 +65,7 @@
           <t-button open-type="share" t-class="shareBtn">
             <view class="btn-icon">
               <t-icon name="share" size="32rpx" />
-              <text>分享</text>
+              <view class="share-text">分享</view>
             </view>
           </t-button>
         </view>
@@ -86,7 +85,6 @@
     <!-- 商品评论 -->
     <template is="comments" data="{{commentsList, commentsStatistics}}" />
   </view>
-  <!-- <view class="goods-page"> -->
   <view class="desc-content">
     <view class="desc-content__title" wx:if="{{details.desc.length > 0}}">
       <t-image t-class="img" src="{{recLeftImg}}" />
@@ -101,7 +99,6 @@
       <t-image t-class="desc-content__img" src="{{item}}" mode="widthFix" />
     </view>
   </view>
-  <!-- </view> -->
   <!-- 底部按纽 -->
   <view class="goods-bottom-operation">
     <t-buy-bar
@@ -116,13 +113,14 @@
       class="goods-details-card"
     />
   </view>
-  <goods-specs-popup
+  <t-goods-specs-popup
     id="goodsSpecsPopup"
     show="{{isSpuSelectPopupShow}}"
     title="{{details.title}}"
     src="{{specImg ? specImg : primaryImage}}"
     specList="{{details.specList}}"
     skuList="{{skuArray}}"
+    limitBuyInfo="{{details.limitInfo[0].text}}"
     bind:closeSpecsPopup="handlePopupHide"
     bind:change="chooseSpecItem"
     bind:changeNum="changeNum"
@@ -133,89 +131,43 @@
   >
     <view slot="goods-price">
       <view class="popup-sku__price">
-        <!-- <price-group wr-class="price-group" priceArray="{{[1, 3]}}" priceGroupType="{{3}}"></price-group> -->
         <view
           class="popup-sku__price-num"
           wx:if="{{!isAllSelectedSku || (!promotionSubCode && isAllSelectedSku)}}"
         >
-          <wr-price
-            price=" {{selectSkuSellsPrice ? selectSkuSellsPrice : minSalePrice }}"
+          <t-price
+            price="{{selectSkuSellsPrice ? selectSkuSellsPrice : minSalePrice }}"
             wr-class="popup-sku__price-num"
-            type="lighter"
-            fill="{{false}}"
-          >
-            {{selectSkuSellsPrice ? selectSkuSellsPrice : minSalePrice }}
-          </wr-price>
+            symbol-class="popup-sku__price-symbol"
+          ></t-price>
         </view>
         <block
           wx:if="{{selectSkuSellsPrice === 0 && minSalePrice !== maxSalePrice && !isAllSelectedSku}}"
         >
           <view class="delthrough" />
-          <wr-price
-            price=" {{maxSalePrice }}"
-            symbol=""
+          <t-price
+            price="{{maxSalePrice}}"
             wr-class="popup-sku__price-num"
-            type="lighter"
-            fill="{{false}}"
-          >
-            {{maxSalePrice }}
-          </wr-price>
+            symbol-class="popup-sku__price-symbol"
+          ></t-price>
         </block>
       </view>
     </view>
-    <!-- <view slot="bottomSlot">
-		<t-toast id="toast2" t-class="skuToast" />
-	</view> -->
     <view
-      class="sku-operate sku-operate-confirm"
       slot="slotButton"
       wx:if="{{outOperateStatus}}"
+      class="single-confirm-btn {{!isStock ? 'disabled' : ''}}"
+      bindtap="specsConfirm"
     >
-      <view
-        class="btn selected-sku-btn {{!isStock ? 'disabled' : ''}}"
-        bindtap="specsConfirm"
-      >
-        确定
-      </view>
+      确定
     </view>
-  </goods-specs-popup>
-  <!-- 限购说明弹窗 -->
-  <t-popup
-    visible="{{show}}"
-    placement="bottom"
-    bind:visible-change="closePopup"
-  >
-    <!-- 限购说明 -->
-    <view
-      class="popup-container"
-      slot="content"
-      wx:if="{{details.limitInfo && details.limitInfo.length}}"
-    >
-      <view class="popup-close" bindtap="closePopup">
-        <text class="wr wr-close" />
-      </view>
-      <view class="popup-title">
-        <view class="title">限购说明</view>
-      </view>
-      <view class="popup-content">
-        <view class="desc">
-          <view
-            class="limit-content"
-            wx:for="{{details.limitInfo}}"
-            wx:key="index"
-          >
-            {{item.text}}
-          </view>
-        </view>
-      </view>
-    </view>
-  </t-popup>
-  <wr-promotion-popup
+  </t-goods-specs-popup>
+
+  <t-promotion-popup
     list="{{list}}"
     bind:closePromotionPopup="closePromotionPopup"
     show="{{isShowPromotionPop}}"
     bind:promotionChange="promotionChange"
   />
-  <t-toast id="t-toast-1" t-class="skuToast" />
-  <t-toast id="t-toast" t-class="skuToast" />
 </view>
+<t-toast id="t-toast" t-class="skuToast" />
