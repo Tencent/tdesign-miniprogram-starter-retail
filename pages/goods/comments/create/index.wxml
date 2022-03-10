@@ -18,18 +18,22 @@
         value="{{goodRateValue}}"
         bind:change="onRateChange"
         variant="filled"
-        color="{{['#FFC51C', '#DDDDDD']}}"
+        color="{{['#FFC51C']}}"
         size="52"
         class="rate"
         data-item="goodRateValue"
       ></t-rate>
     </view>
     <view class="textarea-container">
-      <t-textarea t-class="textarea" maxlength="{{500}}"></t-textarea>
+      <t-textarea
+        t-class="textarea"
+        maxlength="{{500}}"
+        bind:change="onTextAreaChange"
+      ></t-textarea>
     </view>
     <view class="upload-container">
       <t-upload
-        media-type="{{['image,video']}}"
+        media-type="{{['image','video']}}"
         files="{{uploadFiles}}"
         bind:remove="handleRemove"
         bind:success="handleSuccess"
@@ -59,7 +63,7 @@
         value="{{conveyRateValue}}"
         bind:change="onRateChange"
         variant="filled"
-        color="{{['#FFC51C', '#DDDDDD']}}"
+        color="{{['#FFC51C']}}"
         size="52"
         class="rate"
         data-item="conveyRateValue"
@@ -71,7 +75,7 @@
         value="{{serviceRateValue}}"
         bind:change="onRateChange"
         variant="filled"
-        color="{{['#FFC51C', '#DDDDDD']}}"
+        color="{{['#FFC51C']}}"
         size="52"
         class="rate"
         data-item="serviceRateValue"
@@ -83,9 +87,11 @@
       shape="round"
       theme="danger"
       content="提交"
-      t-class="submit-button"
+      t-class="submit-button{{isAllowedSubmit ? '' : '-disabled'}}"
+      bind:tap="onSubmitBtnClick"
     />
   </view>
+  <t-toast id="t-toast" />
   <!-- <view wx:if="{{ commentList.length }}" class="store-comment">
     <view class="{{isFinished ? 'finished-icon-wrap title' : 'title'}}">
       物流服务评价
