@@ -43,6 +43,7 @@ page {
   padding-bottom: 100rpx;
   padding-bottom: calc(constant(safe-area-inset-top) + 100rpx);
   padding-bottom: calc(env(safe-area-inset-bottom) + 100rpx);
+  -webkit-overflow-scrolling: touch;
 }
 
 .center-entry {

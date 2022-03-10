@@ -1,5 +1,5 @@
-import { fetchCouponDetail } from '../../services/coupon/index';
-import { fetchGoodsList } from '../../services/good/fetchGoods';
+import { fetchCouponDetail } from '../../../services/coupon/index';
+import { fetchGoodsList } from '../../../services/good/fetchGoods';
 import Toast from 'tdesign-miniprogram/toast/index';
 
 Page({

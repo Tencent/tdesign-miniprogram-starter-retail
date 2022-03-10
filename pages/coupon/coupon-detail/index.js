@@ -1,4 +1,4 @@
-import { fetchCouponDetail } from '../../services/coupon/index';
+import { fetchCouponDetail } from '../../../services/coupon/index';
 
 Page({
   data: {
@@ -26,7 +26,7 @@ Page({
 
   navGoodListHandle() {
     wx.navigateTo({
-      url: `/pages/coupon/good?id=${this.id}`,
+      url: `/pages/coupon/coupon-activity-goods/index?id=${this.id}`,
     });
   },
 });

@@ -155,7 +155,7 @@ Page({
         break;
       }
       case 'coupon': {
-        wx.navigateTo({ url: '/pages/coupon/list' });
+        wx.navigateTo({ url: '/pages/coupon/coupon-list/index' });
         break;
       }
       default: {

@@ -5,6 +5,6 @@
     "t-tabs": "tdesign-miniprogram/tabs/tabs",
     "t-tab-panel": "tdesign-miniprogram/tabs/tab-panel",
     "t-icon": "tdesign-miniprogram/icon/icon",
-    "coupon-card": "./components/coupon-card/index"
+    "coupon-card": "../components/coupon-card/index"
   }
 }
