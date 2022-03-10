@@ -112,7 +112,6 @@ Page({
     const storeInfoList = []; // 门店列表
     // 如果是从地址选择页面返回，则使用地址显选择页面新选择的地址去获取结算数据
     if (options.userAddressReq) {
-      console.log('options: ', options);
       userAddressReq = options.userAddressReq;
     }
     if (options.type === 'cart') {
