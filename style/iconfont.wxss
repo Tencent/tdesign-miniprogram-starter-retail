@@ -17,23 +17,23 @@
 }
 
 .wr-indent_close:before {
-  content: "\e041";
+  content: '\e041';
 }
 
 .wr-edit:before {
-  content: "\e002";
+  content: '\e002';
 }
 
 .wr-location:before {
-  content: "\e016";
+  content: '\e016';
 }
 
 .wr-succeed:before {
-  content: "\e00d";
+  content: '\e00d';
 }
 
 .wr-goods_return:before {
-  content: "\e03c";
+  content: '\e03c';
 }
 
 .wr-wallet:before {
@@ -65,4 +65,7 @@
 }
 .wr-wechat:before {
   content: '\e065';
+}
+.wr-cartAdd:before {
+  content: '\e05d';
 }
