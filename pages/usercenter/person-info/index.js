@@ -4,7 +4,12 @@ import Toast from 'tdesign-miniprogram/toast/index';
 
 Page({
   data: {
-    personInfo: {},
+    personInfo: {
+      avatarUrl: '',
+      nickName: '',
+      gender: 0,
+      phoneNumber: '',
+    },
     showUnbindConfirm: false,
     pickerOptions: [
       {
@@ -27,11 +32,9 @@ Page({
   },
   fetchData() {
     fetchPerson().then((personInfo) => {
-      personInfo.phoneNumber = phoneEncryption(personInfo.phoneNumber);
       this.setData({
         personInfo,
-        brithString: '去设置',
-        addressString: `${personInfo.address.provinceName} ${personInfo.address.cityName}`,
+        'personInfo.phoneNumber': phoneEncryption(personInfo.phoneNumber),
       });
     });
   },
@@ -101,7 +104,12 @@ Page({
       });
       const tempUrlArr = tempFilePath.split('/');
       const tempFileName = tempUrlArr[tempUrlArr.length - 1];
-      console.log('tempFileName: ', tempFileName);
+      Toast({
+        context: this,
+        selector: '#t-toast',
+        message: `已选择图片-${tempFileName}`,
+        theme: 'success',
+      });
     } catch (error) {
       if (error.errMsg === 'chooseImage:fail cancel') return;
       Toast({

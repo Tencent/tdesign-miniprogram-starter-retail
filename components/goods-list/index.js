@@ -71,13 +71,11 @@ Component({
   },
 
   data: {
-    hasLoad: false,
     independentID: '',
   },
 
   lifetimes: {
     ready() {
-      this.setData({ hasLoad: true });
       this.init();
     },
   },

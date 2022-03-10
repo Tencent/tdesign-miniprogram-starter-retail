@@ -1,5 +1,6 @@
 import { fetchUserCenter } from '../../services/usercenter/fetchUsercenter';
 import { cdnBase } from '../../config/index';
+import Toast from 'tdesign-miniprogram/toast/index';
 
 const menuData = [
   [
@@ -84,7 +85,6 @@ const getDefaultData = () => ({
     nickName: '正在登录...',
     phoneNumber: '',
   },
-  countsData: [],
   menuData,
   orderTagInfos,
   customerServiceInfo: {},
@@ -111,9 +111,9 @@ Page({
   fetUseriInfoHandle() {
     fetchUserCenter().then(
       ({ userInfo, countsData, orderTagInfos, customerServiceInfo }) => {
+        // eslint-disable-next-line no-unused-expressions
         menuData?.[0].forEach((v) => {
           countsData.forEach((counts) => {
-            counts.num = counts.num <= 999 ? counts.num : '999+';
             if (counts.type === v.type) {
               v.tit = counts.num;
             }
@@ -121,7 +121,6 @@ Page({
         });
         this.setData({
           userInfo,
-          countsData,
           menuData,
           orderTagInfos,
           customerServiceInfo,
@@ -151,7 +150,13 @@ Page({
         break;
       }
       case 'point': {
-        console.info('point');
+        Toast({
+          context: this,
+          selector: '#t-toast',
+          message: '你点击了积分菜单',
+          icon: '',
+          duration: 1000,
+        });
         break;
       }
       case 'coupon': {
@@ -159,7 +164,13 @@ Page({
         break;
       }
       default: {
-        console.info('未知跳转', type);
+        Toast({
+          context: this,
+          selector: '#t-toast',
+          message: '未知跳转',
+          icon: '',
+          duration: 1000,
+        });
         break;
       }
     }
@@ -171,7 +182,7 @@ Page({
     if (status === 0) {
       wx.navigateTo({ url: '/pages/order/after-service-list/index' });
     } else {
-      wx.navigateTo({ url: '/pages/order/order-list/index?status=' + status });
+      wx.navigateTo({ url: `/pages/order/order-list/index?status=${status}` });
     }
   },
 
