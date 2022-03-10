@@ -131,26 +131,19 @@
   >
     <view slot="goods-price">
       <view class="popup-sku__price">
-        <view
-          class="popup-sku__price-num"
+        <t-price
           wx:if="{{!isAllSelectedSku || (!promotionSubCode && isAllSelectedSku)}}"
-        >
-          <t-price
-            price="{{selectSkuSellsPrice ? selectSkuSellsPrice : minSalePrice }}"
-            wr-class="popup-sku__price-num"
-            symbol-class="popup-sku__price-symbol"
-          ></t-price>
-        </view>
-        <block
+          price="{{selectSkuSellsPrice ? selectSkuSellsPrice : minSalePrice }}"
+          wr-class="popup-sku__price-num"
+          symbol-class="popup-sku__price-symbol"
+        />
+
+        <t-price
           wx:if="{{selectSkuSellsPrice === 0 && minSalePrice !== maxSalePrice && !isAllSelectedSku}}"
-        >
-          <view class="delthrough" />
-          <t-price
-            price="{{maxSalePrice}}"
-            wr-class="popup-sku__price-num"
-            symbol-class="popup-sku__price-symbol"
-          ></t-price>
-        </block>
+          price="{{maxSalePrice}}"
+          wr-class="popup-sku__price-del"
+          type="delthrough"
+        />
       </view>
     </view>
     <view
