@@ -42,3 +42,6 @@
 .wr-check:before {
   content: '\e053';
 }
+.wr-cartAdd:before {
+  content: '\e05d';
+}

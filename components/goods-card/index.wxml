@@ -128,7 +128,8 @@
           <text class="t-goods-card__num__prefix">x </text>{{ goods.num }}</view
         >
         <t-icon
-          name="cart"
+          prefix="wr"
+          name="cartAdd"
           wx:if="{{showCart}}"
           id="{{independentID}}-cart"
           data-id="{{independentID}}"
