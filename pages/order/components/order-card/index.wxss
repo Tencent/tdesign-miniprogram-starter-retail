@@ -24,6 +24,13 @@
   width: 48rpx;
   height: 48rpx;
 }
+.order-card .header .store-name__label {
+  max-width: 500rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-all;
+  white-space: nowrap;
+}
 .order-card .header .order-status {
   font-size: 26rpx;
   line-height: 40rpx;

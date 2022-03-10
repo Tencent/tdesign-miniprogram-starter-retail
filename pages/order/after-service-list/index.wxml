@@ -24,10 +24,16 @@
 			 data="{{goods}}"
 			 no-top-line="{{gIndex === 0}}"
 			>
-				<!-- <view slot="footer" class="money-wrap">
-					<view>{{goods.itemRefundAmount}}</view>
-					<view >{{goods.rightsQuantity}}</view>
-				</view> -->
+				<view slot="footer" class="order-goods-card-footer">
+					<wr-price  
+						price="{{goods.itemRefundAmount}}" 
+						fill
+						wr-class="order-goods-card-footer-price-class"
+						symbol-class="order-goods-card-footer-price-symbol"
+						decimal-class="order-goods-card-footer-price-decimal"
+					/>
+      		<view class="order-goods-card-footer-num">x {{goods.rightsQuantity}}</view>
+    		</view>
 			</wr-goods-card>
 			<view slot="more">
 				<view class="status-desc">{{order.statusDesc}}</view>

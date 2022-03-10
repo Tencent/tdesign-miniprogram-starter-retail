@@ -112,7 +112,18 @@
 				 no-top-line
 				 bindtap="onGoodsCardTap"
 				 data-index="{{index}}"
-				/>
+				>
+					<view slot="footer" class="order-goods-card-footer">
+						<wr-price  
+							price="{{goods.itemRefundAmount}}" 
+							fill
+							wr-class="order-goods-card-footer-price-class"
+							symbol-class="order-goods-card-footer-price-symbol"
+							decimal-class="order-goods-card-footer-price-decimal"
+						/>
+      			<view class="order-goods-card-footer-num">x {{goods.rightsQuantity}}</view>
+    			</view>
+				</wr-service-goods-card>
 			</view>
 			<!-- 退款信息 -->
 			<view class="service-section__pay">

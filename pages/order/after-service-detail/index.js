@@ -110,8 +110,10 @@ Page({
           title: item.goodsName,
           specs: (item.specInfo || []).map((s) => s.specValues || ''),
           // amount: item.itemRefundAmount,
-          price: item.itemRefundAmount,
-          num: item.rightsQuantity,
+          // price: item.itemRefundAmount,
+          itemRefundAmount: item.itemRefundAmount,
+          // num: item.rightsQuantity,
+          rightsQuantity: item.rightsQuantity,
         })),
         orderNo: serviceRaw.rights.orderNo, // 订单编号
         rightsNo: serviceRaw.rights.rightsNo, // 售后服务单号
