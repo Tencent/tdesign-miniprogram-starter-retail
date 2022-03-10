@@ -1,8 +1,9 @@
 <view class="wx-address t-class" bind:tap="getWxLocation">
 	<block wx:if="{{isCustomStyle}}">
 		<view class="wx-address-custom">
-			<wr-icon
-			 wr-class="weixin"
+			<t-icon
+			 prefix="wr"
+			 t-class="weixin"
 			 color="#00CC00"
 			 name="weixin"
 			 size="48"

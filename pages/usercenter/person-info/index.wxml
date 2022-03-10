@@ -40,18 +40,6 @@
 		切换账号登录
 	</view>
 </view>
-
-<!-- <t-dialog
- visible="{{showUnbindConfirm}}"
- title="是否解绑手机号？"
- content="解绑后，须重新绑定手机号"
- confirm-btn="确定"
- cancel-btn="取消"
- t-class-confirm="t-class-confirm"
- bind:confirm="unbindPhoneHandle"
- bind:close="closeUnbindConfirm"
- bind:cancel="closeUnbindConfirm"
-/> -->
 <t-select-picker
  show="{{typeVisible}}"
  picker-options="{{pickerOptions}}"

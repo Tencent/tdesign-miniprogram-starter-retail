@@ -58,15 +58,6 @@ Page({
       }
     }
   },
-  // openUnbindConfirm() {
-  //   this.setData({ showUnbindConfirm: true });
-  // },
-  // closeUnbindConfirm() {
-  //   this.setData({ showUnbindConfirm: false });
-  // },
-  // unbindPhoneHandle() {
-  //   this.setData({ 'personInfo.phoneNumber': '' });
-  // },
   onClose() {
     this.setData({
       typeVisible: false,

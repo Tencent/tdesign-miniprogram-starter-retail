@@ -3,10 +3,11 @@
 }
 
 .notice-bar {
-  padding: 16rpx 30rpx;
+  padding: 24rpx 30rpx;
+  text-align: center;
   font-size: 26rpx;
-  color: #E17349;
-  background: #FEFCEF;
+  color: #e17349;
+  background: #fefcef;
 }
 
 .fill-tracking-no__form {
@@ -24,6 +25,10 @@
   padding: 0;
 }
 
+.fill-tracking-no__form .t-cell__input {
+  color: #666666 !important;
+}
+
 .fill-tracking-no__form .t-cell__value::after {
   border: none !important;
 }
@@ -33,7 +38,7 @@
 }
 
 .fill-tracking-no__form .t-cell__placeholder {
-  color: #bbbbbb;
+  color: #bbbbbb !important;
   font-size: 30rpx;
 }
 
@@ -41,15 +46,15 @@
   width: 100%;
 }
 
- .fill-tracking-no__button-bar {
-    margin: 38rpx 30rpx 0;
+.fill-tracking-no__button-bar {
+  margin: 38rpx 30rpx 0;
 }
 
 .fill-tracking-no__button-bar .btn {
   background-color: transparent;
   font-size: 32rpx;
-  color: #fa550f;
   width: 100%;
+  border-radius: 48rpx;
 }
 
 .fill-tracking-no__button-bar .btn:first-child {
@@ -57,7 +62,7 @@
 }
 
 .fill-tracking-no__button-bar .btn.confirmBtn {
-  background: #fa550f;
+  background: #fa4126;
   color: #fff;
 }
 
@@ -66,21 +71,21 @@
   color: #fff;
 }
 
-.fill-tracking-no__button-bar .cancelBtn {
-    border-color: #fa550f;
-}
-
 .fill-tracking-no__button-bar .t-class-confirm {
-  color: #fa550f !important;
-}
-
-.t-cell_desc_remark {
-  margin-top: 20rpx;
-  border-radius: 10rpx;
-  border: 2rpx solid #c6c6c6;
+  color: #fa4126;
 }
 
 .t-cell-title-width {
   width: 160rpx;
   flex: none !important;
+}
+.textarea-wrapper {
+  background: #fff;
+  display: flex;
+  align-items: flex-start;
+  padding: 24rpx 32rpx 0 48rpx;
+}
+.t-textarea-wrapper {
+  box-sizing: border-box;
+  padding-left: 16rpx;
 }
