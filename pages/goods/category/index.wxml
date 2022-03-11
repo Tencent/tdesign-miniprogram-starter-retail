@@ -3,7 +3,6 @@
     level="{{3}}"
     custom-class="goods-category-class"
     category="{{list}}"
-    initActive="{{initActive}}"
     bind:changeCategory="onChange"
   />
 </view>
