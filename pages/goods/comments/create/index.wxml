@@ -39,46 +39,53 @@
 				</view>
 			</t-upload>
 		</view>
+
 		<view class="anonymous-box">
 			<t-checkbox bind:change="onAnonymousChange" checked="{{isAnonymous}}" color="#FA4126" />
 			<view class="name">匿名评价</view>
 		</view>
 	</view>
-	<view class="comment-card convey-card">
-		<view class="convey-comment-title">物流服务评价</view>
-		<view class="rate-container">
-			<text class="rate-title">物流评价</text>
-			<t-rate
-			 value="{{conveyRateValue}}"
-			 bind:change="onRateChange"
-			 variant="filled"
-			 color="{{['#FFC51C']}}"
-			 size="52"
-			 class="rate"
-			 data-item="conveyRateValue"
-			/>
-		</view>
-		<view class="rate-container">
-			<text class="rate-title">服务评价</text>
-			<t-rate
-			 value="{{serviceRateValue}}"
-			 bind:change="onRateChange"
-			 variant="filled"
-			 color="{{['#FFC51C']}}"
-			 size="52"
-			 class="rate"
-			 data-item="serviceRateValue"
-			/>
-		</view>
+	<view class="anonymous-box">
+		<t-checkbox bind:change="onAnonymousChange" checked="{{isAnonymous}}" color="#FA4126" />
+		<view class="name">匿名评价</view>
 	</view>
-	<view class="submit-button-container">
-		<t-button
-		 theme="danger"
-		 content="提交"
-		 t-class="submit-button{{isAllowedSubmit ? '' : '-disabled'}}"
-		 bind:tap="onSubmitBtnClick"
+</view>
+<view class="comment-card convey-card">
+	<view class="convey-comment-title">物流服务评价</view>
+	<view class="rate-container">
+		<text class="rate-title">物流评价</text>
+		<t-rate
+		 value="{{conveyRateValue}}"
+		 bind:change="onRateChange"
+		 variant="filled"
+		 color="{{['#FFC51C']}}"
+		 size="52"
+		 class="rate"
+		 data-item="conveyRateValue"
+		/>
+	</view>
+	<view class="rate-container">
+		<text class="rate-title">服务评价</text>
+		<t-rate
+		 value="{{serviceRateValue}}"
+		 bind:change="onRateChange"
+		 variant="filled"
+		 color="{{['#FFC51C']}}"
+		 size="52"
+		 class="rate"
+		 data-item="serviceRateValue"
 		/>
 	</view>
 </view>
+<view class="submit-button-container">
+	<t-button
+	 shape="round"
+	 theme="danger"
+	 content="提交"
+	 t-class="submit-button{{isAllowedSubmit ? '' : '-disabled'}}"
+	 bind:tap="onSubmitBtnClick"
+	/>
+</view>
 <t-toast id="t-toast" />
+</view>
 
