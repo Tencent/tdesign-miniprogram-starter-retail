@@ -1,153 +1,225 @@
 <!-- 自定义顶部navbar -->
-<t-navbar id="navbar" title="订单详情" background="{{pageLoading ? '' :  pageNav.background}}" leftIcon="chevron-left" t-class-title="navbar-title" t-class-left-icon="navbar-left-icon" bindgoback="goBack" />
+<t-navbar
+ id="navbar"
+ title="订单详情"
+ background="{{pageLoading ? '' :  pageNav.background}}"
+ leftIcon="chevron-left"
+ t-class-title="navbar-title"
+ t-class-left-icon="navbar-left-icon"
+ bindgoback="goBack"
+/>
 <t-pull-down-refresh id="t-pull-down-refresh" background="{{pageLoading ? '' :  pageNav.background}}" bindrefresh="onPullDownRefresh_">
-  <!-- 页面背景 需要将图片加载事件传递给navbar，以便动态计算navbar背景色 -->
-  <view class="page-background">
-    <t-image t-class="page-background-img" src="{{bgImgUrl}}" mode="widthFix" binderror="onImgError" />
-  </view>
-  <!-- 页面内容 -->
-  <view class="order-detail">
-    <view class="order-detail__header">
-      <view class="title">{{_order.statusDesc}}</view>
-      <view class="desc">
-        <block wx:if="{{ order.holdStatus === 1 }}">
-          <block wx:if="{{ order.groupInfoVo.residueTime > 0 }}">
-            拼团剩余
-            <t-count-down time="{{order.groupInfoVo.residueTime}}" format="HH小时mm分ss秒" t-class="count-down" bindfinish="onCountDownFinish" />
-            <view>过时自动取消</view>
-          </block>
-        </block>
-        <block wx:elif="{{countDownTime === null}}">{{order.orderSatusRemark || ''}}</block>
-        <block wx:elif="{{countDownTime > 0}}">
-          剩
-          <t-count-down time="{{countDownTime}}" format="HH小时mm分ss秒" t-class="count-down" bindfinish="onCountDownFinish" />
-          支付，过时订单将会取消
-        </block>
-        <block wx:else>超时未支付</block>
-      </view>
-    </view>
-    <!-- 物流 -->
-    <view class="order-section" wx:if="{{logisticsNodes[0]}}" bindtap="onDeliveryClick">
-      <t-cell t-class="other-cell" bordered="{{false}}">
-        <view slot="title" class="order-logistics">
-          <wr-icon name="wuliu" wr-class="icon order-logistics__icon" />
-          <view class="title">物流信息</view>
-        </view>
-        <view class="order-logistics__desc" slot="description">
-          <view class="desc__title">{{logisticsNodes[0].desc}}</view>
-          <view class="value">{{logisticsNodes[0].date}}</view>
-        </view>
-        <t-icon slot="right-icon" name="chevron-right" size="40rpx" />
-      </t-cell>
-    </view>
-    <!-- 收货地址 -->
-    <view class="order-section">
-      <view class="section-title">
-        <t-icon name="location" t-class="icon" />
-        <view class="title">
-          {{order.logisticsVO.receiverName}}
-          <view class="phone-num">{{order.logisticsVO.receiverPhone}}</view>
-        </view>
-        <view wx:if="{{addressEditable}}" class="right text-btn" bindtap="onEditAddressTap">
-          修改
-        </view>
-      </view>
-      <view class="section-content">
-        <view class="label">{{_order.receiverAddress}}</view>
-      </view>
-    </view>
-    <!-- 店铺及商品 -->
-    <wr-order-card wr-class="order-section c-order-card" order="{{_order}}" use-top-right-slot>
-      <!-- 联系客服按钮及弹框 -->
-      <wr-customer-service wx:if="{{storeDetail && storeDetail.storeTel}}" slot="top-right" wr-class="customer-service text-btn" phone-number="{{storeDetail.storeTel}}" desc="{{storeDetail.storeBusiness}}" />
-      <block wx:for="{{_order.goodsList}}" wx:key="id" wx:for-item="goods" wx:for-index="gIndex">
-        <wr-order-goods-card goods="{{goods}}" no-top-line="{{gIndex === 0}}" bindtap="onGoodsCardTap" data-index="{{gIndex}}" />
-        <wr-order-button-bar class="goods-button-bar" order="{{_order}}" goods-index="{{gIndex}}" bindrefresh="onRefresh" data-order="{{order}}" />
-      </block>
-    </wr-order-card>
-    <view class="order-section groupon-section" wx:if="{{ order.holdStatus === 1 || order.holdStatus === 2 || order.holdStatus === 3 }}">
-      <view class="top">
-        <view class="top-left">
-          <wr-icon size="30" name="dingdanxiangqing-pintuan" />
-          <text class="status">
+	<!-- 页面背景 需要将图片加载事件传递给navbar，以便动态计算navbar背景色 -->
+	<view class="page-background">
+		<t-image
+		 t-class="page-background-img"
+		 src="{{bgImgUrl}}"
+		 mode="widthFix"
+		 binderror="onImgError"
+		/>
+	</view>
+	<!-- 页面内容 -->
+	<view class="order-detail">
+		<view class="order-detail__header">
+			<view class="title">{{_order.statusDesc}}</view>
+			<view class="desc">
+				<block wx:if="{{ order.holdStatus === 1 }}">
+					<block wx:if="{{ order.groupInfoVo.residueTime > 0 }}">
+						拼团剩余
+						<t-count-down
+						 time="{{order.groupInfoVo.residueTime}}"
+						 format="HH小时mm分ss秒"
+						 t-class="count-down"
+						 bindfinish="onCountDownFinish"
+						/>
+						<view>过时自动取消</view>
+					</block>
+				</block>
+				<block wx:elif="{{countDownTime === null}}">{{order.orderSatusRemark || ''}}</block>
+				<block wx:elif="{{countDownTime > 0}}">
+					剩
+					<t-count-down
+					 time="{{countDownTime}}"
+					 format="HH小时mm分ss秒"
+					 t-class="count-down"
+					 bindfinish="onCountDownFinish"
+					/>
+					支付，过时订单将会取消
+				</block>
+				<block wx:else>超时未支付</block>
+			</view>
+		</view>
+		<!-- 物流 -->
+		<view class="order-section" wx:if="{{logisticsNodes[0]}}" bindtap="onDeliveryClick">
+			<t-cell t-class="other-cell" bordered="{{false}}">
+				<view slot="title" class="order-logistics">
+					<t-icon
+					 name="deliver"
+					 prefix="wr"
+					 size="48rpx"
+					 t-class="icon order-logistics__icon"
+					/>
+					<view class="title">物流信息</view>
+				</view>
+				<view class="order-logistics__desc" slot="description">
+					<view class="desc__title">{{logisticsNodes[0].desc}}</view>
+					<view class="value">{{logisticsNodes[0].date}}</view>
+				</view>
+				<t-icon slot="right-icon" name="chevron-right" size="40rpx" />
+			</t-cell>
+		</view>
+		<!-- 收货地址 -->
+		<view class="order-section">
+			<view class="section-title">
+				<t-icon name="location" t-class="icon" />
+				<view class="title">
+					{{order.logisticsVO.receiverName}}
+					<view class="phone-num">{{order.logisticsVO.receiverPhone}}</view>
+				</view>
+				<view wx:if="{{addressEditable}}" class="right text-btn" bindtap="onEditAddressTap">
+					修改
+				</view>
+			</view>
+			<view class="section-content">
+				<view class="label">{{_order.receiverAddress}}</view>
+			</view>
+		</view>
+		<!-- 店铺及商品 -->
+		<wr-order-card wr-class="order-section c-order-card" order="{{_order}}" use-top-right-slot>
+			<!-- 联系客服按钮及弹框 -->
+			<wr-customer-service
+			 wx:if="{{storeDetail && storeDetail.storeTel}}"
+			 slot="top-right"
+			 wr-class="customer-service text-btn"
+			 phone-number="{{storeDetail.storeTel}}"
+			 desc="{{storeDetail.storeBusiness}}"
+			/>
+			<block
+			 wx:for="{{_order.goodsList}}"
+			 wx:key="id"
+			 wx:for-item="goods"
+			 wx:for-index="gIndex"
+			>
+				<wr-order-goods-card
+				 goods="{{goods}}"
+				 no-top-line="{{gIndex === 0}}"
+				 bindtap="onGoodsCardTap"
+				 data-index="{{gIndex}}"
+				/>
+				<wr-order-button-bar
+				 class="goods-button-bar"
+				 order="{{_order}}"
+				 goods-index="{{gIndex}}"
+				 bindrefresh="onRefresh"
+				 data-order="{{order}}"
+				/>
+			</block>
+		</wr-order-card>
+		<view class="order-section groupon-section" wx:if="{{ order.holdStatus === 1 || order.holdStatus === 2 || order.holdStatus === 3 }}">
+			<view class="top">
+				<view class="top-left">
+					<wr-icon size="30" name="dingdanxiangqing-pintuan" />
+					<text class="status">
             拼团{{ order.holdStatus === 1 ? '中' : ( order.holdStatus === 3 ? '成功' : '失败' ) }}
           </text>
-        </view>
-        <text bind:tap="toGrouponDetail" class="link">拼团详情</text>
-      </view>
-      <view class="bottom">
-        <groupon-avatars items="{{ order.groupInfoVo.groupUserInfoVos }}" max="{{ order.groupInfoVo.allMember }}" success="{{ order.holdStatus === 3 }}" />
-      </view>
-    </view>
-    <view class="order-section" wx:if="{{invoiceStatus === 1 || invoiceStatus === 2 || invoiceStatus === 3}}">
-      <t-cell t-class="other-cell" title="发票" bordered="{{false}}">
-        <view slot="right-icon">
-          <view wx:if="{{invoiceStatus === 1}}" class="value">
-            {{invoiceDesc}}
-            <view class="text-btn" bindtap="onToInvoice">查看</view>
-          </view>
-          <view wx:elif="{{invoiceStatus === 2}}" class="value">
-            {{invoiceDesc}}
-            <view class="text-btn" bindtap="onSuppleMentInvoice">补开</view>
-          </view>
-          <view wx:else class="value">{{invoiceDesc}}</view>
-        </view>
-      </t-cell>
-    </view>
-    <view class="order-section">
-      <t-cell t-class="other-cell" bordered="{{false}}" title="商品金额">
-        <view class="value bold" slot="right-icon">
-          <wr-price fill wr-class="price" price="{{_order.totalAmount}}" />
-        </view>
-      </t-cell>
-      <t-cell t-class="other-cell" title="运费" bordered="{{false}}">
-        <view class="value bold" slot="right-icon">
-          <wr-price fill wr-class="price" price="{{order.freightFee}}" />
-        </view>
-      </t-cell>
-      <t-cell t-class="other-cell" title="活动优惠" bordered="{{false}}" wx:if="{{order.discountAmount > 0}}">
-        <view class="value red bold" slot="right-icon">
-          -
-          <wr-price fill wr-class="price red" price="{{order.discountAmount}}" />
-        </view>
-      </t-cell>
-      <t-cell t-class="other-cell" title="优惠券" bordered="{{false}}" wx:if="{{order.couponAmount > 0}}">
-        <view class="value red bold" slot="right-icon">
-          -
-          <wr-price fill wr-class="price red" price="{{order.couponAmount}}" />
-        </view>
-      </t-cell>
-      <view class="cell-split-line" />
-      <t-cell t-class="other-cell main" title="{{isPaid ? '实际支付' : '应付金额'}}" bordered="{{false}}">
-        <view class="value bold" slot="right-icon">
-          <wr-icon name="wx-pay" wr-class="pay-icon" wx:if="{{isPaid}}" />
-          <wr-price fill wr-class="price red main" price="{{order.paymentAmount}}" />
-        </view>
-      </t-cell>
-    </view>
-    <view class="order-section">
-      <t-cell wx:if="{{order.remark}}" title="备注信息" t-class="other-cell" bordered="{{false}}">
-        <view class="value remark" slot="right-icon">{{order.remark}}</view>
-      </t-cell>
-      <view wx:if="{{order.remark}}" class="cell-split-line" />
-      <t-cell t-class="other-cell" title="订单编号" bordered="{{false}}">
-        <view class="value" slot="right-icon">
-          {{order.orderNo}}
-          <view class="text-btn" bindtap="onOrderNumCopy">复制</view>
-        </view>
-      </t-cell>
-      <t-cell t-class="other-cell" title="下单日期" bordered="{{false}}">
-        <view class="value" slot="right-icon">{{formatCreateTime}}</view>
-      </t-cell>
-    </view>
-    <!-- 为你推荐 -->
-    <!-- <rec-good-list style="margin-top: 40rpx" sceneId="{{7}}" /> -->
-    <!-- 底部栏 -->
-    <view wx:if="{{_order.buttons.length > 0}}" class="safe-area-bottom footer-bar-wrapper">
-      <view class="footer-bar safe-area-bottom">
-        <wr-order-button-bar order="{{_order}}" bindrefresh="onRefresh" />
-        <view class="safe-area-bottom" />
-      </view>
-    </view>
-  </view>
+				</view>
+				<text bind:tap="toGrouponDetail" class="link">拼团详情</text>
+			</view>
+			<view class="bottom">
+				<groupon-avatars items="{{ order.groupInfoVo.groupUserInfoVos }}" max="{{ order.groupInfoVo.allMember }}" success="{{ order.holdStatus === 3 }}" />
+			</view>
+		</view>
+		<view class="order-section" wx:if="{{invoiceStatus === 1 || invoiceStatus === 2 || invoiceStatus === 3}}">
+			<t-cell t-class="other-cell" title="发票" bordered="{{false}}">
+				<view slot="right-icon">
+					<view wx:if="{{invoiceStatus === 1}}" class="value">
+						{{invoiceDesc}}
+						<view class="text-btn" bindtap="onToInvoice">查看</view>
+					</view>
+					<view wx:elif="{{invoiceStatus === 2}}" class="value">
+						{{invoiceDesc}}
+						<view class="text-btn" bindtap="onSuppleMentInvoice">补开</view>
+					</view>
+					<view wx:else class="value">{{invoiceDesc}}</view>
+				</view>
+			</t-cell>
+		</view>
+		<view class="order-section">
+			<t-cell t-class="other-cell" bordered="{{false}}" title="商品金额">
+				<view class="value bold" slot="right-icon">
+					<wr-price fill wr-class="price" price="{{_order.totalAmount}}" />
+				</view>
+			</t-cell>
+			<t-cell t-class="other-cell" title="运费" bordered="{{false}}">
+				<view class="value bold" slot="right-icon">
+					<wr-price fill wr-class="price" price="{{order.freightFee}}" />
+				</view>
+			</t-cell>
+			<t-cell
+			 t-class="other-cell"
+			 title="活动优惠"
+			 bordered="{{false}}"
+			 wx:if="{{order.discountAmount > 0}}"
+			>
+				<view class="value red bold" slot="right-icon">
+					-
+					<wr-price fill wr-class="price red" price="{{order.discountAmount}}" />
+				</view>
+			</t-cell>
+			<t-cell
+			 t-class="other-cell"
+			 title="优惠券"
+			 bordered="{{false}}"
+			 wx:if="{{order.couponAmount > 0}}"
+			>
+				<view class="value red bold" slot="right-icon">
+					-
+					<wr-price fill wr-class="price red" price="{{order.couponAmount}}" />
+				</view>
+			</t-cell>
+			<view class="cell-split-line" />
+			<t-cell t-class="other-cell main" title="{{isPaid ? '实际支付' : '应付金额'}}" bordered="{{false}}">
+				<view class="value bold" slot="right-icon">
+					<t-icon
+					 prefix="wr"
+					 size="48rpx"
+					 name="wechat_pay"
+					 t-class="pay-icon"
+					 wx:if="{{isPaid}}"
+					/>
+					<wr-price fill wr-class="price red main" price="{{order.paymentAmount}}" />
+				</view>
+			</t-cell>
+		</view>
+		<view class="order-section">
+			<t-cell
+			 wx:if="{{order.remark}}"
+			 title="备注信息"
+			 t-class="other-cell"
+			 bordered="{{false}}"
+			>
+				<view class="value remark" slot="right-icon">{{order.remark}}</view>
+			</t-cell>
+			<view wx:if="{{order.remark}}" class="cell-split-line" />
+			<t-cell t-class="other-cell" title="订单编号" bordered="{{false}}">
+				<view class="value" slot="right-icon">
+					{{order.orderNo}}
+					<view class="text-btn" bindtap="onOrderNumCopy">复制</view>
+				</view>
+			</t-cell>
+			<t-cell t-class="other-cell" title="下单日期" bordered="{{false}}">
+				<view class="value" slot="right-icon">{{formatCreateTime}}</view>
+			</t-cell>
+		</view>
+		<!-- 为你推荐 -->
+		<!-- <rec-good-list style="margin-top: 40rpx" sceneId="{{7}}" /> -->
+		<!-- 底部栏 -->
+		<view wx:if="{{_order.buttons.length > 0}}" class="safe-area-bottom footer-bar-wrapper">
+			<view class="footer-bar safe-area-bottom">
+				<wr-order-button-bar order="{{_order}}" bindrefresh="onRefresh" />
+				<view class="safe-area-bottom" />
+			</view>
+		</view>
+	</view>
 </t-pull-down-refresh>
+

@@ -5,7 +5,7 @@
  tabList="{{list}}"
  t-class="tab-bar__inner"
  t-class-active="tab-bar__active"
- t-class-track="tab-bar__track"
+ t-class-track="t-tabs-track"
 >
 	<t-tab-panel
 	 wx:for="{{list}}"

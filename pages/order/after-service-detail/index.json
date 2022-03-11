@@ -2,7 +2,6 @@
   "navigationStyle": "custom",
   "usingComponents": {
     "wr-loading-content": "@tencent/retailwe-ui-loading-content/index",
-    "wr-icon": "@tencent/retailwe-ui-icon/index",
     "wr-price": "/components/price/index",
     "wr-service-goods-card": "../components/order-goods-card/index",
     "t-cell": "tdesign-miniprogram/cell/cell",

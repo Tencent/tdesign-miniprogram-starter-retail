@@ -36,8 +36,6 @@ Page({
 
   /** 点击商品 */
   goodClickHandle(e) {
-    console.log('点击商品: ', e);
-
     const { index } = e.detail;
     const { spuId } = this.data.list[index];
 
@@ -45,9 +43,7 @@ Page({
   },
 
   /** 点击加购 */
-  cardClickHandle(e) {
-    console.log('点击加购: ', e);
-
+  cardClickHandle() {
     Toast({
       context: this,
       selector: '#t-toast',
@@ -55,8 +51,7 @@ Page({
     });
   },
 
-  bannerClickHandle(e) {
-    console.log('点击规则详情: ', e);
+  bannerClickHandle() {
     Toast({
       context: this,
       selector: '#t-toast',
@@ -64,8 +59,7 @@ Page({
     });
   },
 
-  tagClickHandle(e) {
-    console.log('点击标签: ', e);
+  tagClickHandle() {
     Toast({
       context: this,
       selector: '#t-toast',
