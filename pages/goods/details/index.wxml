@@ -151,5 +151,5 @@
 	 bind:promotionChange="promotionChange"
 	/>
 </view>
-<t-toast id="t-toast" t-class="skuToast" />
+<t-toast id="t-toast" />
 

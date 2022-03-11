@@ -111,7 +111,7 @@ page {
   justify-content: center;
   position: fixed;
   bottom: 0;
-  padding-bottom: env(safe-area-inset-bottom);
+  padding-bottom: calc(env(safe-area-inset-bottom) + 20rpx);
   background-color: #ffffff;
   z-index: 99;
 }
