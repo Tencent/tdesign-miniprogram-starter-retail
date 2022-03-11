@@ -49,9 +49,9 @@ Page({
     uploadGridConfig: {
       column: 3,
       width: 212,
-      height: 212
+      height: 212,
     },
-    serviceRequireType: "",
+    serviceRequireType: '',
   },
 
   setWatcher(key, callback) {
@@ -94,7 +94,6 @@ Page({
 
   onLoad(query) {
     this.query = query;
-    console.log('query: ', query);
     if (!this.checkQuery()) return;
     this.setData({
       canApplyReturn: query.canApplyReturn === 'true',
@@ -466,27 +465,8 @@ Page({
     });
   },
 
-  uploadMethod(file, onProgress) {
-    const { name, type, path } = file;
+  uploadMethod() {
     return Promise.resolve({ url: '' }); // demo 中注释了调用文件服务接口上传文件
-    /* return uploadFileRequest(
-      {
-        bizName: 'rights',
-        buckType: 1,
-        type,
-        name,
-        path,
-      },
-      onProgress,
-    )
-      .then((res) => {
-        return { url: res.key };
-      })
-      .catch((e) => {
-        console.warn(e);
-        this.uploadFailedCount += 1;
-        return { url: '' };
-      }); */
   },
 
   onUploadStart({ detail }) {

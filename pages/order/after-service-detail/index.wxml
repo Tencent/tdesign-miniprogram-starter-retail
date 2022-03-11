@@ -58,7 +58,7 @@
 			<view class="service-section" wx:if="{{service.logisticsNo}}">
 				<view class="service-section__title">
 					<t-cell bordered="{{false}}" description="买家已寄出" arrow>
-						<view slot="title">
+						<view slot="title" class="service-section__title__header">
 							<t-icon
 							 prefix="wr"
 							 name="deliver"

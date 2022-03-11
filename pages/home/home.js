@@ -71,8 +71,7 @@ Page({
     this.loadGoodsList(true);
   },
 
-  tagClickHandle(e) {
-    console.log('点击标签: ', e);
+  tagClickHandle() {
     Toast({
       context: this,
       selector: '#t-toast',

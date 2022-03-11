@@ -1,3 +1,4 @@
+/* eslint-disable no-nested-ternary */
 import Dialog from 'tdesign-miniprogram/dialog/index';
 import Toast from 'tdesign-miniprogram/toast/index';
 import { dispatchSupplementInvoice } from '../../../services/order/orderConfirm';
@@ -43,17 +44,16 @@ Page({
   },
   onLoad(query) {
     const { orderNo, invoiceData } = query;
-    console.log('invoiceData: ', invoiceData);
     const tempData = JSON.parse(invoiceData || '{}');
     const invoice = {
-      receiptIndex: tempData.invoiceType == 5 ? 1 : 0,
+      receiptIndex: tempData.invoiceType === 5 ? 1 : 0,
       name: tempData.buyerName || '',
       email: tempData.email || '',
       phone: tempData.buyerPhone || '',
-      addressTagsIndex: tempData.titleType == 2 ? 1 : 0,
-      goodsClassesIndex: tempData.contentType == 2 ? 1 : 0,
+      addressTagsIndex: tempData.titleType === 2 ? 1 : 0,
+      goodsClassesIndex: tempData.contentType === 2 ? 1 : 0,
       code: tempData.buyerTaxNo || '',
-      componentName: tempData.titleType == 2 ? tempData.buyerName : '',
+      componentName: tempData.titleType === 2 ? tempData.buyerName : '',
     };
     this.orderNo = orderNo;
     this.setData({ ...invoice });
@@ -108,10 +108,9 @@ Page({
       buyerPhone: phone, //手机
       email, //邮箱
       titleType: addressTags[addressTagsIndex].type, //发票抬头 1-个人 2-公司
-      contentType: goodsClassesIndex == 0 ? 1 : 2, //发票内容 1-明细 2类别
-      invoiceType: receiptIndex == 1 ? 5 : 0, //是否开票 0-不开 5-电子发票
+      contentType: goodsClassesIndex === 0 ? 1 : 2, //发票内容 1-明细 2类别
+      invoiceType: receiptIndex === 1 ? 5 : 0, //是否开票 0-不开 5-电子发票
     };
-    console.log('data: ', data);
     if (this.orderNo) {
       if (this.submitting) return;
       const params = {

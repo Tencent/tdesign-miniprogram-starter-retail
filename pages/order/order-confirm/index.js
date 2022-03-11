@@ -101,9 +101,7 @@ Page({
             grouponAvatars = [{ headImg: user.headUrl, label: '未支付' }];
           }
         }
-      } catch (e) {
-        console.log(e);
-      }
+      } catch (err) {}
     }
 
     let { goodsRequestList } = this; // 商品列表
@@ -294,16 +292,9 @@ Page({
     /** 获取一个Promise */
     getAddressPromise()
       .then((address) => {
-        console.log('用户选择了地址: ', address);
         this.handleOptionsParams({ userAddressReq: address });
       })
-      .catch((err) => {
-        if (err.message === 'cancel') {
-          console.log('用户取消了地址选择');
-        } else {
-          console.log('选值选择错误: ', err);
-        }
-      });
+      .catch(() => {});
 
     wx.navigateTo({
       url: '/pages/usercenter/address/list/index?selectMode=1&isOrderSure=1',
@@ -455,7 +446,7 @@ Page({
       (err) => {
         this.payLock = false;
         if (
-          err.code == 'CONTAINS_INSUFFICIENT_GOODS' ||
+          err.code === 'CONTAINS_INSUFFICIENT_GOODS' ||
           err.code === 'TOTAL_AMOUNT_DIFFERENT'
         ) {
           Toast({
@@ -552,7 +543,7 @@ Page({
     const { selectedList } = e.detail;
     const tempSubmitCouponList = submitCouponList.map((storeCoupon) => {
       const couponList =
-        storeCoupon.storeId == currentStoreId
+        storeCoupon.storeId === currentStoreId
           ? selectedList
           : storeCoupon.couponList;
       return {
@@ -602,6 +593,7 @@ Page({
         goods.skuId === skuId,
     );
     if (index >= 0) {
+      // eslint-disable-next-line no-confusing-arrow
       const goodsRequestList = this.goodsRequestList.map((item, i) =>
         i === index ? { ...item, quantity: value } : item,
       );
