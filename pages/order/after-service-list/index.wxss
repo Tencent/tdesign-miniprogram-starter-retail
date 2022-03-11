@@ -204,3 +204,6 @@
   font-size: 16px !important;
   margin-right: 10rpx;
 }
+.t-class-indicator {
+  color: #b9b9b9 !important;
+}

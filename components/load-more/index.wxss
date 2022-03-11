@@ -19,3 +19,6 @@
   margin: 0 10rpx;
   color: #bbbbbb;
 }
+.load-more .t-class-indicator {
+  color: #b9b9b9 !important;
+}

@@ -56,9 +56,6 @@
   background-color: white;
   overflow: hidden;
 }
-.order-detail .order-section:not(.order-card) {
-  padding: 13rpx 0 17rpx 0;
-}
 .order-detail .cell-split-line {
   height: 1rpx;
   scale: 1 0.5;
@@ -91,7 +88,7 @@
   flex: none;
 }
 .order-detail .section-content {
-  padding: 0 20rpx 0 66rpx;
+  padding: 0 20rpx 20rpx 66rpx;
 }
 /* .order-detail .section-content .other-cell {
   padding: 15rpx 0;

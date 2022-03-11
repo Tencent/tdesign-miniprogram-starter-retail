@@ -1,6 +1,6 @@
 <view class="tab-bar__placeholder" />
 <t-tabs
- value="{{status}}"
+ defaultValue="{{status}}"
  bind:change="tabChange"
  tabList="{{list}}"
  t-class="tab-bar__inner"
@@ -16,7 +16,12 @@
 	/>
 </t-tabs>
 <view class="coupon-list-wrap">
-	<t-pull-down-refresh id="t-pull-down-refresh" bind:refresh="onPullDownRefresh_" background="#fff">
+	<t-pull-down-refresh
+	 t-class-indicator="t-class-indicator"
+	 id="t-pull-down-refresh"
+	 bind:refresh="onPullDownRefresh_"
+	 background="#fff"
+	>
 		<view class="coupon-list-item" wx:for="{{couponList}}">
 			<coupon-card couponDTO="{{item}}" />
 		</view>
