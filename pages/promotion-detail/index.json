@@ -4,8 +4,7 @@
     "t-toast": "tdesign-miniprogram/toast/toast",
     "t-image": "tdesign-miniprogram/image/image",
     "t-icon": "tdesign-miniprogram/icon/icon",
-    "wr-count-down": "@tencent/retailwe-ui-count-down/index",
-    "wr-promotion-detail": "@tencent/retailwe-ui-promotion-detail/index",
+    "t-count-down": "tdesign-miniprogram/count-down/count-down",
     "goods-list": "/components/goods-list/index"
   }
 }

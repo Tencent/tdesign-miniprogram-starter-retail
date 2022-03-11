@@ -1,10 +1,12 @@
-<t-popup visible="{{show}}" placement="bottom" bind:visible-change="onCancel">
-	<view class="popup-content" slot="content">
+<t-popup
+ visible="{{show}}"
+ placement="bottom"
+ bind:visible-change="onCancel"
+ close-btn="{{showCloseButton}}"
+>
+	<view class="popup-content">
 		<view class="header">
 			{{title}}
-			<view class="close-icon-btn" wx:if="{{showCloseButton}}">
-				<wr-icon name="close" wr-class="icon" bindtap="onCancel" />
-			</view>
 		</view>
 		<view class="options">
 			<t-cell
@@ -17,14 +19,14 @@
 			 border="{{false}}"
 			>
 				<view slot="right-icon">
-					<wr-icon
-					 name="check-filled"
+					<t-icon
+					 name="check-circle-filled"
 					 size="36rpx"
 					 color="#fa4126"
 					 wx:if="{{item.checked}}"
 					/>
-					<wr-icon
-					 name="uncheck"
+					<t-icon
+					 name="circle"
 					 size="36rpx"
 					 color="#C7C7C7"
 					 wx:else

@@ -8,13 +8,13 @@ page view {
   overflow: hidden;
 }
 .popup-content .header {
-    height: 100rpx;
-    line-height: 100rpx;
-    text-align: center;
-    vertical-align: middle;
-    font-size: 32rpx;
-    font-weight: bold;
-    position: relative;
+  height: 100rpx;
+  line-height: 100rpx;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 32rpx;
+  font-weight: bold;
+  position: relative;
 }
 .popup-content .header .close-icon-btn {
   position: absolute;
@@ -22,15 +22,16 @@ page view {
   right: 0;
 }
 .popup-content .header .close-icon-btn .icon {
-    font-size: 25rpx !important;
-    padding: 30rpx;
+  font-size: 25rpx !important;
+  padding: 30rpx;
 }
 .popup-content .header .close-icon-btn .icon:active {
   opacity: 0.5;
 }
 .popup-content .options {
-    max-height: 60vh;
-    overflow-y: scroll;
+  max-height: 60vh;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
 }
 .popup-content .options .cell {
   height: 100rpx;

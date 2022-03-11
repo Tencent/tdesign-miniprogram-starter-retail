@@ -20,7 +20,7 @@ page {
 }
 
 .tab-bar__inner .t-tabs-track {
-  background: #fa4126;
+  background: #fa4126 !important;
 }
 
 .tab-bar__inner.order-nav .order-nav-item .bottom-line {

@@ -8,8 +8,6 @@
     "t-radio": "tdesign-miniprogram/radio/radio",
     "t-radio-group": "tdesign-miniprogram/radio-group/radio-group",
     "t-toast": "tdesign-miniprogram/toast/toast",
-    "t-button": "tdesign-miniprogram/button/button",
-
-    "wr-icon": "@tencent/retailwe-ui-icon/index"
+    "t-button": "tdesign-miniprogram/button/button"
   }
 }

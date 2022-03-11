@@ -1,10 +1,6 @@
 <wr-loading-content position="fixed" type="spinner" wx:if="{{pageLoading}}" />
 <view class="page-container">
-	<t-navbar
-	 title="{{pageNav.title}}"
-	 left-icon="slot"
-	 t-class-title="t-class-title"
-	>
+	<t-navbar title="{{pageNav.title}}" left-icon="slot" t-class-title="t-class-title">
 		<t-icon
 		 slot="left-icon"
 		 t-class="navigation-bar__btn"
@@ -18,7 +14,7 @@
 			<!-- 状态及描述 -->
 			<view class="service-detail__header">
 				<view class="title">
-					<t-icon prefix="wr" name="{{service.statusIcon}}" size="30px"></t-icon>
+					<t-icon prefix="wr" name="{{service.statusIcon}}" size="30px" />
 					{{service.statusName}}
 				</view>
 				<view class="desc">
@@ -63,13 +59,18 @@
 				<view class="service-section__title">
 					<t-cell bordered="{{false}}" description="买家已寄出" arrow>
 						<view slot="title">
-							<wr-icon name="wuliu" wr-class="icon" />
+							<t-icon
+							 prefix="wr"
+							 name="deliver"
+							 size="48rpx"
+							 t-class="icon"
+							/>
 							<text>{{service.logisticsCompanyName + ' '}} </text>
 							<text>{{service.logisticsNo}}</text>
 							<!-- 退货物流 -->
 						</view>
 						<view slot="note" style="position: absolute; bottom: -45rpx;right: 45rpx">
-							<wr-after-service-button-bar service="{{service}}"/>
+							<wr-after-service-button-bar service="{{service}}" />
 						</view>
 					</t-cell>
 				</view>
@@ -77,22 +78,31 @@
 			<!-- 收货地址 -->
 			<view class="service-section" wx:if="{{service.receiverName}}">
 				<t-cell-group>
-					<t-cell title="退货地址" >
-						<view slot="note" class="right text-btn" bindtap="onAddressCopy" style="position: absolute; top: 22rpx; rihgt:0">复制</view>
-						<view slot="description" >
-							<view >
+					<t-cell title="退货地址">
+						<view
+						 slot="note"
+						 class="right text-btn"
+						 bindtap="onAddressCopy"
+						 style="position: absolute; top: 22rpx; rihgt:0"
+						>复制
+						</view>
+						<view slot="description">
+							<view>
 								{{service.receiverAddress}}
 							</view>
-							<view >收获人：{{service.receiverName}}</view>
-							<view >收获人手机：{{service.receiverName}}</view>
+							<view>收获人：{{service.receiverName}}</view>
+							<view>收获人手机：{{service.receiverName}}</view>
 						</view>
-          	<t-icon prefix="wr" color="#333333" name="location" size="20px" slot="left-icon" style="position: absolute; top: 25rpx; left:0"/>
+						<t-icon
+						 prefix="wr"
+						 color="#333333"
+						 name="location"
+						 size="20px"
+						 slot="left-icon"
+						 style="position: absolute; top: 25rpx; left:0"
+						/>
 					</t-cell>
 				</t-cell-group>
-				<!-- <view class="service-section-logistics">
-          	<t-icon prefix="wr" color="#FA4126" name="edit" size="20px" style="margin-right: 12rpx"/>
-						<text class="service-section-logistics-text" bind:tap="editLogistices">填写物流单号</text>
-				</view> -->
 			</view>
 			<!-- 商品卡片 -->
 			<view class="service-section" wx:if="{{service.goodsList && service.goodsList.length > 0}}">
@@ -106,15 +116,15 @@
 				 data-index="{{index}}"
 				>
 					<view slot="footer" class="order-goods-card-footer">
-						<wr-price  
-							price="{{goods.itemRefundAmount}}" 
-							fill
-							wr-class="order-goods-card-footer-price-class"
-							symbol-class="order-goods-card-footer-price-symbol"
-							decimal-class="order-goods-card-footer-price-decimal"
+						<wr-price
+						 price="{{goods.itemRefundAmount}}"
+						 fill
+						 wr-class="order-goods-card-footer-price-class"
+						 symbol-class="order-goods-card-footer-price-symbol"
+						 decimal-class="order-goods-card-footer-price-decimal"
 						/>
-      			<view class="order-goods-card-footer-num">x {{goods.rightsQuantity}}</view>
-    			</view>
+						<view class="order-goods-card-footer-num">x {{goods.rightsQuantity}}</view>
+					</view>
 				</wr-service-goods-card>
 			</view>
 			<!-- 退款信息 -->
@@ -181,7 +191,7 @@
 					 bindclick="onProofTap"
 					 data-index="{{index}}"
 					>
-						<t-image slot="image" t-class="t-refund-info-img" src="{{item}}"></t-image>
+						<t-image slot="image" t-class="t-refund-info-img" src="{{item}}" />
 					</t-grid-item>
 				</t-grid>
 			</view>
@@ -208,10 +218,7 @@
 <t-dialog id="input-dialog" visible="{{inputDialogVisible}}">
 	<view class="input-dialog__content" slot="content">
 		<view style="color: #333333;padding-left: 32rpx">物流单号</view>
-		<t-input
-		 class="input"
-		 placeholder="请输入物流单号"
-		/>
+		<t-input class="input" placeholder="请输入物流单号" />
 		<view class="tips">{{amountTip}}</view>
 	</view>
 </t-dialog>

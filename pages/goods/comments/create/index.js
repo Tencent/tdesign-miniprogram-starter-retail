@@ -10,9 +10,9 @@ Page({
     gridConfig: {
       width: 218,
       height: 218,
-      column: 3
+      column: 3,
     },
-    isAllowedSubmit: false
+    isAllowedSubmit: false,
   },
 
   onRateChange(e) {
@@ -20,7 +20,7 @@ Page({
     const item = e?.currentTarget?.dataset?.item;
     this.setData({ [item]: value }, () => {
       this.updateButtonStatus();
-    })
+    });
   },
 
   onAnonymousChange(e) {
@@ -52,11 +52,16 @@ Page({
   },
 
   updateButtonStatus() {
-    const { serviceRateValue, goodRateValue, conveyRateValue, isAllowedSubmit } = this.data;
+    const {
+      serviceRateValue,
+      goodRateValue,
+      conveyRateValue,
+      isAllowedSubmit,
+    } = this.data;
     const { textAreaValue } = this;
-    const temp = serviceRateValue && goodRateValue && conveyRateValue && textAreaValue;
-    if (temp !== isAllowedSubmit)
-      this.setData({ isAllowedSubmit: temp })
+    const temp =
+      serviceRateValue && goodRateValue && conveyRateValue && textAreaValue;
+    if (temp !== isAllowedSubmit) this.setData({ isAllowedSubmit: temp });
   },
 
   onSubmitBtnClick() {
@@ -68,5 +73,5 @@ Page({
       message: '评价提交成功',
       icon: 'check-circle',
     });
-  }
+  },
 });

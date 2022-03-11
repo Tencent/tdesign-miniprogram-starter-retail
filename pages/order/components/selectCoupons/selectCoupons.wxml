@@ -36,8 +36,8 @@
 			<view class="couponp-empty-title">暂无优惠券</view>
 		</view>
 		<view class="coupons-cover">
-			<view class="btn" bindtap="hide">取消</view>
-			<view class="btn red" bindtap="onSure">确定</view>
+			<!-- <view class="btn" bindtap="hide">取消</view> -->
+			<!-- <view class="btn red" bindtap="onSure">确定</view> -->
 		</view>
 	</view>
 </t-popup>

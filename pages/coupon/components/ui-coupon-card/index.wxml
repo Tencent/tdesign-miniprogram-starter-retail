@@ -46,10 +46,10 @@
 			<view class="coupon-desc">
 				<view wx:if="{{oper === 'seeDetail'}}">
 					使用规则
-					<wr-icon
-					 class='icon'
-					 name='arrow_forward'
-					 size='24'
+					<t-icon
+					 t-class='icon'
+					 name='chevron-right'
+					 size='24rpx'
 					 color='#bbb'
 					/>
 				</view>
