@@ -25,6 +25,7 @@
               wx:for="{{item.specValueList}}"
               wx:for-item="selectedItem"
               wx:if="{{selectedItem.isChoosed}}"
+              wx:key="*this"
             >
               {{selectedItem.specValue}}
             </view>
