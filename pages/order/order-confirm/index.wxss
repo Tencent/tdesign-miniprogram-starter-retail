@@ -154,7 +154,7 @@
 }
 
 .add-notes .add-notes__confirm {
-  color: #fa550f;
+  color: #fa4126;
 }
 
 .add-notes .add-notes__placeholder {

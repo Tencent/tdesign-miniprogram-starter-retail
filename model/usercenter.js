@@ -7,12 +7,12 @@ const userInfo = {
 };
 const countsData = [
   {
-    num: 22,
+    num: 2,
     name: '积分',
     type: 'point',
   },
   {
-    num: 1000,
+    num: 10,
     name: '优惠券',
     type: 'coupon',
   },
@@ -22,7 +22,7 @@ const orderTagInfos = [
   {
     title: '待付款',
     iconName: 'credit_card',
-    orderNum: 3,
+    orderNum: 1,
     tabType: 5,
     status: 1,
   },
@@ -36,7 +36,7 @@ const orderTagInfos = [
   {
     title: '待收货',
     iconName: 'package',
-    orderNum: 0,
+    orderNum: 1,
     tabType: 40,
     status: 1,
   },

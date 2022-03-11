@@ -3,6 +3,7 @@
   position: relative;
   z-index: 100;
   border-radius: 16rpx 16rpx 0 0;
+  padding-bottom: calc(env(safe-area-inset-bottom) + 20rpx);
 }
 
 .popup-container .popup-close {
@@ -64,7 +65,7 @@
 .popup-sku-header .popup-sku-header__goods-info .popup-sku__price {
   display: flex;
   align-items: center;
-  color: #fa550f;
+  color: #fa4126;
   margin-top: 48rpx;
   position: absolute;
   bottom: -18rpx;
@@ -82,7 +83,7 @@
   .popup-sku__price
   .popup-sku__price-num {
   font-size: 48rpx;
-  color: #fa550f;
+  color: #fa4126;
   font-weight: 600;
 }
 .popup-sku-header
@@ -132,8 +133,8 @@
   .popup-sku-group-container
   .popup-sku-row
   .popup-sku-row__item.popup-sku-row__item--active {
-  border: 2rpx solid #fa550f;
-  color: #fa550f;
+  border: 2rpx solid #fa4126;
+  color: #fa4126;
   background: rgba(255, 95, 21, 0.04);
 }
 .popup-sku-body
@@ -282,20 +283,25 @@
 }
 .popup-sku-actions {
   font-size: 32rpx;
-  height: 96rpx;
+  height: 80rpx;
   text-align: center;
-  line-height: 96rpx;
-  background-color: #fa550f;
+  line-height: 80rpx;
+  padding: 0 20rpx;
 }
 .popup-sku-actions .sku-operate {
+  height: 80rpx;
   width: 50%;
   color: #fff;
+  border-radius: 48rpx;
 }
 .popup-sku-actions .sku-operate .sku-operate-addCart {
-  background-color: #ef9301;
+  background-color: #ffece9;
+  color: #fa4126;
+  border-radius: 48rpx 0 0 48rpx;
 }
 .popup-sku-actions .sku-operate .sku-operate-buyNow {
-  background-color: #fa550f;
+  background-color: #fa4126;
+  border-radius: 0 48rpx 48rpx 0;
 }
 .popup-sku-actions .sku-operate .selected-sku-btn {
   width: 100%;

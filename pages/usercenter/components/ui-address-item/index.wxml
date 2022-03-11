@@ -7,7 +7,7 @@
 </wxs>
 <view class="address-item-wrapper item-wrapper-class">
 	<t-swipe-cell class="swipe-out">
-		<view class="address {{isDrawLine ? 'draw-line' : ''}}" bindtap="onSelect" data-item="{{address}}">
+		<view class="address {{isDrawLine ? 'draw-line' : ''}}" bind:tap="onSelect" data-item="{{address}}">
 			<view class="address-left" wx:if="{{extraSpace}}">
 				<t-icon
 				 wx:if="{{address.checked}}"
@@ -36,7 +36,7 @@
 		<view
 		 slot="right"
 		 class="swipe-right-del delete-class"
-		 bindtap="onDelete"
+		 catch:tap="onDelete"
 		 data-item="{{address}}"
 		>
 			删除

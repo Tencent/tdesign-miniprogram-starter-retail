@@ -241,3 +241,6 @@
   background: #fff;
   margin-bottom: 24rpx;
 }
+.add-notes__confirm {
+  color: #fa4126 !important;
+}

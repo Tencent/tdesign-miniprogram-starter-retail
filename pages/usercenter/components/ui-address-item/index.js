@@ -35,12 +35,15 @@ Component({
       this.triggerEvent('onDelete', item);
     },
     onSelect(e) {
+      console.log('onSelect: ', e);
+
       const { item } = e.currentTarget.dataset;
       // 订单选择收货地址的点击事件
       this.triggerEvent('onSelect', item);
     },
     onEdit(e) {
       const { item } = e.currentTarget.dataset;
+      console.log('onEdit: ', item);
       this.triggerEvent('onEdit', item);
     },
   },

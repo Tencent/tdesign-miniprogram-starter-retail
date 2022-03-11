@@ -116,7 +116,12 @@
 <!-- 理由选择 -->
 <wr-reason-sheet id="wr-reason-sheet" />
 <!-- 金额填写 -->
-<t-dialog id="input-dialog" visible="{{inputDialogVisible}}" class="{{serviceFrom.amount.focus ? 'amount-dialog--focus' : ''}}">
+<t-dialog
+ id="input-dialog"
+ visible="{{inputDialogVisible}}"
+ t-class-confirm="add-notes__confirm"
+ class="{{serviceFrom.amount.focus ? 'amount-dialog--focus' : ''}}"
+>
 	<view class="input-dialog__content" slot="content">
 		<t-input
 		 class="input"
@@ -132,7 +137,12 @@
 	</view>
 </t-dialog>
 <!-- 退款说明填写 -->
-<t-dialog id="remark-dialog" visible="{{remarkDialogVisible}}" class="{{serviceFrom.remark.focus ? 'remark-dialog--focus' : ''}}">
+<t-dialog
+ id="remark-dialog"
+ t-class-confirm="add-notes__confirm"
+ visible="{{remarkDialogVisible}}"
+ class="{{serviceFrom.remark.focus ? 'remark-dialog--focus' : ''}}"
+>
 	<view class="input-dialog__content" slot="content">
 		<t-textarea
 		 placeholder="退款说明（选填）"
@@ -147,6 +157,6 @@
 		/>
 	</view>
 </t-dialog>
-<t-dialog id="t-dialog" />
+<t-dialog id="t-dialog" t-class-confirm="add-notes__confirm" />
 <t-toast id="t-toast" />
 

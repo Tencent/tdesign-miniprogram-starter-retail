@@ -95,3 +95,6 @@ page {
   background: #f5f5f5 !important;
   margin-top: 24rpx;
 }
+.t-class-indicator {
+  color: #b9b9b9 !important;
+}

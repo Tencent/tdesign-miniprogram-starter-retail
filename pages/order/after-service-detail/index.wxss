@@ -378,3 +378,6 @@
   align-items: center;
   margin-top: 24rpx;
 }
+.add-notes__confirm {
+  color: #fa4126 !important;
+}

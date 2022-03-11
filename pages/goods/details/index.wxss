@@ -276,7 +276,7 @@ page {
   color: #ffffff;
   margin: 0 32rpx;
   font-size: 32rpx;
-  height: 88rpx;
+  height: 80rpx;
   text-align: center;
   line-height: 88rpx;
   background-color: #fa4126;
@@ -295,4 +295,7 @@ page {
 .skuToast {
   top: 50% !important;
   position: absolute !important;
+}
+.t-toast__content {
+  z-index: 12000 !important;
 }

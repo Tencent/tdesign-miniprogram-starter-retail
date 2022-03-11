@@ -2,7 +2,6 @@ import { fetchDeliveryAddressList } from '../../../../services/address/fetchAddr
 import Toast from 'tdesign-miniprogram/toast/index';
 import { resolveAddress, rejectAddress } from './util';
 import { getAddressPromise } from '../edit/util';
-import { phoneRegCheck } from '../../../../utils/util';
 
 Page({
   data: {
@@ -106,8 +105,8 @@ Page({
       });
     }
   },
-  deleteAddressHandle() {
-    const { deleteID: id } = this.data;
+  deleteAddressHandle(e) {
+    const { id } = e.currentTarget.dataset;
     this.setData({
       addressList: this.data.addressList.filter((address) => address.id !== id),
       deleteID: '',
@@ -118,7 +117,7 @@ Page({
     this.waitForNewAddress();
 
     const { id } = detail || {};
-    wx.navigateTo({ url: '/pages/usercenter/address/edit/index?id=' + id });
+    wx.navigateTo({ url: `/pages/usercenter/address/edit/index?id=${id}` });
   },
   selectHandle({ detail }) {
     if (this.selectMode) {
@@ -162,20 +161,19 @@ Page({
           addressList = addressList.map((address) => {
             if (address.addressId === newAddress.addressId) {
               return newAddress;
-            } else {
-              return address;
             }
+            return address;
           });
         }
 
         addressList.sort((prevAddress, nextAddress) => {
           if (prevAddress.isDefault && !nextAddress.isDefault) {
             return -1;
-          } else if (!prevAddress.isDefault && nextAddress.isDefault) {
-            return 1;
-          } else {
-            return 0;
           }
+          if (!prevAddress.isDefault && nextAddress.isDefault) {
+            return 1;
+          }
+          return 0;
         });
 
         this.setData({
