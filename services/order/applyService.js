@@ -20,7 +20,7 @@ export function fetchRightsPreview(params) {
 }
 
 /** 确认收货 */
-export function dispatchConfirmReceived(params) {
+export function dispatchConfirmReceived() {
   if (config.useMock) {
     const { delay } = require('../_utils/delay');
     return delay();

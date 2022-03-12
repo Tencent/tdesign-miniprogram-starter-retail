@@ -10,7 +10,6 @@ Component({
       type: Object,
       observer(service) {
         const buttonsRight = service.buttons || service.buttonVOs || [];
-        console.log(buttonsRight);
         this.setData({
           buttons: {
             left: [],
@@ -50,29 +49,26 @@ Component({
     },
 
     onFillTrackingNo(service) {
-      console.log('service', service);
-      // Toast({text: '你点击了填写运单号'});
       wx.navigateTo({
         url: `/pages/order/fill-tracking-no/index?rightsNo=${service.id}`,
       });
     },
 
     viewDelivery(service) {
-      console.log('service', service);
       wx.navigateTo({
-        url: `/pages/order/delivery-detail/index?data=${JSON.stringify(service.logistics)}`,
+        url: `/pages/order/delivery-detail/index?data=${JSON.stringify(
+          service.logistics,
+        )}`,
       });
     },
 
     onChangeTrackingNo(service) {
-      console.log('service', service);
-      // Toast({text: '你点击了修改运单号'});
       wx.navigateTo({
         url: `/pages/order/fill-tracking-no/index?rightsNo=${service.id}&logisticsNo=${service.logisticsNo}&logisticsCompanyName=${service.logisticsCompanyName}&logisticsCompanyCode=${service.logisticsCompanyCode}&remark=${service.remark}`,
       });
     },
 
-    onConfirm(service) {
+    onConfirm() {
       Dialog.confirm({
         title: '是否撤销退货申请？',
         content: '',
@@ -80,8 +76,7 @@ Component({
         cancelBtn: '不撤销',
       }).then(() => {
         const params = { rightsNo: this.data.service.id };
-        return cancelRights(params).then((res) => {
-          console.log('res', res);
+        return cancelRights(params).then(() => {
           Toast({
             context: this,
             selector: '#t-toast',

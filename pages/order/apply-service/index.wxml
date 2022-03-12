@@ -20,18 +20,39 @@
 			 arrow
 			 description="没收到货，或与商家协商同意不用退货只退款"
 			 bindtap="onApplyOnlyRefund"
-			/>
-		</t-cell-group>
-		<t-cell-group wx:if="{{canApplyReturn}}">
+			 t-class-left="t-cell__left"
+			>
+				<t-icon
+				 slot="left-icon"
+				 prefix="wr"
+				 name="goods_refund"
+				 size="48rpx"
+				 color="#fa4126"
+				/>
+			</t-cell>
 			<t-cell
+			 wx:if="{{canApplyReturn}}"
 			 title="退货退款"
 			 description="已收到货，需要退还收到的商品"
 			 arrow
 			 bindtap="onApplyReturnGoods"
+			 t-class-left="t-cell__left"
+			>
+				<t-icon
+				 slot="left-icon"
+				 prefix="wr"
+				 name="goods_return"
+				 size="48rpx"
+				 color="#fa4126"
+				/>
+			</t-cell>
+			<t-cell
+			 wx:else
+			 class="non-returnable"
+			 title="退货退款"
+			 description="该商品不支持退货"
+			 t-class-left="t-cell__left"
 			/>
-		</t-cell-group>
-		<t-cell-group wx:else class="non-returnable">
-			<t-cell title="退货退款" description="该商品不支持退货" />
 		</t-cell-group>
 	</view>
 	<!-- 售后表单 -->
@@ -39,36 +60,25 @@
 		<view class="service-from-group">
 			<t-cell-group>
 				<t-cell
+				 t-class-left="t-cell__left"
 				 title="商品收货状态"
-				 note="{{serviceFrom.receiptStatus.desc}}"
 				 arrow
-				 description="没收到货，或与商家协商同意不用退货只退款"
-				 bindtap="onApplyOnlyRefund"
-				>
-					<t-icon
-					 prefix="wr"
-					 color="#FA4126"
-					 name="goods_refund"
-					 size="30px"
-					 slot="left-icon"
-					/>
-				</t-cell>
-			</t-cell-group>
-			<t-cell-group wx:if="{{canApplyReturn}}">
-				<t-cell title="退款原因" arrow bindtap="onApplyReturnGoods">
-					<t-icon
-					 prefix="wr"
-					 color="#FA4126"
-					 name="goods_return"
-					 size="30px"
-					 slot="left-icon"
-					/>
-				</t-cell>
+				 note="{{serviceFrom.receiptStatus.desc}}"
+				 bind:tap="onApplyGoodsStatus"
+				/>
+				<t-cell
+				 t-class-left="t-cell__left"
+				 title="退款原因"
+				 wx:if="{{canApplyReturn}}"
+				 note="{{serviceFrom.applyReason.desc}}"
+				 arrow
+				 bindtap="onApplyReturnGoodsStatus"
+				/>
 			</t-cell-group>
 		</view>
 		<view class="service-from-group">
 			<t-cell-group>
-				<t-cell title="退款商品数量">
+				<t-cell title="退款商品数量" t-class-left="t-cell__left">
 					<t-stepper
 					 slot="note"
 					 min="1"
@@ -78,16 +88,60 @@
 					 bindchange="onChangeReturnNum"
 					/>
 				</t-cell>
-				<t-cell title="退货退款" description="该商品不支持退货">
-					<t-icon
-					 prefix="wr"
-					 color="#FA4126"
-					 name="goods_return"
-					 size="30px"
-					 slot="left-icon"
+				<t-cell
+				 title="退货金额"
+				 t-class-left="t-cell__left"
+				 description="{{amountTip}}"
+				 bind:tap="onAmountTap"
+				>
+					<view class="service-from-group__wrapper" slot="note">
+						<wr-price price="{{serviceFrom.amount.current}}" />
+						<view class="service-from-group__price">
+							可修改
+							<t-icon
+							 color="#bbb"
+							 name="chevron-right"
+							 size="30rpx"
+							 slot="left-icon"
+							/>
+						</view>
+					</view>
+				</t-cell>
+			</t-cell-group>
+		</view>
+		<view class="service-from-group">
+			<t-cell-group>
+				<t-cell title="退款说明" t-class-left="t-cell__left">
+					<t-textarea
+					 value="{{serviceFrom.remark}}"
+					 t-class="service-from-group__textarea"
+					 slot="description"
+					 maxlength="100"
+					 placeholder="退款说明（选填）"
+					 bind:change="onRemarkChange"
 					/>
 				</t-cell>
 			</t-cell-group>
+		</view>
+		<view class="service-from-group__grid">
+			<t-uploader
+			 media-type="{{['image','video']}}"
+			 files="{{sessionFrom.rightsImageUrls}}"
+			 bind:remove="handleRemove"
+			 bind:success="handleSuccess"
+			 bind:complete="handleComplete"
+			 bind:select-change="handleSelectChange"
+			 gridConfig="{{gridConfig}}"
+			 addContent="slot"
+			>
+				<view slot="addContent" class="upload-addcontent-slot">
+					<t-icon name="add" size="60rpx" />
+					<view class="upload-desc">
+						<text>上传凭证</text>
+						<text>（最多3张）</text>
+					</view>
+				</view>
+			</t-uploader>
 		</view>
 		<view class="bottom-bar">
 			<t-button t-class="bottom-bar__btn {{validateRes.valid && !uploading ? '' : 'disabled'}}" bindtap="onSubmit" loading="{{submitting}}">
@@ -116,7 +170,12 @@
 <!-- 理由选择 -->
 <wr-reason-sheet id="wr-reason-sheet" />
 <!-- 金额填写 -->
-<t-dialog id="input-dialog" visible="{{inputDialogVisible}}" class="{{serviceFrom.amount.focus ? 'amount-dialog--focus' : ''}}">
+<t-dialog
+ id="input-dialog"
+ visible="{{inputDialogVisible}}"
+ t-class-confirm="add-notes__confirm"
+ class="{{serviceFrom.amount.focus ? 'amount-dialog--focus' : ''}}"
+>
 	<view class="input-dialog__content" slot="content">
 		<t-input
 		 class="input"
@@ -131,22 +190,6 @@
 		<view class="tips">{{amountTip}}</view>
 	</view>
 </t-dialog>
-<!-- 退款说明填写 -->
-<t-dialog id="remark-dialog" visible="{{remarkDialogVisible}}" class="{{serviceFrom.remark.focus ? 'remark-dialog--focus' : ''}}">
-	<view class="input-dialog__content" slot="content">
-		<t-textarea
-		 placeholder="退款说明（选填）"
-		 value="{{serviceFrom.remark.temp}}"
-		 border
-		 show-count
-		 maxlength="100"
-		 focus="{{serviceFrom.remark.focus}}"
-		 bindinput="onRemarkInput"
-		 bindfocus="onRemarkFocus"
-		 bindblur="onRemarkBlur"
-		/>
-	</view>
-</t-dialog>
-<t-dialog id="t-dialog" />
+<t-dialog id="t-dialog" t-class-confirm="add-notes__confirm" />
 <t-toast id="t-toast" />
 

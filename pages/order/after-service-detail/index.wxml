@@ -58,7 +58,7 @@
 			<view class="service-section" wx:if="{{service.logisticsNo}}">
 				<view class="service-section__title">
 					<t-cell bordered="{{false}}" description="买家已寄出" arrow>
-						<view slot="title">
+						<view slot="title" class="service-section__title__header">
 							<t-icon
 							 prefix="wr"
 							 name="deliver"
@@ -203,24 +203,17 @@
 			 circular="{{false}}"
 			 bindtap="onProofTap"
 			/>
-			<!-- 底部栏 -->
-			<!-- <view wx:if="{{serviceRaw.buttonVOs && serviceRaw.buttonVOs.length > 0}}" class="footer-bar-wrapper safe-area-bottom">
-				<view class="footer-bar">
-					<wr-service-button-bar service="{{service}}" bindrefresh="onRefresh" />
-					<view class="safe-area-bottom" />
-				</view>
-			</view> -->
 		</view>
 	</t-pull-down-refresh>
 </view>
 <t-toast id="t-toast" />
 <!-- 退款说明填写 -->
-<t-dialog id="input-dialog" visible="{{inputDialogVisible}}">
+<t-dialog id="input-dialog" t-class-confirm="add-notes__confirm" visible="{{inputDialogVisible}}">
 	<view class="input-dialog__content" slot="content">
 		<view style="color: #333333;padding-left: 32rpx">物流单号</view>
 		<t-input class="input" placeholder="请输入物流单号" />
 		<view class="tips">{{amountTip}}</view>
 	</view>
 </t-dialog>
-<t-dialog id="t-dialog" />
+<t-dialog id="t-dialog" t-class-confirm="add-notes__confirm" />
 

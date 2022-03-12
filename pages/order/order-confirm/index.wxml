@@ -136,7 +136,7 @@
 		 slot="content"
 		 focus="{{dialogShow}}"
 		 class="notes"
-		 t-class="add-notes__textarea "
+		 t-class="add-notes__textarea"
 		 value="{{storeInfoList[storeNoteIndex] && storeInfoList[storeNoteIndex].remark}}"
 		 placeholder="备注信息"
 		 t-class-placeholder="add-notes__placeholder"
@@ -159,5 +159,5 @@
 	/>
 </view>
 <t-toast id="t-toast" />
-<t-dialog id="t-dialog" />
+<t-dialog id="t-dialog" t-class-confirm="dialog__button-confirm" />
 

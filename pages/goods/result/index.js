@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 import { getSearchResult } from '../../../services/good/featchSearchResult';
 import Toast from 'tdesign-miniprogram/toast/index';
 
@@ -75,11 +76,6 @@ Page({
     } else {
       params.sort = 1;
     }
-
-    // if (prices.length === 2) {
-    //   params.minPrice = prices[0] * 100;
-    //   params.maxPrice = prices[1] * 100;
-    // }
     params.minPrice = minVal ? minVal * 100 : 0;
     params.maxPrice = maxVal ? maxVal * 100 : undefined;
     // 重置请求
@@ -107,7 +103,6 @@ Page({
       const result = await getSearchResult(params);
       const code = 'Success';
       const data = result;
-      console.log('data:', data);
       if (code.toUpperCase() === 'SUCCESS') {
         const { spuList, totalCount = 0 } = data;
         if (totalCount === 0 && reset) {
@@ -158,7 +153,6 @@ Page({
 
   onLoad(options) {
     const { keywords = '' } = options || {};
-    console.log('keywords:', keywords);
     this.setData(
       {
         keywords,
@@ -168,7 +162,6 @@ Page({
         this.init(true);
       },
     );
-    // this.setCartNum();
   },
 
   // 单击购物车，跳转
@@ -176,11 +169,6 @@ Page({
     wx.switchTab({
       url: '/pages/cart/index',
     });
-    // navigateTo 需要跳转的应用内非 tabBar 的页面的路径
-    // 跳转tabBar请用 wx.switchTab(OBJECT)，跳转到 tabBar 页面，并关闭其他所有非 tabBar 页面
-    // wx.navigateTo({
-    //   url: '/pages/cart/index',
-    // });
   },
 
   handleSubmit(e) {
@@ -217,8 +205,7 @@ Page({
     });
   },
 
-  tagClickHandle(e) {
-    console.log('点击标签: ', e);
+  tagClickHandle() {
     Toast({
       context: this,
       selector: '#t-toast',
@@ -242,7 +229,6 @@ Page({
       overall,
       layout,
     };
-    console.log('layout:', layout);
     this.setData({
       filter: _filter,
       layout: layout,

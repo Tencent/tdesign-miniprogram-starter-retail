@@ -2,10 +2,6 @@ page {
   background-color: #f5f5f5;
 }
 
-.page-container {
-  padding-bottom: calc(100rpx + env(safe-area-inset-bottom));
-}
-
 .page-container .comment-card {
   padding: 24rpx 32rpx 28rpx;
   background-color: #ffffff;
@@ -68,13 +64,13 @@ page {
   display: none;
 }
 
-.comment-card .anonymous-box {
+.page-container .anonymous-box {
   display: flex;
   align-items: center;
   padding-top: 52rpx;
 }
 
-.comment-card .anonymous-box .name {
+.page-container .anonymous-box .name {
   font-size: 28rpx;
   font-weight: normal;
   color: #999999;
@@ -92,12 +88,12 @@ page {
 .comment-card .convey-comment-title {
   font-size: 28rpx;
   font-weight: bold;
-  line-height: 72rpx;
 }
 
-.page-container .convey-card {
+.convey-card {
+  background-color: #ffffff;
   margin-top: 24rpx;
-  padding-top: 16rpx !important;
+  padding: 32rpx;
 }
 
 .convey-card .rate-container .rate-title {
@@ -115,7 +111,7 @@ page {
   justify-content: center;
   position: fixed;
   bottom: 0;
-  padding-bottom: env(safe-area-inset-bottom);
+  padding-bottom: calc(env(safe-area-inset-bottom) + 20rpx);
   background-color: #ffffff;
   z-index: 99;
 }

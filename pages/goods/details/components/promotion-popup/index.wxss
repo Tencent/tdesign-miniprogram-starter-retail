@@ -73,11 +73,11 @@
   height: 32rpx;
   line-height: 32rpx;
   padding: 0 8rpx;
-  border: 1rpx solid #fa550f;
+  border: 1rpx solid #fa4126;
   background-color: #fff;
   margin-right: 16rpx;
   display: inline-flex;
-  color: #fa550f;
+  color: #fa4126;
   border-radius: 4rpx;
   flex-shrink: 0;
   position: relative;

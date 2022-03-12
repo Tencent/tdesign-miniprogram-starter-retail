@@ -73,5 +73,6 @@ Page({
       message: '评价提交成功',
       icon: 'check-circle',
     });
+    wx.navigateBack();
   },
 });

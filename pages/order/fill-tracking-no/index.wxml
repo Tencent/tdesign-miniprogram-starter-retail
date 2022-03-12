@@ -8,7 +8,7 @@
 				 t-class="t-cell__value"
 				 t-class-input="t-cell__input"
 				 t-class-placeholder="t-cell__placeholder"
-				 type="number"
+				 type="text"
 				 value="{{trackingNo}}"
 				 maxlength="30"
 				 placeholder="请输入物流单号"

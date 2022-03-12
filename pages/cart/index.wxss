@@ -8,3 +8,7 @@
   height: 200rpx;
   width: 100%;
 }
+
+.add-notes__confirm {
+  color: #fa4126 !important;
+}

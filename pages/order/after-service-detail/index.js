@@ -46,19 +46,6 @@ Page({
     this.setData({ backRefresh: false });
   },
 
-  onPageScroll(e) {
-    // this.navbar.methods.onScroll.call(this.navbar, e.scrollTop);
-    // this.pullDownRefresh && this.pullDownRefresh.onPageScroll(e);
-  },
-
-  onImgLoaded(e) {
-    // this.navbar && this.navbar.onImgLoaded(e);
-  },
-
-  onImgError(e) {
-    // this.navbar && this.navbar.onImgError(e);
-  },
-
   // 页面刷新，展示下拉刷新
   onPullDownRefresh_(e) {
     const { callback } = e.detail;
@@ -71,9 +58,7 @@ Page({
       .then(() => {
         this.setData({ pageLoading: false });
       })
-      .catch((e) => {
-        console.log('err', e);
-      });
+      .catch(() => {});
   },
 
   getService() {
@@ -82,18 +67,7 @@ Page({
       const serviceRaw = JSON.parse(JSON.stringify(res.data));
       // 滤掉填写运单号、修改运单号按钮，这两个按钮特殊处理，不在底部按钮栏展示
       if (!serviceRaw.buttonVOs) serviceRaw.buttonVOs = [];
-      const deliveryButtonIndex = serviceRaw.buttonVOs.findIndex((btn) => {
-        return [
-          ServiceButtonTypes.FILL_TRACKING_NO,
-          ServiceButtonTypes.CHANGE_TRACKING_NO,
-        ].includes(btn.type);
-      });
-      let deliveryButton = {};
-      // if (deliveryButtonIndex > -1) {
-      //   deliveryButton = serviceRaw.buttonVOs[deliveryButtonIndex];
-      //   serviceRaw.buttonVOs.splice(deliveryButtonIndex, 1); // 物流单按钮，填写/修改
-      // }
-      // 提取service-card需要的数据，以及部分需要经过转换的数据（如时间格式化、地址拼接等）
+      const deliveryButton = {};
       const service = {
         id: serviceRaw.rights.rightsNo,
         serviceNo: serviceRaw.rights.rightsNo,
@@ -140,7 +114,7 @@ Page({
         receiverAddress: this.composeAddress(serviceRaw), // 收货人地址
         applyRemark: serviceRaw.rightsRefund.refundDesc, // 申请退款时的填写的说明
         buttons: serviceRaw.buttonVOs || [],
-        logistics: serviceRaw.logisticsVO
+        logistics: serviceRaw.logisticsVO,
       };
       const proofs = serviceRaw.rights.rightsImageUrls || [];
       this.setData({
@@ -185,8 +159,8 @@ Page({
     });
     this.inputDialog._onComfirm = () => {
       Toast({
-        message: '确定填写物流单号'
-      })
+        message: '确定填写物流单号',
+      });
     };
   },
 
@@ -228,7 +202,6 @@ Page({
   onGoodsCardTap(e) {
     const { index } = e.currentTarget.dataset;
     const goods = this.data.serviceRaw.rightsItem[index];
-    console.log('goods', goods);
     wx.navigateTo({ url: `/pages/goods/details/index?skuId=${goods.skuId}` });
   },
 
@@ -249,8 +222,8 @@ Page({
     wx.navigateBack({ backRefresh: true });
   },
 
-   /** 获取状态ICON */
-   genStatusIcon(item) {
+  /** 获取状态ICON */
+  genStatusIcon(item) {
     const { userRightsStatus, afterSaleRequireType } = item;
     switch (userRightsStatus) {
       // 退款成功
@@ -259,14 +232,14 @@ Page({
       }
       // 已取消、已关闭
       case ServiceStatus.CLOSED: {
-        return 'indent_close'
+        return 'indent_close';
       }
       default: {
         switch (afterSaleRequireType) {
-          case "REFUND_MONEY": {
+          case 'REFUND_MONEY': {
             return 'goods_refund';
           }
-          case "REFUND_GOODS_MONEY":
+          case 'REFUND_GOODS_MONEY':
             return 'goods_return';
           default: {
             return 'goods_return';
@@ -274,5 +247,5 @@ Page({
         }
       }
     }
-  }
+  },
 });

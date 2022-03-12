@@ -148,7 +148,8 @@ Page({
       selectedAttrStr += `，${item.specValue}  `;
     });
 
-    const skuItem = skuArray.find((item) => {
+    // eslint-disable-next-line array-callback-return
+    const skuItem = skuArray.filter((item) => {
       let status = true;
       (item.specInfo || []).forEach((subItem) => {
         if (
@@ -162,7 +163,6 @@ Page({
     });
     this.selectSpecsName(selectedSkuValues.length > 0 ? selectedAttrStr : '');
     if (skuItem) {
-      console.log('skuItem:', skuItem.price);
       this.setData({
         selectItem: skuItem,
         selectSkuSellsPrice: skuItem.price,
@@ -213,9 +213,6 @@ Page({
   },
   addCart() {
     const { isAllSelectedSku } = this.data;
-    console.log('isAllSelectedSku: ', isAllSelectedSku);
-
-    // if (!isAllSelectedSku) {
     Toast({
       context: this,
       selector: '#t-toast',
@@ -223,16 +220,6 @@ Page({
       icon: '',
       duration: 1000,
     });
-    // return;
-    // }
-    // console.log('===');
-    // Toast({
-    //   context: this,
-    //   selector: '#t-toast',
-    //   message: '库存不足',
-    //   icon: '',
-    //   duration: 1000,
-    // });
   },
   gotoBuy(type) {
     const { isAllSelectedSku, buyNum } = this.data;
@@ -287,16 +274,8 @@ Page({
   },
   promotionChange(e) {
     const { index } = e.detail;
-    console.log('index:', index);
-    // const toast = this.selectComponent(`#wr-toast-1`);
-    // toast.show({
-    //   icon: 'success',
-    //   text: index,
-    //   zIndex: 100,
-    //   duration: 2000,
-    // });]
     wx.navigateTo({
-      url: '/pages/promotion-detail/index',
+      url: `/pages/promotion-detail/index?promotion_id=${index}`,
     });
   },
 
@@ -319,7 +298,7 @@ Page({
         maxLinePrice,
         soldNum,
       } = details;
-      skuList.map((item) => {
+      skuList.forEach((item) => {
         skuArray.push({
           skuId: item.skuId,
           quantity: item.stockInfo ? item.stockInfo.stockQuantity : 0,
@@ -327,7 +306,7 @@ Page({
         });
       });
       const promotionArray = [];
-      activityList.map((item) => {
+      activityList.forEach((item) => {
         promotionArray.push({
           tag: item.promotionSubCode === 'MYJ' ? '满减' : '满折',
           linkText: '逛一逛',
@@ -350,7 +329,7 @@ Page({
       });
     });
   },
-  async getCommentsList(spuID) {
+  async getCommentsList() {
     try {
       const code = 'Success';
       const data = await getGoodsDetailsCommentList();
@@ -408,7 +387,7 @@ Page({
     });
   },
   /** 获取评价统计 */
-  async getCommentsStatistics(spuID) {
+  async getCommentsStatistics() {
     try {
       const code = 'Success';
       const data = await getGoodsDetailsCommentsCount();
@@ -447,7 +426,6 @@ Page({
   },
   onLoad(query) {
     const { spuId } = query;
-    console.log('spuId:', spuId);
     this.setData({
       spuId: spuId,
     });

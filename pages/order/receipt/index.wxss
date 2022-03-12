@@ -1,23 +1,11 @@
-/* 层级定义
-@z-index-0: 1;
-@z-index-1: 100;
-@z-index-2: 200;
-@z-index-5: 500;
-@z-index-component: 1000; // 通用组件级别
-@z-index-dropdown: @z-index-component;
-@z-index-sticky: @z-index-component + 20;
-@z-index-fixed: @z-index-component + 30;
-@z-index-modal-backdrop:@z-index-component + 40;
-@z-index-modal:@z-index-component + 50;
-@z-index-popover:@z-index-component + 60;
-@z-index-tooltip:@z-index-component + 70;
-*/
-/* var() css变量适配*/
 .receipt {
   height: 100vh;
   background: #f5f5f5;
   position: relative;
   padding-top: 20rpx;
+}
+.srcoll-view-wrap {
+  margin-top: 20rpx;
 }
 .receipt .flex {
   display: flex;
@@ -45,10 +33,8 @@
 }
 .receipt .btn-wrap .active-btn {
   background-color: transparent;
-  border-color: #fa550f;
-  border-color: var(--color-primary, #fa550f);
-  color: #fa550f;
-  color: var(--color-primary, #fa550f);
+  border-color: #fa4126;
+  color: #fa4126;
 }
 .receipt .title {
   width: 100%;
@@ -71,10 +57,8 @@
 }
 .receipt .receipt-label .active-btn {
   background-color: transparent;
-  border-color: #fa550f;
-  border-color: var(--color-primary, #fa550f);
-  color: #fa550f;
-  color: var(--color-primary, #fa550f);
+  border-color: #fa4126;
+  color: #fa4126;
 }
 .receipt .receipt-label .wr-cell__title {
   font-size: 30rpx;
@@ -164,7 +148,7 @@
   padding: 0;
 }
 .receipt .dialog-receipt .dialog-info {
-  max-height: 612rpx;
+  max-height: 622rpx;
 }
 .receipt .dialog-receipt .info-wrap {
   padding: 0 18rpx;
@@ -185,23 +169,23 @@
   right: 0;
   z-index: 100;
   background: #fff;
-  height: 120rpx;
-  padding: 0 30rpx;
+  width: 100%;
+  padding: 0 20rpx;
+  box-sizing: border-box;
+  padding-bottom: calc(20rpx + env(safe-area-inset-bottom));
 }
 .receipt .receipt-btn .receipt-btn-con {
   margin-top: 20rpx;
   display: inline-block;
-  width: 690rpx;
+  width: 100%;
   line-height: 80rpx;
-  background: #fa550f;
-  background: var(--color-primary, #fa550f);
-  border-radius: 8rpx;
+  background: #fa4126;
   text-align: center;
   color: #fff;
+  border-radius: 48rpx;
 }
 .dialog__button-confirm {
-  color: #fa550f;
-  color: var(--color-primary, #fa550f);
+  color: #fa4126;
 }
 
 .cell-left {
@@ -219,4 +203,7 @@
   align-items: center;
   justify-content: space-between;
   width: 100%;
+}
+.dialog__button-confirm {
+  color: #fa4126 !important;
 }

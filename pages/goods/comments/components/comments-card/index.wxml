@@ -1,32 +1,35 @@
 <view class="comments-card-item wr-class">
-    <view class="comments-card-item-container">
-        <view class="comments-title">
-            <view class="comments-card-item-userImg">
-                <image class="userImg" src="{{userHeadUrl}}" />
-            </view>
-            <view class="userName">{{userName}}</view>
-            <text class="commentTime">{{commentTime}}</text>
-        </view>
-        <view class="comments-info">
-            <t-rate class='rate' value="{{commentScore}}" color="{{['#FFC51C', '#DDDDDD']}}" variant="filled"></t-rate>
-            <view class='goods-info-text' wx:if="{{goodsDetailInfo}}">{{goodsDetailInfo}}</view>
-        </view>
-        <view class="comments-card-item-container-content">
-            <view class="content-text {{hideText ? 'hide-text' : ''}}" hidden="{{showContent}}">
-                {{commentContent}}
-            </view>
-            <view class="showMore" wx:if="{{hideText}}" bindtap="showText">展开</view>
-            <view class="showMore" wx:if="{{!hideText && overText}}" bindtap="packupText">收起</view>
-        </view>
-        <view class="comments-card-item-container-image" wx:if="{{commentResources.length > 0}}">
-            <!-- <block wx:for="{{commentImageUrls}}" wx:key="index">
-                <image class="commentImg {{commentImageUrls.length === 1 ? 'commentImg1' : commentImageUrls.length === 2 ? 'commentImg2' : 'commentImg3'}}" src="{{item}}" bindtap="showCurImg" mode="aspectFit" data-index="{{index}}"></image>
-            </block> -->
-            <images-videos resources="{{commentResources}}"></images-videos>
-        </view>
-        <view class='comments-card-reply' wx:if="{{sellerReply}}">
-            <text class='prefix'>店家回复：</text>
-            <text class='content'>{{sellerReply}}</text>
-        </view>
-    </view>
+	<view class="comments-card-item-container">
+		<view class="comments-title">
+			<view class="comments-card-item-userImg">
+				<image class="userImg" src="{{userHeadUrl}}" />
+			</view>
+			<view class="userName">{{userName}}</view>
+			<text class="commentTime">{{commentTime}}</text>
+		</view>
+		<view class="comments-info">
+			<t-rate
+			 class='rate'
+			 value="{{commentScore}}"
+			 color="{{['#FFC51C', '#DDDDDD']}}"
+			 variant="filled"
+			/>
+			<view class='goods-info-text' wx:if="{{goodsDetailInfo}}">{{goodsDetailInfo}}</view>
+		</view>
+		<view class="comments-card-item-container-content">
+			<view class="content-text {{hideText ? 'hide-text' : ''}}" hidden="{{showContent}}">
+				{{commentContent}}
+			</view>
+			<view class="showMore" wx:if="{{hideText}}" bindtap="showText">展开</view>
+			<view class="showMore" wx:if="{{!hideText && overText}}" bindtap="packupText">收起</view>
+		</view>
+		<view class="comments-card-item-container-image" wx:if="{{commentResources.length > 0}}">
+			<images-videos resources="{{commentResources}}" />
+		</view>
+		<view class='comments-card-reply' wx:if="{{sellerReply}}">
+			<text class='prefix'>店家回复：</text>
+			<text class='content'>{{sellerReply}}</text>
+		</view>
+	</view>
 </view>
+

@@ -9,9 +9,7 @@ Page({
     });
   },
   onSubmit() {
-    const { nameValue } = this.data;
     wx.navigateBack({ backRefresh: true });
-    console.log('nameValue: ', nameValue);
   },
   clearContent() {
     this.setData({

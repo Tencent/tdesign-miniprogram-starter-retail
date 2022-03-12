@@ -26,7 +26,7 @@
   font-size: 26rpx;
   color: #333333;
   width: 100vw;
-  background: #fff
+  background: #fff;
 }
 
 .page-container .tab-bar__active {
@@ -83,11 +83,12 @@
   font-family: DIN Alternate;
 }
 
-.page-container .order-goods-card-footer .order-goods-card-footer-price-decimal {
+.page-container
+  .order-goods-card-footer
+  .order-goods-card-footer-price-decimal {
   font-size: 28rpx;
   color: #333;
   font-family: DIN Alternate;
-
 }
 
 .page-container .order-goods-card-footer .order-goods-card-footer-price-symbol {
@@ -95,7 +96,6 @@
   font-size: 24rpx;
   font-family: DIN Alternate;
 }
-
 
 .price-total {
   font-size: 24rpx;
@@ -194,7 +194,7 @@
 
 .page-container .header__right {
   font-size: 24rpx;
-  color: #FA4126;
+  color: #fa4126;
   display: flex;
   align-items: center;
 }
@@ -206,4 +206,7 @@
 }
 .t-class-indicator {
   color: #b9b9b9 !important;
+}
+.add-notes__confirm {
+  color: #fa4126 !important;
 }

@@ -276,23 +276,19 @@ page {
   color: #ffffff;
   margin: 0 32rpx;
   font-size: 32rpx;
-  height: 88rpx;
+  height: 80rpx;
   text-align: center;
   line-height: 88rpx;
   background-color: #fa4126;
 }
-
 .goods-detail-page .single-confirm-btn.disabled {
   font-size: 32rpx;
   color: #fff;
   background-color: #dddddd;
 }
-
 .goods-detail-page .goods-head .t-swiper {
   height: 750rpx !important;
 }
-
-.skuToast {
-  top: 50% !important;
-  position: absolute !important;
+.t-toast__content {
+  z-index: 12000 !important;
 }

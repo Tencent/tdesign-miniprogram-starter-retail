@@ -5,7 +5,9 @@ page {
 .tab-bar__placeholder,
 .tab-bar__inner {
   height: 88rpx;
+  width: 100%;
   line-height: 88rpx;
+  z-index: 100;
 }
 .tab-bar__inner {
   font-size: 26rpx;
@@ -31,7 +33,7 @@ page {
   color: #fa4126 !important;
 }
 .coupon-list-wrap {
-  margin-top: 20rpx;
+  margin-top: 108rpx;
   margin-left: 24rpx;
   margin-right: 24rpx;
   overflow-y: auto;
