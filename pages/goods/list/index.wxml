@@ -1,5 +1,4 @@
 <view class="goods-list-container">
-	<!-- 过滤组件 -->
 	<t-filter
 	 wr-class="filter-container"
 	 bind:change="handleFilterChange"
@@ -8,52 +7,44 @@
 	 overall="{{overall}}"
 	 bind:showFilterPopup="showFilterPopup"
 	>
-		<view slot="filterPopup">
-			<t-filter-popup
-			 show="{{show}}"
-			 bind:showFilterPopupClose="showFilterPopupClose"
-			 bind:reset="reset"
-			 bind:confirm="confirm"
-			>
-				<view slot="filterSlot">
-					<view class="price-container">
-						<view class="price-between">价格区间</view>
-						<view class="price-ipts-wrap">
-							<t-input
-							 type="number"
-							 t-class="price-ipt {{minActive ? 'active' : ''}}"
-							 bindfocus="handleMinPriceFocus"
-							 bindblur="handleMinPriceBlur"
-							 placeholder="最低价"
-							 value="{{minVal}}"
-							 bindchange="onMinValAction"
-							 style="border:{{minSalePriceFocus?'1rpx solid #fa550f':'1rpx solid transparent'}}"
-							/>
-							<text class="price-divided" />
+		<t-filter-popup
+		 slot="filterPopup"
+		 show="{{show}}"
+		 bind:showFilterPopupClose="showFilterPopupClose"
+		 bind:reset="reset"
+		 bind:confirm="confirm"
+		>
+			<view class="price-container" slot="filterSlot">
+				<view class="price-between">价格区间</view>
+				<view class="price-ipts-wrap">
+					<t-input
+					 type="number"
+					 t-class="price-ipt"
+					 placeholder="最低价"
+					 value="{{minVal}}"
+					 t-class-placeholder="t-class-placeholder"
+					 bindchange="onMinValAction"
+					/>
+					<text class="price-divided" />
 
-
-              <t-input
-                type="number"
-                t-class="price-ipt {{maxActive ? 'active' : ''}}"
-                bindfocus="handleMaxPriceFocus"
-                bindblur="handleMaxPriceBlur"
-                placeholder="最高价"
-                value="{{maxVal}}"
-                bindchange="onMaxValAction"
-                style="border:{{maxSalePriceFocus?'1rpx solid #fa550f':'1rpx solid transparent'}}"
-              />
+            <t-input
+              type="number"
+              t-class="price-ipt"
+              placeholder="最高价"
+              value="{{maxVal}}"
+              t-class-placeholder="t-class-placeholder"
+              bindchange="onMaxValAction"
+            />
             </view>
-          </view>
         </view>
       </t-filter-popup>
-    </view>
   </t-filter>
   <view class="empty-wrap" wx:if="{{goodsList.length === 0 && hasLoaded}}">
     <t-empty
       t-class="empty-tips"
       size="240rpx"
       description="暂无相关商品"
-    ></t-empty>
+    />
   </view>
   <!-- 显示内容 -->
   <view class="category-goods-list" wx:if="{{goodsList.length}}">
