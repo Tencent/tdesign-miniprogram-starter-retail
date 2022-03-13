@@ -275,7 +275,9 @@ Page({
   },
 
   onToInvoice() {
-    wx.navigateTo({ url: `pages/order/invoice/index?id=1` });
+    wx.navigateTo({
+      url: `/pages/order/invoice/index?orderNo=${this.data._order.orderNo}`,
+    });
   },
 
   onSuppleMentInvoice() {
@@ -303,15 +305,6 @@ Page({
     wx.navigateTo({
       url: `/pages/order/createComment/index?orderNo=${this.orderNo}`,
     });
-  },
-
-  /** 跳转拼团详情/分享页*/
-  toGrouponDetail() {
-    const {
-      groupInfoVo: { promotionId, groupId },
-      storeId,
-    } = this.data.order;
-    wx.showToast({ title: '点击了拼团' });
   },
 
   goBack() {

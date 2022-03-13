@@ -22,32 +22,6 @@
 	<view class="order-detail">
 		<view class="order-detail__header">
 			<view class="title">{{_order.statusDesc}}</view>
-			<view class="desc">
-				<block wx:if="{{ order.holdStatus === 1 }}">
-					<block wx:if="{{ order.groupInfoVo.residueTime > 0 }}">
-						拼团剩余
-						<t-count-down
-						 time="{{order.groupInfoVo.residueTime}}"
-						 format="HH小时mm分ss秒"
-						 t-class="count-down"
-						 bindfinish="onCountDownFinish"
-						/>
-						<view>过时自动取消</view>
-					</block>
-				</block>
-				<block wx:elif="{{countDownTime === null}}">{{order.orderSatusRemark || ''}}</block>
-				<block wx:elif="{{countDownTime > 0}}">
-					剩
-					<t-count-down
-					 time="{{countDownTime}}"
-					 format="HH小时mm分ss秒"
-					 t-class="count-down"
-					 bindfinish="onCountDownFinish"
-					/>
-					支付，过时订单将会取消
-				</block>
-				<block wx:else>超时未支付</block>
-			</view>
 		</view>
 		<!-- 物流 -->
 		<view class="order-section" wx:if="{{logisticsNodes[0]}}" bindtap="onDeliveryClick">
@@ -115,20 +89,6 @@
 				/>
 			</block>
 		</wr-order-card>
-		<view class="order-section groupon-section" wx:if="{{ order.holdStatus === 1 || order.holdStatus === 2 || order.holdStatus === 3 }}">
-			<view class="top">
-				<view class="top-left">
-					<wr-icon size="30" name="dingdanxiangqing-pintuan" />
-					<text class="status">
-            拼团{{ order.holdStatus === 1 ? '中' : ( order.holdStatus === 3 ? '成功' : '失败' ) }}
-          </text>
-				</view>
-				<text bind:tap="toGrouponDetail" class="link">拼团详情</text>
-			</view>
-			<view class="bottom">
-				<groupon-avatars items="{{ order.groupInfoVo.groupUserInfoVos }}" max="{{ order.groupInfoVo.allMember }}" success="{{ order.holdStatus === 3 }}" />
-			</view>
-		</view>
 		<view class="order-section" wx:if="{{invoiceStatus === 1 || invoiceStatus === 2 || invoiceStatus === 3}}">
 			<t-cell t-class="other-cell" title="发票" bordered="{{false}}">
 				<view slot="right-icon">
@@ -211,8 +171,6 @@
 				<view class="value" slot="right-icon">{{formatCreateTime}}</view>
 			</t-cell>
 		</view>
-		<!-- 为你推荐 -->
-		<!-- <rec-good-list style="margin-top: 40rpx" sceneId="{{7}}" /> -->
 		<!-- 底部栏 -->
 		<view wx:if="{{_order.buttons.length > 0}}" class="safe-area-bottom footer-bar-wrapper">
 			<view class="footer-bar safe-area-bottom">
