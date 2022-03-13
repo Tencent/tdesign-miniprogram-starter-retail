@@ -19,7 +19,7 @@
 		/>
 	</view>
 	<t-swiper
-	 t-class="swiper-wrap"
+	 t-class="swipe-wrap"
 	 current="{{current}}"
 	 autoplay="{{autoplay}}"
 	 duration="{{duration}}"
