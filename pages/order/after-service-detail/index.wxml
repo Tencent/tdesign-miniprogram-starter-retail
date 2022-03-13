@@ -1,13 +1,5 @@
 <wr-loading-content position="fixed" type="spinner" wx:if="{{pageLoading}}" />
 <view class="page-container">
-	<t-navbar title="{{pageNav.title}}" left-icon="slot" t-class-title="t-class-title">
-		<t-icon
-		 slot="left-icon"
-		 t-class="navigation-bar__btn"
-		 name="chevron-left"
-		 bind:tap="navBackHandle"
-		/>
-	</t-navbar>
 	<t-pull-down-refresh id="t-pull-down-refresh" bind:refresh="onPullDownRefresh_">
 		<!-- 页面内容 -->
 		<view class="service-detail safe-bottom">

@@ -10,7 +10,7 @@ const imgPrefix = cdnBase;
  * @param {boolean} hasImage
  */
 
-export function getGoodsDetailsComments(spuId = 0) {
+export function getGoodsDetailsComments() {
   return {
     homePageComments: [
       {
@@ -47,7 +47,7 @@ export function getGoodsDetailsComments(spuId = 0) {
   };
 }
 
-export function getGoodsDetailsCommentsCount(spuId = 0) {
+export function getGoodsDetailsCommentsCount() {
   return {
     commentCount: '47',
     badCount: '0',

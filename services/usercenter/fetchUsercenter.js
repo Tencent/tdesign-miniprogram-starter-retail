@@ -1,11 +1,3 @@
-/*
- * @Author: oliverppeng
- * @LastEditors: Please set LastEditors
- * @Date: 2021-12-01 17:33:43
- * @LastEditTime: 2021-12-11 16:26:32
- * @Description:
- * @FilePath: /retail-mp/services/usercenter/fetchUsercenter.js
- */
 import { config } from '../../config/index';
 
 /** 获取个人中心信息 */

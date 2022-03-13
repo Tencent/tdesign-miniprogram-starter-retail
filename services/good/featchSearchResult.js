@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 import { config } from '../../config/index';
 
 /** 获取搜索历史 */

@@ -47,7 +47,7 @@
 									未开始
 								</view>
 								<text class="count-down-label">距结束仅剩</text>
-								<wr-count-down
+								<t-count-down
 								 class="{{cdClass}}"
 								 wr-class="wr-cd-class"
 								 wx:if="{{time > 0}}"
