@@ -18,9 +18,11 @@ Page({
   hasSelect: false,
 
   onLoad(query) {
-    const { selectMode = '', isOrderSure = '' } = query;
+    const { selectMode = '', isOrderSure = '', id = '' } = query;
     this.setData({
       isOrderSure: !!isOrderSure,
+      extraSpace: !!isOrderSure,
+      id,
     });
     this.selectMode = !!selectMode;
     this.init();
@@ -45,7 +47,13 @@ Page({
     });
   },
   getAddressList() {
+    const { id } = this.data;
     fetchDeliveryAddressList().then((addressList) => {
+      addressList.forEach((address) => {
+        if (address.id === id) {
+          address.checked = true;
+        }
+      });
       this.setData({ addressList });
     });
   },

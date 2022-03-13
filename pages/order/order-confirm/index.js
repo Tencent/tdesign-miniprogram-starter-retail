@@ -257,12 +257,22 @@ Page({
     /** 获取一个Promise */
     getAddressPromise()
       .then((address) => {
-        this.handleOptionsParams({ userAddressReq: address });
+        this.handleOptionsParams({
+          userAddressReq: { ...address, checked: true },
+        });
       })
       .catch(() => {});
 
+    const { userAddressReq } = this; // 收货地址
+
+    let id = '';
+
+    if (userAddressReq?.id) {
+      id = `&id=${userAddressReq.id}`;
+    }
+
     wx.navigateTo({
-      url: '/pages/usercenter/address/list/index?selectMode=1&isOrderSure=1',
+      url: `/pages/usercenter/address/list/index?selectMode=1&isOrderSure=1${id}`,
     });
   },
   onNotes(e) {
