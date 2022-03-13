@@ -1,0 +1,83 @@
+/* var() css变量适配*/
+.wr-swiper-cell__right {
+  margin: 20rpx 0;
+}
+.wr-swiper-cell__right .swiper-right-del {
+  height: calc(100% - 40rpx);
+  width: 60px;
+  background-color: #ff2525;
+  font-size: 28rpx;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.goods-stepper .stepper {
+  border: none;
+  border-radius: 0;
+  height: auto;
+  width: 168rpx;
+  overflow: visible;
+}
+.goods-stepper .stepper .stepper__minus,
+.goods-stepper .stepper .stepper__plus {
+  width: 44rpx;
+  height: 44rpx;
+  background-color: #f5f5f5;
+}
+.goods-stepper .stepper .stepper__minus--hover,
+.goods-stepper .stepper .stepper__plus--hover {
+  background-color: #f5f5f5;
+}
+.goods-stepper .stepper .stepper__minus .wr-icon,
+.goods-stepper .stepper .stepper__plus .wr-icon {
+  font-size: 24rpx;
+}
+.goods-stepper .stepper .stepper__minus {
+  position: relative;
+}
+.goods-stepper .stepper .stepper__minus::after {
+  position: absolute;
+  display: block;
+  content: ' ';
+  left: -20rpx;
+  right: -5rpx;
+  top: -20rpx;
+  bottom: -20rpx;
+  background-color: transparent;
+}
+.goods-stepper .stepper .stepper__plus {
+  position: relative;
+}
+.goods-stepper .stepper .stepper__plus::after {
+  position: absolute;
+  display: block;
+  content: ' ';
+  left: -5rpx;
+  right: -20rpx;
+  top: -20rpx;
+  bottom: -20rpx;
+  background-color: transparent;
+}
+.goods-stepper .stepper .stepper__input {
+  width: 72rpx;
+  height: 44rpx;
+  background-color: #f5f5f5;
+  font-size: 24rpx;
+  color: #222427;
+  font-weight: 600;
+  border-left: none;
+  border-right: none;
+  min-height: 40rpx;
+  margin: 0 4rpx;
+  display: flex;
+  align-items: center;
+}
+.invalid-card .invalid-private-mask .wr-goods-card {
+  background-color: #fff;
+  padding: 18rpx 32rpx 24rpx 80rpx;
+}
+.text-primary .wr-icon {
+  color: #fa550f;
+  color: var(--color-primary, #fa550f);
+}

@@ -1,7 +1,7 @@
 {
   "component": true,
   "usingComponents": {
-    "wr-stepper": "@tencent/retailwe-ui-stepper/index",
+    "t-stepper": "tdesign-miniprogram/stepper/stepper",
     "wr-goods-card": "../specs-goods-card/index"
   }
 }

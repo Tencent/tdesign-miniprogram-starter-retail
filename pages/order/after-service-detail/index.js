@@ -29,7 +29,7 @@ Page({
   },
 
   onLoad(query) {
-    this.rightsNo = parseInt(query.rightsNo);
+    this.rightsNo = query.rightsNo;
     this.inputDialog = this.selectComponent('#input-dialog');
     this.init();
   },
@@ -53,13 +53,15 @@ Page({
       .then(() => {
         this.setData({ pageLoading: false });
       })
-      .catch(() => {});
+      .catch((err) => {
+        console.error(err);
+      });
   },
 
   getService() {
     const params = { rightsNo: this.rightsNo };
     return getRightsDetail(params).then((res) => {
-      const serviceRaw = JSON.parse(JSON.stringify(res.data));
+      const serviceRaw = res.data[0];
       // 滤掉填写运单号、修改运单号按钮，这两个按钮特殊处理，不在底部按钮栏展示
       if (!serviceRaw.buttonVOs) serviceRaw.buttonVOs = [];
       const deliveryButton = {};

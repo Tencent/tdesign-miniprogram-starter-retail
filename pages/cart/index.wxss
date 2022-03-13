@@ -1,4 +1,4 @@
-@import '/miniprogram_npm/@tencent/retailwe-ui-cart-group/external.wxss';
+@import '/style/cart-group.wxss';
 
 :host {
   padding-bottom: 100rpx;

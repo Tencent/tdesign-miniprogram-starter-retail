@@ -30,7 +30,7 @@
 						<view class="price-ipts-wrap">
 							<t-input
 							 type="number"
-							 t-class="price-ipt "
+							 t-class="price-ipt"
 							 t-class-placeholder="t-class-placeholder"
 							 placeholder="最低价"
 							 value="{{minVal}}"

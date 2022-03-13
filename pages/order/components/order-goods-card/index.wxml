@@ -7,7 +7,7 @@
  thumb-width-in-popup="{{thumbWidthInPopup}}"
  thumb-height-in-popup="{{thumbHeightInPopup}}"
 >
-	<wr-stepper
+	<t-stepper
 	 wx:if="{{ step }}"
 	 slot="append-body"
 	 class="order-stepper"
