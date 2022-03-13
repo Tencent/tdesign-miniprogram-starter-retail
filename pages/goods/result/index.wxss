@@ -91,17 +91,14 @@ page {
   box-sizing: border-box;
   width: 256rpx;
   font-size: 24rpx;
+  height: 56rpx;
+  padding: 0 24rpx;
   text-align: center;
   border-radius: 8rpx;
   color: #bbb;
   background: rgba(245, 245, 245, 1);
 }
 
-.result-container .price-ipts-wrap .price-divided .price-ipt.focus {
-  border: 1px solid #fa550f;
-}
-
-.result-container .price-ipts-wrap .price-divided .price-ipt.active {
-  color: #333;
-  font-weight: 600;
+.result-container .t-class-placeholder {
+  font-size: 24rpx !important;
 }

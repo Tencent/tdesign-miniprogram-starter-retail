@@ -22,8 +22,6 @@ Page({
     show: false,
     minVal: '',
     maxVal: '',
-    minActive: false,
-    maxActive: false,
     minSalePriceFocus: false,
     maxSalePriceFocus: false,
     layoutText: layoutMap[0],
@@ -261,40 +259,16 @@ Page({
     });
   },
 
-  handleMinPriceFocus() {
-    this.setData({
-      minSalePriceFocus: true,
-    });
-  },
-
-  handleMinPriceBlur() {
-    this.setData({
-      minSalePriceFocus: false,
-    });
-  },
-
-  handleMaxPriceFocus() {
-    this.setData({
-      maxSalePriceFocus: true,
-    });
-  },
-
-  handleMaxPriceBlur() {
-    this.setData({
-      maxSalePriceFocus: false,
-    });
-  },
-
   // 最小值
   onMinValAction(e) {
     const { value } = e.detail;
-    this.setData({ minVal: value, minActive: value.length });
+    this.setData({ minVal: value });
   },
 
   // 最大值
   onMaxValAction(e) {
     const { value } = e.detail;
-    this.setData({ maxVal: value, maxActive: value.length });
+    this.setData({ maxVal: value });
   },
 
   // 筛选重置
@@ -304,13 +278,35 @@ Page({
 
   // 筛选确定
   confirm() {
-    Toast({
-      context: this,
-      selector: '#t-toast',
-      message: `价格范围${this.data.minVal}-${this.data.maxVal}`,
-    });
-    this.setData({
-      show: false,
-    });
+    const { minVal, maxVal } = this.data;
+    let message = '';
+
+    if (minVal && !maxVal) {
+      message = `价格最小是${minVal}`;
+    } else if (!minVal && maxVal) {
+      message = `价格范围是0-${minVal}`;
+    } else if (minVal && maxVal && minVal <= maxVal) {
+      message = `价格范围${minVal || 0}-${this.data.maxVal}`;
+    } else {
+      message = '请输入正确范围';
+    }
+    if (message) {
+      Toast({
+        context: this,
+        selector: '#t-toast',
+        message,
+      });
+    }
+
+    this.setData(
+      {
+        show: false,
+        minVal: '',
+        maxVal: '',
+      },
+      () => {
+        this.init();
+      },
+    );
   },
 });

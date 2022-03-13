@@ -1,8 +1,8 @@
 .con2 .filter-btns-wrap {
   width: 100%;
-  height: 96rpx;
+  height: 80rpx;
   position: absolute;
-  bottom: 0;
+  bottom: calc(20rpx + env(safe-area-inset-bottom));
   display: flex;
   flex-direction: row;
 }
@@ -17,7 +17,7 @@
 }
 
 .btn-reset {
-  color: rgba(250, 85, 15, 1);
+  color: #fa4126;
   background: rgba(255, 255, 255, 1);
   position: relative;
 }
@@ -41,6 +41,6 @@
 }
 
 .btn-confirm {
-  color: rgba(255, 255, 255, 1);
-  background: rgba(250, 85, 15, 1);
+  color: #fff;
+  background: #fa4126;
 }

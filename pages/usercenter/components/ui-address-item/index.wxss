@@ -18,13 +18,13 @@
 .address-item-wrapper .draw-line {
   position: relative;
 }
-.address-item-wrapper .draw-line::before {
+.address-item-wrapper .draw-line::after {
   content: '';
   position: absolute;
   top: 0;
   left: 32rpx;
   width: 200%;
-  height: 200%;
+  height: 2rpx;
   transform: scale(0.5);
   transform-origin: 0 0;
   box-sizing: border-box;

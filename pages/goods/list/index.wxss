@@ -98,10 +98,14 @@ page {
 }
 
 .goods-list-container .price-ipts-wrap .price-divided .price-ipt.focus {
-  border: 1px solid #fa550f;
+  border: 1rpx solid #fa550f;
 }
 
 .goods-list-container .price-ipts-wrap .price-divided .price-ipt.active {
   color: #333;
   font-weight: 600;
+}
+
+.result-container .t-class-placeholder {
+  font-size: 24rpx !important;
 }

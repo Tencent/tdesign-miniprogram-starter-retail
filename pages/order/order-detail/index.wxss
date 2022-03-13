@@ -251,3 +251,6 @@
 .desc__title {
   margin: 10rpx 0;
 }
+.safe-area-bottom {
+  height: calc(env(safe-area-inset-bottom) + 20rpx);
+}

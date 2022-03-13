@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 import { fetchDeliveryAddressList } from '../../../../services/address/fetchAddress';
 import Toast from 'tdesign-miniprogram/toast/index';
 import { resolveAddress, rejectAddress } from './util';
@@ -17,11 +18,11 @@ Page({
   hasSelect: false,
 
   onLoad(query) {
-    // 传空字符串或者不传 就 等同 false
-    // 否则都是true（注意 !!'false' === true ）
-    const { selectMode = '', isOrderSure = '' } = query;
+    const { selectMode = '', isOrderSure = '', id = '' } = query;
     this.setData({
       isOrderSure: !!isOrderSure,
+      extraSpace: !!isOrderSure,
+      id,
     });
     this.selectMode = !!selectMode;
     this.init();
@@ -46,7 +47,13 @@ Page({
     });
   },
   getAddressList() {
+    const { id } = this.data;
     fetchDeliveryAddressList().then((addressList) => {
+      addressList.forEach((address) => {
+        if (address.id === id) {
+          address.checked = true;
+        }
+      });
       this.setData({ addressList });
     });
   },
@@ -181,10 +188,14 @@ Page({
         });
       })
       .catch((e) => {
-        if (e.message === 'cancel') {
-          console.info('用户取消选择');
-        } else {
-          console.error('地址编辑发生错误: ', e);
+        if (e.message !== 'cancel') {
+          Toast({
+            context: this,
+            selector: '#t-toast',
+            message: '地址编辑发生错误',
+            icon: '',
+            duration: 1000,
+          });
         }
       });
   },
