@@ -1,3 +1,4 @@
+/* eslint-disable no-nested-ternary */
 Component({
   externalClasses: ['wr-class', 'specs-class', 'price-class'],
 
@@ -298,7 +299,7 @@ Component({
       let { selectedSku } = this.data;
       const { specList } = this.data;
       selectedSku =
-        selectedSku[specId] == id
+        selectedSku[specId] === id
           ? { ...this.data.selectedSku, [specId]: '' }
           : { ...this.data.selectedSku, [specId]: id };
       specList.forEach((item) => {

@@ -45,11 +45,6 @@ page {
 .home-page-container .t-tabs .t-tabs-scroll {
   border: none !important;
 }
-
-.home-page-container .wr-swiper .slide-image {
-  height: 300rpx;
-}
-
 .home-page-container .tab.order-nav {
   background-color: transparent;
   line-height: 80rpx;
@@ -73,7 +68,7 @@ page {
   background-color: #fa550f !important;
 }
 
-.home-page-container .swiper-wrap {
+.home-page-container .swipe-wrap {
   margin: 20rpx 0;
 }
 

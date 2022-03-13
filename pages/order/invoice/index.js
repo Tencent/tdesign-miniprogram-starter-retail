@@ -1,12 +1,10 @@
-import {
-  fetchOrderDetail,
-} from '../../../services/order/orderDetail';
+import { fetchOrderDetail } from '../../../services/order/orderDetail';
 
 Page({
   data: {
-    invoice: {}
+    invoice: {},
   },
-  onLoad({orderNo}) {
+  onLoad({ orderNo }) {
     this.orderNo = orderNo;
     this.init();
   },
@@ -19,7 +17,7 @@ Page({
     };
     return fetchOrderDetail(params).then((res) => {
       const order = res.data;
-      
+
       const invoice = {
         buyerName: order?.invoiceVO?.buyerName, //个人或公司名称
         buyerTaxNo: order?.invoiceVO?.buyerTaxNo, //税号
@@ -36,4 +34,4 @@ Page({
       });
     });
   },
-})
+});

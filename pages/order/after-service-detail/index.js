@@ -16,11 +16,6 @@ const TitleConfig = {
 Page({
   data: {
     pageLoading: true,
-    pageNav: {
-      title: '',
-      color: '',
-    },
-    pageNavBg: '',
     serviceRaw: {},
     service: {},
     deliveryButton: {},
@@ -84,10 +79,7 @@ Page({
           thumb: item.goodsPictureUrl,
           title: item.goodsName,
           specs: (item.specInfo || []).map((s) => s.specValues || ''),
-          // amount: item.itemRefundAmount,
-          // price: item.itemRefundAmount,
           itemRefundAmount: item.itemRefundAmount,
-          // num: item.rightsQuantity,
           rightsQuantity: item.rightsQuantity,
         })),
         orderNo: serviceRaw.rights.orderNo, // 订单编号
@@ -121,14 +113,13 @@ Page({
         serviceRaw,
         service,
         deliveryButton,
-        pageNav: {
-          title: TitleConfig[service.type],
-          color: 'black',
-        },
         'gallery.proofs': proofs,
         showProofs:
           serviceRaw.rights.userRightsStatus === ServiceStatus.PENDING_VERIFY &&
           (service.applyRemark || proofs.length > 0),
+      });
+      wx.setNavigationBarTitle({
+        title: TitleConfig[service.type],
       });
     });
   },
@@ -217,9 +208,8 @@ Page({
     });
   },
 
-  /** 左上角返回操作拦截 */
   navBackHandle() {
-    wx.navigateBack({ backRefresh: true });
+    wx.navigateTo({ url: '/pages/order/after-service-list/index' });
   },
 
   /** 获取状态ICON */

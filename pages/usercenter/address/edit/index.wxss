@@ -110,6 +110,6 @@ page .form-address .t-dialog-confirm {
 .submit .btn-submit-address.disabled::after {
   display: none;
 }
-.add-notes__confirm {
+.dialog__button-confirm {
   color: #fa4126 !important;
 }

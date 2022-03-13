@@ -1,5 +1,5 @@
 {
-  "navigationStyle": "custom",
+  "navigationBarTitleText": "",
   "usingComponents": {
     "wr-loading-content": "@tencent/retailwe-ui-loading-content/index",
     "wr-price": "/components/price/index",

@@ -1,38 +1,3 @@
-// export enum CouponCardStatus {
-//   /** 普通 */
-//   default = "default",
-//   /** 不可用 */
-//   useless = "useless",
-//   /** 禁用 */
-//   disabled = "disabled",
-// }
-// export enum CouponCardType {
-//   /** 折扣 */
-//   discount = "discount",
-//   /** 满减（其他） */
-//   price = "price",
-// }
-// export interface CouponCard {
-//   /** key */
-//   key: string;
-//   /** 优惠券状态 */
-//   status: CouponCardStatus;
-//   /** 优惠券类型 */
-//   type: CouponCardType;
-//   /** 折扣或者满减值 */
-//   value: string;
-//   /** 标签 */
-//   tag: string;
-//   /** 描述 */
-//   desc: string;
-//   /** 标题 */
-//   title: string;
-//   /** 有效时间限制 */
-//   timeLimit: string;
-//   /** 货币符号 */
-//   currency: string;
-// }
-
 /**
  * 优惠券
  *
