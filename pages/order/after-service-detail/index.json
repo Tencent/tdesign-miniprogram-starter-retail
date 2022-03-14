@@ -16,6 +16,6 @@
     "t-toast": "tdesign-miniprogram/toast/toast",
     "t-dialog": "tdesign-miniprogram/dialog/dialog",
     "t-swiper": "tdesign-miniprogram/swiper/swiper",
-    "t-image": "tdesign-miniprogram/image/image"
+    "t-image": "/components/webp-image/index"
   }
 }

@@ -3,7 +3,7 @@
   "usingComponents": {
     "wr-tag": "@tencent/retailwe-ui-tag/index",
     "wr-price": "/components/price/index",
-    "t-image": "tdesign-miniprogram/image/image",
+    "t-image": "/components/webp-image/index",
     "t-icon": "tdesign-miniprogram/icon/icon"
   }
 }

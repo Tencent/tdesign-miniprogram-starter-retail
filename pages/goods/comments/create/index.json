@@ -5,7 +5,7 @@
     "sku-comment": "../components/sku-comment/index",
     "wr-rate": "@tencent/retailwe-ui-rate/index",
     "wr-button": "@tencent/retailwe-ui-button/index",
-    "t-image": "tdesign-miniprogram/image/image",
+    "t-image": "/components/webp-image/index",
     "t-rate": "tdesign-miniprogram/rate/rate",
     "t-textarea": "tdesign-miniprogram/textarea/textarea",
     "t-checkbox": "tdesign-miniprogram/checkbox/checkbox",

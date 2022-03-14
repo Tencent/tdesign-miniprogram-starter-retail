@@ -5,7 +5,7 @@
     "t-button": "tdesign-miniprogram/button/button",
     "t-cell": "tdesign-miniprogram/cell/cell",
     "t-icon": "tdesign-miniprogram/icon/icon",
-    "t-image": "tdesign-miniprogram/image/image",
+    "t-image": "/components/webp-image/index",
     "t-count-down": "tdesign-miniprogram/count-down/count-down",
     "t-toast": "tdesign-miniprogram/toast/toast",
     "t-dialog": "tdesign-miniprogram/dialog/dialog",

@@ -1,7 +1,7 @@
 {
   "navigationBarTitleText": "商品详情",
   "usingComponents": {
-    "t-image": "tdesign-miniprogram/image/image",
+    "t-image": "/components/webp-image/index",
     "t-tag": "tdesign-miniprogram/tag/tag",
     "t-toast": "tdesign-miniprogram/toast/toast",
     "t-rate": "tdesign-miniprogram/rate/rate",
