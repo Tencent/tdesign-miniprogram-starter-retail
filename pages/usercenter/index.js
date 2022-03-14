@@ -90,10 +90,15 @@ const getDefaultData = () => ({
   customerServiceInfo: {},
   currAuthStep: 1,
   showKefu: true,
+  versionNo: '',
 });
 
 Page({
   data: getDefaultData(),
+
+  onLoad() {
+    this.getVersionInfo();
+  },
 
   // 调用自定义tabbar的init函数，使页面与tabbar激活状态保持一致
   onShow() {
@@ -217,5 +222,17 @@ Page({
     } else {
       this.fetUseriInfoHandle();
     }
+  },
+
+  getVersionInfo() {
+    const versionInfo = wx.getAccountInfoSync();
+    // eslint-disable-next-line no-console
+    console.info('versionInfo: ', versionInfo);
+    const { version, envVersion = __wxConfig } = versionInfo.miniProgram;
+    // eslint-disable-next-line no-console
+    console.info('version, envVersion: ', version, envVersion);
+    this.setData({
+      versionNo: envVersion === 'release' ? version : envVersion,
+    });
   },
 });

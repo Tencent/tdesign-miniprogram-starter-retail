@@ -37,6 +37,7 @@
 		</t-cell-group>
 	</view>
 </view>
+<view class="footer__version" wx:if="{{versionNo !== ''}}">当前版本 {{versionNo}}</view>
 <t-popup
  visible="{{showMakePhone}}"
  placement="bottom"

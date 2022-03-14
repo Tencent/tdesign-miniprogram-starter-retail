@@ -132,3 +132,12 @@ page .popup__content--bottom {
 .my-order {
   border-radius: 10rpx;
 }
+
+.footer__version {
+  text-align: center;
+  margin-top: 50rpx;
+  color: #999;
+  margin-bottom: 4rpx;
+  font-size: 24rpx;
+  line-height: 32rpx;
+}
