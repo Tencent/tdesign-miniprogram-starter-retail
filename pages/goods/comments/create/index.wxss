@@ -94,6 +94,7 @@ page {
   background-color: #ffffff;
   margin-top: 24rpx;
   padding: 32rpx;
+  padding-bottom: calc(env(safe-area-inset-bottom) + 140rpx);
 }
 
 .convey-card .rate-container .rate-title {
