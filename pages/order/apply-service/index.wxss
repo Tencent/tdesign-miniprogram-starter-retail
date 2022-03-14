@@ -8,10 +8,6 @@
   padding-bottom: calc(env(safe-area-inset-bottom) + 80rpx);
 }
 
-.select-service wr-order-goods-card .wr-goods-card__body {
-  margin-left: 50rpx;
-}
-
 .order-goods-card-footer {
   display: flex;
   width: calc(100% - 190rpx);
@@ -140,16 +136,12 @@
   margin-top: 20rpx;
 }
 
-.select-service wr-order-goods-card .wr-goods-card__body {
-  margin-left: 50rpx;
-}
-
 .order-goods-card-footer {
   display: flex;
   width: calc(100% - 190rpx);
   justify-content: space-between;
   position: absolute;
-  bottom: 0;
+  bottom: 20rpx;
   left: 190rpx;
 }
 
@@ -276,4 +268,10 @@
   flex-direction: column;
   font-size: 24rpx;
   color: #999;
+}
+
+.t-cell__left__icon {
+  position: relative;
+  top: -24rpx;
+  left: -2rpx;
 }
