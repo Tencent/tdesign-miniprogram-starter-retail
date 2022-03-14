@@ -1,7 +1,7 @@
 /*
  * @Author: rileycai
  * @Date: 2022-03-14 14:21:26
- * @LastEditTime: 2022-03-14 15:05:39
+ * @LastEditTime: 2022-03-14 15:23:04
  * @LastEditors: rileycai
  * @Description: webp-image组件对t-image包裹了一层，主要实现图片裁剪、webp压缩功能
  * @FilePath: /tdesign-miniprogram-starter/components/webp-image/index.js
@@ -65,6 +65,17 @@ Component({
     },
   },
   methods: {
+    px2rpx(px) {
+      return (750 / (systemInfo.screenWidth || 375)) * px;
+    },
+    getRect(selector) {
+      return new Promise((resolve) => {
+        if (!this.selectorQuery) {
+          this.selectorQuery = this.createSelectorQuery();
+        }
+        this.selectorQuery.select(selector).boundingClientRect(resolve).exec();
+      });
+    },
     onLoad(e) {
       this.triggerEvent('load', e.detail);
     },
