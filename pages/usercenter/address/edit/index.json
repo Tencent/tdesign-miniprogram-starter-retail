@@ -5,8 +5,6 @@
     "t-icon": "tdesign-miniprogram/icon/icon",
     "t-input": "tdesign-miniprogram/input/input",
     "t-button": "tdesign-miniprogram/button/button",
-    "t-radio": "tdesign-miniprogram/radio/radio",
-    "t-check-tag": "tdesign-miniprogram/tag/check-tag",
     "t-cell-group": "tdesign-miniprogram/cell-group/cell-group",
     "t-cell": "tdesign-miniprogram/cell/cell",
     "t-toast": "tdesign-miniprogram/toast/toast",
