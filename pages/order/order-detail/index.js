@@ -4,19 +4,11 @@ import {
   fetchBusinessTime,
   fetchOrderDetail,
 } from '../../../services/order/orderDetail';
-import { getAddressPromise } from '../../usercenter/address/list/util';
-
-// 静态资源域名
-const STATIC_BASE_URL = 'https://cdn-we-retail.ym.tencent.com/miniapp/';
+import Toast from 'tdesign-miniprogram/toast/index';
 
 Page({
   data: {
-    pageNav: {
-      color: 'white',
-      background: 'linear-gradient(90deg,#FFAB44 0%,#FF7333 100%)',
-    },
     pageLoading: true,
-    bgImgUrl: '',
     order: {}, // 后台返回的原始数据
     _order: {}, // 内部使用和提供给 order-card 的数据
     storeDetail: {},
@@ -25,7 +17,6 @@ Page({
     backRefresh: false, // 用于接收其他页面back时的状态
     formatCreateTime: '', //格式化订单创建时间
     logisticsNodes: [],
-
     /** 订单评论状态 */
     orderHasCommented: true,
   },
@@ -135,7 +126,6 @@ Page({
           'YYYY-MM-DD HH:mm',
         ), // 格式化订单创建时间
         countDownTime: this.computeCountDownTime(order),
-        bgImgUrl: this.getBgImgUrl(order.orderStatus, order),
         addressEditable:
           [OrderStatus.PENDING_PAYMENT, OrderStatus.PENDING_DELIVERY].includes(
             order.orderStatus,
@@ -192,32 +182,6 @@ Page({
       };
       this.setData({ storeDetail });
     });
-  },
-
-  getBgImgUrl(status, order) {
-    switch (status) {
-      case OrderStatus.PENDING_PAYMENT:
-        return `${STATIC_BASE_URL}order/bg-order-pengding-pay.png`;
-      case OrderStatus.PENDING_DELIVERY:
-        if (order.orderSubStatus === -1) {
-          return `${STATIC_BASE_URL}order/bg-cancel-order-checking.png`;
-        }
-        return `${STATIC_BASE_URL}order/bg-order-packaged.png`;
-      case OrderStatus.PENDING_RECEIPT:
-        return `${STATIC_BASE_URL}order/bg-order-delivering.png`;
-      case OrderStatus.COMPLETE:
-        return `${STATIC_BASE_URL}order/bg-order-finished.png`;
-      case OrderStatus.PAYMENT_TIMEOUT:
-        return `${STATIC_BASE_URL}order/bg-order-canceled.png`;
-      case OrderStatus.CANCELED_NOT_PAYMENT:
-        return `${STATIC_BASE_URL}order/bg-order-canceled.png`;
-      case OrderStatus.CANCELED_PAYMENT:
-        return `${STATIC_BASE_URL}order/bg-order-canceled.png`;
-      case OrderStatus.CANCELED_REJECTION:
-        return `${STATIC_BASE_URL}order/bg-order-canceled.png`;
-      default:
-        return `${STATIC_BASE_URL}order/bg-order-pengding-pay.png`;
-    }
   },
 
   // 仅对待支付状态计算付款倒计时
@@ -307,7 +271,23 @@ Page({
     });
   },
 
-  goBack() {
-    wx.navigateBack();
+  /** 跳转拼团详情/分享页*/
+  toGrouponDetail() {
+    const {
+      groupInfoVo: { promotionId, groupId },
+      storeId,
+    } = this.data.order;
+    wx.showToast({ title: '点击了拼团' });
+    /* wx.navigateTo({
+      url: `/groupon/detail/index?promotionId=${promotionId}&groupId=${groupId}&storeId=${storeId}`,
+    }); */
+  },
+
+  clickService() {
+    Toast({
+      context: this,
+      selector: '#t-toast',
+      message: '您点击了联系客服',
+    });
   },
 });

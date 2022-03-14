@@ -1,24 +1,10 @@
-/* 层级定义
-@z-index-0: 1;
-@z-index-1: 100;
-@z-index-2: 200;
-@z-index-5: 500;
-@z-index-component: 1000; // 通用组件级别
-@z-index-dropdown: @z-index-component;
-@z-index-sticky: @z-index-component + 20;
-@z-index-fixed: @z-index-component + 30;
-@z-index-modal-backdrop:@z-index-component + 40;
-@z-index-modal:@z-index-component + 50;
-@z-index-popover:@z-index-component + 60;
-@z-index-tooltip:@z-index-component + 70;
-*/
-/* var() css变量适配*/
 .select-coupons {
   background: #fff;
   width: 100%;
   position: relative;
   border-radius: 20rpx 20rpx 0 0;
   padding-top: 28rpx;
+  padding-bottom:env(safe-area-inset-bottom);
 }
 .select-coupons .title {
   width: 100%;
@@ -38,8 +24,7 @@
   padding: 0 20rpx;
 }
 .select-coupons .info .price {
-  color: #fa550f;
-  color: var(--color-primary, #fa550f);
+  color: #fa4126;
 }
 .select-coupons .coupons-list {
   max-height: 500rpx;
@@ -66,8 +51,7 @@
   width: 36rpx;
 }
 .select-coupons .coupons-list .slot-radio .text-primary {
-  color: #fa550f;
-  color: var(--color-primary, #fa550f);
+  color: #fa4126;
 }
 .select-coupons .coupons-list .slot-radio .wr-check {
   font-size: 36rpx;
@@ -93,25 +77,28 @@
   margin-top: 40rpx;
 }
 .select-coupons .coupons-cover {
-  height: 100rpx;
+  height: 112rpx;
+  width: 100%;
+  box-sizing: border-box;
   margin-top: 30rpx;
+  padding: 12rpx 32rpx;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
 }
 .select-coupons .coupons-cover .btn {
-  width: 336rpx;
-  height: 80rpx;
+  width: 332rpx;
+  height: 88rpx;
   text-align: center;
-  line-height: 80rpx;
+  line-height: 88rpx;
   font-size: 32rpx;
-  border-radius: 8rpx;
+  border-radius: 44rpx;
   box-sizing: border-box;
-  border: 1px solid #999999;
+  border: 2rpx solid #DDDDDD;
+  color: #333333;
 }
 .select-coupons .coupons-cover .red {
-  border-color: #fa550f;
-  border-color: var(--color-primary, #fa550f);
-  color: #fa550f;
-  color: var(--color-primary, #fa550f);
+  border-color: #fa4126;
+  background-color: #fa4126;
+  color: #ffffff;
 }

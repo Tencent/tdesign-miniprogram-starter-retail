@@ -2,7 +2,7 @@
   "component": true,
   "usingComponents": {
     "t-popup": "tdesign-miniprogram/popup/popup",
-    "t-image": "tdesign-miniprogram/image/image",
+    "t-image": "/components/webp-image/index",
     "wr-price": "/components/price/index",
     "coupon-card": "/pages/coupon/components/coupon-card/index"
   }
