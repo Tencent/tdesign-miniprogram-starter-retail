@@ -1,8 +1,6 @@
 {
   "component": true,
   "usingComponents": {
-    "wr-icon": "@tencent/retailwe-ui-icon/index",
-    "wr-image": "@tencent/retailwe-ui-image/index",
     "t-image": "/components/webp-image/index",
     "t-icon": "tdesign-miniprogram/icon/icon"
   }
