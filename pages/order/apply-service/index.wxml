@@ -25,6 +25,7 @@
 				<t-icon
 				 slot="left-icon"
 				 prefix="wr"
+				 class="t-cell__left__icon"
 				 name="goods_refund"
 				 size="48rpx"
 				 color="#fa4126"
@@ -41,6 +42,7 @@
 				<t-icon
 				 slot="left-icon"
 				 prefix="wr"
+				 class="t-cell__left__icon"
 				 name="goods_return"
 				 size="48rpx"
 				 color="#fa4126"
@@ -52,7 +54,16 @@
 			 title="退货退款"
 			 description="该商品不支持退货"
 			 t-class-left="t-cell__left"
-			/>
+			>
+				<t-icon
+				 slot="left-icon"
+				 prefix="wr"
+				 class="t-cell__left__icon"
+				 name="goods_return"
+				 size="48rpx"
+				 color="#fa4126"
+				/>
+			</t-cell>
 		</t-cell-group>
 	</view>
 	<!-- 售后表单 -->
