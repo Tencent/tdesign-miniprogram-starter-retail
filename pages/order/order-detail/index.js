@@ -211,20 +211,19 @@ Page({
   },
 
   onEditAddressTap() {
-    const params = {
-      orderNo: this.data.order.orderNo,
-      receiverAddressId: this.data.order.logisticsVO.receiverAddressId,
-      cityCode: this.data.order.logisticsVO.cityCode,
-      countyCode: this.data.order.logisticsVO.countyCode,
-      latitude: this.data.order.logisticsVO.receiverLatitude,
-      longitude: this.data.order.logisticsVO.receiverLongitude,
-      provinceCode: this.data.order.logisticsVO.provinceCode,
-      receiverAddress: this.data.order.logisticsVO.receiverAddress,
-    };
-    const paramsStr = Object.keys(params)
-      .map((k) => `${k}=${params[k]}`)
-      .join('&');
-    wx.navigateTo({ url: `/pages/usercenter/address/list/index?${paramsStr}` });
+    getAddressPromise()
+      .then((address) => {
+        this.setData({
+          'order.logisticsVO.receiverName': address.name,
+          'order.logisticsVO.receiverPhone': address.phone,
+          '_order.receiverAddress': address.address,
+        });
+      })
+      .catch(() => {});
+
+    wx.navigateTo({
+      url: `/pages/usercenter/address/list/index?selectMode=1`,
+    });
   },
 
   onOrderNumCopy() {
@@ -240,7 +239,9 @@ Page({
   },
 
   onToInvoice() {
-    wx.navigateTo({ url: `pages/order/invoice/index?id=1` });
+    wx.navigateTo({
+      url: `/pages/order/invoice/index?orderNo=${this.data._order.orderNo}`,
+    });
   },
 
   onSuppleMentInvoice() {

@@ -2,7 +2,6 @@
   background-color: #f8f8f8;
 }
 
-
 .order-detail {
   width: 100%;
   box-sizing: border-box;
@@ -21,12 +20,12 @@
   width: 700rpx;
   height: 200rpx;
   border-radius: 24rpx;
-  margin:  0 auto;
+  margin: 0 auto;
   overflow: hidden;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center; 
+  justify-content: center;
   background-image: url('https://cdn-we-retail.ym.tencent.com/miniapp/template/order-bg.png');
   background-repeat: no-repeat;
   background-size: contain;
@@ -107,7 +106,6 @@
   margin: 16rpx auto;
 }
 
-
 .order-detail .pay-detail {
   background-color: #ffffff;
   width: 100%;
@@ -172,7 +170,7 @@
   width: 200%;
   height: 200%;
   border-radius: 40rpx;
-  border: 2rpx solid #DDDDDD;
+  border: 2rpx solid #dddddd;
   transform: scale(0.5);
   left: 0;
   top: 0;
@@ -221,7 +219,7 @@
   content: '';
   width: 200%;
   height: 200%;
-  border-top: 2rpx solid #DDDDDD;
+  border-top: 2rpx solid #dddddd;
   transform: scale(0.5);
   left: 0;
   top: 0;
@@ -233,4 +231,3 @@
   width: 686rpx;
   margin-bottom: 16rpx;
 }
-

@@ -21,7 +21,7 @@ Page({
       logisticsCompanyCode = '',
       remark = '',
     } = query;
-    console.log('query', query);
+
     if (!rightsNo) {
       Dialog.confirm({
         title: '请选择售后单？',
@@ -35,9 +35,7 @@ Page({
     if (logisticsNo) {
       wx.setNavigationBarTitle({
         title: '修改运单号',
-        fail() {
-          console.warn('修改页面title失败');
-        },
+        fail() {},
       });
       this.isChange = true;
       this.setData({
@@ -119,6 +117,7 @@ Page({
 
   checkParams() {
     const res = { errMsg: '', require: false };
+
     if (!this.data.trackingNo) {
       res.errMsg = '请填写运单号';
       res.require = true;
@@ -141,13 +140,19 @@ Page({
       });
       return;
     }
-    if (!this.data.deliveryCompany) return;
+
+    const {
+      trackingNo,
+      remark,
+      deliveryCompany: { code, name },
+    } = this.data;
+
     const params = {
       rightsNo: this.rightsNo,
-      logisticsCompanyCode: this.data.deliveryCompany.code,
-      logisticsCompanyName: this.data.deliveryCompany.name,
-      logisticsNo: this.data.trackingNo,
-      remark: this.data.remark,
+      logisticsCompanyCode: code,
+      logisticsCompanyName: name,
+      logisticsNo: trackingNo,
+      remark,
     };
     const api = this.isChange ? create : update;
     this.setData({ submitting: true });
@@ -167,10 +172,6 @@ Page({
       });
   },
 
-  onCancel() {
-    wx.navigateBack({ backRefresh: true });
-  },
-
   onScanTap() {
     wx.scanCode({
       scanType: ['barCode'],
@@ -183,9 +184,7 @@ Page({
         });
         this.setData({ trackingNo: res.result });
       },
-      fail(err) {
-        console.warn('扫码失败：', err);
-      },
+      fail(err) {},
     });
   },
 });

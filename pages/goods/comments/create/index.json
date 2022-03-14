@@ -1,10 +1,6 @@
 {
   "navigationBarTitleText": "评价商品",
   "usingComponents": {
-    "wr-goods-review-submit": "@tencent/retailwe-ui-goods-review-submit/index",
-    "sku-comment": "../components/sku-comment/index",
-    "wr-rate": "@tencent/retailwe-ui-rate/index",
-    "wr-button": "@tencent/retailwe-ui-button/index",
     "t-image": "/components/webp-image/index",
     "t-rate": "tdesign-miniprogram/rate/rate",
     "t-textarea": "tdesign-miniprogram/textarea/textarea",

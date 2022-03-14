@@ -1,75 +1,59 @@
-
+page view {
+  box-sizing: border-box;
+}
 .popup-content {
   background-color: white;
   color: #222427;
   border-radius: 20rpx 20rpx 0 0;
   overflow: hidden;
 }
-
 .popup-content .header {
-    height: 100rpx;
-    line-height: 100rpx;
-    text-align: center;
-    vertical-align: middle;
-    font-size: 32rpx;
-    font-weight: bold;
-    position: relative;
+  height: 100rpx;
+  line-height: 100rpx;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 32rpx;
+  font-weight: bold;
+  position: relative;
 }
-
-/* .popup-content .header::after {
-  display: block;
-  content: ' ';
-  position: absolute;
-  bottom: 0;
-  height: 2rpx;
-  left: -50%;
-  right: -50%;
-  scale: 0.5;
-  background-color: #DCE0E4;
-} */
-
 .popup-content .header .close-icon-btn {
   position: absolute;
   top: 0;
   right: 0;
 }
-
 .popup-content .header .close-icon-btn .icon {
-    font-size: 25rpx !important;
-    padding: 30rpx;
+  font-size: 25rpx !important;
+  padding: 30rpx;
 }
-
 .popup-content .header .close-icon-btn .icon:active {
   opacity: 0.5;
 }
 .popup-content .options {
-    max-height: 60vh;
-    overflow-y: scroll;
+  max-height: 60vh;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
 }
-
 .popup-content .options .cell {
   height: 100rpx;
   align-items: center;
   font-size: 30rpx;
   color: #333333;
 }
-
 .popup-content .button-bar {
-    height: 140rpx;
-    padding: 0 30rpx;
-    display: flex;
-    flex-wrap: nowrap;
-    align-items: center;
-    justify-content: space-between;
-    padding-bottom: env(safe-area-inset-bottom);
-
+  width: 100%;
+  padding: 20rpx 30rpx;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: calc(20rpx + env(safe-area-inset-bottom));
 }
-
 .popup-content .button-bar .btn {
-    width: 330rpx;
+  width: 100%;
+  background: #fa4126;
+  color: #fff;
+  border-radius: 48rpx;
 }
-
-.popup-content .button-bar .confirmBtn {
-    border-color: #fa550f;
-    color: #fa550f;
+.button-bar .btnWrapper {
+  width: 100%;
 }

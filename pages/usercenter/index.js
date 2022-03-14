@@ -1,5 +1,6 @@
 import { fetchUserCenter } from '../../services/usercenter/fetchUsercenter';
 import { cdnBase } from '../../config/index';
+import Toast from 'tdesign-miniprogram/toast/index';
 
 const menuData = [
   [
@@ -34,9 +35,11 @@ const menuData = [
       tit: '',
       url: '',
       type: 'service',
+      icon: 'service',
     },
   ],
 ];
+
 const orderTagInfos = [
   {
     title: '待付款',
@@ -47,28 +50,28 @@ const orderTagInfos = [
   },
   {
     title: '待发货',
-    iconName: 'wuliu-1',
+    iconName: 'deliver',
     orderNum: 0,
     tabType: 10,
     status: 1,
   },
   {
     title: '待收货',
-    iconName: 'packaging',
+    iconName: 'package',
     orderNum: 0,
     tabType: 40,
     status: 1,
   },
   {
     title: '待评价',
-    iconName: 'Comment',
+    iconName: 'comment',
     orderNum: 0,
     tabType: 60,
     status: 1,
   },
   {
     title: '退款/售后',
-    iconName: 'money',
+    iconName: 'exchang',
     orderNum: 0,
     tabType: 0,
     status: 1,
@@ -82,7 +85,6 @@ const getDefaultData = () => ({
     nickName: '正在登录...',
     phoneNumber: '',
   },
-  countsData: [],
   menuData,
   orderTagInfos,
   customerServiceInfo: {},
@@ -109,9 +111,9 @@ Page({
   fetUseriInfoHandle() {
     fetchUserCenter().then(
       ({ userInfo, countsData, orderTagInfos, customerServiceInfo }) => {
+        // eslint-disable-next-line no-unused-expressions
         menuData?.[0].forEach((v) => {
           countsData.forEach((counts) => {
-            counts.num = counts.num <= 999 ? counts.num : '999+';
             if (counts.type === v.type) {
               v.tit = counts.num;
             }
@@ -119,7 +121,6 @@ Page({
         });
         this.setData({
           userInfo,
-          countsData,
           menuData,
           orderTagInfos,
           customerServiceInfo,
@@ -145,19 +146,37 @@ Page({
         break;
       }
       case 'help-center': {
-        wx.navigateTo({ url: '/pages/usercenter/person-info/index' });
+        Toast({
+          context: this,
+          selector: '#t-toast',
+          message: '你点击了帮助中心',
+          icon: '',
+          duration: 1000,
+        });
         break;
       }
       case 'point': {
-        console.log('point');
+        Toast({
+          context: this,
+          selector: '#t-toast',
+          message: '你点击了积分菜单',
+          icon: '',
+          duration: 1000,
+        });
         break;
       }
       case 'coupon': {
-        wx.navigateTo({ url: '/pages/coupon/list' });
+        wx.navigateTo({ url: '/pages/coupon/coupon-list/index' });
         break;
       }
       default: {
-        console.log('未知跳转', type);
+        Toast({
+          context: this,
+          selector: '#t-toast',
+          message: '未知跳转',
+          icon: '',
+          duration: 1000,
+        });
         break;
       }
     }
@@ -169,7 +188,7 @@ Page({
     if (status === 0) {
       wx.navigateTo({ url: '/pages/order/after-service-list/index' });
     } else {
-      wx.navigateTo({ url: '/pages/order/order-list/index?status=' + status });
+      wx.navigateTo({ url: `/pages/order/order-list/index?status=${status}` });
     }
   },
 

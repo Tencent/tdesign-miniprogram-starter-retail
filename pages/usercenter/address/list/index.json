@@ -9,6 +9,7 @@
     "t-dialog": "tdesign-miniprogram/dialog/dialog",
     "t-toast": "tdesign-miniprogram/toast/toast",
     "t-address-item": "../../components/ui-address-item/index",
-    "t-location": "../../components/t-location/index"
+    "t-location": "../../components/t-location/index",
+    "t-empty": "tdesign-miniprogram/empty/empty"
   }
 }

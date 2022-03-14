@@ -15,7 +15,6 @@ Component({
       },
     },
     showConfirmButton: Boolean,
-    showCancelButton: Boolean,
     showCloseButton: Boolean,
     confirmButtonText: {
       type: String,

@@ -11,6 +11,7 @@
 			 extra-space="{{extraSpace}}"
 			 class-prefix="ym"
 			 address="{{address}}"
+			 data-id="{{address.id}}"
 			 bind:onSelect="selectHandle"
 			 bind:onDelete="deleteAddressHandle"
 			 bind:onEdit="editAddressHandle"
@@ -18,14 +19,7 @@
 		</block>
 	</view>
 	<view wx:else class="no-address">
-		<t-image
-		 width="224"
-		 height="224"
-		 mode="aspectFill"
-		 class="no-address__icon"
-		 src="{{noAddressImg}}"
-		/>
-		<view class="no-address__text">暂无收货地址，赶快添加吧</view>
+		<t-empty icon="" description="暂无收货地址，赶快添加吧" />
 	</view>
 	<view class="bottom-fixed">
 		<view class="btn-wrap">

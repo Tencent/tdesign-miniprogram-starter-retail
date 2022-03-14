@@ -23,10 +23,10 @@
 		>
 			<view class="order-group__item__icon icon-class">
 				<t-badge count="{{item.orderNum}}" max-count="{{99}}">
-					<wr-icon
-					 classPrefix="wr"
-					 name="deliver"
-					 size="48"
+					<t-icon
+					 prefix="{{classPrefix}}"
+					 name="{{item.iconName}}"
+					 size="56rpx"
 					 customStyle="background-image: -webkit-linear-gradient(90deg, #6a6a6a 0%,#929292 100%);-webkit-background-clip: text;-webkit-text-fill-color: transparent;"
 					/>
 				</t-badge>

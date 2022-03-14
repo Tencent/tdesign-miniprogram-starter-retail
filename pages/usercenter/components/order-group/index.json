@@ -4,6 +4,6 @@
     "t-cell": "tdesign-miniprogram/cell/cell",
     "t-cell-group": "tdesign-miniprogram/cell-group/cell-group",
     "t-badge": "tdesign-miniprogram/badge/badge",
-    "wr-icon": "@tencent/retailwe-ui-icon/index"
+    "t-icon": "tdesign-miniprogram/icon/icon"
   }
 }

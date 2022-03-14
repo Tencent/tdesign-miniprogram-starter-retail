@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 import { getSearchResult } from '../../../services/good/featchSearchResult';
 import Toast from 'tdesign-miniprogram/toast/index';
 
@@ -21,8 +22,6 @@ Page({
     show: false,
     minVal: '',
     maxVal: '',
-    minActive: false,
-    maxActive: false,
     minSalePriceFocus: false,
     maxSalePriceFocus: false,
     layoutText: layoutMap[0],
@@ -75,11 +74,6 @@ Page({
     } else {
       params.sort = 1;
     }
-
-    // if (prices.length === 2) {
-    //   params.minPrice = prices[0] * 100;
-    //   params.maxPrice = prices[1] * 100;
-    // }
     params.minPrice = minVal ? minVal * 100 : 0;
     params.maxPrice = maxVal ? maxVal * 100 : undefined;
     // 重置请求
@@ -107,7 +101,6 @@ Page({
       const result = await getSearchResult(params);
       const code = 'Success';
       const data = result;
-      console.log('data:', data);
       if (code.toUpperCase() === 'SUCCESS') {
         const { spuList, totalCount = 0 } = data;
         if (totalCount === 0 && reset) {
@@ -158,7 +151,6 @@ Page({
 
   onLoad(options) {
     const { keywords = '' } = options || {};
-    console.log('keywords:', keywords);
     this.setData(
       {
         keywords,
@@ -168,7 +160,6 @@ Page({
         this.init(true);
       },
     );
-    // this.setCartNum();
   },
 
   // 单击购物车，跳转
@@ -176,11 +167,6 @@ Page({
     wx.switchTab({
       url: '/pages/cart/index',
     });
-    // navigateTo 需要跳转的应用内非 tabBar 的页面的路径
-    // 跳转tabBar请用 wx.switchTab(OBJECT)，跳转到 tabBar 页面，并关闭其他所有非 tabBar 页面
-    // wx.navigateTo({
-    //   url: '/pages/cart/index',
-    // });
   },
 
   handleSubmit(e) {
@@ -217,8 +203,7 @@ Page({
     });
   },
 
-  tagClickHandle(e) {
-    console.log('点击标签: ', e);
+  tagClickHandle() {
     Toast({
       context: this,
       selector: '#t-toast',
@@ -242,7 +227,6 @@ Page({
       overall,
       layout,
     };
-    console.log('layout:', layout);
     this.setData({
       filter: _filter,
       layout: layout,
@@ -275,40 +259,16 @@ Page({
     });
   },
 
-  handleMinPriceFocus() {
-    this.setData({
-      minSalePriceFocus: true,
-    });
-  },
-
-  handleMinPriceBlur() {
-    this.setData({
-      minSalePriceFocus: false,
-    });
-  },
-
-  handleMaxPriceFocus() {
-    this.setData({
-      maxSalePriceFocus: true,
-    });
-  },
-
-  handleMaxPriceBlur() {
-    this.setData({
-      maxSalePriceFocus: false,
-    });
-  },
-
   // 最小值
   onMinValAction(e) {
     const { value } = e.detail;
-    this.setData({ minVal: value, minActive: value.length });
+    this.setData({ minVal: value });
   },
 
   // 最大值
   onMaxValAction(e) {
     const { value } = e.detail;
-    this.setData({ maxVal: value, maxActive: value.length });
+    this.setData({ maxVal: value });
   },
 
   // 筛选重置
@@ -318,13 +278,35 @@ Page({
 
   // 筛选确定
   confirm() {
-    Toast({
-      context: this,
-      selector: '#t-toast',
-      message: `价格范围${this.data.minVal}-${this.data.maxVal}`,
-    });
-    this.setData({
-      show: false,
-    });
+    const { minVal, maxVal } = this.data;
+    let message = '';
+
+    if (minVal && !maxVal) {
+      message = `价格最小是${minVal}`;
+    } else if (!minVal && maxVal) {
+      message = `价格范围是0-${minVal}`;
+    } else if (minVal && maxVal && minVal <= maxVal) {
+      message = `价格范围${minVal || 0}-${this.data.maxVal}`;
+    } else {
+      message = '请输入正确范围';
+    }
+    if (message) {
+      Toast({
+        context: this,
+        selector: '#t-toast',
+        message,
+      });
+    }
+
+    this.setData(
+      {
+        show: false,
+        minVal: '',
+        maxVal: '',
+      },
+      () => {
+        this.init();
+      },
+    );
   },
 });

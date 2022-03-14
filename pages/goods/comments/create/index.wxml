@@ -2,14 +2,11 @@
   <view class="comment-card">
     <view class="goods-info-container">
       <view class="goods-image-container">
-        <t-image
-          t-class="goods-image"
-          src="//bl-material-online-1300977798.cos.ap-guangzhou.myqcloud.com/persist/10001/88888888/1000000/material/1/fe9ca204723849848cb3fc0d736e82f7-1586941824833-锘垮垏鍥_鍟嗗搧 - 9.png"
-        ></t-image>
+        <t-image t-class="goods-image" src="{{imgUrl}}" />
       </view>
       <view class="goods-title-container">
-        <view class="goods-title">星云M1男子减震经典休闲鞋时尚低帮运动鞋</view>
-        <view class="goods-detail">颜色:冷檀黑 尺码:42.5码</view>
+        <view class="goods-title">{{title}}</view>
+        <view class="goods-detail">{{goodsDetail}}</view>
       </view>
     </view>
     <view class="rate-container">
@@ -22,14 +19,14 @@
         size="52"
         class="rate"
         data-item="goodRateValue"
-      ></t-rate>
+      />
     </view>
     <view class="textarea-container">
       <t-textarea
         t-class="textarea"
         maxlength="{{500}}"
         bind:change="onTextAreaChange"
-      ></t-textarea>
+      />
     </view>
     <view class="upload-container">
       <t-upload
@@ -41,103 +38,55 @@
         addContent="slot"
       >
         <view slot="addContent" class="upload-addcontent-slot">
-          <t-icon name="photo" size="60rpx"></t-icon>
+          <t-icon name="photo" size="60rpx" />
           <text>添加图片/视频</text>
         </view>
       </t-upload>
     </view>
+
     <view class="anonymous-box">
       <t-checkbox
         bind:change="onAnonymousChange"
         checked="{{isAnonymous}}"
         color="#FA4126"
-      ></t-checkbox>
+      />
       <view class="name">匿名评价</view>
     </view>
   </view>
-  <view class="comment-card convey-card">
-    <view class="convey-comment-title">物流服务评价</view>
-    <view class="rate-container">
-      <text class="rate-title">物流评价</text>
-      <t-rate
-        value="{{conveyRateValue}}"
-        bind:change="onRateChange"
-        variant="filled"
-        color="{{['#FFC51C']}}"
-        size="52"
-        class="rate"
-        data-item="conveyRateValue"
-      ></t-rate>
-    </view>
-    <view class="rate-container">
-      <text class="rate-title">服务评价</text>
-      <t-rate
-        value="{{serviceRateValue}}"
-        bind:change="onRateChange"
-        variant="filled"
-        color="{{['#FFC51C']}}"
-        size="52"
-        class="rate"
-        data-item="serviceRateValue"
-      ></t-rate>
-    </view>
-  </view>
-  <view class="submit-button-container">
-    <t-button
-      shape="round"
-      theme="danger"
-      content="提交"
-      t-class="submit-button{{isAllowedSubmit ? '' : '-disabled'}}"
-      bind:tap="onSubmitBtnClick"
+</view>
+<view class="comment-card convey-card">
+  <view class="convey-comment-title">物流服务评价</view>
+  <view class="rate-container">
+    <text class="rate-title">物流评价</text>
+    <t-rate
+      value="{{conveyRateValue}}"
+      bind:change="onRateChange"
+      variant="filled"
+      color="{{['#FFC51C']}}"
+      size="52"
+      class="rate"
+      data-item="conveyRateValue"
     />
   </view>
-  <t-toast id="t-toast" />
-  <!-- <view wx:if="{{ commentList.length }}" class="store-comment">
-    <view class="{{isFinished ? 'finished-icon-wrap title' : 'title'}}">
-      物流服务评价
-      <wr-icon
-        name="yilingqu"
-        wx:if="{{isFinished}}"
-        color="#979797"
-        classPrefix="ym"
-        wr-class="finished-icon"
-        size="98"
-      />
-    </view>
-    <block wx:if="{{!isFinished}}">
-      <view class="rate">
-        <text class="label">物流评价</text>
-        <wr-rate
-          value="{{ freightScore }}"
-          data-field="freightScore"
-          bind:change="onFieldChange"
-          gap="{{12}}"
-          size="{{32}}"
-          touchable
-        />
-      </view>
-      <view class="rate">
-        <text class="label">服务评价</text>
-        <wr-rate
-          value="{{ serviceScore }}"
-          data-field="serviceScore"
-          bind:change="onFieldChange"
-          gap="{{12}}"
-          size="{{32}}"
-          touchable
-        />
-      </view>
-    </block>
-  </view> -->
-  <!-- <view wx:if="{{ commentList.length }}" class="submmit-bar">
-    <wr-button
-      loading="{{ submmiting }}"
-      bindtap="onSubmmitComment"
-      wr-class="submmit-bar-button"
-      type="{{ !dirty || error ? 'disabled' : 'primary' }}"
-      block
-    >
-      提交评价
-    </wr-button>
-  </view> -->
+  <view class="rate-container">
+    <text class="rate-title">服务评价</text>
+    <t-rate
+      value="{{serviceRateValue}}"
+      bind:change="onRateChange"
+      variant="filled"
+      color="{{['#FFC51C']}}"
+      size="52"
+      class="rate"
+      data-item="serviceRateValue"
+    />
+  </view>
 </view>
+<view class="submit-button-container">
+  <t-button
+    theme="danger"
+    content="提交"
+    t-class="submit-button{{isAllowedSubmit ? '' : '-disabled'}}"
+    bind:tap="onSubmitBtnClick"
+  />
+</view>
+<t-toast id="t-toast" />

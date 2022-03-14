@@ -1,11 +1,11 @@
-<view class="tab-bar__placeholder" />
+<!-- <view class="tab-bar__placeholder" /> -->
 <t-tabs
- value="{{status}}"
+ defaultValue="{{status}}"
  bind:change="tabChange"
  tabList="{{list}}"
  t-class="tab-bar__inner"
  t-class-active="tab-bar__active"
- t-class-track="tab-bar__track"
+ t-class-track="t-tabs-track"
 >
 	<t-tab-panel
 	 wx:for="{{list}}"
@@ -16,17 +16,22 @@
 	/>
 </t-tabs>
 <view class="coupon-list-wrap">
-	<t-pull-down-refresh id="t-pull-down-refresh" bind:refresh="onPullDownRefresh_">
-        <view class="coupon-list-item" wx:for="{{couponList}}">
-            <coupon-card couponDTO="{{item}}"></coupon-card>
-        </view>
+	<t-pull-down-refresh
+	 t-class-indicator="t-class-indicator"
+	 id="t-pull-down-refresh"
+	 bind:refresh="onPullDownRefresh_"
+	 background="#fff"
+	>
+		<view class="coupon-list-item" wx:for="{{couponList}}">
+			<coupon-card couponDTO="{{item}}" />
+		</view>
 	</t-pull-down-refresh>
 	<view class="center-entry">
 		<view class="center-entry-btn" bind:tap="goCouponCenterHandle">
 			<view>领券中心</view>
 			<t-icon
 			 name="chevron-right"
-			 color="#FA550F"
+			 color="#fa4126"
 			 size="40rpx"
 			 style="line-height: 28rpx;"
 			/>

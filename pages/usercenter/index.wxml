@@ -19,13 +19,21 @@
 			 wx:for-index="xindex"
 			 wx:key="xindex"
 			 title="{{xitem.title}}"
-			 arrow="{{true}}"
+			 arrow="{{!xitem.icon}}"
 			 note="{{xitem.tit}}"
 			 data-type="{{xitem.type}}"
 			 bordered="{{false}}"
 			 bind:click="onClickCell"
 			 t-class-note="order-group-note"
-			/>
+			>
+				<t-icon
+				 slot="right-icon"
+				 wx:if="{{xitem.icon}}"
+				 name="{{xitem.icon}}"
+				 size="48"
+				 color="#999"
+				/>
+			</t-cell>
 		</t-cell-group>
 	</view>
 </view>
@@ -44,4 +52,5 @@
 		<view class="popup-close" bind:tap="closeMakePhone">取消</view>
 	</view>
 </t-popup>
+<t-toast id="t-toast" />
 

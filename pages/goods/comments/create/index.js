@@ -1,5 +1,4 @@
-import { getCommentDetail } from '../../../../services/good/comments/fetchCommentDetail';
-import { get } from '../../../../utils/util';
+// import { getCommentDetail } from '../../../../services/good/comments/fetchCommentDetail';
 import Toast from 'tdesign-miniprogram/toast/index';
 Page({
   data: {
@@ -11,9 +10,20 @@ Page({
     gridConfig: {
       width: 218,
       height: 218,
-      column: 3
+      column: 3,
     },
-    isAllowedSubmit: false
+    isAllowedSubmit: false,
+    imgUrl: '',
+    title: '',
+    goodsDetail: ''
+  },
+
+  onLoad(options) {
+    this.setData({
+      imgUrl: options.imgUrl,
+      title: options.title,
+      goodsDetail: options.specs
+    })
   },
 
   onRateChange(e) {
@@ -21,7 +31,7 @@ Page({
     const item = e?.currentTarget?.dataset?.item;
     this.setData({ [item]: value }, () => {
       this.updateButtonStatus();
-    })
+    });
   },
 
   onAnonymousChange(e) {
@@ -53,11 +63,16 @@ Page({
   },
 
   updateButtonStatus() {
-    const { serviceRateValue, goodRateValue, conveyRateValue, isAllowedSubmit } = this.data;
+    const {
+      serviceRateValue,
+      goodRateValue,
+      conveyRateValue,
+      isAllowedSubmit,
+    } = this.data;
     const { textAreaValue } = this;
-    const temp = serviceRateValue && goodRateValue && conveyRateValue && textAreaValue;
-    if (temp !== isAllowedSubmit)
-      this.setData({ isAllowedSubmit: temp })
+    const temp =
+      serviceRateValue && goodRateValue && conveyRateValue && textAreaValue;
+    if (temp !== isAllowedSubmit) this.setData({ isAllowedSubmit: temp });
   },
 
   onSubmitBtnClick() {
@@ -69,5 +84,6 @@ Page({
       message: '评价提交成功',
       icon: 'check-circle',
     });
-  }
+    wx.navigateBack();
+  },
 });

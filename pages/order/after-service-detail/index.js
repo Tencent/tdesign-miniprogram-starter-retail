@@ -1,3 +1,4 @@
+import Toast from 'tdesign-miniprogram/toast/index';
 import {
   ServiceType,
   ServiceTypeDesc,
@@ -15,11 +16,6 @@ const TitleConfig = {
 Page({
   data: {
     pageLoading: true,
-    pageNav: {
-      title: '',
-      color: '',
-    },
-    pageNavBg: '',
     serviceRaw: {},
     service: {},
     deliveryButton: {},
@@ -33,10 +29,9 @@ Page({
   },
 
   onLoad(query) {
-    this.rightsNo = parseInt(query.rightsNo);
+    this.rightsNo = query.rightsNo;
+    this.inputDialog = this.selectComponent('#input-dialog');
     this.init();
-    // this.navbar = this.selectComponent('#navbar');
-    // this.pullDownRefresh = this.selectComponent('#wr-pull-down-refresh');
   },
 
   onShow() {
@@ -44,19 +39,6 @@ Page({
     if (!this.data.backRefresh) return;
     this.init();
     this.setData({ backRefresh: false });
-  },
-
-  onPageScroll(e) {
-    // this.navbar.methods.onScroll.call(this.navbar, e.scrollTop);
-    // this.pullDownRefresh && this.pullDownRefresh.onPageScroll(e);
-  },
-
-  onImgLoaded(e) {
-    // this.navbar && this.navbar.onImgLoaded(e);
-  },
-
-  onImgError(e) {
-    // this.navbar && this.navbar.onImgError(e);
   },
 
   // 页面刷新，展示下拉刷新
@@ -71,29 +53,18 @@ Page({
       .then(() => {
         this.setData({ pageLoading: false });
       })
-      .catch((e) => {
-        console.log('err', e);
+      .catch((err) => {
+        console.error(err);
       });
   },
 
   getService() {
     const params = { rightsNo: this.rightsNo };
     return getRightsDetail(params).then((res) => {
-      const serviceRaw = JSON.parse(JSON.stringify(res.data));
+      const serviceRaw = res.data[0];
       // 滤掉填写运单号、修改运单号按钮，这两个按钮特殊处理，不在底部按钮栏展示
       if (!serviceRaw.buttonVOs) serviceRaw.buttonVOs = [];
-      const deliveryButtonIndex = serviceRaw.buttonVOs.findIndex((btn) => {
-        return [
-          ServiceButtonTypes.FILL_TRACKING_NO,
-          ServiceButtonTypes.CHANGE_TRACKING_NO,
-        ].includes(btn.type);
-      });
-      let deliveryButton = {};
-      if (deliveryButtonIndex > -1) {
-        deliveryButton = serviceRaw.buttonVOs[deliveryButtonIndex];
-        serviceRaw.buttonVOs.splice(deliveryButtonIndex, 1); // 物流单按钮，填写/修改
-      }
-      // 提取service-card需要的数据，以及部分需要经过转换的数据（如时间格式化、地址拼接等）
+      const deliveryButton = {};
       const service = {
         id: serviceRaw.rights.rightsNo,
         serviceNo: serviceRaw.rights.rightsNo,
@@ -101,6 +72,7 @@ Page({
         type: serviceRaw.rights.rightsType,
         typeDesc: ServiceTypeDesc[serviceRaw.rights.rightsType],
         status: serviceRaw.rights.rightsStatus,
+        statusIcon: this.genStatusIcon(serviceRaw.rights),
         statusName: serviceRaw.rights.userRightsStatusName,
         statusDesc: serviceRaw.rights.userRightsStatusDesc,
         amount: serviceRaw.rights.refundRequestAmount,
@@ -109,10 +81,7 @@ Page({
           thumb: item.goodsPictureUrl,
           title: item.goodsName,
           specs: (item.specInfo || []).map((s) => s.specValues || ''),
-          // amount: item.itemRefundAmount,
-          // price: item.itemRefundAmount,
           itemRefundAmount: item.itemRefundAmount,
-          // num: item.rightsQuantity,
           rightsQuantity: item.rightsQuantity,
         })),
         orderNo: serviceRaw.rights.orderNo, // 订单编号
@@ -139,20 +108,20 @@ Page({
         receiverAddress: this.composeAddress(serviceRaw), // 收货人地址
         applyRemark: serviceRaw.rightsRefund.refundDesc, // 申请退款时的填写的说明
         buttons: serviceRaw.buttonVOs || [],
+        logistics: serviceRaw.logisticsVO,
       };
       const proofs = serviceRaw.rights.rightsImageUrls || [];
       this.setData({
         serviceRaw,
         service,
         deliveryButton,
-        pageNav: {
-          title: TitleConfig[service.type],
-          color: 'black',
-        },
         'gallery.proofs': proofs,
         showProofs:
           serviceRaw.rights.userRightsStatus === ServiceStatus.PENDING_VERIFY &&
           (service.applyRemark || proofs.length > 0),
+      });
+      wx.setNavigationBarTitle({
+        title: TitleConfig[service.type],
       });
     });
   },
@@ -171,6 +140,21 @@ Page({
 
   onRefresh() {
     this.init();
+  },
+
+  editLogistices() {
+    this.setData({
+      inputDialogVisible: true,
+    });
+    this.inputDialog.setData({
+      cancelBtn: '取消',
+      confirmBtn: '确定',
+    });
+    this.inputDialog._onComfirm = () => {
+      Toast({
+        message: '确定填写物流单号',
+      });
+    };
   },
 
   onDeliveryButtonTap(e) {
@@ -211,7 +195,6 @@ Page({
   onGoodsCardTap(e) {
     const { index } = e.currentTarget.dataset;
     const goods = this.data.serviceRaw.rightsItem[index];
-    console.log('goods', goods);
     wx.navigateTo({ url: `/pages/goods/details/index?skuId=${goods.skuId}` });
   },
 
@@ -227,8 +210,34 @@ Page({
     });
   },
 
-  /** 左上角返回操作拦截 */
   navBackHandle() {
-    wx.navigateBack({ backRefresh: true });
+    wx.navigateTo({ url: '/pages/order/after-service-list/index' });
+  },
+
+  /** 获取状态ICON */
+  genStatusIcon(item) {
+    const { userRightsStatus, afterSaleRequireType } = item;
+    switch (userRightsStatus) {
+      // 退款成功
+      case ServiceStatus.REFUNDED: {
+        return 'succeed';
+      }
+      // 已取消、已关闭
+      case ServiceStatus.CLOSED: {
+        return 'indent_close';
+      }
+      default: {
+        switch (afterSaleRequireType) {
+          case 'REFUND_MONEY': {
+            return 'goods_refund';
+          }
+          case 'REFUND_GOODS_MONEY':
+            return 'goods_return';
+          default: {
+            return 'goods_return';
+          }
+        }
+      }
+    }
   },
 });

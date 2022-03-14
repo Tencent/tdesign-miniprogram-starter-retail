@@ -1,8 +1,3 @@
-// import { cdnBase } from '../../config/index';
-// const imgPrefix = cdnBase;
-
-// const defaultDesc = [`${imgPrefix}/goods/details-1.png`];
-
 const queryDetail = {
   commentInfos: [
     {
@@ -50,6 +45,6 @@ const queryDetail = {
  * @param {string} spuId
  * @param {string} orderNo
  */
-export function queryCommentDetail(skuId, spuId, orderNo) {
+export function queryCommentDetail() {
   return queryDetail;
 }

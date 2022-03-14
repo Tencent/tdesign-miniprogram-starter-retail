@@ -3,7 +3,6 @@ Component({
     show: {
       type: Boolean,
       observer(show) {
-        console.log('show: ', show);
         if (!show) return;
         this.updateDivisions();
       },

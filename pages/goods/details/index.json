@@ -10,10 +10,9 @@
     "t-button": "tdesign-miniprogram/button/button",
     "t-icon": "tdesign-miniprogram/icon/icon",
     "t-popup": "tdesign-miniprogram/popup/popup",
-    "wr-price": "@tencent/retailwe-ui-price/index",
     "t-price": "/components/price/index",
-    "wr-promotion-popup": "@tencent/retailwe-ui-promotion-popup/index",
-    "goods-specs-popup": "@tencent/retailwe-ui-goods-specs-popup/index",
-    "t-buy-bar": "./components/buy-bar/index"
+    "t-buy-bar": "./components/buy-bar/index",
+    "t-promotion-popup": "./components/promotion-popup/index",
+    "t-goods-specs-popup": "./components/goods-specs-popup/index"
   }
 }

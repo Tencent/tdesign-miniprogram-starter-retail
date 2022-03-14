@@ -13,7 +13,6 @@
     "wr-order-card": "../components/order-card/index",
     "wr-order-goods-card": "../components/order-goods-card/index",
     "wr-customer-service": "../components/customer-service",
-    "wr-order-button-bar": "../components/order-button-bar/index",
-    "groupon-avatars": "../components/groupon-avatars/index"
+    "wr-order-button-bar": "../components/order-button-bar/index"
   }
 }

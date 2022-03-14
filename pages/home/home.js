@@ -5,13 +5,11 @@ import Toast from 'tdesign-miniprogram/toast/index';
 Page({
   data: {
     imgSrcs: [],
-    activityImg: '',
     tabList: [],
     tabIndex: 0,
     goodsList: [],
     goodsListLoadStatus: 0,
     pageLoading: false,
-    goodsRefreshing: false,
     current: 1,
     autoplay: true,
     duration: 500,
@@ -53,11 +51,10 @@ Page({
     this.setData({
       pageLoading: true,
     });
-    fetchHome().then(({ swiper, tabList, activityImg }) => {
+    fetchHome().then(({ swiper, tabList }) => {
       this.setData({
         tabList,
         imgSrcs: swiper,
-        activityImg,
         pageLoading: false,
       });
       this.loadGoodsList(true);
@@ -71,8 +68,7 @@ Page({
     this.loadGoodsList(true);
   },
 
-  tagClickHandle(e) {
-    console.log('点击标签: ', e);
+  tagClickHandle() {
     Toast({
       context: this,
       selector: '#t-toast',
@@ -90,9 +86,6 @@ Page({
       wx.pageScrollTo({
         scrollTop: 0,
       });
-      this.setData({
-        goodsRefreshing: true,
-      });
     }
 
     this.setData({ goodsListLoadStatus: 1 });
@@ -109,7 +102,6 @@ Page({
       this.setData({
         goodsList: fresh ? nextList : this.data.goodsList.concat(nextList),
         goodsListLoadStatus: 0,
-        goodsRefreshing: false,
       });
 
       this.goodListPagination.index = pageIndex;

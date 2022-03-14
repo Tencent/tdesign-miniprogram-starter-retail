@@ -61,9 +61,9 @@ Page({
       //     title: '查询失败，请稍候重试',
       //     });
       // }
-    } catch (error) { }
+    } catch (error) {}
   },
-  generalQueryData(reset, type) {
+  generalQueryData(reset) {
     const { hasImage, pageNum, pageSize, spuId, commentLevel } = this.data;
     const params = {
       pageNum: 1,
@@ -108,13 +108,11 @@ Page({
       const data = await fetchComments(params, {
         method: 'POST',
       });
-      console.log('data:', data);
       const code = 'SUCCESS';
-      // const { data, code = '' } = result;
       if (code.toUpperCase() === 'SUCCESS') {
         const { pageList, totalCount = 0 } = data;
         pageList.forEach((item) => {
-          // item.commentScore = this.getScoreArray(item.commentScore);
+          // eslint-disable-next-line no-param-reassign
           item.commentTime = dayjs(Number(item.commentTime)).format(
             'YYYY/MM/DD HH:mm',
           );
@@ -132,7 +130,6 @@ Page({
         const _commentList = reset ? pageList : commentList.concat(pageList);
         const _loadMoreStatus =
           _commentList.length === Number(totalCount) ? 2 : 0;
-        console.log('====:', _commentList);
         this.setData({
           commentList: _commentList,
           pageNum: params.pageNum || 1,
@@ -144,7 +141,7 @@ Page({
           title: '查询失败，请稍候重试',
         });
       }
-    } catch (error) { }
+    } catch (error) {}
     this.setData({
       hasLoaded: true,
     });

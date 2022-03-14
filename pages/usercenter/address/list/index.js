@@ -1,14 +1,15 @@
+/* eslint-disable no-param-reassign */
 import { fetchDeliveryAddressList } from '../../../../services/address/fetchAddress';
 import Toast from 'tdesign-miniprogram/toast/index';
 import { resolveAddress, rejectAddress } from './util';
 import { getAddressPromise } from '../edit/util';
-import { phoneRegCheck } from '../../../../utils/util';
 
 Page({
   data: {
     addressList: [],
     deleteID: '',
     showDeleteConfirm: false,
+    isOrderSure: false,
   },
 
   /** 选择模式 */
@@ -17,9 +18,12 @@ Page({
   hasSelect: false,
 
   onLoad(query) {
-    // 传空字符串或者不传 就 等同 false
-    // 否则都是true（注意 !!'false' === true ）
-    const { selectMode = '' } = query;
+    const { selectMode = '', isOrderSure = '', id = '' } = query;
+    this.setData({
+      isOrderSure: !!isOrderSure,
+      extraSpace: !!isOrderSure,
+      id,
+    });
     this.selectMode = !!selectMode;
     this.init();
   },
@@ -38,13 +42,18 @@ Page({
     });
   },
   onEdit(e) {
-    console.log('e: ', e);
     wx.navigateTo({
       url: `/pages/usercenter/address/edit/index?id=${e.detail.id}`,
     });
   },
   getAddressList() {
+    const { id } = this.data;
     fetchDeliveryAddressList().then((addressList) => {
+      addressList.forEach((address) => {
+        if (address.id === id) {
+          address.checked = true;
+        }
+      });
       this.setData({ addressList });
     });
   },
@@ -103,8 +112,8 @@ Page({
       });
     }
   },
-  deleteAddressHandle() {
-    const { deleteID: id } = this.data;
+  deleteAddressHandle(e) {
+    const { id } = e.currentTarget.dataset;
     this.setData({
       addressList: this.data.addressList.filter((address) => address.id !== id),
       deleteID: '',
@@ -115,7 +124,7 @@ Page({
     this.waitForNewAddress();
 
     const { id } = detail || {};
-    wx.navigateTo({ url: '/pages/usercenter/address/edit/index?id=' + id });
+    wx.navigateTo({ url: `/pages/usercenter/address/edit/index?id=${id}` });
   },
   selectHandle({ detail }) {
     if (this.selectMode) {
@@ -159,20 +168,19 @@ Page({
           addressList = addressList.map((address) => {
             if (address.addressId === newAddress.addressId) {
               return newAddress;
-            } else {
-              return address;
             }
+            return address;
           });
         }
 
         addressList.sort((prevAddress, nextAddress) => {
           if (prevAddress.isDefault && !nextAddress.isDefault) {
             return -1;
-          } else if (!prevAddress.isDefault && nextAddress.isDefault) {
-            return 1;
-          } else {
-            return 0;
           }
+          if (!prevAddress.isDefault && nextAddress.isDefault) {
+            return 1;
+          }
+          return 0;
         });
 
         this.setData({
@@ -180,10 +188,14 @@ Page({
         });
       })
       .catch((e) => {
-        if (e.message === 'cancel') {
-          console.log('用户取消选择');
-        } else {
-          console.log('地址编辑发生错误: ', e);
+        if (e.message !== 'cancel') {
+          Toast({
+            context: this,
+            selector: '#t-toast',
+            message: '地址编辑发生错误',
+            icon: '',
+            duration: 1000,
+          });
         }
       });
   },
