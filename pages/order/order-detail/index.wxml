@@ -1,4 +1,4 @@
-<t-pull-down-refresh id="t-pull-down-refresh" bindrefresh="onPullDownRefresh_">
+<t-pull-down-refresh id="t-pull-down-refresh" bindrefresh="onPullDownRefresh_" t-class-indicator="t-class-indicator">
 	<!-- 页面内容 -->
 	<view class="order-detail">
 		<view class="header">

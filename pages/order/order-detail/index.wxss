@@ -231,3 +231,7 @@
   width: 686rpx;
   margin-bottom: 16rpx;
 }
+
+.t-class-indicator {
+  color: #b9b9b9 !important;
+}

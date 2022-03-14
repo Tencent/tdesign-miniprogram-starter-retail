@@ -5,6 +5,7 @@ import {
   fetchOrderDetail,
 } from '../../../services/order/orderDetail';
 import Toast from 'tdesign-miniprogram/toast/index';
+import { getAddressPromise } from '../../usercenter/address/list/util';
 
 Page({
   data: {
@@ -273,10 +274,6 @@ Page({
 
   /** 跳转拼团详情/分享页*/
   toGrouponDetail() {
-    const {
-      groupInfoVo: { promotionId, groupId },
-      storeId,
-    } = this.data.order;
     wx.showToast({ title: '点击了拼团' });
     /* wx.navigateTo({
       url: `/groupon/detail/index?promotionId=${promotionId}&groupId=${groupId}&storeId=${storeId}`,
