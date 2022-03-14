@@ -13,6 +13,17 @@ Page({
       column: 3,
     },
     isAllowedSubmit: false,
+    imgUrl: '',
+    title: '',
+    goodsDetail: ''
+  },
+
+  onLoad(options) {
+    this.setData({
+      imgUrl: options.imgUrl,
+      title: options.title,
+      goodsDetail: options.specs
+    })
   },
 
   onRateChange(e) {
