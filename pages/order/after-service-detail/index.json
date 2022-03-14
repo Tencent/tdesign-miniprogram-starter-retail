@@ -1,7 +1,7 @@
 {
   "navigationBarTitleText": "",
   "usingComponents": {
-    "wr-loading-content": "@tencent/retailwe-ui-loading-content/index",
+    "wr-loading-content": "/components/loading-content/index",
     "wr-price": "/components/price/index",
     "wr-service-goods-card": "../components/order-goods-card/index",
     "t-cell": "tdesign-miniprogram/cell/cell",

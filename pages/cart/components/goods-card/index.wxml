@@ -22,7 +22,7 @@
 			<view class="wr-goods-card__long_content">
 				<view wx:if="{{ goods.title && !goods.hideKey.title }}" class="wr-goods-card__title title-class" style="-webkit-line-clamp: {{ goods.lineClamp }};">
 					<view wx:if="{{ goods.titlePrefixTags && goods.titlePrefixTags.length && !goods.hideKey.titlePrefixTags }}" class="wr-goods-card__title__prefix-tags">
-						<wr-tag
+						<t-tag
 						 class="prefix-tag"
 						 wx:for="{{ goods.titlePrefixTags }}"
 						 wx:key="index"
@@ -31,7 +31,7 @@
 						 color="{{ titlePrefixTag.color || '#FF7940' }}"
 						>
 							{{ titlePrefixTag.text }}
-						</wr-tag>
+						</t-tag>
 					</view>
 					<slot name="before-title" />
 					{{ goods.title }}
@@ -44,22 +44,6 @@
 					<t-icon name="chevron-down" size="32rpx" color="#999999" />
 				</view>
 				<view class="goods_tips" wx:if="{{goods.stockQuantity !== 0 && goods.quantity >= goods.stockQuantity}}">库存不足</view>
-				<!-- <view wx:if="{{ goods.specsText && !goods.hideKey.specs }}" class="wr-goods-card__specs__text specs-class">{{ goods.specsText }}</view>
-				<slot name="after-specs" />
-				<view wx:if="{{ goods.tags && !goods.hideKey.tags && !!goods.tags.length }}" class="wr-goods-card__tags">
-					<view
-					 wx:for="{{ goods.tags }}"
-					 wx:key="index"
-					 wx:for-item="tag"
-					 bind:tap="clickTagHandle"
-					 data-index="{{index}}"
-					>
-						<wr-tag wr-class="wr-goods-card__tag">
-							{{ tag }}
-						</wr-tag>
-					</view>
-				</view>
-				<slot name="after-tags" /> -->
 			</view>
 
 			<view class="wr-goods-card__short_content">

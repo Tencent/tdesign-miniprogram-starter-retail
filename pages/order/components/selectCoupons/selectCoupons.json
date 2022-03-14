@@ -3,7 +3,7 @@
   "usingComponents": {
     "t-popup": "tdesign-miniprogram/popup/popup",
     "t-image": "tdesign-miniprogram/image/image",
-    "wr-price": "@tencent/retailwe-ui-price/index",
-    "coupon-card": "@tencent/retailwe-ui-coupon-card/index"
+    "wr-price": "/components/price/index",
+    "coupon-card": "/pages/coupon/components/coupon-card/index"
   }
 }

@@ -1,5 +1,3 @@
-/* @import '/miniprogram_npm/@tencent/retailwe-ui-goods-list/external.wxss'; */
-
 .tabbar-position {
   position: fixed !important;
   bottom: 0;
