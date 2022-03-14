@@ -11,7 +11,7 @@
 			<t-rate
 			 class="rate"
 			 value="{{commentScore}}"
-			 color="{{['#FFC51C']}}"
+			 color="#FFC51C"
 			 variant="filled"
 			/>
 			<view class="goods-info-text" wx:if="{{goodsDetailInfo}}">{{goodsDetailInfo}}</view>
