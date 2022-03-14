@@ -6,6 +6,6 @@ const images = [
   'https://cdn-we-retail.ym.tencent.com/tsr/home/banner5.png',
 ];
 
-export function genSwiperImageList(len = 5) {
-  return new Array(len).fill(0).map((_, idx) => images[idx]);
+export function genSwiperImageList() {
+  return images;
 }

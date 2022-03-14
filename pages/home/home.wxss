@@ -68,7 +68,7 @@ page {
   background-color: #fa550f !important;
 }
 
-.home-page-container .swipe-wrap {
+.home-page-container .swiper-wrap {
   margin: 20rpx 0;
 }
 
