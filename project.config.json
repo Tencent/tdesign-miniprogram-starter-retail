@@ -42,7 +42,7 @@
     "useCompilerPlugins": false
   },
   "compileType": "miniprogram",
-  "libVersion": "2.16.1",
+  "libVersion": "2.6.3",
   "appid": "wx5a75208aa13eee03",
   "projectname": "tdesign-miniprogram-starter",
   "debugOptions": {
