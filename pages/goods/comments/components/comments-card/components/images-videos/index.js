@@ -6,15 +6,15 @@ Component({
   properties: {
     resources: {
       type: Array,
-      value: []
-    }
+      value: [],
+    },
   },
 
   /**
    * 组件的初始数据
    */
   data: {
-    classType: 'single'
+    classType: 'single',
   },
 
   observers: {
@@ -26,13 +26,11 @@ Component({
       } else {
         this.setData({ classType: 'multiple' });
       }
-    }
+    },
   },
 
   /**
    * 组件的方法列表
    */
-  methods: {
-
-  }
-})
+  methods: {},
+});

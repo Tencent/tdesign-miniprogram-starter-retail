@@ -1,4 +1,3 @@
-
 Component({
   externalClasses: ['wr-class'],
   options: {
@@ -7,11 +6,11 @@ Component({
   properties: {
     goodsDetailInfo: {
       type: String,
-      value: ''
+      value: '',
     },
     sellerReply: {
       type: String,
-      value: ''
+      value: '',
     },
     userHeadUrl: {
       type: String,
@@ -59,8 +58,8 @@ Component({
     },
     commentResources: {
       type: Array,
-      value: []
-    }
+      value: [],
+    },
   },
 
   data: {
@@ -71,7 +70,7 @@ Component({
     hideWordCount: 240,
     overText: false,
     isDisabled: true,
-    startColors: ['#FFC51C', '#DDDDDD']
+    startColors: ['#FFC51C', '#DDDDDD'],
   },
   methods: {
     authContent(val) {
@@ -88,7 +87,7 @@ Component({
       for (let i = 0; i < val.length; i++) {
         const a = val.charAt(i);
 
-        if (a.match(/[^\x00-\xff]/gi) != null) {
+        if (a.match(/[^\x00-\xff]/gi) !== null) {
           len += 2;
         } else {
           len += 1;
@@ -122,6 +121,6 @@ Component({
           index,
         });
       }
-    }
-  }
-})
+    },
+  },
+});
