@@ -14,6 +14,11 @@ Component({
     disabled: Boolean,
   },
 
+  data: {
+    topRightRadius: false,
+    bottomRightRadius: false,
+  },
+
   methods: {
     setActive(selected) {
       return this.setData({ selected });
@@ -30,6 +35,16 @@ Component({
       parent.setActive(index).then(() => {
         this.triggerEvent('click', index);
         parent.triggerEvent('change', { index });
+      });
+    },
+    setTopRightRadius(val) {
+      return this.setData({
+        topRightRadius: val,
+      });
+    },
+    setBottomRightRadius(val) {
+      return this.setData({
+        bottomRightRadius: val,
       });
     },
   },
