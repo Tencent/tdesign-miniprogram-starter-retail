@@ -138,3 +138,6 @@ page {
   font-size: 24rpx;
   line-height: 32rpx;
 }
+.cell-box .order-group__left {
+  margin-right: 0;
+}

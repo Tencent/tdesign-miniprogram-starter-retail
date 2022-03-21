@@ -74,3 +74,12 @@
 .wr-cart:before {
   content: '\e023';
 }
+.wr-location:before {
+  content: '\e016';
+}
+.wr-arrow_forward:before {
+  content: '\e012';
+}
+.wr-close:before {
+  content: '\e021';
+}

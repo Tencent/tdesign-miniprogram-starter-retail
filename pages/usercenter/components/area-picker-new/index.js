@@ -99,33 +99,29 @@ Component({
           }
         }
         this.setData({ loading: false, pickerColumnData }, () => {
-          return (
-            new Promise() <
-            number >
-            ((resolve) => {
-              if (oldPickedIndexes[0] > -1) {
-                this.createSelectorQuery()
-                  .select('#area-item-0-0')
-                  .boundingClientRect()
-                  .select(`#area-item-${oldPickedIndexes.join('-')}`)
-                  .boundingClientRect()
-                  .exec((res) => {
-                    if (res[0] && res[1]) {
-                      const offsetTop = res[1].top - res[0].top;
-                      const diff = res[1].height;
-                      resolve(offsetTop > diff ? offsetTop - diff : 0);
-                    } else {
-                      resolve(0);
-                    }
-                  });
-              } else resolve(0);
-            }).then((scrollTop) => {
-              this.setData({
-                hightLightIndex: oldPickedIndexes,
-                scrollTop,
-              });
-            })
-          );
+          return new Promise((resolve) => {
+            if (oldPickedIndexes[0] > -1) {
+              this.createSelectorQuery()
+                .select('#area-item-0-0')
+                .boundingClientRect()
+                .select(`#area-item-${oldPickedIndexes.join('-')}`)
+                .boundingClientRect()
+                .exec((res) => {
+                  if (res[0] && res[1]) {
+                    const offsetTop = res[1].top - res[0].top;
+                    const diff = res[1].height;
+                    resolve(offsetTop > diff ? offsetTop - diff : 0);
+                  } else {
+                    resolve(0);
+                  }
+                });
+            } else resolve(0);
+          }).then((scrollTop) => {
+            this.setData({
+              hightLightIndex: oldPickedIndexes,
+              scrollTop,
+            });
+          });
         });
       } else {
         this.setData({ loading: true, pickerColumnData: [] }, () => {

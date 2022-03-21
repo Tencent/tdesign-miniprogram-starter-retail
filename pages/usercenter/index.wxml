@@ -25,6 +25,7 @@
 			 bordered="{{false}}"
 			 bind:click="onClickCell"
 			 t-class-note="order-group-note"
+			 t-class-left="order-group__left"
 			>
 				<t-icon
 				 slot="right-icon"
