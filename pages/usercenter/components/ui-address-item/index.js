@@ -36,7 +36,6 @@ Component({
     },
     onSelect(e) {
       const { item } = e.currentTarget.dataset;
-      // 订单选择收货地址的点击事件
       this.triggerEvent('onSelect', item);
     },
     onEdit(e) {

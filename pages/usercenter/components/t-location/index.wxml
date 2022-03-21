@@ -4,7 +4,7 @@
 			<t-icon
 			 prefix="wr"
 			 t-class="weixin"
-			 color="#00CC00"
+			 color="#0ABF5B"
 			 name="wechat"
 			 size="48rpx"
 			/>
@@ -22,7 +22,7 @@
 			<t-icon
 			 t-class="weixin"
 			 slot="icon"
-			 color="#00CC00"
+			 color="#0ABF5B"
 			 name="logo-windows"
 			 size="48rpx"
 			/>

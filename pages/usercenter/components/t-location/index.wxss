@@ -15,4 +15,5 @@
 .wx-address-custom {
   display: flex;
   align-items: center;
+  font-size: 32rpx;
 }

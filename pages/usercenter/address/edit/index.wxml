@@ -8,9 +8,10 @@
 	>
 		<t-icon
 		 class="address-detail-wx-arrow"
-		 name="chevron-right"
+		 name="arrow_forward"
+		 prefix="wr"
 		 color="#bbb"
-		 size="56rpx"
+		 size="32rpx"
 		/>
 	</t-location>
 	<view class="divider-line" />
@@ -60,6 +61,7 @@
 					<t-icon
 					 slot="right-icon"
 					 t-class="map"
+					 prefix="wr"
 					 name="location"
 					 catch:tap="onSearchAddress"
 					/>

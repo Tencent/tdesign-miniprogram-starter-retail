@@ -85,7 +85,6 @@ Page({
   },
   async toModifyAvatar() {
     try {
-      // 选择图片
       const tempFilePath = await new Promise((resolve, reject) => {
         wx.chooseImage({
           count: 1,

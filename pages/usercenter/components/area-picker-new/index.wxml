@@ -8,7 +8,8 @@
 		<t-icon
 		 t-class="area-picker__close"
 		 name="close"
-		 size=""
+		 prefix="wr"
+		 size="40rpx"
 		 bindtap="onClose"
 		/>
 		<view class="area-picker__header" wx:if="{{title}}">

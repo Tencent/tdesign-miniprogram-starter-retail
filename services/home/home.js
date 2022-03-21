@@ -7,7 +7,6 @@ function mockFetchHome() {
   return delay().then(() => {
     return {
       swiper: genSwiperImageList(),
-      // 这里没多少代表性就不做抽象了，而且也不好做，文字的mock
       tabList: [
         {
           text: '精选推荐',

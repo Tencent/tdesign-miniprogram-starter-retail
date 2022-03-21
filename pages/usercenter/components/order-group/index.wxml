@@ -1,8 +1,8 @@
-<view class='order-group'>
+<view class="order-group">
 	<t-cell-group wx:if="{{isTop}}">
 		<t-cell
 		 t-class="order-group__top"
-		 t-class-right="order-group__right"
+		 t-class-left="order-group__left"
 		 t-class-title="order-group__top__title"
 		 t-class-note="order-group__top__note"
 		 title="{{title}}"
@@ -22,7 +22,7 @@
 		 bindtap="onClickItem"
 		>
 			<view class="order-group__item__icon icon-class">
-				<t-badge count="{{item.orderNum}}" max-count="{{99}}">
+				<t-badge count="{{item.orderNum}}" max-count="{{99}}" color="#FF4646">
 					<t-icon
 					 prefix="{{classPrefix}}"
 					 name="{{item.iconName}}"
