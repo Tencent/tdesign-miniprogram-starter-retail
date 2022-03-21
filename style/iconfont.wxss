@@ -83,3 +83,6 @@
 .wr-close:before {
   content: '\e021';
 }
+.wr-service:before {
+  content: '\e04a';
+}

@@ -3,7 +3,8 @@
   background-color: #ffffff;
   border-radius: 16rpx 16rpx 0 0;
 }
-.order-group__top {
+.order-group .order-group__top {
+  padding: 24rpx 18rpx 24rpx 32rpx;
   border-radius: 16rpx 16rpx 0 0;
 }
 .order-group__top___title {

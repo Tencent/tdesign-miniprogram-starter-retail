@@ -309,7 +309,6 @@ Page({
       activityList.forEach((item) => {
         promotionArray.push({
           tag: item.promotionSubCode === 'MYJ' ? '满减' : '满折',
-          linkText: '逛一逛',
           label: '满100元减99.9元',
         });
       });
