@@ -48,8 +48,9 @@
   .promotion-popup-content
   .promotion-detail-list
   .list-item:last-child {
-  margin-bottom: 0;
+  margin-bottom: env(safe-area-inset-bottom);
   border-bottom: 0;
+  padding-bottom: calc(28rpx + env(safe-area-inset-bottom));
 }
 
 .promotion-popup-container
@@ -125,6 +126,6 @@
   .promotion-detail-list
   .list-item
   .collect-btn
-  text.linkText {
+  .linkText {
   margin-right: 8rpx;
 }
