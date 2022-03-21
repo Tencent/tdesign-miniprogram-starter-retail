@@ -6,7 +6,7 @@
   >
     <image
       wx:if="{{resource.type === 'image'}}"
-      class="resource-item-{{classType}}"
+      class="resource-item-{{classType}} image"
       src="{{resource.src}}"
     ></image>
     <my-video
@@ -14,11 +14,12 @@
       videoSrc="{{resource.src}} "
       my-video="resource-item-{{classType}}"
     >
-      <image
-        class="resource-item resource-item-{{classType}}"
-        slot="cover-img"
-        src="{{resource.coverSrc}}"
-      />
+      <view slot="cover-img" class="cover-img-container">
+        <image
+          class="resource-item resource-item-{{classType}} image"
+          src="{{resource.coverSrc}}"
+        />
+      </view>
       <image
         class="play-icon"
         slot="play-icon"
