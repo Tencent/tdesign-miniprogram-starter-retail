@@ -13,7 +13,7 @@
     <view class="promotion-popup-content">
       <view class="promotion-detail-list">
         <view
-          class="list-item flex"
+          class="list-item"
           wx:for="{{list}}"
           wx:key="index"
           bindtap="change"

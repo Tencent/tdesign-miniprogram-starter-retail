@@ -104,6 +104,7 @@
   margin: 0 30rpx 40rpx;
   max-height: 600rpx;
   overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
 }
 
 .popup-sku-body .popup-sku-group-container .popup-sku-row {
