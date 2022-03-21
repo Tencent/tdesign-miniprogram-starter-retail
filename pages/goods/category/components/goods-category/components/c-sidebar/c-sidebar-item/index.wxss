@@ -13,7 +13,7 @@
   background: white;
 }
 
-.c-sidebar-item.active::before{
+.c-sidebar-item.active::before {
   content: '';
   position: absolute;
   width: 6rpx;
