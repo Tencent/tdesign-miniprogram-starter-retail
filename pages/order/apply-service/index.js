@@ -463,7 +463,7 @@ Page({
 
   handleComplete() {
     this.setData({
-      uploading: true,
+      uploading: false,
     });
   },
 

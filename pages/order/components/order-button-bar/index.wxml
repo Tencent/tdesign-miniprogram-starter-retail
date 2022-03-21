@@ -5,7 +5,7 @@
 		 wx:key="type"
 		 wx:for-item="leftBtn"
 		 size="medium"
-		 t-class="t-button order-btn delete-btn"
+		 t-class="{{isBtnMax ? 't-button--max':'t-button'}}  order-btn delete-btn"
 		 catchtap="onOrderBtnTap"
 		 data-type="{{leftBtn.type}}"
 		>
@@ -18,7 +18,7 @@
 		 wx:key="type"
 		 wx:for-item="rightBtn"
 		 size="medium"
-		 t-class="t-button order-btn {{rightBtn.primary ? 'primary' : 'normal'}}"
+		 t-class="{{isBtnMax ? 't-button--max':'t-button'}} order-btn {{rightBtn.primary ? 'primary' : 'normal'}}"
 		 catchtap="onOrderBtnTap"
 		 data-type="{{rightBtn.type}}"
 		 open-type="{{ rightBtn.openType }}"

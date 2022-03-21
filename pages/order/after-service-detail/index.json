@@ -1,7 +1,7 @@
 {
   "navigationBarTitleText": "",
   "usingComponents": {
-    "wr-loading-content": "@tencent/retailwe-ui-loading-content/index",
+    "wr-loading-content": "/components/loading-content/index",
     "wr-price": "/components/price/index",
     "wr-service-goods-card": "../components/order-goods-card/index",
     "t-cell": "tdesign-miniprogram/cell/cell",
@@ -16,6 +16,6 @@
     "t-input": "tdesign-miniprogram/input/input",
     "t-swiper": "tdesign-miniprogram/swiper/swiper",
     "wr-after-service-button-bar": "../components/after-service-button-bar/index",
-    "t-image": "tdesign-miniprogram/image/image"
+    "t-image": "/components/webp-image/index"
   }
 }

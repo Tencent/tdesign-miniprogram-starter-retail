@@ -9,10 +9,10 @@
 }
 .btn-bar .order-btn {
   background-color: inherit;
-  font-size: 28rpx;
   line-height: 1;
   border-radius: unset;
   min-width: 160rpx;
+    font-size: 28rpx;
 }
 .btn-bar .order-btn::after {
   border-radius: 16rpx;
@@ -30,7 +30,15 @@
   height: 56rpx;
   border-radius: 28rpx;
   margin-left: 24rpx;
+
 }
+.btn-bar .t-button--max {
+  width: 176rpx;
+  height: 72rpx;
+  border-radius: 36rpx;
+  margin-left: 24rpx;
+}
+
 .btn-bar .left .delete-btn {
   font-size: 22rpx;
 }

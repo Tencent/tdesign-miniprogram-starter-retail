@@ -46,13 +46,13 @@ Component({
           this.setData({
             products,
           });
-          this.coupons({
-            products,
-            selectedCoupons,
-            storeId,
-          }).then((res) => {
-            this.initData(res);
-          });
+          // coupons({
+          //   products,
+          //   selectedCoupons,
+          //   storeId,
+          // }).then((res) => {
+          //   this.initData(res.data);
+          // });
         }
       },
     },
@@ -142,13 +142,13 @@ Component({
           storeId: this.storeId,
         });
       }
-      this.coupons({
-        selectedCoupons: newSelectedList,
-        products,
-        storeId,
-      }).then((res) => {
-        this.initData(res);
-      });
+      // coupons({
+      //   selectedCoupons: newSelectedList,
+      //   products,
+      //   storeId,
+      // }).then((res) => {
+      //   this.initData(res.data);
+      // });
     },
     onSure() {
       const { selectedList, couponsList } = this.data;

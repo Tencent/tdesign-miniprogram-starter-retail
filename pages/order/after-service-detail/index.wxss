@@ -396,3 +396,6 @@
 .add-notes__confirm {
   color: #fa4126 !important;
 }
+.t-class-indicator {
+  color: #b9b9b9 !important;
+}

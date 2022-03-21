@@ -75,6 +75,10 @@ Component({
       type: Number,
       value: null,
     },
+    isBtnMax: {
+      type: Boolean,
+      value: false,
+    },
   },
 
   data: {
