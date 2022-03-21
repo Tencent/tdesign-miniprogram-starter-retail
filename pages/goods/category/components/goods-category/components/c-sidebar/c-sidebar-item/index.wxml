@@ -4,7 +4,5 @@
   hover-stay-time="70"
   bind:tap="onClick"
 >
-  <view class="c-sidebar-item__text text-overflow">
-    {{ title }}
-  </view>
+  <view class="c-sidebar-item__text text-overflow"> {{ title }} </view>
 </view>

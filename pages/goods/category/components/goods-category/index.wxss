@@ -48,7 +48,7 @@
   width: 33.3%;
 }
 
-.goods-category-normal-item-container-item image {
+.goods-category-normal-item-container-item .image {
   width: 144rpx;
   height: 144rpx;
 }
@@ -90,7 +90,7 @@
   margin-top: 20rpx;
 }
 
-.goods-category-normal-item-second-container-item image {
+.goods-category-normal-item-second-container-item .image {
   width: 144rpx;
   height: 144rpx;
 }

@@ -15,15 +15,15 @@ Page({
     isAllowedSubmit: false,
     imgUrl: '',
     title: '',
-    goodsDetail: ''
+    goodsDetail: '',
   },
 
   onLoad(options) {
     this.setData({
       imgUrl: options.imgUrl,
       title: options.title,
-      goodsDetail: options.specs
-    })
+      goodsDetail: options.specs,
+    });
   },
 
   onRateChange(e) {

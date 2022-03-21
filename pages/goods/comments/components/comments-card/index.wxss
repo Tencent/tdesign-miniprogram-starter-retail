@@ -6,12 +6,12 @@
 }
 
 .comments-card-item::after {
-  content: "";
+  content: '';
   position: absolute;
   bottom: 0rpx;
   width: 686rpx;
   height: 2rpx;
-  background-color: #F5F5F5;
+  background-color: #f5f5f5;
 }
 
 .comments-card-item-userImg {
@@ -47,19 +47,6 @@
   display: flex;
 }
 
-.comments-card-item-container-date text.commentTime {
-  margin-right: 12rpx;
-  flex-shrink: 0;
-}
-
-.comments-card-item-container-date text.specInfo {
-  width: 66%;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  display: inline-block;
-  white-space: nowrap;
-}
-
 .comments-card-item-container-content {
   margin-top: 16rpx;
   position: relative;
@@ -87,7 +74,16 @@
   height: 36rpx;
   bottom: 0;
   right: 0;
-  background: linear-gradient(to right, rgba(255, 255, 255, 0.2) 0, rgba(255, 255, 255, 0.45) 20%, rgba(255, 255, 255, 0.7) 25%, rgba(255, 255, 255, 0.9) 30%, rgba(255, 255, 255, 0.95) 35%, #ffffff 50%, #fff 100%);
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0.2) 0,
+    rgba(255, 255, 255, 0.45) 20%,
+    rgba(255, 255, 255, 0.7) 25%,
+    rgba(255, 255, 255, 0.9) 30%,
+    rgba(255, 255, 255, 0.95) 35%,
+    #ffffff 50%,
+    #fff 100%
+  );
   font-size: 26rpx;
   color: #fa550f;
   line-height: 36rpx;
@@ -161,7 +157,7 @@
 }
 
 .comments-card-item-container .comments-card-reply {
-  background-color: #F5F5F5;
+  background-color: #f5f5f5;
   padding: 24rpx 16rpx;
   margin-top: 24rpx;
 }
