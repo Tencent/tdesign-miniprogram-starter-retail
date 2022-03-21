@@ -21,7 +21,6 @@ Page({
     num: 20,
   },
 
-  // 调用自定义tabbar的init函数，使页面与tabbar激活状态保持一致
   onShow() {
     this.getTabBar().init();
   },
@@ -45,7 +44,6 @@ Page({
   },
 
   loadHomePage() {
-    // 关闭自带的loading效果
     wx.stopPullDownRefresh();
 
     this.setData({
@@ -80,7 +78,6 @@ Page({
     this.loadGoodsList();
   },
 
-  // fresh 代表重新加载
   async loadGoodsList(fresh = false) {
     if (fresh) {
       wx.pageScrollTo({
@@ -132,7 +129,6 @@ Page({
   },
 
   navToActivityDetail({ detail }) {
-    /** 活动肯定有一个活动ID，用来获取活动banner，活动商品列表等 */
     const { index: promotionID = 0 } = detail || {};
     wx.navigateTo({
       url: `/pages/promotion-detail/index?promotion_id=${promotionID}`,
