@@ -1,6 +1,6 @@
 page {
   box-sizing: border-box;
-  padding-bottom: 100rpx;
+  padding-bottom: calc(env(safe-area-inset-bottom) + 96rpx);
 }
 
 .t-tabs.t-tabs--top .t-tabs__scroll {
@@ -98,6 +98,7 @@ page {
   background: #f5f5f5 !important;
   margin-top: 24rpx;
 }
-.t-class-indicator {
+.t-class-indicator,
+.loading-text {
   color: #b9b9b9 !important;
 }
