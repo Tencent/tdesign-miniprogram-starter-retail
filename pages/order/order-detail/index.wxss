@@ -13,7 +13,6 @@
 }
 .order-detail .header {
   width: 100%;
-  /* height: 200rpx; */
   background-color: #ffffff;
 }
 .order-detail .order-detail__header {

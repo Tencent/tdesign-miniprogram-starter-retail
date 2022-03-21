@@ -11,31 +11,24 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
 .wr-deliver:before {
   content: '\e033';
 }
-
 .wr-indent_close:before {
   content: '\e041';
 }
-
 .wr-edit:before {
   content: '\e002';
 }
-
 .wr-location:before {
   content: '\e016';
 }
-
 .wr-succeed:before {
   content: '\e00d';
 }
-
 .wr-goods_return:before {
   content: '\e03c';
 }
-
 .wr-wallet:before {
   content: '\e051';
 }
@@ -68,4 +61,16 @@
 }
 .wr-cartAdd:before {
   content: '\e05d';
+}
+.wr-home:before {
+  content: '\e020';
+}
+.wr-shop_bag:before {
+  content: '\e02a';
+}
+.wr-person:before {
+  content: '\e02c';
+}
+.wr-cart:before {
+  content: '\e023';
 }

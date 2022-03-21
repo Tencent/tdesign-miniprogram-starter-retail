@@ -44,7 +44,7 @@
  bind:visible-change="closeMakePhone"
  data-index="2"
 >
-	<view class="popup-content" slot="content">
+	<view class="popup-content">
 		<view class="popup-title border-bottom-1px" wx:if="{{customerServiceInfo.serviceTimeDuration}}">
 			服务时间: {{customerServiceInfo.serviceTimeDuration}}
 		</view>

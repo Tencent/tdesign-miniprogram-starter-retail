@@ -96,7 +96,7 @@
   flex: none;
 }
 .area-picker__area-list {
-  padding: 20rpx 24rpx;
+  padding: 20rpx 24rpx calc(20rpx + env(safe-area-inset-bottom)) 24rpx;
   flex: auto;
   display: flex;
   flex-direction: column;

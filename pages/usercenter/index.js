@@ -100,7 +100,6 @@ Page({
     this.getVersionInfo();
   },
 
-  // 调用自定义tabbar的init函数，使页面与tabbar激活状态保持一致
   onShow() {
     this.getTabBar().init();
     this.init();
@@ -131,8 +130,6 @@ Page({
           customerServiceInfo,
           currAuthStep: 2,
         });
-
-        // 关闭自带的loading效果
         wx.stopPullDownRefresh();
       },
     );

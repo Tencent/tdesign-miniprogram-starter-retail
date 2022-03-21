@@ -68,12 +68,9 @@ page {
   text-align: center;
 }
 
-page .popup__content--bottom {
-  bottom: calc(100rpx + env(safe-area-inset-bottom));
-}
 .popup-content {
   background: #f5f5f5;
-  /* margin-bottom: calc(94rpx + env(safe-area-inset-bottom)); */
+  margin-bottom: env(safe-area-inset-bottom);
   border-radius: 16rpx 16rpx 0 0;
 }
 .popup-content .popup-title {
