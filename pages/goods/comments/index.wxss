@@ -20,12 +20,15 @@ page {
 .comments-header {
   display: flex;
   flex-wrap: wrap;
-  padding: 10rpx 32rpx 32rpx;
+  padding: 32rpx 32rpx 0rpx;
   background-color: #fff;
+  margin-top: -24rpx;
+  margin-left: -24rpx;
 }
 
 .comments-header-tag {
-  margin: 20rpx 22rpx 0;
+  margin-top: 24rpx;
+  margin-left: 24rpx;
   height: 56rpx !important;
   font-size: 24rpx !important;
   justify-content: center;
