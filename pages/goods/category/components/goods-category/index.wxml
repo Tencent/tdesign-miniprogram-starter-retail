@@ -14,7 +14,7 @@
           </view>
           <view class="goods-category-normal-item-container">
             <view class="goods-category-normal-item-container-item" wx:for="{{item.children}}" wx:for-index="subIndex" wx:key="subIndex" wx:for-item="subItem" bindtap="changCategory" data-item="{{subItem}}">
-              <image src="{{subItem.thumbnail}}" />
+              <image src="{{subItem.thumbnail}}" class='image'/>
               <view class="flex goods-category-normal-item-container-item-title">
                 {{subItem.name}}
               </view>
@@ -24,7 +24,7 @@
         <view class="goods-category-normal-item-second-container"  wx:if="{{level === 2}}">
           <block wx:for="{{category[activeKey].children}}" wx:key="index">
             <view class="goods-category-normal-item-second-container-item" wx:for-key="index" bindtap="changCategory" data-item="{{item}}">
-              <image src="{{item.thumbnail}}" />
+              <image src="{{item.thumbnail}}" class='image'/>
               <view class="flex goods-category-normal-item-container-item-title">
                 {{item.name}}
               </view>

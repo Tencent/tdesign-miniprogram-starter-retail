@@ -13,15 +13,15 @@
   background: white;
 }
 
-.c-sidebar-item.active ::before {
+.c-sidebar-item.active::before{
   content: '';
   position: absolute;
   width: 6rpx;
   height: 48rpx;
-  background-color: #FA4126;
+  background-color: #fa4126;
   left: 0;
-  top:50%;
-  transform: translate(0,-50%);
+  top: 50%;
+  transform: translate(0, -50%);
   border-radius: 64rpx;
 }
 
@@ -38,7 +38,7 @@
 .c-sidebar-item.active .c-sidebar-item__text {
   background-color: white;
   border-radius: 36rpx;
-  color: #FA4126;
+  color: #fa4126;
 }
 
 .text-overflow {
