@@ -23,7 +23,7 @@ page {
 
 .result-container .t-search__input {
   font-size: 28rpx !important;
-  color: rgb(116, 116, 116) !important;
+  color: #333 !important;
 }
 
 .result-container .category-goods-list {

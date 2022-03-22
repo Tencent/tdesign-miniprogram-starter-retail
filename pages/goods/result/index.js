@@ -40,6 +40,19 @@ Page({
     outerService: null,
   },
 
+  onLoad(options) {
+    const { searchValue = '' } = options || {};
+    this.setData(
+      {
+        keywords: searchValue,
+        pageLoaded: true,
+      },
+      () => {
+        this.init(true);
+      },
+    );
+  },
+
   handleFilterChange(e) {
     const { layout, overall, sorts } = e.detail;
     this.setData({
@@ -58,7 +71,6 @@ Page({
 
     const params = {
       sort: 0, // 0 综合，1 价格
-      // sortType: 0, // 0 顺序，1 倒序
       pageNum: 1,
       pageSize: 30,
       keyword: keywords,
@@ -76,7 +88,7 @@ Page({
     }
     params.minPrice = minVal ? minVal * 100 : 0;
     params.maxPrice = maxVal ? maxVal * 100 : undefined;
-    // 重置请求
+
     if (reset) return params;
 
     return {
@@ -90,7 +102,6 @@ Page({
     const { loadMoreStatus, goodsList = [] } = this.data;
     const params = this.generalQueryData(reset);
 
-    // 在加载中或者无更多数据，直接返回
     if (loadMoreStatus !== 0) return;
 
     this.setData({
@@ -149,31 +160,15 @@ Page({
     });
   },
 
-  onLoad(options) {
-    const { keywords = '' } = options || {};
-    this.setData(
-      {
-        keywords,
-        pageLoaded: true,
-      },
-      () => {
-        this.init(true);
-      },
-    );
-  },
-
-  // 单击购物车，跳转
   handleCartTap() {
     wx.switchTab({
       url: '/pages/cart/index',
     });
   },
 
-  handleSubmit(e) {
-    const { value } = e.detail;
+  handleSubmit() {
     this.setData(
       {
-        keywords: value,
         goodsList: [],
         loadMoreStatus: 0,
       },
