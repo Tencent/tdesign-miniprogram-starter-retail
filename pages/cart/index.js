@@ -1,6 +1,5 @@
 import Dialog from 'tdesign-miniprogram/dialog/index';
 import Toast from 'tdesign-miniprogram/toast/index';
-
 import { fetchCartGroupData } from '../../services/cart/cart';
 
 Page({
@@ -19,6 +18,7 @@ Page({
 
   refreshData() {
     this.getCartGroupData().then((res) => {
+      let isEmpty = true;
       const cartGroupData = res.data;
       // 一些组件中需要的字段可能接口并没有返回，或者返回的数据结构与预期不一致，需要在此先对数据做一些处理
       // 统计门店下加购的商品是否全选、是否存在缺货/无货
@@ -49,15 +49,22 @@ Page({
               return false;
             },
           );
+
+          if (activity.goodsPromotionList.length > 0) {
+            isEmpty = false;
+          }
+        }
+        if (store.shortageGoodsList.length > 0) {
+          isEmpty = false;
         }
       }
-
       cartGroupData.invalidGoodItems = cartGroupData.invalidGoodItems.map(
         (goods) => {
           goods.originPrice = undefined;
           return goods;
         },
       );
+      cartGroupData.isNotEmpty = !isEmpty;
       this.setData({ cartGroupData });
     });
   },

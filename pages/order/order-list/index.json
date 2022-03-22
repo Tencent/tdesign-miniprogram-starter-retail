@@ -7,10 +7,10 @@
     "t-toast": "tdesign-miniprogram/toast/toast",
     "t-dialog": "tdesign-miniprogram/dialog/dialog",
     "t-pull-down-refresh": "tdesign-miniprogram/pull-down-refresh/pull-down-refresh",
-    "wr-load-more": "/components/load-more/index",
-    "wr-order-button-bar": "../components/order-button-bar/index",
-    "wr-price": "/components/price/index",
-    "wr-order-card": "../components/order-card/index",
-    "wr-specs-goods-card": "../components/specs-goods-card/index"
+    "load-more": "/components/load-more/index",
+    "order-button-bar": "../components/order-button-bar/index",
+    "price": "/components/price/index",
+    "order-card": "../components/order-card/index",
+    "specs-goods-card": "../components/specs-goods-card/index"
   }
 }

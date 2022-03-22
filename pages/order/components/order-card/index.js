@@ -66,7 +66,7 @@ Component({
   },
 
   data: {
-    showAll: false,
+    showAll: true, // 是否展示所有商品，设置为false，可以使用展开更多功能
     goodsCount: 0,
   },
 

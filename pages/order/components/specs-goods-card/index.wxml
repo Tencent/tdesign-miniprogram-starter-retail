@@ -1,4 +1,4 @@
-<wr-goods-card
+<goods-card
  class="wr-specs-goods-card"
  id="{{id}}"
  layout="{{layout}}"
@@ -36,5 +36,5 @@
 	<slot name="append-body" slot="append-body" />
 	<slot name="footer" slot="footer" />
 	<slot name="append-card" slot="append-card" />
-</wr-goods-card>
+</goods-card>
 

@@ -55,8 +55,8 @@
 			</view>
 		</view>
 		<!-- 店铺及商品 -->
-		<wr-order-card order="{{_order}}" use-top-right-slot>
-			<wr-order-goods-card
+		<order-card order="{{_order}}" use-top-right-slot>
+			<order-goods-card
 			 wx:for="{{_order.goodsList}}"
 			 wx:key="id"
 			 wx:for-item="goods"
@@ -66,11 +66,16 @@
 			 bindtap="onGoodsCardTap"
 			 data-index="{{gIndex}}"
 			/>
-			<wr-order-button-bar class="goods-button-bar" order="{{_order}}" bindrefresh="onRefresh" goodsIndex="{{gIndex}}"/>
+			<order-button-bar
+			 class="goods-button-bar"
+			 order="{{_order}}"
+			 bindrefresh="onRefresh"
+			 goodsIndex="{{gIndex}}"
+			/>
 			<view class="pay-detail">
 				<view class="pay-item">
 					<text>商品总额</text>
-					<wr-price
+					<price
 					 fill
 					 decimalSmaller
 					 wr-class="pay-item__right font-bold"
@@ -82,7 +87,7 @@
 					<view class="pay-item__right font-bold">
 						<block wx:if="{{order.freightFee}}">
 							+
-							<wr-price fill decimalSmaller price="{{order.freightFee}}" />
+							<price fill decimalSmaller price="{{order.freightFee}}" />
 						</block>
 						<text wx:else>免运费</text>
 					</view>
@@ -91,7 +96,7 @@
 					<text>活动优惠</text>
 					<view class="pay-item__right primary font-bold">
 						-
-						<wr-price fill price="{{order.discountAmount || 0}}" />
+						<price fill price="{{order.discountAmount || 0}}" />
 					</view>
 				</view>
 				<view class="pay-item">
@@ -99,7 +104,7 @@
 					<view class="pay-item__right" catchtap="onOpenCoupons">
 						<block wx:if="{{order.couponAmount}}">
 							-
-							<wr-price fill decimalSmaller price="{{order.couponAmount}}" />
+							<price fill decimalSmaller price="{{order.couponAmount}}" />
 						</block>
 						<text wx:else>无可用</text>
 						<!-- <t-icon name="chevron-right" size="32rpx" color="#BBBBBB" /> -->
@@ -107,7 +112,7 @@
 				</view>
 				<view class="pay-item">
 					<text>{{isPaid ? '实付' : '应付'}}</text>
-					<wr-price
+					<price
 					 fill
 					 decimalSmaller
 					 wr-class="pay-item__right font-bold primary max-size"
@@ -115,7 +120,7 @@
 					/>
 				</view>
 			</view>
-		</wr-order-card>
+		</order-card>
 
 		<view class="pay-detail padding-inline">
 			<view class="pay-item">
@@ -132,7 +137,7 @@
 				</view>
 			</view>
 			<view class="border-bottom border-bottom-margin" />
-				<view class="pay-item">
+			<view class="pay-item">
 				<text>发票</text>
 				<view class="pay-item__right" bindtap="onOrderInvoiceView">
 					<text class="order-no normal-color">{{invoiceType}}</text>
@@ -156,7 +161,7 @@
 		<!-- 底部栏 -->
 	</view>
 	<view wx:if="{{_order.buttons.length > 0}}" class="bottom-bar">
-		<wr-order-button-bar order="{{_order}}" bindrefresh="onRefresh" isBtnMax />
+		<order-button-bar order="{{_order}}" bindrefresh="onRefresh" isBtnMax />
 	</view>
 </t-pull-down-refresh>
 <t-toast id="t-toast" />

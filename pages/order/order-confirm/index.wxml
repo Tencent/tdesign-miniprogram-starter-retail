@@ -2,7 +2,7 @@
 <wxs module="handleInvoice" src="./handleInvoice.wxs" />
 <wxs module="getNotes" src="./getNotes.wxs" />
 <view class="order-sure" wx:if="{{!loading}}">
-	<wr-address-card addressData="{{userAddress}}" bind:addclick="onGotoAddress" bind:addressclick="onGotoAddress" />
+	<address-card addressData="{{userAddress}}" bind:addclick="onGotoAddress" bind:addressclick="onGotoAddress" />
 	<view
 	 class="order-wrapper"
 	 wx:for="{{settleDetailData.storeGoodsList}}"
@@ -12,9 +12,10 @@
 	>
 		<view class="store-wrapper">
 			<t-icon
+			 prefix="wr"
 			 size="40rpx"
 			 color="#333333"
-			 name="gift"
+			 name="store"
 			 class="store-logo"
 			/>
 			{{stores.storeName}}
@@ -32,7 +33,7 @@
 				<view>{{goods.specs}}</view>
 			</view>
 			<view class="goods-right">
-				<wr-price
+				<price
 				 wr-class="goods-price"
 				 price="{{goods.price}}"
 				 fill="{{false}}"
@@ -45,7 +46,7 @@
 	<view class="pay-detail">
 		<view class="pay-item">
 			<text>商品总额</text>
-			<wr-price
+			<price
 			 fill
 			 decimalSmaller
 			 wr-class="pay-item__right font-bold"
@@ -57,7 +58,7 @@
 			<view class="pay-item__right font-bold">
 				<block wx:if="{{settleDetailData.totalDeliveryFee && settleDetailData.totalDeliveryFee != 0}}">
 					+
-					<wr-price fill decimalSmaller price="{{settleDetailData.totalDeliveryFee}}" />
+					<price fill decimalSmaller price="{{settleDetailData.totalDeliveryFee}}" />
 				</block>
 				<text wx:else>免运费</text>
 			</view>
@@ -66,7 +67,7 @@
 			<text>活动优惠</text>
 			<view class="pay-item__right primary font-bold">
 				-
-				<wr-price fill price="{{settleDetailData.totalPromotionAmount || 0}}" />
+				<price fill price="{{settleDetailData.totalPromotionAmount || 0}}" />
 			</view>
 		</view>
 		<view class="pay-item">
@@ -74,7 +75,7 @@
 			<view class="pay-item__right" catchtap="onOpenCoupons">
 				<block wx:if="{{settleDetailData.totalCouponAmount && settleDetailData.totalCouponAmount != 0}}">
 					-
-					<wr-price fill decimalSmaller price="{{settleDetailData.totalCouponAmount}}" />
+					<price fill decimalSmaller price="{{settleDetailData.totalCouponAmount}}" />
 				</block>
 				<text wx:else>无可用</text>
 				<t-icon name="chevron-right" size="32rpx" color="#BBBBBB" />
@@ -99,7 +100,7 @@
 		<view class="pay-amount">
 			<text class="order-num">共{{settleDetailData.totalGoodsCount}}件</text>
 			<text >小计</text>
-			<wr-price
+			<price
 			 class="total-price"
 			 price="{{settleDetailData.totalPayAmount}}"
 			 fill="{{false}}"
@@ -110,7 +111,7 @@
 
 	<view class="wx-pay-cover">
 		<view class="wx-pay">
-			<wr-price
+			<price
 			 decimalSmaller
 			 fill
 			 class="price"

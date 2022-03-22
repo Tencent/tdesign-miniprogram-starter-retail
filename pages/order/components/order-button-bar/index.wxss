@@ -12,7 +12,7 @@
   line-height: 1;
   border-radius: unset;
   min-width: 160rpx;
-    font-size: 28rpx;
+  font-size: 28rpx;
 }
 .btn-bar .order-btn::after {
   border-radius: 16rpx;
@@ -30,7 +30,6 @@
   height: 56rpx;
   border-radius: 28rpx;
   margin-left: 24rpx;
-
 }
 .btn-bar .t-button--max {
   width: 176rpx;
