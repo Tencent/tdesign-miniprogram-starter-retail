@@ -3,7 +3,7 @@
   placement="bottom"
   bind:visible-change="closePromotionPopup"
 >
-  <view class="promotion-popup-container wr-class">
+  <view class="promotion-popup-container">
     <view class="promotion-popup-close" bindtap="closePromotionPopup">
       <t-icon name="close" size="36rpx" />
     </view>

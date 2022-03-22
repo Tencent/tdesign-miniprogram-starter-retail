@@ -1,6 +1,4 @@
 Component({
-  externalClasses: ['wr-class'],
-
   options: {
     multipleSlots: true,
   },
@@ -16,9 +14,9 @@ Component({
     },
   },
 
-  data: {
-    list: [],
-  },
+  // data: {
+  //   list: [],
+  // },
 
   methods: {
     change(e) {
