@@ -1,16 +1,12 @@
-.coupon-btn {
+.coupon-btn-primary {
   width: 136rpx;
   height: 56rpx;
   border-radius: 28rpx;
   background-color: transparent;
-}
-
-.coupon-btn-slot .primary {
   border-color: #fa4126;
   color: #fa4126;
 }
 
-.coupon-btn-slot .default {
-  border-color: #666;
-  color: #666;
+.coupon-btn-default {
+  display: none;
 }
