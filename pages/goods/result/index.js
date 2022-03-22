@@ -40,16 +40,17 @@ Page({
     outerService: null,
   },
 
-  handleFilterChange(e) {
-    const { layout, overall, sorts } = e.detail;
-    this.setData({
-      layout,
-      sorts,
-      overall,
-      pageSize: 1,
-      loadMoreStatus: 0,
-    });
-    this.init(true);
+  onLoad(options) {
+    const { searchValue = '' } = options || {};
+    this.setData(
+      {
+        keywords: searchValue,
+        pageLoaded: true,
+      },
+      () => {
+        this.init(true);
+      },
+    );
   },
 
   generalQueryData(reset = false) {
@@ -58,7 +59,6 @@ Page({
 
     const params = {
       sort: 0, // 0 综合，1 价格
-      // sortType: 0, // 0 顺序，1 倒序
       pageNum: 1,
       pageSize: 30,
       keyword: keywords,
@@ -76,7 +76,7 @@ Page({
     }
     params.minPrice = minVal ? minVal * 100 : 0;
     params.maxPrice = maxVal ? maxVal * 100 : undefined;
-    // 重置请求
+
     if (reset) return params;
 
     return {
@@ -90,7 +90,6 @@ Page({
     const { loadMoreStatus, goodsList = [] } = this.data;
     const params = this.generalQueryData(reset);
 
-    // 在加载中或者无更多数据，直接返回
     if (loadMoreStatus !== 0) return;
 
     this.setData({
@@ -149,31 +148,15 @@ Page({
     });
   },
 
-  onLoad(options) {
-    const { keywords = '' } = options || {};
-    this.setData(
-      {
-        keywords,
-        pageLoaded: true,
-      },
-      () => {
-        this.init(true);
-      },
-    );
-  },
-
-  // 单击购物车，跳转
   handleCartTap() {
     wx.switchTab({
       url: '/pages/cart/index',
     });
   },
 
-  handleSubmit(e) {
-    const { value } = e.detail;
+  handleSubmit() {
     this.setData(
       {
-        keywords: value,
         goodsList: [],
         loadMoreStatus: 0,
       },
@@ -235,15 +218,17 @@ Page({
       layoutText: layoutMap[layout],
     });
 
-    // 样式切换，发请求
     if (layout === filter.layout) {
-      this.setData({
-        pageNum: 1,
-        loadMoreStatus: 0,
-      });
-
-      // 如果当前关键字有值，才执行查询，否则不查询
-      total && this.init(true);
+      this.setData(
+        {
+          pageNum: 1,
+          goodsList: [],
+          loadMoreStatus: 0,
+        },
+        () => {
+          total && this.init(true);
+        },
+      );
     }
   },
 
@@ -290,6 +275,7 @@ Page({
     } else {
       message = '请输入正确范围';
     }
+
     if (message) {
       Toast({
         context: this,
@@ -302,6 +288,9 @@ Page({
       {
         show: false,
         minVal: '',
+        goodsList: [],
+        loadMoreStatus: 0,
+        pageNum: 1,
         maxVal: '',
       },
       () => {

@@ -15,7 +15,16 @@
 		 t-class-input="t-search__input"
 		 t-class-input-container="t-class__input-container"
 		 placeholder="iphone 13 火热发售中"
-		/>
+		 leftIcon=""
+		>
+			<t-icon
+			 slot="left-icon"
+			 prefix="wr"
+			 name="search"
+			 size="40rpx"
+			 color="#bbb"
+			/>
+		</t-search>
 	</view>
 	<view class="swiper-wrap">
 		<t-swiper

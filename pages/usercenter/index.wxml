@@ -24,14 +24,16 @@
 			 data-type="{{xitem.type}}"
 			 bordered="{{false}}"
 			 bind:click="onClickCell"
+			 t-class="t-cell-padding"
 			 t-class-note="order-group-note"
 			 t-class-left="order-group__left"
 			>
 				<t-icon
 				 slot="right-icon"
+				 prefix="wr"
 				 wx:if="{{xitem.icon}}"
 				 name="{{xitem.icon}}"
-				 size="48"
+				 size="48rpx"
 				 color="#999"
 				/>
 			</t-cell>

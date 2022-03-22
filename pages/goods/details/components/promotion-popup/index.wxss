@@ -26,7 +26,7 @@
   justify-content: center;
 }
 
-.promotion-popup-container .promotion-popup-title.title {
+.promotion-popup-container .promotion-popup-title {
   font-size: 32rpx;
   color: #222427;
   font-weight: 600;
@@ -35,6 +35,7 @@
 .promotion-popup-container .promotion-popup-content {
   min-height: 400rpx;
   max-height: 600rpx;
+  padding-bottom: calc(env(safe-area-inset-bottom) + 20rpx);
   overflow-y: scroll;
   -webkit-overflow-scrolling: touch;
 }
@@ -62,7 +63,6 @@
   position: relative;
   font-size: 24rpx;
   color: #222427;
-  margin-bottom: 24rpx;
 }
 
 .promotion-popup-container
@@ -70,16 +70,15 @@
   .promotion-detail-list
   .list-item
   .tag {
+  box-sizing: border-box;
   font-size: 20rpx;
-  height: 32rpx;
   line-height: 32rpx;
-  padding: 0 8rpx;
-  border: 1rpx solid #fa4126;
-  background-color: #fff;
+  padding: 2rpx 12rpx;
+  background-color: #ffece9;
   margin-right: 16rpx;
   display: inline-flex;
   color: #fa4126;
-  border-radius: 4rpx;
+  border-radius: 54rpx;
   flex-shrink: 0;
   position: relative;
   top: 2rpx;
@@ -90,7 +89,7 @@
   .promotion-detail-list
   .list-item
   .content {
-  font-size: 24rpx;
+  font-size: 28rpx;
   color: #222427;
   flex: 1;
   line-height: 40rpx;
@@ -116,8 +115,6 @@
   .list-item
   .collect-btn {
   font-size: 24rpx;
-  color: #fa550f;
-
   flex-shrink: 0;
   margin-left: 20rpx;
   display: flex;

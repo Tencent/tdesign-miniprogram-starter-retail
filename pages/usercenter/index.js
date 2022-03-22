@@ -223,11 +223,7 @@ Page({
 
   getVersionInfo() {
     const versionInfo = wx.getAccountInfoSync();
-    // eslint-disable-next-line no-console
-    console.info('versionInfo: ', versionInfo);
     const { version, envVersion = __wxConfig } = versionInfo.miniProgram;
-    // eslint-disable-next-line no-console
-    console.info('version, envVersion: ', version, envVersion);
     this.setData({
       versionNo: envVersion === 'release' ? version : envVersion,
     });

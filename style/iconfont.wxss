@@ -83,3 +83,21 @@
 .wr-close:before {
   content: '\e021';
 }
+.wr-service:before {
+  content: '\e04a';
+}
+.wr-search:before {
+  content: '\e011';
+}
+.wr-clear_filled:before {
+  content: '\e027';
+}
+.wr-arrow_drop_up:before {
+  content: '\e071';
+}
+.wr-arrow_drop_down:before {
+  content: '\e070';
+}
+.wr-filter:before {
+  content: '\e038';
+}
