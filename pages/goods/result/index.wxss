@@ -2,6 +2,10 @@ page {
   background-color: #fff;
 }
 
+page view {
+  box-sizing: border-box;
+}
+
 .result-container {
   display: block;
 }
@@ -51,9 +55,11 @@ page {
 }
 
 .result-container .price-container {
-  padding: 24rpx;
+  padding: 32rpx;
   height: 100vh;
+  max-width: 632rpx;
   background-color: #fff;
+  border-radius: 30rpx 0 0 30rpx;
 }
 
 .result-container .price-between {
@@ -73,32 +79,31 @@ page {
 .result-container .price-ipts-wrap .price-divided {
   position: relative;
   width: 22rpx;
-  padding: 0 20rpx;
-}
-
-.result-container .price-ipts-wrap .price-divided::after {
-  content: '';
-  position: absolute;
-  height: 2rpx;
-  width: 22rpx;
-  background-color: #222427;
-  top: 50%;
-  left: 20rpx;
-  transform: translateY(-50%);
+  margin: 0 20rpx;
+  color: #222427;
 }
 
 .result-container .price-ipts-wrap .price-ipt {
   box-sizing: border-box;
-  width: 256rpx;
+  width: 246rpx;
   font-size: 24rpx;
   height: 56rpx;
   padding: 0 24rpx;
   text-align: center;
   border-radius: 8rpx;
-  color: #bbb;
+  color: #333;
   background: rgba(245, 245, 245, 1);
+}
+
+.t-class-input {
+  font-size: 24rpx !important;
+}
+
+.result-container .price-ipts-wrap .price-ipt::after {
+  border: none !important;
 }
 
 .result-container .t-class-placeholder {
   font-size: 24rpx !important;
+  text-align: center;
 }

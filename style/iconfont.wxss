@@ -92,3 +92,12 @@
 .wr-clear_filled:before {
   content: '\e027';
 }
+.wr-arrow_drop_up:before {
+  content: '\e071';
+}
+.wr-arrow_drop_down:before {
+  content: '\e070';
+}
+.wr-filter:before {
+  content: '\e038';
+}

@@ -41,28 +41,28 @@
 		 bind:reset="reset"
 		 bind:confirm="confirm"
 		>
-			<view slot="filterSlot">
-				<view class="price-container">
-					<view class="price-between">价格区间</view>
-					<view class="price-ipts-wrap">
-						<t-input
-						 type="number"
-						 t-class="price-ipt"
-						 t-class-placeholder="t-class-placeholder"
-						 placeholder="最低价"
-						 value="{{minVal}}"
-						 bindchange="onMinValAction"
-						/>
-						<view class="price-divided" />
-						<t-input
-						 type="number"
-						 t-class="price-ipt"
-						 t-class-placeholder="t-class-placeholder"
-						 placeholder="最高价"
-						 value="{{maxVal}}"
-						 bindchange="onMaxValAction"
-						/>
-					</view>
+			<view class="price-container" slot="filterSlot">
+				<view class="price-between">价格区间</view>
+				<view class="price-ipts-wrap">
+					<t-input
+					 type="number"
+					 t-class="price-ipt"
+					 t-class-placeholder="t-class-placeholder"
+					 t-class-input="t-class-input"
+					 placeholder="最低价"
+					 value="{{minVal}}"
+					 bindchange="onMinValAction"
+					/>
+					<view class="price-divided">-</view>
+					<t-input
+					 type="number"
+					 t-class="price-ipt"
+					 t-class-placeholder="t-class-placeholder"
+					 t-class-input="t-class-input"
+					 placeholder="最高价"
+					 value="{{maxVal}}"
+					 bindchange="onMaxValAction"
+					/>
 				</view>
 			</view>
 		</t-filter-popup>

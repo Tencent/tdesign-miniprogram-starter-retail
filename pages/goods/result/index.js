@@ -53,17 +53,17 @@ Page({
     );
   },
 
-  handleFilterChange(e) {
-    const { layout, overall, sorts } = e.detail;
-    this.setData({
-      layout,
-      sorts,
-      overall,
-      pageSize: 1,
-      loadMoreStatus: 0,
-    });
-    this.init(true);
-  },
+  // handleFilterChange(e) {
+  //   const { layout, overall, sorts } = e.detail;
+  //   this.setData({
+  //     layout,
+  //     sorts,
+  //     overall,
+  //     pageSize: 1,
+  //     loadMoreStatus: 0,
+  //   });
+  //   this.init(true);
+  // },
 
   generalQueryData(reset = false) {
     const { filter, pageNum, pageSize, keywords, minVal, maxVal } = this.data;
@@ -230,15 +230,17 @@ Page({
       layoutText: layoutMap[layout],
     });
 
-    // 样式切换，发请求
     if (layout === filter.layout) {
-      this.setData({
-        pageNum: 1,
-        loadMoreStatus: 0,
-      });
-
-      // 如果当前关键字有值，才执行查询，否则不查询
-      total && this.init(true);
+      this.setData(
+        {
+          pageNum: 1,
+          goodsList: [],
+          loadMoreStatus: 0,
+        },
+        () => {
+          total && this.init(true);
+        },
+      );
     }
   },
 
@@ -285,6 +287,7 @@ Page({
     } else {
       message = '请输入正确范围';
     }
+
     if (message) {
       Toast({
         context: this,
@@ -297,6 +300,9 @@ Page({
       {
         show: false,
         minVal: '',
+        goodsList: [],
+        loadMoreStatus: 0,
+        pageNum: 1,
         maxVal: '',
       },
       () => {
