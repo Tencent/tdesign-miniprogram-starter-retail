@@ -20,7 +20,6 @@
   <view class="swiper-wrap">
     <t-swiper
       wx:if="{{imgSrcs.length > 0}}"
-      t-class="swiper-wrap"
       current="{{current}}"
       autoplay="{{autoplay}}"
       duration="{{duration}}"
