@@ -1,6 +1,5 @@
 <view class="order-card wr-class" bind:tap="onOrderCardTap">
 	<view class="header header-class">
-
 		<view class="store-name title-class">
 			<block wx:if="{{!useLogoSlot}}">
 				<t-image wx:if="{{order.storeLogo}}" t-class="store-name__logo" src="{{order.storeLogo}}" />
