@@ -6,7 +6,7 @@
 	</view>
 	<view class="pay-money">
 		微信支付：
-		<wr-price
+		<price
 		 wx:if="{{totalPaid}}"
 		 price="{{totalPaid}}"
 		 wr-class="pay-money__price"

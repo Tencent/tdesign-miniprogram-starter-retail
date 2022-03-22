@@ -7,10 +7,10 @@
     "t-cell": "tdesign-miniprogram/cell/cell",
     "t-dialog": "tdesign-miniprogram/dialog/dialog",
     "t-textarea": "tdesign-miniprogram/textarea/textarea",
-    "wr-price": "/components/price/index",
+    "price": "/components/price/index",
     "select-coupons": "../components/selectCoupons/selectCoupons",
     "no-goods": "../components/noGoods/noGoods",
     "t-image": "/components/webp-image/index",
-    "wr-address-card": "./components/address-card/index"
+    "address-card": "./components/address-card/index"
   }
 }

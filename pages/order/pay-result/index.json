@@ -4,6 +4,6 @@
   "usingComponents": {
     "t-navbar": "tdesign-miniprogram/navbar/navbar",
     "t-icon": "tdesign-miniprogram/icon/icon",
-    "wr-price": "/components/price/index"
+    "price": "/components/price/index"
   }
 }
