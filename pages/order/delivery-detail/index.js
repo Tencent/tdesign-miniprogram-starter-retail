@@ -16,7 +16,16 @@ Page({
     } catch (e) {
       console.warn('物流节点数据解析失败', e);
     }
-    if (data) {
+    if (Number(query.source) === 2) {
+      const service = {
+        company: data.logisticsCompanyName,
+        logisticsNo: data.logisticsNo,
+        nodes: data.nodes,
+      };
+      this.setData({
+        logisticsData: service,
+      });
+    } else if (data) {
       this.setData({ logisticsData: data });
     }
   },
