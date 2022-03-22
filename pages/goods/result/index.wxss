@@ -34,6 +34,7 @@ page view {
   background-color: #f2f2f2;
   overflow-y: scroll;
   padding: 20rpx 24rpx;
+  -webkit-overflow-scrolling: touch;
 }
 
 .result-container .wr-goods-list {

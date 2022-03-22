@@ -31,14 +31,6 @@
   border-radius: 0 84rpx 84rpx 0;
 }
 
-.btn-reset::before {
-  top: 0;
-}
-
-.btn-reset::after {
-  bottom: 0;
-}
-
 .btn-confirm {
   color: #fff;
   background: #fa4126;

@@ -53,18 +53,6 @@ Page({
     );
   },
 
-  // handleFilterChange(e) {
-  //   const { layout, overall, sorts } = e.detail;
-  //   this.setData({
-  //     layout,
-  //     sorts,
-  //     overall,
-  //     pageSize: 1,
-  //     loadMoreStatus: 0,
-  //   });
-  //   this.init(true);
-  // },
-
   generalQueryData(reset = false) {
     const { filter, pageNum, pageSize, keywords, minVal, maxVal } = this.data;
     const { sorts, overall } = filter;
