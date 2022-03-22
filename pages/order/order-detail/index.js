@@ -118,7 +118,6 @@ Page({
         receiverAddress: this.composeAddress(order),
         groupInfoVo: order.groupInfoVo,
       };
-
       this.setData({
         order,
         _order,
@@ -134,6 +133,8 @@ Page({
         isPaid: !!order.paymentVO.paySuccessTime,
         invoiceStatus: this.datermineInvoiceStatus(order),
         invoiceDesc: order.invoiceDesc,
+        invoiceType:
+          order?.invoiceVO?.invoiceType === 5 ? '电子普通发票' : '不开', //是否开票 0-不开 5-电子发票
         logisticsNodes: this.flattenNodes(order.trajectoryVos || []),
       });
     });
@@ -285,6 +286,12 @@ Page({
       context: this,
       selector: '#t-toast',
       message: '您点击了联系客服',
+    });
+  },
+
+  onOrderInvoiceView() {
+    wx.navigateTo({
+      url: `/pages/order/invoice/index?orderNo=${this.orderNo}`,
     });
   },
 });

@@ -187,6 +187,10 @@
   color: #333333;
 }
 
+.invoice-view-btn {
+  
+}
+
 .order-detail .pay-detail .pay-service {
   width: 100%;
   height: 72rpx;
