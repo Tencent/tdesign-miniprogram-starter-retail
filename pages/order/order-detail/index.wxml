@@ -66,7 +66,7 @@
 			 bindtap="onGoodsCardTap"
 			 data-index="{{gIndex}}"
 			/>
-			<wr-order-button-bar class="goods-button-bar" order="{{_order}}" bindrefresh="onRefresh" />
+			<wr-order-button-bar class="goods-button-bar" order="{{_order}}" bindrefresh="onRefresh" goodsIndex="{{gIndex}}"/>
 			<view class="pay-detail">
 				<view class="pay-item">
 					<text>商品总额</text>
@@ -132,10 +132,17 @@
 				</view>
 			</view>
 			<view class="border-bottom border-bottom-margin" />
+				<view class="pay-item">
+				<text>发票</text>
+				<view class="pay-item__right" bindtap="onOrderInvoiceView">
+					<text class="order-no normal-color">{{invoiceType}}</text>
+					<view class="pay-item__right__copy">查看</view>
+				</view>
+			</view>
 			<view class="pay-item">
 				<text>备注</text>
 				<view class="pay-item__right">
-					<text class="order-no normal-color">{{order.remark}}</text>
+					<text class="order-no normal-color">{{order.remark || '-'}}</text>
 				</view>
 			</view>
 			<view class="border-bottom border-bottom-margin" />
