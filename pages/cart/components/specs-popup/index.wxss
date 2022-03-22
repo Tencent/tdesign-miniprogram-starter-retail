@@ -66,15 +66,3 @@
   transform: scale(0.5);
   transform-origin: left top;
 }
-.specs-popup {
-  --ui-goods-card-bg: #fff;
-  --ui-goods-card-thumb-width: 176rpx;
-  --ui-goods-card-thumb-height: 176rpx;
-  --ui-goods-card-thumb-radius: 8rpx;
-  --ui-goods-card-body-margin: 0 0 0 24rpx;
-  --ui-goods-card-short-margin: 48rpx 0 0 0;
-  --ui-goods-card-price-size: 48rpx;
-  --ui-goods-card-price-color: #fa4126;
-  --ui-goods-card-price-pprice-margin: 0 0 0 10rpx;
-  --ui-goods-card-price-symbol-size: 28rpx;
-}
