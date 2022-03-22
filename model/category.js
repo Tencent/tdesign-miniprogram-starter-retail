@@ -177,27 +177,6 @@ export function getCategoryList() {
       ],
     },
     {
-      groupId: '24952',
-      name: '酒水饮料',
-      thumbnail:
-        'https://cdn-we-retail.ym.tencent.com/miniapp/category/category-default.png',
-      children: [
-        {
-          groupId: '249481',
-          name: '白酒',
-          thumbnail:
-            'https://cdn-we-retail.ym.tencent.com/miniapp/category/category-default.png',
-          children: [
-            {
-              groupId: '249480',
-              name: '五粮液',
-              thumbnail: `${imgPrefix}/goods/wine/wine1.png`,
-            },
-          ],
-        },
-      ],
-    },
-    {
       groupId: '24953',
       name: '男装/男鞋',
       thumbnail:
