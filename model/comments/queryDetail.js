@@ -1,8 +1,3 @@
-// import { cdnBase } from '../../config/index';
-// const imgPrefix = cdnBase;
-
-// const defaultDesc = [`${imgPrefix}/goods/details-1.png`];
-
 const queryDetail = {
   commentInfos: [
     {
@@ -29,8 +24,8 @@ const queryDetail = {
       commentHasAgainComment: 0,
       isAnonymous: 0,
       replyList: [],
-      specification: '颜色:红色 ',
-      specificationJson: '{"颜色":"红色"}',
+      specification: '颜色:白色 ',
+      specificationJson: '{"颜色":"白色"}',
       commentExtendId: '1937713',
       commentTime: '1617872404000',
       score: 0,
@@ -50,6 +45,6 @@ const queryDetail = {
  * @param {string} spuId
  * @param {string} orderNo
  */
-export function queryCommentDetail(skuId, spuId, orderNo) {
+export function queryCommentDetail() {
   return queryDetail;
 }

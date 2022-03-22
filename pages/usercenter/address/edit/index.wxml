@@ -8,9 +8,10 @@
 	>
 		<t-icon
 		 class="address-detail-wx-arrow"
-		 name="chevron-right"
+		 name="arrow_forward"
+		 prefix="wr"
 		 color="#bbb"
-		 size="56rpx"
+		 size="32rpx"
 		/>
 	</t-location>
 	<view class="divider-line" />
@@ -54,14 +55,15 @@
 					 placeholder="省/市/区"
 					 data-item="address"
 					 value="{{locationState.provinceName ? locationState.provinceName+'/':'' }}{{locationState.cityName ? locationState.cityName+'/':''}}{{locationState.districtName}}"
-					 bind:tap="onPickArea"
+					 catch:tap="onPickArea"
 					 disabled
 					/>
 					<t-icon
 					 slot="right-icon"
 					 t-class="map"
+					 prefix="wr"
 					 name="location"
-					 bindtap="onSearchAddress"
+					 catch:tap="onSearchAddress"
 					/>
 				</t-cell>
 				<t-cell
@@ -137,7 +139,7 @@
 </view>
 <t-dialog
  visible="{{visible}}"
- t-class-confirm="t-dialog-confirm"
+ t-class-confirm="dialog__button-confirm"
  title="填写标签名称"
  confirm-btn="确定"
  cancel-btn="取消"

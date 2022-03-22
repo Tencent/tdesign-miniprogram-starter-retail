@@ -29,17 +29,14 @@ page {
 .text-btn {
   display: inline;
   font-size: 26rpx;
-  color: #fa550f;
+  color: #fa4126;
 }
 .text-btn:active {
   opacity: 0.5;
 }
-.steps {
-  padding: 24rpx;
-}
 .steps .step-title {
   font-weight: bold;
-  color: #333333;
+  color: #fa4126 !important;
   font-size: 30rpx;
 }
 .steps .step-desc {
@@ -50,49 +47,32 @@ page {
   color: #999999;
   font-size: 22rpx;
 }
-.steps .steps--vertical .step__wrapper {
-  padding-left: 78rpx;
-}
-.steps .steps--vertical .step__wrapper .step--vertical {
-  line-height: 1.5;
-}
-.steps .steps--vertical .step__wrapper .step--vertical::after {
-  border-width: 0;
-}
-.steps .steps--vertical .step__wrapper .step--vertical .step__icon,
-.steps .steps--vertical .step__wrapper .step--vertical .step__circle,
-.steps .steps--vertical .step__wrapper .step--vertical .step__line {
-  top: 45rpx;
-  left: -54rpx;
-}
-.steps .steps--vertical .step__wrapper .step--vertical .step__circle,
-.steps .steps--vertical .step__wrapper .step--vertical .step__line {
-  background-color: #dddddd;
-}
-.steps .steps--vertical .step__wrapper .step--vertical .step__icon .wr-icon {
-  font-size: 24rpx;
-  padding: 12rpx;
-  background-color: #f5f5f5;
-  border-radius: 50%;
-  color: #999999;
-}
-.steps .steps--vertical .step__wrapper .step--vertical .step__circle {
-  width: 14rpx;
-  height: 14rpx;
+.steps
+  .t-step--vertical.t-step--default-anchor
+  .t-steps-item--process
+  .t-steps-item__icon-number {
+  background: none !important;
+  color: white !important;
+  border: 1rpx solid #fa4126 !important;
+  border: none;
 }
 .steps
-  .steps--vertical
-  .step__wrapper
-  .step--vertical.step--process
-  .step__icon
-  .wr-icon {
-  background-color: #fa550f;
-  color: white;
+  .t-step--vertical.t-step--default-anchor
+  .t-steps-item--default
+  .t-steps-item__icon-number {
+  color: white !important;
+  border: 1rpx solid #fa4126 !important;
 }
 .steps
-  .steps--vertical
-  .step__wrapper
-  .step--vertical.step--process
-  .step__circle {
-  background-color: #fa550f;
+  .t-step--vertical.t-step--default-anchor.t-step--not-last-child
+  .t-steps-item--finish
+  .t-steps-item__inner:after,
+.steps
+  .t-step--vertical.t-step--default-anchor.t-step--not-last-child
+  .t-steps-item--default
+  .t-steps-item__inner:after {
+  background: #fa4126 !important;
+}
+.page-section__steps {
+  padding: 24rpx;
 }

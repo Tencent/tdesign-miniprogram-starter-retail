@@ -12,19 +12,19 @@ function priceFormat(price, fill = 0) {
   if (isNaN(price) || price === null || price === Infinity) {
     return price;
   }
-  price = Math.round(parseFloat(`${price}`) * 10 ** 8) / 10 ** 8; // 恢复精度丢失
-  price = `${Math.ceil(price) / 100}`; // 向上取整，单位转换为元，转换为字符串
+  let priceFormatValue = Math.round(parseFloat(`${price}`) * 10 ** 8) / 10 ** 8; // 恢复精度丢失
+  priceFormatValue = `${Math.ceil(price) / 100}`; // 向上取整，单位转换为元，转换为字符串
   if (fill > 0) {
     // 补充小数位数
-    if (price.indexOf('.') == -1) {
-      price = `${price}.`;
+    if (price.indexOf('.') === -1) {
+      priceFormatValue = `${price}.`;
     }
-    const n = fill - price.split('.')[1].length;
+    const n = fill - price.split('.')[1]?.length;
     for (let i = 0; i < n; i++) {
-      price = `${price}0`;
+      priceFormatValue = `${price}0`;
     }
   }
-  return price;
+  return priceFormatValue;
 }
 
 /**
@@ -62,7 +62,6 @@ const get = (source, paths, defaultValue) => {
   return source === undefined || index === 0 ? defaultValue : source;
 };
 let systemWidth = 0;
-let pixelRatio = 0;
 /** 获取系统宽度，为了减少启动消耗所以在函数里边做初始化 */
 export const loadSystemWidth = () => {
   if (systemWidth) {

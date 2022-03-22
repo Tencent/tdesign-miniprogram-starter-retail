@@ -47,3 +47,9 @@
   height: 56rpx;
   position: relative;
 }
+.order-group__top__title {
+  font-weight: bold;
+}
+.order-group .order-group__left {
+  margin-right: 0;
+}

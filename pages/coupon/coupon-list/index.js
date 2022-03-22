@@ -1,4 +1,4 @@
-import { fetchCouponList } from '../../services/coupon/index';
+import { fetchCouponList } from '../../../services/coupon/index';
 
 Page({
   data: {

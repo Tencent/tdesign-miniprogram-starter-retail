@@ -1,8 +1,13 @@
 {
   "navigationBarTitleText": "评价商品",
-  "backgroundColor": "#f8f8f8",
-  "navigationStyle": "custom",
   "usingComponents": {
-    "wr-goods-review-submit": "@tencent/retailwe-ui-goods-review-submit/index"
+    "t-image": "/components/webp-image/index",
+    "t-rate": "tdesign-miniprogram/rate/rate",
+    "t-textarea": "tdesign-miniprogram/textarea/textarea",
+    "t-checkbox": "tdesign-miniprogram/checkbox/checkbox",
+    "t-button": "tdesign-miniprogram/button/button",
+    "t-upload": "tdesign-miniprogram/upload/upload",
+    "t-icon": "tdesign-miniprogram/icon/icon",
+    "t-toast": "tdesign-miniprogram/toast/toast"
   }
 }

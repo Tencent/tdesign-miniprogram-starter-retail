@@ -4,18 +4,12 @@ import {
   fetchBusinessTime,
   fetchOrderDetail,
 } from '../../../services/order/orderDetail';
-
-// 静态资源域名
-const STATIC_BASE_URL = 'https://cdn-we-retail.ym.tencent.com/miniapp/';
+import Toast from 'tdesign-miniprogram/toast/index';
+import { getAddressPromise } from '../../usercenter/address/list/util';
 
 Page({
   data: {
-    pageNav: {
-      color: 'white',
-      background: 'linear-gradient(90deg,#FFAB44 0%,#FF7333 100%)',
-    },
     pageLoading: true,
-    bgImgUrl: '',
     order: {}, // 后台返回的原始数据
     _order: {}, // 内部使用和提供给 order-card 的数据
     storeDetail: {},
@@ -24,7 +18,6 @@ Page({
     backRefresh: false, // 用于接收其他页面back时的状态
     formatCreateTime: '', //格式化订单创建时间
     logisticsNodes: [],
-
     /** 订单评论状态 */
     orderHasCommented: true,
   },
@@ -125,7 +118,6 @@ Page({
         receiverAddress: this.composeAddress(order),
         groupInfoVo: order.groupInfoVo,
       };
-
       this.setData({
         order,
         _order,
@@ -134,7 +126,6 @@ Page({
           'YYYY-MM-DD HH:mm',
         ), // 格式化订单创建时间
         countDownTime: this.computeCountDownTime(order),
-        bgImgUrl: this.getBgImgUrl(order.orderStatus, order),
         addressEditable:
           [OrderStatus.PENDING_PAYMENT, OrderStatus.PENDING_DELIVERY].includes(
             order.orderStatus,
@@ -142,6 +133,8 @@ Page({
         isPaid: !!order.paymentVO.paySuccessTime,
         invoiceStatus: this.datermineInvoiceStatus(order),
         invoiceDesc: order.invoiceDesc,
+        invoiceType:
+          order?.invoiceVO?.invoiceType === 5 ? '电子普通发票' : '不开', //是否开票 0-不开 5-电子发票
         logisticsNodes: this.flattenNodes(order.trajectoryVos || []),
       });
     });
@@ -193,32 +186,6 @@ Page({
     });
   },
 
-  getBgImgUrl(status, order) {
-    switch (status) {
-      case OrderStatus.PENDING_PAYMENT:
-        return `${STATIC_BASE_URL}order/bg-order-pengding-pay.png`;
-      case OrderStatus.PENDING_DELIVERY:
-        if (order.orderSubStatus === -1) {
-          return `${STATIC_BASE_URL}order/bg-cancel-order-checking.png`;
-        }
-        return `${STATIC_BASE_URL}order/bg-order-packaged.png`;
-      case OrderStatus.PENDING_RECEIPT:
-        return `${STATIC_BASE_URL}order/bg-order-delivering.png`;
-      case OrderStatus.COMPLETE:
-        return `${STATIC_BASE_URL}order/bg-order-finished.png`;
-      case OrderStatus.PAYMENT_TIMEOUT:
-        return `${STATIC_BASE_URL}order/bg-order-canceled.png`;
-      case OrderStatus.CANCELED_NOT_PAYMENT:
-        return `${STATIC_BASE_URL}order/bg-order-canceled.png`;
-      case OrderStatus.CANCELED_PAYMENT:
-        return `${STATIC_BASE_URL}order/bg-order-canceled.png`;
-      case OrderStatus.CANCELED_REJECTION:
-        return `${STATIC_BASE_URL}order/bg-order-canceled.png`;
-      default:
-        return `${STATIC_BASE_URL}order/bg-order-pengding-pay.png`;
-    }
-  },
-
   // 仅对待支付状态计算付款倒计时
   // 返回时间若是大于2020.01.01，说明返回的是关闭时间，否则说明返回的直接就是剩余时间
   computeCountDownTime(order) {
@@ -246,20 +213,19 @@ Page({
   },
 
   onEditAddressTap() {
-    const params = {
-      orderNo: this.data.order.orderNo,
-      receiverAddressId: this.data.order.logisticsVO.receiverAddressId,
-      cityCode: this.data.order.logisticsVO.cityCode,
-      countyCode: this.data.order.logisticsVO.countyCode,
-      latitude: this.data.order.logisticsVO.receiverLatitude,
-      longitude: this.data.order.logisticsVO.receiverLongitude,
-      provinceCode: this.data.order.logisticsVO.provinceCode,
-      receiverAddress: this.data.order.logisticsVO.receiverAddress,
-    };
-    const paramsStr = Object.keys(params)
-      .map((k) => `${k}=${params[k]}`)
-      .join('&');
-    wx.navigateTo({ url: `/pages/usercenter/address/list/index?${paramsStr}` });
+    getAddressPromise()
+      .then((address) => {
+        this.setData({
+          'order.logisticsVO.receiverName': address.name,
+          'order.logisticsVO.receiverPhone': address.phone,
+          '_order.receiverAddress': address.address,
+        });
+      })
+      .catch(() => {});
+
+    wx.navigateTo({
+      url: `/pages/usercenter/address/list/index?selectMode=1`,
+    });
   },
 
   onOrderNumCopy() {
@@ -275,7 +241,9 @@ Page({
   },
 
   onToInvoice() {
-    wx.navigateTo({ url: `pages/order/invoice/index?id=1` });
+    wx.navigateTo({
+      url: `/pages/order/invoice/index?orderNo=${this.data._order.orderNo}`,
+    });
   },
 
   onSuppleMentInvoice() {
@@ -307,19 +275,23 @@ Page({
 
   /** 跳转拼团详情/分享页*/
   toGrouponDetail() {
-    const {
-      groupInfoVo: { promotionId, groupId },
-      storeId,
-    } = this.data.order;
     wx.showToast({ title: '点击了拼团' });
     /* wx.navigateTo({
       url: `/groupon/detail/index?promotionId=${promotionId}&groupId=${groupId}&storeId=${storeId}`,
     }); */
   },
 
-  goBack() {
+  clickService() {
+    Toast({
+      context: this,
+      selector: '#t-toast',
+      message: '您点击了联系客服',
+    });
+  },
+
+  onOrderInvoiceView() {
     wx.navigateTo({
-      url: `/pages/order/order-list/index`,
+      url: `/pages/order/invoice/index?orderNo=${this.orderNo}`,
     });
   },
 });

@@ -1,11 +1,9 @@
 {
-  "navigationStyle": "custom",
+  "navigationBarTitleText": "",
   "usingComponents": {
-    "wr-loading-content": "@tencent/retailwe-ui-loading-content/index",
-    "wr-icon": "@tencent/retailwe-ui-icon/index",
+    "wr-loading-content": "/components/loading-content/index",
     "wr-price": "/components/price/index",
     "wr-service-goods-card": "../components/order-goods-card/index",
-    "wr-service-button-bar": "../components/after-service-button-bar/index",
     "t-cell": "tdesign-miniprogram/cell/cell",
     "t-icon": "tdesign-miniprogram/icon/icon",
     "t-cell-group": "tdesign-miniprogram/cell-group/cell-group",
@@ -15,7 +13,9 @@
     "t-navbar": "tdesign-miniprogram/navbar/navbar",
     "t-toast": "tdesign-miniprogram/toast/toast",
     "t-dialog": "tdesign-miniprogram/dialog/dialog",
+    "t-input": "tdesign-miniprogram/input/input",
     "t-swiper": "tdesign-miniprogram/swiper/swiper",
-    "t-image": "tdesign-miniprogram/image/image"
+    "wr-after-service-button-bar": "../components/after-service-button-bar/index",
+    "t-image": "/components/webp-image/index"
   }
 }

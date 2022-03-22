@@ -1,7 +1,6 @@
 {
   "pages": [
     "pages/home/home",
-    "pages/entry/index",
     "pages/usercenter/index",
     "pages/usercenter/person-info/index",
     "pages/usercenter/address/list/index",
@@ -22,12 +21,13 @@
     "pages/order/after-service-list/index",
     "pages/order/after-service-detail/index",
     "pages/goods/comments/create/index",
-    "pages/coupon/list",
-    "pages/coupon/detail",
-    "pages/coupon/good",
+    "pages/coupon/coupon-list/index",
+    "pages/coupon/coupon-detail/index",
+    "pages/coupon/coupon-activity-goods/index",
     "pages/promotion-detail/index",
     "pages/order/fill-tracking-no/index",
     "pages/order/delivery-detail/index",
+    "pages/order/invoice/index",
     "pages/usercenter/name-edit/index"
   ],
   "tabBar": {
@@ -62,5 +62,10 @@
     "navigationBarTitleText": "Weixin",
     "navigationBarTextStyle": "black"
   },
-  "sitemapLocation": "sitemap.json"
+  "sitemapLocation": "sitemap.json",
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  }
 }

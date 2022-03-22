@@ -27,7 +27,7 @@
 					<t-icon size="40rpx" color="#333333" name="gift" />
 					<view class="store-name">{{store.storeName}}</view>
 				</view>
-				<view class="get-coupon">优惠券</view>
+				<view class="get-coupon" catch:tap="gotoCoupons">优惠券</view>
 			</view>
 		</view>
 		<block

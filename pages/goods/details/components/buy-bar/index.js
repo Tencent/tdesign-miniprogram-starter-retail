@@ -23,9 +23,6 @@ Component({
     }, // 是否开启按钮插槽
     shopCartNum: {
       type: Number, // 购物车气泡数量
-      //   observer(shopCartNum) {
-      //     console.log('shopCartNum:', shopCartNum);
-      //   },
     },
     buttonType: {
       type: Number,

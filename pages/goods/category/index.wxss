@@ -1,5 +1,3 @@
-/* @import '/miniprogram_npm/@tencent/retailwe-ui-goods-list/external.wxss'; */
-
 .tabbar-position {
   position: fixed !important;
   bottom: 0;
@@ -22,56 +20,4 @@
 page {
   min-height: none;
   padding-bottom: 0;
-}
-.no-more {
-  padding-left: 20rpx;
-  padding-right: 20rpx;
-}
-.floatButton {
-  position: fixed;
-  z-index: 99;
-  width: 60rpx;
-  height: 60rpx;
-  background-color: #ff5f15;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 24rpx;
-  color: #fff;
-  bottom: 180rpx;
-  right: 40rpx;
-  border-radius: 50%;
-}
-.overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 999;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.7);
-}
-.buttonGroup {
-  margin: 0 auto;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  top: 42%;
-}
-.buttonCls {
-  background-color: #ff5f15 !important;
-  color: #fff !important;
-  font-size: 24rpx;
-  width: 220rpx !important;
-}
-.center {
-  text-align: center;
-  border-radius: 20px;
-  width: 300px;
-  height: 350px;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
 }

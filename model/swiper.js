@@ -1,12 +1,30 @@
 const images = [
-  'https://bl-material-online-1300977798.cos.ap-guangzhou.myqcloud.com/persist/10001/88888888/1000000/material/1/c1f3ffe065b64bc1a6a480cb0dced487-1586920684446-banner%20-%202.png',
-  'https://bl-material-online-1300977798.cos.ap-guangzhou.myqcloud.com/persist/10001/88888888/1000000/material/1/a59baad86f5e4fdba4befff74ff70dc5-1586920684230-banner%20-%201.png',
+  {
+    img: 'https://cdn-we-retail.ym.tencent.com/tsr/home/v2/banner1.png',
+    text: '1',
+  },
+  {
+    img: 'https://cdn-we-retail.ym.tencent.com/tsr/home/v2/banner2.png',
+    text: '2',
+  },
+  {
+    img: 'https://cdn-we-retail.ym.tencent.com/tsr/home/v2/banner3.png',
+    text: '3',
+  },
+  {
+    img: 'https://cdn-we-retail.ym.tencent.com/tsr/home/v2/banner4.png',
+    text: '4',
+  },
+  {
+    img: 'https://cdn-we-retail.ym.tencent.com/tsr/home/v2/banner5.png',
+    text: '5',
+  },
+  {
+    img: 'https://cdn-we-retail.ym.tencent.com/tsr/home/v2/banner6.png',
+    text: '6',
+  },
 ];
 
-export function genSwiperImage(index = 0) {
-  return images[index % 3];
-}
-
-export function genSwiperImageList(len = 2) {
-  return new Array(len).fill(0).map((_, idx) => genSwiperImage(idx));
+export function genSwiperImageList() {
+  return images;
 }

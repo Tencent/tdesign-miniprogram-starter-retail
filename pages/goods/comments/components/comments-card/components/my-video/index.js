@@ -50,6 +50,6 @@ Component({
     bindfullscreenchange(e) {
       const fullScreen = e?.detail?.fullScreen;
       this.fullScreen = fullScreen;
-    }
+    },
   },
 });

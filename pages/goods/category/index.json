@@ -1,10 +1,6 @@
 {
   "navigationBarTitleText": "分类",
   "usingComponents": {
-    "t-loading": "tdesign-miniprogram/loading/loading",
-    "t-button": "tdesign-miniprogram/button/button",
-    "t-empty": "tdesign-miniprogram/empty/empty",
-    "goods-category": "./components/goods-category/index",
-    "goods-list": "@tencent/retailwe-ui-goods-list/index"
+    "goods-category": "./components/goods-category/index"
   }
 }

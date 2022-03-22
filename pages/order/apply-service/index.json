@@ -1,7 +1,6 @@
 {
   "navigationBarTitleText": "选择售后类型",
   "usingComponents": {
-    "wr-icon": "@tencent/retailwe-ui-icon/index",
     "wr-price": "/components/price/index",
     "wr-order-goods-card": "../components/order-goods-card/index",
     "wr-reason-sheet": "../components/reason-sheet/index",

@@ -11,8 +11,9 @@
 			<view class="address-left" wx:if="{{extraSpace}}">
 				<t-icon
 				 wx:if="{{address.checked}}"
-				 name="edit-1"
+				 name="check"
 				 color="#FA4126"
+				 class-prefix="{{classPrefix}}"
 				 size="46rpx"
 				/>
 			</view>
@@ -30,7 +31,12 @@
 				</view>
 			</view>
 			<view catch:tap="onEdit" data-item="{{address}}" class="address-edit">
-				<t-icon name="{{customIcon}}" size="46rpx" color="#BBBBBB" />
+				<t-icon
+				 name="{{customIcon}}"
+				 class-prefix="{{classPrefix}}"
+				 size="46rpx"
+				 color="#BBBBBB"
+				/>
 			</view>
 		</view>
 		<view

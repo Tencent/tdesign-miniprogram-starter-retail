@@ -30,8 +30,6 @@ const getPermission = ({ code, name }) => {
             },
           });
         } else {
-          // getSetting 仅返回已申请过的权限，所以档权限为true或者undefined的时候都是直接放行
-          // 权限为undefined意味着未申请过权限，小程序会自动弹框提示授权
           resolve();
         }
       },

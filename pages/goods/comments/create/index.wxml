@@ -1,37 +1,92 @@
-<wr-navbar title="评价商品" homePath="/supermarket/pages/home/home/home" back="{{ false }}">
-	<wr-icon
-	 slot="left"
-	 wr-class="navigation-back"
-	 name="left"
-	 color="#333"
-	 size="30rpx"
-	 bindtap="onBackTap"
-	/>
-</wr-navbar>
-<!-- <view class="page-container">
-    <view wx:for="{{ commentList }}" class="{{ 'sku-comment-' + index }}" wx:key="skuId">
-      <sku-comment data-field="{{ 'commentList[' + index + ']' }}" data="{{ item }}" bindchange="onFieldChange" />
-    </view>
-    <view wx:if="{{ commentList.length }}" class="store-comment">
-      <view class="{{isFinished ? 'finished-icon-wrap title' : 'title'}}">
-        物流服务评价
-        <wr-icon name="yilingqu"  wx:if="{{isFinished}}" color="#979797" classPrefix="ym" wr-class="finished-icon" size="98" />
+<view class="page-container">
+  <view class="comment-card">
+    <view class="goods-info-container">
+      <view class="goods-image-container">
+        <t-image t-class="goods-image" src="{{imgUrl}}" />
       </view>
-      <block wx:if="{{!isFinished}}">
-        <view class="rate">
-          <text class="label">物流评价</text>
-          <wr-rate value="{{ freightScore }}" data-field="freightScore" bind:change="onFieldChange" gap="{{12}}" size="{{32}}" touchable />
-        </view>
-        <view class="rate">
-          <text class="label">服务评价</text>
-          <wr-rate value="{{ serviceScore }}" data-field="serviceScore" bind:change="onFieldChange" gap="{{12}}" size="{{32}}" touchable />
-        </view>
-      </block>
+      <view class="goods-title-container">
+        <view class="goods-title">{{title}}</view>
+        <view class="goods-detail">{{goodsDetail}}</view>
+      </view>
     </view>
-    <view wx:if="{{ commentList.length }}" class="submmit-bar">
-      <wr-button loading="{{ submmiting }}" bindtap="onSubmmitComment" wr-class="submmit-bar-button" type="{{ !dirty || error ? 'disabled' : 'primary' }}" block>
-        提交评价
-      </wr-button>
+    <view class="rate-container">
+      <text class="rate-title">商品评价</text>
+      <t-rate
+        value="{{goodRateValue}}"
+        bind:change="onRateChange"
+        variant="filled"
+        color="#FFC51C"
+        size="52"
+        class="rate"
+        data-item="goodRateValue"
+      />
     </view>
-  </view> -->
+    <view class="textarea-container">
+      <t-textarea
+        t-class="textarea"
+        maxlength="{{500}}"
+        bind:change="onTextAreaChange"
+      />
+    </view>
+    <view class="upload-container">
+      <t-upload
+        media-type="{{['image','video']}}"
+        files="{{uploadFiles}}"
+        bind:remove="handleRemove"
+        bind:success="handleSuccess"
+        gridConfig="{{gridConfig}}"
+        addContent="slot"
+      >
+        <view slot="addContent" class="upload-addcontent-slot">
+          <t-icon name="photo" size="60rpx" />
+          <text>添加图片/视频</text>
+        </view>
+      </t-upload>
+    </view>
 
+    <view class="anonymous-box">
+      <t-checkbox
+        bind:change="onAnonymousChange"
+        checked="{{isAnonymous}}"
+        color="#FA4126"
+      />
+      <view class="name">匿名评价</view>
+    </view>
+  </view>
+</view>
+<view class="comment-card convey-card">
+  <view class="convey-comment-title">物流服务评价</view>
+  <view class="rate-container">
+    <text class="rate-title">物流评价</text>
+    <t-rate
+      value="{{conveyRateValue}}"
+      bind:change="onRateChange"
+      variant="filled"
+      color="#FFC51C"
+      size="52"
+      class="rate"
+      data-item="conveyRateValue"
+    />
+  </view>
+  <view class="rate-container">
+    <text class="rate-title">服务评价</text>
+    <t-rate
+      value="{{serviceRateValue}}"
+      bind:change="onRateChange"
+      variant="filled"
+      color="#FFC51C"
+      size="52"
+      class="rate"
+      data-item="serviceRateValue"
+    />
+  </view>
+</view>
+<view class="submit-button-container">
+  <t-button
+    theme="danger"
+    content="提交"
+    t-class="submit-button{{isAllowedSubmit ? '' : '-disabled'}}"
+    bind:tap="onSubmitBtnClick"
+  />
+</view>
+<t-toast id="t-toast" />

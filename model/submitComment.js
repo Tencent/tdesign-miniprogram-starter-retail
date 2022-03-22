@@ -1,6 +1,4 @@
-// const imgPrefix = '/assets';
-
-export function getGoods({ parameter = '' }) {
+export function getGoods() {
   return {
     goods: [
       {

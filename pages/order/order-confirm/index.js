@@ -13,7 +13,7 @@ Page({
     settleDetailData: {
       storeGoodsList: [], //正常下单商品列表
       outOfStockGoodsList: [], //库存不足商品
-      abnormalDeliveryGoodsList: [], // // 不能正常配送商品
+      abnormalDeliveryGoodsList: [], // 不能正常配送商品
       inValidGoodsList: [], // 失效或者库存不足
       limitGoodsList: [], //限购商品
       couponList: [], //门店优惠券信息
@@ -33,21 +33,12 @@ Page({
     userAddressReq: null,
     popupShow: false, // 不在配送范围 失效 库存不足 商品展示弹框
     notesPosition: 'center',
-    storeInfoList: [
-      //门店备注信息
-      // {
-      //   storeId: '',
-      //   storeName: '',
-      //   remark: '',
-      // }
-    ],
+    storeInfoList: [],
     storeNoteIndex: 0, //当前填写备注门店index
     promotionGoodsList: [], //当前门店商品列表(优惠券)
     couponList: [], //当前门店所选优惠券
     submitCouponList: [], //所有门店所选优惠券
     currentStoreId: null, //当前优惠券storeId
-    grouponAvatars: [], //拼团成员头像
-    groupInfo: null, //拼团活动参数
     userAddress: null,
   },
 
@@ -81,31 +72,6 @@ Page({
   },
   // 处理不同情况下跳转到结算页时需要的参数
   handleOptionsParams(options, couponList) {
-    let { groupInfo, grouponAvatars } = this.data;
-
-    // 尝试解析拼团信息
-    if (
-      Object.prototype.toString.call(options.groupInfo) === '[object String]'
-    ) {
-      try {
-        //解析拼团跳转参数
-        groupInfo = JSON.parse(options.groupInfo);
-
-        if (
-          groupInfo &&
-          !isUndefined(groupInfo.promotionId) &&
-          isUndefined(groupInfo.groupId)
-        ) {
-          const user = this.$global('session').getUser();
-          if (user) {
-            grouponAvatars = [{ headImg: user.headUrl, label: '未支付' }];
-          }
-        }
-      } catch (e) {
-        console.log(e);
-      }
-    }
-
     let { goodsRequestList } = this; // 商品列表
     let { userAddressReq } = this; // 收货地址
 
@@ -137,7 +103,6 @@ Page({
     const params = {
       goodsRequestList,
       storeInfoList,
-      groupInfo,
       userAddressReq,
       couponList,
     };
@@ -145,8 +110,6 @@ Page({
       (res) => {
         this.setData({
           loading: false,
-          grouponAvatars,
-          groupInfo,
         });
         this.initData(res.data);
       },
@@ -294,18 +257,23 @@ Page({
     /** 获取一个Promise */
     getAddressPromise()
       .then((address) => {
-        console.log('用户选择了地址: ', address);
-        this.handleOptionsParams({ userAddressReq: address });
+        this.handleOptionsParams({
+          userAddressReq: { ...address, checked: true },
+        });
       })
-      .catch((err) => {
-        if (err.message === 'cancel') {
-          console.log('用户取消了地址选择');
-        } else {
-          console.log('选值选择错误: ', err);
-        }
-      });
+      .catch(() => {});
 
-    wx.navigateTo({ url: '/pages/usercenter/address/list/index?selectMode=1' });
+    const { userAddressReq } = this; // 收货地址
+
+    let id = '';
+
+    if (userAddressReq?.id) {
+      id = `&id=${userAddressReq.id}`;
+    }
+
+    wx.navigateTo({
+      url: `/pages/usercenter/address/list/index?selectMode=1&isOrderSure=1${id}`,
+    });
   },
   onNotes(e) {
     const { storenoteindex: storeNoteIndex } = e.currentTarget.dataset;
@@ -389,7 +357,6 @@ Page({
       invoiceData,
       storeInfoList,
       submitCouponList,
-      groupInfo,
     } = this.data;
     const { goodsRequestList } = this;
 
@@ -421,7 +388,6 @@ Page({
       invoiceRequest: null,
       storeInfoList,
       couponList: resSubmitCouponList,
-      groupInfo,
     };
     if (invoiceData && invoiceData.email) {
       params.invoiceRequest = invoiceData;
@@ -453,7 +419,7 @@ Page({
       (err) => {
         this.payLock = false;
         if (
-          err.code == 'CONTAINS_INSUFFICIENT_GOODS' ||
+          err.code === 'CONTAINS_INSUFFICIENT_GOODS' ||
           err.code === 'TOTAL_AMOUNT_DIFFERENT'
         ) {
           Toast({
@@ -506,10 +472,8 @@ Page({
 
   // 处理支付
   handlePay(data, settleDetailData) {
-    const { channel, payInfo, tradeNo, interactId, transactionId, groupId } =
-      data;
+    const { channel, payInfo, tradeNo, interactId, transactionId } = data;
     const { totalAmount, totalPayAmount } = settleDetailData;
-    const { groupInfo } = this.data;
     const payOrderInfo = {
       payInfo: payInfo,
       orderId: tradeNo,
@@ -518,9 +482,6 @@ Page({
       interactId: interactId,
       tradeNo: tradeNo,
       transactionId: transactionId,
-      promotionId: groupInfo && groupInfo.promotionId,
-      groupId: (groupInfo && groupInfo.groupId) || groupId,
-      dialogOnCancel: !!groupInfo,
     };
 
     if (channel === 'wechat') {
@@ -550,7 +511,7 @@ Page({
     const { selectedList } = e.detail;
     const tempSubmitCouponList = submitCouponList.map((storeCoupon) => {
       const couponList =
-        storeCoupon.storeId == currentStoreId
+        storeCoupon.storeId === currentStoreId
           ? selectedList
           : storeCoupon.couponList;
       return {
@@ -600,6 +561,7 @@ Page({
         goods.skuId === skuId,
     );
     if (index >= 0) {
+      // eslint-disable-next-line no-confusing-arrow
       const goodsRequestList = this.goodsRequestList.map((item, i) =>
         i === index ? { ...item, quantity: value } : item,
       );

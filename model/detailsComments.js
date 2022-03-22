@@ -10,14 +10,29 @@ const imgPrefix = cdnBase;
  * @param {boolean} hasImage
  */
 
-export function getGoodsDetailsComments(spuId = 0) {
+export function getGoodsDetailsComments() {
   return {
     homePageComments: [
       {
         spuId: '1722045',
         skuId: null,
         specInfo: null,
-        commentContent: "da大块头mei没有da'hda'hi'zhui大会追",
+        commentContent: '非常好的产品',
+        commentImageUrls: [`${imgPrefix}/common/apple.png`],
+        commentScore: 4,
+        uid: '88881048075',
+        userName: 'Dean',
+        userHeadUrl:
+          'https://wx.qlogo.cn/mmopen/vi_32/51VSMNuy1CyHiaAhAjLJ00kMZVqqnCqXeZduCLXHUBr52zFHRGxwL7kGia3fHj8GSNzFcqFDInQmRGM1eWjtQgqA/132',
+        isAnonymity: false,
+        commentTime: null,
+        isAutoComment: null,
+      },
+      {
+        spuId: '1722045',
+        skuId: null,
+        specInfo: null,
+        commentContent: 'Good Good！',
         commentImageUrls: [`${imgPrefix}/common/apple.png`],
         commentScore: 4,
         uid: '88881048075',
@@ -32,7 +47,7 @@ export function getGoodsDetailsComments(spuId = 0) {
   };
 }
 
-export function getGoodsDetailsCommentsCount(spuId = 0) {
+export function getGoodsDetailsCommentsCount() {
   return {
     commentCount: '47',
     badCount: '0',

@@ -3,7 +3,6 @@ Component({
     show: {
       type: Boolean,
       observer(show) {
-        console.log('show: ', show);
         if (!show) return;
         this.updateDivisions();
       },
@@ -43,7 +42,6 @@ Component({
         (item) => item.code === value,
       );
 
-      // 使用setTimeout延迟到下个循环后复现概率降低
       setTimeout(() => {
         this.setData({ pickerValue: index >= 0 ? [index] : [0] });
       }, 0);
@@ -59,13 +57,11 @@ Component({
       const target = this.getAreaByIndex(currentValue);
       if (target === null) return;
 
-      // 不可直接修改this.properties.value值，避免直接取消再次回填数据错误
       this.setData({ pickerValue: currentValue });
       this.triggerEvent('change', { value: target.code, target: target });
     },
 
     onConfirm() {
-      // 需要通过pickerValue来获取value，而不是直接取data.value
       const target = this.getAreaByIndex(this.data.pickerValue);
       this.triggerEvent('confirm', { value: target?.code, target });
     },

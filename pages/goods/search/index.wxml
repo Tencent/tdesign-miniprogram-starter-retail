@@ -1,58 +1,60 @@
 <view class="search-page">
-  <t-search
-    t-class-input-container="t-class__input-container"
-    t-class-left="t-search__left-icon"
-    t-class-input="t-search__input"
-    value="{{searchValue}}"
-    placeholder="iPhone12pro"
-    bind:submit="handleSubmit"
-  />
-  <view class="search-wrap">
-    <!-- 历史搜索 -->
-    <view class="history-wrap">
-      <view class="search-header">
-        <text class="search-title">历史搜索</text>
-        <text class="search-clear" bind:tap="handleClearHistory">清除</text>
-      </view>
-      <view class="search-content">
-        <view
-          class="search-item"
-          hover-class="hover-history-item"
-          wx:for="{{historyWords}}"
-          bind:tap="handleHistoryTap"
-          bindlongpress="deleteCurr"
-          data-index="{{index}}"
-          wx:key="*this"
-        >
-          {{item}}
-        </view>
-      </view>
-    </view>
-    <view class="popular-wrap">
-      <view class="search-header">
-        <text class="search-title">热门搜索</text>
-      </view>
-      <view class="search-content">
-        <view
-          class="search-item"
-          hover-class="hover-history-item"
-          wx:for="{{popularWords}}"
-          bind:tap="handleHistoryTap"
-          data-index="{{index}}"
-          wx:key="*this"
-        >
-          {{item}}
-        </view>
-      </view>
-    </view>
-  </view>
-  <!-- 提示框 -->
-  <t-dialog
-    visible="{{dialogShow}}"
-    content="{{dialog.message}}"
-    bindconfirm="confirm"
-    bind:close="close"
-    confirm-btn="确定"
-    cancel-btn="{{dialog.showCancelButton ? '取消' : null}}"
-  />
+	<t-search
+	 t-class-input-container="t-class__input-container"
+	 t-class-left="t-search__left-icon"
+	 t-class-input="t-search__input"
+	 value="{{searchValue}}"
+	 placeholder="iPhone12pro"
+	 bind:submit="handleSubmit"
+	/>
+	<view class="search-wrap">
+		<!-- 历史搜索 -->
+		<view class="history-wrap">
+			<view class="search-header">
+				<text class="search-title">历史搜索</text>
+				<text class="search-clear" bind:tap="handleClearHistory">清除</text>
+			</view>
+			<view class="search-content">
+				<view
+				 class="search-item"
+				 hover-class="hover-history-item"
+				 wx:for="{{historyWords}}"
+				 bind:tap="handleHistoryTap"
+				 bindlongpress="deleteCurr"
+				 data-index="{{index}}"
+				 wx:key="*this"
+				>
+					{{item}}
+				</view>
+			</view>
+		</view>
+		<view class="popular-wrap">
+			<view class="search-header">
+				<text class="search-title">热门搜索</text>
+			</view>
+			<view class="search-content">
+				<view
+				 class="search-item"
+				 hover-class="hover-history-item"
+				 wx:for="{{popularWords}}"
+				 bind:tap="handleHistoryTap"
+				 data-index="{{index}}"
+				 wx:key="*this"
+				>
+					{{item}}
+				</view>
+			</view>
+		</view>
+	</view>
+	<!-- 提示框 -->
+	<t-dialog
+	 visible="{{dialogShow}}"
+	 content="{{dialog.message}}"
+	 bindconfirm="confirm"
+	 bind:close="close"
+	 confirm-btn="确定"
+	 cancel-btn="{{dialog.showCancelButton ? '取消' : null}}"
+	 t-class-confirm="add-notes__confirm"
+	/>
 </view>
+

@@ -5,7 +5,7 @@ Component({
     list: TabMenu,
     theme: {
       custom: {
-        colorPrimary: '#fa550f',
+        colorPrimary: '#333',
       },
     },
   },

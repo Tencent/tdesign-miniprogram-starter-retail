@@ -1,54 +1,50 @@
 <view class="result-container">
-  <t-search
-    t-class="t-search"
-    t-class-input-container="t-class__input-container"
-    t-class-left="t-search__left-icon"
-    t-class-input="t-search__input"
-    value="{{searchValue}}"
-    placeholder="iPhone12pro"
-    bind:submit="handleSubmit"
-  />
-  <!-- 过滤组件 -->
-  <t-filter
-    wr-class="filter-container"
-    bind:change="handleFilterChange"
-    layout="{{layout}}"
-    sorts="{{sorts}}"
-    overall="{{overall}}"
-    bind:showFilterPopup="showFilterPopup"
-  >
-    <view slot="filterPopup">
-      <t-filter-popup
-        show="{{show}}"
-        bind:showFilterPopupClose="showFilterPopupClose"
-        bind:reset="reset"
-        bind:confirm="confirm"
-      >
-        <view slot="filterSlot">
-          <view class="price-container">
-            <view class="price-between">价格区间</view>
-            <view class="price-ipts-wrap">
-              <t-input
-                type="number"
-                t-class="price-ipt {{minActive ? 'active' : ''}}"
-                bindfocus="handleMinPriceFocus"
-                bindblur="handleMinPriceBlur"
-                placeholder="最低价"
-                value="{{minVal}}"
-                bindchange="onMinValAction"
-                style="border:{{minSalePriceFocus?'1rpx solid #fa550f':'1rpx solid transparent'}}"
-              />
-              <text class="price-divided" />
+	<t-search
+	 t-class="t-search"
+	 t-class-input-container="t-class__input-container"
+	 t-class-left="t-search__left-icon"
+	 t-class-input="t-search__input"
+	 value="{{searchValue}}"
+	 placeholder="iPhone12pro"
+	 bind:submit="handleSubmit"
+	/>
+	<!-- 过滤组件 -->
+	<t-filter
+	 wr-class="filter-container"
+	 bind:change="handleFilterChange"
+	 layout="{{layout}}"
+	 sorts="{{sorts}}"
+	 overall="{{overall}}"
+	 bind:showFilterPopup="showFilterPopup"
+	>
+		<view slot="filterPopup">
+			<t-filter-popup
+			 show="{{show}}"
+			 bind:showFilterPopupClose="showFilterPopupClose"
+			 bind:reset="reset"
+			 bind:confirm="confirm"
+			>
+				<view slot="filterSlot">
+					<view class="price-container">
+						<view class="price-between">价格区间</view>
+						<view class="price-ipts-wrap">
+							<t-input
+							 type="number"
+							 t-class="price-ipt"
+							 t-class-placeholder="t-class-placeholder"
+							 placeholder="最低价"
+							 value="{{minVal}}"
+							 bindchange="onMinValAction"
+							/>
+							<text class="price-divided" />
 
               <t-input
                 type="number"
-                t-class="price-ipt {{maxActive ? 'active' : ''}}"
-                bindfocus="handleMaxPriceFocus"
-                bindblur="handleMaxPriceBlur"
+                t-class="price-ipt"
+							 t-class-placeholder="t-class-placeholder"
                 placeholder="最高价"
                 value="{{maxVal}}"
                 bindchange="onMaxValAction"
-                style="border:{{maxSalePriceFocus?'1rpx solid #fa550f':'1rpx solid transparent'}}"
               />
             </view>
           </view>
@@ -81,3 +77,4 @@
   />
 </view>
 <t-toast id="t-toast" />
+

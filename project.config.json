@@ -22,15 +22,16 @@
     "uploadWithSourceMap": true,
     "compileHotReLoad": false,
     "lazyloadPlaceholderEnable": false,
-    "useMultiFrameRuntime": false,
-    "useApiHook": false,
-    "useApiHostProcess": false,
+    "useMultiFrameRuntime": true,
+    "useApiHook": true,
+    "useApiHostProcess": true,
     "babelSetting": {
       "ignore": [],
       "disablePlugins": [],
       "outputPath": ""
     },
-    "useIsolateContext": false,
+    "enableEngineNative": false,
+    "useIsolateContext": true,
     "userConfirmedBundleSwitch": false,
     "packNpmManually": false,
     "packNpmRelationList": [],
@@ -38,13 +39,12 @@
     "disableUseStrict": false,
     "minifyWXML": true,
     "showES6CompileOption": false,
-    "useCompilerPlugins": false,
-    "ignoreUploadUnusedFiles": true
+    "useCompilerPlugins": false
   },
   "compileType": "miniprogram",
-  "libVersion": "2.16.1",
+  "libVersion": "2.6.3",
   "appid": "wx5a75208aa13eee03",
-  "projectname": "supermarket",
+  "projectname": "tdesign-miniprogram-starter",
   "debugOptions": {
     "hidedInDevtools": []
   },
@@ -123,7 +123,7 @@
           "id": 6,
           "name": "示例页-售后详情",
           "pathName": "pages/order/after-service-detail/index",
-          "query": "",
+          "query": "rightsNo=123123423",
           "scene": null
         },
         {
@@ -152,6 +152,13 @@
           "name": "示例页-申请售后",
           "pathName": "pages/order/apply-service/index",
           "query": "orderNo=332188459183707034&skuId=1327025",
+          "scene": null
+        },
+        {
+          "id": 11,
+          "name": "示例页-发票详情",
+          "pathName": "pages/order/invoice/index",
+          "query": "orderNo=132381532610540875",
           "scene": null
         }
       ]

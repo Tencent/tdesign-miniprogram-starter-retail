@@ -10,8 +10,7 @@
     "wr-price": "/components/price/index",
     "select-coupons": "../components/selectCoupons/selectCoupons",
     "no-goods": "../components/noGoods/noGoods",
-    "groupon-avatars": "../components/groupon-avatars/index",
-    "t-image": "tdesign-miniprogram/image/image",
+    "t-image": "/components/webp-image/index",
     "wr-address-card": "./components/address-card/index"
   }
 }
