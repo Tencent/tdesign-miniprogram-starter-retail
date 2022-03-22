@@ -86,3 +86,9 @@
 .wr-service:before {
   content: '\e04a';
 }
+.wr-search:before {
+  content: '\e011';
+}
+.wr-clear_filled:before {
+  content: '\e027';
+}
