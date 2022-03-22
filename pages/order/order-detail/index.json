@@ -9,10 +9,10 @@
     "t-count-down": "tdesign-miniprogram/count-down/count-down",
     "t-toast": "tdesign-miniprogram/toast/toast",
     "t-dialog": "tdesign-miniprogram/dialog/dialog",
-    "wr-price": "/components/price/index",
-    "wr-order-card": "../components/order-card/index",
-    "wr-order-goods-card": "../components/order-goods-card/index",
-    "wr-customer-service": "../components/customer-service",
-    "wr-order-button-bar": "../components/order-button-bar/index"
+    "price": "/components/price/index",
+    "order-card": "../components/order-card/index",
+    "order-goods-card": "../components/order-goods-card/index",
+    "customer-service": "../components/customer-service",
+    "order-button-bar": "../components/order-button-bar/index"
   }
 }

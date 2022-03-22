@@ -5,8 +5,9 @@
 				<t-image wx:if="{{order.storeLogo}}" t-class="store-name__logo" src="{{order.storeLogo}}" />
 				<t-icon
 				 wx:else
+				 prefix="wr"
 				 class="store-name__logo"
-				 name="gift"
+				 name="store"
 				 size="inherit"
 				 color="inherit"
 				/>
