@@ -11,31 +11,27 @@
 
 	module.exports = { isBigValue: isBigValue, getBigValues: getBigValues };
 </wxs>
-<view class="wr-coupon coupon-class">
+<view class="wr-coupon coupon-class theme-{{theme}}">
 	<view class="wr-coupon__left">
 		<view wx:if="{{type == CouponType.ZK_COUPON || type === CouponType.MERCHANT_ZK_COUPON}}">
-			<text class="wr-coupon__left--type">折扣券</text>
 			<text class="wr-coupon__left--value">{{value}}</text>
 			<text class="wr-coupon__left--unit">折</text>
 			<view class="wr-coupon__left--desc">{{desc}}</view>
 		</view>
 		<view wx:if="{{type == CouponType.MJ_COUPON || type === CouponType.MERCHANT_MJ_COUPON}}">
-			<text class="wr-coupon__left--type">满减券</text>
 			<text class="wr-coupon__left--value" wx:if="{{tools.isBigValue(value)}}">
-        <text class="wr-coupon__left--value-int">{{tools.getBigValues(value)[0]}}</text>
-			<text class="wr-coupon__left--value-decimal">.{{tools.getBigValues(value)[1]}}</text>
+				<text class="wr-coupon__left--value-int">{{tools.getBigValues(value)[0]}}</text>
+				<text class="wr-coupon__left--value-decimal">.{{tools.getBigValues(value)[1]}}</text>
 			</text>
 			<text class="wr-coupon__left--value" wx:else>{{value / 100}}</text>
 			<text class="wr-coupon__left--unit">元</text>
 			<view class="wr-coupon__left--desc">{{desc}}</view>
 		</view>
 		<view wx:if="{{type === CouponType.MJF_COUPON || type === CouponType.MYF_COUPON}}">
-			<text class="wr-coupon__left--type">运费券</text>
 			<text class="wr-coupon__left--value" style="font-family: PingFang SC;font-size: 44rpx">免邮</text>
 			<view class="wr-coupon__left--desc">{{desc}}</view>
 		</view>
 		<view wx:if="{{type == CouponType.GIFT_COUPON}}">
-			<text class="wr-coupon__left--type">礼品券</text>
 			<image class="wr-coupon__left--image" src="{{image}}" mode="aspectFill" />
 		</view>
 	</view>
@@ -44,23 +40,14 @@
 			<text class="coupon-title">{{title}}</text>
 			<view class="coupon-time">{{timeLimit}}</view>
 			<view class="coupon-desc">
-				<view wx:if="{{oper === 'seeDetail'}}">
-					使用规则
-					<t-icon
-					 t-class='icon'
-					 name='chevron-right'
-					 size='24rpx'
-					 color='#bbb'
-					/>
-				</view>
-				<view wx:elif="{{unEnableReason}}">{{unEnableReason}}</view>
-				<view wx:elif="{{ruleDesc}}">{{ruleDesc}}</view>
+				<view wx:if="{{ruleDesc}}">{{ruleDesc}}</view>
 			</view>
 		</view>
 		<view class="wr-coupon__right--oper">
 			<slot name="operator" />
 		</view>
 	</view>
+	<view wx:if="{{status === 'useless' || status === 'disabled'}}" class="wr-coupon__seal seal-{{status}}}" />
 	<view wx:if="{{mask}}" class="wr-coupon__mask" />
 	<view wx:if="{{superposable}}" class="wr-coupon__tag">可叠加</view>
 </view>

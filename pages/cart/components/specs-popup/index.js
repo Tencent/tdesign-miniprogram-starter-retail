@@ -1,11 +1,3 @@
-/*
- * @Author: rileycai
- * @Date: 2022-03-05 15:51:29
- * @LastEditTime: 2022-03-05 15:52:55
- * @LastEditors: rileycai
- * @Description:
- * @FilePath: /tdesign-miniprogram-starter/pages/cart/components/specs-popup/index.js
- */
 Component({
   options: {
     addGlobalClass: true,

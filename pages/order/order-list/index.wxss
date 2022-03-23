@@ -96,11 +96,11 @@ wr-order-goods-card:not(:first-child) .wr-goods-card {
   color: #b9b9b9 !important;
 }
 .tab-bar .tab-bar__active {
-  color: #fa4126 !important;
+  color: #333333 !important;
 }
 
 .tab-bar .t-tabs-track {
-  background: #fa4126;
+  background: #333333 !important;
 }
 .add-notes__confirm {
   color: #fa4126 !important;

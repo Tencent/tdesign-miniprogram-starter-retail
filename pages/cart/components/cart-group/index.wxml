@@ -24,7 +24,12 @@
 			/>
 			<view class="cart-store__content">
 				<view class="store-title">
-					<t-icon size="40rpx" color="#333333" name="gift" />
+					<t-icon
+					 prefix="wr"
+					 size="40rpx"
+					 color="#333333"
+					 name="store"
+					/>
 					<view class="store-name">{{store.storeName}}</view>
 				</view>
 				<view class="get-coupon" catch:tap="gotoCoupons">优惠券</view>
@@ -61,7 +66,7 @@
 			 wx:for-index="gi"
 			 wx:key="extKey"
 			>
-				<wr-swipeout right-width="{{ 72 }}">
+				<swipeout right-width="{{ 72 }}">
 					<view class="goods-item-info">
 						<view class="check-wrap" catchtap="selectGoods" data-goods="{{goods}}">
 							<t-icon
@@ -72,7 +77,7 @@
 							/>
 						</view>
 						<view class="goods-sku-info">
-							<wr-goods-card
+							<goods-card
 							 layout="horizontal-wrap"
 							 thumb-width="{{thumbWidth}}"
 							 thumb-height="{{thumbHeight}}"
@@ -101,7 +106,7 @@
 									 theme="grey"
 									/>
 								</view>
-							</wr-goods-card>
+							</goods-card>
 						</view>
 					</view>
 					<view
@@ -112,7 +117,7 @@
 					>
 						删除
 					</view>
-				</wr-swipeout>
+				</swipeout>
 			</view>
 			<view class="promotion-line-wrap" wx:if="{{handlePromotion.hasPromotion(promotion.promotionCode) && promoindex != (store.promotionGoodsList.length - 2)}}">
 				<view class="promotion-line" />
@@ -127,18 +132,19 @@
 			 wx:for-index="gi"
 			 wx:key="extKey"
 			>
-				<wr-swipeout right-width="{{ 72 }}">
+				<swipeout right-width="{{ 72 }}">
 					<view class="goods-item-info">
 						<view class="check-wrap">
-							<t-icon
+							<view class="unCheck-icon" />
+							<!-- <t-icon
 							 size="40rpx"
 							 color="#BBBBBB"
 							 name="minus-circle"
 							 class="check"
-							/>
+							/> -->
 						</view>
 						<view class="goods-sku-info">
-							<wr-goods-card
+							<goods-card
 							 layout="horizontal-wrap"
 							 thumb-width="{{thumbWidth}}"
 							 thumb-height="{{thumbHeight}}"
@@ -151,7 +157,7 @@
 								<view slot="thumb-cover" class="no-storage-mask" wx:if="{{goods.stockQuantity <=0}}">
 									<view class="no-storage-content">无货</view>
 								</view>
-							</wr-goods-card>
+							</goods-card>
 						</view>
 					</view>
 					<view
@@ -162,7 +168,7 @@
 					>
 						删除
 					</view>
-				</wr-swipeout>
+				</swipeout>
 			</view>
 			<view class="promotion-line-wrap" wx:if="{{handlePromotion.hasPromotion(promotion.promotionCode) && promoindex != (store.promotionGoodsList.length - 2)}}">
 				<view class="promotion-line" />
@@ -198,7 +204,7 @@
 		</view>
 	</view> -->
 </view>
-<wr-specs-popup
+<specs-popup
  show="{{isShowSpecs}}"
  title="{{currentGoods.title}}"
  price="{{currentGoods.price}}"

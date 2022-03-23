@@ -4,9 +4,26 @@
 	 t-class-left="t-search__left-icon"
 	 t-class-input="t-search__input"
 	 value="{{searchValue}}"
+	 leftIcon=""
+	 rightIcon=""
 	 placeholder="iPhone12pro"
 	 bind:submit="handleSubmit"
-	/>
+	>
+		<t-icon
+		 slot="left-icon"
+		 prefix="wr"
+		 name="search"
+		 size="40rpx"
+		 color="#bbb"
+		/>
+		<t-icon
+		 slot="right-icon"
+		 prefix="wr"
+		 name="clear_filled"
+		 size="40rpx"
+		 color="#bbb"
+		/>
+	</t-search>
 	<view class="search-wrap">
 		<!-- 历史搜索 -->
 		<view class="history-wrap">

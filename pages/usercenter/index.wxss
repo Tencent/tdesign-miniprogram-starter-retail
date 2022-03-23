@@ -141,3 +141,6 @@ page {
 .cell-box .order-group__left {
   margin-right: 0;
 }
+.cell-box .t-cell-padding {
+  padding: 24rpx 18rpx 24rpx 32rpx;
+}

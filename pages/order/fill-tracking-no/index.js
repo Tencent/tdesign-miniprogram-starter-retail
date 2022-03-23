@@ -184,7 +184,7 @@ Page({
         });
         this.setData({ trackingNo: res.result });
       },
-      fail(err) {},
+      fail: () => {},
     });
   },
 });

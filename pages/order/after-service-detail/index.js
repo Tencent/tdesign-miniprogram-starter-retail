@@ -1,10 +1,5 @@
 import Toast from 'tdesign-miniprogram/toast/index';
-import {
-  ServiceType,
-  ServiceTypeDesc,
-  ServiceStatus,
-  ServiceButtonTypes,
-} from '../config';
+import { ServiceType, ServiceTypeDesc, ServiceStatus } from '../config';
 import { formatTime, getRightsDetail } from './api';
 
 const TitleConfig = {
@@ -157,26 +152,26 @@ Page({
     };
   },
 
-  onDeliveryButtonTap(e) {
-    const { type } = e.currentTarget.dataset;
-    if (type === ServiceButtonTypes.FILL_TRACKING_NO) {
-      this.onFillTrackingNo(this.data.service);
-    } else if (type === ServiceButtonTypes.CHANGE_TRACKING_NO) {
-      this.onChangeTrackingNo(this.data.service);
-    }
-  },
+  // onDeliveryButtonTap(e) {
+  //   const { type } = e.currentTarget.dataset;
+  //   if (type === ServiceButtonTypes.FILL_TRACKING_NO) {
+  //     this.onFillTrackingNo(this.data.service);
+  //   } else if (type === ServiceButtonTypes.CHANGE_TRACKING_NO) {
+  //     this.onChangeTrackingNo(this.data.service);
+  //   }
+  // },
 
-  onFillTrackingNo(service) {
-    wx.navigateTo({
-      url: `/pages/order/fill-tracking-no/index?rightsNo=${service.id}`,
-    });
-  },
+  // onFillTrackingNo(service) {
+  //   wx.navigateTo({
+  //     url: `/pages/order/fill-tracking-no/index?rightsNo=${service.id}`,
+  //   });
+  // },
 
-  onChangeTrackingNo(service) {
-    wx.navigateTo({
-      url: `/pages/order/fill-tracking-no/index?rightsNo=${service.id}&logisticsNo=${service.logisticsNo}&logisticsCompanyName=${service.logisticsCompanyName}&logisticsCompanyCode=${service.logisticsCompanyCode}&remark=${service.remark}`,
-    });
-  },
+  // onChangeTrackingNo(service) {
+  //   wx.navigateTo({
+  //     url: `/pages/order/fill-tracking-no/index?rightsNo=${service.id}&logisticsNo=${service.logisticsNo}&logisticsCompanyName=${service.logisticsCompanyName}&logisticsCompanyCode=${service.logisticsCompanyCode}&remark=${service.remark}`,
+  //   });
+  // },
 
   onProofTap(e) {
     if (this.data.gallery.show) {
@@ -210,9 +205,9 @@ Page({
     });
   },
 
-  navBackHandle() {
-    wx.navigateTo({ url: '/pages/order/after-service-list/index' });
-  },
+  // navBackHandle() {
+  //   wx.navigateTo({ url: '/pages/order/after-service-list/index' });
+  // },
 
   /** 获取状态ICON */
   genStatusIcon(item) {

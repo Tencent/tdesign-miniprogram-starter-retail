@@ -1,3 +1,11 @@
+/*
+ * @Author: rileycai
+ * @Date: 2022-03-14 21:18:07
+ * @LastEditTime: 2022-03-22 21:17:16
+ * @LastEditors: rileycai
+ * @Description:
+ * @FilePath: /tdesign-miniprogram-starter/pages/order/pay-result/index.js
+ */
 Page({
   data: {
     totalPaid: 0,
@@ -9,12 +17,7 @@ Page({
   },
 
   onLoad(options) {
-    const {
-      totalPaid = 0,
-      orderNo = '',
-      groupId = '',
-      promotionId = '',
-    } = options;
+    const { totalPaid = 0, orderNo = '', groupId = '' } = options;
     this.setData({
       totalPaid,
       orderNo,

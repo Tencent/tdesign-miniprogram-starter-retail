@@ -20,9 +20,6 @@
 .wr-edit:before {
   content: '\e002';
 }
-.wr-location:before {
-  content: '\e016';
-}
 .wr-succeed:before {
   content: '\e00d';
 }
@@ -65,9 +62,6 @@
 .wr-home:before {
   content: '\e020';
 }
-.wr-shop_bag:before {
-  content: '\e02a';
-}
 .wr-person:before {
   content: '\e02c';
 }
@@ -82,4 +76,231 @@
 }
 .wr-close:before {
   content: '\e021';
+}
+.wr-search:before {
+  content: '\e011';
+}
+.wr-clear_filled:before {
+  content: '\e027';
+}
+.wr-arrow_drop_up:before {
+  content: '\e071';
+}
+.wr-arrow_drop_down:before {
+  content: '\e070';
+}
+.wr-filter:before {
+  content: '\e038';
+}
+.wr-copy:before {
+  content: '\e001';
+}
+.wr-arrow_back:before {
+  content: '\e003';
+}
+.wr-add_circle:before {
+  content: '\e004';
+}
+.wr-Download:before {
+  content: '\e006';
+}
+.wr-map:before {
+  content: '\e007';
+}
+.wr-store:before {
+  content: '\e008';
+}
+.wr-movie:before {
+  content: '\e00a';
+}
+.wr-done:before {
+  content: '\e00b';
+}
+.wr-minus:before {
+  content: '\e00c';
+}
+.wr-list:before {
+  content: '\e00e';
+}
+.wr-expand_less:before {
+  content: '\e00f';
+}
+.wr-person_add:before {
+  content: '\e010';
+}
+.wr-Photo:before {
+  content: '\e013';
+}
+.wr-preview:before {
+  content: '\e014';
+}
+.wr-remind:before {
+  content: '\e015';
+}
+
+.wr-info:before {
+  content: '\e017';
+}
+.wr-expand_less_s:before {
+  content: '\e018';
+}
+.wr-arrow_forward_s:before {
+  content: '\e019';
+}
+.wr-expand_more_s:before {
+  content: '\e01a';
+}
+.wr-share:before {
+  content: '\e01d';
+}
+.wr-notify:before {
+  content: '\e01e';
+}
+.wr-add:before {
+  content: '\e01f';
+}
+.wr-Home:before {
+  content: '\e020';
+}
+.wr-delete:before {
+  content: '\e022';
+}
+.wr-error:before {
+  content: '\e025';
+}
+.wr-sort:before {
+  content: '\e028';
+}
+.wr-sort_filled:before {
+  content: '\e029';
+}
+.wr-shop_bag_filled:before {
+  content: '\e02b';
+}
+
+.wr-person_filled:before {
+  content: '\e02d';
+}
+.wr-cart_filled:before {
+  content: '\e02e';
+}
+.wr-home_filled:before {
+  content: '\e02f';
+}
+.wr-add_outline:before {
+  content: '\e030';
+}
+
+.wr-compass:before {
+  content: '\e034';
+}
+.wr-goods_exchange:before {
+  content: '\e03a';
+}
+.wr-group_buy:before {
+  content: '\e03b';
+}
+.wr-group:before {
+  content: '\e03f';
+}
+.wr-indent_goods:before {
+  content: '\e040';
+}
+.wr-help:before {
+  content: '\e042';
+}
+.wr-group_takeout:before {
+  content: '\e043';
+}
+.wr-label:before {
+  content: '\e044';
+}
+.wr-indent_wating:before {
+  content: '\e045';
+}
+.wr-member:before {
+  content: '\e046';
+}
+
+.wr-scanning:before {
+  content: '\e04b';
+}
+.wr-tv:before {
+  content: '\e04d';
+}
+.wr-to_top:before {
+  content: '\e04f';
+}
+.wr-visibility_off:before {
+  content: '\e050';
+}
+.wr-error-1:before {
+  content: '\e052';
+}
+
+.wr-arrow_right:before {
+  content: '\e054';
+}
+.wr-arrow_left:before {
+  content: '\e056';
+}
+.wr-picture_filled:before {
+  content: '\e057';
+}
+.wr-navigation:before {
+  content: '\e058';
+}
+.wr-telephone:before {
+  content: '\e059';
+}
+.wr-indent_time:before {
+  content: '\e05c';
+}
+.wr-cart_add:before {
+  content: '\e05d';
+}
+.wr-classify:before {
+  content: '\e060';
+}
+.wr-place:before {
+  content: '\e063';
+}
+.wr-wechat_pay:before {
+  content: '\e064';
+}
+.wr-security:before {
+  content: '\e066';
+}
+.wr-alarm:before {
+  content: '\e067';
+}
+.wr-person-1:before {
+  content: '\e068';
+}
+.wr-open_in_new:before {
+  content: '\e069';
+}
+.wr-uncheck:before {
+  content: '\e06b';
+}
+.wr-thumb_up:before {
+  content: '\e06c';
+}
+.wr-thumb_up_filled:before {
+  content: '\e06d';
+}
+.wr-star:before {
+  content: '\e06e';
+}
+.wr-star_filled:before {
+  content: '\e06f';
+}
+.wr-cards:before {
+  content: '\e072';
+}
+.wr-picture_error_filled:before {
+  content: '\e076';
+}
+.wr-discount:before {
+  content: '\e077';
 }

@@ -17,7 +17,7 @@
 
 .search-page .t-search__input {
   font-size: 28rpx !important;
-  color: rgb(116, 116, 116) !important;
+  color: #333 !important;
 }
 
 .search-page .search-wrap {

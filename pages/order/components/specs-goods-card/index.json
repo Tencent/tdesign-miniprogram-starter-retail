@@ -1,6 +1,6 @@
 {
   "component": true,
   "usingComponents": {
-    "wr-goods-card": "../goods-card/index"
+    "goods-card": "../goods-card/index"
   }
 }
