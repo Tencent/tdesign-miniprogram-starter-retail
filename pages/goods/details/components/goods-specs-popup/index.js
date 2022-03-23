@@ -1,7 +1,5 @@
 /* eslint-disable no-nested-ternary */
 Component({
-  externalClasses: ['wr-class', 'specs-class', 'price-class'],
-
   options: {
     multipleSlots: true,
     addGlobalClass: true,
@@ -23,11 +21,6 @@ Component({
     isStock: {
       type: Boolean,
       value: true,
-      observer(isStock) {
-        this.setData({
-          isStock,
-        });
-      },
     },
     limitMaxCount: {
       type: Number,
@@ -44,7 +37,6 @@ Component({
       observer(limitMinCount) {
         this.setData({
           limitMinCount,
-          buyNum,
         });
       },
     },
@@ -100,7 +92,6 @@ Component({
     selectedSku: {},
     selectSpecObj: {},
     isAllSelectedSku: false,
-    isStock: true,
     initStatus: false,
   },
 
@@ -287,7 +278,7 @@ Component({
     },
 
     toChooseItem(e) {
-      const { isStock } = this.data;
+      const { isStock } = this.properties;
       if (!isStock) return;
       const { id } = e.currentTarget.dataset;
       const specId = e.currentTarget.dataset.specid;
@@ -346,13 +337,14 @@ Component({
     },
 
     addCart() {
-      const { isStock } = this.data;
+      const { isStock } = this.properties;
       if (!isStock) return;
       this.triggerEvent('addCart');
     },
 
     buyNow() {
-      const { isAllSelectedSku, isStock } = this.data;
+      const { isAllSelectedSku } = this.data;
+      const { isStock } = this.properties;
       if (!isStock) return;
       this.triggerEvent('buyNow', {
         isAllSelectedSku,
@@ -361,7 +353,8 @@ Component({
 
     // 加
     handleBuyNumPlus() {
-      const { buyNum, isStock } = this.data;
+      const { buyNum } = this.data;
+      const { isStock } = this.properties;
       if (!isStock) return;
       const nextBuyNum = Number(buyNum) + 1;
       this.setBuyNum(nextBuyNum > 999 ? buyNum : nextBuyNum);
@@ -369,7 +362,8 @@ Component({
 
     // 减
     handleBuyNumMinus() {
-      const { buyNum, isStock, limitMinCount } = this.data;
+      const { buyNum, limitMinCount } = this.data;
+      const { isStock } = this.properties;
       if (!isStock || buyNum < limitMinCount + 1) return;
       const nextBuyNum = Number(buyNum) - 1;
       this.setBuyNum(nextBuyNum < 1 ? buyNum : nextBuyNum);
