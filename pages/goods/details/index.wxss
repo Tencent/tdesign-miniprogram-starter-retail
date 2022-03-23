@@ -271,24 +271,10 @@ page {
   font-size: 48rpx;
 }
 
-.goods-detail-page .single-confirm-btn {
-  border-radius: 48rpx;
-  color: #ffffff;
-  margin: 0 32rpx;
-  font-size: 32rpx;
-  height: 80rpx;
-  text-align: center;
-  line-height: 88rpx;
-  background-color: #fa4126;
-}
-.goods-detail-page .single-confirm-btn.disabled {
-  font-size: 32rpx;
-  color: #fff;
-  background-color: #dddddd;
-}
 .goods-detail-page .goods-head .t-swiper {
   height: 750rpx !important;
 }
+
 .t-toast__content {
   z-index: 12000 !important;
 }
