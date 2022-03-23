@@ -168,7 +168,7 @@ Page({
     return [
       //order.logisticsVO.receiverProvince,
       order.logisticsVO.receiverCity,
-      order.logisticsVO.receiverCounty,
+      order.logisticsVO.receiverCountry,
       order.logisticsVO.receiverArea,
       order.logisticsVO.receiverAddress,
     ]
