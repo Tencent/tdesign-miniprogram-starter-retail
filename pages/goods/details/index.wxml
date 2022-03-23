@@ -3,6 +3,7 @@
 <view class="goods-detail-page">
   <view class="goods-head">
     <t-swiper
+      wx:if="{{details.images.length > 0}}"
       t-class="t-swiper"
       current="{{current}}"
       autoplay="{{autoplay}}"
