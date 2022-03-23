@@ -155,5 +155,6 @@ module.exports = {
         ignoreComments: false,
       },
     ],
+    'linebreak-style': ['warn', 'unix'],
   },
 };
