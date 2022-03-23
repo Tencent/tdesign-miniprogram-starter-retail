@@ -125,7 +125,7 @@ Page({
     return [
       service.logisticsVO.receiverProvince,
       service.logisticsVO.receiverCity,
-      service.logisticsVO.receiverCounty,
+      service.logisticsVO.receiverCountry,
       service.logisticsVO.receiverArea,
       service.logisticsVO.receiverAddress,
     ]

@@ -35,7 +35,7 @@ Component({
             const {
               provinceName,
               cityName,
-              countyName,
+              countryName,
               detailInfo,
               userName,
               telNumber,
@@ -58,16 +58,16 @@ Component({
               detailAddress: detailInfo,
               provinceName: provinceName,
               cityName: cityName,
-              districtName: countyName,
+              districtName: countryName,
               isDefault: false,
               isOrderSure: this.properties.isOrderSure,
             };
 
-            addressParse(provinceName, cityName, countyName);
+            addressParse(provinceName, cityName, countryName);
 
             try {
               const { provinceCode, cityCode, districtCode } =
-                await addressParse(provinceName, cityName, countyName);
+                await addressParse(provinceName, cityName, countryName);
 
               const params = Object.assign(target, {
                 provinceCode,
