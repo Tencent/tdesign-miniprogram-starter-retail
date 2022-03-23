@@ -30,3 +30,10 @@ page view {
 .t-class-confirm {
   color: #fa550f !important;
 }
+
+.person-info .order-group__left {
+  margin-right: 0;
+}
+.person-info .t-cell-class {
+  height: 112rpx;
+}
