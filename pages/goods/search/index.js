@@ -11,6 +11,7 @@ Page({
     dialog: {
       title: '确认删除当前历史记录',
       showCancelButton: true,
+      message: '',
     },
     deleteType: 0,
     deleteIndex: '',
