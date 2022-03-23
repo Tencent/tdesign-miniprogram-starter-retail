@@ -231,7 +231,7 @@ Page({
     } else if (!minVal && maxVal) {
       message = `价格范围是0-${minVal}`;
     } else if (minVal && maxVal) {
-      message = `价格范围${minVal || 0}-${this.data.maxVal}`;
+      message = `价格范围${minVal}-${this.data.maxVal}`;
     } else {
     }
 
