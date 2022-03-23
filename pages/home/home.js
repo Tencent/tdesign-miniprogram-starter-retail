@@ -14,6 +14,7 @@ Page({
     autoplay: true,
     duration: 500,
     interval: 5000,
+    navigation: { type: 'dots' },
   },
 
   goodListPagination: {

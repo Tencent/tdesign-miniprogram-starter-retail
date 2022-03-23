@@ -34,7 +34,7 @@
 		  duration="{{duration}}"
 		  interval="{{interval}}"
 		  bindchange="onChange"
-		  navigation
+		  navigation="{{navigation}}"
 		>
 			<t-swiper-item wx:for="{{imgSrcs}}" wx:key="index">
 				<t-image src="{{item.img}}" t-class="swipe-img" bind:tap="navToActivityDetail" />
