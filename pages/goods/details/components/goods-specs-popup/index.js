@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 /* eslint-disable no-nested-ternary */
 Component({
   options: {
@@ -25,29 +26,16 @@ Component({
     limitMaxCount: {
       type: Number,
       value: 999,
-      observer(limitMaxCount) {
-        this.setData({
-          limitMaxCount,
-        });
-      },
     },
     limitMinCount: {
       type: Number,
       value: 1,
-      observer(limitMinCount) {
-        this.setData({
-          limitMinCount,
-        });
-      },
     },
     skuList: {
       type: Array,
       value: [],
       observer(skuList) {
         if (skuList && skuList.length > 0) {
-          this.setData({
-            skuList: skuList,
-          });
           const { initStatus } = this.data;
           if (initStatus) {
             this.initData();
@@ -85,10 +73,6 @@ Component({
 
   data: {
     buyNum: 1,
-    limitMaxCount: 999,
-    limitMinCount: 1,
-    specList: [],
-    skuList: [],
     selectedSku: {},
     selectSpecObj: {},
     isAllSelectedSku: false,
@@ -97,7 +81,7 @@ Component({
 
   methods: {
     initData() {
-      const { skuList } = this.data;
+      const { skuList } = this.properties;
       const { specList } = this.properties;
       specList.forEach((item) => {
         if (item.specValueList.length > 0) {
@@ -146,7 +130,8 @@ Component({
 
     chooseSpecValueId(specValueId, specId) {
       // 点击的规格ID， 点击的规格组ID
-      const { specList, selectSpecObj, skuList } = this.data;
+      const { selectSpecObj } = this.data;
+      const { skuList, specList } = this.properties;
       if (selectSpecObj[specId]) {
         selectSpecObj[specId] = [];
         this.setData({
@@ -288,7 +273,7 @@ Component({
       }
 
       let { selectedSku } = this.data;
-      const { specList } = this.data;
+      const { specList } = this.properties;
       selectedSku =
         selectedSku[specId] === id
           ? { ...this.data.selectedSku, [specId]: '' }
@@ -362,7 +347,8 @@ Component({
 
     // 减
     handleBuyNumMinus() {
-      const { buyNum, limitMinCount } = this.data;
+      const { buyNum } = this.data;
+      const { limitMinCount } = this.properties;
       const { isStock } = this.properties;
       if (!isStock || buyNum < limitMinCount + 1) return;
       const nextBuyNum = Number(buyNum) - 1;
@@ -385,8 +371,7 @@ Component({
         detail: { value },
       } = e;
       const valInNum = Number(value);
-      const { limitMaxCount, limitMinCount } = this.data;
-
+      const { limitMaxCount, limitMinCount } = this.properties;
       const nextData = {
         buyNum:
           valInNum < limitMinCount
