@@ -91,8 +91,8 @@ export const payFail = (payOrderInfo, resultMsg) => {
 
 // 微信支付方式
 export const wechatPayOrder = (payOrderInfo) => {
-  const payInfo = JSON.parse(payOrderInfo.payInfo);
-  const { timeStamp, nonceStr, signType, paySign } = payInfo;
+  // const payInfo = JSON.parse(payOrderInfo.payInfo);
+  // const { timeStamp, nonceStr, signType, paySign } = payInfo;
   return new Promise((resolve) => {
     // demo 中直接走支付成功
     paySuccess(payOrderInfo);

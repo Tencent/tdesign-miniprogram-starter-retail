@@ -1,4 +1,4 @@
-<wr-goods-card
+<goods-card
  class="order-goods-card {{ step ? 'order-goods-card--step' : '' }}"
  wx:if="{{!hidden}}"
  data="{{goods}}"
@@ -27,5 +27,5 @@
 	<slot name="append-body" slot="append-body" />
 	<slot name="footer" slot="footer" />
 	<slot name="append-card" slot="append-card" />
-</wr-goods-card>
+</goods-card>
 

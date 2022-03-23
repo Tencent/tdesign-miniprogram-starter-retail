@@ -11,7 +11,7 @@
 	<view class="cart-bar__total flex1">
 		<view>
 			<text class="cart-bar__total--bold text-padding-right">总计</text>
-			<wr-price
+			<price
 			 price="{{totalAmount || '0'}}"
 			 fill="{{false}}"
 			 decimalSmaller
@@ -21,7 +21,7 @@
 		</view>
 		<view wx:if="{{totalDiscountAmount}}">
 			<text class="cart-bar__total--normal text-padding-right">已优惠</text>
-			<wr-price class="cart-bar__total--normal" price="{{totalDiscountAmount || '0'}}" fill="{{false}}" />
+			<price class="cart-bar__total--normal" price="{{totalDiscountAmount || '0'}}" fill="{{false}}" />
 		</view>
 	</view>
 	<view catchtap="handleToSettle" class="{{!isDisabled ? '' : 'disabled-btn'}} account-btn" hover-class="{{!isDisabled ? '' : 'hover-btn'}}">

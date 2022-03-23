@@ -2,6 +2,6 @@
   "component": true,
   "usingComponents": {
     "t-stepper": "tdesign-miniprogram/stepper/stepper",
-    "wr-goods-card": "../specs-goods-card/index"
+    "goods-card": "../specs-goods-card/index"
   }
 }

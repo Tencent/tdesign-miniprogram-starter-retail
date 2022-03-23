@@ -78,6 +78,10 @@ Page({
     this.loadGoodsList();
   },
 
+  onChange() {
+    // doSomething
+  },
+
   async loadGoodsList(fresh = false) {
     if (fresh) {
       wx.pageScrollTo({
