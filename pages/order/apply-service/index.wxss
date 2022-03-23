@@ -100,27 +100,17 @@
   font-size: 90rpx;
   margin-bottom: 7rpx;
 }
-.select-service .bottom-bar__placeholder,
-.select-service .bottom-bar__content {
-  height: 100rpx;
-  width: 100vw;
-}
-.select-service .bottom-bar__content {
-  position: fixed;
-  z-index: 5;
-  left: 0;
-  bottom: 0;
-  background-color: white;
-  padding: 0 40rpx;
-  box-sizing: border-box;
-}
+
 .select-service .bottom-bar__btn {
-  width: 100%;
+  width: 686rpx;
   background-color: #fa550f;
-  background-color: var(--color-primary, #fa550f);
   color: white;
   font-size: 32rpx;
   border-radius: 48rpx;
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
 }
 .select-service .bottom-bar__btn::after {
   border: none;
@@ -132,8 +122,7 @@
   border: none;
 }
 .select-service .order-goods-card .wr-goods-card {
-  padding: 30rpx;
-  margin-top: 20rpx;
+  padding: 0 30rpx;
 }
 
 .order-goods-card-footer {
@@ -219,14 +208,13 @@
   color: var(--color-primary, #fa550f);
 }
 .select-service .bottom-bar {
-  background: #fff;
+  background-color: #f5f5f5;
   position: fixed;
   bottom: 0;
   left: 0;
-  padding: 0 20rpx 0;
-  padding-bottom: env(safe-area-inset-bottom);
-  padding-bottom: constant(safe-area-inset-bottom);
+  padding: 0 32rpx;
   width: 100%;
+  height: 158rpx;
   z-index: 3;
 }
 .order-goods-card {
@@ -254,10 +242,16 @@
 .service-from-group__textarea {
   margin-top: 32rpx;
   background: #f5f5f5 !important;
+  border-radius: 16rpx;
+}
+.service-from-group__textarea .t-textarea__wrapper .t-textarea__wrapper-textarea {
+  height: 136rpx;
+  box-sizing: border-box;
 }
 .service-from-group__grid {
-  padding: 24rpx 32rpx;
+  padding: 0 32rpx 48rpx;
   background: #fff;
+  margin-bottom: 148rpx;
 }
 .select-service .t-cell__left {
   margin-right: 0 !important;
@@ -273,5 +267,15 @@
 .t-cell__left__icon {
   position: relative;
   top: -24rpx;
-  left: -2rpx;
+  margin-right: 18rpx;
+}
+
+.service-choice .t-cell__title-text {
+  color: #333;
+  font-weight: bold;
+}
+
+.service-from .service-from-group .t-stepper__minus, 
+.service-from .service-from-group .t-stepper__plus {
+  padding: 7rpx 10rpx!important;
 }
