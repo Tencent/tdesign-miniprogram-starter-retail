@@ -9,10 +9,10 @@
 			<view wx:if="{{title}}" class="title">{{title}}</view>
 		</view>
 		<picker-view
-		 class="picker"
-		 indicator-class="picker-center-row"
-		 value="{{pickerValue}}"
-		 bind:change="onChange"
+		  class="picker"
+		  indicator-class="picker-center-row"
+		  value="{{pickerValue}}"
+		  bind:change="onChange"
 		>
 			<picker-view-column class="picker-column">
 				<view wx:for="{{ pickerOptions }}" wx:key="code">{{ item.name }}</view>
