@@ -36,13 +36,7 @@ Page({
     this.setData({ backRefresh: false });
   },
 
-  onUnload() {
-    // 没有这个函数……我先屏蔽了
-    // hideError();
-  },
-
   onPageScroll(e) {
-    // this.navbar && this.navbar.methods.onScroll.call(this.navbar, e.scrollTop);
     this.pullDownRefresh && this.pullDownRefresh.onPageScroll(e);
   },
 
@@ -276,9 +270,6 @@ Page({
   /** 跳转拼团详情/分享页*/
   toGrouponDetail() {
     wx.showToast({ title: '点击了拼团' });
-    /* wx.navigateTo({
-      url: `/groupon/detail/index?promotionId=${promotionId}&groupId=${groupId}&storeId=${storeId}`,
-    }); */
   },
 
   clickService() {

@@ -25,6 +25,7 @@
 		 wx:for="{{orderCardList[storeIndex].goodsList}}"
 		 wx:for-item="goods"
 		 wx:for-index="gIndex"
+		 wx:key="id"
 		 class="goods-wrapper"
 		>
 			<t-image src="{{goods.thumb}}" t-class="goods-image" mode="aspectFill" />
