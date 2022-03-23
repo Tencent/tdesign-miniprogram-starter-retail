@@ -136,6 +136,7 @@
 
 .order-goods-card-footer-num {
   color: #999;
+  line-height: 40rpx;
 }
 
 .order-goods-card-title-class {
