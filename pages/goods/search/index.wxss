@@ -10,11 +10,6 @@
   border-radius: 32rpx !important;
 }
 
-.search-page .t-search__left-icon {
-  display: flex;
-  align-items: center;
-}
-
 .search-page .t-search__input {
   font-size: 28rpx !important;
   color: #333 !important;

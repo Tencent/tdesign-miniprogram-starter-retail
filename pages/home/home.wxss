@@ -26,11 +26,6 @@ page {
   height: 64rpx !important;
 }
 
-.home-page-header .t-search__left-icon {
-  display: flex;
-  align-items: center;
-}
-
 .home-page-header .t-search__input {
   font-size: 28rpx !important;
   color: rgb(116, 116, 116) !important;
