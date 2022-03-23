@@ -1,4 +1,5 @@
 <wxs module="order" src="./order.wxs" />
+
 <wxs module="handleInvoice" src="./handleInvoice.wxs" />
 <wxs module="getNotes" src="./getNotes.wxs" />
 <view class="order-sure" wx:if="{{!loading}}">
