@@ -116,8 +116,9 @@
 	  bind:changeNum="changeNum"
 	  bind:addCart="addCart"
 	  bind:buyNow="gotoBuy"
+	  bind:specsConfirm="specsConfirm"
 	  isStock="{{isStock}}"
-	  isSlotButton="{{outOperateStatus ? true : false}}"
+	  outOperateStatus="{{outOperateStatus}}"
 	>
 		<view slot="goods-price">
 			<view class="popup-sku__price">
@@ -134,14 +135,6 @@
 				  type="delthrough"
 				/>
 			</view>
-		</view>
-		<view
-		  slot="slotButton"
-		  wx:if="{{outOperateStatus}}"
-		  class="single-confirm-btn {{!isStock ? 'disabled' : ''}}"
-		  bindtap="specsConfirm"
-		>
-			确定
 		</view>
 	</t-goods-specs-popup>
 

@@ -36,8 +36,7 @@ Component({
       value: [],
       observer(skuList) {
         if (skuList && skuList.length > 0) {
-          const { initStatus } = this.data;
-          if (initStatus) {
+          if (this.initStatus) {
             this.initData();
           }
         }
@@ -52,7 +51,7 @@ Component({
         }
       },
     },
-    isSlotButton: {
+    outOperateStatus: {
       type: Boolean,
       value: false,
     },
@@ -71,12 +70,13 @@ Component({
     },
   },
 
+  initStatus: false,
+  selectedSku: {},
+  selectSpecObj: {},
+
   data: {
     buyNum: 1,
-    selectedSku: {},
-    selectSpecObj: {},
     isAllSelectedSku: false,
-    initStatus: false,
   },
 
   methods: {
@@ -99,11 +99,11 @@ Component({
         selectedSku[item.specId] = '';
       });
       this.setData({
-        selectedSku: {},
-        selectSpecObj: {},
         specList,
-        initStatus: true,
       });
+      this.selectSpecObj = {};
+      this.selectedSku = {};
+      this.initStatus = true;
     },
 
     checkSkuStockQuantity(specValueId, skuList) {
@@ -114,7 +114,6 @@ Component({
           if (subItem.specValueId === specValueId && item.quantity > 0) {
             const subArray = [];
             (item.specInfo || []).forEach((specItem) => {
-              // 存储sku的规格
               subArray.push(specItem.specValueId);
             });
             array.push(subArray);
@@ -129,14 +128,11 @@ Component({
     },
 
     chooseSpecValueId(specValueId, specId) {
-      // 点击的规格ID， 点击的规格组ID
-      const { selectSpecObj } = this.data;
+      const { selectSpecObj } = this;
       const { skuList, specList } = this.properties;
       if (selectSpecObj[specId]) {
         selectSpecObj[specId] = [];
-        this.setData({
-          selectSpecObj, // 存组合SKU的specsValueID
-        });
+        this.selectSpecObj = selectSpecObj;
       } else {
         selectSpecObj[specId] = [];
       }
@@ -146,9 +142,7 @@ Component({
       const itemSelectArray = [];
       specList.forEach((item) => {
         if (item.specId === specId) {
-          // 点击行的规格逻辑
           const subSpecValueItem = item.specValueList.find(
-            // 选中规格的
             (subItem) => subItem.specValueId === specValueId,
           );
           let specSelectStatus = false;
@@ -203,9 +197,7 @@ Component({
             delete selectSpecObj[item.specId];
           }
         }
-        this.setData({
-          selectSpecObj,
-        });
+        this.selectSpecObj = selectSpecObj;
       });
       const combatArray = Object.values(selectSpecObj);
       if (combatArray.length > 0) {
@@ -216,7 +208,6 @@ Component({
         specList.forEach((item) => {
           item.specValueList.forEach((subItem) => {
             if (lastResult.includes(subItem.specValueId)) {
-              // 如果存在则有库存
               subItem.hasStockObj.hasStock = true;
             } else {
               subItem.hasStockObj.hasStock = false;
@@ -245,16 +236,13 @@ Component({
       const stack = [...input];
       const res = [];
       while (stack.length) {
-        // 使用 pop 从 stack 中取出并移除值
         const next = stack.pop();
         if (Array.isArray(next)) {
-          // 使用 push 送回内层数组中的元素，不会改动原始输入
           stack.push(...next);
         } else {
           res.push(next);
         }
       }
-      // 反转恢复原数组的顺序
       return res.reverse();
     },
 
@@ -272,12 +260,12 @@ Component({
         return;
       }
 
-      let { selectedSku } = this.data;
+      let { selectedSku } = this;
       const { specList } = this.properties;
       selectedSku =
         selectedSku[specId] === id
-          ? { ...this.data.selectedSku, [specId]: '' }
-          : { ...this.data.selectedSku, [specId]: id };
+          ? { ...this.selectedSku, [specId]: '' }
+          : { ...this.selectedSku, [specId]: id };
       specList.forEach((item) => {
         item.specValueList.forEach((valuesItem) => {
           if (item.specId === specId) {
@@ -296,9 +284,9 @@ Component({
       }
       this.setData({
         specList,
-        selectedSku,
         isAllSelectedSku,
       });
+      this.selectedSku = selectedSku;
       this.triggerEvent('change', {
         specList,
         selectedSku,
@@ -308,7 +296,6 @@ Component({
 
     // 判断是否所有的sku都已经选中
     isAllSelected(skuTree, selectedSku) {
-      // 筛选selectedSku对象中key值不为空的值
       const selected = Object.keys(selectedSku).filter(
         (skuKeyStr) => selectedSku[skuKeyStr] !== '',
       );
@@ -319,6 +306,12 @@ Component({
       this.triggerEvent('closeSpecsPopup', {
         show: false,
       });
+    },
+
+    specsConfirm() {
+      const { isStock } = this.properties;
+      if (!isStock) return;
+      this.triggerEvent('specsConfirm');
     },
 
     addCart() {
