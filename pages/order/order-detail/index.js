@@ -128,7 +128,7 @@ Page({
         invoiceStatus: this.datermineInvoiceStatus(order),
         invoiceDesc: order.invoiceDesc,
         invoiceType:
-          order?.invoiceVO?.invoiceType === 5 ? '电子普通发票' : '不开', //是否开票 0-不开 5-电子发票
+          order.invoiceVO?.invoiceType === 5 ? '电子普通发票' : '不开', //是否开票 0-不开 5-电子发票
         logisticsNodes: this.flattenNodes(order.trajectoryVos || []),
       });
     });

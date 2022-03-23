@@ -2,13 +2,14 @@ page {
   background-color: #f5f5f5;
 }
 
-.wrap {
-  margin-top: 40rpx;
-  margin-left: 24rpx;
-  margin-right: 24rpx;
+.coupon-card-wrap {
+  background-color: #fff;
+  padding: 32rpx 32rpx 1rpx;
 }
-
-.wrap .button-wrap .view-good-list-btn {
+.desc-wrap {
+  margin-top: 24rpx;
+}
+.desc-wrap .button-wrap .view-good-list-btn {
   width: 686rpx;
   height: 88rpx;
   margin-top: 50rpx;

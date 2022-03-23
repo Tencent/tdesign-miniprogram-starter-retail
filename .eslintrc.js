@@ -21,6 +21,7 @@ module.exports = {
     global: true,
     __wxConfig: true,
   },
+  ignorePatterns: ['*.wxs'],
   rules: {
     'prettier/prettier': 'warn',
     'no-undef': 'off',
@@ -154,5 +155,6 @@ module.exports = {
         ignoreComments: false,
       },
     ],
+    'linebreak-style': ['warn', 'unix'],
   },
 };

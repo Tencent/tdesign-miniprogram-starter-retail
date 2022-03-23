@@ -16,5 +16,19 @@
   "[wxss]": {
     "editor.defaultFormatter": "HookyQR.beautify"
   },
+  "wxmlConfig.onSaveFormat": true,
+  "wxmlConfig.format": {
+    "brace_style": "collapse",
+    "indent_inner_html": true,
+    "indent_scripts": "keep",
+    "indent_size": 2,
+    "indent_char": " ",
+    "unformatted": "['wxs']",
+    "disable_automatic_closing_labels": false,
+    "preserve_newlines": true,
+    "wrap_attributes": "force-expand-multiline",
+    "wrap_attributes_count": 4,
+    "wrap_attributes_indent_size": 2
+  },
   "editor.tabSize": 2
 }

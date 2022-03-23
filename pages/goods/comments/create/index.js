@@ -27,7 +27,7 @@ Page({
   },
 
   onRateChange(e) {
-    const { value } = e.detail;
+    const { value } = e?.detail;
     const item = e?.currentTarget?.dataset?.item;
     this.setData({ [item]: value }, () => {
       this.updateButtonStatus();

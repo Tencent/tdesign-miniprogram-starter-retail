@@ -35,7 +35,7 @@ Page({
     }
 
     let statusInFetch = '';
-    switch (status) {
+    switch (Number(status)) {
       case 0: {
         statusInFetch = 'default';
         break;
