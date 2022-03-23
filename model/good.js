@@ -1911,6 +1911,6 @@ export function genGood(id, available = 1) {
     spuId: `${id}`,
     available: available,
     desc: item?.desc || defaultDesc,
-    images: item?.images || [item.primaryImage],
+    images: item?.images || [item?.primaryImage],
   };
 }
