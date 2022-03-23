@@ -50,7 +50,7 @@
   background-color: white;
   color: #fa4126;
 }
-.specs-popup .bottom-btn:active {
+.specs-popup .bottom-btn--active {
   opacity: 0.5;
 }
 .specs-popup .bottom-btn::after {
