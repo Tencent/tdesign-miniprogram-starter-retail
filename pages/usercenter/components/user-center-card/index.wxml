@@ -24,12 +24,12 @@
 	<block wx:if="{{currAuthStep === AuthStepType.THREE}}">
 		<view class="user-center-card__header" bind:tap="gotoUserEditPage">
 			<t-image
-			 width="96"
-			 height="96"
-			 t-class="avatar"
-			 mode="aspectFill"
-			 class="user-center-card__header__avatar"
-			 src="{{userInfo.avatarUrl || defaultAvatarUrl}}"
+			  width="96"
+			  height="96"
+			  t-class="avatar"
+			  mode="aspectFill"
+			  class="user-center-card__header__avatar"
+			  src="{{userInfo.avatarUrl || defaultAvatarUrl}}"
 			/>
 			<view class="user-center-card__header__name">{{userInfo.nickName || '微信用户'}}</view>
 		</view>
