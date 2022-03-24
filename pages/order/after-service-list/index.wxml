@@ -9,6 +9,7 @@
 		  data-order="{{order}}"
 		  bindcardtap="onAfterServiceCardTap"
 		  useTopRightSlot
+			header-class="header-class"
 		>
 			<view class="text-btn" slot="top-right">
 				<view class="header__right">

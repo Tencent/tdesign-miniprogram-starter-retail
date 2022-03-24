@@ -47,49 +47,50 @@
 				</block>
 			</view>
 			<!-- 物流 -->
-			<view class="service-section" wx:if="{{service.logisticsNo}}">
+			<view class="service-section logistics" wx:if="{{service.logisticsNo}}">
 				<view class="service-section__title">
-					<t-cell bordered="{{false}}" description="买家已寄出" arrow>
-						<view slot="title" class="service-section__title__header">
-							<t-icon
-							 prefix="wr"
-							 name="deliver"
-							 size="48rpx"
-							 t-class="icon"
-							/>
-							<text>{{service.logisticsCompanyName + ' '}} </text>
-							<text>{{service.logisticsNo}}</text>
-							<!-- 退货物流 -->
-						</view>
-						<view slot="note" style="position: absolute; bottom: -45rpx;right: 45rpx">
+					<t-cell 
+						title="{{service.logisticsCompanyName + ' ' + service.logisticsNo}}"
+						bordered="{{false}}" 
+						description="买家已寄出" 
+						arrow
+					>
+						<t-icon
+						 prefix="wr"
+						 color="#333333"
+						 name="deliver"
+						 size="40rpx"
+						 slot="left-icon"
+						 style="position: absolute; top: 25rpx; left:0"
+						/>
+						<view slot="note" style="position: absolute; bottom: -45rpx;right: 20rpx">
 							<wr-after-service-button-bar service="{{service}}" />
 						</view>
 					</t-cell>
 				</view>
 			</view>
 			<!-- 收货地址 -->
-			<view class="service-section" wx:if="{{service.receiverName}}">
+			<view class="service-section goods-refund-address" wx:if="{{service.receiverName}}">
 				<t-cell-group>
-					<t-cell title="退货地址">
+					<t-cell title="退货地址" bordered="{{false}}">
 						<view
 						 slot="note"
-						 class="right text-btn"
+						 class="right text-btn goods-refund-address-copy-btn"
 						 bindtap="onAddressCopy"
-						 style="position: absolute; top: 22rpx; rihgt:0"
 						>复制
 						</view>
 						<view slot="description">
 							<view>
 								{{service.receiverAddress}}
 							</view>
-							<view>收获人：{{service.receiverName}}</view>
-							<view>收获人手机：{{service.receiverName}}</view>
+							<view>收货人：{{service.receiverName}}</view>
+							<view>收货人手机：{{service.receiverName}}</view>
 						</view>
 						<t-icon
 						 prefix="wr"
 						 color="#333333"
 						 name="location"
-						 size="20px"
+						 size="40rpx"
 						 slot="left-icon"
 						 style="position: absolute; top: 25rpx; left:0"
 						/>
@@ -97,7 +98,7 @@
 				</t-cell-group>
 			</view>
 			<!-- 商品卡片 -->
-			<view class="service-section" wx:if="{{service.goodsList && service.goodsList.length > 0}}">
+			<view class="service-section service-goods-card-wrap" wx:if="{{service.goodsList && service.goodsList.length > 0}}">
 				<wr-service-goods-card
 				 wx:for="{{service.goodsList}}"
 				 wx:key="id"
@@ -121,12 +122,17 @@
 			</view>
 			<!-- 退款信息 -->
 			<view class="service-section__pay">
-				<t-cell bordered="{{false}}" title="退款信息" t-class="t-refund-wrapper" />
+				<t-cell 
+				 bordered="{{false}}" 
+				 title="退款信息" 
+				 t-class="t-refund-wrapper" 
+				 t-class-title="t-refund-title"
+				/>
 				<t-cell
 				 bordered="{{false}}"
 				 t-class="t-refund-wrapper"
 				 t-class-title="t-refund-info"
-				 t-class-note="t-refund-info"
+				 t-class-note="t-refund-note"
 				 title="订单编号"
 				 note="{{service.orderNo}}"
 				/>
@@ -134,7 +140,7 @@
 				 bordered="{{false}}"
 				 t-class="t-refund-wrapper"
 				 t-class-title="t-refund-info"
-				 t-class-note="t-refund-info"
+				 t-class-note="t-refund-note"
 				 title="服务单号"
 				 note="{{service.rightsNo}}"
 				>
@@ -144,7 +150,7 @@
 				 bordered="{{false}}"
 				 t-class="t-refund-wrapper"
 				 t-class-title="t-refund-info"
-				 t-class-note="t-refund-info"
+				 t-class-note="t-refund-note"
 				 title="退款原因"
 				 note="{{service.rightsReasonDesc}}"
 				/>
@@ -152,7 +158,7 @@
 				 bordered="{{false}}"
 				 t-class="t-refund-wrapper"
 				 t-class-title="t-refund-info"
-				 t-class-note="t-refund-info"
+				 t-class-note="t-refund-note"
 				 title="退款金额"
 				>
 					<wr-price slot="note" price="{{service.refundRequestAmount}}" fill />
@@ -161,7 +167,7 @@
 				 bordered="{{false}}"
 				 t-class="t-refund-wrapper"
 				 t-class-title="t-refund-info"
-				 t-class-note="t-refund-info"
+				 t-class-note="t-refund-note"
 				 title="申请时间"
 				 note="{{service.createTime}}"
 				/>
