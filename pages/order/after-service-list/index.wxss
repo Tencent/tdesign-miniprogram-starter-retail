@@ -178,3 +178,7 @@
 .add-notes__confirm {
   color: #fa4126 !important;
 }
+
+.page-container .header-class {
+  margin-bottom: 5rpx!important;
+}
