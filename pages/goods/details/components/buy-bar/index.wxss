@@ -70,7 +70,7 @@
 
 .bar-separately,
 .bar-buy {
-  width: 220rpx;
+  width: 254rpx;
   height: 80rpx;
   color: #fff;
   display: flex;
