@@ -1,45 +1,45 @@
 <t-cell-group class="person-info">
 	<t-cell
-	 title="头像"
-	 center="{{true}}"
-	 data-type="avatarUrl"
-	 bind:click="onClickCell"
-	 arrow
-	 t-class-left="order-group__left"
+	  title="头像"
+	  center="{{true}}"
+	  data-type="avatarUrl"
+	  bind:click="onClickCell"
+	  arrow
+	  t-class-left="order-group__left"
 	>
 		<t-image
-		 slot="note"
-		 src="{{personInfo.avatarUrl}}"
-		 t-class="avatarUrl"
-		 mode="aspectFill"
+		  slot="note"
+		  src="{{personInfo.avatarUrl}}"
+		  t-class="avatarUrl"
+		  mode="aspectFill"
 		/>
 	</t-cell>
 	<t-cell
-	 title="昵称"
-	 arrow
-	 note="{{personInfo.nickName}}"
-	 data-type="name"
-	 bind:click="onClickCell"
-	 t-class="t-cell-class"
-	 t-class-left="order-group__left"
+	  title="昵称"
+	  arrow
+	  note="{{personInfo.nickName}}"
+	  data-type="name"
+	  bind:click="onClickCell"
+	  t-class="t-cell-class"
+	  t-class-left="order-group__left"
 	/>
 	<t-cell
-	 title="性别"
-	 arrow
-	 note="{{genderMap[personInfo.gender]}}"
-	 data-type="gender"
-	 bind:click="onClickCell"
-	 t-class="t-cell-class"
-	 t-class-left="order-group__left"
+	  title="性别"
+	  arrow
+	  note="{{genderMap[personInfo.gender]}}"
+	  data-type="gender"
+	  bind:click="onClickCell"
+	  t-class="t-cell-class"
+	  t-class-left="order-group__left"
 	/>
 	<t-cell
-	 title="手机号"
-	 arrow
-	 note="{{personInfo.phoneNumber ? personInfo.phoneNumber : '去绑定手机号'}}"
-	 data-type="phoneNumber"
-	 bind:click="onClickCell"
-	 t-class="t-cell-class"
-	 t-class-left="order-group__left"
+	  title="手机号"
+	  arrow
+	  note="{{personInfo.phoneNumber ? personInfo.phoneNumber : '去绑定手机号'}}"
+	  data-type="phoneNumber"
+	  bind:click="onClickCell"
+	  t-class="t-cell-class"
+	  t-class-left="order-group__left"
 	/>
 </t-cell-group>
 <view class="person-info__wrapper">
@@ -48,12 +48,12 @@
 	</view>
 </view>
 <t-select-picker
- show="{{typeVisible}}"
- picker-options="{{pickerOptions}}"
- title="选择性别"
- value="{{personInfo.gender}}"
- bind:confirm="onConfirm"
- bind:close="onClose"
+  show="{{typeVisible}}"
+  picker-options="{{pickerOptions}}"
+  title="选择性别"
+  value="{{personInfo.gender}}"
+  bind:confirm="onConfirm"
+  bind:close="onClose"
 />
 <t-toast id="t-toast" />
 

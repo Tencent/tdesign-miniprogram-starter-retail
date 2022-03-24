@@ -20,12 +20,13 @@ page {
   flex: auto;
   margin-left: 30rpx;
   font-size: 28rpx;
-  color: #333;
+  color: #333 !important;
 }
 .logistics-no {
   display: inline-block;
   text-align: left;
   word-break: break-all;
+  color: #333;
 }
 .text-btn {
   margin-left: 20rpx;

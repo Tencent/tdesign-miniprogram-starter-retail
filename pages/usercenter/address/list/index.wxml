@@ -1,20 +1,20 @@
 <view class="address-container">
 	<view class="address-list" wx:if="{{addressList.length > 0}}">
 		<block
-		 wx:for="{{addressList}}"
-		 wx:for-index="index"
-		 wx:for-item="address"
-		 wx:key="addressId"
+		  wx:for="{{addressList}}"
+		  wx:for-index="index"
+		  wx:for-item="address"
+		  wx:key="addressId"
 		>
 			<t-address-item
-			 isDrawLine="{{index+1 !== addressList.length}}"
-			 extra-space="{{extraSpace}}"
-			 class-prefix="ym"
-			 address="{{address}}"
-			 data-id="{{address.id}}"
-			 bind:onSelect="selectHandle"
-			 bind:onDelete="deleteAddressHandle"
-			 bind:onEdit="editAddressHandle"
+			  isDrawLine="{{index+1 !== addressList.length}}"
+			  extra-space="{{extraSpace}}"
+			  class-prefix="ym"
+			  address="{{address}}"
+			  data-id="{{address.id}}"
+			  bind:onSelect="selectHandle"
+			  bind:onDelete="deleteAddressHandle"
+			  bind:onEdit="editAddressHandle"
 			/>
 		</block>
 	</view>
@@ -24,19 +24,19 @@
 	<view class="bottom-fixed">
 		<view class="btn-wrap">
 			<t-location
-			 title="微信地址导入"
-			 isOrderSure="{{isOrderSure}}"
-			 isDisabledBtn="{{addressList.length >= 20}}"
-			 navigator="{{true}}"
-			 t-class="location-btn"
-			 isCustomStyle="{{true}}"
+			  title="微信地址导入"
+			  isOrderSure="{{isOrderSure}}"
+			  isDisabledBtn="{{addressList.length >= 20}}"
+			  navigator="{{true}}"
+			  t-class="location-btn"
+			  isCustomStyle="{{true}}"
 			/>
 			<view class="address-btn {{addressList.length >= 20 ? 'btn-default':''}}" bind:tap="addAddress">
 				<t-icon
-				 name="add"
-				 size="48rpx"
-				 color="#fff"
-				 t-class="custom-class"
+				  name="add"
+				  size="48rpx"
+				  color="#fff"
+				  t-class="custom-class"
 				/>
 				<text>新建收货地址</text>
 			</view>
