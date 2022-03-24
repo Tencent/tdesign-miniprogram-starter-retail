@@ -44,13 +44,9 @@ Page({
 
   init() {
     this.setData({ pageLoading: true });
-    this.getService()
-      .then(() => {
-        this.setData({ pageLoading: false });
-      })
-      .catch((err) => {
-        console.error(err);
-      });
+    this.getService().then(() => {
+      this.setData({ pageLoading: false });
+    });
   },
 
   getService() {
