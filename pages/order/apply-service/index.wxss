@@ -142,28 +142,50 @@
 .order-goods-card-title-class {
   width: 10rpx !important;
 }
+
+.input-dialog__content .input-dialog__input {
+  font-size: 72rpx!important;
+  height: 64rpx;
+}
+
 .input-dialog__content {
   text-align: left;
 }
+
 .input-dialog__content .input {
-  font-size: 32rpx;
-  height: 80rpx;
-  box-sizing: border-box;
-  padding: 0 16rpx;
-  position: relative;
+  font-size: 48rpx;
+  padding-left: 0;
+  padding-right: 0;
+  /* height: 80rpx; */
+  /* height: 80rpx; */
+  /* box-sizing: border-box; */
+  /* position: relative; */
+  /* width: 100%; */
+  /* border: 1px solid red; */
+
 }
-.input-dialog__content .input::after {
+/* .input-dialog__content .input::after {
   display: block;
   content: '¥';
   position: absolute;
   top: 50%;
   left: 5rpx;
   transform: translateY(-50%);
-}
+} */
 .input-dialog__content .tips {
-  margin-top: 20rpx;
+  margin-top: 24rpx;
   font-size: 24rpx;
   color: #999999;
+}
+
+.t-input__name {
+  width: 10rpx!important;
+}
+
+.input-dialog__title {
+  color: #333;
+  font-size: 32rpx;
+  font-weight: normal;
 }
 
 .dialog--service-status {
