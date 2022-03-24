@@ -43,7 +43,7 @@ page {
 .goods-detail-page .goods-info .goods-price .class-goods-del {
   position: relative;
   font-weight: normal;
-  left: 12rpx;
+  left: 16rpx;
   bottom: 2rpx;
   color: #999999;
   font-size: 32rpx;
@@ -60,7 +60,7 @@ page {
   color: #999999;
   display: flex;
   align-items: flex-end;
-  margin-right: 28rpx;
+  margin-right: 32rpx;
 }
 
 .goods-detail-page .goods-info .goods-activity {
