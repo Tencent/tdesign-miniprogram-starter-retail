@@ -151,16 +151,15 @@ Component({
     clickHandle() {
       this.triggerEvent('click', { goods: this.data.goods });
     },
+
     clickThumbHandle() {
       this.triggerEvent('thumb', { goods: this.data.goods });
     },
+
     clickSpecsHandle() {
       this.triggerEvent('specs', { goods: this.data.goods });
     },
-    clickTagHandle(e) {
-      const { index } = e.currentTarget.dataset;
-      this.triggerEvent('tag', { goods: this.data.goods, index });
-    },
+
     // 加入购物车
     addCartHandle(e) {
       const { id } = e.currentTarget;
