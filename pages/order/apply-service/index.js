@@ -324,8 +324,6 @@ Page({
         this.data.serviceFrom.amount.current,
       ),
       'serviceFrom.amount.focus': true,
-    });
-    this.setData({
       inputDialogVisible: true,
     });
     this.inputDialog.setData({
@@ -337,6 +335,7 @@ Page({
         'serviceFrom.amount.current': this.data.serviceFrom.amount.temp * 100,
       });
     };
+    this.inputDialog._onCancel = () => {};
   },
 
   // 对输入的值进行过滤

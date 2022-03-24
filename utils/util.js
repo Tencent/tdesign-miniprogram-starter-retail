@@ -12,16 +12,17 @@ function priceFormat(price, fill = 0) {
   if (isNaN(price) || price === null || price === Infinity) {
     return price;
   }
+
   let priceFormatValue = Math.round(parseFloat(`${price}`) * 10 ** 8) / 10 ** 8; // 恢复精度丢失
-  priceFormatValue = `${Math.ceil(price) / 100}`; // 向上取整，单位转换为元，转换为字符串
+  priceFormatValue = `${Math.ceil(priceFormatValue) / 100}`; // 向上取整，单位转换为元，转换为字符串
   if (fill > 0) {
     // 补充小数位数
-    if (price.indexOf('.') === -1) {
-      priceFormatValue = `${price}.`;
+    if (priceFormatValue.indexOf('.') === -1) {
+      priceFormatValue = `${priceFormatValue}.`;
     }
-    const n = fill - price.split('.')[1]?.length;
+    const n = fill - priceFormatValue.split('.')[1]?.length;
     for (let i = 0; i < n; i++) {
-      priceFormatValue = `${price}0`;
+      priceFormatValue = `${priceFormatValue}0`;
     }
   }
   return priceFormatValue;
