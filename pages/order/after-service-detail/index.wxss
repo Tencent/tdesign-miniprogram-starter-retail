@@ -21,6 +21,7 @@
 
 .order-goods-card-footer-num {
   color: #999;
+  line-height: 40rpx;
 }
 
 .service-detail .order-goods-card-footer .order-goods-card-footer-price-class {

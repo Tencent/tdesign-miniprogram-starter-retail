@@ -34,17 +34,32 @@
 
 			<!-- 物流 -->
 			<view class="order-logistics" wx:if="{{logisticsNodes[0]}}" bindtap="onDeliveryClick">
-				<t-icon name="books" size="40rpx" class="logistics-icon" />
+				<t-icon
+				 name="deliver"
+				 size="40rpx"
+				 class="logistics-icon"
+				 prefix="wr"
+				/>
 				<view class="logistics-content">
 					<view>{{logisticsNodes[0].desc}}</view>
 					<view class="logistics-time">{{logisticsNodes[0].date}}</view>
 				</view>
-				<t-icon class="logistics-back" name="chevron-right" size="40rpx" />
+				<t-icon
+				 class="logistics-back"
+				 name="arrow_forward"
+				 size="36rpx"
+				 prefix="wr"
+				/>
 			</view>
 			<view class="border-bottom" wx:if="{{logisticsNodes[0]}}" />
 			<!-- 收货地址 -->
 			<view class="order-logistics">
-				<t-icon name="location" size="40rpx" class="logistics-icon" />
+				<t-icon
+				 name="location"
+				 size="40rpx"
+				 class="logistics-icon"
+				 prefix="wr"
+				/>
 				<view class="logistics-content">
 					<view>{{order.logisticsVO.receiverName + ' '}}{{order.logisticsVO.receiverPhone}}</view>
 					<view class="logistics-time">{{_order.receiverAddress}}</view>
@@ -121,7 +136,6 @@
 				</view>
 			</view>
 		</order-card>
-
 		<view class="pay-detail padding-inline">
 			<view class="pay-item">
 				<text>订单编号</text>
@@ -156,13 +170,11 @@
 				<text decode="{{true}}">&nbsp;联系客服</text>
 			</view>
 		</view>
-		<!-- 为你推荐 -->
-		<!-- <rec-good-list style="margin-top: 40rpx" sceneId="{{7}}" /> -->
-		<!-- 底部栏 -->
 	</view>
 	<view wx:if="{{_order.buttons.length > 0}}" class="bottom-bar">
 		<order-button-bar order="{{_order}}" bindrefresh="onRefresh" isBtnMax />
 	</view>
 </t-pull-down-refresh>
 <t-toast id="t-toast" />
+<t-dialog id="t-dialog" t-class-confirm="add-notes__confirm" />
 

@@ -30,7 +30,8 @@
   display: none;
 }
 .btn-bar .right .normal {
-  color: #666666;
+  color: #333;
+  font-size: 28rpx;
 }
 .btn-bar .right .normal:after {
   border-color: #bbbbbb;

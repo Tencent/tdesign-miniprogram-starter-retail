@@ -152,27 +152,6 @@ Page({
     };
   },
 
-  // onDeliveryButtonTap(e) {
-  //   const { type } = e.currentTarget.dataset;
-  //   if (type === ServiceButtonTypes.FILL_TRACKING_NO) {
-  //     this.onFillTrackingNo(this.data.service);
-  //   } else if (type === ServiceButtonTypes.CHANGE_TRACKING_NO) {
-  //     this.onChangeTrackingNo(this.data.service);
-  //   }
-  // },
-
-  // onFillTrackingNo(service) {
-  //   wx.navigateTo({
-  //     url: `/pages/order/fill-tracking-no/index?rightsNo=${service.id}`,
-  //   });
-  // },
-
-  // onChangeTrackingNo(service) {
-  //   wx.navigateTo({
-  //     url: `/pages/order/fill-tracking-no/index?rightsNo=${service.id}&logisticsNo=${service.logisticsNo}&logisticsCompanyName=${service.logisticsCompanyName}&logisticsCompanyCode=${service.logisticsCompanyCode}&remark=${service.remark}`,
-  //   });
-  // },
-
   onProofTap(e) {
     if (this.data.gallery.show) {
       this.setData({

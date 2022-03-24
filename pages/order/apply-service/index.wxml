@@ -122,12 +122,12 @@
 		</view>
 		<view class="service-from-group">
 			<t-cell-group>
-				<t-cell title="退款说明" t-class-left="t-cell__left">
+				<t-cell title="退款说明" t-class-left="t-cell__left" bordered="{{false}}">
 					<t-textarea
 					 value="{{serviceFrom.remark}}"
 					 t-class="service-from-group__textarea"
 					 slot="description"
-					 maxlength="100"
+					 maxlength="200"
 					 placeholder="退款说明（选填）"
 					 bind:change="onRemarkChange"
 					/>
