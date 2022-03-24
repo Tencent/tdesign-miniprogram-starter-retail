@@ -144,7 +144,7 @@
 }
 
 .input-dialog__content .input-dialog__input {
-  font-size: 72rpx!important;
+  font-size: 72rpx !important;
   height: 64rpx;
 }
 
@@ -162,7 +162,6 @@
   /* position: relative; */
   /* width: 100%; */
   /* border: 1px solid red; */
-
 }
 /* .input-dialog__content .input::after {
   display: block;
@@ -179,7 +178,7 @@
 }
 
 .t-input__name {
-  width: 10rpx!important;
+  width: 10rpx !important;
 }
 
 .input-dialog__title {
@@ -203,7 +202,7 @@
 .dialog--service-status .options .option:not(:last-child) {
   border-bottom: 1rpx solid #e6e6e6;
 }
-.dialog--service-status .options .option:active {
+.dialog--service-status .options .option--active {
   opacity: 0.5;
 }
 .dialog--service-status .options .option.main {
@@ -218,7 +217,7 @@
   background-color: white;
   margin-top: 20rpx;
 }
-.dialog--service-status .cancel:active {
+.dialog--service-status .cancel--active {
   opacity: 0.5;
 }
 .amount-dialog--focus .popup__content--center,
@@ -267,7 +266,9 @@
   background: #f5f5f5 !important;
   border-radius: 16rpx;
 }
-.service-from-group__textarea .t-textarea__wrapper .t-textarea__wrapper-textarea {
+.service-from-group__textarea
+  .t-textarea__wrapper
+  .t-textarea__wrapper-textarea {
   height: 136rpx;
   box-sizing: border-box;
 }

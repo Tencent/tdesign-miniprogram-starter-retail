@@ -29,6 +29,7 @@ page {
 .goods-list-container .category-goods-list {
   background-color: #f2f2f2;
   overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
   padding: 20rpx 24rpx;
 }
 

@@ -3,7 +3,7 @@
   color: #333;
   font-size: 24rpx;
 }
-.text-btn:active {
+.text-btn--active {
   opacity: 0.5;
 }
 .dialog--customer-service {
@@ -35,7 +35,7 @@
 .dialog--customer-service .options .option:not(:last-child) {
   margin-bottom: 20rpx;
 }
-.dialog--customer-service .options .option:active {
+.dialog--customer-service .options .option--active {
   opacity: 0.5;
 }
 .dialog--customer-service .options .option.main {

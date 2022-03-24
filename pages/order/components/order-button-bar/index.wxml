@@ -1,28 +1,30 @@
 <view class="btn-bar">
 	<view class="left">
 		<t-button
-		 wx:for="{{buttons.left}}"
-		 wx:key="type"
-		 wx:for-item="leftBtn"
-		 size="medium"
-		 t-class="{{isBtnMax ? 't-button--max':'t-button'}}  order-btn delete-btn"
-		 catchtap="onOrderBtnTap"
-		 data-type="{{leftBtn.type}}"
+		  wx:for="{{buttons.left}}"
+		  wx:key="type"
+		  wx:for-item="leftBtn"
+		  size="medium"
+		  t-class="{{isBtnMax ? 't-button--max':'t-button'}}  order-btn delete-btn"
+		  hover-class="order-btn--active"
+		  catchtap="onOrderBtnTap"
+		  data-type="{{leftBtn.type}}"
 		>
 			{{leftBtn.name}}
 		</t-button>
 	</view>
 	<view class="right">
 		<t-button
-		 wx:for="{{buttons.right}}"
-		 wx:key="type"
-		 wx:for-item="rightBtn"
-		 size="medium"
-		 t-class="{{isBtnMax ? 't-button--max':'t-button'}} order-btn {{rightBtn.primary ? 'primary' : 'normal'}}"
-		 catchtap="onOrderBtnTap"
-		 data-type="{{rightBtn.type}}"
-		 open-type="{{ rightBtn.openType }}"
-		 data-share="{{ rightBtn.dataShare }}"
+		  wx:for="{{buttons.right}}"
+		  wx:key="type"
+		  wx:for-item="rightBtn"
+		  size="medium"
+		  t-class="{{isBtnMax ? 't-button--max':'t-button'}} order-btn {{rightBtn.primary ? 'primary' : 'normal'}}"
+		  hover-class="order-btn--active"
+		  catchtap="onOrderBtnTap"
+		  data-type="{{rightBtn.type}}"
+		  open-type="{{ rightBtn.openType }}"
+		  data-share="{{ rightBtn.dataShare }}"
 		>
 			{{rightBtn.name}}
 		</t-button>

@@ -37,7 +37,7 @@ page {
   border-radius: 28rpx;
   color: #333;
 }
-.text-btn:active {
+.text-btn--active {
   opacity: 0.5;
 }
 .steps .step-title {
