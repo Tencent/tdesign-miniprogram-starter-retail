@@ -48,8 +48,8 @@
 					</view>
 				</view>
 				<view class="activity-show">
-					<view>领劵</view>
-					<t-icon name="chevron-right" size="40rpx" />
+					<view class="activity-show-text">领劵</view>
+					<t-icon name="chevron-right" size="42rpx" />
 				</view>
 			</view>
 			<view class="goods-title">
@@ -72,7 +72,7 @@
 				<view class="{{!selectedAttrStr ? 'tintColor' : ''}}">
 					{{selectedAttrStr ? buyNum : ''}}{{selectedAttrStr || '请选择'}}
 				</view>
-				<t-icon name="chevron-right" size="40rpx" />
+				<t-icon name="chevron-right" size="40rpx" color="#BBBBBB" />
 			</view>
 		</view>
 		<!-- 商品评论 -->

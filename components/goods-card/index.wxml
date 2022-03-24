@@ -59,7 +59,6 @@
 					  wx:for="{{ goods.tags }}"
 					  wx:key="index"
 					  wx:for-item="tag"
-					  catchtap="clickTagHandle"
 					  data-index="{{index}}"
 					  class="t-goods-card__tag"
 					>

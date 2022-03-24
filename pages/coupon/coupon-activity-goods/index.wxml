@@ -8,22 +8,21 @@
 				优惠券
 			</view>
 			<t-icon
-			 t-class="notice-bar-icon"
-			 name="help-circle"
-			 size="32rpx"
-			 color="#AAAAAA"
-			 bind:tap="openStoreList"
+			  t-class="notice-bar-icon"
+			  name="help-circle"
+			  size="32rpx"
+			  color="#AAAAAA"
+			  bind:tap="openStoreList"
 			/>
 		</view>
 	</view>
 	<view class="goods-list-container">
 		<goods-list
-		 wr-class="goods-list-wrap"
-		 goodsList="{{goods}}"
-		 layout="vertical"
-		 bind:click="goodClickHandle"
-		 bind:addcart="cardClickHandle"
-		 bind:tag="tagClickHandle"
+		  wr-class="goods-list-wrap"
+		  goodsList="{{goods}}"
+		  layout="vertical"
+		  bind:click="goodClickHandle"
+		  bind:addcart="cartClickHandle"
 		/>
 	</view>
 	<!-- 弹层 -->
@@ -32,10 +31,10 @@
 			<view class="popup-content-title">
 				规则详情
 				<t-icon
-				 t-class="close-icon"
-				 name="close"
-				 size="32rpx"
-				 bind:tap="closeStoreList"
+				  t-class="close-icon"
+				  name="close"
+				  size="32rpx"
+				  bind:tap="closeStoreList"
 				/>
 			</view>
 			<view class="desc-group-wrap">

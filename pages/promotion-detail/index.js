@@ -58,12 +58,4 @@ Page({
       message: '点击规则详情',
     });
   },
-
-  tagClickHandle() {
-    Toast({
-      context: this,
-      selector: '#t-toast',
-      message: '点击标签',
-    });
-  },
 });

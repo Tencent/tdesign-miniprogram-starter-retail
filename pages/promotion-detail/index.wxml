@@ -3,10 +3,10 @@
 		<view class="banner-header">
 			<view class="banner-wrap">
 				<t-image
-				 src="{{banner}}"
-				 mode="aspectFill"
-				 webp="{{true}}"
-				 t-class="t-class-promotion-head"
+				  src="{{banner}}"
+				  mode="aspectFill"
+				  webp="{{true}}"
+				  t-class="t-class-promotion-head"
 				/>
 				<!-- 倒计时 -->
 				<view wx:if="{{!showBannerDesc && (time >= 0 || statusTag === 'finish')}}" class="count-down-wrap in-banner-count-down-wrap">
@@ -20,11 +20,11 @@
 						</view>
 						<text class="count-down-label">距结束仅剩</text>
 						<t-count-down
-						 wx:if="{{time > 0}}"
-						 t-class="wr-cd-class"
-						 time="{{time}}"
-						 format="DD天 HH:mm:ss"
-						 bind:finish="countDownFinishHandle"
+						  wx:if="{{time > 0}}"
+						  t-class="wr-cd-class"
+						  time="{{time}}"
+						  format="DD天 HH:mm:ss"
+						  bind:finish="countDownFinishHandle"
 						/>
 					</block>
 					<view class="detail-entry" bind:tap="bannerClickHandle">
@@ -48,12 +48,12 @@
 								</view>
 								<text class="count-down-label">距结束仅剩</text>
 								<t-count-down
-								 class="{{cdClass}}"
-								 wr-class="wr-cd-class"
-								 wx:if="{{time > 0}}"
-								 time="{{time}}"
-								 format="DD天 HH:mm:ss"
-								 bind:finish="countDownFinishHandle"
+								  class="{{cdClass}}"
+								  wr-class="wr-cd-class"
+								  wx:if="{{time > 0}}"
+								  time="{{time}}"
+								  format="DD天 HH:mm:ss"
+								  bind:finish="countDownFinishHandle"
 								/>
 							</block>
 							<view class="detail-entry" bind:tap="bannerClickHandle">
@@ -68,12 +68,11 @@
 	</view>
 	<view wx:if="{{list && list.length>0}}" class="promotion-goods-list">
 		<goods-list
-		 wr-class="goods-list-container"
-		 goodsList="{{list}}"
-		 layout="vertical"
-		 bind:click="goodClickHandle"
-		 bind:addcart="cardClickHandle"
-		 bind:tag="tagClickHandle"
+		  wr-class="goods-list-container"
+		  goodsList="{{list}}"
+		  layout="vertical"
+		  bind:click="goodClickHandle"
+		  bind:addcart="cardClickHandle"
 		/>
 	</view>
 	<t-toast id="t-toast" />

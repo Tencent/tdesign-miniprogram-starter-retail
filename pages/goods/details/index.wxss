@@ -43,7 +43,7 @@ page {
 .goods-detail-page .goods-info .goods-price .class-goods-del {
   position: relative;
   font-weight: normal;
-  left: 12rpx;
+  left: 16rpx;
   bottom: 2rpx;
   color: #999999;
   font-size: 32rpx;
@@ -60,7 +60,7 @@ page {
   color: #999999;
   display: flex;
   align-items: flex-end;
-  margin-right: 28rpx;
+  margin-right: 32rpx;
 }
 
 .goods-detail-page .goods-info .goods-activity {
@@ -91,8 +91,12 @@ page {
   justify-content: center;
   align-items: center;
   color: #fa4126;
-  font-size: 26rpx;
+  font-size: 24rpx;
   padding-right: 32rpx;
+}
+
+.goods-detail-page .goods-info .goods-activity .activity-show-text {
+  line-height: 42rpx;
 }
 
 .goods-detail-page .goods-info .goods-title {
@@ -116,7 +120,7 @@ page {
 
 .goods-detail-page .goods-info .goods-title .goods-tag {
   width: 104rpx;
-  margin-left: 30rpx;
+  margin-left: 26rpx;
 }
 
 .goods-detail-page .goods-info .goods-title .goods-tag .shareBtn {
@@ -124,6 +128,7 @@ page {
   width: 100rpx;
   height: 96rpx;
   border: none;
+  padding-right: 36rpx !important;
 }
 
 .goods-detail-page .goods-info .goods-title .goods-tag .shareBtn::after {

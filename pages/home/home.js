@@ -67,14 +67,6 @@ Page({
     this.loadGoodsList(true);
   },
 
-  tagClickHandle() {
-    Toast({
-      context: this,
-      selector: '#t-toast',
-      message: '点击标签',
-    });
-  },
-
   onReTry() {
     this.loadGoodsList();
   },
