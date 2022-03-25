@@ -4,7 +4,7 @@
 			<t-icon name="close" size="36rpx" />
 		</view>
 		<view class="popup-sku-header">
-			<image class="popup-sku-header__img" src="{{src}}" />
+			<t-image t-class="popup-sku-header__img" src="{{src}}" />
 			<view class="popup-sku-header__goods-info">
 				<view class="popup-sku__goods-name">{{title}}</view>
 				<view class="goods-price-container">
