@@ -11,6 +11,7 @@
 	  wx:for="{{list}}"
 	  wx:for-index="index"
 	  wx:for-item="tab"
+	  wx:key="key"
 	  label="{{tab.text}}"
 	  value="{{tab.key}}"
 	/>
@@ -22,7 +23,7 @@
 	  bind:refresh="onPullDownRefresh_"
 	  background="#fff"
 	>
-		<view class="coupon-list-item" wx:for="{{couponList}}">
+		<view class="coupon-list-item" wx:for="{{couponList}}" wx:key="key">
 			<coupon-card couponDTO="{{item}}" />
 		</view>
 	</t-pull-down-refresh>
