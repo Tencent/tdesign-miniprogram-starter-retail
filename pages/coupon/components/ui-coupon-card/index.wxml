@@ -32,7 +32,7 @@
 			<view class="wr-coupon__left--desc">{{desc}}</view>
 		</view>
 		<view wx:if="{{type == CouponType.GIFT_COUPON}}">
-			<image class="wr-coupon__left--image" src="{{image}}" mode="aspectFill" />
+			<t-image t-class="wr-coupon__left--image" src="{{image}}" mode="aspectFill" />
 		</view>
 	</view>
 	<view class="wr-coupon__right">

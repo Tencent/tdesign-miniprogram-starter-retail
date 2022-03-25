@@ -9,9 +9,9 @@ const allGoods = [
     storeId: '1000',
     spuId: '0',
     title: '白色短袖连衣裙荷叶边裙摆宽松韩版休闲',
-    primaryImage: '//cdn-we-retail.ym.tencent.com/tsr/goods/nz-09a.png',
+    primaryImage: 'https://cdn-we-retail.ym.tencent.com/tsr/goods/nz-09a.png',
     images: [
-      'https://cdn-we-retail.ym.tencent.com/tsr/goods/nz-09a.png',
+      'https:https://cdn-we-retail.ym.tencent.com/tsr/goods/nz-09a.png',
       'https://cdn-we-retail.ym.tencent.com/tsr/goods/nz-09b.png',
     ],
     video: null,
@@ -73,7 +73,7 @@ const allGoods = [
     skuList: [
       {
         skuId: '135676631',
-        skuImage: '//cdn-we-retail.ym.tencent.com/tsr/goods/nz-09a.png',
+        skuImage: 'https://cdn-we-retail.ym.tencent.com/tsr/goods/nz-09a.png',
         specInfo: [
           {
             specId: '10011',
@@ -103,7 +103,7 @@ const allGoods = [
       },
       {
         skuId: '135676632',
-        skuImage: '//cdn-we-retail.ym.tencent.com/tsr/goods/nz-09a.png',
+        skuImage: 'https://cdn-we-retail.ym.tencent.com/tsr/goods/nz-09a.png',
         specInfo: [
           {
             specId: '10011',
@@ -133,7 +133,7 @@ const allGoods = [
       },
       {
         skuId: '135681631',
-        skuImage: '//cdn-we-retail.ym.tencent.com/tsr/goods/nz-09a.png',
+        skuImage: 'https://cdn-we-retail.ym.tencent.com/tsr/goods/nz-09a.png',
         specInfo: [
           {
             specId: '10011',

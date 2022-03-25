@@ -17,7 +17,7 @@
 .btn-bar .order-btn::after {
   border-radius: 16rpx;
 }
-.btn-bar .order-btn:active {
+.btn-bar .order-btn--active {
   opacity: 0.5;
 }
 

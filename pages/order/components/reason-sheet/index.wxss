@@ -16,18 +16,6 @@ page view {
   font-weight: bold;
   position: relative;
 }
-.popup-content .header .close-icon-btn {
-  position: absolute;
-  top: 0;
-  right: 0;
-}
-.popup-content .header .close-icon-btn .icon {
-  font-size: 25rpx !important;
-  padding: 30rpx;
-}
-.popup-content .header .close-icon-btn .icon:active {
-  opacity: 0.5;
-}
 .popup-content .options {
   max-height: 60vh;
   overflow-y: scroll;

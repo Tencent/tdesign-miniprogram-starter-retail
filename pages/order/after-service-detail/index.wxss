@@ -228,7 +228,7 @@
   font-weight: normal;
   font-size: 24rpx;
 }
-.service-detail .text-btn:active {
+.service-detail .text-btn--active {
   opacity: 0.5;
 }
 

@@ -144,7 +144,7 @@
 }
 
 .input-dialog__content .input-dialog__input {
-  font-size: 72rpx!important;
+  font-size: 72rpx !important;
   height: 64rpx;
 }
 
@@ -165,7 +165,7 @@
 }
 
 .t-input__name {
-  width: 10rpx!important;
+  width: 10rpx !important;
 }
 
 .input-dialog__title {
@@ -189,7 +189,7 @@
 .dialog--service-status .options .option:not(:last-child) {
   border-bottom: 1rpx solid #e6e6e6;
 }
-.dialog--service-status .options .option:active {
+.dialog--service-status .options .option--active {
   opacity: 0.5;
 }
 .dialog--service-status .options .option.main {
@@ -204,7 +204,7 @@
   background-color: white;
   margin-top: 20rpx;
 }
-.dialog--service-status .cancel:active {
+.dialog--service-status .cancel--active {
   opacity: 0.5;
 }
 .amount-dialog--focus .popup__content--center,
@@ -255,7 +255,9 @@
   background: #f5f5f5 !important;
   border-radius: 16rpx;
 }
-.service-from-group__textarea .t-textarea__wrapper .t-textarea__wrapper-textarea {
+.service-from-group__textarea
+  .t-textarea__wrapper
+  .t-textarea__wrapper-textarea {
   height: 136rpx;
   box-sizing: border-box;
 }
@@ -269,7 +271,7 @@
 }
 
 .refund-money__description {
-  font-size: 24rpx!important;
+  font-size: 24rpx !important;
 }
 
 .upload-desc {
@@ -291,17 +293,26 @@
   font-weight: bold;
 }
 
-.service-form .service-from-group .service-from-group__wrapper .refund-money-price-class {
+.service-form
+  .service-from-group
+  .service-from-group__wrapper
+  .refund-money-price-class {
   font-size: 36rpx;
   font-family: DIN Alternate;
 }
 
-.service-form .service-from-group .service-from-group__wrapper .refund-money-price-decimal {
+.service-form
+  .service-from-group
+  .service-from-group__wrapper
+  .refund-money-price-decimal {
   font-size: 28rpx;
   font-family: DIN Alternate;
 }
 
-.service-form .service-from-group .service-from-group__wrapper .refund-money-price-symbol {
+.service-form
+  .service-from-group
+  .service-from-group__wrapper
+  .refund-money-price-symbol {
   font-size: 24rpx;
   font-family: DIN Alternate;
 }
