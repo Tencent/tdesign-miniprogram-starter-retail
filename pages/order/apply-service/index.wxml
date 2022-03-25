@@ -149,7 +149,7 @@
 			 bind:success="handleSuccess"
 			 bind:complete="handleComplete"
 			 bind:select-change="handleSelectChange"
-			 gridConfig="{{gridConfig}}"
+			 gridConfig="{{uploadGridConfig}}"
 			 addContent="slot"
 			 max="3"
 			>
