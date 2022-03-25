@@ -348,19 +348,15 @@ Page({
       if (code.toUpperCase() === 'SUCCESS') {
         const nextState = {
           commentsList: homePageComments.map((item) => {
-            const result = {
-              goodsSpu: item.goodsSpu,
-              isAnonymity: item.isAnonymity,
-              uid: item.uid,
+            return {
+              goodsSpu: item.spuId,
+              userName: item.userName || '',
               commentScore: item.commentScore,
               commentContent: item.commentContent || '用户未填写评价',
-              commentImageUrls: item.commentImageUrls || [],
               userHeadUrl: item.isAnonymity
                 ? this.anonymityAvatar
                 : item.userHeadUrl || this.anonymityAvatar,
-              userName: item.userName || '',
             };
-            return result;
           }),
         };
         this.setData(nextState);

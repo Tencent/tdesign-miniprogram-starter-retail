@@ -1,5 +1,3 @@
-<import src="template/comments.wxml" />
-
 <view class="goods-detail-page">
 	<view class="goods-head">
 		<t-swiper
@@ -76,7 +74,42 @@
 			</view>
 		</view>
 		<!-- 商品评论 -->
-		<template is="comments" data="{{commentsList, commentsStatistics}}" />
+		<view wx:if="{{ commentsStatistics.commentCount > 0 }}" class="comments-wrap">
+			<view class="comments-head" bindtap="navToCommentsListPage">
+				<view class="comments-title-wrap">
+					<view class="comments-title-label">商品评价</view>
+					<view class="comments-title-count">
+						({{ commentsStatistics.commentCount }})
+					</view>
+				</view>
+				<view class="comments-rate-wrap">
+					<view class="comments-good-rate">{{commentsStatistics.goodRate}}% 好评</view>
+					<t-icon name="chevron-right" size="40rpx" color="#BBBBBB" />
+				</view>
+			</view>
+			<view
+			  class="comment-item-wrap"
+			  wx:for="{{ commentsList }}"
+			  wx:for-item="commentItem"
+			  wx:key="goodsSpu"
+			>
+				<view class="comment-item-head">
+					<t-image src="{{commentItem.userHeadUrl}}" t-class="comment-item-avatar" />
+					<view class="comment-head-right">
+						<view class="comment-username">{{commentItem.userName}}</view>
+						<t-rate
+						  value="{{ commentItem.commentScore }}"
+						  count="{{5}}"
+						  variant="filled"
+						  color="#FFC51C"
+						/>
+					</view>
+				</view>
+				<view class="comment-item-content">
+					{{commentItem.commentContent}}
+				</view>
+			</view>
+		</view>
 	</view>
 	<view class="desc-content">
 		<view class="desc-content__title" wx:if="{{details.desc.length > 0}}">
