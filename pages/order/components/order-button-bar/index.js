@@ -11,7 +11,6 @@ Component({
       type: Object,
       observer(order) {
         // 判定有传goodsIndex ，则认为是商品button bar, 仅显示申请售后按钮
-        console.log(this.properties?.goodsIndex);
         if (this.properties?.goodsIndex) {
           const goods = order.goodsList[Number(this.properties.goodsIndex)];
           this.setData({
