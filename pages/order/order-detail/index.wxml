@@ -80,13 +80,15 @@
 			 no-top-line="{{gIndex === 0}}"
 			 bindtap="onGoodsCardTap"
 			 data-index="{{gIndex}}"
-			/>
-			<order-button-bar
-			 class="goods-button-bar"
-			 order="{{_order}}"
-			 bindrefresh="onRefresh"
-			 goodsIndex="{{gIndex}}"
-			/>
+			>
+				<order-button-bar
+					slot="append-card"
+					class="goods-button-bar"
+					order="{{_order}}"
+					bindrefresh="onRefresh"
+					goodsIndex="{{gIndex}}"
+				/>
+			</order-goods-card>
 			<view class="pay-detail">
 				<view class="pay-item">
 					<text>商品总额</text>

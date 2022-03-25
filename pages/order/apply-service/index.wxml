@@ -100,15 +100,22 @@
 					/>
 				</t-cell>
 				<t-cell
-				 title="退货金额"
+				 title="退款金额"
 				 t-class-left="t-cell__left"
+				 t-class-description="refund-money__description"
 				 description="{{amountTip}}"
 				 bind:tap="onAmountTap"
 				>
 					<view class="service-from-group__wrapper" slot="note">
-						<wr-price price="{{serviceFrom.amount.current}}" />
+						<wr-price 
+							price="{{serviceFrom.amount.current}}" 
+							fill
+							wr-class="refund-money-price-class"
+				 			symbol-class="refund-money-price-symbol"
+				 			decimal-class="refund-money-price-decimal"
+						/>
 						<view class="service-from-group__price">
-							可修改
+							修改
 							<t-icon
 							 color="#bbb"
 							 name="chevron-right"
@@ -142,8 +149,9 @@
 			 bind:success="handleSuccess"
 			 bind:complete="handleComplete"
 			 bind:select-change="handleSelectChange"
-			 gridConfig="{{gridConfig}}"
+			 gridConfig="{{uploadGridConfig}}"
 			 addContent="slot"
+			 max="3"
 			>
 				<view slot="addContent" class="upload-addcontent-slot">
 					<t-icon name="add" size="60rpx" />
@@ -187,17 +195,22 @@
  t-class-confirm="add-notes__confirm"
  class="{{serviceFrom.amount.focus ? 'amount-dialog--focus' : ''}}"
 >
+	<view class="input-dialog__title" slot="title">退款金额</view>
 	<view class="input-dialog__content" slot="content">
 		<t-input
-		 class="input"
-		 placeholder="请输入退款金额"
+		 t-class="input"
+		 t-class-input="input-dialog__input"
+		 placeholder=""
 		 value="{{serviceFrom.amount.temp}}"
 		 type="digit"
 		 focus="{{serviceFrom.amount.focus}}"
 		 bindinput="onAmountInput"
 		 bindfocus="onAmountFocus"
 		 bindblur="onAmountBlur"
-		/>
+		 label="slot"
+		>
+			<view slot="label">¥</view>
+		</t-input>
 		<view class="tips">{{amountTip}}</view>
 	</view>
 </t-dialog>

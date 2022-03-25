@@ -12,8 +12,6 @@ import {
 
 Page({
   query: {},
-  uploadFailedCount: 0, // 上传失败的凭证数
-
   data: {
     pageLoading: true,
     uploading: false, // 凭证上传状态
@@ -49,11 +47,6 @@ Page({
       height: 212,
     },
     serviceRequireType: '',
-    gridConfig: {
-      width: 218,
-      height: 218,
-      column: 3,
-    },
   },
 
   setWatcher(key, callback) {
@@ -179,10 +172,11 @@ Page({
   },
 
   async getRightsPreview() {
+    const { orderNo, skuId, spuId } = this.query;
     const params = {
-      orderNo: this.query.orderNo,
-      skuId: '1327025',
-      spuId: '1011147',
+      orderNo,
+      skuId,
+      spuId,
       numOfSku: this.data.serviceFrom.returnNum,
     };
     const res = await fetchRightsPreview(params);
@@ -324,8 +318,6 @@ Page({
         this.data.serviceFrom.amount.current,
       ),
       'serviceFrom.amount.focus': true,
-    });
-    this.setData({
       inputDialogVisible: true,
     });
     this.inputDialog.setData({
@@ -337,6 +329,7 @@ Page({
         'serviceFrom.amount.current': this.data.serviceFrom.amount.temp * 100,
       });
     };
+    this.inputDialog._onCancel = () => {};
   },
 
   // 对输入的值进行过滤
@@ -428,18 +421,7 @@ Page({
         });
         return;
       }
-      if (this.uploadFailedCount !== 0) {
-        // 有凭证上传失败时，需提醒用户
-        Dialog.confirm({
-          message: `有${this.uploadFailedCount}份文件上传失败`,
-          confirmButtonText: '继续提交',
-          cancelButtonText: '取消',
-        }).then(() => {
-          resolve();
-        });
-      } else {
-        resolve();
-      }
+      resolve();
     });
   },
 
