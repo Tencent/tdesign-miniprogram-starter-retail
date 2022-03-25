@@ -1,20 +1,17 @@
 <view class="coupon-page-container">
-	<view class="notice-bar-wrap-placeholder" />
-	<view class="notice-bar-wrap">
-		<view class="notice-bar-content">
-			<view class="notice-bar-text">
-				以下商品可使用
-				<text class="height-light">{{couponTypeDesc}}</text>
-				优惠券
-			</view>
-			<t-icon
-			  t-class="notice-bar-icon"
-			  name="help-circle"
-			  size="32rpx"
-			  color="#AAAAAA"
-			  bind:tap="openStoreList"
-			/>
+	<view class="notice-bar-content">
+		<view class="notice-bar-text">
+			以下商品可使用
+			<text class="height-light">{{couponTypeDesc}}</text>
+			优惠券
 		</view>
+		<t-icon
+		  t-class="notice-bar-icon"
+		  name="help-circle"
+		  size="32rpx"
+		  color="#AAAAAA"
+		  bind:tap="openStoreList"
+		/>
 	</view>
 	<view class="goods-list-container">
 		<goods-list
