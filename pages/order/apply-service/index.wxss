@@ -103,7 +103,7 @@
 
 .select-service .bottom-bar__btn {
   width: 686rpx;
-  background-color: #fa550f;
+  background-color: #fa4126;
   color: white;
   font-size: 32rpx;
   border-radius: 48rpx;
@@ -193,7 +193,7 @@
   opacity: 0.5;
 }
 .dialog--service-status .options .option.main {
-  color: #fa550f;
+  color: #fa4126;
 }
 .dialog--service-status .cancel {
   color: #333333;
@@ -213,8 +213,8 @@
   transform: translate(-50%, 0);
 }
 .dialog .dialog__button-confirm {
-  color: #fa550f;
-  color: var(--color-primary, #fa550f);
+  color: #fa4126;
+  color: var(--color-primary, #fa4126);
 }
 .select-service .bottom-bar {
   background-color: #f5f5f5;
