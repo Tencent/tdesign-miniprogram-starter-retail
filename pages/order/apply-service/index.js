@@ -179,7 +179,9 @@ Page({
       spuId,
       numOfSku: this.data.serviceFrom.returnNum,
     };
+    console.log('params: ', params);
     const res = await fetchRightsPreview(params);
+    console.log('res: ', res);
     return res;
   },
 
