@@ -100,15 +100,22 @@
 					/>
 				</t-cell>
 				<t-cell
-				 title="退货金额"
+				 title="退款金额"
 				 t-class-left="t-cell__left"
+				 t-class-description="refund-money__description"
 				 description="{{amountTip}}"
 				 bind:tap="onAmountTap"
 				>
 					<view class="service-from-group__wrapper" slot="note">
-						<wr-price price="{{serviceFrom.amount.current}}" />
+						<wr-price 
+							price="{{serviceFrom.amount.current}}" 
+							fill
+							wr-class="refund-money-price-class"
+				 			symbol-class="refund-money-price-symbol"
+				 			decimal-class="refund-money-price-decimal"
+						/>
 						<view class="service-from-group__price">
-							可修改
+							修改
 							<t-icon
 							 color="#bbb"
 							 name="chevron-right"

@@ -156,22 +156,8 @@
   font-size: 48rpx;
   padding-left: 0;
   padding-right: 0;
-  /* height: 80rpx; */
-  /* height: 80rpx; */
-  /* box-sizing: border-box; */
-  /* position: relative; */
-  /* width: 100%; */
-  /* border: 1px solid red; */
-
 }
-/* .input-dialog__content .input::after {
-  display: block;
-  content: '¥';
-  position: absolute;
-  top: 50%;
-  left: 5rpx;
-  transform: translateY(-50%);
-} */
+
 .input-dialog__content .tips {
   margin-top: 24rpx;
   font-size: 24rpx;
@@ -261,6 +247,8 @@
   align-items: center;
   color: #bbb;
   font-size: 24rpx;
+  position: relative;
+  left: 30rpx;
 }
 .service-from-group__textarea {
   margin-top: 32rpx;
@@ -279,6 +267,11 @@
 .select-service .t-cell__left {
   margin-right: 0 !important;
 }
+
+.refund-money__description {
+  font-size: 24rpx!important;
+}
+
 .upload-desc {
   text-align: center;
   display: flex;
@@ -296,4 +289,19 @@
 .service-choice .t-cell__title-text {
   color: #333;
   font-weight: bold;
+}
+
+.service-form .service-from-group .service-from-group__wrapper .refund-money-price-class {
+  font-size: 36rpx;
+  font-family: DIN Alternate;
+}
+
+.service-form .service-from-group .service-from-group__wrapper .refund-money-price-decimal {
+  font-size: 28rpx;
+  font-family: DIN Alternate;
+}
+
+.service-form .service-from-group .service-from-group__wrapper .refund-money-price-symbol {
+  font-size: 24rpx;
+  font-family: DIN Alternate;
 }
