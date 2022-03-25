@@ -30,6 +30,7 @@ page {
   background-color: #f2f2f2;
   overflow-y: scroll;
   padding: 20rpx 24rpx;
+  -webkit-overflow-scrolling: touch;
 }
 
 .goods-list-container .wr-goods-list {
