@@ -31,6 +31,7 @@ page {
   overflow-y: scroll;
   -webkit-overflow-scrolling: touch;
   padding: 20rpx 24rpx;
+  -webkit-overflow-scrolling: touch;
 }
 
 .goods-list-container .wr-goods-list {
