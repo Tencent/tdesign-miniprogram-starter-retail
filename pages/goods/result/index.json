@@ -6,9 +6,9 @@
     "t-empty": "tdesign-miniprogram/empty/empty",
     "t-toast": "tdesign-miniprogram/toast/toast",
     "goods-list": "/components/goods-list/index",
-    "t-filter": "/components/filter/index",
-    "t-filter-popup": "/components/filter-popup/index",
-    "t-load-more": "/components/load-more/index",
+    "filter": "/components/filter/index",
+    "filter-popup": "/components/filter-popup/index",
+    "load-more": "/components/load-more/index",
     "t-icon": "tdesign-miniprogram/icon/icon"
   },
   "onReachBottomDistance": 50

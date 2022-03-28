@@ -22,7 +22,7 @@
 		  bind:addcart="cartClickHandle"
 		/>
 	</view>
-	<!-- 弹层 -->
+	<floating-button count="{{cartNum}}" />
 	<t-popup visible="{{showStoreInfoList}}" placement="bottom" bind:visible-change="closeStoreList">
 		<view class="popup-content-wrap" slot="content">
 			<view class="popup-content-title">

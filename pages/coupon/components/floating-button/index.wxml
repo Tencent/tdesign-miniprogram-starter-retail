@@ -1,0 +1,14 @@
+<view class="floating-button" bind:tap="goToCart">
+	<view class="floating-inner-container">
+		<t-icon
+		  prefix="wr"
+		  name="{{icon}}"
+		  size="42rpx"
+		  color="#FFFFFF"
+		/>
+	</view>
+	<view class="floating-right-top">
+		{{count}}
+	</view>
+</view>
+
