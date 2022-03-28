@@ -21,6 +21,7 @@
 
 .order-goods-card-footer-num {
   color: #999;
+  line-height: 40rpx;
 }
 
 .service-detail .order-goods-card-footer .order-goods-card-footer-price-class {
@@ -78,7 +79,7 @@
 
 .service-detail .service-section {
   margin: 20rpx 0 20rpx 0;
-  padding: 30rpx 20rpx;
+  padding: 30rpx 32rpx;
   width: auto;
   border-radius: 8rpx;
   background-color: white;
@@ -92,16 +93,14 @@
   overflow: hidden;
 }
 .service-detail .service-section__title {
-  font-size: 30rpx;
   color: #333333;
-  font-weight: bold;
   margin-bottom: 10rpx;
   height: 200rpx;
   position: relative;
 }
 .service-detail .service-section__title .icon {
   margin-right: 16rpx;
-  font-size: 30rpx !important;
+  font-size: 40rpx !important;
 }
 .service-detail .service-section__title .right {
   flex: none;
@@ -229,7 +228,7 @@
   font-weight: normal;
   font-size: 24rpx;
 }
-.service-detail .text-btn:active {
+.service-detail .text-btn--active {
   opacity: 0.5;
 }
 
@@ -367,7 +366,7 @@
 
 .t-refund-info {
   font-size: 26rpx;
-  color: #333333;
+  color: #666;
 }
 
 .t-refund-info-img {
@@ -376,12 +375,34 @@
 }
 
 .t-refund-wrapper {
-  padding: 10rpx 24rpx !important;
+  padding: 10rpx 24rpx 10rpx 20rpx!important;
 }
+
+.t-refund-title {
+  font-size: 28rpx;
+  color: #333;
+  font-weight: bold;
+}
+
+.t-refund-note {
+  font-size: 26rpx;
+  color: #333!important;
+}
+
+.service-detail .logistics {
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-right: 0;
+}
+
 .service-section__title__header {
   display: flex;
   align-items: center;
+  color: #333;
+  font-weight: normal;
+  font-size: 32rpx;
 }
+
 .safe-bottom {
   padding-bottom: env(safe-area-inset-bottom);
 }
@@ -398,4 +419,20 @@
 }
 .t-class-indicator {
   color: #b9b9b9 !important;
+}
+
+.service-detail .goods-refund-address {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.service-detail .goods-refund-address .goods-refund-address-copy-btn {
+  position: absolute; 
+  top: 22rpx; 
+  right:0
+}
+
+.service-detail .service-goods-card-wrap {
+  padding-top: 0;
+  padding-bottom: 0;
 }

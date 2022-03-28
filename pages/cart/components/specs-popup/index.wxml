@@ -6,7 +6,7 @@
 >
 	<view class="specs-popup" slot="content">
 		<view>
-			<wr-goods-card
+			<goods-card
 			 data="{{goods}}"
 			 layout="horizontal-wrap"
 			 thumb-mode="{{thumbMode}}"

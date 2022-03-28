@@ -1,6 +1,5 @@
 import Toast from 'tdesign-miniprogram/toast/index';
 import Dialog from 'tdesign-miniprogram/dialog/index';
-
 import { OrderButtonTypes } from '../../config';
 
 Component({
@@ -12,8 +11,8 @@ Component({
       type: Object,
       observer(order) {
         // 判定有传goodsIndex ，则认为是商品button bar, 仅显示申请售后按钮
-        if (this.properties.goodsIndex !== null) {
-          const goods = order.goodsList[this.properties.goodsIndex];
+        if (this.properties?.goodsIndex !== null) {
+          const goods = order.goodsList[Number(this.properties.goodsIndex)];
           this.setData({
             buttons: {
               left: [],
@@ -118,10 +117,12 @@ Component({
         case OrderButtonTypes.INVITE_GROUPON:
           //分享邀请好友拼团
           break;
+        case OrderButtonTypes.REBUY:
+          this.onBuyAgain(this.data.order);
       }
     },
 
-    onCancel(order) {
+    onCancel() {
       Toast({
         context: this,
         selector: '#t-toast',
@@ -130,7 +131,7 @@ Component({
       });
     },
 
-    onConfirm(order) {
+    onConfirm() {
       Dialog.confirm({
         title: '确认是否已经收到货？',
         content: '',
@@ -141,7 +142,7 @@ Component({
           Toast({
             context: this,
             selector: '#t-toast',
-            message: '你确认收货了',
+            message: '你确认了确认收货',
             icon: 'check-circle',
           });
         })
@@ -149,13 +150,13 @@ Component({
           Toast({
             context: this,
             selector: '#t-toast',
-            message: '你取消收货了',
+            message: '你取消了确认收货',
             icon: 'check-circle',
           });
         });
     },
 
-    onPay(order) {
+    onPay() {
       Toast({
         context: this,
         selector: '#t-toast',
@@ -164,9 +165,17 @@ Component({
       });
     },
 
+    onBuyAgain() {
+      Toast({
+        context: this,
+        selector: '#t-toast',
+        message: '你点击了再次购买',
+        icon: 'check-circle',
+      });
+    },
+
     onApplyRefund(order) {
       const goods = order.goodsList[this.properties.goodsIndex];
-
       const params = {
         orderNo: order.orderNo,
         skuId: goods?.skuId ?? '19384938948343',
@@ -186,7 +195,7 @@ Component({
       wx.navigateTo({ url: `/pages/order/apply-service/index?${paramsStr}` });
     },
 
-    onViewRefund(order) {
+    onViewRefund() {
       Toast({
         context: this,
         selector: '#t-toast',
@@ -201,7 +210,7 @@ Component({
       const title = order?.goodsList?.[0]?.title;
       const specs = order?.goodsList?.[0]?.specs;
       wx.navigateTo({
-        url: `/pages/goods/comments/create/index?specs=${specs}&title=${title}&orderNo=${order.orderNo}&imgUrl=${imgUrl}`,
+        url: `/pages/goods/comments/create/index?specs=${specs}&title=${title}&orderNo=${order?.orderNo}&imgUrl=${imgUrl}`,
       });
     },
   },

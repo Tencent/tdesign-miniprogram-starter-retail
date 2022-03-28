@@ -1,30 +1,48 @@
 page {
   box-sizing: border-box;
-  padding-bottom: 100rpx;
+  padding-bottom: calc(env(safe-area-inset-bottom) + 96rpx);
+}
+
+.t-tabs.t-tabs--top .t-tabs__scroll {
+  border-bottom: none !important;
+}
+
+.home-page-header {
+  background: linear-gradient(#fff, #f5f5f5);
 }
 
 .home-page-container {
+  background: #f5f5f5;
+}
+
+.home-page-container,
+.home-page-header {
   display: block;
   padding: 0 24rpx;
 }
 
-.home-page-container .t-class__input-container {
+.home-page-header .t-class__input-container {
   border-radius: 32rpx !important;
   height: 64rpx !important;
 }
 
-.home-page-container .t-search__left-icon {
-  display: flex;
-  align-items: center;
-}
-
-.home-page-container .t-search__input {
+.home-page-header .t-search__input {
   font-size: 28rpx !important;
   color: rgb(116, 116, 116) !important;
 }
 
-.container .t-tabs {
-  margin: 20rpx 0;
+.home-page-header .swiper-wrap {
+  margin-top: 20rpx;
+}
+
+.home-page-header .swipe-img {
+  width: 100%;
+  height: 300rpx;
+  border-radius: 10rpx;
+}
+
+.home-page-container .t-tabs {
+  background: #f5f5f5;
 }
 
 .home-page-container .t-tabs .t-tabs-nav {
@@ -34,22 +52,8 @@ page {
   color: #333;
 }
 
-.home-page-container .t-tabs .t-tabs-is-active {
-  color: #fa550f !important;
-}
-
-.home-page-container .t-tabs .t-tabs-track {
-  background-color: #fa550f !important;
-}
-
 .home-page-container .t-tabs .t-tabs-scroll {
   border: none !important;
-}
-.home-page-container .tab.order-nav {
-  background-color: transparent;
-  line-height: 80rpx;
-  font-size: 28rpx;
-  color: #333;
 }
 
 /* 半个字 */
@@ -68,15 +72,6 @@ page {
   background-color: #fa550f !important;
 }
 
-.home-page-container .swiper-wrap {
-  margin: 20rpx 0;
-}
-
-.home-page-container .swipe-img {
-  width: 100%;
-  height: 300rpx;
-}
-
 .home-page-container .t-class-item {
   color: #333333 !important;
   font-size: 32rpx;
@@ -84,12 +79,21 @@ page {
 
 .home-page-container .t-class-track {
   background-color: #fa4126 !important;
+  height: 6rpx !important;
+  border-radius: 4rpx !important;
+  width: 48rpx !important;
+}
+
+.t-tabs.t-tabs--top .t-tabs__item,
+.t-tabs.t-tabs--bottom .t-tabs__item {
+  height: 86rpx !important;
 }
 
 .home-page-container .goods-list-container {
   background: #f5f5f5 !important;
   margin-top: 24rpx;
 }
-.t-class-indicator {
+.t-class-indicator,
+.loading-text {
   color: #b9b9b9 !important;
 }

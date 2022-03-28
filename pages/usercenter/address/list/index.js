@@ -82,7 +82,7 @@ Page({
           [`addressList[${len}]`]: {
             name: res.userName,
             phoneNumber: res.telNumber,
-            address: `${res.provinceName}${res.cityName}${res.countyName}${res.detailInfo}`,
+            address: `${res.provinceName}${res.cityName}${res.countryName}${res.detailInfo}`,
             isDefault: 0,
             tag: '微信地址',
             id: len,

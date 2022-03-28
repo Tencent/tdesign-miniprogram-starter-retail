@@ -1,50 +1,11 @@
 .cart-group {
   border-radius: 8rpx;
 }
-/* .cart-group .check-wrap {
-  background-color: #fff;
-}
-.cart-group .check-wrap .wr-check-filled {
-  font-size: 36rpx;
-}
-.cart-group .check-wrap .check-component {
-  align-items: flex-start;
-}
-.cart-group .check-wrap .check {
-  width: 36rpx;
-  height: 36rpx;
-  font-size: 36rpx;
-  position: relative;
-}
-.cart-group .check-wrap .wr-check {
-  font-size: 36rpx;
-}
-.cart-group .check-wrap .wr-uncheck {
-  font-size: 36rpx;
-  color: #999;
-} */
 .cart-group .goods-wrap {
   margin-top: 40rpx;
   background-color: #fff;
   border-radius: 8rpx;
   overflow: hidden;
-  --ui-goods-card-price-size: var(--ui-goods-cart-group-card-price-size, 32rpx);
-  --ui-goods-card-price-symbol-size: var(
-    --ui-goods-cart-group-card-price-symbol-size,
-    24rpx
-  );
-  --ui-goods-card-o-price-size: var(
-    --ui-goods-cart-group-card-o-price-size,
-    24rpx
-  );
-  --ui-goods-card-o-price-decoration: var(
-    --ui-goods-cart-group-card-o-price-decoration,
-    line-through
-  );
-  --ui-goods-card-o-price-margin: var(
-    --ui-goods-cart-group-card-o-price-margin,
-    0 0 0 16rpx
-  );
 }
 .cart-group .goods-wrap:first-of-type {
   margin-top: 0;
@@ -159,6 +120,16 @@
   margin-top: 56rpx;
   padding: 20rpx 28rpx 20rpx 36rpx;
 }
+
+.cart-group .goods-item-info .check-wrap .unCheck-icon {
+  box-sizing: border-box;
+  width: 36rpx;
+  height: 36rpx;
+  border-radius: 20rpx;
+  background: #f5f5f5;
+  border: 2rpx solid #bbbbbb;
+}
+
 .cart-group .goods-item-info .goods-sku-info {
   padding: 0rpx 32rpx 40rpx 0;
   flex-grow: 1;
@@ -177,7 +148,7 @@
 .cart-group .goods-item-info .goods-sku-info .goods-stepper {
   position: absolute;
   right: 0;
-  bottom: 0;
+  bottom: 8rpx;
 }
 .cart-group .goods-item-info .goods-sku-info .goods-stepper .stepper-tip {
   position: absolute;
@@ -226,8 +197,7 @@
   font-weight: 600;
 }
 .invalid-goods-wrap .invalid-head .invalid-clear {
-  color: #fa550f;
-  color: var(--color-primary, #fa550f);
+  color: #fa4126;
 }
 .invalid-goods-wrap .toggle {
   display: flex;
@@ -235,8 +205,7 @@
   justify-content: center;
   align-items: center;
   font-size: 24rpx;
-  color: #fa550f;
-  color: var(--color-primary, #fa550f);
+  color: #fa4126;
 }
 .invalid-goods-wrap .toggle .m-r-6 {
   margin-right: 6rpx;
@@ -247,8 +216,7 @@
   height: 0;
   border-left: 10rpx solid transparent;
   border-right: 10rpx solid transparent;
-  border-bottom: 10rpx solid #fa550f;
-  border-bottom: 10rpx solid var(--color-primary, #fa550f);
+  border-bottom: 10rpx solid #fa4126;
 }
 .invalid-goods-wrap .toggle .down-icon {
   display: inline-block;
@@ -256,8 +224,7 @@
   height: 0;
   border-left: 10rpx solid transparent;
   border-right: 10rpx solid transparent;
-  border-top: 10rpx solid #fa550f;
-  border-top: 10rpx solid var(--color-primary, #fa550f);
+  border-top: 10rpx solid #fa4126;
 }
 .action-btn {
   display: flex;

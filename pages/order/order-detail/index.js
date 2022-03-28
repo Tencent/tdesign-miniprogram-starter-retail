@@ -36,13 +36,7 @@ Page({
     this.setData({ backRefresh: false });
   },
 
-  onUnload() {
-    // 没有这个函数……我先屏蔽了
-    // hideError();
-  },
-
   onPageScroll(e) {
-    // this.navbar && this.navbar.methods.onScroll.call(this.navbar, e.scrollTop);
     this.pullDownRefresh && this.pullDownRefresh.onPageScroll(e);
   },
 
@@ -118,7 +112,6 @@ Page({
         receiverAddress: this.composeAddress(order),
         groupInfoVo: order.groupInfoVo,
       };
-
       this.setData({
         order,
         _order,
@@ -134,6 +127,8 @@ Page({
         isPaid: !!order.paymentVO.paySuccessTime,
         invoiceStatus: this.datermineInvoiceStatus(order),
         invoiceDesc: order.invoiceDesc,
+        invoiceType:
+          order.invoiceVO?.invoiceType === 5 ? '电子普通发票' : '不开发票', //是否开票 0-不开 5-电子发票
         logisticsNodes: this.flattenNodes(order.trajectoryVos || []),
       });
     });
@@ -167,7 +162,7 @@ Page({
     return [
       //order.logisticsVO.receiverProvince,
       order.logisticsVO.receiverCity,
-      order.logisticsVO.receiverCounty,
+      order.logisticsVO.receiverCountry,
       order.logisticsVO.receiverArea,
       order.logisticsVO.receiverAddress,
     ]
@@ -275,9 +270,6 @@ Page({
   /** 跳转拼团详情/分享页*/
   toGrouponDetail() {
     wx.showToast({ title: '点击了拼团' });
-    /* wx.navigateTo({
-      url: `/groupon/detail/index?promotionId=${promotionId}&groupId=${groupId}&storeId=${storeId}`,
-    }); */
   },
 
   clickService() {
@@ -285,6 +277,12 @@ Page({
       context: this,
       selector: '#t-toast',
       message: '您点击了联系客服',
+    });
+  },
+
+  onOrderInvoiceView() {
+    wx.navigateTo({
+      url: `/pages/order/invoice/index?orderNo=${this.orderNo}`,
     });
   },
 });

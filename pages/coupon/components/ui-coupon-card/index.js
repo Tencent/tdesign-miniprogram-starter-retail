@@ -19,10 +19,6 @@ Component({
       type: String,
       value: '', // 优惠券类型：CouponType
     },
-    oper: {
-      type: String,
-      value: 'none', // 优惠券操作类型：none, seeDetail, select
-    },
     value: {
       type: String,
       value: '',
@@ -32,14 +28,13 @@ Component({
     title: String, // 优惠券名称
     timeLimit: String, // 优惠券时限
     ruleDesc: String, // 优惠券适用规则描述
-    unEnableReason: String, // 不可用原因
     currency: {
       type: String,
       value: '¥', // 优惠货币
     },
-    colorStyle: {
+    status: {
       type: String,
-      value: '1',
+      value: 'default',
     },
     image: {
       type: String,
@@ -56,7 +51,19 @@ Component({
     },
     type: '', // 优惠金额
     value: '', // 优惠券金额
-    color: '',
+    theme: 'primary',
+  },
+
+  observers: {
+    status: function (value) {
+      let theme = 'primary';
+      // 已过期或已使用的券 颜色置灰
+      if (value === 'useless' || value === 'disabled') {
+        theme = 'weak';
+      }
+
+      this.setData({ theme });
+    },
   },
 
   attached() {

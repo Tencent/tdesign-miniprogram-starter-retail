@@ -8,55 +8,47 @@ Component({
   externalClasses: ['t-class'],
   properties: {
     title: {
-      // 按钮显示文本
       type: String,
     },
     navigator: {
-      // 导航到地址编辑页面
       type: Boolean,
     },
     isCustomStyle: {
-      // 是否我的收货地址的定制样式
       type: Boolean,
       value: false,
     },
     isDisabledBtn: {
-      // 是否禁用按钮
       type: Boolean,
       value: false,
     },
     isOrderSure: {
-      // 结算页面进来的, 定制化开发,减少逻辑
       type: Boolean,
       value: false,
     },
   },
   methods: {
-    // 获取微信地址
     getWxLocation() {
       if (this.properties.isDisabledBtn) return;
-      // 获取微信收货地址
       getPermission({ code: 'scope.address', name: '通讯地址' }).then(() => {
         wx.chooseAddress({
           success: async (options) => {
             const {
               provinceName,
               cityName,
-              countyName,
+              countryName,
               detailInfo,
               userName,
               telNumber,
             } = options;
 
-            // 微信添加地址未添加手机号校验，因此需要先校验手机号
-            // if (!phoneRegCheck(telNumber)) {
-            //   Toast({
-            //     context: this,
-            //     selector: '#t-toast',
-            //     message: '请填写正确的手机号',
-            //   });
-            //   return;
-            // }
+            if (!phoneRegCheck(telNumber)) {
+              Toast({
+                context: this,
+                selector: '#t-toast',
+                message: '请填写正确的手机号',
+              });
+              return;
+            }
 
             const target = {
               name: userName,
@@ -66,30 +58,27 @@ Component({
               detailAddress: detailInfo,
               provinceName: provinceName,
               cityName: cityName,
-              districtName: countyName,
+              districtName: countryName,
               isDefault: false,
               isOrderSure: this.properties.isOrderSure,
             };
 
-            addressParse(provinceName, cityName, countyName);
+            addressParse(provinceName, cityName, countryName);
 
             try {
               const { provinceCode, cityCode, districtCode } =
-                await addressParse(provinceName, cityName, countyName);
+                await addressParse(provinceName, cityName, countryName);
 
               const params = Object.assign(target, {
                 provinceCode,
                 cityCode,
                 districtCode,
               });
-              // 如果是结算页面进来的,简化逻辑，直接提交地址
               if (this.properties.isOrderSure) {
                 this.onHandleSubmit(params);
               } else if (this.properties.navigator) {
-                // 选择收获地址页面点击微信地址导入,成功后跳转地址详情页面
                 Navigator.gotoPage('/address-detail', params);
               } else {
-                // 其他情况触发change事件
                 this.triggerEvent('change', params);
               }
             } catch (error) {
@@ -103,7 +92,6 @@ Component({
       });
     },
 
-    // 通过addressId查询地址
     async queryAddress(addressId) {
       try {
         const { data } = await apis.userInfo.queryAddress({ addressId });
@@ -114,16 +102,13 @@ Component({
       }
     },
 
-    // 返回结算页面
     findPage(pageRouteUrl) {
       const currentRoutes = getCurrentPages().map((v) => v.route);
       return currentRoutes.indexOf(pageRouteUrl);
     },
 
-    // 结算页面进入定制化开发，直接提交
     async onHandleSubmit(params) {
       try {
-        // 结算页新增地址成功后自动选择该地址并跳转回结算页
         const orderPageDeltaNum = this.findPage(
           'pages/order/order-confirm/index',
         );

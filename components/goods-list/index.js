@@ -101,11 +101,6 @@ Component({
       this.triggerEvent('specs', { ...e.detail, index });
     },
 
-    onClickGoodsTag(e) {
-      const { index } = e.currentTarget.dataset;
-      this.triggerEvent('tag', { ...e.detail, index });
-    },
-
     onOB(e) {
       const { index } = e.currentTarget.dataset;
       this.triggerEvent('ob', { ...e.detail, index });

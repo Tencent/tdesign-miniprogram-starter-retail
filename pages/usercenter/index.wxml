@@ -1,11 +1,11 @@
 <t-user-center-card
- userInfo="{{userInfo}}"
- isPhoneHide="{{true}}"
- name-class="custom-name-class"
- phone-class="custom-phone-class"
- avatar-class="custome-avatar-class"
- currAuthStep="{{currAuthStep}}"
- bind:gotoUserEditPage="gotoUserEditPage"
+  userInfo="{{userInfo}}"
+  isPhoneHide="{{true}}"
+  name-class="custom-name-class"
+  phone-class="custom-phone-class"
+  avatar-class="custome-avatar-class"
+  currAuthStep="{{currAuthStep}}"
+  bind:gotoUserEditPage="gotoUserEditPage"
 />
 <view class="content-wrapper">
 	<view class='order-group-wrapper'>
@@ -14,37 +14,31 @@
 	<view wx:for="{{menuData}}" wx:key="item" class="cell-box">
 		<t-cell-group>
 			<t-cell
-			 wx:for="{{item}}"
-			 wx:for-item="xitem"
-			 wx:for-index="xindex"
-			 wx:key="xindex"
-			 title="{{xitem.title}}"
-			 arrow="{{!xitem.icon}}"
-			 note="{{xitem.tit}}"
-			 data-type="{{xitem.type}}"
-			 bordered="{{false}}"
-			 bind:click="onClickCell"
-			 t-class-note="order-group-note"
-			>
-				<t-icon
-				 slot="right-icon"
-				 wx:if="{{xitem.icon}}"
-				 name="{{xitem.icon}}"
-				 size="48"
-				 color="#999"
-				/>
-			</t-cell>
+			  wx:for="{{item}}"
+			  wx:for-item="xitem"
+			  wx:for-index="xindex"
+			  wx:key="xindex"
+			  title="{{xitem.title}}"
+			  arrow="{{!xitem.icon}}"
+			  note="{{xitem.tit}}"
+			  data-type="{{xitem.type}}"
+			  bordered="{{false}}"
+			  bind:click="onClickCell"
+			  t-class="t-cell-padding"
+			  t-class-note="order-group-note"
+			  t-class-left="order-group__left"
+			/>
 		</t-cell-group>
 	</view>
 </view>
 <view class="footer__version" wx:if="{{versionNo !== ''}}">当前版本 {{versionNo}}</view>
 <t-popup
- visible="{{showMakePhone}}"
- placement="bottom"
- bind:visible-change="closeMakePhone"
- data-index="2"
+  visible="{{showMakePhone}}"
+  placement="bottom"
+  bind:visible-change="closeMakePhone"
+  data-index="2"
 >
-	<view class="popup-content" slot="content">
+	<view class="popup-content">
 		<view class="popup-title border-bottom-1px" wx:if="{{customerServiceInfo.serviceTimeDuration}}">
 			服务时间: {{customerServiceInfo.serviceTimeDuration}}
 		</view>

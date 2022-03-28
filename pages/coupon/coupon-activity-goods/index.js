@@ -64,19 +64,10 @@ Page({
   goodClickHandle(e) {
     const { index } = e.detail;
     const { spuId } = this.data.goods[index];
-
     wx.navigateTo({ url: `/pages/goods/details/index?spuId=${spuId}` });
   },
 
-  tagClickHandle() {
-    Toast({
-      context: this,
-      selector: '#t-toast',
-      message: '点击标签',
-    });
-  },
-
-  cardClickHandle() {
+  cartClickHandle() {
     Toast({
       context: this,
       selector: '#t-toast',

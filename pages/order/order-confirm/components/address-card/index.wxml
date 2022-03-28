@@ -39,7 +39,7 @@
 	 title="添加收货地址"
 	 hover
 	>
-		<t-icon name="add-circle" slot="left-icon" />
+		<t-icon name="add-circle" slot="left-icon" size="40rpx" />
 	</t-cell>
 	<view class="top-line" />
 </view>

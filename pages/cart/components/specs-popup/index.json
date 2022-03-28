@@ -2,6 +2,6 @@
   "component": true,
   "usingComponents": {
     "t-popup": "tdesign-miniprogram/popup/popup",
-    "wr-goods-card": "../../components/goods-card/index"
+    "goods-card": "../../components/goods-card/index"
   }
 }

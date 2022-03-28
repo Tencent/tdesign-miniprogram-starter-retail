@@ -2,76 +2,97 @@ page {
   background-color: #f5f5f5;
 }
 .page-section {
-  margin: 20rpx 24rpx 0;
+  margin-top: 24rpx;
   background-color: white;
-  border-radius: 8rpx;
-  overflow: hidden;
+}
+.page-section .order-group__left {
+  margin-right: 0 !important;
+}
+.cell-steps {
+  padding: 8rpx;
 }
 .wr-cell__title {
   flex: none;
-  font-size: 26rpx;
-  color: #333333;
+  font-size: 28rpx;
+  color: #666;
 }
 .wr-cell__value {
   flex: auto;
   margin-left: 30rpx;
-  font-size: 26rpx;
-  color: #666666;
-}
-.wr-cell .text-btn {
-  margin-left: 20rpx;
+  font-size: 28rpx;
+  color: #333 !important;
 }
 .logistics-no {
   display: inline-block;
   text-align: left;
   word-break: break-all;
+  color: #333;
 }
 .text-btn {
+  margin-left: 20rpx;
   display: inline;
-  font-size: 26rpx;
-  color: #fa4126;
+  font-size: 24rpx;
+  padding: 0 15rpx;
+  border: 1rpx solid #ddd;
+  border-radius: 28rpx;
+  color: #333;
 }
-.text-btn:active {
+.text-btn--active {
   opacity: 0.5;
 }
 .steps .step-title {
   font-weight: bold;
-  color: #fa4126 !important;
+  color: #333 !important;
   font-size: 30rpx;
 }
 .steps .step-desc {
   color: #333333;
-  font-size: 24rpx;
+  font-size: 28rpx;
 }
 .steps .step-date {
   color: #999999;
-  font-size: 22rpx;
+  font-size: 24rpx;
 }
+
+.cell-steps__img,
+.cell-steps__imgWrapper {
+  width: 48rpx;
+  height: 48rpx;
+}
+
 .steps
   .t-step--vertical.t-step--default-anchor
   .t-steps-item--process
   .t-steps-item__icon-number {
-  background: none !important;
+  background: #ffece9 !important;
   color: white !important;
-  border: 1rpx solid #fa4126 !important;
   border: none;
 }
+
 .steps
   .t-step--vertical.t-step--default-anchor
   .t-steps-item--default
   .t-steps-item__icon-number {
   color: white !important;
-  border: 1rpx solid #fa4126 !important;
+  background: #f5f5f5 !important;
+  border: none;
 }
+
 .steps
   .t-step--vertical.t-step--default-anchor.t-step--not-last-child
-  .t-steps-item--finish
-  .t-steps-item__inner:after,
+  .t-steps-item__inner::after {
+  top: 48rpx;
+  height: calc(100% - 44rpx - 4rpx);
+}
+
+.steps
+  .t-step--vertical.t-step--default-anchor.t-step--not-last-child
+  .t-steps-item__inner::after,
 .steps
   .t-step--vertical.t-step--default-anchor.t-step--not-last-child
   .t-steps-item--default
   .t-steps-item__inner:after {
-  background: #fa4126 !important;
+  background: #f5f5f5 !important;
 }
 .page-section__steps {
   padding: 24rpx;

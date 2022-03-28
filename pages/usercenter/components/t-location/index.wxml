@@ -2,11 +2,11 @@
 	<block wx:if="{{isCustomStyle}}">
 		<view class="wx-address-custom">
 			<t-icon
-			 prefix="wr"
-			 t-class="weixin"
-			 color="#00CC00"
-			 name="wechat"
-			 size="48rpx"
+			  prefix="wr"
+			  t-class="weixin"
+			  color="#0ABF5B"
+			  name="wechat"
+			  size="48rpx"
 			/>
 			<text>{{title}}</text>
 		</view>
@@ -14,23 +14,23 @@
 	</block>
 	<block wx:else>
 		<t-cell
-		 title="{{title}}"
-		 title-class="cell__title"
-		 wr-class="cell"
-		 border="{{false}}"
+		  title="{{title}}"
+		  title-class="cell__title"
+		  wr-class="cell"
+		  border="{{false}}"
 		>
 			<t-icon
-			 t-class="weixin"
-			 slot="icon"
-			 color="#00CC00"
-			 name="logo-windows"
-			 size="48rpx"
+			  t-class="weixin"
+			  slot="icon"
+			  color="#0ABF5B"
+			  name="logo-windows"
+			  size="48rpx"
 			/>
 			<t-icon
-			 slot="right-icon"
-			 name="chevron-right"
-			 class="custom-icon"
-			 color="#bbb"
+			  slot="right-icon"
+			  name="chevron-right"
+			  class="custom-icon"
+			  color="#bbb"
 			/>
 		</t-cell>
 	</block>

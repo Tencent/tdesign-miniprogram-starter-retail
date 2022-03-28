@@ -5,14 +5,12 @@
  data-index="5"
  close-btn="{{closeBtn}}"
 >
-	<view slot="content">
-		<view class="con2">
-			<slot name="filterSlot" />
-			<view class="filter-btns-wrap">
-				<view class="filter-btn btn-reset" bind:tap="reset">重置</view>
-				<view class="filter-btn btn-confirm" bind:tap="confirm" data-index="5">
-					确定
-				</view>
+	<view class="content">
+		<slot name="filterSlot" />
+		<view class="filter-btns-wrap">
+			<view class="filter-btn btn-reset" bind:tap="reset">重置</view>
+			<view class="filter-btn btn-confirm" bind:tap="confirm" data-index="5">
+				确定
 			</view>
 		</view>
 	</view>

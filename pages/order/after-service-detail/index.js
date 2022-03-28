@@ -1,10 +1,5 @@
 import Toast from 'tdesign-miniprogram/toast/index';
-import {
-  ServiceType,
-  ServiceTypeDesc,
-  ServiceStatus,
-  ServiceButtonTypes,
-} from '../config';
+import { ServiceType, ServiceTypeDesc, ServiceStatus } from '../config';
 import { formatTime, getRightsDetail } from './api';
 
 const TitleConfig = {
@@ -49,13 +44,9 @@ Page({
 
   init() {
     this.setData({ pageLoading: true });
-    this.getService()
-      .then(() => {
-        this.setData({ pageLoading: false });
-      })
-      .catch((err) => {
-        console.error(err);
-      });
+    this.getService().then(() => {
+      this.setData({ pageLoading: false });
+    });
   },
 
   getService() {
@@ -130,7 +121,7 @@ Page({
     return [
       service.logisticsVO.receiverProvince,
       service.logisticsVO.receiverCity,
-      service.logisticsVO.receiverCounty,
+      service.logisticsVO.receiverCountry,
       service.logisticsVO.receiverArea,
       service.logisticsVO.receiverAddress,
     ]
@@ -155,27 +146,6 @@ Page({
         message: '确定填写物流单号',
       });
     };
-  },
-
-  onDeliveryButtonTap(e) {
-    const { type } = e.currentTarget.dataset;
-    if (type === ServiceButtonTypes.FILL_TRACKING_NO) {
-      this.onFillTrackingNo(this.data.service);
-    } else if (type === ServiceButtonTypes.CHANGE_TRACKING_NO) {
-      this.onChangeTrackingNo(this.data.service);
-    }
-  },
-
-  onFillTrackingNo(service) {
-    wx.navigateTo({
-      url: `/pages/order/fill-tracking-no/index?rightsNo=${service.id}`,
-    });
-  },
-
-  onChangeTrackingNo(service) {
-    wx.navigateTo({
-      url: `/pages/order/fill-tracking-no/index?rightsNo=${service.id}&logisticsNo=${service.logisticsNo}&logisticsCompanyName=${service.logisticsCompanyName}&logisticsCompanyCode=${service.logisticsCompanyCode}&remark=${service.remark}`,
-    });
   },
 
   onProofTap(e) {
@@ -210,9 +180,9 @@ Page({
     });
   },
 
-  navBackHandle() {
-    wx.navigateTo({ url: '/pages/order/after-service-list/index' });
-  },
+  // navBackHandle() {
+  //   wx.navigateTo({ url: '/pages/order/after-service-list/index' });
+  // },
 
   /** 获取状态ICON */
   genStatusIcon(item) {

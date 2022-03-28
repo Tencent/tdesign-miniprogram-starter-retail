@@ -1,11 +1,9 @@
-@import '/style/cart-group.wxss';
-
 :host {
   padding-bottom: 100rpx;
 }
 
 .gap {
-  height: 200rpx;
+  height: 100rpx;
   width: 100%;
 }
 

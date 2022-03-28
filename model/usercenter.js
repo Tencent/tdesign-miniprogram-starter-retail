@@ -20,39 +20,20 @@ const countsData = [
 
 const orderTagInfos = [
   {
-    title: '待付款',
-    iconName: 'credit_card',
     orderNum: 1,
     tabType: 5,
-    status: 1,
   },
   {
-    title: '待发货',
-    iconName: 'deliver',
     orderNum: 1,
     tabType: 10,
-    status: 1,
   },
   {
-    title: '待收货',
-    iconName: 'package',
     orderNum: 1,
     tabType: 40,
-    status: 1,
   },
-  // {
-  //   title: '待评价',
-  //   iconName: 'comment',
-  //   orderNum: 3,
-  //   tabType: 60,
-  //   status: 1,
-  // },
   {
-    title: '退款/售后',
-    iconName: 'exchang',
     orderNum: 0,
     tabType: 0,
-    status: 1,
   },
 ];
 

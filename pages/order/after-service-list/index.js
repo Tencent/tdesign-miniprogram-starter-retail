@@ -146,11 +146,8 @@ Page({
                 thumb: item.goodsPictureUrl,
                 title: item.goodsName,
                 specs: (item.specInfo || []).map((s) => s.specValues || ''),
-                // amount: item.itemRefundAmount,
-                // price: item.itemRefundAmount,
                 itemRefundAmount: item.itemRefundAmount,
                 rightsQuantity: item.itemRefundAmount,
-                // num: item.rightsQuantity,
               })),
               storeId: _data.storeId,
               buttons: _data.buttonVOs || [],
@@ -158,6 +155,7 @@ Page({
               logisticsCompanyName: _data.logisticsVO.logisticsCompanyName, // 退货物流公司
               logisticsCompanyCode: _data.logisticsVO.logisticsCompanyCode, // 退货物流公司
               remark: _data.logisticsVO.remark, // 退货备注
+              logisticsVO: _data.logisticsVO,
             };
           });
         }

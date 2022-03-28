@@ -10,7 +10,7 @@
   align-items: center;
   width: 144rpx;
   height: 100%;
-  background-color: #ff5f62;
+  background-color: #fa4126;
   color: #fff;
   font-size: 28rpx;
   line-height: 40rpx;

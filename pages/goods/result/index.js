@@ -25,40 +25,35 @@ Page({
     minSalePriceFocus: false,
     maxSalePriceFocus: false,
     layoutText: layoutMap[0],
-    pageNum: 1,
-    pageSize: 30,
-    total: 0,
     filter: initFilters,
     hasLoaded: false,
     keywords: '',
     loadMoreStatus: 0,
-    cartNum: 0,
-    store: '',
     loading: true,
-    sceneId: 2,
-    pageLoaded: false,
-    outerService: null,
   },
 
-  handleFilterChange(e) {
-    const { layout, overall, sorts } = e.detail;
-    this.setData({
-      layout,
-      sorts,
-      overall,
-      pageSize: 1,
-      loadMoreStatus: 0,
-    });
-    this.init(true);
+  total: 0,
+  pageNum: 1,
+  pageSize: 30,
+
+  onLoad(options) {
+    const { searchValue = '' } = options || {};
+    this.setData(
+      {
+        keywords: searchValue,
+      },
+      () => {
+        this.init(true);
+      },
+    );
   },
 
   generalQueryData(reset = false) {
-    const { filter, pageNum, pageSize, keywords, minVal, maxVal } = this.data;
+    const { filter, keywords, minVal, maxVal } = this.data;
+    const { pageNum, pageSize } = this;
     const { sorts, overall } = filter;
-
     const params = {
       sort: 0, // 0 综合，1 价格
-      // sortType: 0, // 0 顺序，1 倒序
       pageNum: 1,
       pageSize: 30,
       keyword: keywords,
@@ -68,7 +63,6 @@ Page({
       params.sort = 1;
       params.sortType = sorts === 'desc' ? 1 : 0;
     }
-
     if (overall) {
       params.sort = 0;
     } else {
@@ -76,9 +70,7 @@ Page({
     }
     params.minPrice = minVal ? minVal * 100 : 0;
     params.maxPrice = maxVal ? maxVal * 100 : undefined;
-    // 重置请求
     if (reset) return params;
-
     return {
       ...params,
       pageNum: pageNum + 1,
@@ -89,10 +81,7 @@ Page({
   async init(reset = true) {
     const { loadMoreStatus, goodsList = [] } = this.data;
     const params = this.generalQueryData(reset);
-
-    // 在加载中或者无更多数据，直接返回
     if (loadMoreStatus !== 0) return;
-
     this.setData({
       loadMoreStatus: 1,
       loading: true,
@@ -104,6 +93,7 @@ Page({
       if (code.toUpperCase() === 'SUCCESS') {
         const { spuList, totalCount = 0 } = data;
         if (totalCount === 0 && reset) {
+          this.total = totalCount;
           this.setData({
             emptyInfo: {
               tip: '抱歉，未找到相关商品',
@@ -111,7 +101,6 @@ Page({
             hasLoaded: true,
             loadMoreStatus: 0,
             loading: false,
-            total: totalCount,
             goodsList: [],
           });
           return;
@@ -123,11 +112,10 @@ Page({
           v.hideKey = { desc: true };
         });
         const _loadMoreStatus = _goodsList.length === totalCount ? 2 : 0;
-
+        this.pageNum = params.pageNum || 1;
+        this.total = totalCount;
         this.setData({
           goodsList: _goodsList,
-          pageNum: params.pageNum || 1,
-          total: totalCount,
           loadMoreStatus: _loadMoreStatus,
         });
       } else {
@@ -149,31 +137,15 @@ Page({
     });
   },
 
-  onLoad(options) {
-    const { keywords = '' } = options || {};
-    this.setData(
-      {
-        keywords,
-        pageLoaded: true,
-      },
-      () => {
-        this.init(true);
-      },
-    );
-  },
-
-  // 单击购物车，跳转
   handleCartTap() {
     wx.switchTab({
       url: '/pages/cart/index',
     });
   },
 
-  handleSubmit(e) {
-    const { value } = e.detail;
+  handleSubmit() {
     this.setData(
       {
-        keywords: value,
         goodsList: [],
         loadMoreStatus: 0,
       },
@@ -184,14 +156,14 @@ Page({
   },
 
   onReachBottom() {
-    const { total = 0, goodsList } = this.data;
+    const { goodsList } = this.data;
+    const { total = 0 } = this;
     if (goodsList.length === total) {
       this.setData({
         loadMoreStatus: 2,
       });
       return;
     }
-
     this.init(false);
   },
 
@@ -200,14 +172,6 @@ Page({
       context: this,
       selector: '#t-toast',
       message: '点击加购',
-    });
-  },
-
-  tagClickHandle() {
-    Toast({
-      context: this,
-      selector: '#t-toast',
-      message: '点击标签',
     });
   },
 
@@ -221,7 +185,8 @@ Page({
 
   handleFilterChange(e) {
     const { layout, overall, sorts } = e.detail;
-    const { filter, total } = this.data;
+    const { filter } = this.data;
+    const { total } = this;
     const _filter = {
       sorts,
       overall,
@@ -234,16 +199,17 @@ Page({
       overall,
       layoutText: layoutMap[layout],
     });
-
-    // 样式切换，发请求
     if (layout === filter.layout) {
-      this.setData({
-        pageNum: 1,
-        loadMoreStatus: 0,
-      });
-
-      // 如果当前关键字有值，才执行查询，否则不查询
-      total && this.init(true);
+      this.pageNum = 1;
+      this.setData(
+        {
+          goodsList: [],
+          loadMoreStatus: 0,
+        },
+        () => {
+          total && this.init(true);
+        },
+      );
     }
   },
 
@@ -259,34 +225,29 @@ Page({
     });
   },
 
-  // 最小值
   onMinValAction(e) {
     const { value } = e.detail;
     this.setData({ minVal: value });
   },
 
-  // 最大值
   onMaxValAction(e) {
     const { value } = e.detail;
     this.setData({ maxVal: value });
   },
 
-  // 筛选重置
   reset() {
     this.setData({ minVal: '', maxVal: '' });
   },
 
-  // 筛选确定
   confirm() {
     const { minVal, maxVal } = this.data;
     let message = '';
-
     if (minVal && !maxVal) {
       message = `价格最小是${minVal}`;
     } else if (!minVal && maxVal) {
       message = `价格范围是0-${minVal}`;
     } else if (minVal && maxVal && minVal <= maxVal) {
-      message = `价格范围${minVal || 0}-${this.data.maxVal}`;
+      message = `价格范围${minVal}-${this.data.maxVal}`;
     } else {
       message = '请输入正确范围';
     }
@@ -297,11 +258,13 @@ Page({
         message,
       });
     }
-
+    this.pageNum = 1;
     this.setData(
       {
         show: false,
         minVal: '',
+        goodsList: [],
+        loadMoreStatus: 0,
         maxVal: '',
       },
       () => {

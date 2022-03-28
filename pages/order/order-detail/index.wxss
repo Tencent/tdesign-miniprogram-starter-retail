@@ -13,7 +13,6 @@
 }
 .order-detail .header {
   width: 100%;
-  /* height: 200rpx; */
   background-color: #ffffff;
 }
 .order-detail .order-detail__header {
@@ -234,4 +233,8 @@
 
 .t-class-indicator {
   color: #b9b9b9 !important;
+}
+
+.add-notes__confirm {
+  color: #fa4126 !important;
 }

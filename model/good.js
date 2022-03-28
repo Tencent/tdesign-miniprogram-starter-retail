@@ -8,10 +8,12 @@ const allGoods = [
     saasId: '88888888',
     storeId: '1000',
     spuId: '0',
-    title: `真丝上衣女穿长袖时尚波点白衬衫`,
-    primaryImage:
-      'https://bl-material-online-1300977798.cos.ap-guangzhou.myqcloud.com/persist/10001/88888888/1000000/material/1/13f6cbead98a455196331630aef7f57e-1586941824188-锘垮垏鍥_鍟嗗搧 - 6.png',
-    images: [`${imgPrefix}/goods/goods-details-swiper-img.png`],
+    title: '白色短袖连衣裙荷叶边裙摆宽松韩版休闲',
+    primaryImage: 'https://cdn-we-retail.ym.tencent.com/tsr/goods/nz-09a.png',
+    images: [
+      'https://cdn-we-retail.ym.tencent.com/tsr/goods/nz-09a.png',
+      'https://cdn-we-retail.ym.tencent.com/tsr/goods/nz-09b.png',
+    ],
     video: null,
     available: 1,
     minSalePrice: 29800,
@@ -35,7 +37,7 @@ const allGoods = [
             specValueId: '10012',
             specId: null,
             saasId: null,
-            specValue: '米色波点',
+            specValue: '米色荷叶边',
             image: null,
           },
         ],
@@ -71,8 +73,7 @@ const allGoods = [
     skuList: [
       {
         skuId: '135676631',
-        skuImage:
-          '//bl-material-online-1300977798.cos.ap-guangzhou.myqcloud.com/persist/10001/88888888/1000000/material/1/13f6cbead98a455196331630aef7f57e-1586941824188-锘垮垏鍥_鍟嗗搧 - 6.png',
+        skuImage: 'https://cdn-we-retail.ym.tencent.com/tsr/goods/nz-09a.png',
         specInfo: [
           {
             specId: '10011',
@@ -102,8 +103,7 @@ const allGoods = [
       },
       {
         skuId: '135676632',
-        skuImage:
-          '//bl-material-online-1300977798.cos.ap-guangzhou.myqcloud.com/persist/10001/88888888/1000000/material/1/13f6cbead98a455196331630aef7f57e-1586941824188-锘垮垏鍥_鍟嗗搧 - 6.png',
+        skuImage: 'https://cdn-we-retail.ym.tencent.com/tsr/goods/nz-09a.png',
         specInfo: [
           {
             specId: '10011',
@@ -133,8 +133,7 @@ const allGoods = [
       },
       {
         skuId: '135681631',
-        skuImage:
-          '//bl-material-online-1300977798.cos.ap-guangzhou.myqcloud.com/persist/10001/88888888/1000000/material/1/13f6cbead98a455196331630aef7f57e-1586941824188-锘垮垏鍥_鍟嗗搧 - 6.png',
+        skuImage: 'https://cdn-we-retail.ym.tencent.com/tsr/goods/nz-09a.png',
         specInfo: [
           {
             specId: '10011',
@@ -169,21 +168,28 @@ const allGoods = [
         text: '限购5件',
       },
     ],
-    desc: [`${imgPrefix}/goods/details-1.png`],
+    desc: [
+      'https://cdn-we-retail.ym.tencent.com/tsr/goods/nz-09c.png',
+      'https://cdn-we-retail.ym.tencent.com/tsr/goods/nz-09d.png',
+    ],
     etitle: '',
   },
   {
     saasId: '88888888',
     storeId: '1000',
     spuId: '135686633',
-    title: '时尚领口蕾丝花边拼接T恤女',
-    primaryImage:
-      '//bl-material-online-1300977798.cos.ap-guangzhou.myqcloud.com/persist/10001/88888888/1000000/material/1/fe9ca204723849848cb3fc0d736e82f7-1586941824833-锘垮垏鍥_鍟嗗搧 - 9.png',
+    title: '纯色纯棉休闲圆领短袖T恤纯白厚细腻面料',
+    primaryImage: 'https://cdn-we-retail.ym.tencent.com/tsr/goods/nz-08b.png',
     minSalePrice: '25900',
     minLinePrice: '31900',
     maxSalePrice: '26900',
     maxLinePrice: '31900',
     isSoldOut: false,
+    images: [
+      'https://cdn-we-retail.ym.tencent.com/tsr/goods/nz-08a.png',
+      'https://cdn-we-retail.ym.tencent.com/tsr/goods/nz-08a1.png',
+      'https://cdn-we-retail.ym.tencent.com/tsr/goods/nz-08b.png',
+    ],
     groupIdList: ['15029', '14023'],
     spuTagList: [
       {
@@ -201,7 +207,7 @@ const allGoods = [
             specId: '10000',
             specTitle: null,
             specValueId: '10001',
-            specValue: '红色',
+            specValue: '白色',
           },
           {
             specId: '10002',
@@ -239,7 +245,7 @@ const allGoods = [
             specId: '10000',
             specTitle: null,
             specValueId: '10001',
-            specValue: '红色',
+            specValue: '白色',
           },
           {
             specId: '10002',
@@ -277,7 +283,7 @@ const allGoods = [
             specId: '10000',
             specTitle: null,
             specValueId: '10001',
-            specValue: '红色',
+            specValue: '白色',
           },
           {
             specId: '10002',
@@ -321,7 +327,7 @@ const allGoods = [
             specValueId: '10001',
             specId: '10000',
             saasId: '88888888',
-            specValue: '红色',
+            specValue: '白色',
             image: '',
           },
         ],
@@ -357,14 +363,23 @@ const allGoods = [
     promotionList: null,
     minProfitPrice: null,
     etitle: '',
+    desc: [
+      'https://cdn-we-retail.ym.tencent.com/tsr/goods/nz-08c.png',
+      'https://cdn-we-retail.ym.tencent.com/tsr/goods/nz-08d.png',
+    ],
   },
   {
     saasId: '88888888',
     storeId: '1000',
     spuId: '135691628',
-    title: '春夏新款日系少女甜美气质洋气连衣裙',
-    primaryImage:
-      '//bl-material-online-1300977798.cos.ap-guangzhou.myqcloud.com/persist/10001/88888888/1000000/material/1/a69198306ad647faa2a798e657c1e3a0-1586941824614-锘垮垏鍥_鍟嗗搧 - 8.png',
+    title: '运动连帽拉链卫衣休闲开衫长袖',
+    images: [
+      'https://cdn-we-retail.ym.tencent.com/tsr/goods/nz-17a.png',
+      'https://cdn-we-retail.ym.tencent.com/tsr/goods/nz-17a1.png',
+      'https://cdn-we-retail.ym.tencent.com/tsr/goods/nz-17b.png',
+      'https://cdn-we-retail.ym.tencent.com/tsr/goods/nz-17b1.png',
+    ],
+    primaryImage: 'https://cdn-we-retail.ym.tencent.com/tsr/goods/nz-17a.png',
     minSalePrice: '25900',
     minLinePrice: '39900',
     maxSalePrice: '25900',
@@ -387,7 +402,7 @@ const allGoods = [
             specId: '127904180600844800',
             specTitle: null,
             specValueId: '127904180768617216',
-            specValue: '白色',
+            specValue: '军绿色',
           },
           {
             specId: '127904861604820480',
@@ -425,7 +440,7 @@ const allGoods = [
             specId: '127904180600844800',
             specTitle: null,
             specValueId: '127904180768617216',
-            specValue: '白色',
+            specValue: '军绿色',
           },
           {
             specId: '127904861604820480',
@@ -463,7 +478,7 @@ const allGoods = [
             specId: '127904180600844800',
             specTitle: null,
             specValueId: '127904180768617216',
-            specValue: '白色',
+            specValue: '军绿色',
           },
           {
             specId: '127904861604820480',
@@ -501,7 +516,7 @@ const allGoods = [
             specId: '127904180600844800',
             specTitle: null,
             specValueId: '127904180768617216',
-            specValue: '白色',
+            specValue: '军绿色',
           },
           {
             specId: '127904861604820480',
@@ -545,7 +560,7 @@ const allGoods = [
             specValueId: '127904180768617216',
             specId: '127904180600844800',
             saasId: '88888888',
-            specValue: '白色',
+            specValue: '军绿色',
             image: '',
           },
         ],
@@ -588,14 +603,21 @@ const allGoods = [
     promotionList: null,
     minProfitPrice: null,
     etitle: '',
+    desc: [
+      'https://cdn-we-retail.ym.tencent.com/tsr/goods/nz-17c.png',
+      'https://cdn-we-retail.ym.tencent.com/tsr/goods/nz-17d.png',
+    ],
   },
   {
     saasId: '88888888',
     storeId: '1000',
     spuId: '135686623',
-    title: '熊本T恤短袖情侣男女衣服装kumamon吉祥物动漫周边T恤',
-    primaryImage:
-      '//bl-material-online-1300977798.cos.ap-guangzhou.myqcloud.com/persist/10001/88888888/1000000/material/1/fcc8b0b4ef894ab99766054f608279c0-1586941823540-锘垮垏鍥_鍟嗗搧 - 3.png',
+    title: '腾讯极光盒子4智能网络电视机顶盒',
+    primaryImage: 'https://cdn-we-retail.ym.tencent.com/tsr/goods/dz-3a.png',
+    images: [
+      'https://cdn-we-retail.ym.tencent.com/tsr/goods/dz-3a.png',
+      'https://cdn-we-retail.ym.tencent.com/tsr/goods/dz-3b.png',
+    ],
     minSalePrice: '9900',
     minLinePrice: '16900',
     maxSalePrice: '10900',
@@ -631,13 +653,13 @@ const allGoods = [
             specId: '10000',
             specTitle: null,
             specValueId: '10001',
-            specValue: '红色',
+            specValue: '经典白',
           },
           {
             specId: '10002',
             specTitle: null,
             specValueId: '10003',
-            specValue: 'M',
+            specValue: '节能套装',
           },
         ],
         priceInfo: [
@@ -669,13 +691,13 @@ const allGoods = [
             specId: '10000',
             specTitle: null,
             specValueId: '11000',
-            specValue: '白色',
+            specValue: '贵族青',
           },
           {
             specId: '10002',
             specTitle: null,
             specValueId: '11003',
-            specValue: 'S',
+            specValue: '经典套装',
           },
         ],
         priceInfo: [
@@ -707,13 +729,13 @@ const allGoods = [
             specId: '10000',
             specTitle: null,
             specValueId: '11000',
-            specValue: '白色',
+            specValue: '经典白',
           },
           {
             specId: '10002',
             specTitle: null,
             specValueId: '11002',
-            specValue: 'L',
+            specValue: '尊享礼盒装',
           },
         ],
         priceInfo: [
@@ -745,7 +767,7 @@ const allGoods = [
             specId: '10000',
             specTitle: null,
             specValueId: '10001',
-            specValue: '红色',
+            specValue: '经典白',
           },
           {
             specId: '10002',
@@ -783,13 +805,13 @@ const allGoods = [
             specId: '10000',
             specTitle: null,
             specValueId: '10001',
-            specValue: '红色',
+            specValue: '经典白',
           },
           {
             specId: '10002',
             specTitle: null,
             specValueId: '11002',
-            specValue: 'L',
+            specValue: '尊享礼盒装',
           },
         ],
         priceInfo: [
@@ -821,13 +843,13 @@ const allGoods = [
             specId: '10000',
             specTitle: null,
             specValueId: '11000',
-            specValue: '白色',
+            specValue: '贵族青',
           },
           {
             specId: '10002',
             specTitle: null,
             specValueId: '10003',
-            specValue: 'M',
+            specValue: '节能套装',
           },
         ],
         priceInfo: [
@@ -856,6 +878,10 @@ const allGoods = [
     spuStockQuantity: 598,
     soldNum: 102,
     isPutOnSale: 1,
+    desc: [
+      'https://cdn-we-retail.ym.tencent.com/tsr/goods/dz-3c.png',
+      'https://cdn-we-retail.ym.tencent.com/tsr/goods/dz-3d.png',
+    ],
     specList: [
       {
         specId: '10000',
@@ -865,14 +891,14 @@ const allGoods = [
             specValueId: '10001',
             specId: '10000',
             saasId: '88888888',
-            specValue: '红色',
+            specValue: '经典白',
             image: '',
           },
           {
             specValueId: '11000',
             specId: '10000',
             saasId: '88888888',
-            specValue: '白色',
+            specValue: '贵族青',
             image: '',
           },
         ],
@@ -885,21 +911,21 @@ const allGoods = [
             specValueId: '11003',
             specId: '10002',
             saasId: '88888888',
-            specValue: 'S',
+            specValue: '经典套装',
             image: '',
           },
           {
             specValueId: '10003',
             specId: '10002',
             saasId: '88888888',
-            specValue: 'M',
+            specValue: '节能套装',
             image: '',
           },
           {
             specValueId: '11002',
             specId: '10002',
             saasId: '88888888',
-            specValue: 'L',
+            specValue: '尊享礼盒装',
             image: '',
           },
         ],
@@ -913,9 +939,13 @@ const allGoods = [
     saasId: '88888888',
     storeId: '1000',
     spuId: '135681628',
-    title: '休闲小众印花圆领宽松连衣裙女',
-    primaryImage:
-      '//bl-material-online-1300977798.cos.ap-guangzhou.myqcloud.com/persist/10001/88888888/1000000/material/1/6aa2ae209d24499bb9a469b829c0919c-1586941823097-锘垮垏鍥_鍟嗗搧 - 1.png',
+    title: '带帽午休毯虎年款多功能加厚加大',
+    primaryImage: 'https://cdn-we-retail.ym.tencent.com/tsr/goods/muy-3a.png',
+    images: [
+      'https://cdn-we-retail.ym.tencent.com/tsr/goods/muy-3a.png',
+      'https://cdn-we-retail.ym.tencent.com/tsr/goods/muy-3a1.png',
+      'https://cdn-we-retail.ym.tencent.com/tsr/goods/muy-3b.png',
+    ],
     minSalePrice: '29900',
     minLinePrice: '39900',
     maxSalePrice: '39900',
@@ -955,7 +985,7 @@ const allGoods = [
             specId: '127904180600844800',
             specTitle: null,
             specValueId: '127904181322265856',
-            specValue: '花色',
+            specValue: '浅灰色',
           },
           {
             specId: '127904861604820480',
@@ -993,7 +1023,7 @@ const allGoods = [
             specId: '127904180600844800',
             specTitle: null,
             specValueId: '127904181322265856',
-            specValue: '花色',
+            specValue: '浅灰色',
           },
           {
             specId: '127904861604820480',
@@ -1031,7 +1061,7 @@ const allGoods = [
             specId: '127904180600844800',
             specTitle: null,
             specValueId: '127904181322265856',
-            specValue: '花色',
+            specValue: '浅灰色',
           },
           {
             specId: '127904861604820480',
@@ -1062,6 +1092,10 @@ const allGoods = [
         profitPrice: null,
       },
     ],
+    desc: [
+      'https://cdn-we-retail.ym.tencent.com/tsr/goods/muy-3c.png',
+      'https://cdn-we-retail.ym.tencent.com/tsr/goods/muy-3d.png',
+    ],
     isAvailable: 1,
     spuStockQuantity: 321,
     soldNum: 102,
@@ -1075,7 +1109,7 @@ const allGoods = [
             specValueId: '127904181322265856',
             specId: '127904180600844800',
             saasId: '88888888',
-            specValue: '花色',
+            specValue: '浅灰色',
             image: '',
           },
         ],
@@ -1116,9 +1150,13 @@ const allGoods = [
     saasId: '88888888',
     storeId: '1000',
     spuId: '135681626',
-    title: '秋季新款时尚气质显瘦长裤',
-    primaryImage:
-      '//bl-material-online-1300977798.cos.ap-guangzhou.myqcloud.com/persist/10001/88888888/1000000/material/1/d0fce2dae8b44be89bdfd6d74329ffa1-1586941824404-锘垮垏鍥_鍟嗗搧 - 7.png',
+    title: '迷你便携高颜值蓝牙无线耳机立体声',
+    primaryImage: 'https://cdn-we-retail.ym.tencent.com/tsr/goods/dz-2a.png',
+    images: [
+      'https://cdn-we-retail.ym.tencent.com/tsr/goods/dz-2a.png',
+      'https://cdn-we-retail.ym.tencent.com/tsr/goods/dz-2a1.png',
+      'https://cdn-we-retail.ym.tencent.com/tsr/goods/dz-2b.png',
+    ],
     minSalePrice: '29000',
     minLinePrice: '40000',
     maxSalePrice: '39000',
@@ -1160,7 +1198,7 @@ const allGoods = [
             specId: '11007',
             specTitle: null,
             specValueId: '10009',
-            specValue: 'S',
+            specValue: '简约款',
           },
         ],
         priceInfo: [
@@ -1198,7 +1236,7 @@ const allGoods = [
             specId: '11007',
             specTitle: null,
             specValueId: '10008',
-            specValue: 'L',
+            specValue: '礼盒装',
           },
         ],
         priceInfo: [
@@ -1236,7 +1274,7 @@ const allGoods = [
             specId: '11007',
             specTitle: null,
             specValueId: '11008',
-            specValue: 'M',
+            specValue: '带充电线简约款',
           },
         ],
         priceInfo: [
@@ -1261,6 +1299,10 @@ const allGoods = [
         profitPrice: null,
       },
     ],
+    desc: [
+      'https://cdn-we-retail.ym.tencent.com/tsr/goods/dz-2c.png',
+      'https://cdn-we-retail.ym.tencent.com/tsr/goods/dz-2d.png',
+    ],
     isAvailable: 1,
     spuStockQuantity: 366,
     soldNum: 102,
@@ -1281,27 +1323,27 @@ const allGoods = [
       },
       {
         specId: '11007',
-        title: '尺码',
+        title: '类型',
         specValueList: [
           {
             specValueId: '10009',
             specId: '11007',
             saasId: '88888888',
-            specValue: 'S',
+            specValue: '简约款',
             image: '',
           },
           {
             specValueId: '11008',
             specId: '11007',
             saasId: '88888888',
-            specValue: 'M',
+            specValue: '带充电线简约款',
             image: '',
           },
           {
             specValueId: '10008',
             specId: '11007',
             saasId: '88888888',
-            specValue: 'L',
+            specValue: '礼盒款',
             image: '',
           },
         ],
@@ -1315,14 +1357,22 @@ const allGoods = [
     saasId: '88888888',
     storeId: '1000',
     spuId: '135681622',
-    title: '2020春夏新款复古V领短袖设计衬衫连衣裙',
-    primaryImage:
-      '//bl-material-online-1300977798.cos.ap-guangzhou.myqcloud.com/persist/10001/88888888/1000000/material/1/f97037d8810e4f529157e7e6182bc303-1586941823748-锘垮垏鍥_鍟嗗搧 - 4.png',
+    title: '简约餐盘耐热家用盘子菜盘套装多颜色',
+    primaryImage: 'https://cdn-we-retail.ym.tencent.com/tsr/goods/gh-1a.png',
+    images: [
+      'https://cdn-we-retail.ym.tencent.com/tsr/goods/gh-1a.png',
+      'https://cdn-we-retail.ym.tencent.com/tsr/goods/gh-1a2.png',
+      'https://cdn-we-retail.ym.tencent.com/tsr/goods/gh-1b.png',
+    ],
     minSalePrice: '129900',
     minLinePrice: '218000',
     maxSalePrice: '139900',
     maxLinePrice: '218000',
     isSoldOut: false,
+    desc: [
+      'https://cdn-we-retail.ym.tencent.com/tsr/goods/gh-1c.png',
+      'https://cdn-we-retail.ym.tencent.com/tsr/goods/gh-1d.png',
+    ],
     groupIdList: [
       '14023',
       '127886732665303040',
@@ -1357,13 +1407,13 @@ const allGoods = [
             specId: '127904180600844800',
             specTitle: null,
             specValueId: '127904181506815488',
-            specValue: '蓝色',
+            specValue: '奶黄色',
           },
           {
             specId: '127904861604820480',
             specTitle: null,
             specValueId: '127904862175246592',
-            specValue: 'S',
+            specValue: '单盘',
           },
         ],
         priceInfo: [
@@ -1395,13 +1445,13 @@ const allGoods = [
             specId: '127904180600844800',
             specTitle: null,
             specValueId: '127904181506815488',
-            specValue: '蓝色',
+            specValue: '奶黄色',
           },
           {
             specId: '127904861604820480',
             specTitle: null,
             specValueId: '127904861755815680',
-            specValue: 'L',
+            specValue: '盘+碗',
           },
         ],
         priceInfo: [
@@ -1433,13 +1483,13 @@ const allGoods = [
             specId: '127904180600844800',
             specTitle: null,
             specValueId: '127904181506815488',
-            specValue: '蓝色',
+            specValue: '奶黄色',
           },
           {
             specId: '127904861604820480',
             specTitle: null,
             specValueId: '127904862007474176',
-            specValue: 'M',
+            specValue: '单盘',
           },
         ],
         priceInfo: [
@@ -1477,34 +1527,34 @@ const allGoods = [
             specValueId: '127904181506815488',
             specId: '127904180600844800',
             saasId: '88888888',
-            specValue: '蓝色',
+            specValue: '奶黄色',
             image: '',
           },
         ],
       },
       {
         specId: '127904861604820480',
-        title: '尺码',
+        title: '类型',
         specValueList: [
           {
             specValueId: '127904862175246592',
             specId: '127904861604820480',
             saasId: '88888888',
-            specValue: 'S',
+            specValue: '单盘',
             image: '',
           },
           {
             specValueId: '127904862007474176',
             specId: '127904861604820480',
             saasId: '88888888',
-            specValue: 'M',
+            specValue: '单碗',
             image: '',
           },
           {
             specValueId: '127904861755815680',
             specId: '127904861604820480',
             saasId: '88888888',
-            specValue: 'L',
+            specValue: '盘+碗',
             image: '',
           },
         ],
@@ -1518,11 +1568,12 @@ const allGoods = [
     saasId: '88888888',
     storeId: '1000',
     spuId: '135681624',
-    title: '夏季新款纯白色宽松短袖T',
-    primaryImage:
-      '//bl-material-online-1300977798.cos.ap-guangzhou.myqcloud.com/persist/10001/88888888/1000000/material/1/004baa3296584200a6c2f907895c1581-1586941823327-锘垮垏鍥_鍟嗗搧 - 2.png',
+    title: '不锈钢刀叉勺套装家用西餐餐具ins简约耐用',
+    primaryImage: 'https://cdn-we-retail.ym.tencent.com/tsr/goods/gh-2b.png',
     images: [
-      '//bl-material-online-1300977798.cos.ap-guangzhou.myqcloud.com/persist/10001/88888888/1000000/material/1/004baa3296584200a6c2f907895c1581-1586941823327-锘垮垏鍥_鍟嗗搧 - 2.png',
+      'https://cdn-we-retail.ym.tencent.com/tsr/goods/gh-2a.png',
+      'https://cdn-we-retail.ym.tencent.com/tsr/goods/gh-2a1.png',
+      'https://cdn-we-retail.ym.tencent.com/tsr/goods/gh-2b.png',
     ],
     video: null,
     available: 1,
@@ -1547,34 +1598,34 @@ const allGoods = [
             specValueId: '127904180768617216',
             specId: null,
             saasId: null,
-            specValue: '白色',
+            specValue: '奶黄色',
             image: null,
           },
         ],
       },
       {
         specId: '127904861604820480',
-        title: '尺码',
+        title: '数量',
         specValueList: [
           {
             specValueId: '127904862175246592',
             specId: null,
             saasId: null,
-            specValue: 'S',
+            specValue: '三件套',
             image: null,
           },
           {
             specValueId: '127904862007474176',
             specId: null,
             saasId: null,
-            specValue: 'M',
+            specValue: '六件套',
             image: null,
           },
           {
             specValueId: '127904861755815680',
             specId: null,
             saasId: null,
-            specValue: 'L',
+            specValue: '八件套',
             image: null,
           },
         ],
@@ -1675,8 +1726,8 @@ const allGoods = [
     spuTagList: [{ id: '19011', title: '2020秋季新款', image: null }],
     spuLimitList: null,
     desc: [
-      '//bl-material-online-1300977798.cos.ap-guangzhou.myqcloud.com/persist/10001/88888888/1000000/material/1/de72485388ed485ab33c788f69d95aed-1586942633814-4.png',
-      '//bl-material-online-1300977798.cos.ap-guangzhou.myqcloud.com/persist/10001/88888888/1000000/material/1/60a9c312e9f644429bcabfaf7611da42-1586942634027-5.png',
+      'https://cdn-we-retail.ym.tencent.com/tsr/goods/gh-2c.png',
+      'https://cdn-we-retail.ym.tencent.com/tsr/goods/gh-2d.png',
     ],
     etitle: '',
   },
@@ -1684,12 +1735,9 @@ const allGoods = [
     saasId: '88888888',
     storeId: '1000',
     spuId: '135681628',
-    title: '休闲小众印花圆领宽松连衣裙女',
-    primaryImage:
-      '//bl-material-online-1300977798.cos.ap-guangzhou.myqcloud.com/persist/10001/88888888/1000000/material/1/6aa2ae209d24499bb9a469b829c0919c-1586941823097-锘垮垏鍥_鍟嗗搧 - 1.png',
-    images: [
-      '//bl-material-online-1300977798.cos.ap-guangzhou.myqcloud.com/persist/10001/88888888/1000000/material/1/6aa2ae209d24499bb9a469b829c0919c-1586941823097-锘垮垏鍥_鍟嗗搧 - 1.png',
-    ],
+    title: '带帽午休毯虎年款多功能加厚加大',
+    primaryImage: 'https://cdn-we-retail.ym.tencent.com/tsr/goods/muy-3a.png',
+    images: ['https://cdn-we-retail.ym.tencent.com/tsr/goods/muy-3a.png'],
     video: null,
     available: 1,
     minSalePrice: '29900',
@@ -1713,7 +1761,7 @@ const allGoods = [
             specValueId: '127904181322265856',
             specId: null,
             saasId: null,
-            specValue: '花色',
+            specValue: '浅灰色',
             image: null,
           },
         ],
@@ -1749,8 +1797,7 @@ const allGoods = [
     skuList: [
       {
         skuId: '135676629',
-        skuImage:
-          '//bl-material-online-1300977798.cos.ap-guangzhou.myqcloud.com/persist/10001/88888888/1000000/material/1/6aa2ae209d24499bb9a469b829c0919c-1586941823097-锘垮垏鍥_鍟嗗搧 - 1.png',
+        skuImage: 'https://cdn-we-retail.ym.tencent.com/tsr/goods/muy-3a.png',
         specInfo: [
           {
             specId: '127904180600844800',
@@ -1780,8 +1827,7 @@ const allGoods = [
       },
       {
         skuId: '135676630',
-        skuImage:
-          '//bl-material-online-1300977798.cos.ap-guangzhou.myqcloud.com/persist/10001/88888888/1000000/material/1/6aa2ae209d24499bb9a469b829c0919c-1586941823097-锘垮垏鍥_鍟嗗搧 - 1.png',
+        skuImage: 'https://cdn-we-retail.ym.tencent.com/tsr/goods/muy-3a.png',
         specInfo: [
           {
             specId: '127904180600844800',
@@ -1811,8 +1857,7 @@ const allGoods = [
       },
       {
         skuId: '135681629',
-        skuImage:
-          '//bl-material-online-1300977798.cos.ap-guangzhou.myqcloud.com/persist/10001/88888888/1000000/material/1/6aa2ae209d24499bb9a469b829c0919c-1586941823097-锘垮垏鍥_鍟嗗搧 - 1.png',
+        skuImage: 'https://cdn-we-retail.ym.tencent.com/tsr/goods/muy-3a.png',
         specInfo: [
           {
             specId: '127904180600844800',
@@ -1844,8 +1889,8 @@ const allGoods = [
     spuTagList: [{ id: '13001', title: '限时抢购', image: null }],
     spuLimitList: null,
     desc: [
-      '//bl-material-online-1300977798.cos.ap-guangzhou.myqcloud.com/persist/10001/88888888/1000000/material/1/402288633f654516afe84377844a87ac-1586931566730-1.png',
-      '//bl-material-online-1300977798.cos.ap-guangzhou.myqcloud.com/persist/10001/88888888/1000000/material/1/b5fc3fa1309c4475a91d80597ef6215d-1586931566950-2.png',
+      'https://cdn-we-retail.ym.tencent.com/tsr/goods/muy-3c.png',
+      'https://cdn-we-retail.ym.tencent.com/tsr/goods/muy-3d.png',
     ],
     etitle: '',
   },
@@ -1866,6 +1911,6 @@ export function genGood(id, available = 1) {
     spuId: `${id}`,
     available: available,
     desc: item?.desc || defaultDesc,
-    images: item?.images || [item.primaryImage],
+    images: item?.images || [item?.primaryImage],
   };
 }

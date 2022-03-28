@@ -100,7 +100,6 @@ Page({
     this.getVersionInfo();
   },
 
-  // 调用自定义tabbar的init函数，使页面与tabbar激活状态保持一致
   onShow() {
     this.getTabBar().init();
     this.init();
@@ -115,24 +114,32 @@ Page({
 
   fetUseriInfoHandle() {
     fetchUserCenter().then(
-      ({ userInfo, countsData, orderTagInfos, customerServiceInfo }) => {
+      ({
+        userInfo,
+        countsData,
+        orderTagInfos: orderInfo,
+        customerServiceInfo,
+      }) => {
         // eslint-disable-next-line no-unused-expressions
         menuData?.[0].forEach((v) => {
           countsData.forEach((counts) => {
             if (counts.type === v.type) {
+              // eslint-disable-next-line no-param-reassign
               v.tit = counts.num;
             }
           });
         });
+        const info = orderTagInfos.map((v, index) => ({
+          ...v,
+          ...orderInfo[index],
+        }));
         this.setData({
           userInfo,
           menuData,
-          orderTagInfos,
+          orderTagInfos: info,
           customerServiceInfo,
           currAuthStep: 2,
         });
-
-        // 关闭自带的loading效果
         wx.stopPullDownRefresh();
       },
     );
@@ -226,11 +233,7 @@ Page({
 
   getVersionInfo() {
     const versionInfo = wx.getAccountInfoSync();
-    // eslint-disable-next-line no-console
-    console.info('versionInfo: ', versionInfo);
     const { version, envVersion = __wxConfig } = versionInfo.miniProgram;
-    // eslint-disable-next-line no-console
-    console.info('version, envVersion: ', version, envVersion);
     this.setData({
       versionNo: envVersion === 'release' ? version : envVersion,
     });

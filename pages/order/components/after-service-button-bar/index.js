@@ -57,14 +57,20 @@ Component({
     viewDelivery(service) {
       wx.navigateTo({
         url: `/pages/order/delivery-detail/index?data=${JSON.stringify(
-          service.logistics,
-        )}`,
+          service.logistics || service.logisticsVO,
+        )}&source=2`,
       });
     },
 
     onChangeTrackingNo(service) {
       wx.navigateTo({
-        url: `/pages/order/fill-tracking-no/index?rightsNo=${service.id}&logisticsNo=${service.logisticsNo}&logisticsCompanyName=${service.logisticsCompanyName}&logisticsCompanyCode=${service.logisticsCompanyCode}&remark=${service.remark}`,
+        url: `/pages/order/fill-tracking-no/index?rightsNo=${
+          service.id
+        }&logisticsNo=${service.logisticsNo}&logisticsCompanyName=${
+          service.logisticsCompanyName
+        }&logisticsCompanyCode=${service.logisticsCompanyCode}&remark=${
+          service.remark || ''
+        }`,
       });
     },
 

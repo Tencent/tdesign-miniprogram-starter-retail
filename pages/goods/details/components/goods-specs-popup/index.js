@@ -1,7 +1,6 @@
+/* eslint-disable no-param-reassign */
 /* eslint-disable no-nested-ternary */
 Component({
-  externalClasses: ['wr-class', 'specs-class', 'price-class'],
-
   options: {
     multipleSlots: true,
     addGlobalClass: true,
@@ -23,41 +22,21 @@ Component({
     isStock: {
       type: Boolean,
       value: true,
-      observer(isStock) {
-        this.setData({
-          isStock,
-        });
-      },
     },
     limitMaxCount: {
       type: Number,
       value: 999,
-      observer(limitMaxCount) {
-        this.setData({
-          limitMaxCount,
-        });
-      },
     },
     limitMinCount: {
       type: Number,
       value: 1,
-      observer(limitMinCount) {
-        this.setData({
-          limitMinCount,
-          buyNum,
-        });
-      },
     },
     skuList: {
       type: Array,
       value: [],
       observer(skuList) {
         if (skuList && skuList.length > 0) {
-          this.setData({
-            skuList: skuList,
-          });
-          const { initStatus } = this.data;
-          if (initStatus) {
+          if (this.initStatus) {
             this.initData();
           }
         }
@@ -72,7 +51,7 @@ Component({
         }
       },
     },
-    isSlotButton: {
+    outOperateStatus: {
       type: Boolean,
       value: false,
     },
@@ -91,22 +70,18 @@ Component({
     },
   },
 
+  initStatus: false,
+  selectedSku: {},
+  selectSpecObj: {},
+
   data: {
     buyNum: 1,
-    limitMaxCount: 999,
-    limitMinCount: 1,
-    specList: [],
-    skuList: [],
-    selectedSku: {},
-    selectSpecObj: {},
     isAllSelectedSku: false,
-    isStock: true,
-    initStatus: false,
   },
 
   methods: {
     initData() {
-      const { skuList } = this.data;
+      const { skuList } = this.properties;
       const { specList } = this.properties;
       specList.forEach((item) => {
         if (item.specValueList.length > 0) {
@@ -124,11 +99,11 @@ Component({
         selectedSku[item.specId] = '';
       });
       this.setData({
-        selectedSku: {},
-        selectSpecObj: {},
         specList,
-        initStatus: true,
       });
+      this.selectSpecObj = {};
+      this.selectedSku = {};
+      this.initStatus = true;
     },
 
     checkSkuStockQuantity(specValueId, skuList) {
@@ -139,7 +114,6 @@ Component({
           if (subItem.specValueId === specValueId && item.quantity > 0) {
             const subArray = [];
             (item.specInfo || []).forEach((specItem) => {
-              // 存储sku的规格
               subArray.push(specItem.specValueId);
             });
             array.push(subArray);
@@ -154,13 +128,11 @@ Component({
     },
 
     chooseSpecValueId(specValueId, specId) {
-      // 点击的规格ID， 点击的规格组ID
-      const { specList, selectSpecObj, skuList } = this.data;
+      const { selectSpecObj } = this;
+      const { skuList, specList } = this.properties;
       if (selectSpecObj[specId]) {
         selectSpecObj[specId] = [];
-        this.setData({
-          selectSpecObj, // 存组合SKU的specsValueID
-        });
+        this.selectSpecObj = selectSpecObj;
       } else {
         selectSpecObj[specId] = [];
       }
@@ -170,9 +142,7 @@ Component({
       const itemSelectArray = [];
       specList.forEach((item) => {
         if (item.specId === specId) {
-          // 点击行的规格逻辑
           const subSpecValueItem = item.specValueList.find(
-            // 选中规格的
             (subItem) => subItem.specValueId === specValueId,
           );
           let specSelectStatus = false;
@@ -227,9 +197,7 @@ Component({
             delete selectSpecObj[item.specId];
           }
         }
-        this.setData({
-          selectSpecObj,
-        });
+        this.selectSpecObj = selectSpecObj;
       });
       const combatArray = Object.values(selectSpecObj);
       if (combatArray.length > 0) {
@@ -240,7 +208,6 @@ Component({
         specList.forEach((item) => {
           item.specValueList.forEach((subItem) => {
             if (lastResult.includes(subItem.specValueId)) {
-              // 如果存在则有库存
               subItem.hasStockObj.hasStock = true;
             } else {
               subItem.hasStockObj.hasStock = false;
@@ -269,16 +236,13 @@ Component({
       const stack = [...input];
       const res = [];
       while (stack.length) {
-        // 使用 pop 从 stack 中取出并移除值
         const next = stack.pop();
         if (Array.isArray(next)) {
-          // 使用 push 送回内层数组中的元素，不会改动原始输入
           stack.push(...next);
         } else {
           res.push(next);
         }
       }
-      // 反转恢复原数组的顺序
       return res.reverse();
     },
 
@@ -287,7 +251,7 @@ Component({
     },
 
     toChooseItem(e) {
-      const { isStock } = this.data;
+      const { isStock } = this.properties;
       if (!isStock) return;
       const { id } = e.currentTarget.dataset;
       const specId = e.currentTarget.dataset.specid;
@@ -296,12 +260,12 @@ Component({
         return;
       }
 
-      let { selectedSku } = this.data;
-      const { specList } = this.data;
+      let { selectedSku } = this;
+      const { specList } = this.properties;
       selectedSku =
         selectedSku[specId] === id
-          ? { ...this.data.selectedSku, [specId]: '' }
-          : { ...this.data.selectedSku, [specId]: id };
+          ? { ...this.selectedSku, [specId]: '' }
+          : { ...this.selectedSku, [specId]: id };
       specList.forEach((item) => {
         item.specValueList.forEach((valuesItem) => {
           if (item.specId === specId) {
@@ -320,9 +284,9 @@ Component({
       }
       this.setData({
         specList,
-        selectedSku,
         isAllSelectedSku,
       });
+      this.selectedSku = selectedSku;
       this.triggerEvent('change', {
         specList,
         selectedSku,
@@ -332,7 +296,6 @@ Component({
 
     // 判断是否所有的sku都已经选中
     isAllSelected(skuTree, selectedSku) {
-      // 筛选selectedSku对象中key值不为空的值
       const selected = Object.keys(selectedSku).filter(
         (skuKeyStr) => selectedSku[skuKeyStr] !== '',
       );
@@ -345,14 +308,21 @@ Component({
       });
     },
 
+    specsConfirm() {
+      const { isStock } = this.properties;
+      if (!isStock) return;
+      this.triggerEvent('specsConfirm');
+    },
+
     addCart() {
-      const { isStock } = this.data;
+      const { isStock } = this.properties;
       if (!isStock) return;
       this.triggerEvent('addCart');
     },
 
     buyNow() {
-      const { isAllSelectedSku, isStock } = this.data;
+      const { isAllSelectedSku } = this.data;
+      const { isStock } = this.properties;
       if (!isStock) return;
       this.triggerEvent('buyNow', {
         isAllSelectedSku,
@@ -361,7 +331,8 @@ Component({
 
     // 加
     handleBuyNumPlus() {
-      const { buyNum, isStock } = this.data;
+      const { buyNum } = this.data;
+      const { isStock } = this.properties;
       if (!isStock) return;
       const nextBuyNum = Number(buyNum) + 1;
       this.setBuyNum(nextBuyNum > 999 ? buyNum : nextBuyNum);
@@ -369,7 +340,9 @@ Component({
 
     // 减
     handleBuyNumMinus() {
-      const { buyNum, isStock, limitMinCount } = this.data;
+      const { buyNum } = this.data;
+      const { limitMinCount } = this.properties;
+      const { isStock } = this.properties;
       if (!isStock || buyNum < limitMinCount + 1) return;
       const nextBuyNum = Number(buyNum) - 1;
       this.setBuyNum(nextBuyNum < 1 ? buyNum : nextBuyNum);
@@ -391,8 +364,7 @@ Component({
         detail: { value },
       } = e;
       const valInNum = Number(value);
-      const { limitMaxCount, limitMinCount } = this.data;
-
+      const { limitMaxCount, limitMinCount } = this.properties;
       const nextData = {
         buyNum:
           valInNum < limitMinCount

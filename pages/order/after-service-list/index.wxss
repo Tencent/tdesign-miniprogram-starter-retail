@@ -33,17 +33,14 @@
 
 .page-container .specs-popup .bottom-btn {
   color: #fa550f;
-  color: var(--color-primary, #fa550f);
 }
 
 .page-container .specs-popup .bottom-btn::after {
   border-color: #fa550f;
-  border-color: var(--color-primary, #fa550f);
 }
 
 .dialog .dialog__button-confirm {
   color: #fa550f;
-  color: var(--color-primary, #fa550f);
 }
 
 .list-loading {
@@ -73,6 +70,7 @@
 
 .order-goods-card-footer-num {
   color: #999;
+  line-height: 40rpx;
 }
 
 .page-container .order-goods-card-footer .order-goods-card-footer-price-class {
@@ -108,7 +106,6 @@
 .price-total .symbol {
   font-size: 24rpx;
   color: #fa550f;
-  color: var(--color-price, #fa550f);
   font-weight: bold;
   display: inline;
   margin-right: 5rpx;
@@ -117,7 +114,6 @@
 .price-total .order-price {
   font-size: 32rpx;
   color: #fa550f;
-  color: var(--color-price, #fa550f);
   font-weight: bold;
 }
 
@@ -128,32 +124,6 @@
 .price-total .clear {
   clear: both;
 }
-
-/* .page-container
-  .order-goods-card
-  > wr-goods-card
-  .wr-goods-card__bottom
-  .price {
-  top: 100rpx;
-  left: 10rpx;
-} */
-
-/* .page-container .order-goods-card > wr-goods-card .wr-goods-card__num {
-  top: 100rpx;
-} */
-
-/* .page-container
-  .order-goods-card
-  > wr-goods-card
-  .wr-goods-card__bottom
-  .price::before {
-  display: inline;
-  content: '退款金额:';
-  margin-right: 1em;
-  font-size: 24rpx;
-  color: #333333;
-  font-weight: normal;
-} */
 
 .page-container .wr-goods-card__specs {
   margin: 14rpx 20rpx 0 0;
@@ -186,7 +156,7 @@
   background-color: #f5f5f5;
   border-radius: 8rpx;
   word-wrap: break-word;
-  margin-top: 40rpx;
+  margin-top: 24rpx;
   margin-bottom: 20rpx;
 }
 
@@ -207,4 +177,8 @@
 }
 .add-notes__confirm {
   color: #fa4126 !important;
+}
+
+.page-container .header-class {
+  margin-bottom: 5rpx!important;
 }

@@ -1,27 +1,28 @@
 <t-popup
- visible="{{ show }}"
- z-index="{{ 1000 }}"
- placement="bottom"
- bind:visible-change="onClose"
+  visible="{{ show }}"
+  z-index="{{ 1000 }}"
+  placement="bottom"
+  bind:visible-change="onClose"
 >
 	<view class="area-picker wr-class" slot="content">
 		<t-icon
-		 t-class="area-picker__close"
-		 name="close"
-		 size=""
-		 bindtap="onClose"
+		  t-class="area-picker__close"
+		  name="close"
+		  prefix="wr"
+		  size="40rpx"
+		  bindtap="onClose"
 		/>
 		<view class="area-picker__header" wx:if="{{title}}">
 			<view class="area-picker__header__title">{{title}}</view>
 		</view>
 		<view class="area-picker__selected-result">
 			<view
-			 class="area-picker__selected-result__item"
-			 wx:for="{{pickerValue}}"
-			 wx:for-item="pickedArea"
-			 wx:key="index"
-			 bindtap="onPickerClick"
-			 data-index="{{index}}"
+			  class="area-picker__selected-result__item"
+			  wx:for="{{pickerValue}}"
+			  wx:for-item="pickedArea"
+			  wx:key="index"
+			  bindtap="onPickerClick"
+			  data-index="{{index}}"
 			>
 				<view class="area-picker__selected-result__item__name">{{pickedArea.name}}</view>
 				<view class="area-picker__selected-result__item__circle" />
@@ -47,23 +48,23 @@
 				<view class="area-picker__area-list__content">
 					<scroll-view class="area-picker__area-list__content__inner" scroll-y scroll-top="{{scrollTop}}">
 						<view
-						 class="area-picker__area-list__content__group"
-						 wx:for="{{pickerColumnData}}"
-						 wx:for-item="group"
-						 wx:for-index="gi"
-						 wx:key="gi"
+						  class="area-picker__area-list__content__group"
+						  wx:for="{{pickerColumnData}}"
+						  wx:for-item="group"
+						  wx:for-index="gi"
+						  wx:key="gi"
 						>
 							<view class="area-picker__area-list__content__group__title">{{group.name}}</view>
 							<view class="area-picker__area-list__content__group__content">
 								<view
-								 class="area-picker__area-list__content__group__content__item {{gi === hightLightIndex[0] && index === hightLightIndex[1] ? 'active' : ''}}"
-								 hover-class="area-picker__area-list__content__group__content__item__active"
-								 id="area-item-{{gi}}-{{index}}"
-								 wx:for="{{group.children}}"
-								 wx:key="index"
-								 bindtap="onChange"
-								 data-gi="{{gi}}"
-								 data-ai="{{index}}"
+								  class="area-picker__area-list__content__group__content__item {{gi === hightLightIndex[0] && index === hightLightIndex[1] ? 'active' : ''}}"
+								  hover-class="area-picker__area-list__content__group__content__item__active"
+								  id="area-item-{{gi}}-{{index}}"
+								  wx:for="{{group.children}}"
+								  wx:key="index"
+								  bindtap="onChange"
+								  data-gi="{{gi}}"
+								  data-ai="{{index}}"
 								>{{item.name}}
 								</view>
 							</view>

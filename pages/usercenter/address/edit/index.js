@@ -3,10 +3,8 @@ import { fetchDeliveryAddress } from '../../../../services/address/fetchAddress'
 import { areaData } from '../../../../config/index';
 import { resolveAddress, rejectAddress } from './util';
 
-// 内置手机号正则字符串，可通过传入字符串使用手机号扩展需求
 const innerPhoneReg =
   '^1(?:3\\d|4[4-9]|5[0-35-9]|6[67]|7[0-8]|8\\d|9\\d)\\d{8}$';
-// 内置的昵称正则字符串，可通过传入字符串使用昵称拓展需求
 const innerNameReg = '^[a-zA-Z\\d\\u4e00-\\u9fa5]+$';
 const labelsOptions = [
   { id: 0, name: '家' },
@@ -30,12 +28,12 @@ Page({
       detailAddress: '',
       districtCode: '',
       districtName: '',
-      isDefault: false, // 1默认地址 0非默认地址
+      isDefault: false,
       name: '',
       phone: '',
       provinceCode: '',
       provinceName: '',
-      isEdit: false, //  是否编辑
+      isEdit: false,
       isOrderDetail: false,
       isOrderSure: false,
     },
@@ -45,7 +43,7 @@ Page({
     submitActive: false,
     verifyTips: '',
     visible: false,
-    labelValue: '', // 标签名称
+    labelValue: '',
     columns: 3,
   },
   onLoad(options) {
@@ -124,7 +122,6 @@ Page({
       labelIndex: item,
       addressTag: labels[item].name,
     };
-    // 反选取消选中
     if (item === labelIndex) {
       payload = { labelIndex: null, addressTag: '' };
     }
@@ -162,12 +159,9 @@ Page({
     });
   },
 
-  // 校验输入是否合法
   onVerifyInputLegal() {
-    // 校验保存收货地址信息是否有效
     const { name, phone, detailAddress, districtName } =
       this.data.locationState;
-    // 错误处理，避免开发者传入null、undefined，导致方法报错
     const prefixPhoneReg = String(this.properties.phoneReg || innerPhoneReg);
     const prefixNameReg = String(this.properties.nameReg || innerNameReg);
     const nameRegExp = new RegExp(prefixNameReg);
