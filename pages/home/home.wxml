@@ -64,7 +64,7 @@
 	  bind:click="goodListClickHandle"
 	  bind:addcart="goodListAddCartHandle"
 	/>
-	<t-load-more list-is-empty="{{!goodsList.length}}" status="{{goodsListLoadStatus}}" bind:retry="onReTry" />
+	<load-more list-is-empty="{{!goodsList.length}}" status="{{goodsListLoadStatus}}" bind:retry="onReTry" />
 	<t-toast id="t-toast" />
 </view>
 

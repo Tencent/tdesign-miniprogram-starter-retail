@@ -25,8 +25,7 @@
 		  color="#bbb"
 		/>
 	</t-search>
-	<!-- 过滤组件 -->
-	<t-filter
+	<filter
 	  wr-class="filter-container"
 	  bind:change="handleFilterChange"
 	  layout="{{layout}}"
@@ -34,7 +33,7 @@
 	  overall="{{overall}}"
 	  bind:showFilterPopup="showFilterPopup"
 	>
-		<t-filter-popup
+		<filter-popup
 		  show="{{show}}"
 		  slot="filterPopup"
 		  bind:showFilterPopupClose="showFilterPopupClose"
@@ -65,12 +64,11 @@
 					/>
 				</view>
 			</view>
-		</t-filter-popup>
-	</t-filter>
+		</filter-popup>
+	</filter>
 	<view class="empty-wrap" wx:if="{{goodsList.length === 0 && hasLoaded}}">
 		<t-empty t-class="empty-tips" size="240rpx" description="暂无相关商品" />
 	</view>
-	<!-- 显示内容 -->
 	<view class="category-goods-list" wx:if="{{goodsList.length}}">
 		<goods-list
 		  wr-class="wr-goods-list"
@@ -80,7 +78,7 @@
 		  bind:addcart="handleAddCart"
 		/>
 	</view>
-	<t-load-more wx:if="{{goodsList.length > 0}}" status="{{loadMoreStatus}}" no-more-text="没有更多了" />
+	<load-more wx:if="{{goodsList.length > 0}}" status="{{loadMoreStatus}}" no-more-text="没有更多了" />
 </view>
 <t-toast id="t-toast" />
 

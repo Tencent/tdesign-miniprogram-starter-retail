@@ -10,9 +10,9 @@
     "t-button": "tdesign-miniprogram/button/button",
     "t-icon": "tdesign-miniprogram/icon/icon",
     "t-popup": "tdesign-miniprogram/popup/popup",
-    "t-price": "/components/price/index",
-    "t-buy-bar": "./components/buy-bar/index",
-    "t-promotion-popup": "./components/promotion-popup/index",
-    "t-goods-specs-popup": "./components/goods-specs-popup/index"
+    "price": "/components/price/index",
+    "buy-bar": "./components/buy-bar/index",
+    "promotion-popup": "./components/promotion-popup/index",
+    "goods-specs-popup": "./components/goods-specs-popup/index"
   }
 }

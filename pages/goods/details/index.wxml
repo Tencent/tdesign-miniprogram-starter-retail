@@ -22,14 +22,14 @@
 		<view class="goods-info">
 			<view class="goods-number">
 				<view class="goods-price">
-					<t-price
+					<price
 					  wr-class="class-goods-price"
 					  symbol-class="class-goods-symbol"
 					  price="{{minSalePrice}}"
 					  type="lighter"
 					/>
 					<view class="goods-price-up">起</view>
-					<t-price wr-class="class-goods-del" price="{{maxLinePrice}}" type="delthrough" />
+					<price wr-class="class-goods-del" price="{{maxLinePrice}}" type="delthrough" />
 				</view>
 				<view class="sold-num">已售{{soldNum}}</view>
 			</view>
@@ -123,7 +123,7 @@
 	</view>
 	<!-- 底部按纽 -->
 	<view class="goods-bottom-operation">
-		<t-buy-bar
+		<buy-bar
 		  jumpArray="{{jumpArray}}"
 		  soldout="{{soldout}}"
 		  isStock="{{isStock}}"
@@ -136,7 +136,7 @@
 		/>
 	</view>
 
-	<t-goods-specs-popup
+	<goods-specs-popup
 	  id="goodsSpecsPopup"
 	  show="{{isSpuSelectPopupShow}}"
 	  title="{{details.title || ''}}"
@@ -155,13 +155,13 @@
 	>
 		<view slot="goods-price">
 			<view class="popup-sku__price">
-				<t-price
+				<price
 				  wx:if="{{!isAllSelectedSku || (!promotionSubCode && isAllSelectedSku)}}"
 				  price="{{selectSkuSellsPrice ? selectSkuSellsPrice : minSalePrice }}"
 				  wr-class="popup-sku__price-num"
 				  symbol-class="popup-sku__price-symbol"
 				/>
-				<t-price
+				<price
 				  wx:if="{{selectSkuSellsPrice === 0 && minSalePrice !== maxSalePrice && !isAllSelectedSku}}"
 				  price="{{maxSalePrice}}"
 				  wr-class="popup-sku__price-del"
@@ -169,9 +169,9 @@
 				/>
 			</view>
 		</view>
-	</t-goods-specs-popup>
+	</goods-specs-popup>
 
-	<t-promotion-popup
+	<promotion-popup
 	  list="{{list}}"
 	  bind:closePromotionPopup="closePromotionPopup"
 	  show="{{isShowPromotionPop}}"
