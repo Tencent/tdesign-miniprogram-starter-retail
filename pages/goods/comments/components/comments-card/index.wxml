@@ -17,11 +17,9 @@
 			<view class="goods-info-text" wx:if="{{goodsDetailInfo}}">{{goodsDetailInfo}}</view>
 		</view>
 		<view class="comments-card-item-container-content">
-			<view class="content-text {{hideText ? 'hide-text' : ''}}" hidden="{{showContent}}">
+			<view class="content-text" hidden="{{showContent}}">
 				{{commentContent}}
 			</view>
-			<view class="showMore" wx:if="{{hideText}}" bindtap="showText">展开</view>
-			<view class="showMore" wx:if="{{!hideText && overText}}" bindtap="packupText">收起</view>
 		</view>
 		<view class="comments-card-item-container-image" wx:if="{{commentResources.length > 0}}">
 			<images-videos resources="{{commentResources}}" />
