@@ -1,16 +1,19 @@
 .resource-item-single {
   width: 360rpx;
   height: 360rpx;
+  border-radius: 8rpx;
 }
 
 .resource-item-double {
   width: 334rpx;
   height: 334rpx;
+  border-radius: 8rpx;
 }
 
 .resource-item-multiple {
   width: 218rpx;
   height: 218rpx;
+  border-radius: 8rpx;
 }
 
 .resource-container-single {
@@ -54,4 +57,12 @@
 .images-videos-container {
   display: flex;
   flex-wrap: wrap;
+}
+
+.image {
+  border-radius: 8rpx;
+}
+
+.cover-img-container {
+  background-color: white;
 }
