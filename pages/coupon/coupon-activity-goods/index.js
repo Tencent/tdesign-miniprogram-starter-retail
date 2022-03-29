@@ -8,6 +8,7 @@ Page({
     detail: {},
     couponTypeDesc: '',
     showStoreInfoList: false,
+    cartNum: 2,
   },
 
   id: '',

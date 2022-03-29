@@ -16,6 +16,9 @@ Page({
     imgUrl: '',
     title: '',
     goodsDetail: '',
+    imageProps: {
+      mode: 'aspectFit',
+    },
   },
 
   onLoad(options) {

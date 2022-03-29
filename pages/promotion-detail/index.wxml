@@ -8,7 +8,6 @@
 				  webp="{{true}}"
 				  t-class="t-class-promotion-head"
 				/>
-				<!-- 倒计时 -->
 				<view wx:if="{{!showBannerDesc && (time >= 0 || statusTag === 'finish')}}" class="count-down-wrap in-banner-count-down-wrap">
 					<block wx:if="{{statusTag === 'finish'}}">
 						<view class="status-tag {{statusTag}}">已结束</view>

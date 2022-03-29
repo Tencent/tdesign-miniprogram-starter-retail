@@ -46,3 +46,15 @@
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+
+.top-right-radius {
+  border-top-right-radius: 16rpx;
+}
+
+.bottom-right-radius {
+  border-bottom-right-radius: 16rpx;
+}
+
+.c-sidebar-item-container {
+  background-color: white;
+}

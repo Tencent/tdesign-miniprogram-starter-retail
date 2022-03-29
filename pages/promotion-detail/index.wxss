@@ -14,8 +14,6 @@
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
-
-  /* 因为倒计时就有这个设定，所以这里也要设定，不然默认情况下行高对不上会导致文字不对齐 */
   line-height: 34rpx;
 }
 
@@ -54,7 +52,6 @@
 
 .promotion-detail-container .wrap .count-down-wrap .detail-entry {
   margin-left: auto;
-  /* 满足最小点击高度的audit建议 */
   height: 40rpx;
 }
 

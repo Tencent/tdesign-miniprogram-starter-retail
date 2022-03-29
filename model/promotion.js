@@ -1,5 +1,4 @@
 import { getGoodsList } from './goods';
-import { cdnBase } from '../config/index';
 
 export function getPromotion(baseID = 0, length = 10) {
   return {
@@ -13,7 +12,7 @@ export function getPromotion(baseID = 0, length = 10) {
         tags: item.spuTagList.map((tag) => ({ title: tag.title })),
       };
     }),
-    banner: `${cdnBase}/activity/banner.png`,
+    banner: 'https://cdn-we-retail.ym.tencent.com/tsr/home/v2/banner2.png',
     time: 1000 * 60 * 60 * 20,
     showBannerDesc: true,
     statusTag: 'running',

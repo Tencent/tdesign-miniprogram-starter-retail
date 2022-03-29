@@ -13,17 +13,17 @@ Page({
       showCancelButton: true,
       message: '',
     },
-    deleteType: 0,
-    deleteIndex: '',
     dialogShow: false,
   },
+
+  deleteType: 0,
+  deleteIndex: '',
 
   onShow() {
     this.queryHistory();
     this.queryPopular();
   },
 
-  // 获取历史搜索记录
   async queryHistory() {
     try {
       const data = await getSearchHistory();
@@ -39,7 +39,6 @@ Page({
     }
   },
 
-  // 搜索热门搜索记录
   async queryPopular() {
     try {
       const data = await getSearchPopular();
@@ -55,12 +54,11 @@ Page({
     }
   },
 
-  // 清空搜索历史
   confirm() {
-    const { deleteType, deleteIndex, historyWords } = this.data;
+    const { historyWords } = this.data;
+    const { deleteType, deleteIndex } = this;
     historyWords.splice(deleteIndex, 1);
     if (deleteType === 0) {
-      // 单个删除
       this.setData({
         historyWords,
         dialogShow: false,
@@ -76,20 +74,20 @@ Page({
 
   handleClearHistory() {
     const { dialog } = this.data;
+    this.deleteType = 1;
     this.setData({
       dialog: {
         ...dialog,
         message: '确认删除所有历史记录',
       },
       dialogShow: true,
-      deleteType: 1,
     });
   },
 
-  // 长按删除单个历史记录
   deleteCurr(e) {
     const { index } = e.currentTarget.dataset;
     const { dialog } = this.data;
+    this.deleteIndex = index;
     this.setData({
       dialog: {
         ...dialog,
@@ -97,7 +95,6 @@ Page({
         deleteType: 0,
       },
       dialogShow: true,
-      deleteIndex: index,
     });
   },
 
@@ -112,7 +109,6 @@ Page({
     }
   },
 
-  // 输入完成
   handleSubmit(e) {
     const { value } = e.detail.value;
     if (value.length === 0) return;

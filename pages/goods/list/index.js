@@ -22,39 +22,34 @@ Page({
     minVal: '',
     maxVal: '',
     layoutText: layoutMap[0],
-    pageNum: 1,
-    pageSize: 30,
-    total: 0,
     filter: initFilters,
     hasLoaded: false,
     loadMoreStatus: 0,
-    cartNum: 0,
-    store: '',
     loading: true,
-    sceneId: 2,
-    pageLoaded: false,
-    outerService: null,
   },
+
+  pageNum: 1,
+  pageSize: 30,
+  total: 0,
 
   handleFilterChange(e) {
     const { layout, overall, sorts } = e.detail;
+    this.pageNum = 1;
     this.setData({
       layout,
       sorts,
       overall,
-      pageSize: 1,
       loadMoreStatus: 0,
     });
     this.init(true);
   },
 
   generalQueryData(reset = false) {
-    const { filter, pageNum, pageSize, keywords, minVal, maxVal } = this.data;
+    const { filter, keywords, minVal, maxVal } = this.data;
+    const { pageNum, pageSize } = this;
     const { sorts, overall } = filter;
-
     const params = {
       sort: 0, // 0 综合，1 价格
-      // sortType: 0, // 0 顺序，1 倒序
       pageNum: 1,
       pageSize: 30,
       keyword: keywords,
@@ -70,16 +65,9 @@ Page({
     } else {
       params.sort = 1;
     }
-
-    // if (prices.length === 2) {
-    //   params.minPrice = prices[0] * 100;
-    //   params.maxPrice = prices[1] * 100;
-    // }
     params.minPrice = minVal ? minVal * 100 : 0;
     params.maxPrice = maxVal ? maxVal * 100 : undefined;
-    // 重置请求
     if (reset) return params;
-
     return {
       ...params,
       pageNum: pageNum + 1,
@@ -90,10 +78,7 @@ Page({
   async init(reset = true) {
     const { loadMoreStatus, goodsList = [] } = this.data;
     const params = this.generalQueryData(reset);
-
-    // 在加载中或者无更多数据，直接返回
     if (loadMoreStatus !== 0) return;
-
     this.setData({
       loadMoreStatus: 1,
       loading: true,
@@ -105,6 +90,7 @@ Page({
       if (code.toUpperCase() === 'SUCCESS') {
         const { spuList, totalCount = 0 } = data;
         if (totalCount === 0 && reset) {
+          this.total = totalCount;
           this.setData({
             emptyInfo: {
               tip: '抱歉，未找到相关商品',
@@ -112,7 +98,6 @@ Page({
             hasLoaded: true,
             loadMoreStatus: 0,
             loading: false,
-            total: totalCount,
             goodsList: [],
           });
           return;
@@ -120,11 +105,10 @@ Page({
 
         const _goodsList = reset ? spuList : goodsList.concat(spuList);
         const _loadMoreStatus = _goodsList.length === totalCount ? 2 : 0;
-
+        this.pageNum = params.pageNum || 1;
+        this.total = totalCount;
         this.setData({
           goodsList: _goodsList,
-          pageNum: params.pageNum || 1,
-          total: totalCount,
           loadMoreStatus: _loadMoreStatus,
         });
       } else {
@@ -147,25 +131,18 @@ Page({
   },
 
   onLoad() {
-    this.setData(
-      {
-        pageLoaded: true,
-      },
-      () => {
-        this.init(true);
-      },
-    );
+    this.init(true);
   },
 
   onReachBottom() {
-    const { total = 0, goodsList } = this.data;
+    const { goodsList } = this.data;
+    const { total = 0 } = this;
     if (goodsList.length === total) {
       this.setData({
         loadMoreStatus: 2,
       });
       return;
     }
-
     this.init(false);
   },
 
@@ -204,24 +181,21 @@ Page({
       show: false,
     });
   },
-  // 最小值
+
   onMinValAction(e) {
     const { value } = e.detail;
     this.setData({ minVal: value });
   },
 
-  // 最大值
   onMaxValAction(e) {
     const { value } = e.detail;
     this.setData({ maxVal: value });
   },
 
-  // 筛选重置
   reset() {
     this.setData({ minVal: '', maxVal: '' });
   },
 
-  // 筛选确定
   confirm() {
     const { minVal, maxVal } = this.data;
     let message = '';

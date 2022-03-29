@@ -22,7 +22,6 @@ Page({
           ...item,
           tags: item.tags.map((v) => v.title),
         }));
-
         this.setData({
           list: goods,
           banner,
@@ -34,15 +33,12 @@ Page({
     );
   },
 
-  /** 点击商品 */
   goodClickHandle(e) {
     const { index } = e.detail;
     const { spuId } = this.data.list[index];
-
     wx.navigateTo({ url: `/pages/goods/details/index?spuId=${spuId}` });
   },
 
-  /** 点击加购 */
   cardClickHandle() {
     Toast({
       context: this,
