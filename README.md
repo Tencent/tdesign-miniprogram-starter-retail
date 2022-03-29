@@ -110,8 +110,21 @@ TDesign 零售模版示例小程序采用 [TDesign 企业级设计体系小程�
 2. 小程序开发工具中引入工程
 3. 构建 npm
 
-
-
 ### 6. 代码风格控制
 
-`prettier`
+`eslint` `prettier`
+
+## 基础库版本
+
+最低基础库版本`^2.6.5`
+
+## TDesign 其他技术栈实现
+
+- 移动端 小程序 实现：[mobile-miniprogram](https://github.com/Tencent/tdesign-miniprogram)
+- 桌面端 Vue 2  实现：[web-vue](https://github.com/Tencent/tdesign-vue)
+- 桌面端 Vue 3 实现：[web-vue-next](https://github.com/Tencent/tdesign-vue-next)
+- 桌面端 React 实现：[web-react](https://github.com/Tencent/tdesign-react)
+
+## 开源协议
+
+TDesign 遵循 [MIT 协议](https://github.com/Tencent/tdesign-miniprogram/LICENSE)。
