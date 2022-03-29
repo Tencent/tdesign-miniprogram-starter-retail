@@ -4,7 +4,6 @@ import { config } from '../../config/index';
 function mockGetGoods(parameter) {
   const { delay } = require('../_utils/delay');
   const { getGoods } = require('../../model/submitComment');
-  console.log('parameter:', parameter);
   const data = getGoods(parameter);
 
   return delay().then(() => {

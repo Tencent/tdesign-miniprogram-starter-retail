@@ -1,0 +1,50 @@
+.filter-wrap {
+  width: 100%;
+  height: 88rpx;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  background: #fff;
+}
+
+.filter-right-content {
+  height: 100%;
+  flex-basis: 100rpx;
+  text-align: center;
+  line-height: 88rpx;
+}
+
+.filter-left-content {
+  height: 100%;
+  display: flex;
+  flex-grow: 2;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+}
+
+.filter-left-content .filter-item {
+  flex: 1;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26rpx;
+  line-height: 36rpx;
+  font-weight: 400;
+  color: rgba(51, 51, 51, 1);
+}
+
+.filter-left-content .filter-item .filter-price {
+  display: flex;
+  flex-direction: column;
+  margin-left: 6rpx;
+  justify-content: space-between;
+}
+
+.filter-left-content .filter-item .wr-filter {
+  margin-left: 8rpx;
+}
+
+.filter-left-content .filter-active-item {
+  color: #fa550f;
+}

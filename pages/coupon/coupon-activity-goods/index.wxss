@@ -1,0 +1,82 @@
+page {
+  background-color: #f5f5f5;
+}
+
+.coupon-page-container .notice-bar-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 8rpx 0;
+}
+
+.coupon-page-container .notice-bar-text {
+  font-size: 26rpx;
+  line-height: 36rpx;
+  font-weight: 400;
+  color: #666666;
+  margin-left: 24rpx;
+}
+
+.coupon-page-container .notice-bar-text .height-light {
+  color: #fa550f;
+}
+
+.coupon-page-container .notice-bar-icon {
+  margin-left: 12rpx;
+  height: 68rpx;
+  line-height: 68rpx !important;
+}
+
+.coupon-page-container .popup-content-wrap {
+  background-color: #fff;
+  border-top-left-radius: 20rpx;
+  border-top-right-radius: 20rpx;
+}
+
+.coupon-page-container .popup-content-title {
+  font-size: 32rpx;
+  color: #333;
+  text-align: center;
+  height: 104rpx;
+  line-height: 104rpx;
+  position: relative;
+}
+
+.coupon-page-container .popup-content-title .close-icon {
+  position: absolute;
+  top: 24rpx;
+  right: 24rpx;
+}
+
+.coupon-page-container .desc-group-wrap {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.coupon-page-container .desc-group-wrap .item-wrap {
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+}
+
+.coupon-page-container .desc-group-wrap .item-title {
+  font-size: 26rpx;
+  color: #333;
+  font-weight: 500;
+  margin-top: 30rpx;
+}
+
+.coupon-page-container .desc-group-wrap .item-label {
+  font-size: 24rpx;
+  color: #666;
+  margin-top: 12rpx;
+  white-space: pre-line;
+  word-break: break-all;
+  line-height: 34rpx;
+}
+
+.coupon-page-container .goods-list-container {
+  margin: 0 24rpx 24rpx;
+}
+
+.coupon-page-container .goods-list-wrap {
+  background: #f5f5f5 !important;
+}

@@ -3,11 +3,10 @@ import { config, cdnBase } from '../../config/index';
 /** 获取首页数据 */
 function mockFetchHome() {
   const { delay } = require('../_utils/delay');
-  const { genSwiperImageList, genSwiperImage } = require('../../model/swiper');
+  const { genSwiperImageList } = require('../../model/swiper');
   return delay().then(() => {
     return {
       swiper: genSwiperImageList(),
-      // 这里没多少代表性就不做抽象了，而且也不好做，文字的mock
       tabList: [
         {
           text: '精选推荐',
@@ -38,7 +37,6 @@ function mockFetchHome() {
           key: 6,
         },
       ],
-      keyword: 'iPhone 12火热发售中',
       activityImg: `${cdnBase}/activity/banner.png`,
     };
   });

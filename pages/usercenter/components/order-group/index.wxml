@@ -1,0 +1,38 @@
+<view class="order-group">
+	<t-cell-group wx:if="{{isTop}}">
+		<t-cell
+		  t-class="order-group__top"
+		  t-class-left="order-group__left"
+		  t-class-title="order-group__top__title"
+		  t-class-note="order-group__top__note"
+		  title="{{title}}"
+		  note="{{desc}}"
+		  bordered="{{false}}"
+		  arrow
+		  bind:tap="onClickTop"
+		/>
+	</t-cell-group>
+	<view class="order-group__content">
+		<view
+		  class="order-group__item"
+		  wx:for="{{orderTagInfos}}"
+		  wx:for-item="item"
+		  wx:key="index"
+		  data-item="{{item}}"
+		  bindtap="onClickItem"
+		>
+			<view class="order-group__item__icon icon-class">
+				<t-badge count="{{item.orderNum}}" max-count="{{99}}" color="#FF4646">
+					<t-icon
+					  prefix="{{classPrefix}}"
+					  name="{{item.iconName}}"
+					  size="56rpx"
+					  customStyle="background-image: -webkit-linear-gradient(90deg, #6a6a6a 0%,#929292 100%);-webkit-background-clip: text;-webkit-text-fill-color: transparent;"
+					/>
+				</t-badge>
+			</view>
+			<view class="order-group__item__title title-class">{{item.title}}</view>
+		</view>
+	</view>
+</view>
+

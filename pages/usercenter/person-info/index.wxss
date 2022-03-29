@@ -1,8 +1,39 @@
-page {
+:host {
   background-color: #f5f5f5;
-  --cell-value-color: #666;
+}
+page view {
+  box-sizing: border-box;
+}
+.person-info__btn {
+  width: 100%;
+  border: 2rpx solid #ddd;
+  border-radius: 48rpx;
+  padding: 18rpx 0;
+  display: flex;
+  align-self: center;
+  justify-content: center;
+}
+.person-info__wrapper {
+  width: 100%;
+  padding: 0 32rpx;
+  padding-bottom: calc(env(safe-area-inset-bottom) + 20rpx);
+  position: absolute;
+  bottom: 0;
+  left: 0;
 }
 
-.brith-string-value {
-  --cell-value-color: #bbb;
+.avatarUrl {
+  width: 80rpx;
+  height: 80rpx;
+}
+
+.t-class-confirm {
+  color: #fa550f !important;
+}
+
+.person-info .order-group__left {
+  margin-right: 0;
+}
+.person-info .t-cell-class {
+  height: 112rpx;
 }

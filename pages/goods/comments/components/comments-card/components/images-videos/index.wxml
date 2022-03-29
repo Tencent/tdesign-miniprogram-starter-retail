@@ -1,0 +1,15 @@
+<view class="images-videos-container container-{{classType}}">
+	<view
+	  class="resource-container resource-container-{{classType}}"
+	  wx:for="{{resources}}"
+	  wx:for-item="resource"
+	  wx:key="*this"
+	>
+		<t-image wx:if="{{resource.type === 'image'}}" t-class="resource-item-{{classType}}" src="{{resource.src}}" />
+		<my-video wx:else videoSrc="{{resource.src}} " my-video="resource-item-{{classType}}">
+			<t-image t-class="resource-item resource-item-{{classType}}" slot="cover-img" src="{{resource.coverSrc}}" />
+			<t-image t-class="play-icon" slot="play-icon" src="{{'https://bizmid-iris-static-1302115263.cos.ap-guangzhou.myqcloud.com/mini-program/goods/video_play.png'}}" />
+		</my-video>
+	</view>
+</view>
+

@@ -1,0 +1,26 @@
+page {
+  background-color: #f5f5f5;
+}
+page view {
+  box-sizing: border-box;
+}
+.name-edit {
+  padding-top: 20rpx;
+}
+.name-edit .name-edit__input--desc {
+  font-size: 26rpx;
+  padding: 16rpx 32rpx;
+  color: #999;
+  margin-bottom: 200rpx;
+}
+.name-edit .name-edit__wrapper {
+  width: 100%;
+  padding: 0 32rpx;
+}
+.name-edit .name-edit__btn {
+  height: 88rpx;
+  width: 100%;
+  background: #fa4126;
+  color: #fff;
+  border-radius: 48rpx;
+}

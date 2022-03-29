@@ -1,0 +1,68 @@
+.specs-popup {
+  width: 100vw;
+  box-sizing: border-box;
+  padding: 32rpx 32rpx calc(20rpx + env(safe-area-inset-bottom)) 32rpx;
+  max-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 20rpx 20rpx 0 0;
+}
+.specs-popup .section {
+  margin-top: 44rpx;
+  flex: auto;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+.specs-popup .section .title {
+  font-size: 26rpx;
+  color: #4f5356;
+}
+.specs-popup .section .options {
+  color: #333333;
+  font-size: 24rpx;
+  margin-right: -26rpx;
+}
+.specs-popup .section .options .option {
+  display: inline-block;
+  margin-top: 24rpx;
+  height: 56rpx;
+  line-height: 56rpx;
+  padding: 0 16rpx;
+  border-radius: 8rpx;
+  background-color: #f5f5f5;
+  max-width: 100%;
+  box-sizing: border-box;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.specs-popup .section .options .option:not(:last-child) {
+  margin-right: 26rpx;
+}
+.specs-popup .bottom-btn {
+  margin-top: 42rpx;
+  position: relative;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  background-color: white;
+  color: #fa4126;
+}
+.specs-popup .bottom-btn--active {
+  opacity: 0.5;
+}
+.specs-popup .bottom-btn::after {
+  display: block;
+  content: ' ';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 200%;
+  height: 200%;
+  border: 1px solid #fa4126;
+  border-radius: 80rpx;
+  transform: scale(0.5);
+  transform-origin: left top;
+}

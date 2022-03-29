@@ -1,0 +1,24 @@
+.load-more {
+  font-size: 24rpx;
+  height: 100rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.load-more .t-class-loading {
+  display: flex;
+  justify-content: center;
+}
+
+.load-more .t-class-loading-text {
+  color: #bbbbbb;
+}
+
+.t-class-divider-content {
+  margin: 0 10rpx;
+  color: #bbbbbb;
+}
+.load-more .t-class-indicator {
+  color: #b9b9b9 !important;
+}

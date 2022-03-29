@@ -1,11 +1,12 @@
 {
-  "navigationBarTitleText": "个人中心",
+  "navigationBarTitleText": "个人资料",
   "usingComponents": {
-    "wr-button": "@tencent/retailwe-ui-button/index",
-    "wr-cell": "@tencent/retailwe-ui-cell/index",
-    "wr-cell-group": "@tencent/retailwe-ui-cell-group/index",
-    "wr-datetime-picker": "@tencent/retailwe-ui-datetime-picker/index",
-    "wr-dialog": "@tencent/retailwe-ui-dialog/index",
-    "wr-image": "@tencent/retailwe-ui-image/index"
+    "t-cell-group": "tdesign-miniprogram/cell-group/cell-group",
+    "t-cell": "tdesign-miniprogram/cell/cell",
+    "t-button": "tdesign-miniprogram/button/button",
+    "t-image": "/components/webp-image/index",
+    "t-dialog": "tdesign-miniprogram/dialog/dialog",
+    "t-toast": "tdesign-miniprogram/toast/toast",
+    "t-select-picker": "../components/ui-select-picker/index"
   }
 }

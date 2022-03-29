@@ -1,5 +1,6 @@
+/* eslint-disable no-param-reassign */
 import { fetchDeliveryAddressList } from '../../../../services/address/fetchAddress';
-
+import Toast from 'tdesign-miniprogram/toast/index';
 import { resolveAddress, rejectAddress } from './util';
 import { getAddressPromise } from '../edit/util';
 
@@ -8,6 +9,7 @@ Page({
     addressList: [],
     deleteID: '',
     showDeleteConfirm: false,
+    isOrderSure: false,
   },
 
   /** 选择模式 */
@@ -16,9 +18,12 @@ Page({
   hasSelect: false,
 
   onLoad(query) {
-    // 传空字符串或者不传 就 等同 false
-    // 否则都是true（注意 !!'false' === true ）
-    const { selectMode = '' } = query;
+    const { selectMode = '', isOrderSure = '', id = '' } = query;
+    this.setData({
+      isOrderSure: !!isOrderSure,
+      extraSpace: !!isOrderSure,
+      id,
+    });
     this.selectMode = !!selectMode;
     this.init();
   },
@@ -31,8 +36,24 @@ Page({
       rejectAddress();
     }
   },
+  addAddress() {
+    wx.navigateTo({
+      url: '/pages/usercenter/address/edit/index',
+    });
+  },
+  onEdit(e) {
+    wx.navigateTo({
+      url: `/pages/usercenter/address/edit/index?id=${e.detail.id}`,
+    });
+  },
   getAddressList() {
+    const { id } = this.data;
     fetchDeliveryAddressList().then((addressList) => {
+      addressList.forEach((address) => {
+        if (address.id === id) {
+          address.checked = true;
+        }
+      });
       this.setData({ addressList });
     });
   },
@@ -40,16 +61,28 @@ Page({
     wx.chooseAddress({
       success: (res) => {
         if (res.errMsg.indexOf('ok') === -1) {
-          wx.showToast({ title: res.errMsg, icon: 'none' });
+          Toast({
+            context: this,
+            selector: '#t-toast',
+            message: res.errMsg,
+            icon: '',
+            duration: 1000,
+          });
           return;
         }
-        wx.showToast({ title: '添加成功', icon: 'none' });
+        Toast({
+          context: this,
+          selector: '#t-toast',
+          message: '添加成功',
+          icon: '',
+          duration: 1000,
+        });
         const { length: len } = this.data.addressList;
         this.setData({
           [`addressList[${len}]`]: {
             name: res.userName,
             phoneNumber: res.telNumber,
-            address: `${res.provinceName}${res.cityName}${res.countyName}${res.detailInfo}`,
+            address: `${res.provinceName}${res.cityName}${res.countryName}${res.detailInfo}`,
             isDefault: 0,
             tag: '微信地址',
             id: len,
@@ -62,13 +95,25 @@ Page({
     const { id } = detail || {};
     if (id !== undefined) {
       this.setData({ deleteID: id, showDeleteConfirm: true });
-      wx.showToast({ title: '地址删除成功', icon: 'success' });
+      Toast({
+        context: this,
+        selector: '#t-toast',
+        message: '地址删除成功',
+        theme: 'success',
+        duration: 1000,
+      });
     } else {
-      wx.showToast({ title: '需要组件库发新版才能拿到地址ID', icon: 'none' });
+      Toast({
+        context: this,
+        selector: '#t-toast',
+        message: '需要组件库发新版才能拿到地址ID',
+        icon: '',
+        duration: 1000,
+      });
     }
   },
-  deleteAddressHandle() {
-    const { deleteID: id } = this.data;
+  deleteAddressHandle(e) {
+    const { id } = e.currentTarget.dataset;
     this.setData({
       addressList: this.data.addressList.filter((address) => address.id !== id),
       deleteID: '',
@@ -79,7 +124,7 @@ Page({
     this.waitForNewAddress();
 
     const { id } = detail || {};
-    wx.navigateTo({ url: '/pages/usercenter/address/edit/index?id=' + id });
+    wx.navigateTo({ url: `/pages/usercenter/address/edit/index?id=${id}` });
   },
   selectHandle({ detail }) {
     if (this.selectMode) {
@@ -123,20 +168,19 @@ Page({
           addressList = addressList.map((address) => {
             if (address.addressId === newAddress.addressId) {
               return newAddress;
-            } else {
-              return address;
             }
+            return address;
           });
         }
 
         addressList.sort((prevAddress, nextAddress) => {
           if (prevAddress.isDefault && !nextAddress.isDefault) {
             return -1;
-          } else if (!prevAddress.isDefault && nextAddress.isDefault) {
-            return 1;
-          } else {
-            return 0;
           }
+          if (!prevAddress.isDefault && nextAddress.isDefault) {
+            return 1;
+          }
+          return 0;
         });
 
         this.setData({
@@ -144,10 +188,14 @@ Page({
         });
       })
       .catch((e) => {
-        if (e.message === 'cancel') {
-          console.log('用户取消选择');
-        } else {
-          console.log('地址编辑发生错误: ', e);
+        if (e.message !== 'cancel') {
+          Toast({
+            context: this,
+            selector: '#t-toast',
+            message: '地址编辑发生错误',
+            icon: '',
+            duration: 1000,
+          });
         }
       });
   },

@@ -1,39 +1,23 @@
-/* pages/usercenter/index.wxss */
 page {
   background-color: #f5f5f5;
 }
-.container {
-  padding-top: 88rpx;
+
+.content-wrapper {
+  margin-top: 340rpx;
+  position: relative;
+  padding: 0 30rpx;
 }
 
-.counts-wrapper {
-  display: flex;
-  justify-content: space-around;
-  align-items: flex-start;
-}
-.counts-wrapper .count {
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  color: #333;
-}
-.counts-wrapper .num {
-  font-size: 32rpx;
-  font-weight: bolder;
-  color: #333;
-}
-.counts-wrapper .label {
-  font-size: 24rpx;
-}
 .main-content {
-  margin: -100rpx 24rpx 0 24rpx;
   height: 500rpx;
-  border: 1px solid white;
-  border-radius: 16rpx;
 }
 
 .order-group-wrapper {
   margin-bottom: 16rpx;
+}
+
+.order-group-note {
+  font-size: 28rpx;
 }
 
 .cell-box {
@@ -84,21 +68,38 @@ page {
   text-align: center;
 }
 
-page .popup__content--bottom {
-  bottom: calc(100rpx + env(safe-area-inset-bottom));
-}
 .popup-content {
-  background-color: #f5f5f5;
-}
-.popup-content .popup-title-tag {
-  font-weight: 500;
+  background: #f5f5f5;
+  margin-bottom: env(safe-area-inset-bottom);
+  border-radius: 16rpx 16rpx 0 0;
 }
 .popup-content .popup-title {
-  background: #f5f5f5;
+  background: #fff;
   text-align: center;
   font-size: 24rpx;
   color: #999;
-  padding: 20rpx;
+  height: 112rpx;
+  text-align: center;
+  line-height: 112rpx;
+  border-radius: 16rpx 16rpx 0 0;
+}
+
+.border-bottom-1px {
+  position: relative;
+}
+
+.border-bottom-1px::after {
+  position: absolute;
+  display: block;
+  content: '';
+  box-sizing: border-box;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 200%;
+  transform: scale(0.5);
+  transform-origin: left top;
+  border-bottom: 2rpx solid #e5e5e5;
 }
 .popup-content .popup-phone,
 .popup-content .popup-close {
@@ -111,14 +112,35 @@ page .popup__content--bottom {
   font-size: 30rpx;
   font-family: PingFangSC-Regular, PingFang SC;
   font-weight: 400;
-  color: #fa550f;
-  color: var(--color-primary, #fa550f);
+  color: #333;
 }
 .popup-content .popup-phone.online {
-  border-top: 1rpx solid #e6e6e6;
   margin-bottom: 20rpx;
+}
+.popup-content .popup-phone.online::after {
+  content: none;
 }
 .popup-content .popup-close {
   color: #333;
   border: 0;
+  margin-top: 16rpx;
+}
+
+.my-order {
+  border-radius: 10rpx;
+}
+
+.footer__version {
+  text-align: center;
+  margin-top: 50rpx;
+  color: #999;
+  margin-bottom: 4rpx;
+  font-size: 24rpx;
+  line-height: 32rpx;
+}
+.cell-box .order-group__left {
+  margin-right: 0;
+}
+.cell-box .t-cell-padding {
+  padding: 24rpx 18rpx 24rpx 32rpx;
 }

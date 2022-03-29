@@ -1,0 +1,11 @@
+<view class="t-class loading-content {{position}}" style="{{(position === 'static' || noMask) ? 'visibility: hidden;' : ''}} background-color: {{backgroundColor}}">
+	<t-loading
+	 t-class="loading"
+	 theme="{{type}}"
+	 layout="{{vertical}}"
+	 size="{{size}}"
+	>
+		<slot/>
+	</t-loading>
+</view>
+

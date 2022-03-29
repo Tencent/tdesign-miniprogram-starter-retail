@@ -1,152 +1,110 @@
-/* 层级定义
-@z-index-0: 1;
-@z-index-1: 100;
-@z-index-2: 200;
-@z-index-5: 500;
-@z-index-component: 1000; // 通用组件级别
-@z-index-dropdown: @z-index-component;
-@z-index-sticky: @z-index-component + 20;
-@z-index-fixed: @z-index-component + 30;
-@z-index-modal-backdrop:@z-index-component + 40;
-@z-index-modal:@z-index-component + 50;
-@z-index-popover:@z-index-component + 60;
-@z-index-tooltip:@z-index-component + 70;
-*/
-/* var() css变量适配*/
-@import '../list/index.wxss';
 page {
-  background-color: #f5f5f5;
-}
-.result-container .search-component {
   background-color: #fff;
+}
+
+page view {
+  box-sizing: border-box;
+}
+
+.result-container {
+  display: block;
+}
+
+.result-container .t-search {
   padding: 0 30rpx;
+  background-color: #fff;
 }
-.category-goods-list {
-  background-color: #f5f5f5;
+
+.result-container .t-class__input-container {
+  height: 64rpx !important;
+  border-radius: 32rpx !important;
+}
+
+.result-container .t-search__left-icon {
+  display: flex;
+  align-items: center;
+}
+
+.result-container .t-search__input {
+  font-size: 28rpx !important;
+  color: #333 !important;
+}
+
+.result-container .category-goods-list {
+  background-color: #f2f2f2;
   overflow-y: scroll;
+  padding: 20rpx 24rpx;
+  -webkit-overflow-scrolling: touch;
 }
-.category-recommend {
-  width: 100%;
-  position: relative;
-  z-index: 100;
-  margin-top: 300px;
-  background: #f5f5f5;
+
+.result-container .wr-goods-list {
+  background: #f2f2f2 !important;
 }
-.recommend-wrap {
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-around;
+
+.result-container .t-image__mask {
+  display: flex !important;
 }
-.recommend-line {
-  width: 103px;
-  height: 5px;
-}
-.recommend-text {
-  font-size: 14px;
-  font-family: PingFangSC-Semibold, PingFang SC;
-  font-weight: 600;
-  color: #4f5356;
-}
-.filter-wrap {
-  position: relative;
-}
-.ipt-wrap {
-  width: 100%;
-  height: 44px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-around;
-  background: #ffffff;
-  position: relative;
-  z-index: 100;
-}
-.ipt-box {
-  width: 301px;
-  height: 32px;
-  position: relative;
-  border-radius: 16px;
-  background: #ffffff;
-  border: 1px solid #dddddd;
-  display: flex;
-  align-items: center;
-}
-.search-big {
-  width: 16px;
-  height: 16px;
-  position: absolute;
-  left: 10px;
-  color: #bbbbbb;
-}
-.search-ipt {
-  width: 237px;
-  height: 32px;
-  margin-left: 34px;
-  color: #333;
-  font-size: 14px;
-}
-.search-delete {
-  width: 16px;
-  height: 16px;
-  position: absolute;
-  right: 10px;
-}
-.cancel-btn {
-  font-size: 14px;
-  font-family: PingFangSC-Regular, PingFang SC;
-  font-weight: 400;
-  color: #666666;
-}
-.search-val {
-  position: absolute;
-  left: 34px;
-  font-size: 12px;
-  font-family: PingFangSC-Regular, PingFang SC;
-  font-weight: 400;
-  color: #333333;
-  padding: 3px 5px;
-  border-radius: 15px;
-  background: #f3f3f3;
-}
-.empty-wrap {
+
+.result-container .empty-wrap {
   margin-top: 184rpx;
   margin-bottom: 120rpx;
   height: 300rpx;
 }
-.empty-wrap .empty-tips .empty-content .content-text {
+
+.result-container .empty-wrap .empty-tips .empty-content .content-text {
   margin-top: 40rpx;
 }
-.no-more {
-  padding-left: 20rpx;
-  padding-right: 20rpx;
+
+.result-container .price-container {
+  padding: 32rpx;
+  height: 100vh;
+  max-width: 632rpx;
+  background-color: #fff;
+  border-radius: 30rpx 0 0 30rpx;
 }
-.search-component .input-box {
-  caret-color: #fa550f !important;
-  caret-color: var(--color-primary, #fa550f) !important;
+
+.result-container .price-between {
+  font-size: 26rpx;
+  font-weight: 500;
+  color: rgba(51, 51, 51, 1);
 }
-.search-component .input-box.focus {
-  border: 2rpx solid #fa550f !important;
-  border: 2rpx solid var(--color-primary, #fa550f) !important;
+
+.result-container .price-ipts-wrap {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-top: 24rpx;
 }
-.filter-wrap .filter-left-content .filter-active-item {
-  color: #fa550f !important;
-  color: var(--color-primary, #fa550f) !important;
+
+.result-container .price-ipts-wrap .price-divided {
+  position: relative;
+  width: 22rpx;
+  margin: 0 20rpx;
+  color: #222427;
 }
-.con2 .price-ipts-wrap .price-ipt.focus {
-  border: 1px solid #fa550f !important;
-  border: 1px solid var(--color-primary, #fa550f) !important;
+
+.result-container .price-ipts-wrap .price-ipt {
+  box-sizing: border-box;
+  width: 246rpx;
+  font-size: 24rpx;
+  height: 56rpx;
+  padding: 0 24rpx;
+  text-align: center;
+  border-radius: 8rpx;
+  color: #333;
+  background: rgba(245, 245, 245, 1);
 }
-.con2 .price-btns-wrap .btn-reset {
-  color: #fa550f !important;
-  color: var(--color-primary, #fa550f) !important;
+
+.t-class-input {
+  font-size: 24rpx !important;
 }
-.con2 .price-btns-wrap .btn-confirm {
-  background-color: #fa550f !important;
-  background-color: var(--color-primary, #fa550f) !important;
+
+.result-container .price-ipts-wrap .price-ipt::after {
+  border: none !important;
 }
-.wr-info {
-  background-color: #fa550f !important;
-  background-color: var(--color-primary, #fa550f) !important;
+
+.result-container .t-class-placeholder {
+  font-size: 24rpx !important;
+  text-align: center;
 }

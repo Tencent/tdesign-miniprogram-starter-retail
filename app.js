@@ -1,6 +1,8 @@
-//app.js
+import updateManager from './common/updateManager';
+
 App({
-  onLaunch: function () {
-    // console.log('supermarket page');
+  onLaunch: function () {},
+  onShow: function () {
+    updateManager();
   },
 });

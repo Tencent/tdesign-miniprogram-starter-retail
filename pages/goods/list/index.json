@@ -1,12 +1,12 @@
 {
   "navigationBarTitleText": "商品列表",
   "usingComponents": {
-    "wr-goods-category": "@tencent/retailwe-ui-goods-category/index",
-    "wr-loading-content": "@tencent/retailwe-ui-loading-content/index",
-    "wr-empty": "@tencent/retailwe-ui-empty/index",
-    "wr-goods-list": "@tencent/retailwe-ui-goods-list/index",
-    "wr-filter": "@tencent/retailwe-ui-filter/index",
-    "wr-filter-popup": "@tencent/retailwe-ui-filter-popup/index",
-    "wr-load-more": "@tencent/retailwe-ui-load-more/index"
+    "t-input": "tdesign-miniprogram/input/input",
+    "t-empty": "tdesign-miniprogram/empty/empty",
+    "t-toast": "tdesign-miniprogram/toast/toast",
+    "goods-list": "/components/goods-list/index",
+    "filter": "/components/filter/index",
+    "filter-popup": "/components/filter-popup/index",
+    "load-more": "/components/load-more/index"
   }
 }

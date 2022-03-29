@@ -63,7 +63,7 @@ Page({
       // }
     } catch (error) {}
   },
-  generalQueryData(reset, type) {
+  generalQueryData(reset) {
     const { hasImage, pageNum, pageSize, spuId, commentLevel } = this.data;
     const params = {
       pageNum: 1,
@@ -108,19 +108,16 @@ Page({
       const data = await fetchComments(params, {
         method: 'POST',
       });
-      console.log('data:', data);
       const code = 'SUCCESS';
-      // const { data, code = '' } = result;
       if (code.toUpperCase() === 'SUCCESS') {
-        console.log('xxxx');
         const { pageList, totalCount = 0 } = data;
         pageList.forEach((item) => {
-          item.commentScore = this.getScoreArray(item.commentScore);
+          // eslint-disable-next-line no-param-reassign
           item.commentTime = dayjs(Number(item.commentTime)).format(
             'YYYY/MM/DD HH:mm',
           );
         });
-        console.log('~~~~');
+
         if (Number(totalCount) === 0 && reset) {
           this.setData({
             commentList: [],
@@ -133,7 +130,6 @@ Page({
         const _commentList = reset ? pageList : commentList.concat(pageList);
         const _loadMoreStatus =
           _commentList.length === Number(totalCount) ? 2 : 0;
-        console.log('====:', _commentList);
         this.setData({
           commentList: _commentList,
           pageNum: params.pageNum || 1,
@@ -176,8 +172,8 @@ Page({
     this.init(true);
   },
   changeTag(e) {
-    var commenttype = e.currentTarget.dataset.commenttype;
-    var commentType = this.data.commentType;
+    var { commenttype } = e.currentTarget.dataset;
+    var { commentType } = this.data;
     if (commentType === commenttype) return;
     this.setData({
       loadMoreStatus: 0,

@@ -1,5 +1,6 @@
-import Dialog from '../../../miniprogram_npm/@tencent/retailwe-ui-dialog/dialog';
-import Toast from '../../../miniprogram_npm/@tencent/retailwe-ui-toast/toast';
+/* eslint-disable no-nested-ternary */
+import Dialog from 'tdesign-miniprogram/dialog/index';
+import Toast from 'tdesign-miniprogram/toast/index';
 import { dispatchSupplementInvoice } from '../../../services/order/orderConfirm';
 
 const invoiceJson = {
@@ -15,13 +16,13 @@ const invoiceJson = {
 };
 
 Page({
-  orderNo: '', // 通过url携带过来的订单号，有此参数则视为补开发票
+  orderNo: '',
   data: {
-    receiptIndex: 0, // 默认不开发票
+    receiptIndex: 0,
     addressTagsIndex: 0,
     goodsClassesIndex: 0,
-    dialogShow: false, //
-    codeShow: false, // 纳税人识别号说明
+    dialogShow: false,
+    codeShow: false,
     receipts: [
       { title: '不开发票', id: 0, name: 'receipt' },
       { title: '电子发票', id: 1, name: 'receipt' },
@@ -34,32 +35,32 @@ Page({
       { title: '商品明细', id: 0, name: 'goodsClasses' },
       { title: '商品类别', id: 1, name: 'goodsClasses' },
     ],
-    name: '', // 姓名
-    componentName: '', //公司名
-    code: '', // 识别号
-    phone: '', // 手机号
-    email: '', // 邮箱
+    name: '',
+    componentName: '',
+    code: '',
+    phone: '',
+    email: '',
     invoiceInfo: invoiceJson,
   },
   onLoad(query) {
     const { orderNo, invoiceData } = query;
     const tempData = JSON.parse(invoiceData || '{}');
     const invoice = {
-      receiptIndex: tempData.invoiceType == 5 ? 1 : 0,
+      receiptIndex: tempData.invoiceType === 5 ? 1 : 0,
       name: tempData.buyerName || '',
       email: tempData.email || '',
       phone: tempData.buyerPhone || '',
-      addressTagsIndex: tempData.titleType == 2 ? 1 : 0,
-      goodsClassesIndex: tempData.contentType == 2 ? 1 : 0,
+      addressTagsIndex: tempData.titleType === 2 ? 1 : 0,
+      goodsClassesIndex: tempData.contentType === 2 ? 1 : 0,
       code: tempData.buyerTaxNo || '',
-      componentName: tempData.titleType == 2 ? tempData.buyerName : '',
+      componentName: tempData.titleType === 2 ? tempData.buyerName : '',
     };
     this.orderNo = orderNo;
     this.setData({ ...invoice });
   },
   onLabels(e) {
     const { item } = e.currentTarget.dataset;
-    const nameIndex = item.name + 'Index';
+    const nameIndex = `${item.name}Index`;
     this.setData({ [nameIndex]: item.id });
   },
   onInput(e) {
@@ -81,7 +82,11 @@ Page({
   onSure() {
     const result = this.checkSure();
     if (!result) {
-      Dialog.alert({ title: '请填写发票信息', message: '' });
+      Dialog.alert({
+        title: '请填写发票信息',
+        content: '',
+        confirmBtn: '确认',
+      });
       return;
     }
     const {
@@ -98,13 +103,13 @@ Page({
     } = this.data;
 
     const data = {
-      buyerName: addressTagsIndex === 0 ? name : componentName, //个人或公司名称
-      buyerTaxNo: code, //税号
-      buyerPhone: phone, //手机
-      email, //邮箱
-      titleType: addressTags[addressTagsIndex].type, //发票抬头 1-个人 2-公司
-      contentType: goodsClassesIndex == 0 ? 1 : 2, //发票内容 1-明细 2类别
-      invoiceType: receiptIndex == 1 ? 5 : 0, //是否开票 0-不开 5-电子发票
+      buyerName: addressTagsIndex === 0 ? name : componentName,
+      buyerTaxNo: code,
+      buyerPhone: phone,
+      email,
+      titleType: addressTags[addressTagsIndex].type,
+      contentType: goodsClassesIndex === 0 ? 1 : 2,
+      invoiceType: receiptIndex === 1 ? 5 : 0,
     };
     if (this.orderNo) {
       if (this.submitting) return;
@@ -117,7 +122,13 @@ Page({
       this.submitting = true;
       dispatchSupplementInvoice(params)
         .then(() => {
-          Toast({ icon: '', text: '保存成功', duration: 2000 });
+          Toast({
+            context: this,
+            selector: '#t-toast',
+            message: '保存成功',
+            duration: 2000,
+            icon: '',
+          });
           setTimeout(() => {
             this.submitting = false;
             wx.navigateBack({ delta: 1 });
@@ -147,7 +158,6 @@ Page({
       receiptIndex,
     } = this.data;
     if (receiptIndex === 0) {
-      // 默认不开发票
       return true;
     }
     if (addressTagsIndex === 0) {

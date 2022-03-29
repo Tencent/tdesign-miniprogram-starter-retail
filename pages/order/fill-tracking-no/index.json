@@ -1,12 +1,14 @@
 {
   "navigationBarTitleText": "填写运单号",
   "usingComponents": {
-    "wr-icon": "@tencent/retailwe-ui-icon/index",
-    "wr-cell": "@tencent/retailwe-ui-cell/index",
-    "wr-notice-bar": "@tencent/retailwe-ui-notice-bar/index",
-    "wr-textarea": "@tencent/retailwe-ui-textarea/index",
-    "wr-reason-sheet": "../components/reason-sheet/index",
-    "wr-toast": "@tencent/retailwe-ui-toast/index",
-    "wr-dialog": "@tencent/retailwe-ui-dialog/index"
+    "t-icon": "tdesign-miniprogram/icon/icon",
+    "t-cell": "tdesign-miniprogram/cell/cell",
+    "t-cell-group": "tdesign-miniprogram/cell-group/cell-group",
+    "t-textarea": "tdesign-miniprogram/textarea/textarea",
+    "t-input": "tdesign-miniprogram/input/input",
+    "t-toast": "tdesign-miniprogram/toast/toast",
+    "t-dialog": "tdesign-miniprogram/dialog/dialog",
+    "t-button": "tdesign-miniprogram/button/button",
+    "ui-reason-sheet": "../components/reason-sheet/index"
   }
 }

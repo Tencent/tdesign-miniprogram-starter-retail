@@ -1,13 +1,19 @@
-<wr-tabbar
-  active="{{ active }}"
-  bind:change="onChange"
-  active-color="{{theme.custom.colorPrimary}}"
-  inactiveColor="#999"
-  activeColor="#333"
-  border>
-  <wr-tabbar-item wx:for="{{ list }}" wx:key="index">
-    <wr-icon slot="icon" name="{{ item.icon }}" size="44rpx"></wr-icon>
-    <wr-icon slot="icon-active" name="{{ item.icon }}" size="44rpx"></wr-icon>
-    <view class="text">{{ item.text }}</view>
-  </wr-tabbar-item>
-</wr-tabbar>
+<t-tab-bar
+ value="{{active}}"
+ bindchange="onChange"
+ split="{{false}}"
+ color="{{[theme.custom.colorPrimary, '#bbb' ]}}"
+>
+	<t-tab-bar-item
+	 wx:for="{{list}}"
+	 wx:for-item="item"
+	 wx:for-index="index"
+	 wx:key="index"
+	>
+		<view class="custom-tab-bar-wrapper">
+			<t-icon prefix="wr" name="{{item.icon}}" size="48rpx" />
+			<view class="text">{{ item.text }}</view>
+		</view>
+	</t-tab-bar-item>
+</t-tab-bar>
+

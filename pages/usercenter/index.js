@@ -1,30 +1,45 @@
 import { fetchUserCenter } from '../../services/usercenter/fetchUsercenter';
 import { cdnBase } from '../../config/index';
+import Toast from 'tdesign-miniprogram/toast/index';
 
 const menuData = [
   [
     {
       title: '收货地址',
-      tit: '收货地址管理',
+      tit: '',
       url: '',
       type: 'address',
+    },
+    {
+      title: '优惠券',
+      tit: '',
+      url: '',
+      type: 'coupon',
+    },
+    {
+      title: '积分',
+      tit: '',
+      url: '',
+      type: 'point',
     },
   ],
   [
     {
-      title: '个人信息',
+      title: '帮助中心',
       tit: '',
       url: '',
-      type: 'userinfo',
+      type: 'help-center',
     },
     {
       title: '客服热线',
       tit: '',
       url: '',
       type: 'service',
+      icon: 'service',
     },
   ],
 ];
+
 const orderTagInfos = [
   {
     title: '待付款',
@@ -35,21 +50,28 @@ const orderTagInfos = [
   },
   {
     title: '待发货',
-    iconName: 'wuliu-1',
+    iconName: 'deliver',
     orderNum: 0,
     tabType: 10,
     status: 1,
   },
   {
     title: '待收货',
-    iconName: 'packaging',
+    iconName: 'package',
     orderNum: 0,
     tabType: 40,
     status: 1,
   },
   {
+    title: '待评价',
+    iconName: 'comment',
+    orderNum: 0,
+    tabType: 60,
+    status: 1,
+  },
+  {
     title: '退款/售后',
-    iconName: 'money',
+    iconName: 'exchang',
     orderNum: 0,
     tabType: 0,
     status: 1,
@@ -60,35 +82,24 @@ const getDefaultData = () => ({
   showMakePhone: false,
   userInfo: {
     avatarUrl: `${cdnBase}/usercenter/avatar.png`,
-    name: '正在登录...',
+    nickName: '正在登录...',
     phoneNumber: '',
   },
-  countsData: [],
   menuData,
   orderTagInfos,
   customerServiceInfo: {},
+  currAuthStep: 1,
+  showKefu: true,
+  versionNo: '',
 });
 
 Page({
-  /**
-   * Page initial data
-   */
   data: getDefaultData(),
-  /**
-   * Lifecycle function--Called when page load
-   */
-  // onLoad: function (options) {
-  //   const {
-  //     statusBarHeight,
-  //     windowHeight,
-  //     screenHeight,
-  //   } = wx.getSystemInfoSync();
-  //   this.setData({
-  //     topDist: screenHeight - windowHeight,
-  //   });
-  // },
 
-  // 调用自定义tabbar的init函数，使页面与tabbar激活状态保持一致
+  onLoad() {
+    this.getVersionInfo();
+  },
+
   onShow() {
     this.getTabBar().init();
     this.init();
@@ -102,30 +113,39 @@ Page({
   },
 
   fetUseriInfoHandle() {
-    // this.setData(getDefaultData());
-
     fetchUserCenter().then(
-      ({ userInfo, countsData, orderTagInfos, customerServiceInfo }) => {
+      ({
+        userInfo,
+        countsData,
+        orderTagInfos: orderInfo,
+        customerServiceInfo,
+      }) => {
+        // eslint-disable-next-line no-unused-expressions
+        menuData?.[0].forEach((v) => {
+          countsData.forEach((counts) => {
+            if (counts.type === v.type) {
+              // eslint-disable-next-line no-param-reassign
+              v.tit = counts.num;
+            }
+          });
+        });
+        const info = orderTagInfos.map((v, index) => ({
+          ...v,
+          ...orderInfo[index],
+        }));
         this.setData({
           userInfo,
-          countsData,
           menuData,
-          orderTagInfos: this.data.orderTagInfos.map((orderTagInfo, idx) => {
-            return {
-              ...orderTagInfo,
-              orderNum: (orderTagInfos[idx] || {}).orderNum || 0,
-            };
-          }),
+          orderTagInfos: info,
           customerServiceInfo,
+          currAuthStep: 2,
         });
-
-        // 关闭自带的loading效果
         wx.stopPullDownRefresh();
       },
     );
   },
 
-  onClickCell: function ({ currentTarget }) {
+  onClickCell({ currentTarget }) {
     const { type } = currentTarget.dataset;
 
     switch (type) {
@@ -137,23 +157,50 @@ Page({
         this.openMakePhone();
         break;
       }
-      case 'userinfo': {
-        wx.navigateTo({ url: '/pages/usercenter/person-info/index' });
+      case 'help-center': {
+        Toast({
+          context: this,
+          selector: '#t-toast',
+          message: '你点击了帮助中心',
+          icon: '',
+          duration: 1000,
+        });
+        break;
+      }
+      case 'point': {
+        Toast({
+          context: this,
+          selector: '#t-toast',
+          message: '你点击了积分菜单',
+          icon: '',
+          duration: 1000,
+        });
+        break;
+      }
+      case 'coupon': {
+        wx.navigateTo({ url: '/pages/coupon/coupon-list/index' });
         break;
       }
       default: {
-        console.log('未知跳转', type);
+        Toast({
+          context: this,
+          selector: '#t-toast',
+          message: '未知跳转',
+          icon: '',
+          duration: 1000,
+        });
+        break;
       }
     }
   },
 
   jumpNav(e) {
-    // const status =e.detail.tabType;
-    const status = e.currentTarget.dataset.item.tabType;
+    const status = e.detail.tabType;
+
     if (status === 0) {
       wx.navigateTo({ url: '/pages/order/after-service-list/index' });
     } else {
-      wx.navigateTo({ url: '/pages/order/order-list/index?status=' + status });
+      wx.navigateTo({ url: `/pages/order/order-list/index?status=${status}` });
     }
   },
 
@@ -161,30 +208,34 @@ Page({
     wx.navigateTo({ url: '/pages/order/order-list/index' });
   },
 
-  tapCountDetailHandle(e) {
-    /** @todo 这里暂时使用中文名称来进行跳转适配，但理应使用key/id等固定的名称来进行跳转 */
-    const { item } = e.currentTarget.dataset;
-
-    switch (item.name) {
-      case '优惠券': {
-        wx.navigateTo({ url: '/pages/coupon/list' });
-        break;
-      }
-      default: {
-        console.log('未知跳转', item);
-      }
-    }
-  },
-
   openMakePhone() {
     this.setData({ showMakePhone: true });
   },
+
   closeMakePhone() {
     this.setData({ showMakePhone: false });
   },
+
   call() {
     wx.makePhoneCall({
       phoneNumber: this.data.customerServiceInfo.servicePhone,
+    });
+  },
+
+  gotoUserEditPage() {
+    const { currAuthStep } = this.data;
+    if (currAuthStep === 2) {
+      wx.navigateTo({ url: '/pages/usercenter/person-info/index' });
+    } else {
+      this.fetUseriInfoHandle();
+    }
+  },
+
+  getVersionInfo() {
+    const versionInfo = wx.getAccountInfoSync();
+    const { version, envVersion = __wxConfig } = versionInfo.miniProgram;
+    this.setData({
+      versionNo: envVersion === 'release' ? version : envVersion,
     });
   },
 });

@@ -1,0 +1,52 @@
+<wxs module="phoneReg">
+	var toHide = function(array) {
+	var mphone = array.substring(0, 3) + '****' + array.substring(7);
+	return mphone;
+	}
+	module.exports.toHide = toHide;
+</wxs>
+<view class="address-item-wrapper item-wrapper-class">
+	<t-swipe-cell class="swipe-out">
+		<view class="address {{isDrawLine ? 'draw-line' : ''}}" bindtap="onSelect" data-item="{{address}}">
+			<view class="address-left" wx:if="{{extraSpace}}">
+				<t-icon
+				  wx:if="{{address.checked}}"
+				  name="check"
+				  color="#FA4126"
+				  class-prefix="{{classPrefix}}"
+				  size="46rpx"
+				/>
+			</view>
+			<view class="address-content">
+				<view class="title title-class">
+					<text class="text-style">{{address.name}}</text>
+					<text>{{phoneReg.toHide(address.phoneNumber || '')}}</text>
+				</view>
+				<view class="label-adds">
+					<text class="adds address-info-class">
+						<text wx:if="{{address.isDefault === 1}}" class="tag tag-default default-tag-class">默认</text>
+						<text wx:if="{{address.tag}}" class="tag tag-primary normal-tag-class">{{address.tag}}</text>
+						<text class="address-text">{{address.address}}</text>
+					</text>
+				</view>
+			</view>
+			<view catch:tap="onEdit" data-item="{{address}}" class="address-edit">
+				<t-icon
+				  name="{{customIcon}}"
+				  class-prefix="{{classPrefix}}"
+				  size="46rpx"
+				  color="#BBBBBB"
+				/>
+			</view>
+		</view>
+		<view
+		  slot="right"
+		  class="swipe-right-del delete-class"
+		  bindtap="onDelete"
+		  data-item="{{address}}"
+		>
+			删除
+		</view>
+	</t-swipe-cell>
+</view>
+

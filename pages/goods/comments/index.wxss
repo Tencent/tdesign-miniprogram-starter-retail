@@ -14,35 +14,34 @@
 */
 /* var() css变量适配*/
 page {
-  background-color: #f5f5f5;
+  background-color: #FFFFFF;
 }
+
 .comments-header {
   display: flex;
   flex-wrap: wrap;
-  padding: 10rpx 32rpx 30rpx;
+  padding: 32rpx 32rpx 0rpx;
   background-color: #fff;
+  margin-top: -24rpx;
+  margin-left: -24rpx;
 }
+
 .comments-header-tag {
-  margin: 20rpx 22rpx 0;
-  width: 92rpx;
-  height: 52rpx;
-  display: inline-flex;
-  font-size: 22rpx !important;
+  margin-top: 24rpx;
+  margin-left: 24rpx;
+  height: 56rpx !important;
+  font-size: 24rpx !important;
   justify-content: center;
-  background-color: rgba(239, 147, 1, 0.1) !important;
-  background-color: rgba(
-    var(--color-secondary-rgb, 239, 147, 1),
-    0.1
-  ) !important;
+  background-color: #F5F5F5 !important;
+  border-radius: 8rpx !important;
 }
+
 .comments-header-active {
-  background-color: #ef9301 !important;
-  background-color: var(--color-secondary, #ef9301) !important;
-  color: #fff !important;
+  background-color: #FFECE9 !important;
+  color: #FA4126 !important;
+  border: 1px solid #FA4126 !important;
 }
-.comments-card-list {
-  margin-top: 20rpx;
-}
+
 .no-more {
   padding-left: 20rpx;
   padding-right: 20rpx;

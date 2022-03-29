@@ -1,0 +1,39 @@
+<view class="goods-list-wrap wr-class {{layout}}" id="{{independentID}}">
+	<block wx:for="{{goodsList}}" wx:for-item="item" wx:key="index">
+		<t-goods-card
+		  id="{{independentID}}-gd-{{index}}"
+		  layout="{{layout}}"
+		  data="{{item}}"
+		  currency="{{item.currency || '¥'}}"
+		  price-fill="{{!!priceFill}}"
+		  lazy-load="{{lazyLoad}}"
+		  centered="{{layout.indexOf('horizontal') > -1}}"
+		  thumb-mode="aspectFill"
+		  show-cart="{{showCart}}"
+		  cart-size="{{cartSize}}"
+		  cart-color="{{cartColor}}"
+		  thresholds="{{thresholds}}"
+		  thumb-width="{{thumbWidth}}"
+		  thumb-height="{{thumbHeight}}"
+		  class="goods-card-inside"
+		  card-class="{{index === goodsList.length - 1 ? 't-goods-card__no-border' : 't-goods-card'}}"
+		  title-class="title-class"
+		  desc-class="desc-class"
+		  num-class="num-class"
+		  thumb-class="thumb-class"
+		  specs-class="specs-class"
+		  price-class="price-class"
+		  origin-price-class="origin-price-class"
+		  price-prefix-class="price-prefix-class"
+		  add-cart-icon="{{addCartIcon}}"
+		  add-cart-icon-class-prefix="{{addCartIconClassPrefix}}"
+		  data-index="{{index}}"
+		  bind:thumb="onClickGoodsThumb"
+		  bind:specs="onClickGoodsSpecs"
+		  bind:click="onClickGoods"
+		  bind:add-cart="onAddCart"
+		  bind:ob="onOB"
+		/>
+	</block>
+</view>
+

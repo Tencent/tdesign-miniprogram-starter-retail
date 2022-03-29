@@ -1,0 +1,30 @@
+.floating-button {
+  position: fixed;
+  right: 20rpx;
+  bottom: 108rpx;
+}
+
+.floating-button .floating-inner-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 96rpx;
+  width: 96rpx;
+  background-color: rgba(0, 0, 0, 0.8);
+  opacity: 0.7;
+  border-radius: 48rpx;
+}
+
+.floating-button .floating-right-top {
+  position: absolute;
+  right: 0rpx;
+  top: 0rpx;
+  height: 28rpx;
+  background: #fa4126;
+  border-radius: 64rpx;
+  font-weight: bold;
+  font-size: 22rpx;
+  line-height: 28rpx;
+  color: #fff;
+  padding: 0 8rpx;
+}

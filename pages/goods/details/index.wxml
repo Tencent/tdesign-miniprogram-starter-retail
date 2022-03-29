@@ -1,161 +1,182 @@
-<import src="template/comments.wxml" />
-<goods-tab id="goodsTab" tabList="{{goodsTabArray}}" detailId="goods-page"/>
-<view class="goods-head">
-    <tx-swiper class="swiper-wrap" bind:tapImage="showCurImg" circular="{{false}}" imgSrcs="{{details.images}}" maxHeight="750" mode="number"></tx-swiper>
-    <view class="goods-info">
-      <view class="goods-number">
-        <view class="goods-price">
-          <price price="{{details.minSalePrice}}" wr-class="common-price price-unit" type="lighter" fill="{{false}}">
-            {{minSalePrice}}
-          </price>
-          <text class="goods-price-up" >起</text>
-          <!-- <price wx-if="{{details.maxLinePrice && maxLinePrice > minSalePrice}}" wr-class="actual-amount"
-            price="{{details.maxLinePrice}}" type="delthrough">
-            {{maxLinePrice}}
-          </price> -->
-        </view>
-        <view class="limit" bindtap="showPopup" data-type="limit" wx:if="{{details.limitInfo}}">
-          限购5件
-          <text class="wr wr-question" />
-        </view>
-      </view>
-      <view class="goods-title">
-        <view class="goods-name">{{details.title}}</view>
-        <view class="goods-tag">
-          <button open-type="share" class="shareBtn">
-            <view class="btn-icon">
-              <i class="wr wr-share walmart-share"></i>
-              <text>分享</text>
-            </view>
-          </button>
-        </view>
-      </view>
-      <view class="goods-intro">{{intro}}</view>
-    </view>
-    <!-- 店铺信息 -->
-    <view class="store-info flex flex-start flex-v-center">
-        <image class="brand-logo" style="width: 34rpx" mode="heightFix" bindload="handleBrandLoad"
-        src="{{storeLogo}}" />
-        <text class="brand-title">{{storeName}}</text>
-    </view>
-    <view class="activity">
-      <!-- 促销 -->
-      <view class="activity-info promotion-info flex {{freeShippingArray.length > 0 ? 'hasNextLayer' : ''}}"
-        wx:if="{{activityList.length > 0}}" bindtap="showPromotionPopup">
-        <view class="label">促销</view>
-        <view class="content">
-          <view class="promotion-list">
-            <view class="list-item flex flex-v-center" wx:for="{{activityList}}" data-promotionId="{{item.promotionId}}"
-              wx:key="index" wx:if="{{index<4}}">
-              <text class="tag">{{item.tag}}</text>
-              <view class="flex list-content">
-                <text wx:for="{{item.activityLadder}}" wx:for-item="subItem" wx:for-index="subIndex"
-                  wx:key="subIndex">{{subItem.label}}<text
-                    wx:if="{{ subIndex !== item.activityLadder.length - 1}}">,</text></text>
-              </view>
-            </view>
-          </view>
-          <i class="wr wr-arrow"></i>
-        </view>
-      </view>
-    </view>
-    <template is="comments" data="{{commentsList, commentsStatistics}}" />
-    <!-- 已选规格 -->
-    <view class="activity-info spu-select" bindtap="showSkuSelectPopup">
-      <view class="label">已选</view>
-      <view class="content">
-        <view class="selected-attr">
-          <text class="{{!selectedAttrStr ? 'tintColor' : ''}}">{{selectedAttrStr ? buyNum : ''}}{{selectedAttrStr || '请选择'}}</text>
-        </view>
-        <i class="wr wr-arrow"></i>
-      </view>
-    </view>
+<view class="goods-detail-page">
+	<view class="goods-head">
+		<t-swiper
+		  wx:if="{{details.images.length > 0}}"
+		  t-class="t-swiper"
+		  current="{{current}}"
+		  autoplay="{{autoplay}}"
+		  duration="{{duration}}"
+		  interval="{{interval}}"
+		  navigation="{{navigation}}"
+		>
+			<t-swiper-item
+			  wx:for="{{details.images}}"
+			  wx:for-item="item"
+			  wx:for-index="index"
+			  wx:key="index"
+			>
+				<t-image src="{{item}}" t-class="swipe-img" />
+			</t-swiper-item>
+		</t-swiper>
+		<!-- 商品信息 -->
+		<view class="goods-info">
+			<view class="goods-number">
+				<view class="goods-price">
+					<price
+					  wr-class="class-goods-price"
+					  symbol-class="class-goods-symbol"
+					  price="{{minSalePrice}}"
+					  type="lighter"
+					/>
+					<view class="goods-price-up">起</view>
+					<price wr-class="class-goods-del" price="{{maxLinePrice}}" type="delthrough" />
+				</view>
+				<view class="sold-num">已售{{soldNum}}</view>
+			</view>
+			<!-- 商品活动 -->
+			<view wx:if="{{activityList.length > 0}}" class="goods-activity" bindtap="showPromotionPopup">
+				<view class="tags-container">
+					<view
+					  wx:for="{{activityList}}"
+					  data-promotionId="{{item.promotionId}}"
+					  wx:key="index"
+					  wx:if="{{index<4}}"
+					>
+						<view class="goods-activity-tag">{{item.tag}}</view>
+					</view>
+				</view>
+				<view class="activity-show">
+					<view class="activity-show-text">领劵</view>
+					<t-icon name="chevron-right" size="42rpx" />
+				</view>
+			</view>
+			<view class="goods-title">
+				<view class="goods-name">{{details.title}}</view>
+				<view class="goods-tag">
+					<t-button open-type="share" t-class="shareBtn">
+						<view class="btn-icon">
+							<t-icon name="share" size="32rpx" />
+							<view class="share-text">分享</view>
+						</view>
+					</t-button>
+				</view>
+			</view>
+			<view class="goods-intro">{{intro}}</view>
+		</view>
+		<!-- 已选规格 -->
+		<view class="spu-select" bindtap="showSkuSelectPopup">
+			<view class="label">已选</view>
+			<view class="content">
+				<view class="{{!selectedAttrStr ? 'tintColor' : ''}}">
+					{{selectedAttrStr ? buyNum : ''}}{{selectedAttrStr || '请选择'}}
+				</view>
+				<t-icon name="chevron-right" size="40rpx" color="#BBBBBB" />
+			</view>
+		</view>
+		<!-- 商品评论 -->
+		<view wx:if="{{ commentsStatistics.commentCount > 0 }}" class="comments-wrap">
+			<view class="comments-head" bindtap="navToCommentsListPage">
+				<view class="comments-title-wrap">
+					<view class="comments-title-label">商品评价</view>
+					<view class="comments-title-count">
+						({{ commentsStatistics.commentCount }})
+					</view>
+				</view>
+				<view class="comments-rate-wrap">
+					<view class="comments-good-rate">{{commentsStatistics.goodRate}}% 好评</view>
+					<t-icon name="chevron-right" size="40rpx" color="#BBBBBB" />
+				</view>
+			</view>
+			<view
+			  class="comment-item-wrap"
+			  wx:for="{{ commentsList }}"
+			  wx:for-item="commentItem"
+			  wx:key="goodsSpu"
+			>
+				<view class="comment-item-head">
+					<t-image src="{{commentItem.userHeadUrl}}" t-class="comment-item-avatar" />
+					<view class="comment-head-right">
+						<view class="comment-username">{{commentItem.userName}}</view>
+						<t-rate
+						  value="{{ commentItem.commentScore }}"
+						  count="{{5}}"
+						  variant="filled"
+						  color="#FFC51C"
+						/>
+					</view>
+				</view>
+				<view class="comment-item-content">
+					{{commentItem.commentContent}}
+				</view>
+			</view>
+		</view>
+	</view>
+	<view class="desc-content">
+		<view class="desc-content__title" wx:if="{{details.desc.length > 0}}">
+			<t-image t-class="img" src="{{recLeftImg}}" />
+			<span class="desc-content__title--text">详情介绍</span>
+			<t-image t-class="img" src="{{recRightImg}}" />
+		</view>
+		<view wx:if="{{details.desc.length > 0}}" wx:for="{{details.desc}}" wx:key="index">
+			<t-image t-class="desc-content__img" src="{{item}}" mode="widthFix" />
+		</view>
+	</view>
+	<!-- 底部按纽 -->
+	<view class="goods-bottom-operation">
+		<buy-bar
+		  jumpArray="{{jumpArray}}"
+		  soldout="{{soldout}}"
+		  isStock="{{isStock}}"
+		  shopCartNum="{{cartNum}}"
+		  buttonType="{{buttonType}}"
+		  bind:toAddCart="toAddCart"
+		  bind:toNav="toNav"
+		  bind:toBuyNow="buyItNow"
+		  class="goods-details-card"
+		/>
+	</view>
+
+	<goods-specs-popup
+	  id="goodsSpecsPopup"
+	  show="{{isSpuSelectPopupShow}}"
+	  title="{{details.title || ''}}"
+	  src="{{specImg ? specImg : primaryImage}}"
+	  specList="{{details.specList || []}}"
+	  skuList="{{skuArray}}"
+	  limitBuyInfo="{{details.limitInfo[0].text || ''}}"
+	  bind:closeSpecsPopup="handlePopupHide"
+	  bind:change="chooseSpecItem"
+	  bind:changeNum="changeNum"
+	  bind:addCart="addCart"
+	  bind:buyNow="gotoBuy"
+	  bind:specsConfirm="specsConfirm"
+	  isStock="{{isStock}}"
+	  outOperateStatus="{{outOperateStatus}}"
+	>
+		<view slot="goods-price">
+			<view class="popup-sku__price">
+				<price
+				  wx:if="{{!isAllSelectedSku || (!promotionSubCode && isAllSelectedSku)}}"
+				  price="{{selectSkuSellsPrice ? selectSkuSellsPrice : minSalePrice }}"
+				  wr-class="popup-sku__price-num"
+				  symbol-class="popup-sku__price-symbol"
+				/>
+				<price
+				  wx:if="{{selectSkuSellsPrice === 0 && minSalePrice !== maxSalePrice && !isAllSelectedSku}}"
+				  price="{{maxSalePrice}}"
+				  wr-class="popup-sku__price-del"
+				  type="delthrough"
+				/>
+			</view>
+		</view>
+	</goods-specs-popup>
+
+	<promotion-popup
+	  list="{{list}}"
+	  bind:closePromotionPopup="closePromotionPopup"
+	  show="{{isShowPromotionPop}}"
+	  bind:promotionChange="promotionChange"
+	/>
 </view>
-<view id="goods-p4age" class="goods-page">
-  <view class="desc-content">
-    <view class="desc-content__title" wx:if="{{details.desc.length > 0}}">
-      <image class="img desc-content__title--left" src="{{recLeftImg}}" />
-      <span class="desc-content__title--text">详情介绍</span>
-      <image class="img desc-content__title--right" src="{{recRightImg}}" />
-    </view>
-    <view class="desc-content-img" wx:if="{{details.desc.length > 0}}" wx:for="{{details.desc}}" wx:key="index">
-      <image style="width: 100%; height: auto" src="{{item}}" mode="widthFix"></image>
-    </view>
-  </view>
-</view>
-<!-- 底部按纽 -->
-<view class="goods-bottom-operation">
-    <wr-buy-bar
-      jumpArray="{{jumpArray}}"
-      buttonType="{{buttonType}}"
-      isStock="{{isStock}}"
-      shopCartNum="{{cartNum}}"
-      soldout="{{soldout}}"
-      bind:toAddCart="toAddCart"
-      bind:toNav="toNav"
-      bind:toBuyNow="buyItNow"
-      class="goods-details-card"
-    ></wr-buy-bar>
-  </view>
-  <goods-specs-popup 
-    id="goodsSpecsPopup"
-    show="{{isSpuSelectPopupShow}}"
-    title="{{details.title}}"
-    src="{{specImg ? specImg : primaryImage}}"
-    specList="{{details.specList}}"
-    skuList="{{skuArray}}"
-    bind:closeSpecsPopup="handlePopupHide"
-    bind:change="chooseSpecItem"
-    bind:changeNum="changeNum"
-    bind:addCart="addCart"
-    bind:buyNow="gotoBuy"
-    isStock="{{isStock}}"
-    isSlotButton="{{outOperateStatus ? true : false}}"
-  >
-    <view slot="goods-price">
-      <view class="popup-sku__price">
-        <!-- <price-group wr-class="price-group" priceArray="{{[1, 3]}}" priceGroupType="{{3}}"></price-group> -->
-        <view class="popup-sku__price-num" wx:if="{{!isAllSelectedSku || (!promotionSubCode && isAllSelectedSku)}}">
-          <price price=" {{selectSkuSellsPrice ? selectSkuSellsPrice : minSalePrice }}"
-            wr-class="popup-sku__price-num" type="lighter" fill="{{false}}">
-            {{selectSkuSellsPrice ? selectSkuSellsPrice : minSalePrice }}
-          </price>
-        </view>
-        <block wx:if="{{selectSkuSellsPrice === 0 && minSalePrice !== maxSalePrice && !isAllSelectedSku}}">
-          <view class="delthrough"></view>
-          <price price=" {{maxSalePrice }}" symbol="" wr-class="popup-sku__price-num" type="lighter" fill="{{false}}">
-            {{maxSalePrice }}
-          </price>
-        </block>
-      </view>
-    </view>
-    <view slot="bottomSlot">
-       <wr-toast  id="toast2" wr-class="skuToast"></wr-toast>
-    </view>
-    <view class="sku-operate sku-operate-confirm " slot="slotButton" wx:if="{{outOperateStatus}}">
-      <view class="btn selected-sku-btn {{!isStock ? 'disabled' : ''}}" bindtap="specsConfirm">
-        确定
-      </view>
-    </view>
-  </goods-specs-popup>
-  <!-- 限购说明弹窗 -->
-  <popup show="{{show}}" position="bottom" bindclose="closePopup">
-    <!-- 限购说明 -->
-    <view class="popup-container" wx:if="{{details.limitInfo && details.limitInfo.length}}">
-      <view class="popup-close" bindtap="closePopup">
-        <text class="wr wr-close"></text>
-      </view>
-      <view class="popup-title">
-        <view class="title">限购说明</view>
-      </view>
-      <view class="popup-content">
-        <view class="desc">
-          <view class="limit-content" wx:for="{{details.limitInfo}}" wx:key="index">
-            {{item.text}}
-          </view>
-        </view>
-      </view>
-    </view>
-  </popup>
-  <wr-promotion-popup list="{{list}}" bind:closePromotionPopup="closePromotionPopup" show="{{isShowPromotionPop}}" bind:promotionChange="promotionChange"></wr-promotion-popup>
-  <wr-toast  id="wr-toast-1" wr-class="skuToast"></wr-toast>
+<t-toast id="t-toast" />
+

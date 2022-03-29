@@ -2,87 +2,90 @@
   background-color: #f5f5f5;
 }
 
-.fill-tracking-no {
-
-
+.notice-bar {
+  padding: 24rpx 30rpx;
+  text-align: center;
+  font-size: 26rpx;
+  color: #e17349;
+  background: #fefcef;
 }
 
-.fill-tracking-no .notice-bar {
-    padding: 16rpx 30rpx;
-    font-size: 26rpx;
+.fill-tracking-no__form {
+  margin-top: 20rpx;
 }
 
-.fill-tracking-no .fill-tracking-no__form {
-    margin-top: 20rpx;
+.fill-tracking-no__form .t-cell__note {
+  justify-content: flex-start;
 }
 
-.fill-tracking-no .fill-tracking-no__form .wr-cell {
-  padding: 30rpx;
+.fill-tracking-no__form .t-cell__value {
+  color: #666666 !important;
+  font-size: 30rpx;
+  text-align: left;
+  padding: 0;
 }
 
-.fill-tracking-no .fill-tracking-no__form .wr-cell__title {
-    color: #333333;
-    font-size: 30rpx;
-    flex: none;
-    margin-right: 30rpx;
-    width: 140rpx;
-}
-.fill-tracking-no .fill-tracking-no__form .wr-cell__value {
-    color: #666666;
-    font-size: 30rpx;
-    text-align: left;
+.fill-tracking-no__form .t-cell__input {
+  color: #666666 !important;
 }
 
-.fill-tracking-no .fill-tracking-no__form .wr-cell__value.textarea {
+.fill-tracking-no__form .t-cell__value::after {
+  border: none !important;
+}
+
+.fill-tracking-no__form .t-cell__value .t-textarea__wrapper {
+  padding: 0;
+}
+
+.fill-tracking-no__form .t-cell__placeholder {
+  color: #bbbbbb !important;
+  font-size: 30rpx;
+}
+
+.t-textarea__note {
   width: 100%;
-  min-height: 150rpx;
 }
 
-.fill-tracking-no .fill-tracking-no__form .wr-cell__placeholder {
-    color: #bbbbbb;
-    font-size: 30rpx;
-}
-.fill-tracking-no .fill-tracking-no__form .wr-cell .icon-scan {
-    font-size: 48rpx !important;
+.fill-tracking-no__button-bar {
+  margin: 38rpx 30rpx 0;
 }
 
-.fill-tracking-no .fill-tracking-no__form .wr-cell .icon-scan:active {
-  opacity: 0.5;
-}
-
-.fill-tracking-no .fill-tracking-no__button-bar {
-    margin: 38rpx 30rpx 0;
-}
-
-.fill-tracking-no .fill-tracking-no__button-bar .btn {
+.fill-tracking-no__button-bar .btn {
   background-color: transparent;
-  color: #fa550f;
   font-size: 32rpx;
+  width: 100%;
+  border-radius: 48rpx;
 }
 
-.fill-tracking-no .fill-tracking-no__button-bar .btn:active {
-    opacity: 0.5;
-}
-.fill-tracking-no .fill-tracking-no__button-bar .btn:not(:first-child) {
-    margin-top: 20rpx;
-}
-.fill-tracking-no .fill-tracking-no__button-bar .btn::after {
-     border-color: #fa550f;
-}
-.fill-tracking-no .fill-tracking-no__button-bar .btn.primary {
-    background-color: #fa550f;
-    color: white;
+.fill-tracking-no__button-bar .btn:first-child {
+  margin-bottom: 20rpx;
 }
 
-.fill-tracking-no .fill-tracking-no__button-bar .btn.primary {
-    background-color: #fa550f;
-    color: white;
+.fill-tracking-no__button-bar .btn.confirmBtn {
+  background: #fa4126;
+  color: #fff;
 }
 
-.fill-tracking-no .fill-tracking-no__button-bar .btn.primary.disabled {
+.fill-tracking-no__button-bar .btn.disabled {
   background-color: #c6c6c6;
+  color: #fff;
 }
 
-.fill-tracking-no .fill-tracking-no__button-bar .btn.primary.disabled::after {
-    border-color: #c6c6c6;
+.fill-tracking-no__button-bar .t-class-confirm {
+  color: #fa4126;
+}
+
+.t-cell-title-width {
+  width: 160rpx;
+  flex: none !important;
+}
+.textarea-wrapper {
+  background: #fff;
+  display: flex;
+  align-items: flex-start;
+  padding: 24rpx 32rpx 0 48rpx;
+}
+.t-textarea-wrapper {
+  box-sizing: border-box;
+  padding-left: 16rpx;
 }

@@ -16,11 +16,8 @@ Component({
       value: false,
       observer(couponsShow) {
         if (couponsShow) {
-          const {
-            promotionGoodsList,
-            orderSureCouponList,
-            storeId,
-          } = this.data;
+          const { promotionGoodsList, orderSureCouponList, storeId } =
+            this.data;
           const products =
             promotionGoodsList &&
             promotionGoodsList.map((goods) => {
@@ -49,13 +46,13 @@ Component({
           this.setData({
             products,
           });
-          coupons({
-            products,
-            selectedCoupons,
-            storeId,
-          }).then((res) => {
-            this.initData(res.data);
-          });
+          // coupons({
+          //   products,
+          //   selectedCoupons,
+          //   storeId,
+          // }).then((res) => {
+          //   this.initData(res.data);
+          // });
         }
       },
     },
@@ -87,7 +84,7 @@ Component({
             couponType,
             promotion,
           } = couponVO;
-          if (status == 1) {
+          if (status === 1) {
             selectedNum++;
             selectedList.push({
               code,
@@ -98,27 +95,27 @@ Component({
           const tag = tagList[couponType - 1];
           let desc = '';
           const { condition, discount } = promotion;
-          if (condition.value == 0) {
+          if (condition.value === 0) {
             desc = '无门槛使用';
           } else {
             desc =
-              condition.type == 1
+              condition.type === 1
                 ? `满${condition.value / 100}元`
                 : `满${condition.value}件`;
           }
           const value =
-            couponType == 1 ? discount.value / 100 : discount.value / 10;
-          const type = couponType == 2 ? 'discount' : 'mon';
+            couponType === 1 ? discount.value / 100 : discount.value / 10;
+          const type = couponType === 2 ? 'discount' : 'mon';
           return {
             code,
             title: name,
-            isSelected: status == 1,
+            isSelected: status === 1,
             expireStart,
             expireEnd,
             value,
             ruleId,
             tag,
-            status: status == -1 ? 'useless' : '',
+            status: status === -1 ? 'useless' : '',
             desc,
             type,
           };
@@ -136,7 +133,7 @@ Component({
       let newSelectedList = [];
       if (coupon.isSelected) {
         newSelectedList = selectedList.filter((ele) => {
-          return ele.promotionId != coupon.ruleId;
+          return ele.promotionId !== coupon.ruleId;
         });
       } else {
         newSelectedList = selectedList.concat({
@@ -145,17 +142,17 @@ Component({
           storeId: this.storeId,
         });
       }
-      coupons({
-        selectedCoupons: newSelectedList,
-        products,
-        storeId,
-      }).then((res) => {
-        this.initData(res.data);
-      });
+      // coupons({
+      //   selectedCoupons: newSelectedList,
+      //   products,
+      //   storeId,
+      // }).then((res) => {
+      //   this.initData(res.data);
+      // });
     },
     onSure() {
       const { selectedList, couponsList } = this.data;
-      if (couponsList.length == 0) {
+      if (couponsList.length === 0) {
         this.hide();
         return;
       }
@@ -166,6 +163,20 @@ Component({
     hide() {
       this.setData({
         couponsShow: false,
+      });
+    },
+    coupons(coupon) {
+      return new Promise((resolve, reject) => {
+        if (coupon.selectedCoupons) {
+          resolve({
+            couponResultList: [],
+            reduce: undefined,
+          });
+        }
+        return reject({
+          couponResultList: [],
+          reduce: undefined,
+        });
       });
     },
   },

@@ -1,19 +1,20 @@
-import Toast from '@tencent/retailwe-ui-toast/toast';
-
 import { fetchHome } from '../../services/home/home';
 import { fetchGoodsList } from '../../services/good/fetchGoods';
+import Toast from 'tdesign-miniprogram/toast/index';
 
 Page({
   data: {
-    keyword: '',
     imgSrcs: [],
-    activityImg: '',
     tabList: [],
     tabIndex: 0,
     goodsList: [],
     goodsListLoadStatus: 0,
     pageLoading: false,
-    goodsRefreshing: false,
+    current: 1,
+    autoplay: true,
+    duration: 500,
+    interval: 5000,
+    navigation: { type: 'dots' },
   },
 
   goodListPagination: {
@@ -21,18 +22,20 @@ Page({
     num: 20,
   },
 
-  // 调用自定义tabbar的init函数，使页面与tabbar激活状态保持一致
   onShow() {
     this.getTabBar().init();
   },
+
   onLoad() {
     this.init();
   },
+
   onReachBottom() {
     if (this.data.goodsListLoadStatus === 0) {
       this.loadGoodsList();
     }
   },
+
   onPullDownRefresh() {
     this.init();
   },
@@ -42,18 +45,15 @@ Page({
   },
 
   loadHomePage() {
-    // 关闭自带的loading效果
     wx.stopPullDownRefresh();
 
     this.setData({
       pageLoading: true,
     });
-    fetchHome().then(({ swiper, tabList, keyword, activityImg }) => {
+    fetchHome().then(({ swiper, tabList }) => {
       this.setData({
         tabList,
         imgSrcs: swiper,
-        activityImg,
-        keyword,
         pageLoading: false,
       });
       this.loadGoodsList(true);
@@ -71,51 +71,54 @@ Page({
     this.loadGoodsList();
   },
 
-  // fresh 代表重新加载
-  loadGoodsList(fresh = false) {
+  onChange() {
+    // doSomething
+  },
+
+  async loadGoodsList(fresh = false) {
     if (fresh) {
       wx.pageScrollTo({
         scrollTop: 0,
-      });
-      this.setData({
-        goodsRefreshing: true,
       });
     }
 
     this.setData({ goodsListLoadStatus: 1 });
 
-    let pageSize = this.goodListPagination.num;
+    const pageSize = this.goodListPagination.num;
     let pageIndex =
       this.data.tabIndex * pageSize + this.goodListPagination.index + 1;
     if (fresh) {
       pageIndex = 0;
     }
 
-    return fetchGoodsList(pageIndex, pageSize)
-      .then((nextList) => {
-        this.setData({
-          goodsList: fresh ? nextList : this.data.goodsList.concat(nextList),
-          goodsListLoadStatus: 0,
-          goodsRefreshing: false,
-        });
-
-        this.goodListPagination.index = pageIndex;
-        this.goodListPagination.num = pageSize;
-      })
-      .catch((err) => {
-        this.setData({ goodsListLoadStatus: 3 });
+    try {
+      const nextList = await fetchGoodsList(pageIndex, pageSize);
+      this.setData({
+        goodsList: fresh ? nextList : this.data.goodsList.concat(nextList),
+        goodsListLoadStatus: 0,
       });
+
+      this.goodListPagination.index = pageIndex;
+      this.goodListPagination.num = pageSize;
+    } catch (err) {
+      this.setData({ goodsListLoadStatus: 3 });
+    }
   },
 
-  goodlistClickHandle(e) {
+  goodListClickHandle(e) {
     const { index } = e.detail;
-    const spuId = this.data.goodsList[index].spuId;
+    const { spuId } = this.data.goodsList[index];
     wx.navigateTo({
       url: `/pages/goods/details/index?spuId=${spuId}`,
     });
   },
-  goodlistAddCartHandle() {
-    Toast({ text: '加入购物车成功' });
+
+  goodListAddCartHandle() {
+    Toast({
+      context: this,
+      selector: '#t-toast',
+      message: '点击加入购物车',
+    });
   },
 
   navToSearchPage() {
@@ -123,10 +126,9 @@ Page({
   },
 
   navToActivityDetail({ detail }) {
-    /** 活动肯定有一个活动ID，用来获取活动banner，活动商品列表等 */
     const { index: promotionID = 0 } = detail || {};
     wx.navigateTo({
-      url: '/pages/promotion-detail/index?promotion_id=' + promotionID,
+      url: `/pages/promotion-detail/index?promotion_id=${promotionID}`,
     });
   },
 });

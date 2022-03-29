@@ -19,7 +19,7 @@ export const resolveAddress = (address) => {
   const allAddress = [...addressPromise];
   addressPromise = [];
 
-  console.log('用户保存了一个地址', address);
+  console.info('用户保存了一个地址', address);
 
   allAddress.forEach(({ resolver }) => resolver(address));
 };

@@ -1,5 +1,5 @@
-import Toast from '../../../miniprogram_npm/@tencent/retailwe-ui-toast/toast';
-import Dialog from '../../../miniprogram_npm/@tencent/retailwe-ui-dialog/dialog';
+import Dialog from 'tdesign-miniprogram/dialog/index';
+import Toast from 'tdesign-miniprogram/toast/index';
 
 import { dispatchCommitPay } from '../../../services/order/orderConfirm';
 
@@ -29,9 +29,13 @@ export const paySuccess = (payOrderInfo) => {
   const { payAmt, tradeNo, groupId, promotionId } = payOrderInfo;
   // 支付成功
   Toast({
-    icon: 'success',
-    text: '支付成功',
+    context: this,
+    selector: '#t-toast',
+    message: '支付成功',
+    duration: 2000,
+    icon: 'check-circle',
   });
+
   const params = {
     totalPaid: payAmt,
     orderNo: tradeNo,
@@ -55,23 +59,29 @@ export const payFail = (payOrderInfo, resultMsg) => {
       //结算页，取消付款，dialog提示
       Dialog.confirm({
         title: '是否放弃付款',
-        message: '商品可能很快就会被抢空哦，是否放弃付款？',
-        confirmButtonText: '放弃',
-        cancelButtonText: '继续付款',
+        content: '商品可能很快就会被抢空哦，是否放弃付款？',
+        confirmBtn: '放弃',
+        cancelBtn: '继续付款',
       }).then(() => {
         wx.redirectTo({ url: '/pages/order/order-list/index' });
       });
     } else {
       //订单列表页，订单详情页，取消付款，toast提示
       Toast({
-        icon: 'tips',
-        text: '支付取消',
+        context: this,
+        selector: '#t-toast',
+        message: '支付取消',
+        duration: 2000,
+        icon: 'close-circle',
       });
     }
   } else {
     Toast({
-      icon: 'tips',
-      text: '支付失败：' + resultMsg,
+      context: this,
+      selector: '#t-toast',
+      message: `支付失败：${resultMsg}`,
+      duration: 2000,
+      icon: 'close-circle',
     });
     setTimeout(() => {
       wx.redirectTo({ url: '/pages/order/order-list/index' });
@@ -81,8 +91,8 @@ export const payFail = (payOrderInfo, resultMsg) => {
 
 // 微信支付方式
 export const wechatPayOrder = (payOrderInfo) => {
-  const payInfo = JSON.parse(payOrderInfo.payInfo);
-  const { timeStamp, nonceStr, signType, paySign } = payInfo;
+  // const payInfo = JSON.parse(payOrderInfo.payInfo);
+  // const { timeStamp, nonceStr, signType, paySign } = payInfo;
   return new Promise((resolve) => {
     // demo 中直接走支付成功
     paySuccess(payOrderInfo);

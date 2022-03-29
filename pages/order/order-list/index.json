@@ -1,15 +1,16 @@
 {
   "navigationBarTitleText": "我的订单",
   "usingComponents": {
-    "wr-pull-down-refresh": "@tencent/retailwe-ui-pull-down-refresh/index",
-    "wr-tab": "@tencent/retailwe-ui-tab/index",
-    "wr-empty": "@tencent/retailwe-ui-empty/index",
-    "wr-load-more": "@tencent/retailwe-ui-load-more/index",
-    "wr-order-button-bar": "../components/order-button-bar/index",
-    "wr-price": "@tencent/retailwe-ui-price/index",
-    "wr-order-card": "@tencent/retailwe-ui-order-card/index",
-    "wr-specs-goods-card": "@tencent/retailwe-ui-specs-goods-card/index",
-    "wr-toast": "@tencent/retailwe-ui-toast/index",
-    "wr-dialog": "@tencent/retailwe-ui-dialog/index"
+    "t-tabs": "tdesign-miniprogram/tabs/tabs",
+    "t-tab-panel": "tdesign-miniprogram/tabs/tab-panel",
+    "t-empty": "tdesign-miniprogram/empty/empty",
+    "t-toast": "tdesign-miniprogram/toast/toast",
+    "t-dialog": "tdesign-miniprogram/dialog/dialog",
+    "t-pull-down-refresh": "tdesign-miniprogram/pull-down-refresh/pull-down-refresh",
+    "load-more": "/components/load-more/index",
+    "order-button-bar": "../components/order-button-bar/index",
+    "price": "/components/price/index",
+    "order-card": "../components/order-card/index",
+    "specs-goods-card": "../components/specs-goods-card/index"
   }
 }

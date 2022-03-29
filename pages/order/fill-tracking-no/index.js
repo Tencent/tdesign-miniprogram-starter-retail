@@ -1,5 +1,5 @@
-import Dialog from '../../../miniprogram_npm/@tencent/retailwe-ui-dialog/dialog';
-import Toast from '../../../miniprogram_npm/@tencent/retailwe-ui-toast/toast';
+import Dialog from 'tdesign-miniprogram/dialog/index';
+import Toast from 'tdesign-miniprogram/toast/index';
 import reasonSheet from '../components/reason-sheet/reasonSheet';
 import { getDeliverCompanyList, create, update } from './api';
 
@@ -21,12 +21,12 @@ Page({
       logisticsCompanyCode = '',
       remark = '',
     } = query;
-    console.log('query', query);
+
     if (!rightsNo) {
       Dialog.confirm({
         title: '请选择售后单？',
-        message: '',
-        confirmButtonText: '确认',
+        content: '',
+        confirmBtn: '确认',
       }).then(() => {
         wx.navigateBack({ backRefresh: true });
       });
@@ -35,9 +35,7 @@ Page({
     if (logisticsNo) {
       wx.setNavigationBarTitle({
         title: '修改运单号',
-        fail() {
-          console.warn('修改页面title失败');
-        },
+        fail() {},
       });
       this.isChange = true;
       this.setData({
@@ -119,6 +117,7 @@ Page({
 
   checkParams() {
     const res = { errMsg: '', require: false };
+
     if (!this.data.trackingNo) {
       res.errMsg = '请填写运单号';
       res.require = true;
@@ -133,23 +132,39 @@ Page({
   onSubmit() {
     const checkRes = this.checkParams();
     if (checkRes.errMsg) {
-      Toast({ text: checkRes.errMsg });
+      Toast({
+        context: this,
+        selector: '#t-toast',
+        message: checkRes.errMsg,
+        icon: '',
+      });
       return;
     }
-    if (!this.data.deliveryCompany) return;
+
+    const {
+      trackingNo,
+      remark,
+      deliveryCompany: { code, name },
+    } = this.data;
+
     const params = {
       rightsNo: this.rightsNo,
-      logisticsCompanyCode: this.data.deliveryCompany.code,
-      logisticsCompanyName: this.data.deliveryCompany.name,
-      logisticsNo: this.data.trackingNo,
-      remark: this.data.remark,
+      logisticsCompanyCode: code,
+      logisticsCompanyName: name,
+      logisticsNo: trackingNo,
+      remark,
     };
     const api = this.isChange ? create : update;
     this.setData({ submitting: true });
     api(params)
       .then(() => {
         this.setData({ submitting: false });
-        Toast({ text: '保存成功' });
+        Toast({
+          context: this,
+          selector: '#t-toast',
+          message: '保存成功',
+          icon: '',
+        });
         setTimeout(() => wx.navigateBack({ backRefresh: true }), 1000);
       })
       .catch(() => {
@@ -157,24 +172,19 @@ Page({
       });
   },
 
-  onCancel() {
-    wx.navigateBack({ backRefresh: true });
-  },
-
   onScanTap() {
     wx.scanCode({
       scanType: ['barCode'],
       success: (res) => {
-        Toast({ text: '扫码成功' });
+        Toast({
+          context: this,
+          selector: '#t-toast',
+          message: '扫码成功',
+          icon: '',
+        });
         this.setData({ trackingNo: res.result });
       },
-      fail(err) {
-        /* dialog.alert({
-          title: '扫码失败',
-          message: err.errMsg + '',
-        }); */
-        console.warn('扫码失败：', err);
-      },
+      fail: () => {},
     });
   },
 });

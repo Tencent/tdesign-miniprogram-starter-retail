@@ -1,0 +1,16 @@
+<view class="name-edit">
+	<t-input
+	  model:value="{{nameValue}}"
+	  placeholder="请输入文字"
+	  label="昵称"
+	  clearable
+	  bind:clear="clearContent"
+	/>
+	<view class="name-edit__input--desc">
+		最多可输入15个字
+	</view>
+	<view class="name-edit__wrapper">
+		<t-button t-class="name-edit__btn" bind:tap="onSubmit">保存</t-button>
+	</view>
+</view>
+

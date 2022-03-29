@@ -1,18 +1,18 @@
 {
-  "navigationStyle": "custom",
+  "navigationBarTitleText": "订单详情",
   "usingComponents": {
-    "wr-pull-down-refresh": "@tencent/retailwe-ui-pull-down-refresh/index",
-    "wr-navbar": "@tencent/retailwe-ui-navbar/index",
-    "wr-cell": "@tencent/retailwe-ui-cell/index",
-    "wr-icon": "@tencent/retailwe-ui-icon/index",
-    "wr-price": "@tencent/retailwe-ui-price/index",
-    "wr-count-down": "@tencent/retailwe-ui-count-down/index",
-    "wr-order-card": "@tencent/retailwe-ui-order-card/index",
-    "wr-order-goods-card": "@tencent/retailwe-ui-order-goods-card/index",
-    "wr-dialog": "@tencent/retailwe-ui-dialog/index",
-    "wr-toast": "@tencent/retailwe-ui-toast/index",
-    "wr-customer-service": "../components/customer-service",
-    "wr-order-button-bar": "../components/order-button-bar/index",
-    "groupon-avatars": "../components/groupon-avatars/index"
+    "t-pull-down-refresh": "tdesign-miniprogram/pull-down-refresh/pull-down-refresh",
+    "t-button": "tdesign-miniprogram/button/button",
+    "t-cell": "tdesign-miniprogram/cell/cell",
+    "t-icon": "tdesign-miniprogram/icon/icon",
+    "t-image": "/components/webp-image/index",
+    "t-count-down": "tdesign-miniprogram/count-down/count-down",
+    "t-toast": "tdesign-miniprogram/toast/toast",
+    "t-dialog": "tdesign-miniprogram/dialog/dialog",
+    "price": "/components/price/index",
+    "order-card": "../components/order-card/index",
+    "order-goods-card": "../components/order-goods-card/index",
+    "customer-service": "../components/customer-service",
+    "order-button-bar": "../components/order-button-bar/index"
   }
 }

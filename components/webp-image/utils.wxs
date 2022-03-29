@@ -1,0 +1,140 @@
+var isString = function (value) {
+  return typeof value === 'string';
+};
+
+var isNumber = function (value) {
+  return typeof value === 'number';
+};
+
+var getFileExt = function (src) {
+  var fileUrl = src.split('?')[0];
+  var splitUlr = fileUrl.split('/');
+  var filepath = splitUlr[splitUlr.length - 1];
+  return filepath.split('.')[1] || 'jpg';
+};
+
+function isUrl(url) {
+  // NOCC:ToolNameCheck(非敏感词)
+  var urlReg = getRegExp(
+    '/[(http(s)?)://(www.)?a-zA-Z0-9@:%._+~#=]{2,256}.[a-z]{2,6}\b([-a-zA-Z0-9@:%_+.~#?&//=]*)/',
+    'ig',
+  );
+
+  return urlReg.test(url);
+}
+
+function rpx2px(rpx, screenWidth) {
+  // px / systemWidth = rpx / 750
+  var result = (rpx * (screenWidth || 375)) / 750;
+
+  return Math.round(result);
+}
+
+function imageMogr(url, options) {
+  if (!isString(url) || !url) return '';
+
+  if (
+    url.indexOf('qlogo.cn') !== -1 ||
+    url.indexOf('wxfile://') === 0 ||
+    url.indexOf('http://tmp/wx') === 0 ||
+    url.indexOf('imageMogr2') !== -1
+  ) {
+    //qlogo.cn域名或者本地图片不做转换
+    return url;
+  } //强制转https
+
+  if (url.indexOf('http://') === 0) {
+    url = url.replace('http://', 'https://');
+  } else if (url.indexOf('//') === 0) {
+    url = 'https:' + url;
+  }
+
+  if (!options) return url;
+
+  var width = Math.ceil(options.width),
+    height = Math.ceil(options.height),
+    format = options.format,
+    _optionsQuality = options.quality,
+    quality = _optionsQuality === undefined ? 70 : _optionsQuality,
+    _optionsStrip = options.strip,
+    strip = _optionsStrip === undefined ? true : _optionsStrip,
+    crop = options.crop;
+  var isValidWidth = isNumber(width) && width > 0;
+  var isValidHeight = isNumber(height) && height > 0;
+  var imageMogrStr = '';
+  var size = '';
+
+  if (isValidWidth && isValidHeight) {
+    size = ''.concat(width, 'x').concat(height);
+  } else if (isValidWidth) {
+    size = ''.concat(width, 'x');
+  } else if (isValidHeight) {
+    size = 'x'.concat(height);
+  }
+
+  if (size) {
+    //缩放或者裁剪
+    imageMogrStr += '/'.concat(crop ? 'crop' : 'thumbnail', '/').concat(size);
+
+    if (crop) {
+      //裁剪目前需求只有以图片中心为基准
+      imageMogrStr += '/gravity/center';
+    }
+  }
+
+  if (isNumber(quality)) {
+    //质量变换
+    imageMogrStr += '/quality/'.concat(quality);
+  }
+
+  if (strip) {
+    //去除元信息
+    imageMogrStr += '/strip';
+  }
+
+  var ext = getFileExt(url);
+
+  // gif 图片不做格式转换，否则会损坏动图
+  if (ext === 'gif') {
+    imageMogrStr += '/cgif/1';
+  } else if (format) {
+    //格式转换
+    imageMogrStr += '/format/'.concat(format);
+  }
+
+  if (format === 'jpg' || (!format && (ext === 'jpg' || ext === 'jpeg'))) {
+    //渐进式 jpg 加载
+    imageMogrStr += '/interlace/1';
+  }
+  if (!imageMogrStr) return url;
+  return ''
+    .concat(url)
+    .concat(url.indexOf('?') !== -1 ? '&' : '?', 'imageMogr2')
+    .concat(imageMogrStr);
+}
+function getSrc(options) {
+  if (!options.src) return '';
+
+  if (options.thumbWidth || options.thumbHeight) {
+    return imageMogr(options.src, {
+      width:
+        options.mode !== 'heightFix'
+          ? rpx2px(options.thumbWidth, options.systemInfo.screenWidth) *
+            options.systemInfo.pixelRatio
+          : null,
+      height:
+        options.mode !== 'widthFix'
+          ? rpx2px(options.thumbHeight, options.systemInfo.screenWidth) *
+            options.systemInfo.pixelRatio
+          : null,
+      format: options.webp ? 'webp' : null,
+    });
+  }
+
+  return '';
+}
+
+module.exports = {
+  imageMogr: imageMogr,
+  getSrc: getSrc,
+};

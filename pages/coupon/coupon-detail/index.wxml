@@ -1,0 +1,48 @@
+<!-- 优惠券 -->
+<view class="coupon-card-wrap">
+	<coupon-card couponDTO="{{detail}}" />
+</view>
+<!-- 说明 -->
+<view class="desc-wrap">
+	<t-cell-group t-class="desc-group-wrap">
+		<t-cell
+		  wx:if="{{detail && detail.desc}}"
+		  t-class="t-class-cell"
+		  t-class-title="t-class-title"
+		  t-class-note="t-class-note"
+		  title="规则说明"
+		  note="{{detail && detail.desc}}"
+		/>
+		<t-cell
+		  wx:if="{{detail && detail.timeLimit}}"
+		  t-class="t-class-cell"
+		  t-class-title="t-class-title"
+		  t-class-note="t-class-note"
+		  title="有效时间"
+		  note="{{detail && detail.timeLimit}}"
+		/>
+		<t-cell
+		  wx:if="{{detail && detail.storeAdapt}}"
+		  t-class="t-class-cell"
+		  t-class-title="t-class-title"
+		  t-class-note="t-class-note"
+		  title="适用范围"
+		  note="{{detail && detail.storeAdapt}}"
+		/>
+		<t-cell
+		  wx:if="{{detail && detail.useNotes}}"
+		  t-class="t-class-cell"
+		  t-class-title="t-class-title"
+		  t-class-note="t-class-note"
+		  title="使用须知"
+		  note="{{detail && detail.useNotes}}"
+		/>
+	</t-cell-group>
+	<!-- 查看可用商品 -->
+	<view class="button-wrap">
+		<t-button t-class="view-good-list-btn" block="{{true}}" bindtap="navGoodListHandle">
+			查看可用商品
+		</t-button>
+	</view>
+</view>
+

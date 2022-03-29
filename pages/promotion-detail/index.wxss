@@ -1,1 +1,112 @@
-@import '/miniprogram_npm/@tencent/retailwe-ui-goods-list/external.wxss';
+.promotion-detail-container .wrap {
+  display: block;
+  margin-left: 24rpx;
+  margin-right: 24rpx;
+}
+
+.promotion-detail-container .t-class-promotion-head {
+  width: 702rpx;
+  height: 160rpx;
+}
+
+.promotion-detail-container .wrap .count-down-wrap {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  line-height: 34rpx;
+}
+
+.promotion-detail-container .wrap .count-down-wrap.in-banner-count-down-wrap {
+  position: absolute;
+  bottom: 32rpx;
+  left: 32rpx;
+  right: 32rpx;
+}
+
+.promotion-detail-container .wrap .count-down-wrap .status-tag {
+  height: 32rpx;
+  line-height: 32rpx;
+  font-size: 20rpx;
+  margin-right: 12rpx;
+  border-radius: 16rpx;
+  padding-left: 12rpx;
+  padding-right: 12rpx;
+}
+
+.promotion-detail-container .wrap .count-down-wrap .status-tag.before {
+  color: #fff;
+  background-color: #ff9853;
+}
+
+.promotion-detail-container .wrap .count-down-wrap .status-tag.finish {
+  color: #fff;
+  background-color: #ccc;
+}
+
+.promotion-detail-container .wrap .count-down-wrap .count-down-label {
+  color: #666;
+  font-size: 24rpx;
+  margin-right: 0.5em;
+}
+
+.promotion-detail-container .wrap .count-down-wrap .detail-entry {
+  margin-left: auto;
+  height: 40rpx;
+}
+
+.promotion-detail-container .wrap .count-down-wrap .detail-entry-label {
+  color: #fff;
+  font-size: 24rpx;
+  margin-right: 12rpx;
+}
+
+.promotion-detail-container
+  .wrap
+  .count-down-wrap.after-banner-count-down-wrap {
+  padding: 0 10rpx 10rpx;
+}
+
+.promotion-detail-container
+  .wrap
+  .count-down-wrap.after-banner-count-down-wrap
+  .detail-entry {
+  display: flex;
+  align-items: center;
+}
+
+.promotion-detail-container
+  .wrap
+  .count-down-wrap.after-banner-count-down-wrap
+  .detail-entry-label {
+  color: #999;
+  margin-right: 0;
+}
+
+.promotion-detail-container .wrap .gl-empty-wrap {
+  margin-top: 180rpx;
+}
+
+.promotion-detail-container .wrap .gl-empty-img {
+  width: 240rpx;
+  height: 240rpx;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.promotion-detail-container .wrap .gl-empty-label {
+  font-size: 28rpx;
+  color: #999;
+  margin-top: 40rpx;
+  text-align: center;
+}
+
+.promotion-detail-container .goods-list-container {
+  background: #f5f5f5 !important;
+}
+
+.promotion-detail-container .promotion-goods-list {
+  padding: 20rpx 24rpx;
+  background-color: #f5f5f5;
+}

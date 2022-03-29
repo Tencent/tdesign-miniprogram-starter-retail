@@ -1,25 +1,9 @@
-/* 层级定义
-@z-index-0: 1;
-@z-index-1: 100;
-@z-index-2: 200;
-@z-index-5: 500;
-@z-index-component: 1000; // 通用组件级别
-@z-index-dropdown: @z-index-component;
-@z-index-sticky: @z-index-component + 20;
-@z-index-fixed: @z-index-component + 30;
-@z-index-modal-backdrop:@z-index-component + 40;
-@z-index-modal:@z-index-component + 50;
-@z-index-popover:@z-index-component + 60;
-@z-index-tooltip:@z-index-component + 70;
-*/
-/* var() css变量适配*/
 .text-btn {
   display: inline;
-  color: #fa550f;
-  color: var(--color-primary, #fa550f);
+  color: #333;
   font-size: 24rpx;
 }
-.text-btn:active {
+.text-btn--active {
   opacity: 0.5;
 }
 .dialog--customer-service {
@@ -51,12 +35,11 @@
 .dialog--customer-service .options .option:not(:last-child) {
   margin-bottom: 20rpx;
 }
-.dialog--customer-service .options .option:active {
+.dialog--customer-service .options .option--active {
   opacity: 0.5;
 }
 .dialog--customer-service .options .option.main {
-  color: #fa550f;
-  color: var(--color-primary, #fa550f);
+  color: #333;
 }
 .dialog--customer-service .options .option.online {
   position: relative;

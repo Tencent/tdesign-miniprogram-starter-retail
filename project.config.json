@@ -21,6 +21,7 @@
     "checkSiteMap": true,
     "uploadWithSourceMap": true,
     "compileHotReLoad": false,
+    "lazyloadPlaceholderEnable": false,
     "useMultiFrameRuntime": true,
     "useApiHook": true,
     "useApiHostProcess": true,
@@ -29,19 +30,21 @@
       "disablePlugins": [],
       "outputPath": ""
     },
-    "bundle": false,
+    "enableEngineNative": false,
     "useIsolateContext": true,
-    "useCompilerModule": true,
-    "userConfirmedUseCompilerModuleSwitch": false,
     "userConfirmedBundleSwitch": false,
     "packNpmManually": false,
     "packNpmRelationList": [],
-    "minifyWXSS": true
+    "minifyWXSS": true,
+    "disableUseStrict": false,
+    "minifyWXML": true,
+    "showES6CompileOption": false,
+    "useCompilerPlugins": false
   },
   "compileType": "miniprogram",
-  "libVersion": "2.16.1",
-  "appid": "wx97d2f8684ec89d9e",
-  "projectname": "supermarket",
+  "libVersion": "2.23.1",
+  "appid": "wx5a75208aa13eee03",
+  "projectname": "tdesign-miniprogram-starter",
   "debugOptions": {
     "hidedInDevtools": []
   },
@@ -120,7 +123,7 @@
           "id": 6,
           "name": "示例页-售后详情",
           "pathName": "pages/order/after-service-detail/index",
-          "query": "",
+          "query": "rightsNo=123123423",
           "scene": null
         },
         {
@@ -142,6 +145,20 @@
           "name": "示例页-商品评价",
           "pathName": "pages/goods/comments/create/index",
           "query": "",
+          "scene": null
+        },
+        {
+          "id": 10,
+          "name": "示例页-申请售后",
+          "pathName": "pages/order/apply-service/index",
+          "query": "orderNo=132222623132329291&skuId=1327025",
+          "scene": null
+        },
+        {
+          "id": 11,
+          "name": "示例页-发票详情",
+          "pathName": "pages/order/invoice/index",
+          "query": "orderNo=132381532610540875",
           "scene": null
         }
       ]

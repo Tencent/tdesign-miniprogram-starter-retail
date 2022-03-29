@@ -14,13 +14,11 @@
   line-height: 1;
   border-radius: unset;
   min-width: 160rpx;
+  border-radius: 32rpx;
+  height: 60rpx;
+  margin-right: 10rpx;
 }
-.btn-bar .order-btn::after {
-  border-radius: 16rpx;
-}
-.btn-bar .order-btn:active {
-  opacity: 0.5;
-}
+
 .btn-bar .left .order-btn:not(:first-child),
 .btn-bar .right .order-btn:not(:first-child) {
   margin-left: 20rpx;
@@ -32,7 +30,8 @@
   display: none;
 }
 .btn-bar .right .normal {
-  color: #666666;
+  color: #333;
+  font-size: 28rpx;
 }
 .btn-bar .right .normal:after {
   border-color: #bbbbbb;

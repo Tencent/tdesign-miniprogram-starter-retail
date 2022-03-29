@@ -105,7 +105,7 @@ Page({
       .then((res) => {
         this.page.num++;
         let dataList = [];
-        let tabs = this.data.tabs;
+        let { tabs } = this.data;
         if (res && res.data && res.data.states) {
           tabs = this.data.tabs.map((item) => {
             switch (item.key) {
@@ -135,7 +135,7 @@ Page({
               typeDesc: ServiceTypeDesc[_data.rights.rightsType],
               typeDescIcon:
                 _data.rightsType === ServiceType.ONLY_REFUND
-                  ? 'money'
+                  ? 'money-circle'
                   : 'return-goods-1',
               status: _data.rights.rightsStatus,
               statusName: _data.rights.userRightsStatusName,
@@ -146,9 +146,8 @@ Page({
                 thumb: item.goodsPictureUrl,
                 title: item.goodsName,
                 specs: (item.specInfo || []).map((s) => s.specValues || ''),
-                // amount: item.itemRefundAmount,
-                price: item.itemRefundAmount,
-                num: item.rightsQuantity,
+                itemRefundAmount: item.itemRefundAmount,
+                rightsQuantity: item.itemRefundAmount,
               })),
               storeId: _data.storeId,
               buttons: _data.buttonVOs || [],
@@ -156,9 +155,9 @@ Page({
               logisticsCompanyName: _data.logisticsVO.logisticsCompanyName, // 退货物流公司
               logisticsCompanyCode: _data.logisticsVO.logisticsCompanyCode, // 退货物流公司
               remark: _data.logisticsVO.remark, // 退货备注
+              logisticsVO: _data.logisticsVO,
             };
           });
-          console.log('dataList', dataList);
         }
         return new Promise((resolve) => {
           if (reset) {
@@ -190,10 +189,10 @@ Page({
   },
 
   onTabChange(e) {
-    const key = e.detail;
-    const tab = this.data.tabs.find((t) => t.key === key);
+    const { value } = e.detail;
+    const tab = this.data.tabs.find((v) => v.key === value);
     if (!tab) return;
-    this.refreshList(tab.key);
+    this.refreshList(value);
   },
 
   refreshList(status = -1) {
@@ -215,9 +214,7 @@ Page({
   // 点击订单卡片
   onAfterServiceCardTap(e) {
     wx.navigateTo({
-      url:
-        '/pages/order/after-service-detail/index?rightsNo=' +
-        e.currentTarget.dataset.order.id,
+      url: `/pages/order/after-service-detail/index?rightsNo=${e.currentTarget.dataset.order.id}`,
     });
   },
 });

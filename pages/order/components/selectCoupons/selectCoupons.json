@@ -1,9 +1,9 @@
 {
   "component": true,
   "usingComponents": {
-    "wr-popup": "@tencent/retailwe-ui-popup/index",
-    "wr-icon": "@tencent/retailwe-ui-icon/index",
-    "wr-price": "@tencent/retailwe-ui-price/index",
-    "coupon-card": "@tencent/retailwe-ui-coupon-card/index"
+    "t-popup": "tdesign-miniprogram/popup/popup",
+    "t-image": "/components/webp-image/index",
+    "wr-price": "/components/price/index",
+    "coupon-card": "/pages/coupon/components/coupon-card/index"
   }
 }

@@ -7,7 +7,7 @@ export function getActivity(key) {
     title: `满减满折回归${key}`,
     description: null,
     promotionCode: 'MERCHANT',
-    promotionSubCode: 'MYJ',
+    promotionSubCode: key % 2 === 0 ? 'MYJ' : 'MYG',
     tag: '满减',
     timeType: 1,
     startTime: '1588737710000',

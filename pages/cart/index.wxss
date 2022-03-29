@@ -1,5 +1,12 @@
-@import '/miniprogram_npm/@tencent/retailwe-ui-cart-group/external.wxss';
-
 :host {
   padding-bottom: 100rpx;
+}
+
+.gap {
+  height: 100rpx;
+  width: 100%;
+}
+
+.add-notes__confirm {
+  color: #fa4126 !important;
 }

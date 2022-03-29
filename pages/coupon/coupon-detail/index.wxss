@@ -1,0 +1,100 @@
+page {
+  background-color: #f5f5f5;
+}
+
+.coupon-card-wrap {
+  background-color: #fff;
+  padding: 32rpx 32rpx 1rpx;
+}
+.desc-wrap {
+  margin-top: 24rpx;
+}
+.desc-wrap .button-wrap .view-good-list-btn {
+  width: 686rpx;
+  height: 88rpx;
+  margin-top: 50rpx;
+  background: #fa4126;
+  border-radius: 44rpx;
+  color: #fff;
+  font-size: 32rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.desc-group-wrap .t-class-cell {
+  align-items: flex-start;
+}
+
+.desc-group-wrap .t-class-title {
+  font-size: 26rpx;
+  width: 140rpx;
+  flex: none;
+  color: #888;
+}
+
+.desc-group-wrap .t-class-note {
+  font-size: 26rpx;
+  word-break: break-all;
+  white-space: pre-line;
+  justify-content: flex-start;
+  color: #333;
+}
+
+.desc-group-wrap {
+  border-radius: 8rpx;
+  overflow: hidden;
+
+  --cell-label-font-size: 26rpx;
+  --cell-label-line-height: 36rpx;
+  --cell-label-color: #999;
+}
+
+.desc-group-wrap.in-popup {
+  border-radius: 0;
+  overflow: auto;
+  max-height: 828rpx;
+}
+
+.desc-group-wrap .wr-cell__title {
+  color: #333;
+  font-size: 28rpx;
+}
+
+/* .desc-group-wrap .max-width-cell {
+  overflow: hidden;
+} */
+
+/* .desc-group-wrap .signal-line-label {
+  word-break: keep-all;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.desc-group-wrap .multi-line-label {
+  word-break: break-all;
+  white-space: pre-line;
+} */
+
+.popup-content-wrap {
+  background-color: #fff;
+  border-top-left-radius: 20rpx;
+  border-top-right-radius: 20rpx;
+}
+
+.popup-content-title {
+  font-size: 32rpx;
+  color: #333;
+
+  text-align: center;
+  height: 104rpx;
+  line-height: 104rpx;
+
+  position: relative;
+}
+
+.popup-content-title .close-icon {
+  position: absolute;
+  top: 24rpx;
+  right: 24rpx;
+}

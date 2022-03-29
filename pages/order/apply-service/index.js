@@ -1,9 +1,8 @@
-import Dialog from '../../../miniprogram_npm/@tencent/retailwe-ui-dialog/dialog';
-import Toast from '../../../miniprogram_npm/@tencent/retailwe-ui-toast/toast';
+import Dialog from 'tdesign-miniprogram/dialog/index';
+import Toast from 'tdesign-miniprogram/toast/index';
 import { priceFormat } from '../../../utils/util';
 import { OrderStatus, ServiceType, ServiceReceiptStatus } from '../config';
 import reasonSheet from '../components/reason-sheet/reasonSheet';
-//import { uploadFileRequest } from '@/services/cos';  // demo 中注释了调用文件服务接口上传文件
 import {
   fetchRightsPreview,
   dispatchConfirmReceived,
@@ -13,8 +12,6 @@ import {
 
 Page({
   query: {},
-  uploadFailedCount: 0, // 上传失败的凭证数
-
   data: {
     pageLoading: true,
     uploading: false, // 凭证上传状态
@@ -32,10 +29,10 @@ Page({
       applyReason: { desc: '请选择', type: null },
       // max-填写上限(单位分)，current-当前值(单位分)，temp输入框中的值(单位元)
       amount: { max: 0, current: 0, temp: 0, focus: false },
-      remark: { current: '', temp: '', focus: false },
+      remark: '',
       rightsImageUrls: [],
     },
-    maxApplyNum: 1, // 最大可申请售后的商品数
+    maxApplyNum: 2, // 最大可申请售后的商品数
     amountTip: '',
     showReceiptStatusDialog: false,
     validateRes: {
@@ -43,7 +40,13 @@ Page({
       msg: '',
     },
     submitting: false,
-    uploadMethod: { method: () => {} },
+    inputDialogVisible: false,
+    uploadGridConfig: {
+      column: 3,
+      width: 212,
+      height: 212,
+    },
+    serviceRequireType: '',
   },
 
   setWatcher(key, callback) {
@@ -75,10 +78,15 @@ Page({
     let valid = true;
     let msg = '';
     // 检查必填项
-    if (!this.data.serviceFrom.applyReason.type) valid = false;
-    else if (!this.data.serviceFrom.amount.current) valid = false;
-    // 校验值
+    if (!this.data.serviceFrom.applyReason.type) {
+      valid = false;
+      msg = '请填写退款原因';
+    } else if (!this.data.serviceFrom.amount.current) {
+      valid = false;
+      msg = '请填写退款金额';
+    }
     if (this.data.serviceFrom.amount.current <= 0) {
+      valid = false;
       msg = '退款金额必须大于0';
     }
     this.setData({ validateRes: { valid, msg } });
@@ -89,11 +97,9 @@ Page({
     if (!this.checkQuery()) return;
     this.setData({
       canApplyReturn: query.canApplyReturn === 'true',
-      uploadMethod: { method: this.uploadMethod.bind(this) }, // 在data内直接bind this实际是绑定的类？在此处bind才是绑定的实例
     });
     this.init();
     this.inputDialog = this.selectComponent('#input-dialog');
-    this.remarkDialog = this.selectComponent('#remark-dialog');
     this.setWatcher('serviceFrom.returnNum', this.validate.bind(this));
     this.setWatcher('serviceFrom.applyReason', this.validate.bind(this));
     this.setWatcher('serviceFrom.amount', this.validate.bind(this));
@@ -105,24 +111,22 @@ Page({
     try {
       await this.refresh();
       this.setData({ pageLoading: false });
-    } catch (e) {
-      console.error(e);
-    }
+    } catch (e) {}
   },
 
   checkQuery() {
-    const { orderNo, skuId, spuId } = this.query;
+    const { orderNo, skuId } = this.query;
     if (!orderNo) {
       Dialog.alert({
-        message: '请先选择订单',
+        content: '请先选择订单',
       }).then(() => {
         wx.redirectTo({ url: 'pages/order/order-list/index' });
       });
       return false;
     }
-    if (!skuId || !spuId) {
+    if (!skuId) {
       Dialog.alert({
-        message: '请先选择商品',
+        content: '请先选择商品',
       }).then(() => {
         wx.redirectTo(`pages/order/order-detail/index?orderNo=${orderNo}`);
       });
@@ -138,15 +142,15 @@ Page({
       wx.hideLoading();
       const goodsInfo = {
         id: res.data.skuId,
-        imgUrl: res.data.goodsInfo && res.data.goodsInfo.skuImage,
-        name: res.data.goodsInfo && res.data.goodsInfo.goodsName,
+        thumb: res.data.goodsInfo && res.data.goodsInfo.skuImage,
+        title: res.data.goodsInfo && res.data.goodsInfo.goodsName,
         spuId: res.data.spuId,
         skuId: res.data.skuId,
         specs: ((res.data.goodsInfo && res.data.goodsInfo.specInfo) || []).map(
           (s) => s.specValue,
         ),
-        price: res.data.paidAmountEach,
-        num: res.data.boughtQuantity,
+        paidAmountEach: res.data.paidAmountEach,
+        boughtQuantity: res.data.boughtQuantity,
       };
       this.setData({
         goodsInfo,
@@ -168,31 +172,37 @@ Page({
   },
 
   async getRightsPreview() {
+    const { orderNo, skuId, spuId } = this.query;
     const params = {
-      orderNo: this.query.orderNo,
-      skuId: this.query.skuId,
-      spuId: '1011147', //this.query.spuId, //'1011147'
+      orderNo,
+      skuId,
+      spuId,
       numOfSku: this.data.serviceFrom.returnNum,
     };
+    console.log('params: ', params);
     const res = await fetchRightsPreview(params);
+    console.log('res: ', res);
     return res;
   },
 
   onApplyOnlyRefund() {
-    this.setData({ serviceType: ServiceType.ONLY_REFUND });
-    this.switchReceiptStatus(-1);
+    wx.setNavigationBarTitle({ title: '申请退款' });
+    this.setData({ serviceRequireType: 'REFUND_MONEY' });
+    this.switchReceiptStatus(0);
   },
 
   onApplyReturnGoods() {
+    wx.setNavigationBarTitle({ title: '申请退货退款' });
+    this.setData({ serviceRequireType: 'REFUND_GOODS' });
     const orderStatus = parseInt(this.query.orderStatus);
     Promise.resolve()
       .then(() => {
         if (orderStatus === OrderStatus.PENDING_RECEIPT) {
           return Dialog.confirm({
             title: '订单商品是否已经收到货',
-            message: '',
-            confirmButtonText: '确认收货，并申请退货',
-            cancelButtonText: '未收到货',
+            content: '',
+            confirmBtn: '确认收货，并申请退货',
+            cancelBtn: '未收到货',
           }).then(() => {
             return dispatchConfirmReceived({
               parameter: {
@@ -210,10 +220,28 @@ Page({
       });
   },
 
-  onMinusReturnNum() {
+  onApplyReturnGoodsStatus() {
+    reasonSheet({
+      show: true,
+      title: '选择退款原因',
+      options: this.data.applyReasons.map((r) => ({
+        title: r.desc,
+      })),
+      showConfirmButton: true,
+      showCancelButton: true,
+      emptyTip: '请选择退款原因',
+    }).then((indexes) => {
+      this.setData({
+        'serviceFrom.applyReason': this.data.applyReasons[indexes[0]],
+      });
+    });
+  },
+
+  onChangeReturnNum(e) {
+    const { value } = e.detail;
     this.setData(
       {
-        'serviceFrom.returnNum': this.data.serviceFrom.returnNum - 1,
+        'serviceFrom.returnNum': value,
       },
       () => {
         this.refresh();
@@ -221,19 +249,20 @@ Page({
     );
   },
 
-  onPlusReturnNum() {
-    this.setData(
-      {
-        'serviceFrom.returnNum': this.data.serviceFrom.returnNum + 1,
-      },
-      () => {
-        this.refresh();
-      },
-    );
-  },
-
-  onReceiptStatusTap() {
-    this.setData({ showReceiptStatusDialog: true });
+  onApplyGoodsStatus() {
+    reasonSheet({
+      show: true,
+      title: '请选择收货状态',
+      options: this.data.receiptStatusList.map((r) => ({
+        title: r.desc,
+      })),
+      showConfirmButton: true,
+      emptyTip: '请选择收货状态',
+    }).then((indexes) => {
+      this.setData({
+        'serviceFrom.receiptStatus': this.data.receiptStatusList[indexes[0]],
+      });
+    });
   },
 
   switchReceiptStatus(index) {
@@ -285,44 +314,24 @@ Page({
     this.switchReceiptStatus(index);
   },
 
-  onApplyReasonTap() {
-    if (!this.data.applyReasons.length) {
-      Toast({ text: '请先选择收货状态', duration: 1000, icon: 'none' });
-      return;
-    }
-    reasonSheet({
-      show: true,
-      title: '选择退款原因',
-      options: this.data.applyReasons.map((r) => ({
-        title: r.desc,
-      })),
-      showConfirmButton: true,
-      showCancelButton: true,
-      emptyTip: '请选择退款原因',
-    }).then((indexes) => {
-      this.setData({
-        'serviceFrom.applyReason': this.data.applyReasons[indexes[0]],
-      });
-    });
-  },
-
   onAmountTap() {
     this.setData({
       'serviceFrom.amount.temp': priceFormat(
         this.data.serviceFrom.amount.current,
       ),
       'serviceFrom.amount.focus': true,
+      inputDialogVisible: true,
     });
     this.inputDialog.setData({
-      show: true,
-      title: '退款金额',
-      showCancelButton: true,
+      cancelBtn: '取消',
+      confirmBtn: '确定',
     });
     this.inputDialog._onComfirm = () => {
       this.setData({
         'serviceFrom.amount.current': this.data.serviceFrom.amount.temp * 100,
       });
     };
+    this.inputDialog._onCancel = () => {};
   },
 
   // 对输入的值进行过滤
@@ -352,34 +361,11 @@ Page({
     this.setData({ 'serviceFrom.amount.focus': true });
   },
 
-  onRemarkTap() {
-    this.setData({
-      'serviceFrom.remark.temp': this.data.serviceFrom.remark.current,
-      'serviceFrom.remark.focus': true,
-    });
-    this.remarkDialog.setData({
-      show: true,
-      title: '填写退款说明',
-      showCancelButton: true,
-    });
-    this.remarkDialog._onComfirm = () => {
-      this.setData({
-        'serviceFrom.remark.current': this.data.serviceFrom.remark.temp,
-      });
-    };
-  },
-
-  onRemarkInput(e) {
+  onRemarkChange(e) {
     const { value } = e.detail;
-    this.setData({ 'serviceFrom.remark.temp': value });
-  },
-
-  onRemarkFocus() {
-    this.setData({ 'serviceFrom.remark.focus': true });
-  },
-
-  onRemarkBlur() {
-    this.setData({ 'serviceFrom.remark.focus': false });
+    this.setData({
+      'serviceFrom.remark': value,
+    });
   },
 
   // 发起申请售后请求
@@ -410,8 +396,10 @@ Page({
       dispatchApplyService(params)
         .then((res) => {
           Toast({
+            context: this,
+            selector: '#t-toast',
+            message: '申请成功',
             icon: '',
-            text: '申请成功',
           });
 
           wx.redirectTo({
@@ -425,62 +413,47 @@ Page({
 
   submitCheck() {
     return new Promise((resolve) => {
-      if (this.data.uploading) return; // 凭证上传过程中忽略提交按钮
-      if (this.data.submitting) return; // 防止触发多次提交
-      if (!this.data.validateRes.valid) return; // 校验表单必填内容
-      // 校验表单内容
-      if (this.data.validateRes.msg) {
-        Toast({ icon: '', text: this.data.validateRes.msg });
+      const { msg, valid } = this.data.validateRes;
+      if (!valid) {
+        Toast({
+          context: this,
+          selector: '#t-toast',
+          message: msg,
+          icon: '',
+        });
         return;
       }
-      if (this.uploadFailedCount !== 0) {
-        // 有凭证上传失败时，需提醒用户
-        Dialog.confirm({
-          message: `有${this.uploadFailedCount}份文件上传失败`,
-          confirmButtonText: '继续提交',
-          cancelButtonText: '取消',
-        }).then(() => {
-          resolve();
-        });
-      } else {
-        resolve();
-      }
+      resolve();
     });
   },
 
-  uploadMethod(file, onProgress) {
-    const { name, type, path } = file;
-    return Promise.resolve({ url: '' }); // demo 中注释了调用文件服务接口上传文件
-    /* return uploadFileRequest(
-      {
-        bizName: 'rights',
-        buckType: 1,
-        type,
-        name,
-        path,
-      },
-      onProgress,
-    )
-      .then((res) => {
-        return { url: res.key };
-      })
-      .catch((e) => {
-        console.warn(e);
-        this.uploadFailedCount += 1;
-        return { url: '' };
-      }); */
+  handleSuccess(e) {
+    const { files } = e.detail;
+    this.setData({
+      'sessionFrom.rightsImageUrls': files,
+    });
   },
 
-  onUploadStart() {
-    this.setData({ uploading: true });
-    this.uploadFailedCount = 0;
-    wx.showLoading({ title: '上传中...' });
+  handleRemove(e) {
+    const { index } = e.detail;
+    const {
+      sessionFrom: { rightsImageUrls },
+    } = this.data;
+    rightsImageUrls.splice(index, 1);
+    this.setData({
+      'sessionFrom.rightsImageUrls': rightsImageUrls,
+    });
   },
 
-  onUploadend(e) {
-    this.setData({ uploading: false });
-    wx.hideLoading();
-    const { urls } = e.detail;
-    this.setData({ 'serviceFrom.rightsImageUrls': urls });
+  handleComplete() {
+    this.setData({
+      uploading: false,
+    });
+  },
+
+  handleSelectChange() {
+    this.setData({
+      uploading: true,
+    });
   },
 });

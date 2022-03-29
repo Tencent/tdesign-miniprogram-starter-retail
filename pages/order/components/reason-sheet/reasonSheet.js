@@ -1,4 +1,3 @@
-
 function getInstance(context, selector = '#wr-reason-sheet') {
   if (!context) {
     const pages = getCurrentPages();
@@ -13,7 +12,7 @@ function getInstance(context, selector = '#wr-reason-sheet') {
   return instance;
 }
 
-export default function(options) {
+export default function (options) {
   const { context, selector, ..._options } = options;
   return new Promise((resolve, reject) => {
     const instance = getInstance(context, selector);

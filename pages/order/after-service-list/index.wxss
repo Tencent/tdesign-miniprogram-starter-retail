@@ -1,26 +1,30 @@
-@import '/miniprogram_npm/@tencent/retailwe-ui-order-goods-card/external.wxss';
-
 :host {
   background-color: #f5f5f5;
 }
 
 .page-container .tab-bar__placeholder,
-.page-container .tab-bar__inner {
+.tab-bar {
   height: 88rpx;
   line-height: 88rpx;
 }
 
-.page-container .tab-bar__inner {
-  font-size: 26rpx;
-  color: #333333;
-  position: fixed;
-  width: 100vw;
-  top: 0;
-  left: 0;
+.tab-bar .t-tabs-scroll {
+  border: none !important;
 }
 
-.page-container .tab-bar__inner.order-nav .order-nav-item .bottom-line {
-  bottom: 12rpx;
+.tab-bar .t-tabs-is-active {
+  color: #fa550f !important;
+}
+
+.tab-bar .t-tabs-track {
+  background: #fa550f !important;
+}
+
+.tab-bar {
+  font-size: 26rpx;
+  color: #333333;
+  width: 100vw;
+  background: #fff;
 }
 
 .page-container .tab-bar__active {
@@ -29,17 +33,14 @@
 
 .page-container .specs-popup .bottom-btn {
   color: #fa550f;
-  color: var(--color-primary, #fa550f);
 }
 
 .page-container .specs-popup .bottom-btn::after {
   border-color: #fa550f;
-  border-color: var(--color-primary, #fa550f);
 }
 
 .dialog .dialog__button-confirm {
   color: #fa550f;
-  color: var(--color-primary, #fa550f);
 }
 
 .list-loading {
@@ -58,8 +59,38 @@
   margin: 0 24rpx;
 }
 
-wr-order-goods-card:not(:first-child) .wr-goods-card {
-  margin-top: 40rpx;
+.order-goods-card-footer {
+  display: flex;
+  width: calc(100% - 190rpx);
+  justify-content: space-between;
+  position: absolute;
+  bottom: 20rpx;
+  left: 190rpx;
+}
+
+.order-goods-card-footer-num {
+  color: #999;
+  line-height: 40rpx;
+}
+
+.page-container .order-goods-card-footer .order-goods-card-footer-price-class {
+  font-size: 36rpx;
+  color: #333;
+  font-family: DIN Alternate;
+}
+
+.page-container
+  .order-goods-card-footer
+  .order-goods-card-footer-price-decimal {
+  font-size: 28rpx;
+  color: #333;
+  font-family: DIN Alternate;
+}
+
+.page-container .order-goods-card-footer .order-goods-card-footer-price-symbol {
+  color: #333;
+  font-size: 24rpx;
+  font-family: DIN Alternate;
 }
 
 .price-total {
@@ -75,7 +106,6 @@ wr-order-goods-card:not(:first-child) .wr-goods-card {
 .price-total .symbol {
   font-size: 24rpx;
   color: #fa550f;
-  color: var(--color-price, #fa550f);
   font-weight: bold;
   display: inline;
   margin-right: 5rpx;
@@ -84,7 +114,6 @@ wr-order-goods-card:not(:first-child) .wr-goods-card {
 .price-total .order-price {
   font-size: 32rpx;
   color: #fa550f;
-  color: var(--color-price, #fa550f);
   font-weight: bold;
 }
 
@@ -94,32 +123,6 @@ wr-order-goods-card:not(:first-child) .wr-goods-card {
 
 .price-total .clear {
   clear: both;
-}
-
-.page-container
-  .order-goods-card
-  > wr-goods-card
-  .wr-goods-card__bottom
-  .price {
-  top: 100rpx;
-  left: 10rpx;
-}
-
-.page-container .order-goods-card > wr-goods-card .wr-goods-card__num {
-  top: 100rpx;
-}
-
-.page-container
-  .order-goods-card
-  > wr-goods-card
-  .wr-goods-card__bottom
-  .price::before {
-  display: inline;
-  content: '退款金额:';
-  margin-right: 1em;
-  font-size: 24rpx;
-  color: #333333;
-  font-weight: normal;
 }
 
 .page-container .wr-goods-card__specs {
@@ -132,11 +135,15 @@ wr-order-goods-card:not(:first-child) .wr-goods-card {
 }
 
 .page-container .order-card .header .store-name {
-  -webkit-line-clamp: 1;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
   width: 80%;
+  -webkit-line-clamp: 1;
+}
+
+.page-container .order-card .header .store-name > view {
+  overflow: hidden;
+  width: 100%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .page-container .status-desc {
@@ -149,13 +156,13 @@ wr-order-goods-card:not(:first-child) .wr-goods-card {
   background-color: #f5f5f5;
   border-radius: 8rpx;
   word-wrap: break-word;
-  margin-top: 40rpx;
+  margin-top: 24rpx;
   margin-bottom: 20rpx;
 }
 
 .page-container .header__right {
   font-size: 24rpx;
-  color: #333333;
+  color: #fa4126;
   display: flex;
   align-items: center;
 }
@@ -164,4 +171,14 @@ wr-order-goods-card:not(:first-child) .wr-goods-card {
   color: #d05b27;
   font-size: 16px !important;
   margin-right: 10rpx;
+}
+.t-class-indicator {
+  color: #b9b9b9 !important;
+}
+.add-notes__confirm {
+  color: #fa4126 !important;
+}
+
+.page-container .header-class {
+  margin-bottom: 5rpx!important;
 }

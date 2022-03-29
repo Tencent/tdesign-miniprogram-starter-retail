@@ -1,22 +1,22 @@
 export default [
   {
-    icon: 'tabbar-shouye',
+    icon: 'home',
     text: '首页',
     url: 'pages/home/home',
   },
   {
-    icon: 'tabbar-fenlei',
+    icon: 'sort',
     text: '分类',
     url: 'pages/goods/category/index',
   },
   {
-    icon: 'tabbar-gouwuche',
+    icon: 'cart',
     text: '购物车',
     url: 'pages/cart/index',
   },
   {
-    icon: 'tabbar-gerenzhongxin',
-    text: '我的',
+    icon: 'person',
+    text: '个人中心',
     url: 'pages/usercenter/index',
   },
 ];

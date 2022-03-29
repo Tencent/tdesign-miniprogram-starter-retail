@@ -1,52 +1,39 @@
-import dayjs from 'dayjs';
-
 const userInfo = {
   avatarUrl:
-    'https://static.independent.co.uk/s3fs-public/thumbnails/image/2020/06/18/10/avatar.jpg',
-  name: '哇哇',
+    'https://cdn-we-retail.ym.tencent.com/miniapp/usercenter/icon-user-center-avatar@2x.png',
+  nickName: 'Tdesign 🌟',
   phoneNumber: '13438358888',
-  gender: 2,
-  brith: dayjs().startOf('M').valueOf(),
+  gender: 1,
 };
 const countsData = [
   {
-    num: 22,
+    num: 2,
     name: '积分',
+    type: 'point',
   },
   {
-    num: 1000,
+    num: 10,
     name: '优惠券',
+    type: 'coupon',
   },
 ];
 
 const orderTagInfos = [
   {
-    title: '待付款',
-    iconName: 'wallet',
-    orderNum: 0,
+    orderNum: 1,
     tabType: 5,
-    status: 1,
   },
   {
-    title: '待发货',
-    iconName: 'wuliu-1',
-    orderNum: 0,
+    orderNum: 1,
     tabType: 10,
-    status: 1,
   },
   {
-    title: '待收货',
-    iconName: 'packaging',
-    orderNum: 0,
+    orderNum: 1,
     tabType: 40,
-    status: 1,
   },
   {
-    title: '退款/售后',
-    iconName: 'money',
     orderNum: 0,
     tabType: 0,
-    status: 1,
   },
 ];
 

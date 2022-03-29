@@ -1,67 +1,70 @@
-<view style="text-align: center;" wx:if="{{pageLoading}}">
-  <wr-loading>加载中</wr-loading>
+<view style="text-align: center" wx:if="{{pageLoading}}">
+	<t-loading
+	  theme="circular"
+	  size="40rpx"
+	  loading
+	  t-class-indicator="t-class-indicator"
+	>
+		<span slot="text" class="loading-text">加载中...</span>
+	</t-loading>
+</view>
+<view class="home-page-header">
+	<view class="search" bind:tap="navToSearchPage">
+		<t-search
+		  t-class-input="t-search__input"
+		  t-class-input-container="t-class__input-container"
+		  placeholder="iphone 13 火热发售中"
+		  leftIcon=""
+		>
+			<t-icon
+			  slot="left-icon"
+			  prefix="wr"
+			  name="search"
+			  size="40rpx"
+			  color="#bbb"
+			/>
+		</t-search>
+	</view>
+	<view class="swiper-wrap">
+		<t-swiper
+		  wx:if="{{imgSrcs.length > 0}}"
+		  current="{{current}}"
+		  autoplay="{{autoplay}}"
+		  duration="{{duration}}"
+		  interval="{{interval}}"
+		  bindchange="onChange"
+		  navigation="{{navigation}}"
+		>
+			<t-swiper-item wx:for="{{imgSrcs}}" wx:key="index">
+				<t-image src="{{item.img}}" t-class="swipe-img" bind:tap="navToActivityDetail" />
+			</t-swiper-item>
+		</t-swiper>
+	</view>
+</view>
+<view class="home-page-container">
+	<t-tabs
+	  t-class="t-tabs"
+	  t-class-active="t-class-item"
+	  t-class-track="t-class-track"
+	  defaultValue="{{0}}"
+	  bind:change="tabChangeHandle"
+	>
+		<t-tab-panel
+		  wx:for="{{tabList}}"
+		  wx:for-index="index"
+		  wx:key="index"
+		  label="{{item.text}}"
+		  value="{{item.key}}"
+		/>
+	</t-tabs>
+	<goods-list
+	  wr-class="goods-list-container"
+	  goodsList="{{goodsList}}"
+	  layout="vertical"
+	  bind:click="goodListClickHandle"
+	  bind:addcart="goodListAddCartHandle"
+	/>
+	<load-more list-is-empty="{{!goodsList.length}}" status="{{goodsListLoadStatus}}" bind:retry="onReTry" />
+	<t-toast id="t-toast" />
 </view>
 
-<!-- wr-search 自带10padding -->
-<view
-  class="search"
-  bind:tap="navToSearchPage"
->
-  <wr-search
-    keyword="{{keyword}}"
-    wr-class="search"
-  />
-</view>
-
-<!-- wr-search 自带10padding -->
-<view
-  style="padding: 0 24rpx;margin-top: 10rpx;"
->
-  <wr-swiper
-    imgSrcs="{{imgSrcs}}"
-    mode="dot"
-    bind:tapImage="navToActivityDetail"
-    wr-class="wr-swiper"
-  />
-</view>
-
-<view
-  style="text-align: center;margin-top: 20rpx;"
-  bind:tap="navToActivityDetail"
->
-  <wr-image
-    src="{{activityImg}}"
-    width="702"
-    height="160"
-  />
-</view>
-
-<wr-tab
-  isScroll="{{true}}"
-  status="{{tabIndex}}"
-  tabList="{{tabList}}"
-  bind:tabChange="tabChangeHandle"
-  wr-class="tab"
-  line-height="{{8}}"
-  line-width="{{50}}"
-/>
-
-<view style="text-align: center;" wx:if="{{goodsRefreshing}}">
-  <wr-loading>加载中</wr-loading>
-</view>
-
-<goods-list
-  goodsList="{{goodsList}}"
-  layout="vertical"
-  bind:click="goodlistClickHandle"
-  bind:addcart="goodlistAddCartHandle"
-/>
-
-<wr-load-more
-  list-is-empty="{{!goodsList.length}}"
-  status="{{goodsListLoadStatus}}"
-  bind:retry="onReTry"
-/>
-
-<wr-toast id="wr-toast"/>
-<wr-dialog id="wr-dialog"/>

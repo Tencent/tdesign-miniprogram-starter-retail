@@ -21,11 +21,12 @@ Page({
     ],
     curTab: -1,
     orderList: [],
-    listLoading: 0, // 0-未加载，1-加载中，2-已全部加载
-    pullDownRefreshing: false, // 下拉刷新时不显示load-more
+    listLoading: 0,
+    pullDownRefreshing: false,
     emptyImg:
       'https://cdn-we-retail.ym.tencent.com/miniapp/order/empty-order-list.png',
     backRefresh: false,
+    status: -1,
   },
 
   onLoad(query) {
@@ -36,7 +37,6 @@ Page({
   },
 
   onShow() {
-    // 当从其他页面返回，并且 backRefresh 被置为 true 时，刷新数据
     if (!this.data.backRefresh) return;
     this.onRefresh();
     this.setData({ backRefresh: false });
@@ -54,7 +54,7 @@ Page({
 
   onPullDownRefresh_(e) {
     const { callback } = e.detail;
-    this.setData({ pullDownRefreshing: true }); // 下拉刷新时不显示load-more
+    this.setData({ pullDownRefreshing: true });
     this.refreshList(this.data.curTab)
       .then(() => {
         this.setData({ pullDownRefreshing: false });
@@ -68,6 +68,9 @@ Page({
 
   init(status) {
     status = status !== undefined ? status : this.data.curTab;
+    this.setData({
+      status,
+    });
     this.refreshList(status);
   },
 
@@ -113,6 +116,7 @@ Page({
               })),
               buttons: order.buttonVOs || [],
               groupInfoVo: order.groupInfoVo,
+              freightFee: order.freightFee,
             };
           });
         }
@@ -138,16 +142,17 @@ Page({
   },
 
   onTabChange(e) {
-    const key = e.detail;
-    const tab = this.data.tabs.find((t) => t.key === key);
-    if (!tab) return;
-    this.refreshList(tab.key);
+    const { value } = e.detail;
+    this.setData({
+      status: value,
+    });
+    this.refreshList(value);
   },
 
   getOrdersCount() {
     return fetchOrdersCount().then((res) => {
       const tabsCount = res.data || [];
-      const tabs = this.data.tabs;
+      const { tabs } = this.data;
       tabs.forEach((tab) => {
         const tabCount = tabsCount.find((c) => c.tabType === tab.key);
         if (tabCount) {
@@ -175,7 +180,6 @@ Page({
     this.refreshList(this.data.curTab);
   },
 
-  // 点击订单卡片
   onOrderCardTap(e) {
     const { order } = e.currentTarget.dataset;
     wx.navigateTo({

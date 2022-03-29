@@ -1,6 +1,5 @@
-import Dialog from '../../../../miniprogram_npm/@tencent/retailwe-ui-dialog/dialog';
-import Toast from '../../../../miniprogram_npm/@tencent/retailwe-ui-toast/toast';
-
+import Toast from 'tdesign-miniprogram/toast/index';
+import Dialog from 'tdesign-miniprogram/dialog/index';
 import { OrderButtonTypes } from '../../config';
 
 Component({
@@ -12,8 +11,8 @@ Component({
       type: Object,
       observer(order) {
         // 判定有传goodsIndex ，则认为是商品button bar, 仅显示申请售后按钮
-        if (this.properties.goodsIndex !== null) {
-          const goods = order.goodsList[this.properties.goodsIndex];
+        if (this.properties?.goodsIndex !== null) {
+          const goods = order.goodsList[Number(this.properties.goodsIndex)];
           this.setData({
             buttons: {
               left: [],
@@ -26,7 +25,7 @@ Component({
         }
         // 订单的button bar 不显示申请售后按钮
         const buttonsRight = (order.buttons || [])
-          .filter((b) => b.type !== OrderButtonTypes.APPLY_REFUND)
+          // .filter((b) => b.type !== OrderButtonTypes.APPLY_REFUND)
           .map((button) => {
             //邀请好友拼团按钮
             if (
@@ -75,6 +74,10 @@ Component({
       type: Number,
       value: null,
     },
+    isBtnMax: {
+      type: Boolean,
+      value: false,
+    },
   },
 
   data: {
@@ -114,37 +117,73 @@ Component({
         case OrderButtonTypes.INVITE_GROUPON:
           //分享邀请好友拼团
           break;
+        case OrderButtonTypes.REBUY:
+          this.onBuyAgain(this.data.order);
       }
     },
 
-    onCancel(order) {
-      Toast({ text: '你点击了取消订单' });
-    },
-
-    onConfirm(order) {
-      Dialog.confirm({
-        title: '确认是否已经收到货？',
-        message: '',
-        confirmButtonText: '确认收货',
-      }).then(() => {
-        Toast({ text: '你确认收货了' });
+    onCancel() {
+      Toast({
+        context: this,
+        selector: '#t-toast',
+        message: '你点击了取消订单',
+        icon: 'check-circle',
       });
     },
 
-    onPay(order) {
-      Toast({ text: '你点击了去支付' });
+    onConfirm() {
+      Dialog.confirm({
+        title: '确认是否已经收到货？',
+        content: '',
+        confirmBtn: '确认收货',
+        cancelBtn: '取消',
+      })
+        .then(() => {
+          Toast({
+            context: this,
+            selector: '#t-toast',
+            message: '你确认了确认收货',
+            icon: 'check-circle',
+          });
+        })
+        .catch(() => {
+          Toast({
+            context: this,
+            selector: '#t-toast',
+            message: '你取消了确认收货',
+            icon: 'check-circle',
+          });
+        });
+    },
+
+    onPay() {
+      Toast({
+        context: this,
+        selector: '#t-toast',
+        message: '你点击了去支付',
+        icon: 'check-circle',
+      });
+    },
+
+    onBuyAgain() {
+      Toast({
+        context: this,
+        selector: '#t-toast',
+        message: '你点击了再次购买',
+        icon: 'check-circle',
+      });
     },
 
     onApplyRefund(order) {
       const goods = order.goodsList[this.properties.goodsIndex];
       const params = {
         orderNo: order.orderNo,
-        skuId: goods.skuId,
-        spuId: goods.spuId,
+        skuId: goods?.skuId ?? '19384938948343',
+        spuId: goods?.spuId ?? '28373847384343',
         orderStatus: order.status,
         logisticsNo: order.logisticsNo,
-        price: goods.price,
-        num: goods.num,
+        price: goods?.price ?? 89,
+        num: goods?.num ?? 89,
         createTime: order.createTime,
         orderAmt: order.totalAmount,
         payAmt: order.amount,
@@ -156,14 +195,22 @@ Component({
       wx.navigateTo({ url: `/pages/order/apply-service/index?${paramsStr}` });
     },
 
-    onViewRefund(order) {
-      Toast({ text: '你点击了查看退款' });
+    onViewRefund() {
+      Toast({
+        context: this,
+        selector: '#t-toast',
+        message: '你点击了查看退款',
+        icon: '',
+      });
     },
 
     /** 添加订单评论 */
     onAddComent(order) {
+      const imgUrl = order?.goodsList?.[0]?.thumb;
+      const title = order?.goodsList?.[0]?.title;
+      const specs = order?.goodsList?.[0]?.specs;
       wx.navigateTo({
-        url: `/pages/order/comments/index?orderNo=${order.orderNo}`,
+        url: `/pages/goods/comments/create/index?specs=${specs}&title=${title}&orderNo=${order?.orderNo}&imgUrl=${imgUrl}`,
       });
     },
   },

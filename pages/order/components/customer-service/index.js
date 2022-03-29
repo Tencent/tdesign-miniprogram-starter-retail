@@ -24,7 +24,7 @@ Component({
     },
 
     onCall() {
-      const phoneNumber = this.properties.phoneNumber;
+      const { phoneNumber } = this.properties;
       wx.makePhoneCall({
         phoneNumber,
       });

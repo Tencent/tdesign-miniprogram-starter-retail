@@ -1,13 +1,17 @@
 import { fetchGoodsList } from '../../../services/good/fetchGoodsList';
+import Toast from 'tdesign-miniprogram/toast/index';
+
 const layoutMap = {
   0: 'vertical',
   1: 'horizontal',
 };
+
 const initFilters = {
   overall: 1,
   sorts: '',
   layout: 0,
 };
+
 Page({
   data: {
     goodsList: [],
@@ -17,42 +21,35 @@ Page({
     show: false,
     minVal: '',
     maxVal: '',
-    minActive: false,
-    maxActive: false,
-    minSalePriceFocus: false,
-    maxSalePriceFocus: false,
     layoutText: layoutMap[0],
-    pageNum: 1,
-    pageSize: 30,
-    total: 0,
     filter: initFilters,
     hasLoaded: false,
     loadMoreStatus: 0,
-    cartNum: 0,
-    store: '',
     loading: true,
-    sceneId: 2,
-    pageLoaded: false,
-    outerService: null,
   },
+
+  pageNum: 1,
+  pageSize: 30,
+  total: 0,
+
   handleFilterChange(e) {
     const { layout, overall, sorts } = e.detail;
+    this.pageNum = 1;
     this.setData({
       layout,
       sorts,
       overall,
-      pageSize: 1,
       loadMoreStatus: 0,
     });
     this.init(true);
   },
-  generalQueryData(reset = false) {
-    const { filter, pageNum, pageSize, keywords, minVal, maxVal } = this.data;
-    const { sorts, overall } = filter;
 
+  generalQueryData(reset = false) {
+    const { filter, keywords, minVal, maxVal } = this.data;
+    const { pageNum, pageSize } = this;
+    const { sorts, overall } = filter;
     const params = {
       sort: 0, // 0 综合，1 价格
-      // sortType: 0, // 0 顺序，1 倒序
       pageNum: 1,
       pageSize: 30,
       keyword: keywords,
@@ -68,29 +65,20 @@ Page({
     } else {
       params.sort = 1;
     }
-
-    // if (prices.length === 2) {
-    //   params.minPrice = prices[0] * 100;
-    //   params.maxPrice = prices[1] * 100;
-    // }
     params.minPrice = minVal ? minVal * 100 : 0;
     params.maxPrice = maxVal ? maxVal * 100 : undefined;
-    // 重置请求
     if (reset) return params;
-
     return {
       ...params,
       pageNum: pageNum + 1,
       pageSize,
     };
   },
+
   async init(reset = true) {
     const { loadMoreStatus, goodsList = [] } = this.data;
     const params = this.generalQueryData(reset);
-
-    // 在加载中或者无更多数据，直接返回
     if (loadMoreStatus !== 0) return;
-
     this.setData({
       loadMoreStatus: 1,
       loading: true,
@@ -102,6 +90,7 @@ Page({
       if (code.toUpperCase() === 'SUCCESS') {
         const { spuList, totalCount = 0 } = data;
         if (totalCount === 0 && reset) {
+          this.total = totalCount;
           this.setData({
             emptyInfo: {
               tip: '抱歉，未找到相关商品',
@@ -109,7 +98,6 @@ Page({
             hasLoaded: true,
             loadMoreStatus: 0,
             loading: false,
-            total: totalCount,
             goodsList: [],
           });
           return;
@@ -117,11 +105,10 @@ Page({
 
         const _goodsList = reset ? spuList : goodsList.concat(spuList);
         const _loadMoreStatus = _goodsList.length === totalCount ? 2 : 0;
-
+        this.pageNum = params.pageNum || 1;
+        this.total = totalCount;
         this.setData({
           goodsList: _goodsList,
-          pageNum: params.pageNum || 1,
-          total: totalCount,
           loadMoreStatus: _loadMoreStatus,
         });
       } else {
@@ -142,88 +129,92 @@ Page({
       loading: false,
     });
   },
+
   onLoad() {
-    this.setData(
-      {
-        pageLoaded: true,
-      },
-      () => {
-        this.init(true);
-      },
-    );
+    this.init(true);
   },
+
   onReachBottom() {
-    const { total = 0, goodsList } = this.data;
+    const { goodsList } = this.data;
+    const { total = 0 } = this;
     if (goodsList.length === total) {
       this.setData({
         loadMoreStatus: 2,
       });
       return;
     }
-
     this.init(false);
   },
+
   handleAddCart() {
-    wx.showToast({
-      title: '加入购物车成功',
+    Toast({
+      context: this,
+      selector: '#t-toast',
+      message: '点击加购',
     });
   },
-  navTo(e) {
+
+  tagClickHandle() {
+    Toast({
+      context: this,
+      selector: '#t-toast',
+      message: '点击标签',
+    });
+  },
+
+  gotoGoodsDetail(e) {
     const { index } = e.detail;
-    const spuId = this.data.goodsList[index].spuId;
+    const { spuId } = this.data.goodsList[index];
     wx.navigateTo({
       url: `/pages/goods/details/index?spuId=${spuId}`,
     });
   },
+
   showFilterPopup() {
     this.setData({
       show: true,
     });
   },
+
   showFilterPopupClose() {
     this.setData({
       show: false,
     });
   },
-  handleMinPriceFocus() {
-    this.setData({
-      minSalePriceFocus: true,
-    });
-  },
 
-  handleMinPriceBlur() {
-    this.setData({
-      minSalePriceFocus: false,
-    });
-  },
-
-  handleMaxPriceFocus() {
-    this.setData({
-      maxSalePriceFocus: true,
-    });
-  },
-
-  handleMaxPriceBlur() {
-    this.setData({
-      maxSalePriceFocus: false,
-    });
-  },
-  // 最小值
   onMinValAction(e) {
     const { value } = e.detail;
-    this.setData({ minVal: value, minActive: value.length });
+    this.setData({ minVal: value });
   },
-  // 最大值
+
   onMaxValAction(e) {
     const { value } = e.detail;
-    this.setData({ maxVal: value, maxActive: value.length });
+    this.setData({ maxVal: value });
   },
-  // 筛选重置
+
   reset() {
     this.setData({ minVal: '', maxVal: '' });
   },
-  // 筛选确定
+
   confirm() {
+    const { minVal, maxVal } = this.data;
+    let message = '';
+
+    if (minVal && !maxVal) {
+      message = `价格最小是${minVal}`;
+    } else if (!minVal && maxVal) {
+      message = `价格范围是0-${minVal}`;
+    } else if (minVal && maxVal) {
+      message = `价格范围${minVal}-${this.data.maxVal}`;
+    } else {
+    }
+
+    Toast({
+      context: this,
+      selector: '#t-toast',
+      message,
+    });
+
     this.setData({
       show: false,
     });

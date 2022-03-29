@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 import { config } from '../../config/index';
 
 /** 获取商品列表 */
@@ -23,7 +24,6 @@ function mockFetchGoodsList(params) {
     });
   }
   return delay().then(() => {
-    console.log('d:', data);
     return data;
   });
 }

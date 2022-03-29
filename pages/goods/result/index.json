@@ -1,15 +1,15 @@
 {
   "navigationBarTitleText": "搜索",
   "usingComponents": {
-    "wr-dialog": "@tencent/retailwe-ui-dialog/index",
-    "wr-icon": "@tencent/retailwe-ui-icon/index",
-    "wr-popup": "@tencent/retailwe-ui-popup/index",
-    "wr-filter": "@tencent/retailwe-ui-filter/index",
-    "wr-filter-popup": "@tencent/retailwe-ui-filter-popup/index",
-    "wr-good-list": "@tencent/retailwe-ui-goods-list/index",
-    "wr-empty": "@tencent/retailwe-ui-empty/index",
-    "wr-load-more": "@tencent/retailwe-ui-load-more/index",
-    "wr-search": "@tencent/retailwe-ui-search/index"
+    "t-search": "tdesign-miniprogram/search/search",
+    "t-input": "tdesign-miniprogram/input/input",
+    "t-empty": "tdesign-miniprogram/empty/empty",
+    "t-toast": "tdesign-miniprogram/toast/toast",
+    "goods-list": "/components/goods-list/index",
+    "filter": "/components/filter/index",
+    "filter-popup": "/components/filter-popup/index",
+    "load-more": "/components/load-more/index",
+    "t-icon": "tdesign-miniprogram/icon/icon"
   },
   "onReachBottomDistance": 50
 }

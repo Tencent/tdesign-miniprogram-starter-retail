@@ -1,16 +1,19 @@
 {
   "navigationBarTitleText": "选择售后类型",
   "usingComponents": {
-    "wr-icon": "@tencent/retailwe-ui-icon/index",
-    "wr-cell": "@tencent/retailwe-ui-cell/index",
-    "wr-cell-group": "@tencent/retailwe-ui-cell-group/index",
-    "wr-price": "@tencent/retailwe-ui-price/index",
-    "wr-stepper": "@tencent/retailwe-ui-stepper/index",
-    "wr-popup": "@tencent/retailwe-ui-popup/index",
-    "wr-dialog": "@tencent/retailwe-ui-dialog/index",
-    "wr-textarea": "@tencent/retailwe-ui-textarea/index",
-    "wr-order-goods-card": "@tencent/retailwe-ui-order-goods-card/index",
-    "wr-uploader": "@tencent/retailwe-ui-uploader/index",
-    "wr-reason-sheet": "../components/reason-sheet/index"
+    "wr-price": "/components/price/index",
+    "wr-order-goods-card": "../components/order-goods-card/index",
+    "wr-reason-sheet": "../components/reason-sheet/index",
+    "t-cell": "tdesign-miniprogram/cell/cell",
+    "t-icon": "tdesign-miniprogram/icon/icon",
+    "t-toast": "tdesign-miniprogram/toast/toast",
+    "t-dialog": "tdesign-miniprogram/dialog/dialog",
+    "t-button": "tdesign-miniprogram/button/button",
+    "t-cell-group": "tdesign-miniprogram/cell-group/cell-group",
+    "t-stepper": "tdesign-miniprogram/stepper/stepper",
+    "t-popup": "tdesign-miniprogram/popup/popup",
+    "t-textarea": "tdesign-miniprogram/textarea/textarea",
+    "t-input": "tdesign-miniprogram/input/input",
+    "t-uploader": "tdesign-miniprogram/upload/upload"
   }
 }

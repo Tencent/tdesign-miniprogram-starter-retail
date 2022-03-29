@@ -1,0 +1,19 @@
+.wx-address .weixin {
+  display: inline-block;
+  font-size: 48rpx !important;
+  margin-right: 20rpx;
+  font-weight: normal;
+}
+.wx-address .cell {
+  padding: 32rpx 30rpx;
+  border-radius: 8rpx;
+}
+.wx-address .cell__title {
+  font-size: 30rpx;
+  color: #333333;
+}
+.wx-address-custom {
+  display: flex;
+  align-items: center;
+  font-size: 32rpx;
+}

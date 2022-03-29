@@ -1,0 +1,37 @@
+<!-- 过滤组件 -->
+<view class="wr-class filter-wrap">
+	<view class="filter-left-content">
+		<view class="filter-item {{overall === 1 ? 'filter-active-item' : ''}}" bindtap="onOverallAction">
+			综合
+		</view>
+		<view class="filter-item" bind:tap="handlePriseSort">
+			<text style="color: {{sorts !== '' ? color : '' }}">价格</text>
+			<view class="filter-price">
+				<t-icon
+				  prefix="wr"
+				  name="arrow_drop_up"
+				  size="18rpx"
+				  style="color:{{sorts === 'asc' ? color : '#bbb'}}"
+				/>
+				<t-icon
+				  prefix="wr"
+				  name="arrow_drop_down"
+				  size="18rpx"
+				  style="color:{{sorts === 'desc' ? color : '#bbb'}}"
+				/>
+			</view>
+		</view>
+		<view class="filter-item {{prices.length ? 'filter-active-item' : ''}}" bindtap="open" data-index="5">
+			筛选
+			<t-icon
+			  name="filter"
+			  prefix="wr"
+			  color="#333"
+			  size="32rpx"
+			/>
+		</view>
+	</view>
+</view>
+<!-- 筛选弹框 -->
+<slot name="filterPopup" />
+

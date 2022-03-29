@@ -12,19 +12,20 @@ function priceFormat(price, fill = 0) {
   if (isNaN(price) || price === null || price === Infinity) {
     return price;
   }
-  price = Math.round(parseFloat(price + '') * 10 ** 8) / 10 ** 8; // 恢复精度丢失
-  price = Math.ceil(price) / 100 + ''; // 向上取整，单位转换为元，转换为字符串
+
+  let priceFormatValue = Math.round(parseFloat(`${price}`) * 10 ** 8) / 10 ** 8; // 恢复精度丢失
+  priceFormatValue = `${Math.ceil(priceFormatValue) / 100}`; // 向上取整，单位转换为元，转换为字符串
   if (fill > 0) {
     // 补充小数位数
-    if (price.indexOf('.') == -1) {
-      price = price + '.';
+    if (priceFormatValue.indexOf('.') === -1) {
+      priceFormatValue = `${priceFormatValue}.`;
     }
-    const n = fill - price.split('.')[1].length;
+    const n = fill - priceFormatValue.split('.')[1]?.length;
     for (let i = 0; i < n; i++) {
-      price = price + '0';
+      priceFormatValue = `${priceFormatValue}0`;
     }
   }
-  return price;
+  return priceFormatValue;
 }
 
 /**
@@ -43,7 +44,7 @@ const cosThumb = (url, width, height = width) => {
     url = url.replace('http://', 'https://');
   }
 
-  return url + '?imageMogr2/thumbnail/' + ~~width + 'x' + ~~height;
+  return `${url}?imageMogr2/thumbnail/${~~width}x${~~height}`;
 };
 
 const get = (source, paths, defaultValue) => {
@@ -62,7 +63,6 @@ const get = (source, paths, defaultValue) => {
   return source === undefined || index === 0 ? defaultValue : source;
 };
 let systemWidth = 0;
-let pixelRatio = 0;
 /** 获取系统宽度，为了减少启动消耗所以在函数里边做初始化 */
 export const loadSystemWidth = () => {
   if (systemWidth) {
@@ -98,10 +98,36 @@ const rpx2px = (rpx, round = false) => {
   return result;
 };
 
+/**
+ * 手机号码*加密函数
+ * @param {string} phone 电话号
+ * @returns
+ */
+const phoneEncryption = (phone) => {
+  return phone.replace(/(\d{3})\d{4}(\d{4})/, '$1****$2');
+};
+
+// 内置手机号正则字符串
+const innerPhoneReg =
+  '^1(?:3\\d|4[4-9]|5[0-35-9]|6[67]|7[0-8]|8\\d|9\\d)\\d{8}$';
+
+/**
+ * 手机号正则校验
+ * @param phone 手机号
+ * @param phoneReg 正则字符串
+ * @returns true - 校验通过 false - 校验失败
+ */
+const phoneRegCheck = (phone) => {
+  const phoneRegExp = new RegExp(innerPhoneReg);
+  return phoneRegExp.test(phone);
+};
+
 module.exports = {
   formatTime,
   priceFormat,
   cosThumb,
   get,
   rpx2px,
+  phoneEncryption,
+  phoneRegCheck,
 };

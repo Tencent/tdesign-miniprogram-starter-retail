@@ -1,0 +1,174 @@
+<wxs module="swipe">
+  var THRESHOLD = 0.3;
+  var MIN_DISTANCE = 10;
+  var owner;
+  var state;
+
+  var getState = function(ownerInstance) {
+    owner = ownerInstance;
+    state = owner.getState();
+    state.leftWidth = state.leftWidth || 0;
+    state.rightWidth = state.rightWidth || 0;
+    state.offset = state.offset || 0;
+    state.startOffset = state.startOffset || 0;
+  };
+
+  var initRightWidth = function(newVal, oldVal, ownerInstance) {
+    getState(ownerInstance);
+    state.rightWidth = newVal;
+    if (state.offset < 0) {
+      swipeMove(-state.rightWidth);
+    }
+  };
+
+  var initLeftWidth = function(newVal, oldVal, ownerInstance) {
+    getState(ownerInstance);
+    state.leftWidth = newVal;
+    if (state.offset > 0) {
+      swipeMove(state.leftWidth);
+    }
+  }
+
+  var resetTouchStatus = function() {
+    state.direction = '';
+    state.deltaX = 0;
+    state.deltaY = 0;
+    state.offsetX = 0;
+    state.offsetY = 0;
+  };
+
+  var touchMove = function(event) {
+    var touchPoint = event.touches[0];
+    state.deltaX = touchPoint.clientX - state.startX;
+    state.deltaY = touchPoint.clientY - state.startY;
+    state.offsetX = Math.abs(state.deltaX);
+    state.offsetY = Math.abs(state.deltaY);
+    state.direction = state.direction || getDirection(state.offsetX, state.offsetY);
+  };
+
+  var getDirection = function(x, y) {
+    if (x > y && x > MIN_DISTANCE) {
+      return 'horizontal';
+    }
+    if (y > x && y > MIN_DISTANCE) {
+      return 'vertical';
+    }
+    return '';
+  };
+
+  var range = function(num, min, max) {
+    return Math.min(Math.max(num, min), max);
+  };
+
+  var swipeMove = function(_offset = 0) {
+    state.offset = range(
+      _offset,
+      -state.rightWidth,
+      +state.leftWidth,
+    );
+
+    var transform = 'translate3d(' + state.offset + 'px, 0, 0)';
+    var transition = state.dragging
+      ? 'none'
+      : 'transform .6s cubic-bezier(0.18, 0.89, 0.32, 1)';
+    owner.selectComponent('#wrapper').setStyle({
+      '-webkit-transform': transform,
+      '-webkit-transition': transition,
+      'transform': transform,
+      'transition': transition
+    });
+  };
+
+  var close = function() {
+    swipeMove(0);
+  };
+
+  var onCloseChange = function(newVal, oldVal, ownerInstance) {
+    getState(ownerInstance);
+    if (newVal === oldVal) return;
+    if (newVal) {
+      close();
+    }
+  };
+
+  var touchStart = function(event) {
+    resetTouchStatus();
+    state.startOffset = state.offset;
+    var touchPoint = event.touches[0];
+    state.startX = touchPoint.clientX;
+    state.startY = touchPoint.clientY;
+    owner.callMethod('closeOther');
+  };
+
+  var startDrag = function(event, ownerInstance) {
+    getState(ownerInstance);
+    touchStart(event);
+  };
+
+  var onDrag = function(event, ownerInstance) {
+    getState(ownerInstance);
+    touchMove(event);
+    if (state.direction !== 'horizontal') {
+      return;
+    }
+    state.dragging = true;
+    swipeMove(state.startOffset + state.deltaX);
+  };
+
+  var open = function(position) {
+    var _offset = position === 'left' ? +state.leftWidth : -state.rightWidth;
+    owner.callMethod('open', { position: position });
+    swipeMove(_offset);
+  };
+
+  var endDrag = function(event, ownerInstance) {
+    getState(ownerInstance);
+    state.dragging = false;
+    // 左/右侧有可滑动区域，且当前不是已open状态，且滑动幅度超过阈值时open左/右侧（滚动到该侧的最边上）
+    if (+state.rightWidth > 0 && -state.startOffset < +state.rightWidth && -state.offset > +state.rightWidth * THRESHOLD) {
+      open('right');
+    } else if (+state.leftWidth > 0 && state.startOffset < +state.leftWidth && state.offset > +state.leftWidth * THRESHOLD) {
+      open('left');
+    } else {
+      // 仅在有发生侧滑的情况下自动关闭（由js控制是否异步关闭）
+      if (state.startOffset !== state.offset) {
+        close();
+      }
+    }
+  };
+
+  module.exports = {
+    initLeftWidth: initLeftWidth,
+    initRightWidth: initRightWidth,
+    startDrag: startDrag,
+    onDrag: onDrag,
+    endDrag: endDrag,
+    onCloseChange: onCloseChange
+  };
+</wxs>
+
+<view
+  class="wr-class wr-swipeout"
+  data-key="cell"
+  capture-bind:tap="onClick"
+  bindtouchstart="{{disabled || swipe.startDrag}}"
+  capture-bind:touchmove="{{disabled || swipe.onDrag}}"
+  bindtouchend="{{disabled || swipe.endDrag}}"
+  bindtouchcancel="{{disabled || swipe.endDrag}}"
+  closed="{{closed}}"
+  change:closed="{{swipe.onCloseChange}}"
+  leftWidth="{{leftWidth}}"
+  rightWidth="{{rightWidth}}"
+  change:leftWidth="{{swipe.initLeftWidth}}"
+  change:rightWidth="{{swipe.initRightWidth}}"
+>
+  <view id="wrapper">
+    <view wx:if="{{ leftWidth }}" class="wr-swipeout__left" data-key="left" catch:tap="onClick">
+      <slot name="left" />
+    </view>
+    <slot />
+    <view wx:if="{{ rightWidth }}" class="wr-swipeout__right" data-key="right" catch:tap="onClick">
+      <slot name="right" />
+    </view>
+  </view>
+</view>
