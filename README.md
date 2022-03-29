@@ -6,8 +6,6 @@
 
 # TDesign 零售行业模版示例小程序
 
-# TDesign 零售行业模版示例小程序
-
 TDesign 零售模版示例小程序采用 [TDesign 企业级设计体系小程序解决方案](https://tdesign.tencent.com/miniprogram/overview) 进行搭建，依赖 [TDesign 微信小程序组件库](https://github.com/Tencent/tdesign-miniprogram)，涵盖完整的基本零售场景需求。
 
 ## 预览
