@@ -84,4 +84,4 @@ TDesign 零售模版示例小程序采用 [TDesign 企业级设计体系小程�
 
 ## 开源协议
 
-TDesign 遵循 [MIT 协议](https://github.com/Tencent/tdesign-miniprogram/LICENSE)。
+TDesign 遵循 [MIT 协议](https://github.com/Tencent/tdesign-miniprogram-starter-retail/LICENSE)。
