@@ -13,7 +13,6 @@
 			  mode="{{ thumbMode }}"
 			  lazy-load="{{ lazyLoad }}"
 			/>
-			<slot name="thumb-cover" />
 		</view>
 
 		<view class="t-goods-card__body">
@@ -29,14 +28,11 @@
 							{{ titlePrefixTag }}
 						</view>
 					</view>
-					<slot name="before-title" />
 					{{ goods.title }}
 				</view>
-				<slot name="after-title" />
 				<view wx:if="{{ goods.desc && !goods.hideKey.desc }}" class="t-goods-card__desc">
 					{{ goods.desc }}
 				</view>
-				<slot name="after-desc" />
 				<view wx:if="{{ goods.specsDesc && !goods.hideKey.specs }}" class="t-goods-card__specs__desc" bind:tap="clickSpecsHandle">
 					<view class="t-goods-card__specs__desc-text">
 						{{ goods.specsDesc }}
@@ -51,7 +47,6 @@
 				<view wx:if="{{ goods.specsText && !goods.hideKey.specs }}" class="t-goods-card__specs__text">
 					{{ goods.specsText }}
 				</view>
-				<slot name="after-specs" />
 				<view wx:if="{{ goods.tags && !goods.hideKey.tags && !!goods.tags.length }}" class="t-goods-card__tags">
 					<view
 					  wx:for="{{ goods.tags }}"
@@ -63,13 +58,10 @@
 						{{tag}}
 					</view>
 				</view>
-				<slot name="after-tags" />
 			</view>
 
 			<view class="t-goods-card__short_content">
 				<view wx:if="{{ pricePrefix }}" class="t-goods-card__price__prefix">{{ pricePrefix }}</view>
-				<slot name="price-prefix" />
-
 				<view wx:if="{{ goods.price && !goods.hideKey.price }}" class="t-goods-card__price">
 					<t-price
 					  wr-class="spec-for-price"
@@ -87,8 +79,6 @@
 					  type="delthrough"
 					/>
 				</view>
-				<slot name="origin-price" />
-
 				<view wx:if="{{goods.num && !goods.hideKey.num}}" class="t-goods-card__num">
 					<text class="t-goods-card__num__prefix">x </text>
 					{{ goods.num }}</view>
@@ -103,14 +93,8 @@
 				  size="{{cartSize}}"
 				  color="{{cartColor}}"
 				/>
-				<slot name="add-cart" />
 			</view>
-
-			<slot name="append-body" />
 		</view>
-
-		<slot name="footer" />
 	</view>
-	<slot name="append-card" />
 </view>
 
