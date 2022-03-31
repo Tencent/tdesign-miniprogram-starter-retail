@@ -14,38 +14,10 @@
 			  lazy-load="{{ lazyLoad }}"
 			/>
 		</view>
-
 		<view class="t-goods-card__body">
 			<view class="t-goods-card__long_content">
 				<view wx:if="{{ goods.title && !goods.hideKey.title }}" class="t-goods-card__title">
-					<view wx:if="{{ goods.titlePrefixTags && goods.titlePrefixTags.length && !goods.hideKey.titlePrefixTags }}" class="t-goods-card__title__prefix-tags">
-						<view
-						  class="prefix-tag"
-						  wx:for="{{ goods.titlePrefixTags }}"
-						  wx:key="index"
-						  wx:for-item="titlePrefixTag"
-						>
-							{{ titlePrefixTag }}
-						</view>
-					</view>
 					{{ goods.title }}
-				</view>
-				<view wx:if="{{ goods.desc && !goods.hideKey.desc }}" class="t-goods-card__desc">
-					{{ goods.desc }}
-				</view>
-				<view wx:if="{{ goods.specsDesc && !goods.hideKey.specs }}" class="t-goods-card__specs__desc" bind:tap="clickSpecsHandle">
-					<view class="t-goods-card__specs__desc-text">
-						{{ goods.specsDesc }}
-					</view>
-					<t-icon
-					  t-class="t-goods-card__specs__desc-icon"
-					  name="{{specsIcon}}"
-					  size="xl"
-					  prefix="{{specsIconClassPrefix}}"
-					/>
-				</view>
-				<view wx:if="{{ goods.specsText && !goods.hideKey.specs }}" class="t-goods-card__specs__text">
-					{{ goods.specsText }}
 				</view>
 				<view wx:if="{{ goods.tags && !goods.hideKey.tags && !!goods.tags.length }}" class="t-goods-card__tags">
 					<view
@@ -59,9 +31,7 @@
 					</view>
 				</view>
 			</view>
-
 			<view class="t-goods-card__short_content">
-				<view wx:if="{{ pricePrefix }}" class="t-goods-card__price__prefix">{{ pricePrefix }}</view>
 				<view wx:if="{{ goods.price && !goods.hideKey.price }}" class="t-goods-card__price">
 					<t-price
 					  wr-class="spec-for-price"
@@ -85,13 +55,12 @@
 				<t-icon
 				  prefix="wr"
 				  name="cartAdd"
-				  wx:if="{{showCart}}"
 				  id="{{independentID}}-cart"
 				  data-id="{{independentID}}"
 				  class="t-goods-card__add-cart"
 				  catchtap="addCartHandle"
-				  size="{{cartSize}}"
-				  color="{{cartColor}}"
+				  size="48rpx"
+				  color="#FA550F"
 				/>
 			</view>
 		</view>

@@ -14,18 +14,6 @@ Component({
       type: Boolean,
       value: false,
     },
-    showCart: {
-      type: Boolean,
-      value: true,
-    },
-    cartSize: {
-      type: String,
-      value: '48rpx',
-    },
-    cartColor: {
-      type: String,
-      value: '#FA550F',
-    },
     lazyLoad: {
       type: Boolean,
       value: true,
@@ -43,20 +31,6 @@ Component({
     thresholds: {
       type: Array,
       value: [],
-    },
-    thumbWidth: {
-      type: null,
-    },
-    thumbHeight: {
-      type: null,
-    },
-    addCartIconClassPrefix: {
-      type: String,
-      value: 'wr',
-    },
-    addCartIcon: {
-      type: String,
-      value: 'add-cart',
     },
   },
 
@@ -104,7 +78,6 @@ Component({
       if (id) {
         this.setData({ independentID: id });
       } else {
-        // `gl-88888888`
         this.setData({
           independentID: `goods-list-${~~(Math.random() * 10 ** 8)}`,
         });

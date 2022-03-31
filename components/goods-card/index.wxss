@@ -70,51 +70,12 @@
   word-break: break-word;
 }
 
-.t-goods-card__title__prefix-tags {
-  display: inline-flex;
-}
-
-.t-goods-card__title__prefix-tags .prefix-tag {
-  margin: 0 8rpx 0 0;
-  color: #fa550f;
-}
-
-.t-goods-card__desc {
-  font-size: 24rpx;
-  color: #f5f5f5;
-  line-height: 40rpx;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
-  overflow: hidden;
-}
-
-.t-goods-card__specs__desc,
 .t-goods-card__specs__text {
   font-size: 24rpx;
   height: 32rpx;
   line-height: 32rpx;
   color: #999999;
   margin: 8rpx 0;
-}
-
-.t-goods-card__specs__desc {
-  display: flex;
-  align-self: flex-start;
-  flex-direction: row;
-  background: #f5f5f5;
-  border-radius: 4rpx;
-  padding: 4rpx 8rpx;
-}
-
-.t-goods-card__specs__desc-text {
-  height: 100%;
-  max-width: 380rpx;
-  word-break: break-all;
-  overflow: hidden;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 1;
 }
 
 .t-goods-card__specs__desc-icon {
