@@ -1,16 +1,4 @@
 Component({
-  externalClasses: [
-    'card-class',
-    'title-class',
-    'desc-class',
-    'num-class',
-    'thumb-class',
-    'specs-class',
-    'price-class',
-    'origin-price-class',
-    'price-prefix-class',
-  ],
-
   options: {
     multipleSlots: true,
     addGlobalClass: true,

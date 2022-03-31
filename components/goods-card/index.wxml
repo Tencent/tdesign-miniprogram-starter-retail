@@ -5,7 +5,7 @@
   data-goods="{{ goods }}"
 >
 	<view class="t-goods-card__main">
-		<view class="t-goods-card__thumb thumb-class" bind:tap="clickThumbHandle">
+		<view class="t-goods-card__thumb" bind:tap="clickThumbHandle">
 			<t-image
 			  wx:if="{{ !!goods.thumb && !goods.hideKey.thumb }}"
 			  src="{{ goods.thumb }}"
@@ -18,7 +18,7 @@
 
 		<view class="t-goods-card__body">
 			<view class="t-goods-card__long_content">
-				<view wx:if="{{ goods.title && !goods.hideKey.title }}" class="t-goods-card__title title-class">
+				<view wx:if="{{ goods.title && !goods.hideKey.title }}" class="t-goods-card__title">
 					<view wx:if="{{ goods.titlePrefixTags && goods.titlePrefixTags.length && !goods.hideKey.titlePrefixTags }}" class="t-goods-card__title__prefix-tags">
 						<view
 						  class="prefix-tag"
@@ -33,11 +33,11 @@
 					{{ goods.title }}
 				</view>
 				<slot name="after-title" />
-				<view wx:if="{{ goods.desc && !goods.hideKey.desc }}" class="t-goods-card__desc desc-class">
+				<view wx:if="{{ goods.desc && !goods.hideKey.desc }}" class="t-goods-card__desc">
 					{{ goods.desc }}
 				</view>
 				<slot name="after-desc" />
-				<view wx:if="{{ goods.specsDesc && !goods.hideKey.specs }}" class="t-goods-card__specs__desc specs-class" bind:tap="clickSpecsHandle">
+				<view wx:if="{{ goods.specsDesc && !goods.hideKey.specs }}" class="t-goods-card__specs__desc" bind:tap="clickSpecsHandle">
 					<view class="t-goods-card__specs__desc-text">
 						{{ goods.specsDesc }}
 					</view>
@@ -48,7 +48,7 @@
 					  prefix="{{specsIconClassPrefix}}"
 					/>
 				</view>
-				<view wx:if="{{ goods.specsText && !goods.hideKey.specs }}" class="t-goods-card__specs__text specs-class">
+				<view wx:if="{{ goods.specsText && !goods.hideKey.specs }}" class="t-goods-card__specs__text">
 					{{ goods.specsText }}
 				</view>
 				<slot name="after-specs" />
@@ -67,7 +67,7 @@
 			</view>
 
 			<view class="t-goods-card__short_content">
-				<view wx:if="{{ pricePrefix }}" class="t-goods-card__price__prefix price-prefix-class">{{ pricePrefix }}</view>
+				<view wx:if="{{ pricePrefix }}" class="t-goods-card__price__prefix">{{ pricePrefix }}</view>
 				<slot name="price-prefix" />
 
 				<view wx:if="{{ goods.price && !goods.hideKey.price }}" class="t-goods-card__price">
@@ -89,7 +89,7 @@
 				</view>
 				<slot name="origin-price" />
 
-				<view wx:if="{{goods.num && !goods.hideKey.num}}" class="t-goods-card__num num-class">
+				<view wx:if="{{goods.num && !goods.hideKey.num}}" class="t-goods-card__num">
 					<text class="t-goods-card__num__prefix">x </text>
 					{{ goods.num }}</view>
 				<t-icon

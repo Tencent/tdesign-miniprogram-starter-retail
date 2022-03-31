@@ -1,15 +1,5 @@
 Component({
-  externalClasses: [
-    'wr-class',
-    'title-class',
-    'desc-class',
-    'num-class',
-    'thumb-class',
-    'specs-class',
-    'price-class',
-    'origin-price-class',
-    'price-prefix-class',
-  ],
+  externalClasses: ['wr-class'],
 
   properties: {
     goodsList: {
