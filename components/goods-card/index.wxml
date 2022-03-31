@@ -3,11 +3,9 @@
   class="t-goods-card {{ layout }} {{ centered ? 'center' : ''}}"
   bind:tap="clickHandle"
   data-goods="{{ goods }}"
-  hidden="{{hiddenInData}}"
 >
 	<view class="t-goods-card__main">
 		<view class="t-goods-card__thumb thumb-class" bind:tap="clickThumbHandle">
-			<!-- data-src 是方便加购动画读取图片用的 -->
 			<t-image
 			  wx:if="{{ !!goods.thumb && !goods.hideKey.thumb }}"
 			  src="{{ goods.thumb }}"

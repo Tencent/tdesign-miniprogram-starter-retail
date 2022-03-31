@@ -17,15 +17,6 @@ Component({
   },
 
   properties: {
-    hidden: {
-      type: null,
-      value: false,
-      observer(hidden) {
-        if (hidden !== null) {
-          this.setHidden(!!hidden);
-        }
-      },
-    },
     id: {
       type: String,
       value: '',
@@ -42,14 +33,12 @@ Component({
         if (!data) {
           return;
         }
-
         /** 划线价是否有效 */
         let isValidityLinePrice = true;
         // 判断一次划线价格是否合理
         if (data.originPrice && data.price && data.originPrice < data.price) {
           isValidityLinePrice = false;
         }
-
         // 敲定换行数量默认值
         if (data.lineClamp === undefined || data.lineClamp <= 0) {
           // tag数组长度 大于0 且 可见
@@ -129,7 +118,6 @@ Component({
   },
 
   data: {
-    hiddenInData: false,
     independentID: '',
     goods: { id: '' },
     /** 保证划线价格不小于原价，否则不渲染划线价 */
@@ -177,18 +165,13 @@ Component({
       if (id) {
         independentID = id;
       } else {
-        // `goods-card-88888888`
         independentID = `goods-card-${~~(Math.random() * 10 ** 8)}`;
       }
       this.setData({ independentID });
     },
 
     init() {
-      const { thresholds, id, hidden } = this.properties;
-      if (hidden !== null) {
-        this.setHidden(!!hidden);
-      }
-
+      const { thresholds, id } = this.properties;
       this.genIndependentID(id);
       if (thresholds && thresholds.length) {
         this.createIntersectionObserverHandle();
@@ -197,10 +180,6 @@ Component({
 
     clear() {
       this.clearIntersectionObserverHandle();
-    },
-
-    setHidden(hidden) {
-      this.setData({ hiddenInData: !!hidden });
     },
 
     intersectionObserverContext: null,
@@ -233,7 +212,6 @@ Component({
         try {
           this.intersectionObserverContext.disconnect();
         } catch (e) {}
-
         this.intersectionObserverContext = null;
       }
     },
