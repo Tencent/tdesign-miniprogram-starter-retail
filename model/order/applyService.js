@@ -6,7 +6,7 @@ const orderResps = [
       saasId: '88888888',
       uid: '88888888205468',
       storeId: '1000',
-      skuId: '19384938948343',
+      skuId: '135691625',
       numOfSku: 1,
       numOfSkuAvailable: 1,
       refundableAmount: '26900',
@@ -14,7 +14,7 @@ const orderResps = [
       shippingFeeIncluded: '0',
       paidAmountEach: '26900',
       boughtQuantity: 1,
-      orderNo: '130169571554503755',
+      orderNo: '132222623132329291',
       goodsInfo: {
         goodsName: '迷你便携高颜值蓝牙无线耳机立体声',
         skuImage: 'https://cdn-we-retail.ym.tencent.com/tsr/goods/dz-2a.png',
