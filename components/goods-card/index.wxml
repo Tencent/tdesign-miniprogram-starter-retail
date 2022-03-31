@@ -7,7 +7,7 @@
 	<view class="t-goods-card__main">
 		<view class="t-goods-card__thumb" bind:tap="clickThumbHandle">
 			<t-image
-			  wx:if="{{ !!goods.thumb && !goods.hideKey.thumb }}"
+			  wx:if="{{ !!goods.thumb }}"
 			  src="{{ goods.thumb }}"
 			  t-class="t-goods-card__img"
 			  mode="{{ thumbMode }}"
@@ -16,10 +16,10 @@
 		</view>
 		<view class="t-goods-card__body">
 			<view class="t-goods-card__long_content">
-				<view wx:if="{{ goods.title && !goods.hideKey.title }}" class="t-goods-card__title">
+				<view wx:if="{{ goods.title }}" class="t-goods-card__title">
 					{{ goods.title }}
 				</view>
-				<view wx:if="{{ goods.tags && !goods.hideKey.tags && !!goods.tags.length }}" class="t-goods-card__tags">
+				<view wx:if="{{ goods.tags && !!goods.tags.length }}" class="t-goods-card__tags">
 					<view
 					  wx:for="{{ goods.tags }}"
 					  wx:key="index"
@@ -32,7 +32,7 @@
 				</view>
 			</view>
 			<view class="t-goods-card__short_content">
-				<view wx:if="{{ goods.price && !goods.hideKey.price }}" class="t-goods-card__price">
+				<view wx:if="{{ goods.price }}" class="t-goods-card__price">
 					<t-price
 					  wr-class="spec-for-price"
 					  symbol-class="spec-for-symbol"
@@ -41,7 +41,7 @@
 					  fill="{{priceFill}}"
 					/>
 				</view>
-				<view wx:if="{{ goods.originPrice && !goods.hideKey.originPrice && isValidityLinePrice }}" class="t-goods-card__origin-price">
+				<view wx:if="{{ goods.originPrice && isValidityLinePrice }}" class="t-goods-card__origin-price">
 					<t-price
 					  symbol="{{currency}}"
 					  price="{{goods.originPrice}}"
@@ -49,9 +49,6 @@
 					  type="delthrough"
 					/>
 				</view>
-				<view wx:if="{{goods.num && !goods.hideKey.num}}" class="t-goods-card__num">
-					<text class="t-goods-card__num__prefix">x </text>
-					{{ goods.num }}</view>
 				<t-icon
 				  prefix="wr"
 				  name="cartAdd"
