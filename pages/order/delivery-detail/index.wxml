@@ -1,6 +1,5 @@
 <wxs module="isUrl">
 	var isUrl = function(item) {
-	console.log('item: ', item);
 	return item.indexOf('http') > -1;
 	}
 	module.exports = {
