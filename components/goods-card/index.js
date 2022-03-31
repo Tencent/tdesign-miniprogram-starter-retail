@@ -20,19 +20,12 @@ Component({
         if (!data) {
           return;
         }
-        /** 划线价是否有效 */
         let isValidityLinePrice = true;
-        // 判断一次划线价格是否合理
         if (data.originPrice && data.price && data.originPrice < data.price) {
           isValidityLinePrice = false;
         }
         this.setData({ goods: data, isValidityLinePrice });
       },
-    },
-    layout: {
-      type: String,
-      // 'horizontal' | 'horizontal-wrap' | 'vertical'
-      value: 'horizontal',
     },
     thumbMode: {
       type: String,
@@ -46,10 +39,7 @@ Component({
       type: String,
       value: '¥',
     },
-    lazyLoad: Boolean,
-    centered: Boolean,
 
-    /** 元素可见监控阈值, 数组长度大于0就创建 */
     thresholds: {
       type: Array,
       value: [],
@@ -89,11 +79,6 @@ Component({
       this.triggerEvent('thumb', { goods: this.data.goods });
     },
 
-    clickSpecsHandle() {
-      this.triggerEvent('specs', { goods: this.data.goods });
-    },
-
-    // 加入购物车
     addCartHandle(e) {
       const { id } = e.currentTarget;
       const { id: cardID } = e.currentTarget.dataset;

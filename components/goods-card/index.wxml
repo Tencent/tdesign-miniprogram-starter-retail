@@ -1,6 +1,6 @@
 <view
   id="{{independentID}}"
-  class="t-goods-card {{ layout }} {{ centered ? 'center' : ''}}"
+  class="t-goods-card"
   bind:tap="clickHandle"
   data-goods="{{ goods }}"
 >
@@ -8,14 +8,14 @@
 		<view class="t-goods-card__thumb" bind:tap="clickThumbHandle">
 			<t-image
 			  wx:if="{{ !!goods.thumb }}"
-			  src="{{ goods.thumb }}"
 			  t-class="t-goods-card__img"
+			  src="{{ goods.thumb }}"
 			  mode="{{ thumbMode }}"
-			  lazy-load="{{ lazyLoad }}"
+			  lazy-load
 			/>
 		</view>
 		<view class="t-goods-card__body">
-			<view class="t-goods-card__long_content">
+			<view class="t-goods-card__upper">
 				<view wx:if="{{ goods.title }}" class="t-goods-card__title">
 					{{ goods.title }}
 				</view>
@@ -24,31 +24,30 @@
 					  wx:for="{{ goods.tags }}"
 					  wx:key="index"
 					  wx:for-item="tag"
-					  data-index="{{index}}"
 					  class="t-goods-card__tag"
+					  data-index="{{index}}"
 					>
 						{{tag}}
 					</view>
 				</view>
 			</view>
-			<view class="t-goods-card__short_content">
-				<view wx:if="{{ goods.price }}" class="t-goods-card__price">
-					<t-price
-					  wr-class="spec-for-price"
-					  symbol-class="spec-for-symbol"
-					  symbol="{{currency}}"
-					  price="{{goods.price}}"
-					  fill="{{priceFill}}"
-					/>
-				</view>
-				<view wx:if="{{ goods.originPrice && isValidityLinePrice }}" class="t-goods-card__origin-price">
-					<t-price
-					  symbol="{{currency}}"
-					  price="{{goods.originPrice}}"
-					  fill="{{priceFill}}"
-					  type="delthrough"
-					/>
-				</view>
+			<view class="t-goods-card__down">
+				<t-price
+				  wx:if="{{ goods.price }}"
+				  wr-class="spec-for-price"
+				  symbol-class="spec-for-symbol"
+				  symbol="{{currency}}"
+				  price="{{goods.price}}"
+				  fill="{{priceFill}}"
+				/>
+				<t-price
+				  wx:if="{{ goods.originPrice && isValidityLinePrice }}"
+				  wr-class="t-goods-card__origin-price"
+				  symbol="{{currency}}"
+				  price="{{goods.originPrice}}"
+				  fill="{{priceFill}}"
+				  type="delthrough"
+				/>
 				<t-icon
 				  prefix="wr"
 				  name="cartAdd"
