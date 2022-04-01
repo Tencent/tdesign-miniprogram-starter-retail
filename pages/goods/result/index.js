@@ -2,21 +2,14 @@
 import { getSearchResult } from '../../../services/good/featchSearchResult';
 import Toast from 'tdesign-miniprogram/toast/index';
 
-const layoutMap = {
-  0: 'vertical',
-  1: 'horizontal',
-};
-
 const initFilters = {
   overall: 1,
   sorts: '',
-  layout: 0,
 };
 
 Page({
   data: {
     goodsList: [],
-    layout: 0,
     sorts: '',
     overall: 1,
     show: false,
@@ -24,7 +17,6 @@ Page({
     maxVal: '',
     minSalePriceFocus: false,
     maxSalePriceFocus: false,
-    layoutText: layoutMap[0],
     filter: initFilters,
     hasLoaded: false,
     keywords: '',
@@ -184,33 +176,28 @@ Page({
   },
 
   handleFilterChange(e) {
-    const { layout, overall, sorts } = e.detail;
-    const { filter } = this.data;
+    const { overall, sorts } = e.detail;
     const { total } = this;
     const _filter = {
       sorts,
       overall,
-      layout,
     };
     this.setData({
       filter: _filter,
-      layout: layout,
       sorts,
       overall,
-      layoutText: layoutMap[layout],
     });
-    if (layout === filter.layout) {
-      this.pageNum = 1;
-      this.setData(
-        {
-          goodsList: [],
-          loadMoreStatus: 0,
-        },
-        () => {
-          total && this.init(true);
-        },
-      );
-    }
+
+    this.pageNum = 1;
+    this.setData(
+      {
+        goodsList: [],
+        loadMoreStatus: 0,
+      },
+      () => {
+        total && this.init(true);
+      },
+    );
   },
 
   showFilterPopup() {

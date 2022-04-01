@@ -17,7 +17,6 @@
 		<goods-list
 		  wr-class="goods-list-wrap"
 		  goodsList="{{goods}}"
-		  layout="vertical"
 		  bind:click="goodClickHandle"
 		  bind:addcart="cartClickHandle"
 		/>

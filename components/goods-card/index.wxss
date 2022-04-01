@@ -2,29 +2,28 @@
   box-sizing: border-box;
   font-size: 24rpx;
   border-radius: 0 0 16rpx 16rpx;
+  border-bottom: none;
 }
 
 .t-goods-card__main {
   position: relative;
   display: flex;
   line-height: 1;
-  flex-direction: row;
   padding: 0;
   background: transparent;
   width: 342rpx;
   border-radius: 0 0 16rpx 16rpx;
-}
-
-.t-goods-card.center .t-goods-card__main {
   align-items: center;
   justify-content: center;
+  margin-bottom: 16rpx;
+  flex-direction: column;
 }
 
 .t-goods-card__thumb {
   flex-shrink: 0;
   position: relative;
-  width: 140rpx;
-  height: 140rpx;
+  width: 340rpx;
+  height: 340rpx;
 }
 
 .t-goods-card__thumb:empty {
@@ -42,17 +41,17 @@
 
 .t-goods-card__body {
   display: flex;
-  padding: 16rpx 24rpx 0;
-  flex-direction: row;
   flex: 1 1 auto;
   background: #fff;
   border-radius: 0 0 16rpx 16rpx;
+  padding: 16rpx 24rpx 8rpx;
+  flex-direction: column;
 }
 
-.t-goods-card__long_content {
+.t-goods-card__upper {
   display: flex;
   flex-direction: column;
-  overflow: var(--ui-goods-card-long-overflow);
+  overflow: hidden;
   flex: 1 1 auto;
 }
 
@@ -60,7 +59,6 @@
   flex-shrink: 0;
   font-size: 28rpx;
   color: #333;
-  line-height: 40rpx;
   font-weight: 400;
   display: -webkit-box;
   height: 72rpx;
@@ -68,69 +66,7 @@
   -webkit-line-clamp: 2;
   overflow: hidden;
   word-break: break-word;
-}
-
-.t-goods-card__title__prefix-tags {
-  display: inline-flex;
-}
-
-.t-goods-card__title__prefix-tags .prefix-tag {
-  margin: 0 8rpx 0 0;
-  color: #fa550f;
-}
-
-.t-goods-card__desc {
-  font-size: 24rpx;
-  color: #f5f5f5;
-  line-height: 40rpx;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
-  overflow: hidden;
-}
-
-.t-goods-card__specs__desc,
-.t-goods-card__specs__text {
-  font-size: 24rpx;
-  height: 32rpx;
-  line-height: 32rpx;
-  color: #999999;
-  margin: 8rpx 0;
-}
-
-.t-goods-card__specs__desc {
-  display: flex;
-  align-self: flex-start;
-  flex-direction: row;
-  background: #f5f5f5;
-  border-radius: 4rpx;
-  padding: 4rpx 8rpx;
-}
-
-.t-goods-card__specs__desc-text {
-  height: 100%;
-  max-width: 380rpx;
-  word-break: break-all;
-  overflow: hidden;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 1;
-}
-
-.t-goods-card__specs__desc-icon {
-  line-height: inherit;
-  margin-left: 8rpx;
-  font-size: 24rpx;
-  color: #bbb;
-}
-
-.t-goods-card__specs__text {
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 1;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  word-break: break-all;
+  line-height: 36rpx;
 }
 
 .t-goods-card__tags {
@@ -157,29 +93,14 @@
   text-overflow: ellipsis;
 }
 
-.t-goods-card__short_content {
+.t-goods-card__down {
   display: flex;
   position: relative;
   flex-direction: row;
   justify-content: flex-start;
   align-items: baseline;
-  margin: 16rpx 0 0;
   line-height: 32rpx;
-}
-
-.t-goods-card__price__prefix {
-  order: 0;
-  color: #666;
-  margin: 0;
-}
-
-.t-goods-card__price {
-  white-space: nowrap;
-  font-weight: 700;
-  order: 1;
-  color: #fa4126;
-  font-size: 24rpx;
-  margin: 0;
+  margin: 8rpx 0 0 0;
 }
 
 .t-goods-card__origin-price {
@@ -191,15 +112,6 @@
   margin: 0 0 0 8rpx;
 }
 
-.t-goods-card__num {
-  white-space: nowrap;
-  order: 4;
-  font-size: 24rpx;
-  color: #999;
-
-  margin: 20rpx 0 0 auto;
-}
-
 .t-goods-card__add-cart {
   order: 3;
   margin: auto 0 0 auto;
@@ -208,70 +120,13 @@
   right: 0;
 }
 
-.t-goods-card.horizontal-wrap .t-goods-card__thumb {
-  width: 180rpx;
-  height: 180rpx;
-}
-
-.t-goods-card.horizontal-wrap .t-goods-card__body {
-  flex-direction: column;
-}
-
-.t-goods-card.horizontal-wrap .t-goods-card__short_content {
-  flex-direction: row;
-  align-items: baseline;
-  margin: 16rpx 0 0 0;
-}
-
-.t-goods-card.horizontal-wrap .t-goods-card__num {
-  margin: 0 0 0 auto;
-}
-
-.t-goods-card.vertical .t-goods-card__main {
-  margin-bottom: 16rpx;
-  flex-direction: column;
-}
-
-.t-goods-card.vertical .t-goods-card__thumb {
-  width: 340rpx;
-  height: 340rpx;
-}
-
-.t-goods-card.vertical .t-goods-card__body {
-  padding: 16rpx 24rpx 8rpx;
-  flex-direction: column;
-}
-
-.t-goods-card.vertical .t-goods-card__long_content {
-  overflow: hidden;
-}
-
-.t-goods-card.vertical .t-goods-card__title {
-  line-height: 36rpx;
-}
-
-.t-goods-card.vertical .t-goods-card__short_content {
-  margin: 8rpx 0 0 0;
-}
-
-.t-goods-card.vertical .t-goods-card__price {
+.spec-for-price {
+  font-size: 36rpx;
+  white-space: nowrap;
+  font-weight: 700;
   order: 1;
   color: #fa4126;
   margin: 0;
-}
-
-.t-goods-card.vertical .t-goods-card__origin-price {
-  order: 2;
-}
-
-.t-goods-card.vertical .t-goods-card__add-cart {
-  position: absolute;
-  bottom: 8rpx;
-  right: 0;
-}
-
-.spec-for-price {
-  font-size: 36rpx;
 }
 
 .spec-for-symbol {
