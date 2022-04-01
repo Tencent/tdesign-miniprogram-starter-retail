@@ -18,7 +18,6 @@
 				<t-image src="{{item}}" t-class="swipe-img" />
 			</t-swiper-item>
 		</t-swiper>
-		<!-- 商品信息 -->
 		<view class="goods-info">
 			<view class="goods-number">
 				<view class="goods-price">
@@ -33,7 +32,6 @@
 				</view>
 				<view class="sold-num">已售{{soldNum}}</view>
 			</view>
-			<!-- 商品活动 -->
 			<view wx:if="{{activityList.length > 0}}" class="goods-activity" bindtap="showPromotionPopup">
 				<view class="tags-container">
 					<view
@@ -63,7 +61,6 @@
 			</view>
 			<view class="goods-intro">{{intro}}</view>
 		</view>
-		<!-- 已选规格 -->
 		<view class="spu-select" bindtap="showSkuSelectPopup">
 			<view class="label">已选</view>
 			<view class="content">
@@ -73,7 +70,6 @@
 				<t-icon name="chevron-right" size="40rpx" color="#BBBBBB" />
 			</view>
 		</view>
-		<!-- 商品评论 -->
 		<view wx:if="{{ commentsStatistics.commentCount > 0 }}" class="comments-wrap">
 			<view class="comments-head" bindtap="navToCommentsListPage">
 				<view class="comments-title-wrap">
@@ -121,7 +117,6 @@
 			<t-image t-class="desc-content__img" src="{{item}}" mode="widthFix" />
 		</view>
 	</view>
-	<!-- 底部按纽 -->
 	<view class="goods-bottom-operation">
 		<buy-bar
 		  jumpArray="{{jumpArray}}"
@@ -135,7 +130,6 @@
 		  class="goods-details-card"
 		/>
 	</view>
-
 	<goods-specs-popup
 	  id="goodsSpecsPopup"
 	  show="{{isSpuSelectPopupShow}}"
@@ -170,7 +164,6 @@
 			</view>
 		</view>
 	</goods-specs-popup>
-
 	<promotion-popup
 	  list="{{list}}"
 	  bind:closePromotionPopup="closePromotionPopup"

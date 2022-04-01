@@ -46,7 +46,6 @@ Component({
   },
 
   methods: {
-    // 切换展示方式
     onChangeShowAction() {
       const { layout } = this.data;
       const nextLayout = layout === 1 ? 0 : 1;
@@ -62,14 +61,12 @@ Component({
       });
     },
 
-    // 筛选
     open() {
       this.triggerEvent('showFilterPopup', {
         show: true,
       });
     },
 
-    // 点击综合
     onOverallAction() {
       const { overall } = this.data;
       const nextOverall = overall === 1 ? 0 : 1;

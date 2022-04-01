@@ -1,11 +1,11 @@
-.t-goods-card {
+.goods-card {
   box-sizing: border-box;
   font-size: 24rpx;
   border-radius: 0 0 16rpx 16rpx;
   border-bottom: none;
 }
 
-.t-goods-card__main {
+.goods-card__main {
   position: relative;
   display: flex;
   line-height: 1;
@@ -19,19 +19,19 @@
   flex-direction: column;
 }
 
-.t-goods-card__thumb {
+.goods-card__thumb {
   flex-shrink: 0;
   position: relative;
   width: 340rpx;
   height: 340rpx;
 }
 
-.t-goods-card__thumb:empty {
+.goods-card__thumb:empty {
   display: none;
   margin: 0;
 }
 
-.t-goods-card__img {
+.goods-card__img {
   display: block;
   width: 100%;
   height: 100%;
@@ -39,7 +39,7 @@
   overflow: hidden;
 }
 
-.t-goods-card__body {
+.goods-card__body {
   display: flex;
   flex: 1 1 auto;
   background: #fff;
@@ -48,14 +48,14 @@
   flex-direction: column;
 }
 
-.t-goods-card__upper {
+.goods-card__upper {
   display: flex;
   flex-direction: column;
   overflow: hidden;
   flex: 1 1 auto;
 }
 
-.t-goods-card__title {
+.goods-card__title {
   flex-shrink: 0;
   font-size: 28rpx;
   color: #333;
@@ -69,14 +69,14 @@
   line-height: 36rpx;
 }
 
-.t-goods-card__tags {
+.goods-card__tags {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   margin: 8rpx 0 0 0;
 }
 
-.t-goods-card__tag {
+.goods-card__tag {
   color: #fa4126;
   background: transparent;
   font-size: 20rpx;
@@ -93,7 +93,7 @@
   text-overflow: ellipsis;
 }
 
-.t-goods-card__down {
+.goods-card__down {
   display: flex;
   position: relative;
   flex-direction: row;
@@ -103,7 +103,7 @@
   margin: 8rpx 0 0 0;
 }
 
-.t-goods-card__origin-price {
+.goods-card__origin-price {
   white-space: nowrap;
   font-weight: 700;
   order: 2;
@@ -112,7 +112,7 @@
   margin: 0 0 0 8rpx;
 }
 
-.t-goods-card__add-cart {
+.goods-card__add-cart {
   order: 3;
   margin: auto 0 0 auto;
   position: absolute;
