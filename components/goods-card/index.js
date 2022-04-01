@@ -27,14 +27,6 @@ Component({
         this.setData({ goods: data, isValidityLinePrice });
       },
     },
-    thumbMode: {
-      type: String,
-      value: 'aspectFit',
-    },
-    priceFill: {
-      type: Boolean,
-      value: true,
-    },
     currency: {
       type: String,
       value: '¥',

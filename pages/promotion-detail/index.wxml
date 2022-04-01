@@ -69,7 +69,6 @@
 		<goods-list
 		  wr-class="goods-list-container"
 		  goodsList="{{list}}"
-		  layout="vertical"
 		  bind:click="goodClickHandle"
 		  bind:addcart="cardClickHandle"
 		/>

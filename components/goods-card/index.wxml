@@ -10,7 +10,7 @@
 			  wx:if="{{ !!goods.thumb }}"
 			  t-class="t-goods-card__img"
 			  src="{{ goods.thumb }}"
-			  mode="{{ thumbMode }}"
+			  mode="aspectFill"
 			  lazy-load
 			/>
 		</view>
@@ -38,22 +38,20 @@
 				  symbol-class="spec-for-symbol"
 				  symbol="{{currency}}"
 				  price="{{goods.price}}"
-				  fill="{{priceFill}}"
 				/>
 				<t-price
 				  wx:if="{{ goods.originPrice && isValidityLinePrice }}"
 				  wr-class="t-goods-card__origin-price"
 				  symbol="{{currency}}"
 				  price="{{goods.originPrice}}"
-				  fill="{{priceFill}}"
 				  type="delthrough"
 				/>
 				<t-icon
+				  class="t-goods-card__add-cart"
 				  prefix="wr"
 				  name="cartAdd"
 				  id="{{independentID}}-cart"
 				  data-id="{{independentID}}"
-				  class="t-goods-card__add-cart"
 				  catchtap="addCartHandle"
 				  size="48rpx"
 				  color="#FA550F"

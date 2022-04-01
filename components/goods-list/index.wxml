@@ -4,8 +4,6 @@
 		  id="{{independentID}}-gd-{{index}}"
 		  data="{{item}}"
 		  currency="{{item.currency || '¥'}}"
-		  price-fill="{{!!priceFill}}"
-		  thumb-mode="aspectFill"
 		  thresholds="{{thresholds}}"
 		  class="goods-card-inside"
 		  data-index="{{index}}"

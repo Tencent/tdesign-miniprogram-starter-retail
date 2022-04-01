@@ -6,10 +6,6 @@ Component({
       type: Array,
       value: [],
     },
-    priceFill: {
-      type: Boolean,
-      value: false,
-    },
     id: {
       type: String,
       value: '',
