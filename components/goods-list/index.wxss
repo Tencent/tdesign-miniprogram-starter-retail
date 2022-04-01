@@ -1,21 +1,7 @@
 .goods-list-wrap {
-  padding: 0;
-  background: #fff;
-}
-
-.t-goods-card {
-  border-bottom: none;
-}
-
-.goods-list-wrap.horizontal-wrap,
-.goods-list-wrap.horizontal {
-  background: #fff;
-  padding: 0;
-}
-
-.goods-list-wrap.vertical {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
   padding: 0;
+  background: #fff;
 }

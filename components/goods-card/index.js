@@ -1,31 +1,9 @@
 Component({
-  externalClasses: [
-    'card-class',
-    'title-class',
-    'desc-class',
-    'num-class',
-    'thumb-class',
-    'specs-class',
-    'price-class',
-    'origin-price-class',
-    'price-prefix-class',
-  ],
-
   options: {
-    multipleSlots: true,
     addGlobalClass: true,
   },
 
   properties: {
-    hidden: {
-      type: null,
-      value: false,
-      observer(hidden) {
-        if (hidden !== null) {
-          this.setHidden(!!hidden);
-        }
-      },
-    },
     id: {
       type: String,
       value: '',
@@ -42,63 +20,18 @@ Component({
         if (!data) {
           return;
         }
-
-        /** 划线价是否有效 */
         let isValidityLinePrice = true;
-        // 判断一次划线价格是否合理
         if (data.originPrice && data.price && data.originPrice < data.price) {
           isValidityLinePrice = false;
         }
-
-        // 敲定换行数量默认值
-        if (data.lineClamp === undefined || data.lineClamp <= 0) {
-          // tag数组长度 大于0 且 可见
-          // 指定换行为1行
-          if ((data.tags?.length || 0) > 0 && !data.hideKey?.tags) {
-            data.lineClamp = 1;
-          } else {
-            data.lineClamp = 2;
-          }
-        }
-
         this.setData({ goods: data, isValidityLinePrice });
       },
-    },
-    layout: {
-      type: String,
-      // 'horizontal' | 'horizontal-wrap' | 'vertical'
-      value: 'horizontal',
-    },
-    thumbMode: {
-      type: String,
-      value: 'aspectFit',
-    },
-    thumbWidth: Number,
-    thumbHeight: Number,
-    priceFill: {
-      type: Boolean,
-      value: true,
     },
     currency: {
       type: String,
       value: '¥',
     },
-    lazyLoad: Boolean,
-    centered: Boolean,
-    showCart: Boolean,
-    pricePrefix: {
-      type: String,
-      value: '',
-    },
-    cartSize: {
-      type: String,
-      value: '48rpx',
-    },
-    cartColor: {
-      type: String,
-      value: '#FA550F',
-    },
-    /** 元素可见监控阈值, 数组长度大于0就创建 */
+
     thresholds: {
       type: Array,
       value: [],
@@ -110,29 +43,11 @@ Component({
         }
       },
     },
-    specsIconClassPrefix: {
-      type: String,
-      value: 't',
-    },
-    specsIcon: {
-      type: String,
-      value: 'expand_more',
-    },
-    addCartIconClassPrefix: {
-      type: String,
-      value: 't',
-    },
-    addCartIcon: {
-      type: String,
-      value: 'cart',
-    },
   },
 
   data: {
-    hiddenInData: false,
     independentID: '',
     goods: { id: '' },
-    /** 保证划线价格不小于原价，否则不渲染划线价 */
     isValidityLinePrice: false,
   },
 
@@ -156,11 +71,6 @@ Component({
       this.triggerEvent('thumb', { goods: this.data.goods });
     },
 
-    clickSpecsHandle() {
-      this.triggerEvent('specs', { goods: this.data.goods });
-    },
-
-    // 加入购物车
     addCartHandle(e) {
       const { id } = e.currentTarget;
       const { id: cardID } = e.currentTarget.dataset;
@@ -177,18 +87,13 @@ Component({
       if (id) {
         independentID = id;
       } else {
-        // `goods-card-88888888`
         independentID = `goods-card-${~~(Math.random() * 10 ** 8)}`;
       }
       this.setData({ independentID });
     },
 
     init() {
-      const { thresholds, id, hidden } = this.properties;
-      if (hidden !== null) {
-        this.setHidden(!!hidden);
-      }
-
+      const { thresholds, id } = this.properties;
       this.genIndependentID(id);
       if (thresholds && thresholds.length) {
         this.createIntersectionObserverHandle();
@@ -197,10 +102,6 @@ Component({
 
     clear() {
       this.clearIntersectionObserverHandle();
-    },
-
-    setHidden(hidden) {
-      this.setData({ hiddenInData: !!hidden });
     },
 
     intersectionObserverContext: null,
@@ -233,7 +134,6 @@ Component({
         try {
           this.intersectionObserverContext.disconnect();
         } catch (e) {}
-
         this.intersectionObserverContext = null;
       }
     },
