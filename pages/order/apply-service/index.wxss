@@ -54,18 +54,6 @@
   flex-direction: column;
 }
 
-.select-service .special-cell .special-cell-note .special-cell-note-text {
-  display: flex;
-  align-items: center;
-}
-.select-service
-  .special-cell
-  .special-cell-note
-  .special-cell-note-text
-  .special-cell-note-text-left {
-  font-size: 24rpx;
-  color: #999;
-}
 .select-service .special-cell .wr-cell__title {
   margin-right: 100rpx;
 }
@@ -84,21 +72,6 @@
   color: #fa4126;
   font-size: 24rpx;
   font-family: DIN Alternate;
-}
-
-.select-service .upload {
-  margin-top: 20rpx;
-}
-.select-service .upload__desc {
-  font-size: 24rpx;
-  color: #999;
-  text-align: center;
-  position: relative;
-  top: 25rpx;
-}
-.select-service .upload__desc .upload__desc-icon {
-  font-size: 90rpx;
-  margin-bottom: 7rpx;
 }
 
 .select-service .bottom-bar__btn {
