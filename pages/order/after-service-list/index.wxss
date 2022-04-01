@@ -2,47 +2,6 @@
   background-color: #f5f5f5;
 }
 
-.page-container .tab-bar__placeholder,
-.tab-bar {
-  height: 88rpx;
-  line-height: 88rpx;
-}
-
-.tab-bar .t-tabs-scroll {
-  border: none !important;
-}
-
-.tab-bar .t-tabs-is-active {
-  color: #fa550f !important;
-}
-
-.tab-bar .t-tabs-track {
-  background: #fa550f !important;
-}
-
-.tab-bar {
-  font-size: 26rpx;
-  color: #333333;
-  width: 100vw;
-  background: #fff;
-}
-
-.page-container .tab-bar__active {
-  font-size: 28rpx;
-}
-
-.page-container .specs-popup .bottom-btn {
-  color: #fa550f;
-}
-
-.page-container .specs-popup .bottom-btn::after {
-  border-color: #fa550f;
-}
-
-.dialog .dialog__button-confirm {
-  color: #fa550f;
-}
-
 .list-loading {
   height: 100rpx;
 }
@@ -51,15 +10,7 @@
   height: calc(100vh - 88rpx);
 }
 
-.btn-bar {
-  margin-top: 20rpx;
-}
-
-.load-more {
-  margin: 0 24rpx;
-}
-
-.order-goods-card-footer {
+.page-container .order-goods-card-footer {
   display: flex;
   width: calc(100% - 190rpx);
   justify-content: space-between;
@@ -68,7 +19,7 @@
   left: 190rpx;
 }
 
-.order-goods-card-footer-num {
+.page-container .order-goods-card-footer .order-goods-card-footer-num {
   color: #999;
   line-height: 40rpx;
 }
@@ -79,9 +30,7 @@
   font-family: DIN Alternate;
 }
 
-.page-container
-  .order-goods-card-footer
-  .order-goods-card-footer-price-decimal {
+.page-container .order-goods-card-footer .order-goods-card-footer-price-decimal {
   font-size: 28rpx;
   color: #333;
   font-family: DIN Alternate;
@@ -91,38 +40,6 @@
   color: #333;
   font-size: 24rpx;
   font-family: DIN Alternate;
-}
-
-.price-total {
-  font-size: 24rpx;
-  color: #666666;
-  padding-top: 10rpx;
-}
-
-.price-total .float {
-  float: right;
-}
-
-.price-total .symbol {
-  font-size: 24rpx;
-  color: #fa550f;
-  font-weight: bold;
-  display: inline;
-  margin-right: 5rpx;
-}
-
-.price-total .order-price {
-  font-size: 32rpx;
-  color: #fa550f;
-  font-weight: bold;
-}
-
-.price-total .order-price__decimal {
-  font-size: 24rpx;
-}
-
-.price-total .clear {
-  clear: both;
 }
 
 .page-container .wr-goods-card__specs {
@@ -172,9 +89,11 @@
   font-size: 16px !important;
   margin-right: 10rpx;
 }
+
 .t-class-indicator {
   color: #b9b9b9 !important;
 }
+
 .add-notes__confirm {
   color: #fa4126 !important;
 }

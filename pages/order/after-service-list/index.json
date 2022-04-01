@@ -5,14 +5,10 @@
     "wr-after-service-button-bar": "../components/after-service-button-bar/index",
     "wr-price": "/components/price/index",
     "wr-order-card": "../components/order-card/index",
-    "wr-order-goods-card": "../components/order-goods-card/index",
     "wr-goods-card": "../components/goods-card/index",
-    "t-button": "tdesign-miniprogram/button/button",
     "t-icon": "tdesign-miniprogram/icon/icon",
     "t-toast": "tdesign-miniprogram/toast/toast",
     "t-dialog": "tdesign-miniprogram/dialog/dialog",
-    "t-tab-panel": "tdesign-miniprogram/tabs/tab-panel",
-    "t-tabs": "tdesign-miniprogram/tabs/tabs",
     "t-empty": "tdesign-miniprogram/empty/empty",
     "t-pull-down-refresh": "tdesign-miniprogram/pull-down-refresh/pull-down-refresh"
   }
