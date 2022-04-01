@@ -180,10 +180,6 @@ Page({
     });
   },
 
-  // navBackHandle() {
-  //   wx.navigateTo({ url: '/pages/order/after-service-list/index' });
-  // },
-
   /** 获取状态ICON */
   genStatusIcon(item) {
     const { userRightsStatus, afterSaleRequireType } = item;

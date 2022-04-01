@@ -13,7 +13,6 @@ import {
 Page({
   query: {},
   data: {
-    pageLoading: true,
     uploading: false, // 凭证上传状态
     canApplyReturn: true, // 是否可退货
     goodsInfo: {},
@@ -107,10 +106,8 @@ Page({
   },
 
   async init() {
-    this.setData({ pageLoading: true });
     try {
       await this.refresh();
-      this.setData({ pageLoading: false });
     } catch (e) {}
   },
 
