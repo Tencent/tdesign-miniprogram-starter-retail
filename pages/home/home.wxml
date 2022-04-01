@@ -12,7 +12,7 @@
 	<view class="search" bind:tap="navToSearchPage">
 		<t-search
 		  t-class-input="t-search__input"
-		  t-class-input-container="t-class__input-container"
+		  t-class-input-container="t-search__input-container"
 		  placeholder="iphone 13 火热发售中"
 		  leftIcon=""
 		>
@@ -36,7 +36,7 @@
 		  navigation="{{navigation}}"
 		>
 			<t-swiper-item wx:for="{{imgSrcs}}" wx:key="index">
-				<t-image src="{{item.img}}" t-class="swipe-img" bind:tap="navToActivityDetail" />
+				<t-image src="{{item.img}}" t-class="t-image__swiper" bind:tap="navToActivityDetail" />
 			</t-swiper-item>
 		</t-swiper>
 	</view>

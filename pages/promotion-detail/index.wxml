@@ -18,7 +18,7 @@
 							未开始
 						</view>
 						<text class="count-down-label">距结束仅剩</text>
-						<t-count-down
+						<count-down
 						  wx:if="{{time > 0}}"
 						  t-class="wr-cd-class"
 						  time="{{time}}"
@@ -46,7 +46,7 @@
 									未开始
 								</view>
 								<text class="count-down-label">距结束仅剩</text>
-								<t-count-down
+								<count-down
 								  class="{{cdClass}}"
 								  wr-class="wr-cd-class"
 								  wx:if="{{time > 0}}"
