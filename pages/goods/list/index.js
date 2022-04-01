@@ -199,24 +199,34 @@ Page({
   confirm() {
     const { minVal, maxVal } = this.data;
     let message = '';
-
     if (minVal && !maxVal) {
       message = `价格最小是${minVal}`;
     } else if (!minVal && maxVal) {
       message = `价格范围是0-${minVal}`;
-    } else if (minVal && maxVal) {
+    } else if (minVal && maxVal && minVal <= maxVal) {
       message = `价格范围${minVal}-${this.data.maxVal}`;
     } else {
+      message = '请输入正确范围';
     }
-
-    Toast({
-      context: this,
-      selector: '#t-toast',
-      message,
-    });
-
-    this.setData({
-      show: false,
-    });
+    if (message) {
+      Toast({
+        context: this,
+        selector: '#t-toast',
+        message,
+      });
+    }
+    this.pageNum = 1;
+    this.setData(
+      {
+        show: false,
+        minVal: '',
+        goodsList: [],
+        loadMoreStatus: 0,
+        maxVal: '',
+      },
+      () => {
+        this.init();
+      },
+    );
   },
 });
