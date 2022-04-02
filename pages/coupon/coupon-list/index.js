@@ -60,8 +60,18 @@ Page({
     this.fetchList(value);
   },
 
-  /** 领券中心 */
   goCouponCenterHandle() {
     wx.showToast({ title: '去领券中心', icon: 'none' });
+  },
+
+  onPullDownRefresh_() {
+    this.setData(
+      {
+        couponList: [],
+      },
+      () => {
+        this.fetchList();
+      },
+    );
   },
 });
