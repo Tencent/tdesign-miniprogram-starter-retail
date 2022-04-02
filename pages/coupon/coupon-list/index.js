@@ -29,11 +29,7 @@ Page({
     this.fetchList();
   },
 
-  fetchList(status) {
-    if (!status) {
-      status = this.data.status;
-    }
-
+  fetchList(status = this.data.status) {
     let statusInFetch = '';
     switch (Number(status)) {
       case 0: {
