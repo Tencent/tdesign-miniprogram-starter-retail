@@ -58,6 +58,7 @@ page {
   max-width: 632rpx;
   background-color: #fff;
   border-radius: 30rpx 0 0 30rpx;
+  box-sizing: border-box;
 }
 
 .goods-list-container .price-between {
