@@ -429,7 +429,7 @@
 .service-detail .goods-refund-address .goods-refund-address-copy-btn {
   position: absolute; 
   top: 22rpx; 
-  right:0
+  right:0;
 }
 
 .service-detail .service-goods-card-wrap {

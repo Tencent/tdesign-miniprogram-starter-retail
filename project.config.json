@@ -152,7 +152,7 @@
           "id": 10,
           "name": "示例页-申请售后",
           "pathName": "pages/order/apply-service/index",
-          "query": "orderNo=132222623132329291&skuId=1327025",
+          "query": "orderNo=132222623132329291&skuId=135691625",
           "scene": null
         },
         {

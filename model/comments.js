@@ -21,33 +21,33 @@ export function getGoodsAllComments(params) {
             '收到货了，第一时间试了一下，很漂亮特别喜欢，大爱大爱，颜色也很好看。棒棒!',
           commentResources: [
             {
-              src: 'https://we-retail-static-1300977798.cos.ap-guangzhou.myqcloud.com/retail-mp/goods/goods-details-swiper-img.png',
+              src: 'https://cdn-we-retail.ym.tencent.com/tsr/goods/nz-08b.png',
               type: 'image',
             },
             {
-              src: 'https://upload-dianshi-1255598498.file.myqcloud.com/IMG_5005-b8774e3f58fedde7a7974776d61d8df91c7146b2.mp4',
+              src: 'https://cdn-we-retail.ym.tencent.com/tsr/goods/comment-video.mp4',
               type: 'video',
               coverSrc:
-                'https://we-retail-static-1300977798.cos.ap-guangzhou.myqcloud.com/retail-mp/goods/goods-details-swiper-img.png',
+                'https://cdn-we-retail.ym.tencent.com/tsr/goods/nz-08b.png',
             },
             {
-              src: 'https://upload-dianshi-1255598498.file.myqcloud.com/IMG_5005-b8774e3f58fedde7a7974776d61d8df91c7146b2.mp4',
+              src: 'https://cdn-we-retail.ym.tencent.com/tsr/goods/comment-video.mp4',
               type: 'video',
               coverSrc:
-                'https://we-retail-static-1300977798.cos.ap-guangzhou.myqcloud.com/retail-mp/goods/goods-details-swiper-img.png',
+                'https://cdn-we-retail.ym.tencent.com/tsr/goods/nz-08b.png',
             },
             {
-              src: 'https://upload-dianshi-1255598498.file.myqcloud.com/IMG_5005-b8774e3f58fedde7a7974776d61d8df91c7146b2.mp4',
+              src: 'https://cdn-we-retail.ym.tencent.com/tsr/goods/comment-video.mp4',
               type: 'video',
               coverSrc:
-                'https://we-retail-static-1300977798.cos.ap-guangzhou.myqcloud.com/retail-mp/goods/goods-details-swiper-img.png',
+                'https://cdn-we-retail.ym.tencent.com/tsr/goods/nz-08b.png',
             },
           ],
           commentScore: 4,
           uid: '88881048075',
           userName: 'Dean',
           userHeadUrl:
-            'https://wx.qlogo.cn/mmopen/vi_32/5mKrvn3ibyDNaDZSZics3aoKlz1cv0icqn4EruVm6gKjsK0xvZZhC2hkUkRWGxlIzOEc4600JkzKn9icOLE6zjgsxw/132',
+            'https://cdn-we-retail.ym.tencent.com/tsr/avatar/avatar1.png',
           isAnonymity: false,
           commentTime: '1591953561000',
           isAutoComment: false,
@@ -63,7 +63,7 @@ export function getGoodsAllComments(params) {
             '收到货了，第一时间试了一下，很漂亮特别喜欢，大爱大爱，颜色也很好看。棒棒!',
           commentResources: [
             {
-              src: 'https://we-retail-static-1300977798.cos.ap-guangzhou.myqcloud.com/retail-mp/goods/goods-details-swiper-img.png',
+              src: 'https://cdn-we-retail.ym.tencent.com/tsr/goods/nz-08b.png',
               type: 'image',
             },
           ],
@@ -71,7 +71,7 @@ export function getGoodsAllComments(params) {
           uid: '88881048075',
           userName: 'Dean',
           userHeadUrl:
-            'https://wx.qlogo.cn/mmopen/vi_32/5mKrvn3ibyDNaDZSZics3aoKlz1cv0icqn4EruVm6gKjsK0xvZZhC2hkUkRWGxlIzOEc4600JkzKn9icOLE6zjgsxw/132',
+            'https://cdn-we-retail.ym.tencent.com/tsr/avatar/avatar1.png',
           isAnonymity: false,
           commentTime: '1591953561000',
           isAutoComment: false,
@@ -87,21 +87,21 @@ export function getGoodsAllComments(params) {
             '收到货了，第一时间试了一下，很漂亮特别喜欢，大爱大爱，颜色也很好看。棒棒!',
           commentResources: [
             {
-              src: 'https://we-retail-static-1300977798.cos.ap-guangzhou.myqcloud.com/retail-mp/goods/goods-details-swiper-img.png',
+              src: 'https://cdn-we-retail.ym.tencent.com/tsr/goods/nz-08b.png',
               type: 'image',
             },
             {
-              src: 'https://upload-dianshi-1255598498.file.myqcloud.com/IMG_5005-b8774e3f58fedde7a7974776d61d8df91c7146b2.mp4',
+              src: 'https://cdn-we-retail.ym.tencent.com/tsr/goods/comment-video.mp4',
               type: 'video',
               coverSrc:
-                'https://we-retail-static-1300977798.cos.ap-guangzhou.myqcloud.com/retail-mp/goods/goods-details-swiper-img.png',
+                'https://cdn-we-retail.ym.tencent.com/tsr/goods/nz-08b.png',
             },
           ],
           commentScore: 4,
           uid: '88881048075',
           userName: 'Dean',
           userHeadUrl:
-            'https://wx.qlogo.cn/mmopen/vi_32/5mKrvn3ibyDNaDZSZics3aoKlz1cv0icqn4EruVm6gKjsK0xvZZhC2hkUkRWGxlIzOEc4600JkzKn9icOLE6zjgsxw/132',
+            'https://cdn-we-retail.ym.tencent.com/tsr/avatar/avatar1.png',
           isAnonymity: false,
           commentTime: '1591953561000',
           isAutoComment: false,
@@ -117,27 +117,27 @@ export function getGoodsAllComments(params) {
             '收到货了，第一时间试了一下，很漂亮特别喜欢，大爱大爱，颜色也很好看。棒棒!',
           commentResources: [
             {
-              src: 'https://we-retail-static-1300977798.cos.ap-guangzhou.myqcloud.com/retail-mp/goods/goods-details-swiper-img.png',
+              src: 'https://cdn-we-retail.ym.tencent.com/tsr/goods/nz-08b.png',
               type: 'image',
             },
             {
-              src: 'https://upload-dianshi-1255598498.file.myqcloud.com/IMG_5005-b8774e3f58fedde7a7974776d61d8df91c7146b2.mp4',
+              src: 'https://cdn-we-retail.ym.tencent.com/tsr/goods/comment-video.mp4',
               type: 'video',
               coverSrc:
-                'https://we-retail-static-1300977798.cos.ap-guangzhou.myqcloud.com/retail-mp/goods/goods-details-swiper-img.png',
+                'https://cdn-we-retail.ym.tencent.com/tsr/goods/nz-08b.png',
             },
             {
-              src: 'https://upload-dianshi-1255598498.file.myqcloud.com/IMG_5005-b8774e3f58fedde7a7974776d61d8df91c7146b2.mp4',
+              src: 'https://cdn-we-retail.ym.tencent.com/tsr/goods/comment-video.mp4',
               type: 'video',
               coverSrc:
-                'https://we-retail-static-1300977798.cos.ap-guangzhou.myqcloud.com/retail-mp/goods/goods-details-swiper-img.png',
+                'https://cdn-we-retail.ym.tencent.com/tsr/goods/nz-08b.png',
             },
           ],
           commentScore: 4,
           uid: '88881048075',
           userName: 'Dean',
           userHeadUrl:
-            'https://wx.qlogo.cn/mmopen/vi_32/5mKrvn3ibyDNaDZSZics3aoKlz1cv0icqn4EruVm6gKjsK0xvZZhC2hkUkRWGxlIzOEc4600JkzKn9icOLE6zjgsxw/132',
+            'https://cdn-we-retail.ym.tencent.com/tsr/avatar/avatar1.png',
           isAnonymity: false,
           commentTime: '1591953561000',
           isAutoComment: false,
@@ -164,7 +164,7 @@ export function getGoodsAllComments(params) {
         uid: '88881048075',
         userName: 'Dean',
         userHeadUrl:
-          'https://wx.qlogo.cn/mmopen/vi_32/5mKrvn3ibyDNaDZSZics3aoKlz1cv0icqn4EruVm6gKjsK0xvZZhC2hkUkRWGxlIzOEc4600JkzKn9icOLE6zjgsxw/132',
+          'https://cdn-we-retail.ym.tencent.com/tsr/avatar/avatar1.png',
         isAnonymity: false,
         commentTime: '1592224320000',
         isAutoComment: false,
@@ -183,7 +183,7 @@ export function getGoodsAllComments(params) {
         uid: '88881048075',
         userName: 'Dean',
         userHeadUrl:
-          'https://wx.qlogo.cn/mmopen/vi_32/5mKrvn3ibyDNaDZSZics3aoKlz1cv0icqn4EruVm6gKjsK0xvZZhC2hkUkRWGxlIzOEc4600JkzKn9icOLE6zjgsxw/132',
+          'https://cdn-we-retail.ym.tencent.com/tsr/avatar/avatar1.png',
         isAnonymity: false,
         commentTime: '1592224320000',
         isAutoComment: false,
@@ -202,7 +202,7 @@ export function getGoodsAllComments(params) {
         uid: '88881048075',
         userName: 'Dean',
         userHeadUrl:
-          'https://wx.qlogo.cn/mmopen/vi_32/5mKrvn3ibyDNaDZSZics3aoKlz1cv0icqn4EruVm6gKjsK0xvZZhC2hkUkRWGxlIzOEc4600JkzKn9icOLE6zjgsxw/132',
+          'https://cdn-we-retail.ym.tencent.com/tsr/avatar/avatar1.png',
         isAnonymity: false,
         commentTime: '1592218074000',
         isAutoComment: true,
@@ -220,7 +220,7 @@ export function getGoodsAllComments(params) {
         uid: '88881048075',
         userName: 'Dean',
         userHeadUrl:
-          'https://wx.qlogo.cn/mmopen/vi_32/5mKrvn3ibyDNaDZSZics3aoKlz1cv0icqn4EruVm6gKjsK0xvZZhC2hkUkRWGxlIzOEc4600JkzKn9icOLE6zjgsxw/132',
+          'https://cdn-we-retail.ym.tencent.com/tsr/avatar/avatar1.png',
         isAnonymity: false,
         commentTime: '1592218074000',
         isAutoComment: false,
@@ -237,7 +237,7 @@ export function getGoodsAllComments(params) {
         uid: '88881048075',
         userName: 'Dean',
         userHeadUrl:
-          'https://wx.qlogo.cn/mmopen/vi_32/5mKrvn3ibyDNaDZSZics3aoKlz1cv0icqn4EruVm6gKjsK0xvZZhC2hkUkRWGxlIzOEc4600JkzKn9icOLE6zjgsxw/132',
+          'https://cdn-we-retail.ym.tencent.com/tsr/avatar/avatar1.png',
         isAnonymity: false,
         commentTime: '1592217607000',
         isAutoComment: false,
@@ -253,7 +253,7 @@ export function getGoodsAllComments(params) {
         uid: '88881048075',
         userName: 'Dean',
         userHeadUrl:
-          'https://wx.qlogo.cn/mmopen/vi_32/5mKrvn3ibyDNaDZSZics3aoKlz1cv0icqn4EruVm6gKjsK0xvZZhC2hkUkRWGxlIzOEc4600JkzKn9icOLE6zjgsxw/132',
+          'https://cdn-we-retail.ym.tencent.com/tsr/avatar/avatar1.png',
         isAnonymity: false,
         commentTime: '1592217607000',
         isAutoComment: false,
@@ -269,7 +269,7 @@ export function getGoodsAllComments(params) {
         uid: '88881048075',
         userName: 'Dean',
         userHeadUrl:
-          'https://wx.qlogo.cn/mmopen/vi_32/5mKrvn3ibyDNaDZSZics3aoKlz1cv0icqn4EruVm6gKjsK0xvZZhC2hkUkRWGxlIzOEc4600JkzKn9icOLE6zjgsxw/132',
+          'https://cdn-we-retail.ym.tencent.com/tsr/avatar/avatar1.png',
         isAnonymity: false,
         commentTime: '1592205599000',
         isAutoComment: false,
@@ -285,7 +285,7 @@ export function getGoodsAllComments(params) {
         uid: '88881048075',
         userName: 'Dean',
         userHeadUrl:
-          'https://wx.qlogo.cn/mmopen/vi_32/5mKrvn3ibyDNaDZSZics3aoKlz1cv0icqn4EruVm6gKjsK0xvZZhC2hkUkRWGxlIzOEc4600JkzKn9icOLE6zjgsxw/132',
+          'https://cdn-we-retail.ym.tencent.com/tsr/avatar/avatar1.png',
         isAnonymity: false,
         commentTime: '1592188822000',
         isAutoComment: false,
@@ -301,7 +301,7 @@ export function getGoodsAllComments(params) {
         uid: '88881055835',
         userName: 'Max',
         userHeadUrl:
-          'https://wx.qlogo.cn/mmopen/vi_32/5mKrvn3ibyDNaDZSZics3aoKlz1cv0icqn4EruVm6gKjsK0xvZZhC2hkUkRWGxlIzOEc4600JkzKn9icOLE6zjgsxw/132',
+          'https://cdn-we-retail.ym.tencent.com/tsr/avatar/avatar1.png',
         isAnonymity: false,
         commentTime: '1593792002000',
         isAutoComment: true,
@@ -316,7 +316,7 @@ export function getGoodsAllComments(params) {
         uid: '88881055835',
         userName: 'Max',
         userHeadUrl:
-          'https://wx.qlogo.cn/mmopen/vi_32/5mKrvn3ibyDNaDZSZics3aoKlz1cv0icqn4EruVm6gKjsK0xvZZhC2hkUkRWGxlIzOEc4600JkzKn9icOLE6zjgsxw/132',
+          'https://cdn-we-retail.ym.tencent.com/tsr/avatar/avatar1.png',
         isAnonymity: false,
         commentTime: '1593792001000',
         isAutoComment: true,
