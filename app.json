@@ -55,6 +55,7 @@
       }
     ]
   },
+  "lazyCodeLoading": "requiredComponents",
   "usingComponents": {},
   "window": {
     "backgroundTextStyle": "light",
