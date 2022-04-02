@@ -15,6 +15,7 @@
 		  t-class-input-container="t-search__input-container"
 		  placeholder="iphone 13 火热发售中"
 		  leftIcon=""
+			disabled
 		>
 			<t-icon
 			  slot="left-icon"
