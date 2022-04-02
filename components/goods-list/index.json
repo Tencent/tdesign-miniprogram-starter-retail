@@ -1,6 +1,6 @@
 {
     "component": true,
     "usingComponents": {
-        "t-goods-card": "/components/goods-card/index"
+        "goods-card": "/components/goods-card/index"
     }
 }

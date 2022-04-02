@@ -7,6 +7,7 @@
 	  rightIcon=""
 	  placeholder="iPhone12pro"
 	  bind:submit="handleSubmit"
+		focus
 	>
 		<t-icon
 		  slot="left-icon"
@@ -24,7 +25,6 @@
 		/>
 	</t-search>
 	<view class="search-wrap">
-		<!-- 历史搜索 -->
 		<view class="history-wrap">
 			<view class="search-header">
 				<text class="search-title">历史搜索</text>
@@ -62,7 +62,6 @@
 			</view>
 		</view>
 	</view>
-	<!-- 提示框 -->
 	<t-dialog
 	  visible="{{dialogShow}}"
 	  content="{{dialog.message}}"

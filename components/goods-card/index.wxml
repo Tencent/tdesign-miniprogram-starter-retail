@@ -1,118 +1,63 @@
 <view
   id="{{independentID}}"
-  class="t-goods-card {{ layout }} {{ centered ? 'center' : ''}}"
+  class="goods-card"
   bind:tap="clickHandle"
   data-goods="{{ goods }}"
-  hidden="{{hiddenInData}}"
 >
-	<view class="t-goods-card__main">
-		<view class="t-goods-card__thumb thumb-class" bind:tap="clickThumbHandle">
-			<!-- data-src 是方便加购动画读取图片用的 -->
+	<view class="goods-card__main">
+		<view class="goods-card__thumb" bind:tap="clickThumbHandle">
 			<t-image
-			  wx:if="{{ !!goods.thumb && !goods.hideKey.thumb }}"
+			  wx:if="{{ !!goods.thumb }}"
+			  t-class="goods-card__img"
 			  src="{{ goods.thumb }}"
-			  t-class="t-goods-card__img"
-			  mode="{{ thumbMode }}"
-			  lazy-load="{{ lazyLoad }}"
+			  mode="aspectFill"
+			  lazy-load
 			/>
-			<slot name="thumb-cover" />
 		</view>
-
-		<view class="t-goods-card__body">
-			<view class="t-goods-card__long_content">
-				<view wx:if="{{ goods.title && !goods.hideKey.title }}" class="t-goods-card__title title-class">
-					<view wx:if="{{ goods.titlePrefixTags && goods.titlePrefixTags.length && !goods.hideKey.titlePrefixTags }}" class="t-goods-card__title__prefix-tags">
-						<view
-						  class="prefix-tag"
-						  wx:for="{{ goods.titlePrefixTags }}"
-						  wx:key="index"
-						  wx:for-item="titlePrefixTag"
-						>
-							{{ titlePrefixTag }}
-						</view>
-					</view>
-					<slot name="before-title" />
+		<view class="goods-card__body">
+			<view class="goods-card__upper">
+				<view wx:if="{{ goods.title }}" class="goods-card__title">
 					{{ goods.title }}
 				</view>
-				<slot name="after-title" />
-				<view wx:if="{{ goods.desc && !goods.hideKey.desc }}" class="t-goods-card__desc desc-class">
-					{{ goods.desc }}
-				</view>
-				<slot name="after-desc" />
-				<view wx:if="{{ goods.specsDesc && !goods.hideKey.specs }}" class="t-goods-card__specs__desc specs-class" bind:tap="clickSpecsHandle">
-					<view class="t-goods-card__specs__desc-text">
-						{{ goods.specsDesc }}
-					</view>
-					<t-icon
-					  t-class="t-goods-card__specs__desc-icon"
-					  name="{{specsIcon}}"
-					  size="xl"
-					  prefix="{{specsIconClassPrefix}}"
-					/>
-				</view>
-				<view wx:if="{{ goods.specsText && !goods.hideKey.specs }}" class="t-goods-card__specs__text specs-class">
-					{{ goods.specsText }}
-				</view>
-				<slot name="after-specs" />
-				<view wx:if="{{ goods.tags && !goods.hideKey.tags && !!goods.tags.length }}" class="t-goods-card__tags">
+				<view wx:if="{{ goods.tags && !!goods.tags.length }}" class="goods-card__tags">
 					<view
 					  wx:for="{{ goods.tags }}"
 					  wx:key="index"
 					  wx:for-item="tag"
+					  class="goods-card__tag"
 					  data-index="{{index}}"
-					  class="t-goods-card__tag"
 					>
 						{{tag}}
 					</view>
 				</view>
-				<slot name="after-tags" />
 			</view>
-
-			<view class="t-goods-card__short_content">
-				<view wx:if="{{ pricePrefix }}" class="t-goods-card__price__prefix price-prefix-class">{{ pricePrefix }}</view>
-				<slot name="price-prefix" />
-
-				<view wx:if="{{ goods.price && !goods.hideKey.price }}" class="t-goods-card__price">
-					<t-price
-					  wr-class="spec-for-price"
-					  symbol-class="spec-for-symbol"
-					  symbol="{{currency}}"
-					  price="{{goods.price}}"
-					  fill="{{priceFill}}"
-					/>
-				</view>
-				<view wx:if="{{ goods.originPrice && !goods.hideKey.originPrice && isValidityLinePrice }}" class="t-goods-card__origin-price">
-					<t-price
-					  symbol="{{currency}}"
-					  price="{{goods.originPrice}}"
-					  fill="{{priceFill}}"
-					  type="delthrough"
-					/>
-				</view>
-				<slot name="origin-price" />
-
-				<view wx:if="{{goods.num && !goods.hideKey.num}}" class="t-goods-card__num num-class">
-					<text class="t-goods-card__num__prefix">x </text>
-					{{ goods.num }}</view>
+			<view class="goods-card__down">
+				<price
+				  wx:if="{{ goods.price }}"
+				  wr-class="spec-for-price"
+				  symbol-class="spec-for-symbol"
+				  symbol="{{currency}}"
+				  price="{{goods.price}}"
+				/>
+				<price
+				  wx:if="{{ goods.originPrice && isValidityLinePrice }}"
+				  wr-class="goods-card__origin-price"
+				  symbol="{{currency}}"
+				  price="{{goods.originPrice}}"
+				  type="delthrough"
+				/>
 				<t-icon
+				  class="goods-card__add-cart"
 				  prefix="wr"
 				  name="cartAdd"
-				  wx:if="{{showCart}}"
 				  id="{{independentID}}-cart"
 				  data-id="{{independentID}}"
-				  class="t-goods-card__add-cart"
 				  catchtap="addCartHandle"
-				  size="{{cartSize}}"
-				  color="{{cartColor}}"
+				  size="48rpx"
+				  color="#FA550F"
 				/>
-				<slot name="add-cart" />
 			</view>
-
-			<slot name="append-body" />
 		</view>
-
-		<slot name="footer" />
 	</view>
-	<slot name="append-card" />
 </view>
 

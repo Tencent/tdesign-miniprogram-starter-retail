@@ -73,7 +73,6 @@
 		<goods-list
 		  wr-class="wr-goods-list"
 		  goodsList="{{goodsList}}"
-		  layout="{{layoutText}}"
 		  bind:click="gotoGoodsDetail"
 		  bind:addcart="handleAddCart"
 		/>

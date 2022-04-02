@@ -1,11 +1,6 @@
 import { fetchGoodsList } from '../../../services/good/fetchGoodsList';
 import Toast from 'tdesign-miniprogram/toast/index';
 
-const layoutMap = {
-  0: 'vertical',
-  1: 'horizontal',
-};
-
 const initFilters = {
   overall: 1,
   sorts: '',
@@ -21,7 +16,6 @@ Page({
     show: false,
     minVal: '',
     maxVal: '',
-    layoutText: layoutMap[0],
     filter: initFilters,
     hasLoaded: false,
     loadMoreStatus: 0,
