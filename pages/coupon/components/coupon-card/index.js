@@ -14,7 +14,7 @@ Component({
   properties: {
     couponDTO: {
       type: Object,
-      value: null, // 优惠券数据
+      value: {}, // 优惠券数据
     },
   },
 

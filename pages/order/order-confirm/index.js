@@ -120,6 +120,7 @@ Page({
     );
   },
   initData(resData) {
+    console.log('resData: ', resData);
     // 转换商品卡片显示数据
     const data = this.handleResToGoodsCard(resData);
     this.userAddressReq = resData.userAddress;
@@ -210,6 +211,7 @@ Page({
     const orderCardList = []; // 订单卡片列表
     const storeInfoList = [];
     const submitCouponList = []; //使用优惠券列表;
+
     data.storeGoodsList &&
       data.storeGoodsList.forEach((ele) => {
         const orderCard = {
@@ -535,6 +537,7 @@ Page({
       currentStoreId: storeid,
       couponList,
     });
+    console.log('couponList: ', couponList);
   },
 
   handleCouponList(storeCouponList) {

@@ -1,5 +1,10 @@
 <wxs module="order" src="./order.wxs" />
 
+
+
+
+
+
 <wxs module="handleInvoice" src="./handleInvoice.wxs" />
 <wxs module="getNotes" src="./getNotes.wxs" />
 <view class="order-sure" wx:if="{{!loading}}">
@@ -75,9 +80,11 @@
 		<view class="pay-item">
 			<text>优惠券</text>
 			<view class="pay-item__right" catchtap="onOpenCoupons">
-				<block wx:if="{{settleDetailData.totalCouponAmount && settleDetailData.totalCouponAmount != 0}}">
-					-
-					<price fill decimalSmaller price="{{settleDetailData.totalCouponAmount}}" />
+				<block wx:if="{{submitCouponList.length}}">
+          <block wx:if="{{settleDetailData.totalCouponAmount && settleDetailData.totalCouponAmount !== '0'}}">
+            <price fill decimalSmaller price="{{settleDetailData.totalCouponAmount}}" />
+          </block>
+          <block wx:else>选择优惠券</block>
 				</block>
 				<text wx:else>无可用</text>
 				<t-icon name="chevron-right" size="32rpx" color="#BBBBBB" />
@@ -110,7 +117,6 @@
 			/>
 		</view>
 	</view>
-
 	<view class="wx-pay-cover">
 		<view class="wx-pay">
 			<price

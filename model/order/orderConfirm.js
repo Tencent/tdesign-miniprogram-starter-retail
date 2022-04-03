@@ -98,7 +98,11 @@ export function genSettleDetail({ userAddressReq }) {
               egoodsName: null,
             },
           ],
-          couponList: [],
+          couponList: [
+            {
+              couponId: 11,
+            },
+          ],
         },
       ],
       inValidGoodsList: null,
