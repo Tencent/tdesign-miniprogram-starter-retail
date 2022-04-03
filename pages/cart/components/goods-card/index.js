@@ -82,8 +82,6 @@ Component({
       type: String,
       value: 'aspectFill',
     },
-    thumbWidth: Number,
-    thumbHeight: Number,
     priceFill: {
       type: Boolean,
       value: true,
@@ -100,21 +98,9 @@ Component({
       type: Boolean,
       value: false,
     },
-    showCart: {
-      type: Boolean,
-      value: false,
-    },
     pricePrefix: {
       type: String,
       value: '',
-    },
-    cartSize: {
-      type: Number,
-      value: 48,
-    },
-    cartColor: {
-      type: String,
-      value: '#FA550F',
     },
     /** 元素可见监控阈值, 数组长度大于0就创建 */
     thresholds: {
@@ -193,7 +179,6 @@ Component({
       if (id) {
         independentID = id;
       } else {
-        // `goods-card-88888888`
         independentID = `goods-card-${~~(Math.random() * 10 ** 8)}`;
       }
       this.setData({ independentID }, cb);

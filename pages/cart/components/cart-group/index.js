@@ -42,7 +42,6 @@ Component({
     isShowSpecs: false,
     currentGoods: {},
     isShowToggle: false,
-    invalidGoodItems: [],
     _storeGoods: [],
     _invalidGoodItems: [],
   },
@@ -161,7 +160,7 @@ Component({
     },
 
     gotoCoupons() {
-      wx.navigateTo({ url: '/pages/coupon/list' });
+      wx.navigateTo({ url: '/pages/coupon/coupon-list/index' });
     },
   },
 });
