@@ -1,4 +1,4 @@
-.coupon-btn-primary {
+.coupon-btn-slot .coupon-btn-primary {
   width: 136rpx;
   height: 56rpx;
   border-radius: 28rpx;
