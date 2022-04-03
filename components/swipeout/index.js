@@ -16,10 +16,6 @@ Component({
       value: 0,
     },
     asyncClose: Boolean,
-    name: {
-      type: [Number, String],
-      value: '',
-    },
   },
   attached() {
     ARRAY.push(this);
@@ -47,7 +43,6 @@ Component({
       this.triggerEvent('close', {
         position,
         instance: this,
-        name: this.properties.name,
       });
     },
 
@@ -75,7 +70,6 @@ Component({
         this.triggerEvent('close', {
           position,
           instance: this,
-          name: this.properties.name,
         });
       } else {
         this.close();

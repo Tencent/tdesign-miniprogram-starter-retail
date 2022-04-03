@@ -5,7 +5,14 @@ Component({
   },
 
   properties: {
-    show: Boolean,
+    show: {
+      type: Boolean,
+      value: false,
+    },
+    value: {
+      type: String,
+      value: '',
+    },
     title: {
       type: String,
       observer(newVal) {
@@ -13,13 +20,15 @@ Component({
       },
     },
     price: {
-      type: null,
+      type: String,
+      value: '',
       observer(newVal) {
         this.setData({ 'goods.price': newVal });
       },
     },
     thumb: {
       type: String,
+      value: '',
       observer(newVal) {
         this.setData({ 'goods.thumb': newVal });
       },
@@ -28,8 +37,6 @@ Component({
       type: String,
       value: 'aspectFit',
     },
-    thumbWidth: Number,
-    thumbHeight: Number,
     zIndex: {
       type: Number,
       value: 99,
@@ -37,12 +44,6 @@ Component({
     specs: {
       type: Array,
       value: [],
-    },
-    thumbWidth: {
-      type: null,
-    },
-    thumbHeight: {
-      type: null,
     },
   },
 
