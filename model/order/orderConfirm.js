@@ -110,6 +110,8 @@ export function genSettleDetail(params) {
     });
   }
 
+  // 模拟计算场景
+
   // 计算总价
   const totalPrice = list.reduce((pre, cur) => {
     return pre + cur.quantity * Number(cur.settlePrice);
