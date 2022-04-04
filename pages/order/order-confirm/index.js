@@ -120,7 +120,6 @@ Page({
     );
   },
   initData(resData) {
-    console.log('resData: ', resData);
     // 转换商品卡片显示数据
     const data = this.handleResToGoodsCard(resData);
     this.userAddressReq = resData.userAddress;
@@ -512,12 +511,11 @@ Page({
     const { goodsRequestList } = this;
     const { selectedList } = e.detail;
     const tempSubmitCouponList = submitCouponList.map((storeCoupon) => {
-      const couponList =
-        storeCoupon.storeId === currentStoreId
-          ? selectedList
-          : storeCoupon.couponList;
       return {
-        couponList,
+        couponList:
+          storeCoupon.storeId === currentStoreId
+            ? selectedList
+            : storeCoupon.couponList,
       };
     });
     const resSubmitCouponList = this.handleCouponList(tempSubmitCouponList);
@@ -526,18 +524,11 @@ Page({
     this.setData({ couponsShow: false });
   },
   onOpenCoupons(e) {
-    const {
-      goodslist: goodsList,
-      couponlist: couponList,
-      storeid,
-    } = e.currentTarget.dataset;
+    const { storeid } = e.currentTarget.dataset;
     this.setData({
       couponsShow: true,
-      promotionGoodsList: goodsList,
       currentStoreId: storeid,
-      couponList,
     });
-    console.log('couponList: ', couponList);
   },
 
   handleCouponList(storeCouponList) {
