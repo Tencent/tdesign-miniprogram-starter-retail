@@ -66,7 +66,6 @@ Component({
     couponsList: [],
     orderSureCouponList: [],
     promotionGoodsList: [],
-    storeId: String,
   },
   methods: {
     initData(data = {}) {
@@ -118,44 +117,24 @@ Component({
     },
     selectCoupon(e) {
       const { key } = e.currentTarget.dataset;
-      const { couponsList } = this.data;
+      const { couponsList, selectedList } = this.data;
       couponsList.forEach((coupon) => {
         if (coupon.key === key) {
           coupon.isSelected = !coupon.isSelected;
         }
       });
+
+      const couponSelected = couponsList.filter(
+        (coupon) => coupon.isSelected === true,
+      );
+
       this.setData({
+        selectedList: [...selectedList, ...couponSelected],
         couponsList: [...couponsList],
       });
-      // const { selectedList, products, storeId } = this.data;
-      // let newSelectedList = [];
-      // if (coupon.isSelected) {
-      //   newSelectedList = selectedList.filter((ele) => {
-      //     return ele.promotionId !== coupon.ruleId;
-      //   });
-      // } else {
-      //   newSelectedList = selectedList.concat({
-      //     couponId: coupon.couponId,
-      //     promotionId: coupon.ruleId,
-      //     storeId: this.storeId,
-      //   });
-      // }
-      // this.coupons({
-      //   selectedCoupons: newSelectedList,
-      //   products,
-      //   storeId,
-      // }).then((res) => {
-      //   this.initData(res.data);
-      // });
-    },
-    onSure() {
-      const { selectedList, couponsList } = this.data;
-      if (couponsList.length === 0) {
-        this.hide();
-        return;
-      }
+
       this.triggerEvent('sure', {
-        selectedList,
+        selectedList: [...selectedList, ...couponSelected],
       });
     },
     hide() {
