@@ -20,7 +20,7 @@ TDesign 零售模版示例小程序采用 [TDesign 企业级设计体系小程�
 
 零售行业模版小程序是个经典的单店版电商小程序，涵盖了电商的黄金链路流程，从商品->购物车->结算->订单等。小程序总共包含 28 个完整的页面，涵盖首页，商品详情页，个人中心，售后流程等基础页面。采用 mock 数据进行展示，提供了完整的零售商品展示、交易与售后流程。页面详情：
 
-![README.png](https://cdn-we-retail.ym.tencent.com/tsr/tdesign-starter-readme.png)
+<img src="https://cdn-we-retail.ym.tencent.com/tsr/tdesign-starter-readme.png" width = "650" height = "900" alt="图片名称" align=center />
 
 ### 2. 项目构成
 
