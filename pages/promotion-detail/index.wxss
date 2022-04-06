@@ -1,19 +1,20 @@
 .promotion-detail-container .wrap {
   display: block;
-  margin-left: 24rpx;
-  margin-right: 24rpx;
+  padding: 0 24rpx;
+  background: linear-gradient(#fff, #f5f5f5);
 }
 
 .promotion-detail-container .t-class-promotion-head {
   width: 702rpx;
   height: 160rpx;
+  border-radius: 8rpx;
 }
 
 .promotion-detail-container .wrap .count-down-wrap {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-  align-items: center;
+  align-items: baseline;
   line-height: 34rpx;
 }
 
@@ -30,8 +31,7 @@
   font-size: 20rpx;
   margin-right: 12rpx;
   border-radius: 16rpx;
-  padding-left: 12rpx;
-  padding-right: 12rpx;
+  padding: 0 12rpx;
 }
 
 .promotion-detail-container .wrap .count-down-wrap .status-tag.before {
@@ -91,8 +91,7 @@
   width: 240rpx;
   height: 240rpx;
   display: block;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto;
 }
 
 .promotion-detail-container .wrap .gl-empty-label {

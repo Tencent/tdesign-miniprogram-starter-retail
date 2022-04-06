@@ -6,7 +6,6 @@ Page({
   data: {
     imgSrcs: [],
     tabList: [],
-    tabIndex: 0,
     goodsList: [],
     goodsListLoadStatus: 0,
     pageLoading: false,
@@ -20,6 +19,10 @@ Page({
   goodListPagination: {
     index: 0,
     num: 20,
+  },
+
+  privateData: {
+    tabIndex: 0,
   },
 
   onShow() {
@@ -61,18 +64,12 @@ Page({
   },
 
   tabChangeHandle(e) {
-    this.setData({
-      tabIndex: e.detail,
-    });
+    this.privateData.tabIndex = e.detail;
     this.loadGoodsList(true);
   },
 
   onReTry() {
     this.loadGoodsList();
-  },
-
-  onChange() {
-    // doSomething
   },
 
   async loadGoodsList(fresh = false) {
@@ -86,7 +83,7 @@ Page({
 
     const pageSize = this.goodListPagination.num;
     let pageIndex =
-      this.data.tabIndex * pageSize + this.goodListPagination.index + 1;
+      this.privateData.tabIndex * pageSize + this.goodListPagination.index + 1;
     if (fresh) {
       pageIndex = 0;
     }

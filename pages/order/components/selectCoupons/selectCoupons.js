@@ -1,3 +1,6 @@
+import dayjs from 'dayjs';
+import { couponsData } from './mock';
+
 const emptyCouponImg = `https://cdn-we-retail.ym.tencent.com/miniapp/coupon/ordersure-coupon-newempty.png`;
 
 Component({
@@ -23,7 +26,6 @@ Component({
             promotionGoodsList.map((goods) => {
               this.storeId = goods.storeId;
               return {
-                // itemId: goods.
                 skuId: goods.skuId,
                 spuId: goods.spuId,
                 storeId: goods.storeId,
@@ -40,19 +42,19 @@ Component({
               return {
                 promotionId: ele.promotionId,
                 storeId: ele.storeId,
-                code: ele.code,
+                couponId: ele.couponId,
               };
             });
           this.setData({
             products,
           });
-          // coupons({
-          //   products,
-          //   selectedCoupons,
-          //   storeId,
-          // }).then((res) => {
-          //   this.initData(res.data);
-          // });
+          this.coupons({
+            products,
+            selectedCoupons,
+            storeId,
+          }).then((res) => {
+            this.initData(res);
+          });
         }
       },
     },
@@ -64,11 +66,10 @@ Component({
     couponsList: [],
     orderSureCouponList: [],
     promotionGoodsList: [],
-    storeId: String,
   },
   methods: {
-    initData(data) {
-      const { couponResultList, reduce } = data;
+    initData(data = {}) {
+      const { couponResultList = [], reduce = 0 } = data;
       const selectedList = [];
       let selectedNum = 0;
       const couponsList =
@@ -76,48 +77,35 @@ Component({
         couponResultList.map((coupon) => {
           const { status, couponVO } = coupon;
           const {
-            code,
-            name,
-            expireStart,
-            expireEnd,
-            ruleId,
-            couponType,
-            promotion,
+            couponId,
+            condition = '',
+            endTime = 0,
+            name = '',
+            startTime = 0,
+            value,
+            type,
           } = couponVO;
           if (status === 1) {
             selectedNum++;
             selectedList.push({
-              code,
+              couponId,
               promotionId: ruleId,
               storeId: this.storeId,
             });
           }
-          const tag = tagList[couponType - 1];
-          let desc = '';
-          const { condition, discount } = promotion;
-          if (condition.value === 0) {
-            desc = '无门槛使用';
-          } else {
-            desc =
-              condition.type === 1
-                ? `满${condition.value / 100}元`
-                : `满${condition.value}件`;
-          }
-          const value =
-            couponType === 1 ? discount.value / 100 : discount.value / 10;
-          const type = couponType === 2 ? 'discount' : 'mon';
+          const val = type === 2 ? value / 100 : value / 10;
           return {
-            code,
+            key: couponId,
             title: name,
-            isSelected: status === 1,
-            expireStart,
-            expireEnd,
-            value,
-            ruleId,
-            tag,
-            status: status === -1 ? 'useless' : '',
-            desc,
+            isSelected: false,
+            timeLimit: `${dayjs(+startTime).format('YYYY-MM-DD')}-${dayjs(
+              +endTime,
+            ).format('YYYY-MM-DD')}`,
+            value: val,
+            status: status === -1 ? 'useless' : 'default',
+            desc: condition,
             type,
+            tag: '',
           };
         });
       this.setData({
@@ -128,36 +116,25 @@ Component({
       });
     },
     selectCoupon(e) {
-      const { coupon } = e.currentTarget.dataset;
-      const { selectedList, products, storeId } = this.data;
-      let newSelectedList = [];
-      if (coupon.isSelected) {
-        newSelectedList = selectedList.filter((ele) => {
-          return ele.promotionId !== coupon.ruleId;
-        });
-      } else {
-        newSelectedList = selectedList.concat({
-          code: coupon.code,
-          promotionId: coupon.ruleId,
-          storeId: this.storeId,
-        });
-      }
-      // coupons({
-      //   selectedCoupons: newSelectedList,
-      //   products,
-      //   storeId,
-      // }).then((res) => {
-      //   this.initData(res.data);
-      // });
-    },
-    onSure() {
-      const { selectedList, couponsList } = this.data;
-      if (couponsList.length === 0) {
-        this.hide();
-        return;
-      }
+      const { key } = e.currentTarget.dataset;
+      const { couponsList, selectedList } = this.data;
+      couponsList.forEach((coupon) => {
+        if (coupon.key === key) {
+          coupon.isSelected = !coupon.isSelected;
+        }
+      });
+
+      const couponSelected = couponsList.filter(
+        (coupon) => coupon.isSelected === true,
+      );
+
+      this.setData({
+        selectedList: [...selectedList, ...couponSelected],
+        couponsList: [...couponsList],
+      });
+
       this.triggerEvent('sure', {
-        selectedList,
+        selectedList: [...selectedList, ...couponSelected],
       });
     },
     hide() {
@@ -165,12 +142,12 @@ Component({
         couponsShow: false,
       });
     },
-    coupons(coupon) {
+    coupons(coupon = {}) {
       return new Promise((resolve, reject) => {
-        if (coupon.selectedCoupons) {
+        if (coupon?.selectedCoupons) {
           resolve({
-            couponResultList: [],
-            reduce: undefined,
+            couponResultList: couponsData.couponResultList,
+            reduce: couponsData.reduce,
           });
         }
         return reject({

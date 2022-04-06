@@ -1,4 +1,3 @@
-<!-- <view class="tab-bar__placeholder" /> -->
 <t-tabs
   defaultValue="{{status}}"
   bind:change="tabChange"

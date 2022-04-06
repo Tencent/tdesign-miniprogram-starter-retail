@@ -210,6 +210,7 @@ Page({
     const orderCardList = []; // 订单卡片列表
     const storeInfoList = [];
     const submitCouponList = []; //使用优惠券列表;
+
     data.storeGoodsList &&
       data.storeGoodsList.forEach((ele) => {
         const orderCard = {
@@ -510,12 +511,11 @@ Page({
     const { goodsRequestList } = this;
     const { selectedList } = e.detail;
     const tempSubmitCouponList = submitCouponList.map((storeCoupon) => {
-      const couponList =
-        storeCoupon.storeId === currentStoreId
-          ? selectedList
-          : storeCoupon.couponList;
       return {
-        couponList,
+        couponList:
+          storeCoupon.storeId === currentStoreId
+            ? selectedList
+            : storeCoupon.couponList,
       };
     });
     const resSubmitCouponList = this.handleCouponList(tempSubmitCouponList);
@@ -524,16 +524,10 @@ Page({
     this.setData({ couponsShow: false });
   },
   onOpenCoupons(e) {
-    const {
-      goodslist: goodsList,
-      couponlist: couponList,
-      storeid,
-    } = e.currentTarget.dataset;
+    const { storeid } = e.currentTarget.dataset;
     this.setData({
       couponsShow: true,
-      promotionGoodsList: goodsList,
       currentStoreId: storeid,
-      couponList,
     });
   },
 

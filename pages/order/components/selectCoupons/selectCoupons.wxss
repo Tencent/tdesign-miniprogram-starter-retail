@@ -4,7 +4,7 @@
   position: relative;
   border-radius: 20rpx 20rpx 0 0;
   padding-top: 28rpx;
-  padding-bottom:env(safe-area-inset-bottom);
+  padding-bottom: env(safe-area-inset-bottom);
 }
 .select-coupons .title {
   width: 100%;
@@ -20,7 +20,7 @@
   font-size: 24rpx;
   color: #999;
   line-height: 34rpx;
-  margin-top: 58rpx;
+  margin: 20rpx 0;
   padding: 0 20rpx;
 }
 .select-coupons .info .price {
@@ -94,7 +94,7 @@
   font-size: 32rpx;
   border-radius: 44rpx;
   box-sizing: border-box;
-  border: 2rpx solid #DDDDDD;
+  border: 2rpx solid #dddddd;
   color: #333333;
 }
 .select-coupons .coupons-cover .red {

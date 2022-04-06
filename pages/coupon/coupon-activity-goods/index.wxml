@@ -23,15 +23,15 @@
 	</view>
 	<floating-button count="{{cartNum}}" />
 	<t-popup visible="{{showStoreInfoList}}" placement="bottom" bind:visible-change="closeStoreList">
-		<view class="popup-content-wrap" slot="content">
+		<t-icon
+		  slot="closeBtn"
+		  name="close"
+		  size="40rpx"
+		  bind:tap="closeStoreList"
+		/>
+		<view class="popup-content-wrap">
 			<view class="popup-content-title">
 				规则详情
-				<t-icon
-				  t-class="close-icon"
-				  name="close"
-				  size="32rpx"
-				  bind:tap="closeStoreList"
-				/>
 			</view>
 			<view class="desc-group-wrap">
 				<view wx:if="{{detail && detail.timeLimit}}" class="item-wrap">

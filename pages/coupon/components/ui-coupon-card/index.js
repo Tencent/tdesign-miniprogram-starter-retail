@@ -1,7 +1,7 @@
 Component({
   options: {
     addGlobalClass: true,
-    multipleSlots: true, // 在组件定义时的选项中启用多slot支持
+    multipleSlots: true,
   },
 
   externalClasses: ['coupon-class'],
@@ -21,13 +21,28 @@ Component({
     },
     value: {
       type: String,
+      value: '', // 优惠金额
+    },
+    tag: {
+      type: String,
+      value: '', // 优惠标签，优惠券名字标签，img
+    },
+    desc: {
+      type: String,
+      value: '', // 优惠金额描述，金额下方
+    },
+    title: {
+      type: String, // 优惠券名称
       value: '',
-    }, // 优惠金额
-    tag: String, // 优惠标签，优惠券名字标签，img
-    desc: String, // 优惠金额描述，金额下方
-    title: String, // 优惠券名称
-    timeLimit: String, // 优惠券时限
-    ruleDesc: String, // 优惠券适用规则描述
+    },
+    timeLimit: {
+      type: String, // 优惠券时限
+      value: '',
+    },
+    ruleDesc: {
+      type: String, // 优惠券适用规则描述
+      value: '',
+    },
     currency: {
       type: String,
       value: '¥', // 优惠货币
@@ -49,8 +64,6 @@ Component({
       MJF_COUPON: 3,
       GIFT_COUPON: 4,
     },
-    type: '', // 优惠金额
-    value: '', // 优惠券金额
     theme: 'primary',
   },
 
