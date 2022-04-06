@@ -8,13 +8,13 @@
 
 TDesign 零售模版示例小程序采用 [TDesign 企业级设计体系小程序解决方案](https://tdesign.tencent.com/miniprogram/overview) 进行搭建，依赖 [TDesign 微信小程序组件库](https://github.com/Tencent/tdesign-miniprogram)，涵盖完整的基本零售场景需求。
 
-## 预览
+## :high_brightness: 预览
 
 <p>请使用微信扫描以下二维码：</p>
 
  <img src="https://we-retail-static-1300977798.cos.ap-guangzhou.myqcloud.com/retail-mp/common/qrcode.jpeg" width = "200" height = "200" alt="图片名称" align=center />
 
-## 项目介绍
+## :pushpin: 项目介绍
 
 ### 1. 业务介绍
 
@@ -59,29 +59,29 @@ TDesign 零售模版示例小程序采用 [TDesign 企业级设计体系小程�
 
 1. 在 `pages `目录下创建对应的页面文件夹
 2. 在 `app.json` 文件中的 ` "pages"` 数组中加上页面路径
-3. [可选]在 `project.config.json` 文件的 `"miniprogram-list"` 下添加页面配置
+3. [可选] 在 `project.config.json` 文件的 `"miniprogram-list"` 下添加页面配置
 
-## 构建运行
+## :hammer: 构建运行
 
 1. `npm install`
 2. 小程序开发工具中引入工程
 3. 构建 npm
 
-## 代码风格控制
+## :art: 代码风格控制
 
 `eslint` `prettier`
 
-## 基础库版本
+## :iphone: 基础库版本
 
 最低基础库版本`^2.6.5`
 
-## TDesign 其他技术栈实现
+## :link: TDesign 其他技术栈实现
 
 - 移动端 小程序 实现：[mobile-miniprogram](https://github.com/Tencent/tdesign-miniprogram)
 - 桌面端 Vue 2 实现：[web-vue](https://github.com/Tencent/tdesign-vue)
 - 桌面端 Vue 3 实现：[web-vue-next](https://github.com/Tencent/tdesign-vue-next)
 - 桌面端 React 实现：[web-react](https://github.com/Tencent/tdesign-react)
 
-## 开源协议
+## :page_with_curl: 开源协议
 
 TDesign 遵循 [MIT 协议](https://github.com/Tencent/tdesign-miniprogram-starter-retail/LICENSE)。
