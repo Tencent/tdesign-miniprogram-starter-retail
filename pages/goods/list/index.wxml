@@ -20,18 +20,20 @@
 					<t-input
 					  type="number"
 					  t-class="price-ipt"
+					  t-class-placeholder="t-class-placeholder"
+					  t-class-input="t-class-input"
 					  placeholder="最低价"
 					  value="{{minVal}}"
-					  t-class-placeholder="t-class-placeholder"
 					  bindchange="onMinValAction"
 					/>
-					<text class="price-divided" />
+					<view class="price-divided">-</view>
 					<t-input
 					  type="number"
 					  t-class="price-ipt"
+					  t-class-placeholder="t-class-placeholder"
+					  t-class-input="t-class-input"
 					  placeholder="最高价"
 					  value="{{maxVal}}"
-					  t-class-placeholder="t-class-placeholder"
 					  bindchange="onMaxValAction"
 					/>
 				</view>

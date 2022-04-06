@@ -2,6 +2,6 @@
   "component": true,
   "usingComponents": {
     "t-icon": "tdesign-miniprogram/icon/icon",
-    "t-image": "/components/webp-image/index"
+    "t-avatar": "tdesign-miniprogram/avatar/avatar"
   }
 }

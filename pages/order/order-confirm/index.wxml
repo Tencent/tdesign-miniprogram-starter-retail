@@ -38,7 +38,7 @@
 				<price
 				 wr-class="goods-price"
 				 price="{{goods.price}}"
-				 fill="{{false}}"
+				 fill="{{true}}"
 				 decimalSmaller
 				/>
 				<view class="goods-num">x{{goods.num}}</view>
@@ -74,10 +74,12 @@
 		</view>
 		<view class="pay-item">
 			<text>优惠券</text>
-			<view class="pay-item__right" catchtap="onOpenCoupons">
-				<block wx:if="{{settleDetailData.totalCouponAmount && settleDetailData.totalCouponAmount != 0}}">
-					-
-					<price fill decimalSmaller price="{{settleDetailData.totalCouponAmount}}" />
+			<view class="pay-item__right" data-storeid="{{settleDetailData.storeGoodsList[0].storeId}}" catchtap="onOpenCoupons">
+				<block wx:if="{{submitCouponList.length}}">
+          <block wx:if="{{settleDetailData.totalCouponAmount && settleDetailData.totalCouponAmount !== '0'}}">
+            -<price fill decimalSmaller price="{{settleDetailData.totalCouponAmount}}" />
+          </block>
+          <block wx:else>选择优惠券</block>
 				</block>
 				<text wx:else>无可用</text>
 				<t-icon name="chevron-right" size="32rpx" color="#BBBBBB" />
@@ -110,7 +112,6 @@
 			/>
 		</view>
 	</view>
-
 	<view class="wx-pay-cover">
 		<view class="wx-pay">
 			<price
@@ -154,7 +155,7 @@
 		<no-goods slot="content" bind:change="onSureCommit" settleDetailData="{{settleDetailData}}" />
 	</t-popup>
 	<select-coupons
-	 bindsure="onCoupons"
+	 bind:sure="onCoupons"
 	 storeId="{{currentStoreId}}"
 	 orderSureCouponList="{{couponList}}"
 	 promotionGoodsList="{{promotionGoodsList}}"

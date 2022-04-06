@@ -29,11 +29,7 @@ Page({
     this.fetchList();
   },
 
-  fetchList(status) {
-    if (!status) {
-      status = this.data.status;
-    }
-
+  fetchList(status = this.data.status) {
     let statusInFetch = '';
     switch (Number(status)) {
       case 0: {
@@ -64,8 +60,18 @@ Page({
     this.fetchList(value);
   },
 
-  /** 领券中心 */
   goCouponCenterHandle() {
     wx.showToast({ title: '去领券中心', icon: 'none' });
+  },
+
+  onPullDownRefresh_() {
+    this.setData(
+      {
+        couponList: [],
+      },
+      () => {
+        this.fetchList();
+      },
+    );
   },
 });

@@ -42,26 +42,18 @@ page {
   position: relative;
 }
 
-.coupon-page-container .popup-content-title .close-icon {
-  position: absolute;
-  top: 24rpx;
-  right: 24rpx;
-}
-
 .coupon-page-container .desc-group-wrap {
   padding-bottom: env(safe-area-inset-bottom);
 }
 
 .coupon-page-container .desc-group-wrap .item-wrap {
-  margin-left: 30rpx;
-  margin-right: 30rpx;
+  margin: 0 30rpx 30rpx;
 }
 
 .coupon-page-container .desc-group-wrap .item-title {
   font-size: 26rpx;
   color: #333;
   font-weight: 500;
-  margin-top: 30rpx;
 }
 
 .coupon-page-container .desc-group-wrap .item-label {

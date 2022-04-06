@@ -23,7 +23,8 @@ Component({
     },
   },
   data: {
-    defaultAvatarUrl: `https://cdn-we-retail.ym.tencent.com/miniapp/usercenter/icon-user-center-avatar@2x.png`,
+    defaultAvatarUrl:
+      'https://cdn-we-retail.ym.tencent.com/miniapp/usercenter/icon-user-center-avatar@2x.png',
     AuthStepType,
   },
   methods: {

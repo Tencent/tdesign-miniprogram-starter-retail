@@ -12,7 +12,6 @@
     "price": "/components/price/index",
     "order-card": "../components/order-card/index",
     "order-goods-card": "../components/order-goods-card/index",
-    "customer-service": "../components/customer-service",
     "order-button-bar": "../components/order-button-bar/index"
   }
 }

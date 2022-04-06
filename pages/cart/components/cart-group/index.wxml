@@ -5,6 +5,8 @@
 	module.exports.hasPromotion = hasPromotion;
 </wxs>
 <wxs src="./utils.wxs" module="utils" />
+
+
 <view class="cart-group">
 	<view
 	 class="goods-wrap"
@@ -122,7 +124,6 @@
 			<view class="promotion-line-wrap" wx:if="{{handlePromotion.hasPromotion(promotion.promotionCode) && promoindex != (store.promotionGoodsList.length - 2)}}">
 				<view class="promotion-line" />
 			</view>
-
 		</block>
 		<block wx:if="{{store.shortageGoodsList.length>0}}">
 			<view
@@ -136,12 +137,6 @@
 					<view class="goods-item-info">
 						<view class="check-wrap">
 							<view class="unCheck-icon" />
-							<!-- <t-icon
-							 size="40rpx"
-							 color="#BBBBBB"
-							 name="minus-circle"
-							 class="check"
-							/> -->
 						</view>
 						<view class="goods-sku-info">
 							<goods-card
@@ -174,42 +169,14 @@
 				<view class="promotion-line" />
 			</view>
 		</block>
-
 	</view>
-	<!-- 失效商品 -->
-	<!-- <view class="invalid-goods-wrap" wx:if="{{_invalidGoodItems && _invalidGoodItems.length > 0}}">
-		<view class="invalid-head">
-			<view class="invalid-title">失效商品 ( {{_invalidGoodItems.length}} )</view>
-			<view class="invalid-clear" bindtap="clearInvalidGoods">清空失效商品</view>
-		</view>
-		<view class="invalid-goods-list invalid-card">
-			<invalid-goods
-			 wx:for="{{isShowToggle ? _invalidGoodItems : utils.slice(_invalidGoodItems)}}"
-			 wx:for-item="goodsInfo"
-			 wx:for-index="gi"
-			 wx:key="gi"
-			 data-goods="{{goodsInfo}}"
-			 data-gi="{{gi}}"
-			 thumb-width="{{thumbWidth}}"
-			 thumb-height="{{thumbHeight}}"
-			 goodsInfo="{{goodsInfo}}"
-			 maskType="invalid"
-			 bindgogoods="goGoodsDetail"
-			 bindbuttontap="deleteGoods"
-			/>
-			<view class="toggle" bindtap="showToggle" wx:if="{{_invalidGoodItems.length > 2}}">
-				<text class="m-r-6">{{isShowToggle ? '收起失效信息' : '展开失效信息'}}</text>
-				<view class="{{isShowToggle ? 'top-icon' : 'down-icon'}}" />
-			</view>
-		</view>
-	</view> -->
 </view>
 <specs-popup
  show="{{isShowSpecs}}"
- title="{{currentGoods.title}}"
- price="{{currentGoods.price}}"
+ title="{{currentGoods.title || ''}}"
+ price="{{currentGoods.price || ''}}"
  thumb="{{utils.imgCut(currentGoods.thumb, 180, 180)}}"
- specs="{{currentGoods.specs}}"
+ specs="{{currentGoods.specs || []}}"
  zIndex="{{999}}"
  bindclose='hideSpecsPopup'
 />

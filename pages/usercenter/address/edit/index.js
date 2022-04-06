@@ -41,10 +41,12 @@ Page({
     labels: labelsOptions,
     areaPickerVisible: false,
     submitActive: false,
-    verifyTips: '',
     visible: false,
     labelValue: '',
     columns: 3,
+  },
+  privateData: {
+    verifyTips: '',
   },
   onLoad(options) {
     const { id } = options;
@@ -67,8 +69,8 @@ Page({
         const { isLegal, tips } = this.onVerifyInputLegal();
         this.setData({
           submitActive: isLegal,
-          verifyTips: tips,
         });
+        this.privateData.verifyTips = tips;
       });
     });
   },
@@ -90,8 +92,8 @@ Page({
           const { isLegal, tips } = this.onVerifyInputLegal();
           this.setData({
             submitActive: isLegal,
-            verifyTips: tips,
           });
+          this.privateData.verifyTips = tips;
         },
       );
     } else {
@@ -103,8 +105,8 @@ Page({
           const { isLegal, tips } = this.onVerifyInputLegal();
           this.setData({
             submitActive: isLegal,
-            verifyTips: tips,
           });
+          this.privateData.verifyTips = tips;
         },
       );
     }
@@ -296,12 +298,12 @@ Page({
     );
   },
   formSubmit() {
-    const { submitActive, verifyTips } = this.data;
+    const { submitActive } = this.data;
     if (!submitActive) {
       Toast({
         context: this,
         selector: '#t-toast',
-        message: verifyTips,
+        message: this.privateData.verifyTips,
         icon: '',
         duration: 1000,
       });
@@ -349,8 +351,8 @@ Page({
         const { isLegal, tips } = this.onVerifyInputLegal();
         this.setData({
           submitActive: isLegal,
-          verifyTips: tips,
         });
+        this.privateData.verifyTips = tips;
       },
     );
   },

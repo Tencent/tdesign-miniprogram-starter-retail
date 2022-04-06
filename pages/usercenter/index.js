@@ -1,5 +1,4 @@
 import { fetchUserCenter } from '../../services/usercenter/fetchUsercenter';
-import { cdnBase } from '../../config/index';
 import Toast from 'tdesign-miniprogram/toast/index';
 
 const menuData = [
@@ -81,7 +80,7 @@ const orderTagInfos = [
 const getDefaultData = () => ({
   showMakePhone: false,
   userInfo: {
-    avatarUrl: `${cdnBase}/usercenter/avatar.png`,
+    avatarUrl: '',
     nickName: '正在登录...',
     phoneNumber: '',
   },
