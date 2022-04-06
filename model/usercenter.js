@@ -1,9 +1,9 @@
 const userInfo = {
   avatarUrl:
-    'https://cdn-we-retail.ym.tencent.com/miniapp/usercenter/icon-user-center-avatar@2x.png',
+    'https://we-retail-static-1300977798.cos.ap-guangzhou.myqcloud.com/retail-ui/components-exp/avatar/avatar-1.jpg',
   nickName: 'Tdesign 🌟',
   phoneNumber: '13438358888',
-  gender: 1,
+  gender: 2,
 };
 const countsData = [
   {
