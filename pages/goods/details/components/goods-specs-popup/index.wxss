@@ -67,7 +67,7 @@
 
 .popup-sku-body .popup-sku-group-container .popup-sku-row {
   padding: 32rpx 0;
-  border-bottom: 1rpx solid #e6e6e6;
+  border-bottom: 1rpx solid #f5f5f5;
 }
 
 .popup-sku-body
