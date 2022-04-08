@@ -27,7 +27,9 @@
 			  t-class="t-cell-padding"
 			  t-class-note="order-group-note"
 			  t-class-left="order-group__left"
-			/>
+			>
+				<t-icon name="{{xitem.icon}}" size="48rpx" slot="note" />
+			</t-cell>
 		</t-cell-group>
 	</view>
 </view>

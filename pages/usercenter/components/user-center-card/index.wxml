@@ -10,7 +10,7 @@
 	<block wx:if="{{currAuthStep === AuthStepType.TWO}}">
 		<view class="user-center-card__header">
 			<t-avatar image="{{userInfo.avatarUrl || defaultAvatarUrl}}" class="user-center-card__header__avatar" />
-			<open-data type="userNickName" class="user-center-card__header__name" />
+			<view class="user-center-card__header__name">{{userInfo.nickName || '微信用户'}}</view>
 			<!-- 需要授权用户信息，通过slot添加弹窗 -->
 			<view class="user-center-card__header__transparent" wx:if="{{isNeedGetUserInfo}}">
 				<slot name="getUserInfo" />
