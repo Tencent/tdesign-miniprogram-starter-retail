@@ -16,7 +16,7 @@
 				<text wx:if="{{shopCartNum > 0 && item.showCartNum}}" class="tag-cart-num">
 					{{shopCartNum > 99 ? '99+' : shopCartNum}}
 				</text>
-				<t-icon prefix="wr" name="{{item.iconName}}" size="48rpx" />
+				<t-icon prefix="wr" name="{{item.iconName}}" size="40rpx" />
 				<view class="operate-text">{{item.title}}</view>
 			</view>
 		</view>
