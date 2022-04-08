@@ -44,7 +44,7 @@
   flex: 1 1 auto;
   background: #fff;
   border-radius: 0 0 16rpx 16rpx;
-  padding: 16rpx 24rpx 8rpx;
+  padding: 16rpx 24rpx 18rpx;
   flex-direction: column;
 }
 
@@ -82,7 +82,6 @@
   font-size: 20rpx;
   border: 1rpx solid #fa4126;
   padding: 0 8rpx;
-  height: 28rpx;
   border-radius: 16rpx;
   line-height: 30rpx;
   margin: 0 8rpx 8rpx 0;
