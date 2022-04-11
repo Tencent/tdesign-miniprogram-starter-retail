@@ -27,16 +27,14 @@ TDesign 零售模版示例小程序采用 [TDesign 企业级设计体系小程�
 主要页面截图如下：
 
 <p align="center">
-  <a href="https://tdesign.tencent.com/" target="_blank">
-    <img alt="example-cart" width="200" src="https://cdn-we-retail.ym.tencent.com/tsr/example/home.png">
-    <img alt="example-cart" width="200" src="https://cdn-we-retail.ym.tencent.com/tsr/example/sort.png">
-    <img alt="example-cart" width="200" src="https://cdn-we-retail.ym.tencent.com/tsr/example/cart.png">
-    <img alt="example-cart" width="200" src="https://cdn-we-retail.ym.tencent.com/tsr/example/user-center.png">
-     <img alt="example-cart" width="200" src="https://cdn-we-retail.ym.tencent.com/tsr/example/goods-detail.png">
-     <img alt="example-cart" width="200" src="https://cdn-we-retail.ym.tencent.com/tsr/example/pay.png">
-     <img alt="example-cart" width="200" src="https://cdn-we-retail.ym.tencent.com/tsr/example/order.png">
-     <img alt="example-cart" width="200" src="https://cdn-we-retail.ym.tencent.com/tsr/example/order-detail.png">
-  </a>
+    <img alt="example-cart" width="200" src="https://cdn-we-retail.ym.tencent.com/tsr/example/v1/home.png" />
+    <img alt="example-cart" width="200" src="https://cdn-we-retail.ym.tencent.com/tsr/example/v1/sort.png" />
+    <img alt="example-cart" width="200" src="https://cdn-we-retail.ym.tencent.com/tsr/example/v1/cart.png" />
+    <img alt="example-cart" width="200" src="https://cdn-we-retail.ym.tencent.com/tsr/example/v1/user-center.png" />
+    <img alt="example-cart" width="200" src="https://cdn-we-retail.ym.tencent.com/tsr/example/v1/goods-detail.png" />
+    <img alt="example-cart" width="200" src="https://cdn-we-retail.ym.tencent.com/tsr/example/v1/pay.png" />
+    <img alt="example-cart" width="200" src="https://cdn-we-retail.ym.tencent.com/tsr/example/v1/order.png" />
+    <img alt="example-cart" width="200" src="https://cdn-we-retail.ym.tencent.com/tsr/example/v1/order-detail.png" />
 </p>
 
 
