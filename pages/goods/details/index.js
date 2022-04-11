@@ -225,7 +225,7 @@ Page({
     Toast({
       context: this,
       selector: '#t-toast',
-      message: isAllSelectedSku ? '库存不足' : '请选择规格',
+      message: isAllSelectedSku ? '点击加入购物车' : '请选择规格',
       icon: '',
       duration: 1000,
     });
