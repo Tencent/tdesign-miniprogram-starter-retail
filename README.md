@@ -99,6 +99,10 @@ TDesign 零售模版示例小程序采用 [TDesign 企业级设计体系小程�
 - 桌面端 Vue 3 实现：[web-vue-next](https://github.com/Tencent/tdesign-vue-next)
 - 桌面端 React 实现：[web-react](https://github.com/Tencent/tdesign-react)
 
+## :dart: 合作&入驻
+
+本开源项目是由[腾讯云Mall团队](https://ym.qq.com/)核心贡献。[云Mall](https://ym.qq.com/)是基于微信小程序的电商SaaS产品，致力于提供全面、可靠的小程序商城经营服务，助力商家成功。支持标准化和定开类型商家入驻。合作洽谈可微信咨询联系`lixigndecai`。
+
 ## :page_with_curl: 开源协议
 
 TDesign 遵循 [MIT 协议](https://github.com/Tencent/tdesign-miniprogram-starter-retail/LICENSE)。
