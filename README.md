@@ -92,16 +92,21 @@ TDesign 零售模版示例小程序采用 [TDesign 企业级设计体系小程�
 
 最低基础库版本`^2.6.5`
 
+## :dart: 反馈&合作
+
+本开源项目是由[腾讯云Mall团队](https://ym.qq.com/)核心贡献。项目也在[github](https://github.com/Tencent/tdesign-miniprogram-starter-retail)上做了开源，有任何问题或者建议都欢迎在issue上留言反馈, 或者加入TD小程序开发者群进行反馈:star2::star2::star2:
+
+[云Mall](https://ym.qq.com/)是基于微信小程序的电商SaaS产品，致力于提供全面、可靠的小程序商城经营服务，助力商家成功。支持标准化和定开类型商家入驻。合作洽谈可微信咨询联系`lixigndecai`。
+
+<img src="https://we-retail-static-1300977798.cos.ap-guangzhou.myqcloud.com/retail-mp/common/wechat-group.jpg" width = "230" height = "290" alt="模版小程序页面详情" align=center />
+
+
 ## :link: TDesign 其他技术栈实现
 
 - 移动端 小程序 实现：[mobile-miniprogram](https://github.com/Tencent/tdesign-miniprogram)
 - 桌面端 Vue 2 实现：[web-vue](https://github.com/Tencent/tdesign-vue)
 - 桌面端 Vue 3 实现：[web-vue-next](https://github.com/Tencent/tdesign-vue-next)
 - 桌面端 React 实现：[web-react](https://github.com/Tencent/tdesign-react)
-
-## :dart: 合作&入驻
-
-本开源项目是由[腾讯云Mall团队](https://ym.qq.com/)核心贡献。[云Mall](https://ym.qq.com/)是基于微信小程序的电商SaaS产品，致力于提供全面、可靠的小程序商城经营服务，助力商家成功。支持标准化和定开类型商家入驻。合作洽谈可微信咨询联系`lixigndecai`。
 
 ## :page_with_curl: 开源协议
 

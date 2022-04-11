@@ -1,7 +1,8 @@
 {
-  "description": "项目配置文件",
+  "description": "项目配置文件，详见文档：https://developers.weixin.qq.com/miniprogram/dev/devtools/projectconfig.html",
   "packOptions": {
-    "ignore": []
+    "ignore": [],
+    "include": []
   },
   "setting": {
     "urlCheck": true,
@@ -40,123 +41,92 @@
     "disableUseStrict": false,
     "minifyWXML": true,
     "showES6CompileOption": false,
-    "useCompilerPlugins": false
+    "useCompilerPlugins": false,
+    "ignoreUploadUnusedFiles": true,
+    "useStaticServer": true
   },
   "compileType": "miniprogram",
   "libVersion": "2.23.1",
   "appid": "wx5a75208aa13eee03",
   "projectname": "tdesign-miniprogram-starter-retail",
-  "debugOptions": {
-    "hidedInDevtools": []
-  },
-  "scripts": {},
-  "isGameTourist": false,
   "simulatorType": "wechat",
   "simulatorPluginLibVersion": {},
   "condition": {
-    "search": {
-      "list": []
-    },
-    "conversation": {
-      "list": []
-    },
-    "game": {
-      "list": []
-    },
-    "plugin": {
-      "list": []
-    },
-    "gamePlugin": {
-      "list": []
-    },
     "miniprogram": {
       "list": [
         {
-          "id": -1,
           "name": "首页入口",
           "pathName": "pages/home/home",
           "query": "",
           "scene": null
         },
         {
-          "id": 0,
           "name": "示例页-商品分类",
           "pathName": "pages/goods/category/index",
           "query": "",
           "scene": null
         },
         {
-          "id": 1,
           "name": "示例页-个人中心",
           "pathName": "pages/usercenter/index",
           "query": "",
           "scene": null
         },
         {
-          "id": 2,
           "name": "示例页-商品列表",
           "pathName": "pages/goods/list/index",
           "query": "",
           "scene": null
         },
         {
-          "id": 3,
           "name": "示例页-商品详情",
           "pathName": "pages/goods/details/index",
           "query": "",
           "scene": null
         },
         {
-          "id": 4,
           "name": "示例页-商品评论",
           "pathName": "pages/goods/comments/index",
           "query": "",
           "scene": null
         },
         {
-          "id": 5,
           "name": "示例页-售后列表",
           "pathName": "pages/order/after-service-list/index",
           "query": "",
           "scene": null
         },
         {
-          "id": 6,
           "name": "示例页-售后详情",
           "pathName": "pages/order/after-service-detail/index",
           "query": "rightsNo=123123423",
           "scene": null
         },
         {
-          "id": 7,
           "name": "示例页-搜索页",
           "pathName": "pages/goods/search/index",
           "query": "",
           "scene": null
         },
         {
-          "id": 8,
           "name": "示例页-搜索结果",
           "pathName": "pages/goods/result/index",
           "query": "",
           "scene": null
         },
         {
-          "id": 9,
           "name": "示例页-商品评价",
           "pathName": "pages/goods/comments/create/index",
           "query": "",
           "scene": null
         },
         {
-          "id": 10,
           "name": "示例页-申请售后",
           "pathName": "pages/order/apply-service/index",
           "query": "orderNo=132222623132329291&skuId=135691625",
           "scene": null
         },
         {
-          "id": 11,
           "name": "示例页-发票详情",
           "pathName": "pages/order/invoice/index",
           "query": "orderNo=132381532610540875",
@@ -164,5 +134,9 @@
         }
       ]
     }
+  },
+  "editorSetting": {
+    "tabIndent": "insertSpaces",
+    "tabSize": 2
   }
 }
