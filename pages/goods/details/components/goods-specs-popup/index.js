@@ -1,5 +1,7 @@
 /* eslint-disable no-param-reassign */
 /* eslint-disable no-nested-ternary */
+import Toast from 'tdesign-miniprogram/toast/index';
+
 Component({
   options: {
     multipleSlots: true,
@@ -146,7 +148,7 @@ Component({
             (subItem) => subItem.specValueId === specValueId,
           );
           let specSelectStatus = false;
-          item.specValueList.map((n) => {
+          item.specValueList.forEach((n) => {
             itemAllSpecArray.push(n.hasStockObj.specsArray);
             if (n.isChoosed) {
               specSelectStatus = true;
@@ -189,6 +191,7 @@ Component({
                 specSelectStatus = true;
               }
               n.hasStockObj.hasStock = true;
+              return n;
             },
           );
           if (specSelectStatus) {
@@ -257,6 +260,13 @@ Component({
       const specId = e.currentTarget.dataset.specid;
       const hasStock = e.currentTarget.dataset.hasstock;
       if (!hasStock) {
+        Toast({
+          context: this,
+          selector: '#t-toast',
+          message: '该规格已售罄',
+          icon: '',
+          duration: 1000,
+        });
         return;
       }
 
