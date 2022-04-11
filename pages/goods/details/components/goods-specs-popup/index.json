@@ -3,6 +3,7 @@
   "usingComponents": {
     "t-popup": "tdesign-miniprogram/popup/popup",
     "t-icon": "tdesign-miniprogram/icon/icon",
-    "t-image": "/components/webp-image/index"
+    "t-image": "/components/webp-image/index",
+    "t-toast": "tdesign-miniprogram/toast/toast"
   }
 }
