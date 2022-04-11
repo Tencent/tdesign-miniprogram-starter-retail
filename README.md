@@ -22,6 +22,25 @@ TDesign 零售模版示例小程序采用 [TDesign 企业级设计体系小程�
 
 <img src="https://cdn-we-retail.ym.tencent.com/tsr/tdesign-starter-readmeV1.png" width = "650" height = "900" alt="模版小程序页面详情" align=center />
 
+
+
+主要页面截图如下：
+
+<p align="center">
+  <a href="https://tdesign.tencent.com/" target="_blank">
+    <img alt="example-cart" width="200" src="https://cdn-we-retail.ym.tencent.com/tsr/example/home.png">
+    <img alt="example-cart" width="200" src="https://cdn-we-retail.ym.tencent.com/tsr/example/sort.png">
+    <img alt="example-cart" width="200" src="https://cdn-we-retail.ym.tencent.com/tsr/example/cart.png">
+    <img alt="example-cart" width="200" src="https://cdn-we-retail.ym.tencent.com/tsr/example/user-center.png">
+     <img alt="example-cart" width="200" src="https://cdn-we-retail.ym.tencent.com/tsr/example/goods-detail.png">
+     <img alt="example-cart" width="200" src="https://cdn-we-retail.ym.tencent.com/tsr/example/pay.png">
+     <img alt="example-cart" width="200" src="https://cdn-we-retail.ym.tencent.com/tsr/example/order.png">
+     <img alt="example-cart" width="200" src="https://cdn-we-retail.ym.tencent.com/tsr/example/order-detail.png">
+  </a>
+</p>
+
+
+
 ### 2. 项目构成
 
 零售行业模版小程序采用基础的 JavaScript + WXSS + ESLint 进行构建，降低了使用门槛。
