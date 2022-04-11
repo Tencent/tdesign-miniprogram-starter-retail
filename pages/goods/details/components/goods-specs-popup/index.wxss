@@ -106,7 +106,8 @@
   .popup-sku-group-container
   .popup-sku-row
   .disabled-sku-selected {
-  background: #fafafa !important;
+  background: #f5f5f5 !important;
+  color: #cccccc;
 }
 
 .popup-sku-body .popup-sku-stepper-stock .popup-sku-stepper-container {
