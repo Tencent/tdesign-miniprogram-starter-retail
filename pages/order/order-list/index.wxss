@@ -80,7 +80,7 @@ wr-order-goods-card:not(:first-child) .wr-goods-card {
   font-weight: bold;
 }
 
-.t-tabs.t-tabs-top .t-tabs-scroll {
+.t-tabs.t-tabs--top .t-tabs-scroll {
   border: none !important;
 }
 .t-empty-text {
