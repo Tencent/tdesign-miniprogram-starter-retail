@@ -98,7 +98,7 @@ TDesign 零售模版示例小程序采用 [TDesign 企业级设计体系小程�
 
 <img src="https://cdn.qa.ym.qq.com/officical-site/assets/logo.png?auto=format&fit=max&w=384" width = "100" height = "30" alt="模版小程序页面详情" align=center />
 
-[云Mall](https://ym.qq.com/)是基于微信小程序的电商SaaS产品，致力于提供全面、可靠的小程序商城经营服务，助力商家成功。支持标准化和定开类型商家入驻。合作洽谈可微信咨询联系`lixigndecai`。
+[云Mall](https://ym.qq.com/)是基于微信小程序的电商SaaS产品，致力于提供全面、可靠的小程序商城经营服务，助力商家成功。支持标准化和定开类型商家入驻。合作洽谈可微信咨询联系`lixingdecai`。
 
 <img src="https://we-retail-static-1300977798.cos.ap-guangzhou.myqcloud.com/retail-mp/common/wechat-group.jpg" width = "230" height = "290" alt="模版小程序页面详情" align=center />
 
