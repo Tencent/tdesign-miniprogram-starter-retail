@@ -4,6 +4,24 @@
   </a>
 </p>
 
+<p align="center">
+  <a href="https://img.shields.io/github/stars/Tencent/tdesign-miniprogram-starter-retail">
+    <img src="https://img.shields.io/github/stars/Tencent/tdesign-miniprogram-starter-retail" alt="License">
+  </a>  
+  <a href="https://github.com/Tencent/tdesign-miniprogram-starter-retail/issues">
+    <img src="https://img.shields.io/github/issues/Tencent/tdesign-miniprogram-starter-retail" alt="License">
+  </a>  
+  <a href="https://github.com/Tencent/tdesign-miniprogram-starter-retail/LICENSE">
+    <img src="https://img.shields.io/github/license/Tencent/tdesign-miniprogram-starter-retail" alt="License">
+  </a>
+  <a href="https://www.npmjs.com/package/tdesign-miniprogram">
+    <img src="https://img.shields.io/npm/v/tdesign-miniprogram.svg?sanitize=true" alt="Version">
+  </a>
+  <a href="https://www.npmjs.com/package/tdesign-miniprogram">
+    <img src="https://img.shields.io/npm/dw/tdesign-miniprogram" alt="Downloads">
+  </a>
+</p>
+
 # TDesign 零售行业模版示例小程序
 
 TDesign 零售模版示例小程序采用 [TDesign 企业级设计体系小程序解决方案](https://tdesign.tencent.com/miniprogram/overview) 进行搭建，依赖 [TDesign 微信小程序组件库](https://github.com/Tencent/tdesign-miniprogram)，涵盖完整的基本零售场景需求。
