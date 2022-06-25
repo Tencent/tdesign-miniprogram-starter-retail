@@ -251,6 +251,16 @@ Page({
       goodsName: this.data.details.title,
       skuId:
         type === 1 ? this.data.skuList[0].skuId : this.data.selectItem.skuId,
+      available: this.data.details.available,
+      price: this.data.details.minSalePrice,
+      specInfo: this.data.details.specList?.map((item) => ({
+        specTitle: item.title,
+        specValue: item.specValueList[0].specValue,
+      })),
+      primaryImage: this.data.details.primaryImage,
+      spuId: this.data.details.spuId,
+      thumb: this.data.details.primaryImage,
+      title: this.data.details.title,
     };
     let urlQueryStr = obj2Params({
       goodsRequestList: JSON.stringify([query]),
