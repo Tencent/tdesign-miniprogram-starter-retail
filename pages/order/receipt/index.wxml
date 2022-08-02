@@ -35,7 +35,6 @@
 			 slot="right-icon"
 			 t-class="input-com"
 			 value="{{addressTagsIndex === 0 ? name:componentName}}"
-			 t-class-placeholder="input-placeholder"
 			 bindchange="onInput"
 			 data-item="name"
 			 type=""
@@ -47,7 +46,6 @@
 				<t-input
 				 t-class="input-com"
 				 value="{{addressTagsIndex === 0 ? phone:code}}"
-				 t-class-placeholder="input-placeholder"
 				 bindchange="onInput"
 				 data-item="code"
 				 type=""
@@ -66,7 +64,6 @@
 			 slot="right-icon"
 			 t-class="input-com"
 			 value="{{email}}"
-			 t-class-placeholder="input-placeholder"
 			 bindchange="onInput"
 			 data-item="email"
 			 type=""

@@ -2,14 +2,13 @@ page {
   height: 100%;
 }
 
-.tab-bar__placeholder,
-.tab-bar__inner {
+.tabs-external__inner {
   height: 88rpx;
   width: 100%;
   line-height: 88rpx;
   z-index: 100;
 }
-.tab-bar__inner {
+.tabs-external__inner {
   font-size: 26rpx;
   color: #333333;
   position: fixed;
@@ -17,21 +16,24 @@ page {
   top: 0;
   left: 0;
 }
-.tab-bar__inner .t-tabs-is-active {
-  color: #fa4126 !important;
-}
 
-.tab-bar__inner .t-tabs-track {
+.tabs-external__inner .tabs-external__track {
   background: #fa4126 !important;
 }
 
-.tab-bar__inner.order-nav .order-nav-item .bottom-line {
-  bottom: 12rpx;
+.tabs-external__inner .tabs-external__item {
+  color: #666;
 }
-.tab-bar__active {
+
+.tabs-external__inner .tabs-external__active {
   font-size: 28rpx;
   color: #fa4126 !important;
 }
+
+.tabs-external__inner.order-nav .order-nav-item .bottom-line {
+  bottom: 12rpx;
+}
+
 .coupon-list-wrap {
   margin-top: 108rpx;
   margin-left: 24rpx;

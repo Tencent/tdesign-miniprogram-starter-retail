@@ -188,16 +188,15 @@
 				  t-class-title="t-refund-info"
 				  description="{{service.applyRemark}}"
 				/>
-				<t-grid border="{{false}}" gutter="{{10}}" column="{{3}}">
+				<t-grid border="{{false}}" column="{{3}}">
 					<t-grid-item
-					  wx:for="{{gallery.proofs}}"
+						t-class-image="t-refund-grid-image"
+						wx:for="{{gallery.proofs}}"
 					  wx:key="index"
-					  image="slot"
-					  bindclick="onProofTap"
+						image="{{item}}"
+						bindclick="onProofTap"
 					  data-index="{{index}}"
-					>
-						<t-image slot="image" t-class="t-refund-info-img" src="{{item}}" />
-					</t-grid-item>
+					 />
 				</t-grid>
 			</view>
 			<t-swiper
