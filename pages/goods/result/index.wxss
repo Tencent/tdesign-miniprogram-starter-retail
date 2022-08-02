@@ -104,7 +104,7 @@ page view {
   border: none !important;
 }
 
-.result-container .t-class-placeholder {
+.result-container .t-input__control {
   font-size: 24rpx !important;
   text-align: center;
 }

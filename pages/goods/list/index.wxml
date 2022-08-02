@@ -20,7 +20,6 @@
 					<t-input
 					  type="number"
 					  t-class="price-ipt"
-					  t-class-placeholder="t-class-placeholder"
 					  t-class-input="t-class-input"
 					  placeholder="最低价"
 					  value="{{minVal}}"
@@ -30,7 +29,6 @@
 					<t-input
 					  type="number"
 					  t-class="price-ipt"
-					  t-class-placeholder="t-class-placeholder"
 					  t-class-input="t-class-input"
 					  placeholder="最高价"
 					  value="{{maxVal}}"

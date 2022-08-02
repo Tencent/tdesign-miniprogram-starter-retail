@@ -369,13 +369,18 @@
   color: #666;
 }
 
+.t-refund-grid-image {
+  width: 212rpx !important;
+  height: 212rpx !important;
+}
+
 .t-refund-info-img {
-  width: 212rpx;
-  height: 212rpx;
+  width: 100%;
+  height: 100%;
 }
 
 .t-refund-wrapper {
-  padding: 10rpx 24rpx 10rpx 20rpx!important;
+  padding: 10rpx 24rpx 10rpx 20rpx !important;
 }
 
 .t-refund-title {
@@ -386,7 +391,7 @@
 
 .t-refund-note {
   font-size: 26rpx;
-  color: #333!important;
+  color: #333 !important;
 }
 
 .service-detail .logistics {
@@ -427,9 +432,9 @@
 }
 
 .service-detail .goods-refund-address .goods-refund-address-copy-btn {
-  position: absolute; 
-  top: 22rpx; 
-  right:0;
+  position: absolute;
+  top: 22rpx;
+  right: 0;
 }
 
 .service-detail .service-goods-card-wrap {

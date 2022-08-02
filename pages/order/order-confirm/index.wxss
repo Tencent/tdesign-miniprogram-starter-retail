@@ -156,10 +156,14 @@
   color: #fa4126;
 }
 
+.add-notes .add-notes__content {
+  padding: 32rpx 8rpx 0 !important;
+}
 .add-notes .add-notes__confirm {
   color: #fa4126;
 }
 
+.add-notes .t-textarea__placeholder,
 .add-notes .add-notes__placeholder {
   color: #aeb3b7;
 }
