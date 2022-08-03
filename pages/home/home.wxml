@@ -44,8 +44,9 @@
 <view class="home-page-container">
 	<t-tabs
 	  t-class="t-tabs"
-	  t-class-active="t-class-item"
-	  t-class-track="t-class-track"
+	  t-class-active="tabs-external__active"
+		t-class-item="tabs-external__item"
+	  t-class-track="tabs-external__track"
 	  defaultValue="{{0}}"
 	  bind:change="tabChangeHandle"
 	>
@@ -66,4 +67,3 @@
 	<load-more list-is-empty="{{!goodsList.length}}" status="{{goodsListLoadStatus}}" bind:retry="onReTry" />
 	<t-toast id="t-toast" />
 </view>
-

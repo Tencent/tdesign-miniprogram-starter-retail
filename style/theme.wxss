@@ -1,0 +1,10 @@
+/* 自定义rate颜色主题 */
+.t-rate {
+  --td-rate-selected-color: #ffc51c;
+  --td-rate-unselected-color: #ddd;
+}
+
+.t-input {
+  --td-input-placeholder-text-color: #bbbbbb;
+  --td-input-text-color: #333333;
+}

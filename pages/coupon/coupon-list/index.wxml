@@ -2,9 +2,10 @@
   defaultValue="{{status}}"
   bind:change="tabChange"
   tabList="{{list}}"
-  t-class="tab-bar__inner"
-  t-class-active="tab-bar__active"
-  t-class-track="t-tabs-track"
+  t-class="tabs-external__inner"
+	t-class-item="tabs-external__item"
+  t-class-active="tabs-external__active"
+  t-class-track="tabs-external__track"
 >
 	<t-tab-panel
 	  wx:for="{{list}}"

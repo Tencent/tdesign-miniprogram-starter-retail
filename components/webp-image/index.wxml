@@ -5,11 +5,10 @@
  t-class="t-class"
  t-class-load="t-class-load"
  mode="{{ mode }}"
- lazy-load="{{ lazyLoad }}"
+ lazy="{{ lazyLoad }}"
  show-menu-by-longpress="{{showMenuByLongpress}}"
- load-failed="{{loadFailed}}"
+ error="{{loadFailed}}"
  loading="{{loading}}"
  binderror="onError"
  bindload="onLoad"
 />
-
