@@ -6,8 +6,6 @@
 				<t-input
 				 slot="note"
 				 t-class="t-cell__value"
-				 t-class-input="t-cell__input"
-				 t-class-placeholder="t-cell__placeholder"
 				 type="text"
 				 value="{{trackingNo}}"
 				 maxlength="30"
@@ -35,7 +33,6 @@
 			<text>备注信息</text>
 		</view>
 		<t-textarea
-		 t-class-textarea="t-cell__input"
 		 t-class="t-textarea-wrapper"
 		 type="text"
 		 value="{{remark}}"

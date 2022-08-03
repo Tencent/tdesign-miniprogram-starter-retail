@@ -39,11 +39,9 @@ page .divider-line {
 .form-address .t-textarea-cell-note {
   margin: 0 -32rpx;
 }
-.form-address .t-textarea {
-  height: 128rpx;
-}
-.form-address .placeholder {
-  color: #bbbbbb;
+
+.form-address .t-textarea__placeholder {
+  color: #bbb !important;
 }
 page .form-address .t-dialog-confirm {
   color: #ff5f15;

@@ -72,12 +72,17 @@ page {
   background-color: #fa550f !important;
 }
 
-.home-page-container .t-class-item {
+.home-page-container .tabs-external__item {
+  color: #666 !important;
+  font-size: 28rpx;
+}
+
+.home-page-container .tabs-external__active {
   color: #333333 !important;
   font-size: 32rpx;
 }
 
-.home-page-container .t-class-track {
+.home-page-container .tabs-external__track {
   background-color: #fa4126 !important;
   height: 6rpx !important;
   border-radius: 4rpx !important;

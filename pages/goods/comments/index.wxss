@@ -34,6 +34,7 @@ page {
   justify-content: center;
   background-color: #F5F5F5 !important;
   border-radius: 8rpx !important;
+  border: 1px solid #F5F5F5 !important;
 }
 
 .comments-header-active {

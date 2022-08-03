@@ -11,7 +11,8 @@
 			<t-rate
 			  class="rate"
 			  value="{{commentScore}}"
-			  color="#FFC51C"
+				size="14"
+				gap="2"
 			  variant="filled"
 			/>
 			<view class="goods-info-text" wx:if="{{goodsDetailInfo}}">{{goodsDetailInfo}}</view>

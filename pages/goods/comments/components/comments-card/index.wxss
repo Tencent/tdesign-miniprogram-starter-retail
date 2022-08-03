@@ -1,3 +1,5 @@
+@import '../../../../../style/theme.wxss';
+
 .comments-card-item {
   padding: 32rpx;
   display: flex;
@@ -115,12 +117,6 @@
 .comments-card-item-container-image .commentImg1 {
   width: 404rpx;
   height: 404rpx;
-}
-
-.rate .rater-icon {
-  width: 24rpx;
-  height: 24rpx;
-  background-color: #ff9301;
 }
 
 .comments-card-item-container .comments-title {

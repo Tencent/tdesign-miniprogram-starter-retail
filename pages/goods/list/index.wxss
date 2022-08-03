@@ -102,7 +102,7 @@ page {
   border: none !important;
 }
 
-.goods-list-container .t-class-placeholder {
+.goods-list-container .t-input__control {
   font-size: 24rpx !important;
   text-align: center;
 }

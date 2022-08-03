@@ -23,7 +23,6 @@
 					  class="t-input"
 					  slot="note"
 					  t-class="field-text"
-					  t-class-placeholder="placeholder"
 					  data-item="name"
 					  maxlength="20"
 					  type="text"
@@ -41,7 +40,6 @@
 					  value="{{locationState.phone}}"
 					  maxlength="11"
 					  placeholder="联系您的手机号"
-					  t-class-placeholder="placeholder"
 					  bind:change="onInputValue"
 					  data-item="phone"
 					/>
@@ -51,7 +49,6 @@
 					  slot="note"
 					  class="t-input"
 					  t-class="field-text"
-					  t-class-placeholder="placeholder"
 					  placeholder="省/市/区"
 					  data-item="address"
 					  value="{{locationState.provinceName ? locationState.provinceName+'/':'' }}{{locationState.cityName ? locationState.cityName+'/':''}}{{locationState.districtName}}"
@@ -77,10 +74,8 @@
 					  class="t-input"
 					  type="text"
 					  value="{{locationState.detailAddress}}"
-					  maxlength="50"
 					  placeholder="门牌号等(例如:10栋1001号)"
-					  t-class-placeholder="placeholder"
-					  t-class-textarea="t-textarea"
+						autosize
 					  bind:change="onInputValue"
 					  data-item="detailAddress"
 					/>
@@ -145,7 +140,7 @@
   bind:confirm="confirmHandle"
   bind:cancel="cancelHandle"
 >
-	<t-input slot="content" model:value="{{labelValue}}" placeholder="请输入标签名称" />
+	<t-input slot="content" model:value="{{labelValue}}" placeholder="请输入标签名称" borderless />
 </t-dialog>
 <t-toast id="t-toast" />
 

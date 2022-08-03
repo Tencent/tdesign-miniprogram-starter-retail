@@ -97,7 +97,8 @@
 						  value="{{ commentItem.commentScore }}"
 						  count="{{5}}"
 						  variant="filled"
-						  color="#FFC51C"
+							size="12"
+							gap="2"
 						/>
 					</view>
 				</view>
