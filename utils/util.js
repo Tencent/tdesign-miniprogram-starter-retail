@@ -122,6 +122,15 @@ const phoneRegCheck = (phone) => {
   return phoneRegExp.test(phone);
 };
 
+/**
+ * 判断是不是对象
+ * @param {val} 判断的值
+ * @returns true - 是对象 false - 不是对象
+ */
+const isObject = function (val) {
+  return typeof val === 'object' && val !== null;
+};
+
 module.exports = {
   formatTime,
   priceFormat,
@@ -130,4 +139,5 @@ module.exports = {
   rpx2px,
   phoneEncryption,
   phoneRegCheck,
+  isObject,
 };

@@ -1,6 +1,6 @@
 import { fetchUserCenter } from '../../services/usercenter/fetchUsercenter';
 import Toast from 'tdesign-miniprogram/toast/index';
-
+import { isObject } from '../../utils/util';
 const menuData = [
   [
     {
@@ -232,9 +232,12 @@ Page({
 
   getVersionInfo() {
     const versionInfo = wx.getAccountInfoSync();
-    const { version, envVersion = __wxConfig } = versionInfo.miniProgram;
+    const release = 'release';
+    const env =
+      (isObject(__wxConfig) ? __wxConfig.envVersion : release) || release;
+    const { version, envVersion = env } = versionInfo.miniProgram;
     this.setData({
-      versionNo: envVersion === 'release' ? version : envVersion,
+      versionNo: envVersion === release ? version : envVersion,
     });
   },
 });
