@@ -2,7 +2,6 @@
  value="{{active}}"
  bindchange="onChange"
  split="{{false}}"
- color="{{[theme.custom.colorPrimary, '#bbb' ]}}"
 >
 	<t-tab-bar-item
 	 wx:for="{{list}}"
