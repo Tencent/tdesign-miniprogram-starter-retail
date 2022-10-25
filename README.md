@@ -116,10 +116,15 @@ TDesign 零售模版示例小程序采用 [TDesign 企业级设计体系小程�
 
 <img src="https://cdn.qa.ym.qq.com/officical-site/assets/logo.png?auto=format&fit=max&w=384" width = "100" height = "30" alt="模版小程序页面详情" align=center />
 
-[云Mall](https://ym.qq.com/)是基于微信小程序的电商SaaS产品，致力于提供全面、可靠的小程序商城经营服务，助力商家成功。支持标准化和定开类型商家入驻。合作洽谈可微信咨询联系`lixingdecai`。
+[云Mall](https://ym.qq.com/)是基于微信小程序的电商SaaS产品，致力于提供全面、可靠的小程序商城经营服务，助力商家成功。支持标准化和定开类型商家入驻。
 
-<img src="https://we-retail-static-1300977798.cos.ap-guangzhou.myqcloud.com/retail-mp/common/wechat-group.jpg" width = "230" height = "290" alt="模版小程序页面详情" align=center />
+企业微信群
+TDesign 团队会及时在企业微信大群中同步发布版本、问题修复信息，也会有一些关于组件库建设的讨论，欢迎微信或企业微信扫码入群交流：
 
+<img src="https://oteam-tdesign-1258344706.cos.ap-guangzhou.myqcloud.com/site/doc/TDesign%20IM.png" width = "200" height = "200" alt="模版小程序页面详情" align=center />
+
+
+邮件联系：tdesign@tencent.com
 
 ## :link: TDesign 其他技术栈实现
 
