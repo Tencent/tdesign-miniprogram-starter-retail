@@ -36,16 +36,6 @@ Page({
       rejectAddress();
     }
   },
-  addAddress() {
-    wx.navigateTo({
-      url: '/pages/usercenter/address/edit/index',
-    });
-  },
-  onEdit(e) {
-    wx.navigateTo({
-      url: `/pages/usercenter/address/edit/index?id=${e.detail.id}`,
-    });
-  },
   getAddressList() {
     const { id } = this.data;
     fetchDeliveryAddressList().then((addressList) => {
