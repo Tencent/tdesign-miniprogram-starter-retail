@@ -31,7 +31,7 @@
 			  t-class="location-btn"
 			  isCustomStyle="{{true}}"
 			/>
-			<view class="address-btn {{addressList.length >= 20 ? 'btn-default':''}}" bind:tap="addAddress">
+			<view class="address-btn {{addressList.length >= 20 ? 'btn-default':''}}" bind:tap="createHandle">
 				<t-icon
 				  name="add"
 				  size="48rpx"
