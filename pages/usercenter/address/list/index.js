@@ -37,13 +37,9 @@ Page({
     }
   },
   addAddress() {
+    this.waitForNewAddress();
     wx.navigateTo({
       url: '/pages/usercenter/address/edit/index',
-    });
-  },
-  onEdit(e) {
-    wx.navigateTo({
-      url: `/pages/usercenter/address/edit/index?id=${e.detail.id}`,
     });
   },
   getAddressList() {
