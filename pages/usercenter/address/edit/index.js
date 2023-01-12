@@ -49,6 +49,11 @@ Page({
     verifyTips: '',
   },
   onLoad(options) {
+    const eventChannel = this.getOpenerEventChannel();
+    const self = this;
+    eventChannel.on('onWeixinAddressPassed', function (params) {
+      self.getWeixinAddress({ detail: params });
+    });
     const { id } = options;
     this.init(id);
   },
