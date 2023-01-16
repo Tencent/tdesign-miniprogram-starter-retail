@@ -25,7 +25,7 @@
 	/>
 </block>
 <!-- 购物车空态 -->
-<cart-empty wx:else bindbtnclick="onBtnClick" />
+<cart-empty wx:else bind:handleClick="onGotoHome" />
 <t-toast id="t-toast" />
 <t-dialog id="t-dialog" t-class-confirm="add-notes__confirm" />
 
