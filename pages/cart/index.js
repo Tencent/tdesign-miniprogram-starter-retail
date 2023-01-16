@@ -277,6 +277,7 @@ Page({
     }).then(() => {
       this.deleteGoodsService({ spuId, skuId }).then(() => {
         Toast({ context: this, selector: '#t-toast', message: '商品删除成功' });
+        this.setData({ cartGroupData: null });
         this.refreshData();
       });
     });
