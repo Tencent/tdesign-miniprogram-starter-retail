@@ -5,6 +5,12 @@
   background: #f5f5f5;
   position: relative;
   padding-top: 20rpx;
+
+  --td-input-vertical-padding: 0;
+}
+
+.receipt .t-input__wrapper {
+  margin: 0 !important;
 }
 .srcoll-view-wrap {
   margin-top: 20rpx;

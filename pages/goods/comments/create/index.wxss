@@ -15,6 +15,7 @@ page {
 
 .comment-card .goods-info-container {
   display: flex;
+  align-items: center;
 }
 
 .comment-card .goods-info-container .goods-title-container {
@@ -24,7 +25,6 @@ page {
 .comment-card .goods-info-container .goods-title {
   font-size: 28rpx;
   font-weight: normal;
-  margin-top: 12rpx;
 }
 
 .comment-card .goods-info-container .goods-detail {
@@ -43,10 +43,7 @@ page {
 .comment-card .rate-container .rate-title {
   font-size: 28rpx;
   font-weight: bold;
-}
-
-.comment-card .rate-container .rate {
-  margin-left: 22rpx;
+  margin-right: 12rpx;
 }
 
 .comment-card .textarea-container {
@@ -54,6 +51,7 @@ page {
 }
 
 .comment-card .textarea-container .textarea {
+  height: 294rpx;
   background-color: #f5f5f5;
   border-radius: 16rpx;
   font-size: 28rpx;
@@ -106,9 +104,10 @@ page {
 }
 
 .submit-button-container {
-  padding: 12rpx 0rpx;
+  padding: 12rpx 32rpx;
   display: flex;
   width: 100vw;
+  box-sizing: border-box;
   justify-content: center;
   position: fixed;
   bottom: 0;
@@ -118,19 +117,17 @@ page {
 }
 
 .submit-button-container .submit-button {
-  background-color: #fa4126;
-  border: 0;
-  border-radius: 48rpx;
-  width: 686rpx;
-  height: 88rpx;
+  --td-button-default-color: #fff;
+  --td-button-default-bg-color: #fa4126;
+  --td-button-default-border-color: #fa4126;
+  --td-button-default-active-bg-color: #fa42269c;
 }
 
 .submit-button-container .submit-button-disabled {
-  background-color: rgba(0, 0, 0, 0.4);
-  border: 0;
-  border-radius: 48rpx;
-  width: 686rpx;
-  height: 88rpx;
+  --td-button-default-color: #fff;
+  --td-button-default-bg-color: #ccc;
+  --td-button-default-border-color: #ccc;
+  --td-button-default-active-bg-color: rgba(204, 204, 204, 0.789);
 }
 
 .page-container .upload-container {

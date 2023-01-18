@@ -105,7 +105,7 @@
 									 catchchange="changeStepper"
 									 catchblur="input"
 									 catchoverlimit="overlimit"
-									 theme="grey"
+									 theme="filled"
 									/>
 								</view>
 							</goods-card>

@@ -10,11 +10,10 @@
 	<t-stepper
 	 wx:if="{{ step }}"
 	 slot="append-body"
-	 class="order-stepper"
 	 disabled="{{ step ? stepDisabled : ''}}"
 	 value="{{goods.quantity}}"
 	 min="{{ 1 }}"
-	 icon-size="{{ 24 }}"
+   theme="filled"
 	 bindminus="onNumChange"
 	 bindplus="onNumChange"
 	 bindblur="onNumChange"

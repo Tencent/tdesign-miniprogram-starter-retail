@@ -2,21 +2,22 @@
 	<view class="goods-head">
 		<t-swiper
 		  wx:if="{{details.images.length > 0}}"
-		  t-class="t-swiper"
+      height="750rpx"
 		  current="{{current}}"
 		  autoplay="{{autoplay}}"
 		  duration="{{duration}}"
 		  interval="{{interval}}"
 		  navigation="{{navigation}}"
+      list="{{details.images}}"
 		>
-			<t-swiper-item
+			<!-- <t-swiper-item
 			  wx:for="{{details.images}}"
 			  wx:for-item="item"
 			  wx:for-index="index"
 			  wx:key="index"
 			>
 				<t-image src="{{item}}" t-class="swipe-img" />
-			</t-swiper-item>
+			</t-swiper-item> -->
 		</t-swiper>
 		<view class="goods-info">
 			<view class="goods-number">
@@ -51,9 +52,9 @@
 			<view class="goods-title">
 				<view class="goods-name">{{details.title}}</view>
 				<view class="goods-tag">
-					<t-button open-type="share" t-class="shareBtn">
+					<t-button open-type="share" t-class="shareBtn" variant="text">
 						<view class="btn-icon">
-							<t-icon name="share" size="32rpx" />
+							<t-icon name="share" size="40rpx" color="#000" />
 							<view class="share-text">分享</view>
 						</view>
 					</t-button>
@@ -99,6 +100,7 @@
 						  variant="filled"
 							size="12"
 							gap="2"
+              color="{{['#ffc51c', '#ddd']}}"
 						/>
 					</view>
 				</view>

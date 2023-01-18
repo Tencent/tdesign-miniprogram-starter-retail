@@ -234,14 +234,9 @@ Page({
 
   onChangeReturnNum(e) {
     const { value } = e.detail;
-    this.setData(
-      {
-        'serviceFrom.returnNum': value,
-      },
-      () => {
-        this.refresh();
-      },
-    );
+    this.setData({
+      'serviceFrom.returnNum': value,
+    });
   },
 
   onApplyGoodsStatus() {

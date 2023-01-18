@@ -339,25 +339,6 @@ Component({
       });
     },
 
-    // 加
-    handleBuyNumPlus() {
-      const { buyNum } = this.data;
-      const { isStock } = this.properties;
-      if (!isStock) return;
-      const nextBuyNum = Number(buyNum) + 1;
-      this.setBuyNum(nextBuyNum > 999 ? buyNum : nextBuyNum);
-    },
-
-    // 减
-    handleBuyNumMinus() {
-      const { buyNum } = this.data;
-      const { limitMinCount } = this.properties;
-      const { isStock } = this.properties;
-      if (!isStock || buyNum < limitMinCount + 1) return;
-      const nextBuyNum = Number(buyNum) - 1;
-      this.setBuyNum(nextBuyNum < 1 ? buyNum : nextBuyNum);
-    },
-
     // 总处理
     setBuyNum(buyNum) {
       this.setData({
@@ -368,22 +349,11 @@ Component({
       });
     },
 
-    // 输入框
     handleBuyNumChange(e) {
-      const {
-        detail: { value },
-      } = e;
-      const valInNum = Number(value);
-      const { limitMaxCount, limitMinCount } = this.properties;
-      const nextData = {
-        buyNum:
-          valInNum < limitMinCount
-            ? limitMinCount
-            : valInNum > limitMaxCount
-            ? limitMaxCount
-            : valInNum,
-      };
-      this.setData(nextData);
+      const { value } = e.detail;
+      this.setData({
+        buyNum: value,
+      });
     },
   },
 });

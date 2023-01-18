@@ -18,18 +18,18 @@
 				<view class="price-between">价格区间</view>
 				<view class="price-ipts-wrap">
 					<t-input
+            align="center"
 					  type="number"
 					  t-class="price-ipt"
-					  t-class-input="t-class-input"
 					  placeholder="最低价"
 					  value="{{minVal}}"
 					  bindchange="onMinValAction"
 					/>
 					<view class="price-divided">-</view>
 					<t-input
+            align="center"
 					  type="number"
 					  t-class="price-ipt"
-					  t-class-input="t-class-input"
 					  placeholder="最高价"
 					  value="{{maxVal}}"
 					  bindchange="onMaxValAction"

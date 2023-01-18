@@ -64,7 +64,7 @@
 .promotion-detail-container
   .wrap
   .count-down-wrap.after-banner-count-down-wrap {
-  padding: 0 10rpx 10rpx;
+  padding: 10rpx;
 }
 
 .promotion-detail-container
