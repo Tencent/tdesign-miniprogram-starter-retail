@@ -5,6 +5,7 @@
 			<t-cell title="运单号" t-class-title="t-cell-title-width">
 				<t-input
 				 slot="note"
+         borderless
 				 t-class="t-cell__value"
 				 type="text"
 				 value="{{trackingNo}}"
@@ -37,6 +38,7 @@
 		 type="text"
 		 value="{{remark}}"
 		 maxlength="140"
+     autosize
 		 placeholder="选填项，如有多个包裹寄回，请注明其运单信息"
 		 bind:change="onInput"
 		 data-key="remark"

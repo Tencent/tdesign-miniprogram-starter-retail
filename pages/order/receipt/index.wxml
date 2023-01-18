@@ -33,6 +33,7 @@
 		<t-cell title="{{addressTagsIndex === 0 ? '姓名':'公司名称'}}" t-class-left="cell-left" t-class-right="cell-right">
 			<t-input
 			 slot="right-icon"
+       borderless
 			 t-class="input-com"
 			 value="{{addressTagsIndex === 0 ? name:componentName}}"
 			 bindchange="onInput"
@@ -45,6 +46,7 @@
 			<view class="addressTagsIndex-cell" slot="right-icon">
 				<t-input
 				 t-class="input-com"
+         borderless
 				 value="{{addressTagsIndex === 0 ? phone:code}}"
 				 bindchange="onInput"
 				 data-item="code"
@@ -59,10 +61,11 @@
 				/>
 			</view>
 		</t-cell>
-		<t-cell title="电子邮箱" t-class-left="cell-left" t-class-right="cell-right">
+		<t-cell title="电子邮箱" bordered="{{false}}" t-class-left="cell-left" t-class-right="cell-right">
 			<t-input
 			 slot="right-icon"
 			 t-class="input-com"
+       borderless
 			 value="{{email}}"
 			 bindchange="onInput"
 			 data-item="email"

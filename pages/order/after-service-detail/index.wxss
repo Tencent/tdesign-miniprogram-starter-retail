@@ -79,7 +79,7 @@
 
 .service-detail .service-section {
   margin: 20rpx 0 20rpx 0;
-  padding: 30rpx 32rpx;
+  /* padding: 30rpx 32rpx; */
   width: auto;
   border-radius: 8rpx;
   background-color: white;
@@ -95,7 +95,8 @@
 .service-detail .service-section__title {
   color: #333333;
   margin-bottom: 10rpx;
-  height: 200rpx;
+  padding-bottom: 18rpx;
+  height: 224rpx;
   position: relative;
 }
 .service-detail .service-section__title .icon {
@@ -220,13 +221,15 @@
 
 .service-detail .text-btn {
   display: inline;
+  box-sizing: border-box;
   color: #333;
-  border: 2rpx solid #efefef;
-  border-radius: 25rpx;
+  border: 2rpx solid #ddd;
+  border-radius: 32rpx;
   margin-left: 10rpx;
-  padding: 0 30rpx;
+  padding: 0 16rpx;
   font-weight: normal;
   font-size: 24rpx;
+  line-height: 32rpx;
 }
 .service-detail .text-btn--active {
   opacity: 0.5;
@@ -380,7 +383,8 @@
 }
 
 .t-refund-wrapper {
-  padding: 10rpx 24rpx 10rpx 20rpx !important;
+  padding-top: 18rpx !important;
+  padding-bottom: 18rpx !important;
 }
 
 .t-refund-title {
@@ -434,10 +438,9 @@
 .service-detail .goods-refund-address .goods-refund-address-copy-btn {
   position: absolute;
   top: 22rpx;
-  right: 0;
+  right: 32rpx;
 }
 
 .service-detail .service-goods-card-wrap {
-  padding-top: 0;
-  padding-bottom: 0;
+  padding: 0 32rpx;
 }

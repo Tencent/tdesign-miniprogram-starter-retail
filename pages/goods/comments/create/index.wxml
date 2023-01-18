@@ -11,17 +11,26 @@
 		</view>
 		<view class="rate-container">
 			<text class="rate-title">商品评价</text>
-			<t-rate
-			  value="{{goodRateValue}}"
-			  bind:change="onRateChange"
-			  variant="filled"
-			  size="26"
-				gap="6"
-			  data-item="goodRateValue"
-			/>
+      <view class="rate">
+        <t-rate
+          value="{{goodRateValue}}"
+          bind:change="onRateChange"
+          variant="filled"
+          size="26"
+          gap="6"
+          color="{{['#ffc51c', '#ddd']}}"
+          data-item="goodRateValue"
+        />
+      </view>
 		</view>
 		<view class="textarea-container">
-			<t-textarea t-class="textarea" maxlength="{{500}}" bind:change="onTextAreaChange" />
+			<t-textarea 
+        t-class="textarea" 
+        maxlength="{{500}}" 
+        indicator
+        placeholder="对商品满意吗？评论一下"
+        bind:change="onTextAreaChange" 
+      />
 		</view>
 		<view class="upload-container">
 			<t-upload
@@ -30,14 +39,8 @@
 			  bind:remove="handleRemove"
 			  bind:success="handleSuccess"
 			  gridConfig="{{gridConfig}}"
-			  addContent="slot"
 			  imageProps="{{imageProps}}"
-			>
-				<view slot="addContent" class="upload-addcontent-slot">
-					<t-icon name="photo" size="60rpx" />
-					<text>添加图片/视频</text>
-				</view>
-			</t-upload>
+			/>
 		</view>
 
 		<view class="anonymous-box">
@@ -50,33 +53,38 @@
 	<view class="convey-comment-title">物流服务评价</view>
 	<view class="rate-container">
 		<text class="rate-title">物流评价</text>
-		<t-rate
-		  value="{{conveyRateValue}}"
-		  bind:change="onRateChange"
-		  variant="filled"
-		  size="26"
-			gap="6"
-		  class="rate"
-		  data-item="conveyRateValue"
-		/>
+    <view class="rate">
+      <t-rate
+        value="{{conveyRateValue}}"
+        bind:change="onRateChange"
+        variant="filled"
+        size="26"
+        gap="6"
+        color="{{['#ffc51c', '#ddd']}}"
+        data-item="conveyRateValue"
+      />
+    </view>
 	</view>
 	<view class="rate-container">
 		<text class="rate-title">服务评价</text>
-		<t-rate
-		  value="{{serviceRateValue}}"
-		  bind:change="onRateChange"
-		  variant="filled"
-		  size="26"
-			gap="6"
-		  class="rate"
-		  data-item="serviceRateValue"
-		/>
+    <view class="rate">
+      <t-rate
+        value="{{serviceRateValue}}"
+        bind:change="onRateChange"
+        variant="filled"
+        size="26"
+        gap="6"
+        color="{{['#ffc51c', '#ddd']}}"
+        data-item="serviceRateValue"
+      />
+    </view>
 	</view>
 </view>
 <view class="submit-button-container">
 	<t-button
-	  theme="danger"
 	  content="提交"
+    block
+    shape="round"
 	  t-class="submit-button{{isAllowedSubmit ? '' : '-disabled'}}"
 	  bind:tap="onSubmitBtnClick"
 	/>

@@ -19,7 +19,7 @@
 	 total-goods-num="{{cartGroupData.selectedGoodsCount}}"
 	 total-discount-amount="{{cartGroupData.totalDiscountAmount}}"
 	 fixed="{{true}}"
-	 bottomHeight="{{94}}"
+	 bottomHeight="{{112}}"
 	 bindhandleSelectAll="onSelectAll"
 	 bindhandleToSettle="onToSettle"
 	/>

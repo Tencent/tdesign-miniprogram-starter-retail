@@ -58,23 +58,13 @@
 							({{limitBuyInfo}})
 						</view>
 					</view>
-					<view class="popup-stepper popup-sku__stepper">
-						<view class="input-btn popup-stepper__minus" bindtap="handleBuyNumMinus">
-							<t-icon name="remove" size="24rpx" />
-						</view>
-						<view class="input-num-wrap">
-							<input
-							  maxlength="{{limitCount}}"
-							  class="input-num"
-							  type="number"
-							  value="{{buyNum}}"
-							  bindblur="handleBuyNumChange"
-							/>
-						</view>
-						<view class="input-btn popup-stepper__plus" bindtap="handleBuyNumPlus">
-							<t-icon name="add" size="24rpx" />
-						</view>
-					</view>
+          <t-stepper
+            value="{{buyNum}}"
+            min="{{1}}"
+            max="{{2}}"
+            theme="filled"
+            bind:change="handleBuyNumChange"
+          />
 				</view>
 			</view>
 		</view>

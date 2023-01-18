@@ -1,5 +1,6 @@
 <view class="name-edit">
 	<t-input
+    borderless
 	  model:value="{{nameValue}}"
 	  placeholder="请输入文字"
 	  label="昵称"

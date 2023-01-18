@@ -29,18 +29,15 @@
 .btn-bar .left .delete-btn::after {
   display: none;
 }
+
 .btn-bar .right .normal {
-  color: #333;
-  font-size: 28rpx;
+  --td-button-default-color: #333333;
+  --td-button-default-border-color: #dddddd;
 }
-.btn-bar .right .normal:after {
-  border-color: #bbbbbb;
-}
+
 .btn-bar .right .primary {
-  color: #fa550f;
-  color: var(--color-primary, #fa550f);
-}
-.btn-bar .right .primary:after {
-  border-color: #fa550f;
-  border-color: var(--color-primary, #fa550f);
+  --td-button-default-color: #fff;
+  --td-button-default-bg-color: #fa4126;
+  --td-button-default-border-color: #fa4126;
+  --td-button-default-active-bg-color: #fa42269c;
 }

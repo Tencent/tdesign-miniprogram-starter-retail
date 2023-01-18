@@ -21,7 +21,6 @@ Page({
     const { selectMode = '', isOrderSure = '', id = '' } = query;
     this.setData({
       isOrderSure: !!isOrderSure,
-      extraSpace: !!isOrderSure,
       id,
     });
     this.selectMode = !!selectMode;

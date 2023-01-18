@@ -1,12 +1,5 @@
-<view style="text-align: center" wx:if="{{pageLoading}}">
-	<t-loading
-	  theme="circular"
-	  size="40rpx"
-	  loading
-	  t-class-indicator="t-class-indicator"
-	>
-		<span slot="text" class="loading-text">加载中...</span>
-	</t-loading>
+<view style="text-align: center;color: #b9b9b9 " wx:if="{{pageLoading}}">
+  <t-loading theme="circular" size="40rpx" text="加载中..." inherit-color/>
 </view>
 <view class="home-page-header">
 	<view class="search" bind:tap="navToSearchPage">
@@ -34,30 +27,31 @@
 		  duration="{{duration}}"
 		  interval="{{interval}}"
 		  navigation="{{navigation}}"
-		>
-			<t-swiper-item wx:for="{{imgSrcs}}" wx:key="index">
-				<t-image src="{{item.img}}" t-class="t-image__swiper" bind:tap="navToActivityDetail" />
-			</t-swiper-item>
-		</t-swiper>
+      list="{{imgSrcs}}"
+      bind:click="navToActivityDetail"
+		/>
 	</view>
 </view>
 <view class="home-page-container">
-	<t-tabs
-	  t-class="t-tabs"
-	  t-class-active="tabs-external__active"
-		t-class-item="tabs-external__item"
-	  t-class-track="tabs-external__track"
-	  defaultValue="{{0}}"
-	  bind:change="tabChangeHandle"
-	>
-		<t-tab-panel
-		  wx:for="{{tabList}}"
-		  wx:for-index="index"
-		  wx:key="index"
-		  label="{{item.text}}"
-		  value="{{item.key}}"
-		/>
-	</t-tabs>
+  <view class="home-page-tabs">
+    <t-tabs
+      t-class="t-tabs"
+      t-class-active="tabs-external__active"
+      t-class-item="tabs-external__item"
+      defaultValue="{{0}}"
+      space-evenly="{{false}}"
+      bind:change="tabChangeHandle"
+    >
+      <t-tab-panel
+        wx:for="{{tabList}}"
+        wx:for-index="index"
+        wx:key="index"
+        label="{{item.text}}"
+        value="{{item.key}}"
+      />
+    </t-tabs>
+  </view>
+	
 	<goods-list
 	  wr-class="goods-list-container"
 	  goodsList="{{goodsList}}"

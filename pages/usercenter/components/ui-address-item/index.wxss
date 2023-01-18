@@ -21,7 +21,7 @@
 .address-item-wrapper .draw-line::after {
   content: '';
   position: absolute;
-  top: 0;
+  bottom: 0;
   left: 32rpx;
   width: 200%;
   height: 2rpx;

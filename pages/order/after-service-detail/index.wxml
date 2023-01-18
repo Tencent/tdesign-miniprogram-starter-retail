@@ -50,6 +50,7 @@
 			<view class="service-section logistics" wx:if="{{service.logisticsNo}}">
 				<view class="service-section__title">
 					<t-cell
+            align="top"
 					  title="{{service.logisticsCompanyName + ' ' + service.logisticsNo}}"
 					  bordered="{{false}}"
 					  description="买家已寄出"
@@ -61,18 +62,24 @@
 						  name="deliver"
 						  size="40rpx"
 						  slot="left-icon"
-						  style="position: absolute; top: 25rpx; left:0"
 						/>
-						<view slot="note" style="position: absolute; bottom: -45rpx;right: 20rpx">
-							<wr-after-service-button-bar service="{{service}}" />
-						</view>
 					</t-cell>
+          <view style="padding: 0 32rpx;">
+            <wr-after-service-button-bar service="{{service}}" />
+          </view>
 				</view>
 			</view>
 			<!-- 收货地址 -->
 			<view class="service-section goods-refund-address" wx:if="{{service.receiverName}}">
 				<t-cell-group>
-					<t-cell title="退货地址" bordered="{{false}}">
+					<t-cell align="top" title="退货地址" bordered="{{false}}">
+            <t-icon
+						  prefix="wr"
+						  color="#333333"
+						  name="location"
+						  size="40rpx"
+						  slot="left-icon"
+						/>
 						<view
 						  slot="note"
 						  class="right text-btn goods-refund-address-copy-btn"
@@ -87,14 +94,7 @@
 							<view>收货人：{{service.receiverName}}</view>
 							<view>收货人手机：{{service.receiverName}}</view>
 						</view>
-						<t-icon
-						  prefix="wr"
-						  color="#333333"
-						  name="location"
-						  size="40rpx"
-						  slot="left-icon"
-						  style="position: absolute; top: 25rpx; left:0"
-						/>
+						
 					</t-cell>
 				</t-cell-group>
 			</view>
