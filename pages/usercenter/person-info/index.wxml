@@ -1,5 +1,5 @@
 <view class="person-info">
-  <t-cell-group >
+  <t-cell-group>
     <t-cell
       title="头像"
       center="{{true}}"
@@ -8,12 +8,7 @@
       arrow
       t-class-left="order-group__left"
     >
-      <t-image
-        slot="note"
-        src="{{personInfo.avatarUrl}}"
-        t-class="avatarUrl"
-        mode="aspectFill"
-      />
+      <t-image slot="note" src="{{personInfo.avatarUrl}}" t-class="avatarUrl" mode="aspectFill" />
     </t-cell>
     <t-cell
       title="昵称"
@@ -46,9 +41,7 @@
   </t-cell-group>
 </view>
 <view class="person-info__wrapper">
-	<view class="person-info__btn" bind:tap="openUnbindConfirm">
-		切换账号登录
-	</view>
+  <view class="person-info__btn" bind:tap="openUnbindConfirm"> 切换账号登录 </view>
 </view>
 <t-select-picker
   show="{{typeVisible}}"
@@ -59,4 +52,3 @@
   bind:close="onClose"
 />
 <t-toast id="t-toast" />
-

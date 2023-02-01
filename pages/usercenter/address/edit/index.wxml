@@ -1,77 +1,61 @@
 <view class="address-detail">
-	<view class="divider-line" />
-	<t-location
-	  title="获取微信收获地址"
-	  isCustomStyle
-	  t-class="address-detail-wx-location"
-	  bind:change="getWeixinAddress"
-	>
-		<t-icon
-		  class="address-detail-wx-arrow"
-		  name="arrow_forward"
-		  prefix="wr"
-		  color="#bbb"
-		  size="32rpx"
-		/>
-	</t-location>
-	<view class="divider-line" />
-	<view class="form-address">
-		<form class="form-content">
-			<t-cell-group>
-				<t-cell t-class-title="t-cell-title" title="收货人">
-					<t-input
-					  class="t-input"
-					  slot="note"
-					  t-class="field-text"
+  <view class="divider-line" />
+  <t-location
+    title="获取微信收获地址"
+    isCustomStyle
+    t-class="address-detail-wx-location"
+    bind:change="getWeixinAddress"
+  >
+    <t-icon class="address-detail-wx-arrow" name="arrow_forward" prefix="wr" color="#bbb" size="32rpx" />
+  </t-location>
+  <view class="divider-line" />
+  <view class="form-address">
+    <form class="form-content">
+      <t-cell-group>
+        <t-cell t-class-title="t-cell-title" title="收货人">
+          <t-input
+            class="t-input"
+            slot="note"
+            t-class="field-text"
             borderless
-					  data-item="name"
-					  maxlength="20"
-					  type="text"
-					  value="{{locationState.name}}"
-					  placeholder="您的姓名"
-					  bind:change="onInputValue"
-					/>
-				</t-cell>
-				<t-cell t-class-title="t-cell-title" title="手机号">
-					<t-input
-					  slot="note"
-					  class="t-input"
-					  t-class="field-text"
+            data-item="name"
+            maxlength="20"
+            type="text"
+            value="{{locationState.name}}"
+            placeholder="您的姓名"
+            bind:change="onInputValue"
+          />
+        </t-cell>
+        <t-cell t-class-title="t-cell-title" title="手机号">
+          <t-input
+            slot="note"
+            class="t-input"
+            t-class="field-text"
             borderless
-					  type="number"
-					  value="{{locationState.phone}}"
-					  maxlength="11"
-					  placeholder="联系您的手机号"
-					  bind:change="onInputValue"
-					  data-item="phone"
-					/>
-				</t-cell>
-				<t-cell t-class-title="t-cell-title" title="地区">
-					<t-input
-					  slot="note"
-					  class="t-input"
-					  t-class="field-text"
+            type="number"
+            value="{{locationState.phone}}"
+            maxlength="11"
+            placeholder="联系您的手机号"
+            bind:change="onInputValue"
+            data-item="phone"
+          />
+        </t-cell>
+        <t-cell t-class-title="t-cell-title" title="地区">
+          <t-input
+            slot="note"
+            class="t-input"
+            t-class="field-text"
             borderless
-					  placeholder="省/市/区"
-					  data-item="address"
-					  value="{{locationState.provinceName ? locationState.provinceName+'/':'' }}{{locationState.cityName ? locationState.cityName+'/':''}}{{locationState.districtName}}"
-					  catch:tap="onPickArea"
-					  disabled
-					/>
-					<t-icon
-					  slot="right-icon"
-					  t-class="map"
-					  prefix="wr"
-					  name="location"
-					  catch:tap="onSearchAddress"
-					/>
-				</t-cell>
-				<t-cell
-				  t-class-title="t-cell-title"
-				  title="详细地址"
-          bordered="{{false}}"
-				>
-					<view slot="note" class="textarea__wrapper">
+            placeholder="省/市/区"
+            data-item="address"
+            value="{{locationState.provinceName ? locationState.provinceName+'/':'' }}{{locationState.cityName ? locationState.cityName+'/':''}}{{locationState.districtName}}"
+            catch:tap="onPickArea"
+            disabled
+          />
+          <t-icon slot="right-icon" t-class="map" prefix="wr" name="location" catch:tap="onSearchAddress" />
+        </t-cell>
+        <t-cell t-class-title="t-cell-title" title="详细地址" bordered="{{false}}">
+          <view slot="note" class="textarea__wrapper">
             <t-textarea
               slot="note"
               type="text"
@@ -82,58 +66,54 @@
               data-item="detailAddress"
             />
           </view>
-				</t-cell>
-        
-				<view class="divider-line" />
-				<t-cell
-				  t-class-note="t-cell-note"
-				  t-class-title="t-cell-title"
-				  title="标签"
-          bordered="{{false}}"
-				>
-					<view class="t-input address-flex-box" slot="note">
-						<t-button
-						  wx:for="{{labels}}"
-						  wx:for-item="label"
-						  wx:key="index"
+        </t-cell>
+
+        <view class="divider-line" />
+        <t-cell t-class-note="t-cell-note" t-class-title="t-cell-title" title="标签" bordered="{{false}}">
+          <view class="t-input address-flex-box" slot="note">
+            <t-button
+              wx:for="{{labels}}"
+              wx:for-item="label"
+              wx:key="index"
               size="extra-small"
-						  t-class="label-list {{locationState.labelIndex === index ? 'active-btn':''}}"
-						  bindtap="onPickLabels"
-						  data-item="{{index}}"
-						>
-							{{label.name}}
-						</t-button>
-						<t-button size="extra-small" t-class="label-list" bindtap="addLabels">
-							<t-icon name="add" size="40rpx" color="#bbb" />
-						</t-button>
-					</view>
-				</t-cell>
-				<view class="divider-line" />
-				<t-cell title="设置为默认收货地址" bordered="{{false}}">
-					<t-switch
-					  value="{{locationState.isDefault}}"
-					  slot="note"
-					  colors="{{['#0ABF5B', '#c6c6c6']}}"
-					  bind:change="onCheckDefaultAddress"
-					/>
-				</t-cell>
-			</t-cell-group>
-			<view class="submit">
-				<t-button shape="round" block disabled="{{!!submitActive}}" t-class="btn-submit-address" bind:tap="formSubmit">
-					保存
-				</t-button>
-			</view>
-		</form>
-	</view>
-  <t-cascader 
+              t-class="label-list {{locationState.labelIndex === index ? 'active-btn':''}}"
+              bindtap="onPickLabels"
+              data-item="{{index}}"
+            >
+              {{label.name}}
+            </t-button>
+            <t-button size="extra-small" t-class="label-list" bindtap="addLabels">
+              <t-icon name="add" size="40rpx" color="#bbb" />
+            </t-button>
+          </view>
+        </t-cell>
+        <view class="divider-line" />
+        <t-cell title="设置为默认收货地址" bordered="{{false}}">
+          <t-switch
+            value="{{locationState.isDefault}}"
+            slot="note"
+            colors="{{['#0ABF5B', '#c6c6c6']}}"
+            bind:change="onCheckDefaultAddress"
+          />
+        </t-cell>
+      </t-cell-group>
+      <view class="submit">
+        <t-button shape="round" block disabled="{{!!submitActive}}" t-class="btn-submit-address" bind:tap="formSubmit">
+          保存
+        </t-button>
+      </view>
+    </form>
+  </view>
+  <t-cascader
     data-item="address"
     data-type="1"
-    visible="{{areaPickerVisible}}" 
+    visible="{{areaPickerVisible}}"
     theme="tab"
-    options="{{areaData}}" 
+    options="{{areaData}}"
     value="{{locationState.districtCode}}"
-    title="选择地区" 
-    bind:change="onInputValue"></t-cascader>
+    title="选择地区"
+    bind:change="onInputValue"
+  ></t-cascader>
 </view>
 <t-dialog
   visible="{{visible}}"
@@ -144,7 +124,6 @@
   bind:confirm="confirmHandle"
   bind:cancel="cancelHandle"
 >
-	<t-input slot="content" model:value="{{labelValue}}" placeholder="请输入标签名称" borderless />
+  <t-input slot="content" model:value="{{labelValue}}" placeholder="请输入标签名称" borderless />
 </t-dialog>
 <t-toast id="t-toast" />
-
