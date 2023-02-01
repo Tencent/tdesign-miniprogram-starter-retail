@@ -18,7 +18,7 @@
               class="popup-sku__selected-item"
               wx:for="{{item.specValueList}}"
               wx:for-item="selectedItem"
-              wx:if="{{selectedItem.isChoosed}}"
+              wx:if="{{selectedItem.isSelected}}"
               wx:key="specValueId"
             >
               {{selectedItem.specValue}}
@@ -38,7 +38,7 @@
             wx:key="specValueId"
           >
             <view
-              class="popup-sku-row__item {{valuesItem.isChoosed ? 'popup-sku-row__item--active' : ''}} {{!valuesItem.hasStockObj.hasStock || !isStock ? 'disabled-sku-selected' : ''}}"
+              class="popup-sku-row__item {{valuesItem.isSelected ? 'popup-sku-row__item--active' : ''}} {{!valuesItem.hasStockObj.hasStock || !isStock ? 'disabled-sku-selected' : ''}}"
               data-specid="{{item.specId}}"
               data-id="{{valuesItem.specValueId}}"
               data-val="{{valuesItem.specValue}}"

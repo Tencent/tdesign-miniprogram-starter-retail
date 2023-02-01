@@ -1,7 +1,4 @@
-<wxs module="handlePromotion">
-  var hasPromotion = function (code) { return code && code !== 'EMPTY_PROMOTION'; } module.exports.hasPromotion =
-  hasPromotion;
-</wxs>
+<wxs src="./index.wxs" module="handlePromotion" />
 <wxs src="./utils.wxs" module="utils" />
 
 <view class="cart-group">
