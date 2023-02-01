@@ -87,7 +87,7 @@
     </view>
     <view class="receipt-know" bindtap="onDialogTap">
       发票须知
-      <t-icon name="help-circle" siez="30rpx" />
+      <t-icon name="help-circle" size="30rpx" />
     </view>
     <t-dialog
       title="{{codeShow ? '纳税人识别号说明':'发票须知'}}"

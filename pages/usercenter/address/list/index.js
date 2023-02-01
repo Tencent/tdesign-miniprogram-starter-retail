@@ -90,7 +90,7 @@ Page({
       },
     });
   },
-  confirmDelteHandle({ detail }) {
+  confirmDeleteHandle({ detail }) {
     const { id } = detail || {};
     if (id !== undefined) {
       this.setData({ deleteID: id, showDeleteConfirm: true });
