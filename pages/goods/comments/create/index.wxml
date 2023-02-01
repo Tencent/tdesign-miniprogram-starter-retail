@@ -1,16 +1,16 @@
 <view class="page-container">
-	<view class="comment-card">
-		<view class="goods-info-container">
-			<view class="goods-image-container">
-				<t-image t-class="goods-image" src="{{imgUrl}}" />
-			</view>
-			<view class="goods-title-container">
-				<view class="goods-title">{{title}}</view>
-				<view class="goods-detail">{{goodsDetail}}</view>
-			</view>
-		</view>
-		<view class="rate-container">
-			<text class="rate-title">商品评价</text>
+  <view class="comment-card">
+    <view class="goods-info-container">
+      <view class="goods-image-container">
+        <t-image t-class="goods-image" src="{{imgUrl}}" />
+      </view>
+      <view class="goods-title-container">
+        <view class="goods-title">{{title}}</view>
+        <view class="goods-detail">{{goodsDetail}}</view>
+      </view>
+    </view>
+    <view class="rate-container">
+      <text class="rate-title">商品评价</text>
       <view class="rate">
         <t-rate
           value="{{goodRateValue}}"
@@ -22,37 +22,37 @@
           data-item="goodRateValue"
         />
       </view>
-		</view>
-		<view class="textarea-container">
-			<t-textarea 
-        t-class="textarea" 
-        maxlength="{{500}}" 
+    </view>
+    <view class="textarea-container">
+      <t-textarea
+        t-class="textarea"
+        maxlength="{{500}}"
         indicator
         placeholder="对商品满意吗？评论一下"
-        bind:change="onTextAreaChange" 
+        bind:change="onTextAreaChange"
       />
-		</view>
-		<view class="upload-container">
-			<t-upload
-			  media-type="{{['image','video']}}"
-			  files="{{uploadFiles}}"
-			  bind:remove="handleRemove"
-			  bind:success="handleSuccess"
-			  gridConfig="{{gridConfig}}"
-			  imageProps="{{imageProps}}"
-			/>
-		</view>
+    </view>
+    <view class="upload-container">
+      <t-upload
+        media-type="{{['image','video']}}"
+        files="{{uploadFiles}}"
+        bind:remove="handleRemove"
+        bind:success="handleSuccess"
+        gridConfig="{{gridConfig}}"
+        imageProps="{{imageProps}}"
+      />
+    </view>
 
-		<view class="anonymous-box">
-			<t-checkbox bind:change="onAnonymousChange" checked="{{isAnonymous}}" color="#FA4126" />
-			<view class="name">匿名评价</view>
-		</view>
-	</view>
+    <view class="anonymous-box">
+      <t-checkbox bind:change="onAnonymousChange" checked="{{isAnonymous}}" color="#FA4126" />
+      <view class="name">匿名评价</view>
+    </view>
+  </view>
 </view>
 <view class="comment-card convey-card">
-	<view class="convey-comment-title">物流服务评价</view>
-	<view class="rate-container">
-		<text class="rate-title">物流评价</text>
+  <view class="convey-comment-title">物流服务评价</view>
+  <view class="rate-container">
+    <text class="rate-title">物流评价</text>
     <view class="rate">
       <t-rate
         value="{{conveyRateValue}}"
@@ -64,9 +64,9 @@
         data-item="conveyRateValue"
       />
     </view>
-	</view>
-	<view class="rate-container">
-		<text class="rate-title">服务评价</text>
+  </view>
+  <view class="rate-container">
+    <text class="rate-title">服务评价</text>
     <view class="rate">
       <t-rate
         value="{{serviceRateValue}}"
@@ -78,16 +78,15 @@
         data-item="serviceRateValue"
       />
     </view>
-	</view>
+  </view>
 </view>
 <view class="submit-button-container">
-	<t-button
-	  content="提交"
+  <t-button
+    content="提交"
     block
     shape="round"
-	  t-class="submit-button{{isAllowedSubmit ? '' : '-disabled'}}"
-	  bind:tap="onSubmitBtnClick"
-	/>
+    t-class="submit-button{{isAllowedSubmit ? '' : '-disabled'}}"
+    bind:tap="onSubmitBtnClick"
+  />
 </view>
 <t-toast id="t-toast" />
-
