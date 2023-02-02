@@ -2,7 +2,7 @@
   "navigationBarTitleText": "我的订单",
   "usingComponents": {
     "t-tabs": "tdesign-miniprogram/tabs/tabs",
-    "t-tab-panel": "tdesign-miniprogram/tabs/tab-panel",
+    "t-tab-panel": "tdesign-miniprogram/tab-panel/tab-panel",
     "t-empty": "tdesign-miniprogram/empty/empty",
     "t-toast": "tdesign-miniprogram/toast/toast",
     "t-dialog": "tdesign-miniprogram/dialog/dialog",

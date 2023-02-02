@@ -35,9 +35,9 @@ page {
 }
 
 .coupon-list-wrap {
-  margin-top: 108rpx;
-  margin-left: 24rpx;
-  margin-right: 24rpx;
+  margin-top: 32rpx;
+  margin-left: 32rpx;
+  margin-right: 32rpx;
   overflow-y: auto;
   padding-bottom: 100rpx;
   padding-bottom: calc(constant(safe-area-inset-top) + 100rpx);
@@ -61,7 +61,7 @@ page {
 
 .center-entry-btn {
   color: #fa4126;
-  font-size: 32rpx;
+  font-size: 28rpx;
   text-align: center;
   line-height: 100rpx;
   display: flex;

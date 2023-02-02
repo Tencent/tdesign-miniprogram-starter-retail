@@ -143,9 +143,7 @@ Page({
         title: res.data.goodsInfo && res.data.goodsInfo.goodsName,
         spuId: res.data.spuId,
         skuId: res.data.skuId,
-        specs: ((res.data.goodsInfo && res.data.goodsInfo.specInfo) || []).map(
-          (s) => s.specValue,
-        ),
+        specs: ((res.data.goodsInfo && res.data.goodsInfo.specInfo) || []).map((s) => s.specValue),
         paidAmountEach: res.data.paidAmountEach,
         boughtQuantity: res.data.boughtQuantity,
       };
@@ -156,10 +154,10 @@ Page({
           current: res.data.refundableAmount,
         },
         'serviceFrom.returnNum': res.data.numOfSku,
-        amountTip: `最多可申请退款¥ ${priceFormat(
-          res.data.refundableAmount,
+        amountTip: `最多可申请退款¥ ${priceFormat(res.data.refundableAmount, 2)}，含发货运费¥ ${priceFormat(
+          res.data.shippingFeeIncluded,
           2,
-        )}，含发货运费¥ ${priceFormat(res.data.shippingFeeIncluded, 2)}`,
+        )}`,
         maxApplyNum: res.data.numOfSkuAvailable,
       });
     } catch (err) {
@@ -234,14 +232,9 @@ Page({
 
   onChangeReturnNum(e) {
     const { value } = e.detail;
-    this.setData(
-      {
-        'serviceFrom.returnNum': value,
-      },
-      () => {
-        this.refresh();
-      },
-    );
+    this.setData({
+      'serviceFrom.returnNum': value,
+    });
   },
 
   onApplyGoodsStatus() {
@@ -273,10 +266,7 @@ Page({
       return;
     }
     // 仅选中项与当前项不一致时，才切换申请原因列表applyReasons
-    if (
-      !statusItem ||
-      statusItem.status === this.data.serviceFrom.receiptStatus.status
-    ) {
+    if (!statusItem || statusItem.status === this.data.serviceFrom.receiptStatus.status) {
       this.setData({ showReceiptStatusDialog: false });
       return;
     }
@@ -311,9 +301,7 @@ Page({
 
   onAmountTap() {
     this.setData({
-      'serviceFrom.amount.temp': priceFormat(
-        this.data.serviceFrom.amount.current,
-      ),
+      'serviceFrom.amount.temp': priceFormat(this.data.serviceFrom.amount.current),
       'serviceFrom.amount.focus': true,
       inputDialogVisible: true,
     });
@@ -321,7 +309,7 @@ Page({
       cancelBtn: '取消',
       confirmBtn: '确定',
     });
-    this.inputDialog._onComfirm = () => {
+    this.inputDialog._onConfirm = () => {
       this.setData({
         'serviceFrom.amount.current': this.data.serviceFrom.amount.temp * 100,
       });
@@ -377,8 +365,7 @@ Page({
         },
         rightsItem: [
           {
-            itemTotalAmount:
-              this.data.goodsInfo.price * this.data.serviceFrom.returnNum,
+            itemTotalAmount: this.data.goodsInfo.price * this.data.serviceFrom.returnNum,
             rightsQuantity: this.data.serviceFrom.returnNum,
             skuId: this.query.skuId,
             spuId: this.query.spuId,

@@ -11,6 +11,6 @@
     "t-dialog": "tdesign-miniprogram/dialog/dialog",
     "t-switch": "tdesign-miniprogram/switch/switch",
     "t-location": "/pages/usercenter/components/t-location/index",
-    "t-area-picker": "../../components/area-picker-new/index"
+    "t-cascader": "tdesign-miniprogram/cascader/cascader"
   }
 }

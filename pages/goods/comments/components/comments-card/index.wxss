@@ -140,6 +140,7 @@
 
 .comments-info {
   display: flex;
+  align-items: center;
   margin-top: 18rpx;
 }
 
@@ -149,6 +150,7 @@
 
 .comments-info .goods-info-text {
   font-size: 24rpx;
+
   color: #999999;
 }
 

@@ -9,6 +9,8 @@
 .load-more .t-class-loading {
   display: flex;
   justify-content: center;
+
+  --td-loading-color: #fa4126;
 }
 
 .load-more .t-class-loading-text {

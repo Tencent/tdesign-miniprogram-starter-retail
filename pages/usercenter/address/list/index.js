@@ -21,7 +21,6 @@ Page({
     const { selectMode = '', isOrderSure = '', id = '' } = query;
     this.setData({
       isOrderSure: !!isOrderSure,
-      extraSpace: !!isOrderSure,
       id,
     });
     this.selectMode = !!selectMode;
@@ -81,7 +80,7 @@ Page({
       },
     });
   },
-  confirmDelteHandle({ detail }) {
+  confirmDeleteHandle({ detail }) {
     const { id } = detail || {};
     if (id !== undefined) {
       this.setData({ deleteID: id, showDeleteConfirm: true });

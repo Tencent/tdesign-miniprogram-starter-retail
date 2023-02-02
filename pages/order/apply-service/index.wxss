@@ -222,7 +222,15 @@
   position: relative;
   left: 30rpx;
 }
+.textarea--label {
+}
 .service-from-group__textarea {
+  margin-top: 20rpx;
+  background-color: #fff;
+  padding: 32rpx 32rpx 24rpx;
+}
+
+.textarea--content {
   margin-top: 32rpx;
   background: #f5f5f5 !important;
   border-radius: 16rpx;
@@ -237,9 +245,6 @@
   padding: 0 32rpx 48rpx;
   background: #fff;
   margin-bottom: 148rpx;
-}
-.select-service .t-cell__left {
-  margin-right: 0 !important;
 }
 
 .refund-money__description {

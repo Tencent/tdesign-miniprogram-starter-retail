@@ -1,15 +1,29 @@
 /* 主题定制 */
-.t-rate {
-  --td-rate-selected-color: #ffc51c;
-  --td-rate-unselected-color: #ddd;
-}
-
 .t-input {
   --td-input-placeholder-text-color: #bbbbbb;
   --td-input-text-color: #333333;
 }
 
 .t-tab-bar {
-  --td-tab-bar-item-color: #bbb;
-  --td-tab-bar-item-active-color: #333;
+  --td-tab-bar-color: #bbb;
+  --td-tab-bar-active-color: #333;
+}
+
+.t-cascader {
+  --td-cascader-active-color: #fa4126;
+}
+
+.t-switch {
+  --td-switch-checked-color: #34c759;
+}
+
+.t-button {
+}
+
+.t-textarea {
+  --td-textarea-placeholder-color: #bbb;
+}
+
+.t-checkbox {
+  --td-checkbox-icon-checked-color: #fa4126;
 }

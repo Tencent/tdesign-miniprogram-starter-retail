@@ -81,16 +81,16 @@ Page({
   },
   onInputValue(e) {
     const { item } = e.currentTarget.dataset;
-    const { value = '', areas = [] } = e.detail;
     if (item === 'address') {
+      const { selectedOptions = [] } = e.detail;
       this.setData(
         {
-          'locationState.provinceCode': areas[0].code,
-          'locationState.provinceName': areas[0].name,
-          'locationState.cityName': areas[1].name,
-          'locationState.cityCode': areas[1].code,
-          'locationState.districtCode': areas[2].code,
-          'locationState.districtName': areas[2].name,
+          'locationState.provinceCode': selectedOptions[0].value,
+          'locationState.provinceName': selectedOptions[0].label,
+          'locationState.cityName': selectedOptions[1].label,
+          'locationState.cityCode': selectedOptions[1].value,
+          'locationState.districtCode': selectedOptions[2].value,
+          'locationState.districtName': selectedOptions[2].label,
           areaPickerVisible: false,
         },
         () => {
@@ -102,6 +102,7 @@ Page({
         },
       );
     } else {
+      const { value = '' } = e.detail;
       this.setData(
         {
           [`locationState.${item}`]: value,

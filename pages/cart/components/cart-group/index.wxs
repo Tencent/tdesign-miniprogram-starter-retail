@@ -1,0 +1,5 @@
+var hasPromotion = function (code) {
+  return code && code !== 'EMPTY_PROMOTION';
+};
+
+module.exports.hasPromotion = hasPromotion;
