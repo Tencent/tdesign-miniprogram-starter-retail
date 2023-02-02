@@ -8,17 +8,9 @@
   line-height: 1;
 }
 .btn-bar .order-btn {
-  background-color: inherit;
   line-height: 1;
-  border-radius: unset;
-  min-width: 160rpx;
-  font-size: 28rpx;
-}
-.btn-bar .order-btn::after {
-  border-radius: 16rpx;
-}
-.btn-bar .order-btn--active {
-  opacity: 0.5;
+  /* border-radius: unset; */
+  /* min-width: 160rpx; */
 }
 
 .btn-bar .right {
@@ -27,15 +19,14 @@
 }
 .btn-bar .t-button {
   width: 160rpx;
-  height: 56rpx;
-  border-radius: 28rpx;
+  font-weight: 400;
   margin-left: 24rpx;
 }
 .btn-bar .t-button--max {
   width: 176rpx;
-  height: 72rpx;
-  border-radius: 36rpx;
   margin-left: 24rpx;
+
+  --td-button-extra-small-height: 72rpx;
 }
 
 .btn-bar .left .delete-btn {
@@ -44,14 +35,15 @@
 .btn-bar .left .delete-btn::after {
   display: none;
 }
+
 .btn-bar .right .normal {
-  color: #333333;
+  --td-button-default-color: #333333;
+  --td-button-default-border-color: #dddddd;
 }
-.btn-bar .right .normal:after {
-  border-color: #dddddd;
-}
+
 .btn-bar .right .primary {
-  color: #ffffff;
-  background-color: #fa4126;
-  border-color: #fa4126;
+  --td-button-default-color: #fff;
+  --td-button-default-bg-color: #fa4126;
+  --td-button-default-border-color: #fa4126;
+  --td-button-default-active-bg-color: #fa42269c;
 }

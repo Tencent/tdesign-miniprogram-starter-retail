@@ -1,12 +1,9 @@
-.coupon-btn-slot .coupon-btn-primary {
-  width: 136rpx;
-  height: 56rpx;
-  border-radius: 28rpx;
-  background-color: transparent;
-  border-color: #fa4126;
-  color: #fa4126;
-}
-
 .coupon-btn-default {
   display: none;
+}
+
+.coupon-btn-primary {
+  --td-button-extra-small-padding-horizontal: 26rpx;
+  --td-button-primary-outline-color: #fa4126;
+  --td-button-primary-outline-border-color: #fa4126;
 }

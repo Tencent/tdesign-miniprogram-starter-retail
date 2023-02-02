@@ -4,6 +4,10 @@
 page view {
   box-sizing: border-box;
 }
+.person-info {
+  padding-top: 20rpx;
+}
+
 .person-info__btn {
   width: 100%;
   border: 2rpx solid #ddd;
@@ -25,7 +29,7 @@ page view {
 .avatarUrl {
   width: 80rpx;
   height: 80rpx;
-  border-radius: 50%;
+  border-radius: 50% !important;
   overflow: hidden;
 }
 

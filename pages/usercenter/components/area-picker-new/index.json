@@ -1,8 +1,0 @@
-{
-  "component": true,
-  "usingComponents": {
-    "t-popup": "tdesign-miniprogram/popup/popup",
-    "t-icon": "tdesign-miniprogram/icon/icon",
-    "t-loading-content": "/components/loading-content/index"
-  }
-}

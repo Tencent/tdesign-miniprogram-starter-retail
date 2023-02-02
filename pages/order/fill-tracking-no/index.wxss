@@ -27,7 +27,6 @@
   padding: 0;
 }
 
-
 .fill-tracking-no__form .t-cell__value::after {
   border: none !important;
 }
@@ -92,4 +91,12 @@
 }
 .t-textarea-wrapper {
   box-sizing: border-box;
+}
+
+.fill-tracking-no__form .t-input__wrapper {
+  margin: 0 !important;
+}
+
+.fill-tracking-no__form {
+  --td-input-vertical-padding: 0;
 }

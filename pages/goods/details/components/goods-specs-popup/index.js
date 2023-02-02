@@ -88,10 +88,7 @@ Component({
       specList.forEach((item) => {
         if (item.specValueList.length > 0) {
           item.specValueList.forEach((subItem) => {
-            const obj = this.checkSkuStockQuantity(
-              subItem.specValueId,
-              skuList,
-            );
+            const obj = this.checkSkuStockQuantity(subItem.specValueId, skuList);
             subItem.hasStockObj = obj;
           });
         }
@@ -144,13 +141,11 @@ Component({
       const itemSelectArray = [];
       specList.forEach((item) => {
         if (item.specId === specId) {
-          const subSpecValueItem = item.specValueList.find(
-            (subItem) => subItem.specValueId === specValueId,
-          );
+          const subSpecValueItem = item.specValueList.find((subItem) => subItem.specValueId === specValueId);
           let specSelectStatus = false;
           item.specValueList.forEach((n) => {
             itemAllSpecArray.push(n.hasStockObj.specsArray);
-            if (n.isChoosed) {
+            if (n.isSelected) {
               specSelectStatus = true;
             }
             if (n.hasStockObj.hasStock) {
@@ -160,9 +155,7 @@ Component({
             }
           });
           if (specSelectStatus) {
-            selectSpecObj[specId] = this.flatten(
-              subSpecValueItem?.hasStockObj.specsArray.concat(itemSelectArray),
-            );
+            selectSpecObj[specId] = this.flatten(subSpecValueItem?.hasStockObj.specsArray.concat(itemSelectArray));
           } else {
             const subSet = function (arr1, arr2) {
               const set2 = new Set(arr2);
@@ -174,10 +167,7 @@ Component({
               });
               return subset;
             };
-            selectSpecObj[specId] = subSet(
-              this.flatten(itemAllSpecArray),
-              this.flatten(itemUnSelectArray),
-            );
+            selectSpecObj[specId] = subSet(this.flatten(itemAllSpecArray), this.flatten(itemUnSelectArray));
           }
         } else {
           // 未点击规格的逻辑
@@ -187,7 +177,7 @@ Component({
             // 找到有库存的规格数组
             (n) => {
               itemSelectArray.push(n.hasStockObj.specsArray);
-              if (n.isChoosed) {
+              if (n.isSelected) {
                 specSelectStatus = true;
               }
               n.hasStockObj.hasStock = true;
@@ -204,9 +194,7 @@ Component({
       });
       const combatArray = Object.values(selectSpecObj);
       if (combatArray.length > 0) {
-        const showArray = combatArray.reduce((x, y) =>
-          this.getIntersection(x, y),
-        );
+        const showArray = combatArray.reduce((x, y) => this.getIntersection(x, y));
         const lastResult = Array.from(new Set(showArray));
         specList.forEach((item) => {
           item.specValueList.forEach((subItem) => {
@@ -221,10 +209,7 @@ Component({
         specList.forEach((item) => {
           if (item.specValueList.length > 0) {
             item.specValueList.forEach((subItem) => {
-              const obj = this.checkSkuStockQuantity(
-                subItem.specValueId,
-                skuList,
-              );
+              const obj = this.checkSkuStockQuantity(subItem.specValueId, skuList);
               subItem.hasStockObj = obj;
             });
           }
@@ -273,14 +258,11 @@ Component({
       let { selectedSku } = this;
       const { specList } = this.properties;
       selectedSku =
-        selectedSku[specId] === id
-          ? { ...this.selectedSku, [specId]: '' }
-          : { ...this.selectedSku, [specId]: id };
+        selectedSku[specId] === id ? { ...this.selectedSku, [specId]: '' } : { ...this.selectedSku, [specId]: id };
       specList.forEach((item) => {
         item.specValueList.forEach((valuesItem) => {
           if (item.specId === specId) {
-            valuesItem.isChoosed =
-              valuesItem.specValueId === selectedSku[specId];
+            valuesItem.isSelected = valuesItem.specValueId === selectedSku[specId];
           }
         });
       });
@@ -306,9 +288,7 @@ Component({
 
     // 判断是否所有的sku都已经选中
     isAllSelected(skuTree, selectedSku) {
-      const selected = Object.keys(selectedSku).filter(
-        (skuKeyStr) => selectedSku[skuKeyStr] !== '',
-      );
+      const selected = Object.keys(selectedSku).filter((skuKeyStr) => selectedSku[skuKeyStr] !== '');
       return skuTree.length === selected.length;
     },
 
@@ -339,25 +319,6 @@ Component({
       });
     },
 
-    // 加
-    handleBuyNumPlus() {
-      const { buyNum } = this.data;
-      const { isStock } = this.properties;
-      if (!isStock) return;
-      const nextBuyNum = Number(buyNum) + 1;
-      this.setBuyNum(nextBuyNum > 999 ? buyNum : nextBuyNum);
-    },
-
-    // 减
-    handleBuyNumMinus() {
-      const { buyNum } = this.data;
-      const { limitMinCount } = this.properties;
-      const { isStock } = this.properties;
-      if (!isStock || buyNum < limitMinCount + 1) return;
-      const nextBuyNum = Number(buyNum) - 1;
-      this.setBuyNum(nextBuyNum < 1 ? buyNum : nextBuyNum);
-    },
-
     // 总处理
     setBuyNum(buyNum) {
       this.setData({
@@ -368,22 +329,11 @@ Component({
       });
     },
 
-    // 输入框
     handleBuyNumChange(e) {
-      const {
-        detail: { value },
-      } = e;
-      const valInNum = Number(value);
-      const { limitMaxCount, limitMinCount } = this.properties;
-      const nextData = {
-        buyNum:
-          valInNum < limitMinCount
-            ? limitMinCount
-            : valInNum > limitMaxCount
-            ? limitMaxCount
-            : valInNum,
-      };
-      this.setData(nextData);
+      const { value } = e.detail;
+      this.setData({
+        buyNum: value,
+      });
     },
   },
 });

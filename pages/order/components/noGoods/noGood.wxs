@@ -1,0 +1,17 @@
+var isOnlyBack = function (data) {
+  return data.limitGoodsList || (data.inValidGoodsList && !data.storeGoodsList);
+};
+
+var isShowChangeAddress = function (data) {
+  return data.abnormalDeliveryGoodsList;
+};
+
+var isShowKeepPay = function (data) {
+  return data.outOfStockGoodsList || (data.storeGoodsList && data.inValidGoodsList);
+};
+
+module.exports = {
+  isOnlyBack: isOnlyBack,
+  isShowChangeAddress: isShowChangeAddress,
+  isShowKeepPay: isShowKeepPay,
+};

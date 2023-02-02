@@ -9,9 +9,15 @@
   status="{{couponDTO.status || ''}}"
   bind:tap="gotoDetail"
 >
-	<view slot="operator" class="coupon-btn-slot">
-		<t-button t-class="coupon-btn-{{btnTheme}}" theme="{{btnTheme}}" bind:tap="gotoGoodsList">{{btnText}}
-		</t-button>
-	</view>
+  <view slot="operator" class="coupon-btn-slot">
+    <t-button
+      t-class="coupon-btn-{{btnTheme}}"
+      theme="{{btnTheme}}"
+      variant="outline"
+      shape="round"
+      size="extra-small"
+      bind:tap="gotoGoodsList"
+      >{{btnText}}
+    </t-button>
+  </view>
 </ui-coupon-card>
-

@@ -16,9 +16,7 @@ Component({
           this.setData({
             buttons: {
               left: [],
-              right: (goods.buttons || []).filter(
-                (b) => b.type == OrderButtonTypes.APPLY_REFUND,
-              ),
+              right: (goods.buttons || []).filter((b) => b.type == OrderButtonTypes.APPLY_REFUND),
             },
           });
           return;
@@ -28,10 +26,7 @@ Component({
           // .filter((b) => b.type !== OrderButtonTypes.APPLY_REFUND)
           .map((button) => {
             //邀请好友拼团按钮
-            if (
-              button.type === OrderButtonTypes.INVITE_GROUPON &&
-              order.groupInfoVo
-            ) {
+            if (button.type === OrderButtonTypes.INVITE_GROUPON && order.groupInfoVo) {
               const {
                 groupInfoVo: { groupId, promotionId, remainMember, groupPrice },
                 goodsList,
@@ -55,9 +50,7 @@ Component({
             return button;
           });
         // 删除订单按钮单独挪到左侧
-        const deleteBtnIndex = buttonsRight.findIndex(
-          (b) => b.type === OrderButtonTypes.DELETE,
-        );
+        const deleteBtnIndex = buttonsRight.findIndex((b) => b.type === OrderButtonTypes.DELETE);
         let buttonsLeft = [];
         if (deleteBtnIndex > -1) {
           buttonsLeft = buttonsRight.splice(deleteBtnIndex, 1);
@@ -112,7 +105,7 @@ Component({
           this.onViewRefund(this.data.order);
           break;
         case OrderButtonTypes.COMMENT:
-          this.onAddComent(this.data.order);
+          this.onAddComment(this.data.order);
           break;
         case OrderButtonTypes.INVITE_GROUPON:
           //分享邀请好友拼团
@@ -205,7 +198,7 @@ Component({
     },
 
     /** 添加订单评论 */
-    onAddComent(order) {
+    onAddComment(order) {
       const imgUrl = order?.goodsList?.[0]?.thumb;
       const title = order?.goodsList?.[0]?.title;
       const specs = order?.goodsList?.[0]?.specs;
