@@ -6,7 +6,7 @@
     "t-toast": "tdesign-miniprogram/toast/toast",
     "t-rate": "tdesign-miniprogram/rate/rate",
     "t-swiper": "tdesign-miniprogram/swiper/swiper",
-    "t-swiper-item": "tdesign-miniprogram/swiper/swiper-item",
+    "t-swiper-nav": "tdesign-miniprogram/swiper-nav/swiper-nav",
     "t-button": "tdesign-miniprogram/button/button",
     "t-icon": "tdesign-miniprogram/icon/icon",
     "t-popup": "tdesign-miniprogram/popup/popup",

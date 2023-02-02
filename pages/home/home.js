@@ -11,7 +11,7 @@ Page({
     pageLoading: false,
     current: 1,
     autoplay: true,
-    duration: 500,
+    duration: '500',
     interval: 5000,
     navigation: { type: 'dots' },
   },
@@ -82,8 +82,7 @@ Page({
     this.setData({ goodsListLoadStatus: 1 });
 
     const pageSize = this.goodListPagination.num;
-    let pageIndex =
-      this.privateData.tabIndex * pageSize + this.goodListPagination.index + 1;
+    let pageIndex = this.privateData.tabIndex * pageSize + this.goodListPagination.index + 1;
     if (fresh) {
       pageIndex = 0;
     }

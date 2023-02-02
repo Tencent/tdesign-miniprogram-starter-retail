@@ -70,39 +70,30 @@ page {
 .goods-list-container .price-ipts-wrap {
   width: 100%;
   display: flex;
-  flex-direction: row;
+  align-items: center;
   justify-content: space-around;
   margin-top: 24rpx;
+
+  --td-input-bg-color: rgba(245, 245, 245, 1);
+  --td-input-vertical-padding: 4rpx;
+  --td-input-border-color: transparent;
 }
 
 .goods-list-container .price-ipts-wrap .price-divided {
-  position: relative;
-  width: 22rpx;
-  margin: 0 20rpx;
-  color: #222427;
+  width: 16rpx;
+  margin: 0 24rpx;
+  color: #333333;
+}
+
+.goods-list-container .price-ipts-wrap .t-input__wrapper {
+  margin: 0 !important;
+}
+
+.goods-list-container .price-ipts-wrap .t-input__content,
+.goods-list-container .price-ipts-wrap .t-input__placeholder {
+  font-size: 24rpx !important;
 }
 
 .goods-list-container .price-ipts-wrap .price-ipt {
-  box-sizing: border-box;
-  width: 246rpx;
-  font-size: 24rpx;
-  height: 56rpx;
-  padding: 0 24rpx;
-  text-align: center;
   border-radius: 8rpx;
-  color: #333;
-  background: rgba(245, 245, 245, 1);
-}
-
-.t-class-input {
-  font-size: 24rpx !important;
-}
-
-.goods-list-container .price-ipts-wrap .price-ipt::after {
-  border: none !important;
-}
-
-.goods-list-container .t-input__control {
-  font-size: 24rpx !important;
-  text-align: center;
 }

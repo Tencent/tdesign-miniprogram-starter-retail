@@ -1,185 +1,152 @@
-<wxs module="handlePromotion">
-	var hasPromotion = function (code) {
-	return code && code !== 'EMPTY_PROMOTION';
-	}
-	module.exports.hasPromotion = hasPromotion;
-</wxs>
+<wxs src="./index.wxs" module="handlePromotion" />
 <wxs src="./utils.wxs" module="utils" />
 
-
 <view class="cart-group">
-	<view
-	 class="goods-wrap"
-	 wx:for="{{_storeGoods}}"
-	 wx:for-item="store"
-	 wx:for-index="si"
-	 wx:key="storeId"
-	>
-		<view class="cart-store">
-			<t-icon
-			 size="40rpx"
-			 color="{{store.isSelected ? '#FA4126' : '#BBBBBB'}}"
-			 name="{{store.isSelected ? 'check-circle-filled' : 'circle'}}"
-			 class="cart-store__check"
-			 bindtap="selectStore"
-			 data-store-index="{{si}}"
-			/>
-			<view class="cart-store__content">
-				<view class="store-title">
-					<t-icon
-					 prefix="wr"
-					 size="40rpx"
-					 color="#333333"
-					 name="store"
-					/>
-					<view class="store-name">{{store.storeName}}</view>
-				</view>
-				<view class="get-coupon" catch:tap="gotoCoupons">优惠券</view>
-			</view>
-		</view>
-		<block
-		 wx:for="{{store.promotionGoodsList}}"
-		 wx:for-item="promotion"
-		 wx:for-index="promoindex"
-		 wx:key="promoindex"
-		>
-			<view
-			 class="promotion-wrap"
-			 wx:if="{{handlePromotion.hasPromotion(promotion.promotionCode)}}"
-			 bindtap="gotoBuyMore"
-			 data-promotion="{{promotion}}"
-			 data-store-id="{{store.storeId}}"
-			>
-				<view class="promotion-title">
-					<view class="promotion-icon">{{promotion.tag}}</view>
-					<view class="promotion-text">{{promotion.description}}</view>
-				</view>
-				<view class="promotion-action action-btn" hover-class="action-btn--active">
-					<view class="promotion-action-label">
-						{{promotion.isNeedAddOnShop == 1 ? '去凑单' : '再逛逛'}}
-					</view>
-					<t-icon name="chevron-right" size="32rpx" color="#BBBBBB" />
-				</view>
-			</view>
-			<view
-			 class="goods-item"
-			 wx:for="{{promotion.goodsPromotionList}}"
-			 wx:for-item="goods"
-			 wx:for-index="gi"
-			 wx:key="extKey"
-			>
-				<swipeout right-width="{{ 72 }}">
-					<view class="goods-item-info">
-						<view class="check-wrap" catchtap="selectGoods" data-goods="{{goods}}">
-							<t-icon
-							 size="40rpx"
-							 color="{{goods.isSelected ? '#FA4126' : '#BBBBBB'}}"
-							 name="{{goods.isSelected ? 'check-circle-filled' : 'circle'}}"
-							 class="check"
-							/>
-						</view>
-						<view class="goods-sku-info">
-							<goods-card
-							 layout="horizontal-wrap"
-							 thumb-width="{{thumbWidth}}"
-							 thumb-height="{{thumbHeight}}"
-							 centered="{{true}}"
-							 data="{{goods}}"
-							 data-goods="{{goods}}"
-							 catchspecs="specsTap"
-							 catchclick="goGoodsDetail"
-							>
-								<view slot="thumb-cover" class="stock-mask" wx:if="{{goods.shortageStock || goods.stockQuantity <= 3}}">
-									仅剩{{goods.stockQuantity}}件
-								</view>
-								<view slot="append-body" class="goods-stepper">
-									<view class="stepper-tip" wx:if="{{goods.shortageStock}}">库存不足</view>
-									<t-stepper
-									 classname="stepper-info"
-									 value="{{goods.quantity}}"
-									 min="{{1}}"
-									 max="{{999}}"
-									 data-goods="{{goods}}"
-									 data-gi="{{gi}}"
-									 data-si="{{si}}"
-									 catchchange="changeStepper"
-									 catchblur="input"
-									 catchoverlimit="overlimit"
-									 theme="grey"
-									/>
-								</view>
-							</goods-card>
-						</view>
-					</view>
-					<view
-					 slot="right"
-					 class="swiper-right-del"
-					 bindtap="deleteGoods"
-					 data-goods="{{goods}}"
-					>
-						删除
-					</view>
-				</swipeout>
-			</view>
-			<view class="promotion-line-wrap" wx:if="{{handlePromotion.hasPromotion(promotion.promotionCode) && promoindex != (store.promotionGoodsList.length - 2)}}">
-				<view class="promotion-line" />
-			</view>
-		</block>
-		<block wx:if="{{store.shortageGoodsList.length>0}}">
-			<view
-			 class="goods-item"
-			 wx:for="{{store.shortageGoodsList}}"
-			 wx:for-item="goods"
-			 wx:for-index="gi"
-			 wx:key="extKey"
-			>
-				<swipeout right-width="{{ 72 }}">
-					<view class="goods-item-info">
-						<view class="check-wrap">
-							<view class="unCheck-icon" />
-						</view>
-						<view class="goods-sku-info">
-							<goods-card
-							 layout="horizontal-wrap"
-							 thumb-width="{{thumbWidth}}"
-							 thumb-height="{{thumbHeight}}"
-							 centered="{{true}}"
-							 data="{{goods}}"
-							 data-goods="{{goods}}"
-							 catchspecs="specsTap"
-							 catchclick="goGoodsDetail"
-							>
-								<view slot="thumb-cover" class="no-storage-mask" wx:if="{{goods.stockQuantity <=0}}">
-									<view class="no-storage-content">无货</view>
-								</view>
-							</goods-card>
-						</view>
-					</view>
-					<view
-					 slot="right"
-					 class="swiper-right-del"
-					 bindtap="deleteGoods"
-					 data-goods="{{goods}}"
-					>
-						删除
-					</view>
-				</swipeout>
-			</view>
-			<view class="promotion-line-wrap" wx:if="{{handlePromotion.hasPromotion(promotion.promotionCode) && promoindex != (store.promotionGoodsList.length - 2)}}">
-				<view class="promotion-line" />
-			</view>
-		</block>
-	</view>
+  <view class="goods-wrap" wx:for="{{_storeGoods}}" wx:for-item="store" wx:for-index="si" wx:key="storeId">
+    <view class="cart-store">
+      <t-icon
+        size="40rpx"
+        color="{{store.isSelected ? '#FA4126' : '#BBBBBB'}}"
+        name="{{store.isSelected ? 'check-circle-filled' : 'circle'}}"
+        class="cart-store__check"
+        bindtap="selectStore"
+        data-store-index="{{si}}"
+      />
+      <view class="cart-store__content">
+        <view class="store-title">
+          <t-icon prefix="wr" size="40rpx" color="#333333" name="store" />
+          <view class="store-name">{{store.storeName}}</view>
+        </view>
+        <view class="get-coupon" catch:tap="gotoCoupons">优惠券</view>
+      </view>
+    </view>
+    <block wx:for="{{store.promotionGoodsList}}" wx:for-item="promotion" wx:for-index="promoindex" wx:key="promoindex">
+      <view
+        class="promotion-wrap"
+        wx:if="{{handlePromotion.hasPromotion(promotion.promotionCode)}}"
+        bindtap="gotoBuyMore"
+        data-promotion="{{promotion}}"
+        data-store-id="{{store.storeId}}"
+      >
+        <view class="promotion-title">
+          <view class="promotion-icon">{{promotion.tag}}</view>
+          <view class="promotion-text">{{promotion.description}}</view>
+        </view>
+        <view class="promotion-action action-btn" hover-class="action-btn--active">
+          <view class="promotion-action-label"> {{promotion.isNeedAddOnShop == 1 ? '去凑单' : '再逛逛'}} </view>
+          <t-icon name="chevron-right" size="32rpx" color="#BBBBBB" />
+        </view>
+      </view>
+      <view
+        class="goods-item"
+        wx:for="{{promotion.goodsPromotionList}}"
+        wx:for-item="goods"
+        wx:for-index="gi"
+        wx:key="extKey"
+      >
+        <swipeout right-width="{{ 72 }}">
+          <view class="goods-item-info">
+            <view class="check-wrap" catchtap="selectGoods" data-goods="{{goods}}">
+              <t-icon
+                size="40rpx"
+                color="{{goods.isSelected ? '#FA4126' : '#BBBBBB'}}"
+                name="{{goods.isSelected ? 'check-circle-filled' : 'circle'}}"
+                class="check"
+              />
+            </view>
+            <view class="goods-sku-info">
+              <goods-card
+                layout="horizontal-wrap"
+                thumb-width="{{thumbWidth}}"
+                thumb-height="{{thumbHeight}}"
+                centered="{{true}}"
+                data="{{goods}}"
+                data-goods="{{goods}}"
+                catchspecs="specsTap"
+                catchclick="goGoodsDetail"
+              >
+                <view slot="thumb-cover" class="stock-mask" wx:if="{{goods.shortageStock || goods.stockQuantity <= 3}}">
+                  仅剩{{goods.stockQuantity}}件
+                </view>
+                <view slot="append-body" class="goods-stepper">
+                  <view class="stepper-tip" wx:if="{{goods.shortageStock}}">库存不足</view>
+                  <t-stepper
+                    classname="stepper-info"
+                    value="{{goods.quantity}}"
+                    min="{{1}}"
+                    max="{{999}}"
+                    data-goods="{{goods}}"
+                    data-gi="{{gi}}"
+                    data-si="{{si}}"
+                    catchchange="changeStepper"
+                    catchblur="input"
+                    catchoverlimit="overlimit"
+                    theme="filled"
+                  />
+                </view>
+              </goods-card>
+            </view>
+          </view>
+          <view slot="right" class="swiper-right-del" bindtap="deleteGoods" data-goods="{{goods}}"> 删除 </view>
+        </swipeout>
+      </view>
+      <view
+        class="promotion-line-wrap"
+        wx:if="{{handlePromotion.hasPromotion(promotion.promotionCode) && promoindex != (store.promotionGoodsList.length - 2)}}"
+      >
+        <view class="promotion-line" />
+      </view>
+    </block>
+    <block wx:if="{{store.shortageGoodsList.length>0}}">
+      <view
+        class="goods-item"
+        wx:for="{{store.shortageGoodsList}}"
+        wx:for-item="goods"
+        wx:for-index="gi"
+        wx:key="extKey"
+      >
+        <swipeout right-width="{{ 72 }}">
+          <view class="goods-item-info">
+            <view class="check-wrap">
+              <view class="unCheck-icon" />
+            </view>
+            <view class="goods-sku-info">
+              <goods-card
+                layout="horizontal-wrap"
+                thumb-width="{{thumbWidth}}"
+                thumb-height="{{thumbHeight}}"
+                centered="{{true}}"
+                data="{{goods}}"
+                data-goods="{{goods}}"
+                catchspecs="specsTap"
+                catchclick="goGoodsDetail"
+              >
+                <view slot="thumb-cover" class="no-storage-mask" wx:if="{{goods.stockQuantity <=0}}">
+                  <view class="no-storage-content">无货</view>
+                </view>
+              </goods-card>
+            </view>
+          </view>
+          <view slot="right" class="swiper-right-del" bindtap="deleteGoods" data-goods="{{goods}}"> 删除 </view>
+        </swipeout>
+      </view>
+      <view
+        class="promotion-line-wrap"
+        wx:if="{{handlePromotion.hasPromotion(promotion.promotionCode) && promoindex != (store.promotionGoodsList.length - 2)}}"
+      >
+        <view class="promotion-line" />
+      </view>
+    </block>
+  </view>
 </view>
 <specs-popup
- show="{{isShowSpecs}}"
- title="{{currentGoods.title || ''}}"
- price="{{currentGoods.price || ''}}"
- thumb="{{utils.imgCut(currentGoods.thumb, 180, 180)}}"
- specs="{{currentGoods.specs || []}}"
- zIndex="{{999}}"
- bindclose='hideSpecsPopup'
+  show="{{isShowSpecs}}"
+  title="{{currentGoods.title || ''}}"
+  price="{{currentGoods.price || ''}}"
+  thumb="{{utils.imgCut(currentGoods.thumb, 180, 180)}}"
+  specs="{{currentGoods.specs || []}}"
+  zIndex="{{999}}"
+  bindclose="hideSpecsPopup"
 />
 
 <t-toast id="t-toast" />
-

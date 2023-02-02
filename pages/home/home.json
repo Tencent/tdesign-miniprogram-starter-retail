@@ -7,13 +7,12 @@
     "t-search": "tdesign-miniprogram/search/search",
     "t-loading": "tdesign-miniprogram/loading/loading",
     "t-swiper": "tdesign-miniprogram/swiper/swiper",
-    "t-swiper-item": "tdesign-miniprogram/swiper/swiper-item",
-    "t-swiper-nav": "tdesign-miniprogram/swiper/swiper-nav",
+    "t-swiper-nav": "tdesign-miniprogram/swiper-nav/swiper-nav",
     "t-image": "/components/webp-image/index",
     "t-icon": "tdesign-miniprogram/icon/icon",
     "t-toast": "tdesign-miniprogram/toast/toast",
     "t-tabs": "tdesign-miniprogram/tabs/tabs",
-    "t-tab-panel": "tdesign-miniprogram/tabs/tab-panel",
+    "t-tab-panel": "tdesign-miniprogram/tab-panel/tab-panel",
     "goods-list": "/components/goods-list/index",
     "load-more": "/components/load-more/index"
   }

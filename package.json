@@ -6,30 +6,39 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint --cache --fix --ext .js",
-    "check": "node config/eslintCheck.js"
+    "check": "node config/eslintCheck.js",
+    "prepare": "husky install",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s"
   },
   "author": "",
   "license": "ISC",
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged && npm run check"
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
     }
   },
   "lint-staged": {
     "*.{js, ts}": "eslint --cache --fix",
-    "*.{js,ts,css,less}": "prettier --write"
+    "*.{js,ts,wxml,html,json,css,less}": [
+      "prettier --write"
+    ]
   },
   "dependencies": {
     "dayjs": "^1.9.3",
-    "tdesign-miniprogram": "^0.24.0",
+    "tdesign-miniprogram": "^1.0.0-rc",
     "tslib": "^1.11.1"
   },
   "devDependencies": {
+    "@commitlint/cli": "^17.4.2",
+    "@commitlint/config-conventional": "^17.4.2",
+    "commitizen": "^4.3.0",
+    "conventional-changelog-cli": "^2.2.2",
+    "cz-conventional-changelog": "^3.3.0",
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.10.0",
     "eslint-plugin-import": "^2.20.1",
     "eslint-plugin-prettier": "^3.1.2",
-    "husky": "^4.3.0",
+    "husky": "^8.0.3",
     "lint-staged": "^10.0.8",
     "prettier": "^2.1.2"
   }

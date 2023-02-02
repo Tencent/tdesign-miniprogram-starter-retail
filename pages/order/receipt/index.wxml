@@ -1,137 +1,120 @@
 <view class="receipt">
-	<view class="title">
-		<t-cell title="发票" bordered="{{false}}" t-class-left="cell-left">
-			<view slot="right-icon" class="btn-wrap">
-				<view
-				 bindtap="onLabels"
-				 data-item="{{item}}"
-				 class="btn {{receiptIndex === index ? 'active-btn' : ''}}"
-				 wx:for="{{receipts}}"
-				 wx:for-item="item"
-				 wx:key="index"
-				>
-					{{item.title}}
-				</view>
-			</view>
-		</t-cell>
-	</view>
-	<block wx:if="{{receiptIndex === 1}}">
-		<t-cell title="发票抬头" t-class-left="cell-left">
-			<view class="btn-wrap" slot="right-icon">
-				<view
-				 class="btn {{addressTagsIndex === index ? 'active-btn':'' }}"
-				 bindtap="onLabels"
-				 data-item="{{tag}}"
-				 wx:for="{{addressTags}}"
-				 wx:for-item="tag"
-				 wx:key="index"
-				>
-					{{tag.title}}
-				</view>
-			</view>
-		</t-cell>
-		<t-cell title="{{addressTagsIndex === 0 ? '姓名':'公司名称'}}" t-class-left="cell-left" t-class-right="cell-right">
-			<t-input
-			 slot="right-icon"
-			 t-class="input-com"
-			 value="{{addressTagsIndex === 0 ? name:componentName}}"
-			 bindchange="onInput"
-			 data-item="name"
-			 type=""
-			 placeholder="{{addressTagsIndex === 0 ? '请输入您的姓名':'请输入公司名称'}}"
-			/>
-		</t-cell>
-		<t-cell title="{{addressTagsIndex === 0 ? '手机号':'识别号'}}" t-class-left="cell-left" t-class-right="cell-right">
-			<view class="addressTagsIndex-cell" slot="right-icon">
-				<t-input
-				 t-class="input-com"
-				 value="{{addressTagsIndex === 0 ? phone:code}}"
-				 bindchange="onInput"
-				 data-item="code"
-				 type=""
-				 placeholder="{{addressTagsIndex === 0 ? '请输入您的手机号':'请输入纳税人识别号'}}"
-				/>
-				<t-icon
-				 wx:if="{{addressTagsIndex === 1}}"
-				 name="help-circle"
-				 size="30rpx"
-				 bindtap="onKnoeCode"
-				/>
-			</view>
-		</t-cell>
-		<t-cell title="电子邮箱" t-class-left="cell-left" t-class-right="cell-right">
-			<t-input
-			 slot="right-icon"
-			 t-class="input-com"
-			 value="{{email}}"
-			 bindchange="onInput"
-			 data-item="email"
-			 type=""
-			 placeholder="请输入邮箱用于接收电子发票"
-			/>
-		</t-cell>
-		<view class="receipt-info">
-			<t-cell title="发票内容" bordered="{{false}}" t-class-left="cell-left">
-				<view class="btn-wrap" slot="right-icon">
-					<view
-					 class="btn {{goodsClassesIndex ===index ? 'active-btn':''}}"
-					 bindtap="onLabels"
-					 data-item="{{good}}"
-					 wx:for="{{goodsClasses}}"
-					 wx:for-item="good"
-					 wx:key="index"
-					>
-						{{good.title}}
-					</view>
-				</view>
-			</t-cell>
-			<view class="title">发票内容将显示详细商品名称与价格信息，发票金额为实际支付金额，不包含优惠等扣减金额</view>
-		</view>
-		<view class="receipt-know" bindtap="onDialogTap">
-			发票须知
-			<t-icon name="help-circle" siez="30rpx" />
-		</view>
-		<t-dialog
-		 title="{{codeShow ? '纳税人识别号说明':'发票须知'}}"
-		 bindconfirm="onDialogTap"
-		 class="dialog-receipt"
-		 visible="{{dialogShow}}"
-		 confirm-btn="我知道了"
-		 t-class-confirm="dialog__button-confirm"
-		>
-			<view class="srcoll-view-wrap" slot="content">
-				<scroll-view class="dialog-info" scroll-x="{{false}}" scroll-y="{{true}}">
-					<view class="info-wrap">
-						<view class="info" wx:if="{{!codeShow}}">
-							<view
-							 class="title"
-							 wx:for="{{invoiceInfo.info}}"
-							 wx:key="index"
-							 wx:for-item="item"
-							>
-								{{item}}
-							</view>
-						</view>
-						<view class="info" wx:else>
-							<view
-							 class="title"
-							 wx:for="{{invoiceInfo.codeTitle}}"
-							 wx:key="index"
-							 wx:for-item="item"
-							>
-								{{item}}
-							</view>
-						</view>
-					</view>
-				</scroll-view>
-			</view>
-		</t-dialog>
-	</block>
-	<view wx:else></view>
-	<view class="safe-area-bottom receipt-btn">
-		<t-button t-class="receipt-btn-con" bindtap="onSure">确定</t-button>
-	</view>
+  <view class="title">
+    <t-cell title="发票" bordered="{{false}}" t-class-left="cell-left">
+      <view slot="right-icon" class="btn-wrap">
+        <view
+          bindtap="onLabels"
+          data-item="{{item}}"
+          class="btn {{receiptIndex === index ? 'active-btn' : ''}}"
+          wx:for="{{receipts}}"
+          wx:for-item="item"
+          wx:key="index"
+        >
+          {{item.title}}
+        </view>
+      </view>
+    </t-cell>
+  </view>
+  <block wx:if="{{receiptIndex === 1}}">
+    <t-cell title="发票抬头" t-class-left="cell-left">
+      <view class="btn-wrap" slot="right-icon">
+        <view
+          class="btn {{addressTagsIndex === index ? 'active-btn':'' }}"
+          bindtap="onLabels"
+          data-item="{{tag}}"
+          wx:for="{{addressTags}}"
+          wx:for-item="tag"
+          wx:key="index"
+        >
+          {{tag.title}}
+        </view>
+      </view>
+    </t-cell>
+    <t-cell title="{{addressTagsIndex === 0 ? '姓名':'公司名称'}}" t-class-left="cell-left" t-class-right="cell-right">
+      <t-input
+        slot="right-icon"
+        borderless
+        t-class="input-com"
+        value="{{addressTagsIndex === 0 ? name:componentName}}"
+        bindchange="onInput"
+        data-item="name"
+        type=""
+        placeholder="{{addressTagsIndex === 0 ? '请输入您的姓名':'请输入公司名称'}}"
+      />
+    </t-cell>
+    <t-cell title="{{addressTagsIndex === 0 ? '手机号':'识别号'}}" t-class-left="cell-left" t-class-right="cell-right">
+      <view class="addressTagsIndex-cell" slot="right-icon">
+        <t-input
+          t-class="input-com"
+          borderless
+          value="{{addressTagsIndex === 0 ? phone:code}}"
+          bindchange="onInput"
+          data-item="code"
+          type=""
+          placeholder="{{addressTagsIndex === 0 ? '请输入您的手机号':'请输入纳税人识别号'}}"
+        />
+        <t-icon wx:if="{{addressTagsIndex === 1}}" name="help-circle" size="30rpx" bindtap="onKnoeCode" />
+      </view>
+    </t-cell>
+    <t-cell title="电子邮箱" bordered="{{false}}" t-class-left="cell-left" t-class-right="cell-right">
+      <t-input
+        slot="right-icon"
+        t-class="input-com"
+        borderless
+        value="{{email}}"
+        bindchange="onInput"
+        data-item="email"
+        type=""
+        placeholder="请输入邮箱用于接收电子发票"
+      />
+    </t-cell>
+    <view class="receipt-info">
+      <t-cell title="发票内容" bordered="{{false}}" t-class-left="cell-left">
+        <view class="btn-wrap" slot="right-icon">
+          <view
+            class="btn {{goodsClassesIndex ===index ? 'active-btn':''}}"
+            bindtap="onLabels"
+            data-item="{{good}}"
+            wx:for="{{goodsClasses}}"
+            wx:for-item="good"
+            wx:key="index"
+          >
+            {{good.title}}
+          </view>
+        </view>
+      </t-cell>
+      <view class="title">发票内容将显示详细商品名称与价格信息，发票金额为实际支付金额，不包含优惠等扣减金额</view>
+    </view>
+    <view class="receipt-know" bindtap="onDialogTap">
+      发票须知
+      <t-icon name="help-circle" size="30rpx" />
+    </view>
+    <t-dialog
+      title="{{codeShow ? '纳税人识别号说明':'发票须知'}}"
+      bindconfirm="onDialogTap"
+      class="dialog-receipt"
+      visible="{{dialogShow}}"
+      confirm-btn="我知道了"
+      t-class-confirm="dialog__button-confirm"
+    >
+      <view class="srcoll-view-wrap" slot="content">
+        <scroll-view class="dialog-info" scroll-x="{{false}}" scroll-y="{{true}}">
+          <view class="info-wrap">
+            <view class="info" wx:if="{{!codeShow}}">
+              <view class="title" wx:for="{{invoiceInfo.info}}" wx:key="index" wx:for-item="item"> {{item}} </view>
+            </view>
+            <view class="info" wx:else>
+              <view class="title" wx:for="{{invoiceInfo.codeTitle}}" wx:key="index" wx:for-item="item"> {{item}} </view>
+            </view>
+          </view>
+        </scroll-view>
+      </view>
+    </t-dialog>
+  </block>
+  <view wx:else></view>
+  <view class="safe-area-bottom receipt-btn">
+    <t-button t-class="receipt-btn-con" bindtap="onSure">确定</t-button>
+  </view>
 </view>
 <t-toast id="t-toast" />
 <t-dialog id="t-dialog" t-class-confirm="dialog__button-confirm" />
-

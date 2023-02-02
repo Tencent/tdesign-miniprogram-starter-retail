@@ -78,18 +78,14 @@ Page({
         orderNo: serviceRaw.rights.orderNo, // 订单编号
         rightsNo: serviceRaw.rights.rightsNo, // 售后服务单号
         rightsReasonDesc: serviceRaw.rights.rightsReasonDesc, // 申请售后原因
-        isRefunded:
-          serviceRaw.rights.userRightsStatus === ServiceStatus.REFUNDED, // 是否已退款
+        isRefunded: serviceRaw.rights.userRightsStatus === ServiceStatus.REFUNDED, // 是否已退款
         refundMethodList: (serviceRaw.refundMethodList || []).map((m) => ({
           name: m.refundMethodName,
           amount: m.refundMethodAmount,
         })), // 退款明细
         refundRequestAmount: serviceRaw.rights.refundRequestAmount, // 申请退款金额
         payTraceNo: serviceRaw.rightsRefund.traceNo, // 交易流水号
-        createTime: formatTime(
-          parseFloat(`${serviceRaw.rights.createTime}`),
-          'YYYY-MM-DD HH:mm',
-        ), // 申请时间
+        createTime: formatTime(parseFloat(`${serviceRaw.rights.createTime}`), 'YYYY-MM-DD HH:mm'), // 申请时间
         logisticsNo: serviceRaw.logisticsVO.logisticsNo, // 退货物流单号
         logisticsCompanyName: serviceRaw.logisticsVO.logisticsCompanyName, // 退货物流公司
         logisticsCompanyCode: serviceRaw.logisticsVO.logisticsCompanyCode, // 退货物流公司
@@ -141,7 +137,7 @@ Page({
       cancelBtn: '取消',
       confirmBtn: '确定',
     });
-    this.inputDialog._onComfirm = () => {
+    this.inputDialog._onConfirm = () => {
       Toast({
         message: '确定填写物流单号',
       });
