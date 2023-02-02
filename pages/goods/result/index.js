@@ -1,5 +1,5 @@
 /* eslint-disable no-param-reassign */
-import { getSearchResult } from '../../../services/good/featchSearchResult';
+import { getSearchResult } from '../../../services/good/fetchSearchResult';
 import Toast from 'tdesign-miniprogram/toast/index';
 
 const initFilters = {

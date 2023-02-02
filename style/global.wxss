@@ -163,8 +163,7 @@
   */
 page {
   height: 100%;
-  font-family: 'Microsoft YaHei', '微软雅黑', 'MicrosoftJhengHei', '华文细黑',
-    Helvetica, Arial, 'sans-serif';
+  font-family: 'Microsoft YaHei', '微软雅黑', 'MicrosoftJhengHei', '华文细黑', Helvetica, Arial, 'sans-serif';
   font-size: 26rpx;
   background-color: #f8f8f8;
   font-weight: 400;
@@ -214,8 +213,7 @@ button::after {
 }
 input,
 textarea {
-  font-family: 'Microsoft YaHei', '微软雅黑', 'MicrosoftJhengHei', '华文细黑',
-    Helvetica, Arial, 'sans-serif';
+  font-family: 'Microsoft YaHei', '微软雅黑', 'MicrosoftJhengHei', '华文细黑', Helvetica, Arial, 'sans-serif';
   font-size: 26rpx;
   z-index: 0;
 }
@@ -773,13 +771,12 @@ h6 {
   height: 40rpx;
   display: inline-block;
   vertical-align: sub;
-  background: url(https://cdn.ghsmpwalmart.com/saas/market/image/loadings.png)
-    no-repeat;
+  background: url(https://cdn.ghsmpwalmart.com/saas/market/image/loadings.png) no-repeat;
   background-size: 240rpx 40rpx;
   background-position: 0 0;
-  animation: cirle-loadings 1s steps(6) infinite;
+  animation: circle-loadings 1s steps(6) infinite;
 }
-@keyframes cirle-loadings {
+@keyframes circle-loadings {
   from {
     background-position: 0 0;
   }
@@ -791,8 +788,7 @@ h6 {
   display: inline-block;
   width: 72rpx;
   height: 75rpx;
-  background: url('https://cdn.ghsmpwalmart.com/saas/market/image/page-loading-bc.png')
-    no-repeat;
+  background: url('https://cdn.ghsmpwalmart.com/saas/market/image/page-loading-bc.png') no-repeat;
   background-position: 0 0;
   background-size: 72rpx 75rpx;
 }
@@ -801,8 +797,7 @@ h6 {
   display: inline-block;
   width: 72rpx;
   height: 75rpx;
-  background: url('https://cdn.ghsmpwalmart.com/saas/market/image/page-loading-spin.png')
-    no-repeat;
+  background: url('https://cdn.ghsmpwalmart.com/saas/market/image/page-loading-spin.png') no-repeat;
   background-position: 0 0;
   background-size: 720rpx 75rpx;
   animation: animate-page-loading 0.4s steps(10) infinite;
