@@ -159,14 +159,11 @@
 .add-notes .add-notes__content {
   padding: 32rpx 8rpx 0 !important;
 }
-.add-notes .add-notes__confirm {
-  color: #fa4126;
-}
 
-.add-notes .t-textarea__placeholder,
-.add-notes .add-notes__placeholder {
+.add-notes .t-textarea__placeholder {
   color: #aeb3b7;
 }
+
 .add-notes .add-notes__textarea__font {
   font-size: 26rpx;
 }
@@ -224,6 +221,8 @@
   font-weight: bold;
   padding-left: 8rpx;
 }
-.add-notes__confirm {
-  color: #fa4126 !important;
+
+.t-button {
+  --td-button-default-color: #aeb3b7;
+  --td-button-primary-text-color: #fa4126;
 }

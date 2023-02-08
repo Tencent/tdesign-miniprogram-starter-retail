@@ -75,10 +75,6 @@
   color: #fff;
 }
 
-.fill-tracking-no__button-bar .t-class-confirm {
-  color: #fa4126;
-}
-
 .t-cell-title-width {
   width: 160rpx;
   flex: none !important;
@@ -99,4 +95,9 @@
 
 .fill-tracking-no__form {
   --td-input-vertical-padding: 0;
+}
+
+.t-button {
+  --td-button-default-color: #aeb3b7;
+  --td-button-primary-text-color: #fa4126;
 }

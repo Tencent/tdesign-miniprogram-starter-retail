@@ -94,10 +94,11 @@
   color: #b9b9b9 !important;
 }
 
-.add-notes__confirm {
-  color: #fa4126 !important;
+.page-container .header-class {
+  margin-bottom: 5rpx !important;
 }
 
-.page-container .header-class {
-  margin-bottom: 5rpx!important;
+.t-button {
+  --td-button-default-color: #000;
+  --td-button-primary-text-color: #fa4126;
 }

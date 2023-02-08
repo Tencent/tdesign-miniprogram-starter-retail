@@ -30,9 +30,7 @@
   font-family: DIN Alternate;
 }
 
-.service-detail
-  .order-goods-card-footer
-  .order-goods-card-footer-price-decimal {
+.service-detail .order-goods-card-footer .order-goods-card-footer-price-decimal {
   font-size: 28rpx;
   color: #333;
   font-family: DIN Alternate;
@@ -246,11 +244,7 @@
   color: #fa550f;
 }
 
-.page-container
-  .order-goods-card
-  > wr-goods-card
-  .wr-goods-card__bottom
-  .price {
+.page-container .order-goods-card > wr-goods-card .wr-goods-card__bottom .price {
   top: 100rpx;
   left: 10rpx;
   position: absolute;
@@ -263,11 +257,7 @@
   position: absolute;
 }
 
-.page-container
-  .order-goods-card
-  > wr-goods-card
-  .wr-goods-card__bottom
-  .price::before {
+.page-container .order-goods-card > wr-goods-card .wr-goods-card__bottom .price::before {
   display: inline;
   content: '退款金额:';
   margin-right: 1em;
@@ -342,11 +332,7 @@
 }
 .page-container .navbar-bg .nav-back,
 .page-container .navbar-bg .page-background {
-  background: linear-gradient(
-    to right,
-    rgba(250, 85, 15, 1) 0%,
-    rgba(250, 85, 15, 0.6) 100%
-  ) !important;
+  background: linear-gradient(to right, rgba(250, 85, 15, 1) 0%, rgba(250, 85, 15, 0.6) 100%) !important;
 }
 
 .page-container .navigation-bar__btn {
@@ -423,9 +409,7 @@
   align-items: center;
   margin-top: 24rpx;
 }
-.add-notes__confirm {
-  color: #fa4126 !important;
-}
+
 .t-class-indicator {
   color: #b9b9b9 !important;
 }
@@ -443,4 +427,9 @@
 
 .service-detail .service-goods-card-wrap {
   padding: 0 32rpx;
+}
+
+.t-button {
+  --td-button-default-color: #000;
+  --td-button-primary-text-color: #fa4126;
 }
