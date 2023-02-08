@@ -174,7 +174,6 @@
 <t-dialog
   id="input-dialog"
   visible="{{inputDialogVisible}}"
-  t-class-confirm="add-notes__confirm"
   class="{{serviceFrom.amount.focus ? 'amount-dialog--focus' : ''}}"
 >
   <view class="input-dialog__title" slot="title">退款金额</view>
@@ -196,5 +195,5 @@
     <view class="tips">{{amountTip}}</view>
   </view>
 </t-dialog>
-<t-dialog id="t-dialog" t-class-confirm="add-notes__confirm" />
+<t-dialog id="t-dialog" />
 <t-toast id="t-toast" />
