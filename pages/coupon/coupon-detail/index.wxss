@@ -9,17 +9,8 @@ page {
 .desc-wrap {
   margin-top: 24rpx;
 }
-.desc-wrap .button-wrap .view-good-list-btn {
-  width: 686rpx;
-  height: 88rpx;
-  margin-top: 50rpx;
-  background: #fa4126;
-  border-radius: 44rpx;
-  color: #fff;
-  font-size: 32rpx;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.desc-wrap .button-wrap {
+  margin: 50rpx 32rpx 0;
 }
 
 .desc-group-wrap .t-class-cell {

@@ -102,6 +102,8 @@ wr-order-goods-card:not(:first-child) .wr-goods-card {
 .tab-bar .t-tabs-track {
   background: #333333 !important;
 }
-.add-notes__confirm {
-  color: #fa4126 !important;
+
+.t-button {
+  --td-button-default-color: #000;
+  --td-button-primary-text-color: #fa4126;
 }
