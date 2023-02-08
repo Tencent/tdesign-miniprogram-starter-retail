@@ -9,6 +9,6 @@
   />
   <view class="name-edit__input--desc"> 最多可输入15个字 </view>
   <view class="name-edit__wrapper">
-    <t-button t-class="name-edit__btn" bind:tap="onSubmit">保存</t-button>
+    <t-button block shape="round" disabled="{{!nameValue}}" bind:tap="onSubmit">保存</t-button>
   </view>
 </view>

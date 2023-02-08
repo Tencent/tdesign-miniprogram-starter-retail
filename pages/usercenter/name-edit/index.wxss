@@ -17,10 +17,3 @@ page view {
   width: 100%;
   padding: 0 32rpx;
 }
-.name-edit .name-edit__btn {
-  height: 88rpx;
-  width: 100%;
-  background: #fa4126;
-  color: #fff;
-  border-radius: 48rpx;
-}

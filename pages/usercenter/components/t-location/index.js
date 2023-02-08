@@ -10,8 +10,11 @@ Component({
     title: {
       type: String,
     },
-    navigator: {
-      type: Boolean,
+    navigateUrl: {
+      type: String,
+    },
+    navigateEvent: {
+      type: String,
     },
     isCustomStyle: {
       type: Boolean,
@@ -35,7 +38,7 @@ Component({
             const {
               provinceName,
               cityName,
-              countryName,
+              countyName,
               detailInfo,
               userName,
               telNumber,
@@ -58,16 +61,14 @@ Component({
               detailAddress: detailInfo,
               provinceName: provinceName,
               cityName: cityName,
-              districtName: countryName,
+              districtName: countyName,
               isDefault: false,
               isOrderSure: this.properties.isOrderSure,
             };
 
-            addressParse(provinceName, cityName, countryName);
-
             try {
               const { provinceCode, cityCode, districtCode } =
-                await addressParse(provinceName, cityName, countryName);
+                await addressParse(provinceName, cityName, countyName);
 
               const params = Object.assign(target, {
                 provinceCode,
@@ -76,8 +77,15 @@ Component({
               });
               if (this.properties.isOrderSure) {
                 this.onHandleSubmit(params);
-              } else if (this.properties.navigator) {
-                Navigator.gotoPage('/address-detail', params);
+              } else if (this.properties.navigateUrl != '') {
+                const { navigateEvent } = this.properties;
+                this.triggerEvent('navigate');
+                wx.navigateTo({
+                  url: this.properties.navigateUrl,
+                  success: function (res) {
+                    res.eventChannel.emit(navigateEvent, params);
+                  }
+                });
               } else {
                 this.triggerEvent('change', params);
               }
