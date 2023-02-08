@@ -238,3 +238,8 @@
 .add-notes__confirm {
   color: #fa4126 !important;
 }
+
+.t-button {
+  --td-button-default-color: #000;
+  --td-button-primary-text-color: #fa4126;
+}
