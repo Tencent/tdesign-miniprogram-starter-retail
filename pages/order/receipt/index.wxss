@@ -190,9 +190,6 @@
   color: #fff;
   border-radius: 48rpx;
 }
-.dialog__button-confirm {
-  color: #fa4126;
-}
 
 .cell-left {
   margin-right: 0 !important;
@@ -210,6 +207,8 @@
   justify-content: space-between;
   width: 100%;
 }
-.dialog__button-confirm {
-  color: #fa4126 !important;
+
+.t-button {
+  --td-button-default-color: #000;
+  --td-button-primary-text-color: #fa4126;
 }

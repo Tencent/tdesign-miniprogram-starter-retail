@@ -95,7 +95,6 @@
       class="dialog-receipt"
       visible="{{dialogShow}}"
       confirm-btn="我知道了"
-      t-class-confirm="dialog__button-confirm"
     >
       <view class="srcoll-view-wrap" slot="content">
         <scroll-view class="dialog-info" scroll-x="{{false}}" scroll-y="{{true}}">
@@ -117,4 +116,4 @@
   </view>
 </view>
 <t-toast id="t-toast" />
-<t-dialog id="t-dialog" t-class-confirm="dialog__button-confirm" />
+<t-dialog id="t-dialog" />

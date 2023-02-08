@@ -28,4 +28,4 @@
 <!-- 购物车空态 -->
 <cart-empty wx:else bind:handleClick="onGotoHome" />
 <t-toast id="t-toast" />
-<t-dialog id="t-dialog" t-class-confirm="add-notes__confirm" />
+<t-dialog id="t-dialog" />
