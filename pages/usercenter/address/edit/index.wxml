@@ -98,9 +98,7 @@
         </t-cell>
       </t-cell-group>
       <view class="submit">
-        <t-button shape="round" block disabled="{{!!submitActive}}" t-class="btn-submit-address" bind:tap="formSubmit">
-          保存
-        </t-button>
+        <t-button shape="round" block disabled="{{!submitActive}}" bind:tap="formSubmit"> 保存 </t-button>
       </view>
     </form>
   </view>

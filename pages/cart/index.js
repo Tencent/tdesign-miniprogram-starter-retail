@@ -29,26 +29,24 @@ Page({
           store.shortageGoodsList = []; // 该门店已加购商品如果库存为0需单独分组
         }
         for (const activity of store.promotionGoodsList) {
-          activity.goodsPromotionList = activity.goodsPromotionList.filter(
-            (goods) => {
-              goods.originPrice = undefined;
+          activity.goodsPromotionList = activity.goodsPromotionList.filter((goods) => {
+            goods.originPrice = undefined;
 
-              // 统计是否有加购数大于库存数的商品
-              if (goods.quantity > goods.stockQuantity) {
-                store.storeStockShortage = true;
-              }
-              // 统计是否全选
-              if (!goods.isSelected) {
-                store.isSelected = false;
-              }
-              // 库存为0（无货）的商品单独分组
-              if (goods.stockQuantity > 0) {
-                return true;
-              }
-              store.shortageGoodsList.push(goods);
-              return false;
-            },
-          );
+            // 统计是否有加购数大于库存数的商品
+            if (goods.quantity > goods.stockQuantity) {
+              store.storeStockShortage = true;
+            }
+            // 统计是否全选
+            if (!goods.isSelected) {
+              store.isSelected = false;
+            }
+            // 库存为0（无货）的商品单独分组
+            if (goods.stockQuantity > 0) {
+              return true;
+            }
+            store.shortageGoodsList.push(goods);
+            return false;
+          });
 
           if (activity.goodsPromotionList.length > 0) {
             isEmpty = false;
@@ -58,12 +56,10 @@ Page({
           isEmpty = false;
         }
       }
-      cartGroupData.invalidGoodItems = cartGroupData.invalidGoodItems.map(
-        (goods) => {
-          goods.originPrice = undefined;
-          return goods;
-        },
-      );
+      cartGroupData.invalidGoodItems = cartGroupData.invalidGoodItems.map((goods) => {
+        goods.originPrice = undefined;
+        return goods;
+      });
       cartGroupData.isNotEmpty = !isEmpty;
       this.setData({ cartGroupData });
     });
@@ -116,9 +112,7 @@ Page({
   // 全选门店
   // 注：实际场景时应该调用接口更改选中状态
   selectStoreService({ storeId, isSelected }) {
-    const currentStore = this.data.cartGroupData.storeGoods.find(
-      (s) => s.storeId === storeId,
-    );
+    const currentStore = this.data.cartGroupData.storeGoods.find((s) => s.storeId === storeId);
     currentStore.isSelected = isSelected;
     currentStore.promotionGoodsList.forEach((activity) => {
       activity.goodsPromotionList.forEach((goods) => {
@@ -182,15 +176,11 @@ Page({
       context: this,
       selector: '#t-toast',
       message: `${isSelected ? '选择' : '取消'}"${
-        currentGoods.title.length > 5
-          ? `${currentGoods.title.slice(0, 5)}...`
-          : currentGoods.title
+        currentGoods.title.length > 5 ? `${currentGoods.title.slice(0, 5)}...` : currentGoods.title
       }"`,
       icon: '',
     });
-    this.selectGoodsService({ spuId, skuId, isSelected }).then(() =>
-      this.refreshData(),
-    );
+    this.selectGoodsService({ spuId, skuId, isSelected }).then(() => this.refreshData());
   },
 
   onStoreSelect(e) {
@@ -198,9 +188,7 @@ Page({
       store: { storeId },
       isSelected,
     } = e.detail;
-    this.selectStoreService({ storeId, isSelected }).then(() =>
-      this.refreshData(),
-    );
+    this.selectStoreService({ storeId, isSelected }).then(() => this.refreshData());
   },
 
   onQuantityChange(e) {
@@ -209,15 +197,11 @@ Page({
       quantity,
     } = e.detail;
     const { currentGoods } = this.findGoods(spuId, skuId);
-    const stockQuantity =
-      currentGoods.stockQuantity > 0 ? currentGoods.stockQuantity : 0; // 避免后端返回的是-1
+    const stockQuantity = currentGoods.stockQuantity > 0 ? currentGoods.stockQuantity : 0; // 避免后端返回的是-1
     // 加购数量超过库存数量
     if (quantity > stockQuantity) {
       // 加购数量等于库存数量的情况下继续加购
-      if (
-        currentGoods.quantity === stockQuantity &&
-        quantity - stockQuantity === 1
-      ) {
+      if (currentGoods.quantity === stockQuantity && quantity - stockQuantity === 1) {
         Toast({
           context: this,
           selector: '#t-toast',
@@ -241,9 +225,7 @@ Page({
         .catch(() => {});
       return;
     }
-    this.changeQuantityService({ spuId, skuId, quantity }).then(() =>
-      this.refreshData(),
-    );
+    this.changeQuantityService({ spuId, skuId, quantity }).then(() => this.refreshData());
   },
 
   goCollect() {
@@ -303,10 +285,7 @@ Page({
         });
       });
     });
-    wx.setStorageSync(
-      'order.goodsRequestList',
-      JSON.stringify(goodsRequestList),
-    );
+    wx.setStorageSync('order.goodsRequestList', JSON.stringify(goodsRequestList));
     wx.navigateTo({ url: '/pages/order/order-confirm/index?type=cart' });
   },
   onGotoHome() {
