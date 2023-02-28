@@ -12,7 +12,7 @@
   <view class="form-address">
     <form class="form-content">
       <t-cell-group>
-        <t-cell t-class-title="t-cell-title" title="收货人">
+        <t-cell class="form-cell" t-class-title="t-cell-title" title="收货人" t-class-note="t-cell-note">
           <t-input
             class="t-input"
             slot="note"
@@ -26,7 +26,7 @@
             bind:change="onInputValue"
           />
         </t-cell>
-        <t-cell t-class-title="t-cell-title" title="手机号">
+        <t-cell class="form-cell" t-class-title="t-cell-title" title="手机号">
           <t-input
             slot="note"
             class="t-input"
@@ -40,7 +40,7 @@
             data-item="phone"
           />
         </t-cell>
-        <t-cell t-class-title="t-cell-title" title="地区">
+        <t-cell class="form-cell" t-class-title="t-cell-title" title="地区">
           <t-input
             slot="note"
             class="t-input"
@@ -54,7 +54,7 @@
           />
           <t-icon slot="right-icon" t-class="map" prefix="wr" name="location" catch:tap="onSearchAddress" />
         </t-cell>
-        <t-cell t-class-title="t-cell-title" title="详细地址" bordered="{{false}}">
+        <t-cell class="form-cell" t-class-title="t-cell-title" title="详细地址" bordered="{{false}}">
           <view slot="note" class="textarea__wrapper">
             <t-textarea
               slot="note"
@@ -69,7 +69,13 @@
         </t-cell>
 
         <view class="divider-line" />
-        <t-cell t-class-note="t-cell-note" t-class-title="t-cell-title" title="标签" bordered="{{false}}">
+        <t-cell
+          class="form-cell"
+          t-class-note="t-cell-note address__tag"
+          t-class-title="t-cell-title"
+          title="标签"
+          bordered="{{false}}"
+        >
           <view class="t-input address-flex-box" slot="note">
             <t-button
               wx:for="{{labels}}"
@@ -116,12 +122,13 @@
 <t-dialog
   visible="{{visible}}"
   t-class-confirm="dialog__button-confirm"
+  t-class-cancel="dialog__button-cancel"
   title="填写标签名称"
   confirm-btn="确定"
   cancel-btn="取消"
   bind:confirm="confirmHandle"
   bind:cancel="cancelHandle"
 >
-  <t-input slot="content" model:value="{{labelValue}}" placeholder="请输入标签名称" borderless />
+  <t-input slot="content" class="dialog__input" model:value="{{labelValue}}" placeholder="请输入标签名称" borderless />
 </t-dialog>
 <t-toast id="t-toast" />

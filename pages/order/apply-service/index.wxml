@@ -181,6 +181,7 @@
     <t-input
       t-class="input"
       t-class-input="input-dialog__input"
+      t-class-label="input-dialog__label"
       placeholder=""
       value="{{serviceFrom.amount.temp}}"
       type="digit"
@@ -188,10 +189,8 @@
       bindinput="onAmountInput"
       bindfocus="onAmountFocus"
       bindblur="onAmountBlur"
-      label="slot"
-    >
-      <view slot="label">¥</view>
-    </t-input>
+      label="¥"
+    ></t-input>
     <view class="tips">{{amountTip}}</view>
   </view>
 </t-dialog>

@@ -24,9 +24,10 @@ page .divider-line {
   align-items: flex-end;
 }
 
-.form-address .t-cell-title {
+.form-cell .t-cell__title {
   width: 144rpx;
-  flex: none;
+  padding-right: 32rpx;
+  flex: none !important;
 }
 
 .textarea__wrapper {
@@ -34,30 +35,31 @@ page .divider-line {
 }
 
 .textarea__wrapper .t-textarea {
-  padding: 0 0 0 32rpx !important;
+  padding: 0 !important;
 }
 
-page .form-address .t-dialog-confirm {
-  color: #ff5f15;
-}
 .form-address .form-content {
-  box-sizing: border-box;
+  /* box-sizing: border-box;
   width: 100%;
-  display: block;
+  display: block; */
 }
 .form-address .field-text {
-  flex: 1;
-  color: #666666;
+  /* flex: 1; */
+  /* color: #666666;
   font-size: 30rpx;
-  padding: 0;
+  padding: 0; */
 }
 .form-address .field-text::after {
-  border: none !important;
+  /* border: none !important; */
 }
 .form-address .map {
   font-size: 48rpx !important;
   margin-left: 20rpx;
   color: #9d9d9f;
+}
+
+.address__tag {
+  justify-content: flex-start !important;
 }
 
 .form-address .label-list {
@@ -96,4 +98,12 @@ page .form-address .t-dialog-confirm {
 
 .form-address .form-content {
   --td-input-vertical-padding: 0;
+}
+
+.dialog__input {
+  margin-top: 32rpx;
+  border-radius: 8rpx;
+  box-sizing: border-box;
+  --td-input-vertical-padding: 12px;
+  --td-input-bg-color: #f3f3f3;
 }

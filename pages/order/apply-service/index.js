@@ -353,6 +353,7 @@ Page({
 
   // 发起申请售后请求
   onSubmit() {
+    console.log('-----');
     this.submitCheck().then(() => {
       const params = {
         rights: {

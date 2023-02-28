@@ -88,6 +88,8 @@
 }
 .select-service .bottom-bar__btn.disabled {
   background-color: #c6c6c6;
+  --td-button-default-active-bg-color: #c6c6c6;
+  --td-button-default-border-bg-color: #c6c6c6;
 }
 .select-service .bottom-bar__btn.disabled::after {
   border: none;
@@ -119,14 +121,26 @@
   height: 64rpx;
 }
 
-.input-dialog__content {
-  text-align: left;
+.t-input__label {
+  margin-right: 0 !important;
+}
+
+.input-dialog__label {
+  font-size: 48rpx;
+  color: #333;
+}
+
+.input-dialog__content .input-dialog__input,
+.input-dialog__label {
+  height: 64rpx;
+  line-height: 64rpx !important;
 }
 
 .input-dialog__content .input {
   font-size: 48rpx;
   padding-left: 0;
   padding-right: 0;
+  --td-input-border-left-space: 0;
 }
 
 .input-dialog__content .tips {
@@ -239,6 +253,15 @@
   padding: 0 32rpx 48rpx;
   background: #fff;
   margin-bottom: 148rpx;
+}
+
+.upload-addcontent-slot {
+  background-color: #f5f5f5;
+  height: inherit;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .refund-money__description {

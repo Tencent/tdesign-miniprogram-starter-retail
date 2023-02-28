@@ -66,15 +66,9 @@ Page({
   },
 
   updateButtonStatus() {
-    const {
-      serviceRateValue,
-      goodRateValue,
-      conveyRateValue,
-      isAllowedSubmit,
-    } = this.data;
+    const { serviceRateValue, goodRateValue, conveyRateValue, isAllowedSubmit } = this.data;
     const { textAreaValue } = this;
-    const temp =
-      serviceRateValue && goodRateValue && conveyRateValue && textAreaValue;
+    const temp = serviceRateValue && goodRateValue && conveyRateValue && textAreaValue;
     if (temp !== isAllowedSubmit) this.setData({ isAllowedSubmit: temp });
   },
 

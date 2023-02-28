@@ -9,7 +9,7 @@
     </view>
     <view class="comments-info">
       <view class="rate">
-        <t-rate value="{{commentScore}}" size="14" gap="2" variant="filled" color="{{['#ffc51c', '#ddd']}}" />
+        <t-rate value="{{commentScore}}" size="14" gap="2" color="{{['#ffc51c', '#ddd']}}" />
       </view>
       <view class="goods-info-text" wx:if="{{goodsDetailInfo}}">{{goodsDetailInfo}}</view>
     </view>

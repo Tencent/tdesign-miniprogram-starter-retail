@@ -115,7 +115,7 @@ Page({
         context: this,
         selector: '#t-toast',
         message: error.errMsg || error.msg || '修改头像出错了',
-        theme: 'fail',
+        theme: 'error',
       });
     }
   },
