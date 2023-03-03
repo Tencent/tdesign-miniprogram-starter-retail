@@ -117,6 +117,8 @@
     confirm-btn="确认"
     cancel-btn="取消"
     t-class-content="add-notes__content"
+    t-class-confirm="dialog__button-confirm"
+    t-class-cancel="dialog__button-cancel"
     bindconfirm="onNoteConfirm"
     bindcancel="onNoteCancel"
   >

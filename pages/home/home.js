@@ -14,6 +14,7 @@ Page({
     duration: '500',
     interval: 5000,
     navigation: { type: 'dots' },
+    swiperImageProps: { mode: 'scaleToFill' },
   },
 
   goodListPagination: {

@@ -35,14 +35,7 @@ Component({
       getPermission({ code: 'scope.address', name: '通讯地址' }).then(() => {
         wx.chooseAddress({
           success: async (options) => {
-            const {
-              provinceName,
-              cityName,
-              countyName,
-              detailInfo,
-              userName,
-              telNumber,
-            } = options;
+            const { provinceName, cityName, countyName, detailInfo, userName, telNumber } = options;
 
             if (!phoneRegCheck(telNumber)) {
               Toast({
@@ -67,8 +60,7 @@ Component({
             };
 
             try {
-              const { provinceCode, cityCode, districtCode } =
-                await addressParse(provinceName, cityName, countyName);
+              const { provinceCode, cityCode, districtCode } = await addressParse(provinceName, cityName, countyName);
 
               const params = Object.assign(target, {
                 provinceCode,
@@ -84,7 +76,7 @@ Component({
                   url: this.properties.navigateUrl,
                   success: function (res) {
                     res.eventChannel.emit(navigateEvent, params);
-                  }
+                  },
                 });
               } else {
                 this.triggerEvent('change', params);
@@ -117,9 +109,7 @@ Component({
 
     async onHandleSubmit(params) {
       try {
-        const orderPageDeltaNum = this.findPage(
-          'pages/order/order-confirm/index',
-        );
+        const orderPageDeltaNum = this.findPage('pages/order/order-confirm/index');
         if (orderPageDeltaNum > -1) {
           wx.navigateBack({ delta: 1 });
           resolveAddress(params);

@@ -15,16 +15,11 @@ page {
   font-weight: 400;
   color: #666666;
   margin-left: 24rpx;
+  margin-right: 12rpx;
 }
 
 .coupon-page-container .notice-bar-text .height-light {
   color: #fa550f;
-}
-
-.coupon-page-container .notice-bar-icon {
-  margin-left: 12rpx;
-  height: 68rpx;
-  line-height: 68rpx !important;
 }
 
 .coupon-page-container .popup-content-wrap {

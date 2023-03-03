@@ -3,8 +3,7 @@ import { fetchDeliveryAddress } from '../../../../services/address/fetchAddress'
 import { areaData } from '../../../../config/index';
 import { resolveAddress, rejectAddress } from './util';
 
-const innerPhoneReg =
-  '^1(?:3\\d|4[4-9]|5[0-35-9]|6[67]|7[0-8]|8\\d|9\\d)\\d{8}$';
+const innerPhoneReg = '^1(?:3\\d|4[4-9]|5[0-35-9]|6[67]|7[0-8]|8\\d|9\\d)\\d{8}$';
 const innerNameReg = '^[a-zA-Z\\d\\u4e00-\\u9fa5]+$';
 const labelsOptions = [
   { id: 0, name: '家' },
@@ -49,20 +48,18 @@ Page({
     verifyTips: '',
   },
   onLoad(options) {
-    const eventChannel = this.getOpenerEventChannel();
-    const self = this;
-    eventChannel.on('onWeixinAddressPassed', function (params) {
-      self.getWeixinAddress({ detail: params });
-    });
     const { id } = options;
     this.init(id);
   },
+
   onUnload() {
     if (!this.hasSava) {
       rejectAddress();
     }
   },
+
   hasSava: false,
+
   init(id) {
     if (id) {
       this.getAddressDetail(Number(id));
@@ -147,10 +144,7 @@ Page({
     const { labels, labelValue } = this.data;
     this.setData({
       visible: false,
-      labels: [
-        ...labels,
-        { id: labels[labels.length - 1].id + 1, name: labelValue },
-      ],
+      labels: [...labels, { id: labels[labels.length - 1].id + 1, name: labelValue }],
       labelValue: '',
     });
   },
@@ -168,8 +162,7 @@ Page({
   },
 
   onVerifyInputLegal() {
-    const { name, phone, detailAddress, districtName } =
-      this.data.locationState;
+    const { name, phone, detailAddress, districtName } = this.data.locationState;
     const prefixPhoneReg = String(this.properties.phoneReg || innerPhoneReg);
     const prefixNameReg = String(this.properties.nameReg || innerNameReg);
     const nameRegExp = new RegExp(prefixNameReg);
@@ -266,42 +259,40 @@ Page({
   },
 
   onSearchAddress() {
-    this.builtInSearch({ code: 'scope.userLocation', name: '地址位置' }).then(
-      () => {
-        wx.chooseLocation({
-          success: (res) => {
-            if (res.name) {
-              this.triggerEvent('addressParse', {
-                address: res.address,
-                name: res.name,
-                latitude: res.latitude,
-                longitude: res.longitude,
-              });
-            } else {
-              Toast({
-                context: this,
-                selector: '#t-toast',
-                message: '地点为空，请重新选择',
-                icon: '',
-                duration: 1000,
-              });
-            }
-          },
-          fail: function (res) {
-            console.warn(`wx.chooseLocation fail: ${JSON.stringify(res)}`);
-            if (res.errMsg !== 'chooseLocation:fail cancel') {
-              Toast({
-                context: this,
-                selector: '#t-toast',
-                message: '地点错误，请重新选择',
-                icon: '',
-                duration: 1000,
-              });
-            }
-          },
-        });
-      },
-    );
+    this.builtInSearch({ code: 'scope.userLocation', name: '地址位置' }).then(() => {
+      wx.chooseLocation({
+        success: (res) => {
+          if (res.name) {
+            this.triggerEvent('addressParse', {
+              address: res.address,
+              name: res.name,
+              latitude: res.latitude,
+              longitude: res.longitude,
+            });
+          } else {
+            Toast({
+              context: this,
+              selector: '#t-toast',
+              message: '地点为空，请重新选择',
+              icon: '',
+              duration: 1000,
+            });
+          }
+        },
+        fail: function (res) {
+          console.warn(`wx.chooseLocation fail: ${JSON.stringify(res)}`);
+          if (res.errMsg !== 'chooseLocation:fail cancel') {
+            Toast({
+              context: this,
+              selector: '#t-toast',
+              message: '地点错误，请重新选择',
+              icon: '',
+              duration: 1000,
+            });
+          }
+        },
+      });
+    });
   },
   formSubmit() {
     const { submitActive } = this.data;

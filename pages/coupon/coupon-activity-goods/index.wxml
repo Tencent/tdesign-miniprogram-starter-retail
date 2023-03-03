@@ -1,54 +1,40 @@
 <view class="coupon-page-container">
-	<view class="notice-bar-content">
-		<view class="notice-bar-text">
-			以下商品可使用
-			<text class="height-light">{{couponTypeDesc}}</text>
-			优惠券
-		</view>
-		<t-icon
-		  t-class="notice-bar-icon"
-		  name="help-circle"
-		  size="32rpx"
-		  color="#AAAAAA"
-		  bind:tap="openStoreList"
-		/>
-	</view>
-	<view class="goods-list-container">
-		<goods-list
-		  wr-class="goods-list-wrap"
-		  goodsList="{{goods}}"
-		  bind:click="goodClickHandle"
-		  bind:addcart="cartClickHandle"
-		/>
-	</view>
-	<floating-button count="{{cartNum}}" />
-	<t-popup visible="{{showStoreInfoList}}" placement="bottom" bind:visible-change="closeStoreList">
-		<t-icon
-		  slot="closeBtn"
-		  name="close"
-		  size="40rpx"
-		  bind:tap="closeStoreList"
-		/>
-		<view class="popup-content-wrap">
-			<view class="popup-content-title">
-				规则详情
-			</view>
-			<view class="desc-group-wrap">
-				<view wx:if="{{detail && detail.timeLimit}}" class="item-wrap">
-					<view class="item-title">优惠券有效时间</view>
-					<view class="item-label">{{detail.timeLimit}}</view>
-				</view>
-				<view wx:if="{{detail && detail.desc}}" class="item-wrap">
-					<view class="item-title">优惠券说明</view>
-					<view class="item-label">{{detail.desc}}</view>
-				</view>
-				<view wx:if="{{detail && detail.useNotes}}" class="item-wrap">
-					<view class="item-title">使用须知</view>
-					<view class="item-label">{{detail.useNotes}}</view>
-				</view>
-			</view>
-		</view>
-	</t-popup>
+  <view class="notice-bar-content">
+    <view class="notice-bar-text">
+      以下商品可使用
+      <text class="height-light">{{couponTypeDesc}}</text>
+      优惠券
+    </view>
+    <t-icon name="help-circle" size="32rpx" color="#AAAAAA" bind:tap="openStoreList" />
+  </view>
+  <view class="goods-list-container">
+    <goods-list
+      wr-class="goods-list-wrap"
+      goodsList="{{goods}}"
+      bind:click="goodClickHandle"
+      bind:addcart="cartClickHandle"
+    />
+  </view>
+  <floating-button count="{{cartNum}}" />
+  <t-popup visible="{{showStoreInfoList}}" placement="bottom" bind:visible-change="closeStoreList">
+    <t-icon slot="closeBtn" name="close" size="40rpx" bind:tap="closeStoreList" />
+    <view class="popup-content-wrap">
+      <view class="popup-content-title"> 规则详情 </view>
+      <view class="desc-group-wrap">
+        <view wx:if="{{detail && detail.timeLimit}}" class="item-wrap">
+          <view class="item-title">优惠券有效时间</view>
+          <view class="item-label">{{detail.timeLimit}}</view>
+        </view>
+        <view wx:if="{{detail && detail.desc}}" class="item-wrap">
+          <view class="item-title">优惠券说明</view>
+          <view class="item-label">{{detail.desc}}</view>
+        </view>
+        <view wx:if="{{detail && detail.useNotes}}" class="item-wrap">
+          <view class="item-title">使用须知</view>
+          <view class="item-label">{{detail.useNotes}}</view>
+        </view>
+      </view>
+    </view>
+  </t-popup>
 </view>
 <t-toast id="t-toast" />
-

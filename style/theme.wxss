@@ -27,7 +27,7 @@
   --td-button-default-disabled-bg: #cccccc;
   --td-button-default-disabled-border-color: #cccccc;
   --td-button-default-active-bg-color: #fa4126;
-  --td-button-default-border-bg-color: #fa4126;
+  --td-button-default-active-border-color: #fa4126;
 }
 
 .t-textarea {
@@ -36,4 +36,12 @@
 
 .t-checkbox {
   --td-checkbox-icon-checked-color: #fa4126;
+}
+
+.dialog__button-confirm {
+  color: #fa4126 !important;
+}
+
+.dialog__button-cancel {
+  color: #aeb3b7 !important;
 }
