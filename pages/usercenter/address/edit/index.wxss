@@ -38,20 +38,6 @@ page .divider-line {
   padding: 0 !important;
 }
 
-.form-address .form-content {
-  /* box-sizing: border-box;
-  width: 100%;
-  display: block; */
-}
-.form-address .field-text {
-  /* flex: 1; */
-  /* color: #666666;
-  font-size: 30rpx;
-  padding: 0; */
-}
-.form-address .field-text::after {
-  /* border: none !important; */
-}
 .form-address .map {
   font-size: 48rpx !important;
   margin-left: 20rpx;
