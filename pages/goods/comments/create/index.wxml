@@ -15,7 +15,6 @@
         <t-rate
           value="{{goodRateValue}}"
           bind:change="onRateChange"
-          variant="filled"
           size="26"
           gap="6"
           color="{{['#ffc51c', '#ddd']}}"
@@ -71,7 +70,6 @@
       <t-rate
         value="{{serviceRateValue}}"
         bind:change="onRateChange"
-        variant="filled"
         size="26"
         gap="6"
         color="{{['#ffc51c', '#ddd']}}"

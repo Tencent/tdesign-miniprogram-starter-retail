@@ -9,6 +9,12 @@
   --td-input-vertical-padding: 0;
 }
 
+.receipt-cell .t-cell__title {
+  width: 144rpx;
+  padding-right: 32rpx;
+  flex: none !important;
+}
+
 .receipt .t-input__wrapper {
   margin: 0 !important;
 }
@@ -33,7 +39,7 @@
   background: #f5f5f5;
   font-size: 24rpx;
   color: #333;
-  margin-left: 22rpx;
+  margin-right: 22rpx;
   text-align: center;
   border-radius: 8rpx;
   position: relative;

@@ -21,6 +21,7 @@
       duration="{{duration}}"
       interval="{{interval}}"
       navigation="{{navigation}}"
+      imageProps="{{swiperImageProps}}"
       list="{{imgSrcs}}"
       bind:click="navToActivityDetail"
     />

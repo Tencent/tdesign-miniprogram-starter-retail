@@ -148,15 +148,7 @@ Page({
     }
   },
   checkSure() {
-    const {
-      name,
-      componentName,
-      code,
-      phone,
-      email,
-      addressTagsIndex,
-      receiptIndex,
-    } = this.data;
+    const { name, componentName, code, phone, email, addressTagsIndex, receiptIndex } = this.data;
     if (receiptIndex === 0) {
       return true;
     }

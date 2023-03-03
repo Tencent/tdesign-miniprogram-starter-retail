@@ -72,11 +72,7 @@ page {
   display: flex;
 }
 
-.goods-detail-page
-  .goods-info
-  .goods-activity
-  .tags-container
-  .goods-activity-tag {
+.goods-detail-page .goods-info .goods-activity .tags-container .goods-activity-tag {
   background: #ffece9;
   color: #fa4126;
   font-size: 24rpx;
@@ -240,20 +236,14 @@ page {
   margin-top: 48rpx;
 }
 
-.popup-sku-header
-  .popup-sku-header__goods-info
-  .popup-sku__price
-  .popup-sku__price-num {
+.popup-sku-header .popup-sku-header__goods-info .popup-sku__price .popup-sku__price-num {
   font-size: 64rpx;
   color: #fa4126;
   font-weight: bold;
   font-family: DIN Alternate;
 }
 
-.popup-sku-header
-  .popup-sku-header__goods-info
-  .popup-sku__price
-  .popup-sku__price-del {
+.popup-sku-header .popup-sku-header__goods-info .popup-sku__price .popup-sku__price-del {
   position: relative;
   font-weight: normal;
   left: 12rpx;
@@ -262,22 +252,16 @@ page {
   font-size: 32rpx;
 }
 
-.popup-sku-header
-  .popup-sku-header__goods-info
-  .popup-sku__price
-  .popup-sku__price-symbol {
+.popup-sku-header .popup-sku-header__goods-info .popup-sku__price .popup-sku__price-symbol {
   font-size: 36rpx;
   color: #fa4126;
 }
 
-.popup-sku-header
-  .popup-sku-header__goods-info
-  .popup-sku__price
-  .popup-sku__price-max-num {
+.popup-sku-header .popup-sku-header__goods-info .popup-sku__price .popup-sku__price-max-num {
   font-size: 48rpx;
 }
 
-.goods-detail-page .goods-head .goods-detail-page {
+.goods-detail-page .goods-head {
   --td-swiper-radius: 0;
 }
 

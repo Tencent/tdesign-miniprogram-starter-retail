@@ -1,6 +1,6 @@
 <view class="receipt">
   <view class="title">
-    <t-cell title="发票" bordered="{{false}}" t-class-left="cell-left">
+    <t-cell class="receipt-cell" title="发票" bordered="{{false}}" t-class-left="cell-left">
       <view slot="right-icon" class="btn-wrap">
         <view
           bindtap="onLabels"
@@ -16,7 +16,7 @@
     </t-cell>
   </view>
   <block wx:if="{{receiptIndex === 1}}">
-    <t-cell title="发票抬头" t-class-left="cell-left">
+    <t-cell class="receipt-cell" title="发票抬头" t-class-left="cell-left">
       <view class="btn-wrap" slot="right-icon">
         <view
           class="btn {{addressTagsIndex === index ? 'active-btn':'' }}"
@@ -30,7 +30,12 @@
         </view>
       </view>
     </t-cell>
-    <t-cell title="{{addressTagsIndex === 0 ? '姓名':'公司名称'}}" t-class-left="cell-left" t-class-right="cell-right">
+    <t-cell
+      class="receipt-cell"
+      title="{{addressTagsIndex === 0 ? '姓名':'公司名称'}}"
+      t-class-left="cell-left"
+      t-class-right="cell-right"
+    >
       <t-input
         slot="right-icon"
         borderless
@@ -42,7 +47,12 @@
         placeholder="{{addressTagsIndex === 0 ? '请输入您的姓名':'请输入公司名称'}}"
       />
     </t-cell>
-    <t-cell title="{{addressTagsIndex === 0 ? '手机号':'识别号'}}" t-class-left="cell-left" t-class-right="cell-right">
+    <t-cell
+      class="receipt-cell"
+      title="{{addressTagsIndex === 0 ? '手机号':'识别号'}}"
+      t-class-left="cell-left"
+      t-class-right="cell-right"
+    >
       <view class="addressTagsIndex-cell" slot="right-icon">
         <t-input
           t-class="input-com"
@@ -56,7 +66,13 @@
         <t-icon wx:if="{{addressTagsIndex === 1}}" name="help-circle" size="30rpx" bindtap="onKnoeCode" />
       </view>
     </t-cell>
-    <t-cell title="电子邮箱" bordered="{{false}}" t-class-left="cell-left" t-class-right="cell-right">
+    <t-cell
+      class="receipt-cell"
+      title="电子邮箱"
+      bordered="{{false}}"
+      t-class-left="cell-left"
+      t-class-right="cell-right"
+    >
       <t-input
         slot="right-icon"
         t-class="input-com"
@@ -69,7 +85,7 @@
       />
     </t-cell>
     <view class="receipt-info">
-      <t-cell title="发票内容" bordered="{{false}}" t-class-left="cell-left">
+      <t-cell class="receipt-cell" title="发票内容" bordered="{{false}}" t-class-left="cell-left">
         <view class="btn-wrap" slot="right-icon">
           <view
             class="btn {{goodsClassesIndex ===index ? 'active-btn':''}}"

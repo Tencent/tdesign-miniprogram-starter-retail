@@ -9,16 +9,7 @@
       interval="{{interval}}"
       navigation="{{navigation}}"
       list="{{details.images}}"
-    >
-      <!-- <t-swiper-item
-			  wx:for="{{details.images}}"
-			  wx:for-item="item"
-			  wx:for-index="index"
-			  wx:key="index"
-			>
-				<t-image src="{{item}}" t-class="swipe-img" />
-			</t-swiper-item> -->
-    </t-swiper>
+    ></t-swiper>
     <view class="goods-info">
       <view class="goods-number">
         <view class="goods-price">
@@ -85,7 +76,6 @@
             <t-rate
               value="{{ commentItem.commentScore }}"
               count="{{5}}"
-              variant="filled"
               size="12"
               gap="2"
               color="{{['#ffc51c', '#ddd']}}"
