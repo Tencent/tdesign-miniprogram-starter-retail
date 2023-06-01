@@ -110,13 +110,7 @@ TDesign 零售模版示例小程序采用 [TDesign 企业级设计体系小程�
 
 最低基础库版本`^2.6.5`
 
-## :dart: 反馈&合作
-
-本开源项目是由[腾讯云Mall团队](https://ym.qq.com/)核心贡献。项目也在[github](https://github.com/Tencent/tdesign-miniprogram-starter-retail)上做了开源，有任何问题或者建议都欢迎在issue上留言反馈, 或者加入TD小程序开发者群进行反馈:star2::star2::star2:
-
-<img src="https://cdn.qa.ym.qq.com/officical-site/assets/logo.png?auto=format&fit=max&w=384" width = "100" height = "30" alt="模版小程序页面详情" align=center />
-
-[云Mall](https://ym.qq.com/)是基于微信小程序的电商SaaS产品，致力于提供全面、可靠的小程序商城经营服务，助力商家成功。支持标准化和定开类型商家入驻。
+## :dart: 反馈
 
 企业微信群
 TDesign 团队会及时在企业微信大群中同步发布版本、问题修复信息，也会有一些关于组件库建设的讨论，欢迎微信或企业微信扫码入群交流：
