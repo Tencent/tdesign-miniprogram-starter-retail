@@ -1901,8 +1901,8 @@ const allGoods = [
  * @param {number} [available] 库存, 默认1
  */
 export function genGood(id, available = 1) {
-  const specID = ['135681624', '135681628'];
-  if (specID.indexOf(id) > -1) {
+  const spuID = ['135681624', '135681628'];
+  if (spuID.indexOf(id) > -1) {
     return allGoods.filter((good) => good.spuId === id)[0];
   }
   const item = allGoods[id % allGoods.length];
