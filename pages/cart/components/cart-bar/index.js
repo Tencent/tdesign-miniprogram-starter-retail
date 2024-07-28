@@ -37,7 +37,7 @@ Component({
     fixed: Boolean,
   },
   data: {
-    isDisabled: false,
+    isDisabled: true,
   },
 
   methods: {
