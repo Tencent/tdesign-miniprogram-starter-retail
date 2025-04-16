@@ -1,0 +1,72 @@
+<view id="js-page-wrap" class="promotion-detail-container">
+  <view wx:if="{{banner}}" class="wrap" id="{{independentID}}">
+    <view class="banner-wrap">
+      <t-image src="{{banner}}" mode="aspectFill" webp="{{true}}" t-class="t-class-promotion-head" />
+      <view
+        wx:if="{{!showBannerDesc && (time >= 0 || statusTag === 'finish')}}"
+        class="count-down-wrap in-banner-count-down-wrap"
+      >
+        <block wx:if="{{statusTag === 'finish'}}">
+          <view class="status-tag {{statusTag}}">已结束</view>
+          <text class="count-down-label">活动已结束</text>
+        </block>
+        <block wx:else>
+          <view wx:if="{{statusTag === 'before'}}" class="status-tag {{statusTag}}"> 未开始 </view>
+          <text class="count-down-label">距结束仅剩</text>
+          <count-down
+            wx:if="{{time > 0}}"
+            t-class="wr-cd-class"
+            time="{{time}}"
+            format="DD天 HH:mm:ss"
+            bind:finish="countDownFinishHandle"
+          />
+        </block>
+        <view class="detail-entry" bind:tap="bannerClickHandle">
+          <text class="detail-entry-label">规则详情</text>
+          <t-icon name="chevron-right" size="34rpx" style="color: #999" />
+        </view>
+      </view>
+      <view
+        wx:if="{{showBannerDesc && (useBannerDescSlot || time >= 0 || statusTag === 'finish')}}"
+        class="banner-desc-wrap"
+      >
+        <block wx:if="{{useBannerDescSlot}}">
+          <slot name="banner-desc" />
+        </block>
+        <block wx:else>
+          <view class="count-down-wrap after-banner-count-down-wrap">
+            <block wx:if="{{statusTag === 'finish'}}">
+              <view class="status-tag {{statusTag}}">已结束</view>
+              <text class="count-down-label">活动已结束</text>
+            </block>
+            <block wx:else>
+              <view wx:if="{{statusTag === 'before'}}" class="status-tag {{statusTag}}"> 未开始 </view>
+              <text class="count-down-label">距结束仅剩</text>
+              <count-down
+                class="{{cdClass}}"
+                wr-class="wr-cd-class"
+                wx:if="{{time > 0}}"
+                time="{{time}}"
+                format="DD天 HH:mm:ss"
+                bind:finish="countDownFinishHandle"
+              />
+            </block>
+            <view class="detail-entry" bind:tap="bannerClickHandle">
+              <text class="detail-entry-label">规则详情</text>
+              <t-icon name="chevron-right" size="34rpx" style="color: #999" />
+            </view>
+          </view>
+        </block>
+      </view>
+    </view>
+  </view>
+  <view wx:if="{{list && list.length>0}}" class="promotion-goods-list">
+    <goods-list
+      wr-class="goods-list-container"
+      goodsList="{{list}}"
+      bind:click="goodClickHandle"
+      bind:addcart="cardClickHandle"
+    />
+  </view>
+  <t-toast id="t-toast" />
+</view>

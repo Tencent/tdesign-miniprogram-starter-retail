@@ -1,7 +1,7 @@
 import Toast from 'tdesign-miniprogram/toast/index';
 import { fetchSettleDetail } from '../../../services/order/orderConfirm';
 import { commitPay, wechatPayOrder } from './pay';
-import { getAddressPromise } from '../../usercenter/address/list/util';
+import { getAddressPromise } from '../../../services/address/list';
 
 const stripeImg = `https://cdn-we-retail.ym.tencent.com/miniapp/order/stripe.png`;
 
@@ -135,8 +135,7 @@ Page({
     // 失效 不在配送范围 限购的商品 提示弹窗
     if (
       (data.limitGoodsList && data.limitGoodsList.length > 0) ||
-      (data.abnormalDeliveryGoodsList &&
-        data.abnormalDeliveryGoodsList.length > 0) ||
+      (data.abnormalDeliveryGoodsList && data.abnormalDeliveryGoodsList.length > 0) ||
       (data.inValidGoodsList && data.inValidGoodsList.length > 0)
     ) {
       this.setData({ popupShow: true });
@@ -180,18 +179,7 @@ Page({
     return filterStoreGoodsList;
   },
   handleGoodsRequest(goods, isOutStock = false) {
-    const {
-      reminderStock,
-      quantity,
-      storeId,
-      uid,
-      saasId,
-      spuId,
-      goodsName,
-      skuId,
-      storeName,
-      roomId,
-    } = goods;
+    const { reminderStock, quantity, storeId, uid, saasId, spuId, goodsName, skuId, storeName, roomId } = goods;
     const resQuantity = isOutStock ? reminderStock : quantity;
     return {
       quantity: resQuantity,
@@ -273,7 +261,7 @@ Page({
     }
 
     wx.navigateTo({
-      url: `/pages/usercenter/address/list/index?selectMode=1&isOrderSure=1${id}`,
+      url: `/pages/user/address/list/index?selectMode=1&isOrderSure=1${id}`,
     });
   },
   onNotes(e) {
@@ -326,12 +314,8 @@ Page({
   onSureCommit() {
     // 商品库存不足继续结算
     const { settleDetailData } = this.data;
-    const { outOfStockGoodsList, storeGoodsList, inValidGoodsList } =
-      settleDetailData;
-    if (
-      (outOfStockGoodsList && outOfStockGoodsList.length > 0) ||
-      (inValidGoodsList && storeGoodsList)
-    ) {
+    const { outOfStockGoodsList, storeGoodsList, inValidGoodsList } = settleDetailData;
+    if ((outOfStockGoodsList && outOfStockGoodsList.length > 0) || (inValidGoodsList && storeGoodsList)) {
       // 合并正常商品 和 库存 不足商品继续支付
       // 过滤不必要的参数
       const filterOutGoodsList = [];
@@ -352,13 +336,7 @@ Page({
   },
   // 提交订单
   submitOrder() {
-    const {
-      settleDetailData,
-      userAddressReq,
-      invoiceData,
-      storeInfoList,
-      submitCouponList,
-    } = this.data;
+    const { settleDetailData, userAddressReq, invoiceData, storeInfoList, submitCouponList } = this.data;
     const { goodsRequestList } = this;
 
     if (!userAddressReq && !settleDetailData.userAddress) {
@@ -372,11 +350,7 @@ Page({
 
       return;
     }
-    if (
-      this.payLock ||
-      !settleDetailData.settleType ||
-      !settleDetailData.totalAmount
-    ) {
+    if (this.payLock || !settleDetailData.settleType || !settleDetailData.totalAmount) {
       return;
     }
     this.payLock = true;
@@ -419,10 +393,7 @@ Page({
       },
       (err) => {
         this.payLock = false;
-        if (
-          err.code === 'CONTAINS_INSUFFICIENT_GOODS' ||
-          err.code === 'TOTAL_AMOUNT_DIFFERENT'
-        ) {
+        if (err.code === 'CONTAINS_INSUFFICIENT_GOODS' || err.code === 'TOTAL_AMOUNT_DIFFERENT') {
           Toast({
             context: this,
             selector: '#t-toast',
@@ -446,8 +417,7 @@ Page({
           Toast({
             context: this,
             selector: '#t-toast',
-            message:
-              '支付失败，微信支付商户号设置有误，请商家重新检查支付设置。',
+            message: '支付失败，微信支付商户号设置有误，请商家重新检查支付设置。',
             duration: 2000,
             icon: 'close-circle',
           });
@@ -500,9 +470,7 @@ Page({
     // 跳转 开发票
     const invoiceData = this.invoiceData || {};
     wx.navigateTo({
-      url: `/pages/order/receipt/index?invoiceData=${JSON.stringify(
-        invoiceData,
-      )}`,
+      url: `/pages/order/receipt/index?invoiceData=${JSON.stringify(invoiceData)}`,
     });
   },
 
@@ -512,10 +480,7 @@ Page({
     const { selectedList } = e.detail;
     const tempSubmitCouponList = submitCouponList.map((storeCoupon) => {
       return {
-        couponList:
-          storeCoupon.storeId === currentStoreId
-            ? selectedList
-            : storeCoupon.couponList,
+        couponList: storeCoupon.storeId === currentStoreId ? selectedList : storeCoupon.couponList,
       };
     });
     const resSubmitCouponList = this.handleCouponList(tempSubmitCouponList);
@@ -549,10 +514,7 @@ Page({
       },
     } = e;
     const index = this.goodsRequestList.findIndex(
-      ({ storeId, spuId, skuId }) =>
-        goods.storeId === storeId &&
-        goods.spuId === spuId &&
-        goods.skuId === skuId,
+      ({ storeId, spuId, skuId }) => goods.storeId === storeId && goods.spuId === spuId && goods.skuId === skuId,
     );
     if (index >= 0) {
       // eslint-disable-next-line no-confusing-arrow

@@ -1,6 +1,6 @@
 {
   "name": "@tencent/tdesign-miniprogram-starter-retail",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "main": "app.js",
   "scripts": {
@@ -25,7 +25,7 @@
   },
   "dependencies": {
     "dayjs": "^1.9.3",
-    "tdesign-miniprogram": "^1.0.0",
+    "tdesign-miniprogram": "^1.8.8",
     "tslib": "^1.11.1"
   },
   "devDependencies": {

@@ -1,4 +1,5 @@
 <wxs src="./index.wxs" module="handlePromotion" />
+
 <wxs src="./utils.wxs" module="utils" />
 
 <view class="cart-group">
@@ -145,7 +146,7 @@
   price="{{currentGoods.price || ''}}"
   thumb="{{utils.imgCut(currentGoods.thumb, 180, 180)}}"
   specs="{{currentGoods.specs || []}}"
-  zIndex="{{999}}"
+  zIndex="{{11001}}"
   bindclose="hideSpecsPopup"
 />
 

@@ -1,11 +1,3 @@
-/*
- * @Author: rileycai
- * @Date: 2022-03-14 14:21:26
- * @LastEditTime: 2022-03-14 15:23:04
- * @LastEditors: rileycai
- * @Description: webp-image组件对t-image包裹了一层，主要实现图片裁剪、webp压缩功能
- * @FilePath: /tdesign-miniprogram-starter/components/webp-image/index.js
- */
 const systemInfo = wx.getSystemInfoSync();
 Component({
   externalClasses: ['t-class', 't-class-load'],

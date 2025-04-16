@@ -112,36 +112,29 @@ Page({
   },
 
   fetUseriInfoHandle() {
-    fetchUserCenter().then(
-      ({
+    fetchUserCenter().then(({ userInfo, countsData, orderTagInfos: orderInfo, customerServiceInfo }) => {
+      // eslint-disable-next-line no-unused-expressions
+      menuData?.[0].forEach((v) => {
+        countsData.forEach((counts) => {
+          if (counts.type === v.type) {
+            // eslint-disable-next-line no-param-reassign
+            v.tit = counts.num;
+          }
+        });
+      });
+      const info = orderTagInfos.map((v, index) => ({
+        ...v,
+        ...orderInfo[index],
+      }));
+      this.setData({
         userInfo,
-        countsData,
-        orderTagInfos: orderInfo,
+        menuData,
+        orderTagInfos: info,
         customerServiceInfo,
-      }) => {
-        // eslint-disable-next-line no-unused-expressions
-        menuData?.[0].forEach((v) => {
-          countsData.forEach((counts) => {
-            if (counts.type === v.type) {
-              // eslint-disable-next-line no-param-reassign
-              v.tit = counts.num;
-            }
-          });
-        });
-        const info = orderTagInfos.map((v, index) => ({
-          ...v,
-          ...orderInfo[index],
-        }));
-        this.setData({
-          userInfo,
-          menuData,
-          orderTagInfos: info,
-          customerServiceInfo,
-          currAuthStep: 2,
-        });
-        wx.stopPullDownRefresh();
-      },
-    );
+        currAuthStep: 2,
+      });
+      wx.stopPullDownRefresh();
+    });
   },
 
   onClickCell({ currentTarget }) {
@@ -149,7 +142,7 @@ Page({
 
     switch (type) {
       case 'address': {
-        wx.navigateTo({ url: '/pages/usercenter/address/list/index' });
+        wx.navigateTo({ url: '/pages/user/address/list/index' });
         break;
       }
       case 'service': {
@@ -224,7 +217,7 @@ Page({
   gotoUserEditPage() {
     const { currAuthStep } = this.data;
     if (currAuthStep === 2) {
-      wx.navigateTo({ url: '/pages/usercenter/person-info/index' });
+      wx.navigateTo({ url: '/pages/user/person-info/index' });
     } else {
       this.fetUseriInfoHandle();
     }

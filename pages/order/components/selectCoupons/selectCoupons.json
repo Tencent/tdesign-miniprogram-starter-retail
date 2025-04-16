@@ -5,6 +5,6 @@
     "t-icon": "tdesign-miniprogram/icon/icon",
     "t-image": "/components/webp-image/index",
     "wr-price": "/components/price/index",
-    "coupon-card": "/pages/coupon/components/ui-coupon-card/index"
+    "coupon-card": "/components/promotion/ui-coupon-card/index"
   }
 }
