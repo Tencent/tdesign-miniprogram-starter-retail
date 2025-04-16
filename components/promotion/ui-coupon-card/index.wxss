@@ -1,6 +1,6 @@
 .wr-coupon {
   display: flex;
-  background-image: url('https://cdn-we-retail.ym.tencent.com/miniapp/coupon/coupon-bg-nocorners.png');
+  background-image: url('https://tdesign.gtimg.com/miniprogram/template/retail/coupon/coupon-bg-nocorners.png');
   background-size: 100% 100%;
   background-repeat: no-repeat;
   position: relative;
@@ -8,7 +8,7 @@
   overflow: hidden;
 }
 .theme-weak.wr-coupon {
-  background-image: url('https://cdn-we-retail.ym.tencent.com/miniapp/coupon/coupon-bg-grey2.png');
+  background-image: url('https://tdesign.gtimg.com/miniprogram/template/retail/coupon/coupon-bg-grey2.png');
 }
 
 .wr-coupon__left {
@@ -139,9 +139,9 @@
 }
 
 .wr-coupon__seal.seal-useless {
-  background-image: url('https://cdn-we-retail.ym.tencent.com/miniapp/coupon/seal-used.png');
+  background-image: url('https://tdesign.gtimg.com/miniprogram/template/retail/coupon/seal-used.png');
 }
 
 .wr-coupon__seal.seal-disabled {
-  background-image: url('https://cdn-we-retail.ym.tencent.com/miniapp/coupon/coupon-expired.png');
+  background-image: url('https://tdesign.gtimg.com/miniprogram/template/retail/coupon/coupon-expired.png');
 }

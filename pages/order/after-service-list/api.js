@@ -63,15 +63,14 @@ export const resp = {
           uid: '123',
           updateTime: '1596524705613',
           userRightsStatus: 120,
-          userRightsStatusDesc:
-            '商家已退款，退回资金将原路三个工作日返回您的账户',
+          userRightsStatusDesc: '商家已退款，退回资金将原路三个工作日返回您的账户',
           userRightsStatusName: '已退款',
           afterSaleRequireType: 'REFUND_MONEY',
           rightsImageUrls: [
-            'https://cdn-we-retail.ym.tencent.com/tsr/goods/nz-09a.png',
-            'https://cdn-we-retail.ym.tencent.com/tsr/goods/nz-09a.png',
-            'https://cdn-we-retail.ym.tencent.com/tsr/goods/nz-09a.png',
-            'https://cdn-we-retail.ym.tencent.com/tsr/goods/nz-09a.png',
+            'https://tdesign.gtimg.com/miniprogram/template/retail/goods/nz-09a.png',
+            'https://tdesign.gtimg.com/miniprogram/template/retail/goods/nz-09a.png',
+            'https://tdesign.gtimg.com/miniprogram/template/retail/goods/nz-09a.png',
+            'https://tdesign.gtimg.com/miniprogram/template/retail/goods/nz-09a.png',
           ],
         },
         rightsItem: [
@@ -80,8 +79,7 @@ export const resp = {
             createTime: '1596524705613',
             disconutInfo: '现在下单，立刻优惠100元',
             goodsName: '小米手机',
-            goodsPictureUrl:
-              'https://cdn-we-retail.ym.tencent.com/tsr/goods/nz-09a.png',
+            goodsPictureUrl: 'https://tdesign.gtimg.com/miniprogram/template/retail/goods/nz-09a.png',
             goodsViceType: 1,
             itemDiscountAmount: 123123,
             itemRefundAmount: 888,
@@ -112,8 +110,7 @@ export const resp = {
             createTime: '1596524705613',
             disconutInfo: '现在下单，立刻优惠100元',
             goodsName: '华为手机',
-            goodsPictureUrl:
-              'https://cdn-we-retail.ym.tencent.com/tsr/goods/nz-09a.png',
+            goodsPictureUrl: 'https://tdesign.gtimg.com/miniprogram/template/retail/goods/nz-09a.png',
             goodsViceType: 1,
             itemDiscountAmount: 123123,
             itemRefundAmount: 9999,
@@ -184,21 +181,21 @@ export const resp = {
           nodes: [
             {
               title: '已签收',
-              icon: 'https://cdn-we-retail.ym.tencent.com/tsr/icon/order.png',
+              icon: 'https://tdesign.gtimg.com/miniprogram/template/retail/icon/order.png',
               code: '200003',
               desc: '商家已签收，感谢使用顺丰，期待再次为您服务',
               date: '2020-09-11 11:34:53',
             },
             {
               title: '运输中',
-              icon: 'https://cdn-we-retail.ym.tencent.com/tsr/icon/deliver.png',
+              icon: 'https://tdesign.gtimg.com/miniprogram/template/retail/icon/deliver.png',
               desc: '快件已到达成都中转站',
               code: '200002',
               date: '2020-07-16 11:16:31',
             },
             {
               title: '已寄出',
-              icon: 'https://cdn-we-retail.ym.tencent.com/tsr/icon/deliver.png',
+              icon: 'https://tdesign.gtimg.com/miniprogram/template/retail/icon/deliver.png',
               desc: '买家已寄出，物流承运商：顺丰速运',
               date: '2020-07-16 11:16:21',
             },
@@ -219,10 +216,10 @@ export const resp = {
         createTime: '1596524705613',
         rights: {
           rightsImageUrls: [
-            'https://cdn-we-retail.ym.tencent.com/tsr/goods/nz-09a.png',
-            'https://cdn-we-retail.ym.tencent.com/tsr/goods/nz-09a.png',
-            'https://cdn-we-retail.ym.tencent.com/tsr/goods/nz-09a.png',
-            'https://cdn-we-retail.ym.tencent.com/tsr/goods/nz-09a.png',
+            'https://tdesign.gtimg.com/miniprogram/template/retail/goods/nz-09a.png',
+            'https://tdesign.gtimg.com/miniprogram/template/retail/goods/nz-09a.png',
+            'https://tdesign.gtimg.com/miniprogram/template/retail/goods/nz-09a.png',
+            'https://tdesign.gtimg.com/miniprogram/template/retail/goods/nz-09a.png',
           ],
           bizRightsStatus: 1,
           bizRightsStatusName: '退款退货',
@@ -255,8 +252,7 @@ export const resp = {
             createTime: '1596524705613',
             disconutInfo: '现在下单，立刻优惠100元',
             goodsName: '小米手机',
-            goodsPictureUrl:
-              'https://cdn-we-retail.ym.tencent.com/tsr/goods/nz-09a.png',
+            goodsPictureUrl: 'https://tdesign.gtimg.com/miniprogram/template/retail/goods/nz-09a.png',
             goodsViceType: 1,
             itemDiscountAmount: 123123,
             itemRefundAmount: 888,
@@ -340,10 +336,10 @@ export const resp = {
         createTime: '1596524705613',
         rights: {
           rightsImageUrls: [
-            'https://cdn-we-retail.ym.tencent.com/tsr/goods/nz-09a.png',
-            'https://cdn-we-retail.ym.tencent.com/tsr/goods/nz-09a.png',
-            'https://cdn-we-retail.ym.tencent.com/tsr/goods/nz-09a.png',
-            'https://cdn-we-retail.ym.tencent.com/tsr/goods/nz-09a.png',
+            'https://tdesign.gtimg.com/miniprogram/template/retail/goods/nz-09a.png',
+            'https://tdesign.gtimg.com/miniprogram/template/retail/goods/nz-09a.png',
+            'https://tdesign.gtimg.com/miniprogram/template/retail/goods/nz-09a.png',
+            'https://tdesign.gtimg.com/miniprogram/template/retail/goods/nz-09a.png',
           ],
           bizRightsStatus: 1,
           bizRightsStatusName: '退款退货',
@@ -376,8 +372,7 @@ export const resp = {
             createTime: '1596524705613',
             disconutInfo: '现在下单，立刻优惠100元',
             goodsName: '小米手机',
-            goodsPictureUrl:
-              'https://cdn-we-retail.ym.tencent.com/tsr/goods/nz-09a.png',
+            goodsPictureUrl: 'https://tdesign.gtimg.com/miniprogram/template/retail/goods/nz-09a.png',
             goodsViceType: 1,
             itemDiscountAmount: 123123,
             itemRefundAmount: 888,
@@ -482,8 +477,7 @@ export const resp = {
           shippingFee: 99,
           shippingFeeBear: 1,
           storeId: 123,
-          storeName:
-            '大猫集团旗舰店-大猫集团旗舰店-大猫集团旗舰店-大猫集团旗舰店-大猫集团旗舰店-大猫集团旗舰店',
+          storeName: '大猫集团旗舰店-大猫集团旗舰店-大猫集团旗舰店-大猫集团旗舰店-大猫集团旗舰店-大猫集团旗舰店',
           uid: '123',
           updateTime: '1596524705613',
           userRightsStatus: 160,
@@ -496,8 +490,7 @@ export const resp = {
             createTime: '1596524705613',
             disconutInfo: '现在下单，立刻优惠100元',
             goodsName: '小米手机',
-            goodsPictureUrl:
-              'https://cdn-we-retail.ym.tencent.com/tsr/goods/nz-09a.png',
+            goodsPictureUrl: 'https://tdesign.gtimg.com/miniprogram/template/retail/goods/nz-09a.png',
             goodsViceType: 1,
             itemDiscountAmount: 123123,
             itemRefundAmount: 888,
@@ -610,8 +603,7 @@ export const resp = {
             createTime: '1596524705613',
             disconutInfo: '现在下单，立刻优惠100元',
             goodsName: '小米手机',
-            goodsPictureUrl:
-              'https://cdn-we-retail.ym.tencent.com/tsr/goods/nz-09a.png',
+            goodsPictureUrl: 'https://tdesign.gtimg.com/miniprogram/template/retail/goods/nz-09a.png',
             goodsViceType: 1,
             itemDiscountAmount: 123123,
             itemRefundAmount: 888,
@@ -717,8 +709,7 @@ export const resp = {
           uid: '123',
           updateTime: '1596524705613',
           userRightsStatus: 1,
-          userRightsStatusDesc:
-            '商家将在24小时内审核，如24小时后商家仍未审核，系统将自动审核通过',
+          userRightsStatusDesc: '商家将在24小时内审核，如24小时后商家仍未审核，系统将自动审核通过',
           userRightsStatusName: '待商家审核',
         },
         rightsItem: [
@@ -728,8 +719,7 @@ export const resp = {
             disconutInfo: '现在下单，立刻优惠100元',
             goodsName:
               '小米手机-小米手机-小米手机-小米手机-小米手机-小米手机-小米手机-小米手机-小米手机-小米手机-小米手机-小米手机-小米手机-小米手机-小米手机-小米手机-小米手机',
-            goodsPictureUrl:
-              'https://cdn-we-retail.ym.tencent.com/tsr/goods/nz-09a.png',
+            goodsPictureUrl: 'https://tdesign.gtimg.com/miniprogram/template/retail/goods/nz-09a.png',
             goodsViceType: 1,
             itemDiscountAmount: 123123,
             itemRefundAmount: 888,
@@ -842,8 +832,7 @@ export const resp = {
             createTime: '1596524705613',
             disconutInfo: '现在下单，立刻优惠100元',
             goodsName: '小米手机',
-            goodsPictureUrl:
-              'https://cdn-we-retail.ym.tencent.com/tsr/goods/nz-09a.png',
+            goodsPictureUrl: 'https://tdesign.gtimg.com/miniprogram/template/retail/goods/nz-09a.png',
             goodsViceType: 1,
             itemDiscountAmount: 123123,
             itemRefundAmount: 888,
@@ -957,8 +946,7 @@ export const resp = {
             createTime: '1596524705613',
             disconutInfo: '现在下单，立刻优惠100元',
             goodsName: '小米手机',
-            goodsPictureUrl:
-              'https://cdn-we-retail.ym.tencent.com/tsr/goods/nz-09a.png',
+            goodsPictureUrl: 'https://tdesign.gtimg.com/miniprogram/template/retail/goods/nz-09a.png',
             goodsViceType: 1,
             itemDiscountAmount: 123123,
             itemRefundAmount: 888,
@@ -1071,8 +1059,7 @@ export const resp = {
             createTime: '1596524705613',
             disconutInfo: '现在下单，立刻优惠100元',
             goodsName: '小米手机',
-            goodsPictureUrl:
-              'https://cdn-we-retail.ym.tencent.com/tsr/goods/nz-09a.png',
+            goodsPictureUrl: 'https://tdesign.gtimg.com/miniprogram/template/retail/goods/nz-09a.png',
             goodsViceType: 1,
             itemDiscountAmount: 123123,
             itemRefundAmount: 888,
@@ -1186,8 +1173,7 @@ export const resp = {
             disconutInfo: '现在下单，立刻优惠100元',
             goodsName:
               '小米手机-小米手机-小米手机-小米手机-小米手机-小米手机-小米手机-小米手机-小米手机-小米手机-小米手机-小米手机',
-            goodsPictureUrl:
-              'https://cdn-we-retail.ym.tencent.com/tsr/goods/nz-09a.png',
+            goodsPictureUrl: 'https://tdesign.gtimg.com/miniprogram/template/retail/goods/nz-09a.png',
             goodsViceType: 1,
             itemDiscountAmount: 123123,
             itemRefundAmount: 888,
@@ -1270,9 +1256,7 @@ export function getRightsList({ parameter: { afterServiceStatus, pageNum } }) {
   const _resq = JSON.parse(JSON.stringify(resp));
   if (pageNum > 3) _resq.data.dataList = [];
   if (afterServiceStatus > -1) {
-    _resq.data.dataList = _resq.data.dataList.filter(
-      (item) => item.rights.rightsStatus === afterServiceStatus,
-    );
+    _resq.data.dataList = _resq.data.dataList.filter((item) => item.rights.rightsStatus === afterServiceStatus);
   }
   return Promise.resolve(_resq);
 }

@@ -34,8 +34,7 @@ Page({
     dataList: [],
     listLoading: 0, // 0-未加载，1-加载中，2-已全部加载
     pullDownRefreshing: false, // 下拉刷新时不显示load-more
-    emptyImg:
-      'https://cdn-we-retail.ym.tencent.com/miniapp/order/empty-order-list.png',
+    emptyImg: 'https://tdesign.gtimg.com/miniprogram/template/retail/order/empty-order-list.png',
     backRefresh: false,
   },
 
@@ -133,10 +132,7 @@ Page({
               storeName: _data.rights.storeName,
               type: _data.rights.rightsType,
               typeDesc: ServiceTypeDesc[_data.rights.rightsType],
-              typeDescIcon:
-                _data.rightsType === ServiceType.ONLY_REFUND
-                  ? 'money-circle'
-                  : 'return-goods-1',
+              typeDescIcon: _data.rightsType === ServiceType.ONLY_REFUND ? 'money-circle' : 'return-goods-1',
               status: _data.rights.rightsStatus,
               statusName: _data.rights.userRightsStatusName,
               statusDesc: _data.rights.userRightsStatusDesc,

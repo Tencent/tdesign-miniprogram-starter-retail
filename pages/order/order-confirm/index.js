@@ -3,7 +3,7 @@ import { fetchSettleDetail } from '../../../services/order/orderConfirm';
 import { commitPay, wechatPayOrder } from './pay';
 import { getAddressPromise } from '../../../services/address/list';
 
-const stripeImg = `https://cdn-we-retail.ym.tencent.com/miniapp/order/stripe.png`;
+const stripeImg = `https://tdesign.gtimg.com/miniprogram/template/retail/order/stripe.png`;
 
 Page({
   data: {
