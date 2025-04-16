@@ -1,7 +1,7 @@
 <wxs module="tools">
-  function isBigValue(value) { var values = (value + '').split('.'); if (values[1] && values[0].length >= 3) return
-  true; else return false } function getBigValues(value) { return value.split('.'); } module.exports = { isBigValue:
-  isBigValue, getBigValues: getBigValues };
+  function isBigValue(value) { var values = (value + '').split('.'); if (values[1] && values[0].length >= 3) {return
+  true; } else {return false;} } function getBigValues(value) { return value.split('.'); } module.exports = {
+  isBigValue:isBigValue, getBigValues: getBigValues };
 </wxs>
 <view class="wr-coupon coupon-class theme-{{theme}}">
   <view class="wr-coupon__left">
