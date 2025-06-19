@@ -18,6 +18,10 @@
 
 .fill-tracking-no__form .t-cell__note {
   justify-content: flex-start;
+  width: 340rpx;
+}
+.fill-tracking-no__form .t-cell__note text {
+  margin-left: 10rpx;
 }
 
 .fill-tracking-no__form .t-cell__value {

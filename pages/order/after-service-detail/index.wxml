@@ -155,7 +155,7 @@
         />
       </view>
       <!-- 凭证/说明 -->
-      <view class="service-section__pay" wx:if="{{showProofs}}">
+      <view class="service-section__pay credential_desc" wx:if="{{showProofs}}">
         <t-cell
           bordered="{{false}}"
           title="凭证/说明"

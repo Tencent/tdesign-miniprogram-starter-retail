@@ -34,7 +34,6 @@ page view {
   flex-wrap: nowrap;
   align-items: center;
   justify-content: space-between;
-  padding-bottom: calc(20rpx + env(safe-area-inset-bottom));
 }
 .popup-content .button-bar .btn {
   width: 100%;

@@ -7,7 +7,7 @@ export default [
   {
     icon: 'sort',
     text: '分类',
-    url: 'pages/goods/category/index',
+    url: 'pages/category/index',
   },
   {
     icon: 'cart',

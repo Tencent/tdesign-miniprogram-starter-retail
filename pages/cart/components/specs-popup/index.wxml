@@ -1,26 +1,14 @@
-<t-popup
-  close-on-overlay-click="{{true}}"
-  visible="{{show}}"
-  placement="bottom"
-  z-index="{{zIndex}}"
->
-	<view class="specs-popup">
-		<view>
-			<goods-card data="{{goods}}" layout="horizontal-wrap" thumb-mode="{{thumbMode}}" />
-			<view class="section">
-				<view class="title">已选规格</view>
-				<view class="options">
-					<view
-					  wx:for="{{specs}}"
-					  wx:for-item="spec"
-					  wx:key="spec"
-					  class="option"
-					>{{spec}}
-					</view>
-				</view>
-			</view>
-		</view>
-		<view class="bottom-btn" hover-class="bottom-btn--active" bindtap="onClose">我知道了</view>
-	</view>
+<t-popup visible="{{show}}" placement="bottom" z-index="{{zIndex}}" bind:visible-change="onClose">
+  <view class="specs-popup">
+    <view>
+      <goods-card data="{{goods}}" layout="horizontal-wrap" thumb-mode="{{thumbMode}}" />
+      <view class="section">
+        <view class="title">已选规格</view>
+        <view class="options">
+          <view wx:for="{{specs}}" wx:for-item="spec" wx:key="spec" class="option">{{spec}} </view>
+        </view>
+      </view>
+    </view>
+    <view class="bottom-btn" hover-class="bottom-btn--active" bindtap="onClose">我知道了</view>
+  </view>
 </t-popup>
-

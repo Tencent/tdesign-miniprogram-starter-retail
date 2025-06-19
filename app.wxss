@@ -1,3 +1,7 @@
 @import 'style/iconfont.wxss';
 
 @import 'style/theme.wxss';
+
+.cell--noborder .t-cell::after {
+  border-bottom: none !important;
+}

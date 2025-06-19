@@ -90,6 +90,12 @@
   background-color: white;
   overflow: hidden;
 }
+.service-section__pay.credential_desc {
+  padding: 0 24rpx;
+}
+.service-section__pay .t-grid-item__content {
+  padding: 0 0 24rpx;
+}
 .service-detail .service-section__title {
   color: #333333;
   margin-bottom: 10rpx;
