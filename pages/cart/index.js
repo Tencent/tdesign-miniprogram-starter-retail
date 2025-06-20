@@ -232,7 +232,7 @@ Page({
     /** 活动肯定有一个活动ID，用来获取活动banner，活动商品列表等 */
     const promotionID = '123';
     wx.navigateTo({
-      url: `/pages/promotion-detail/index?promotion_id=${promotionID}`,
+      url: `/pages/promotion/promotion-detail/index?promotion_id=${promotionID}`,
     });
   },
 

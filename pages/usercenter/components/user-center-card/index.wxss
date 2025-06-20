@@ -4,7 +4,7 @@
   left: 0;
   width: 100%;
   height: 480rpx;
-  background-image: url('https://cdn-we-retail.ym.tencent.com/miniapp/template/user-center-bg-v1.png');
+  background-image: url('https://tdesign.gtimg.com/miniprogram/template/retail/template/user-center-bg-v1.png');
   background-size: cover;
   background-repeat: no-repeat;
   padding: 0 24rpx;

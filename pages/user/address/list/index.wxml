@@ -1,0 +1,39 @@
+<view class="address-container">
+  <view class="address-list" wx:if="{{addressList.length > 0}}">
+    <block wx:for="{{addressList}}" wx:for-index="index" wx:for-item="address" wx:key="addressId">
+      <t-address-item
+        isDrawLine="{{index+1 !== addressList.length}}"
+        extra-space="{{extraSpace}}"
+        class-prefix="ym"
+        address="{{address}}"
+        data-id="{{address.id}}"
+        bind:onSelect="selectHandle"
+        bind:onDelete="deleteAddressHandle"
+        bind:onEdit="editAddressHandle"
+      />
+    </block>
+  </view>
+  <view wx:else class="no-address">
+    <t-empty icon="" description="暂无收货地址，赶快添加吧" />
+  </view>
+  <view class="bottom-fixed">
+    <view class="btn-wrap">
+      <t-location
+        title="微信地址导入"
+        isOrderSure="{{isOrderSure}}"
+        isDisabledBtn="{{addressList.length >= 20}}"
+        navigateUrl="/pages/user/address/edit/index"
+        navigateEvent="onWeixinAddressPassed"
+        t-class="location-btn"
+        isCustomStyle="{{true}}"
+        bind:navigate="waitForNewAddress"
+      />
+      <view class="address-btn {{addressList.length >= 20 ? 'btn-default':''}}" bind:tap="createHandle">
+        <t-icon name="add" size="48rpx" color="#fff" t-class="custom-class" />
+        <text>新建收货地址</text>
+      </view>
+    </view>
+    <view class="footer" wx:if="{{addressList.length >= 20}}">最多支持添加20个收货地址</view>
+  </view>
+</view>
+<t-toast id="t-toast" />

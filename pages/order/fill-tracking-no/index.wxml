@@ -41,7 +41,12 @@
     />
   </view>
   <view class="fill-tracking-no__button-bar">
-    <t-button t-class="btn {{ submitActived ? 'confirmBtn' : 'disabled' }}" loading="{{submitting}}" bindtap="onSubmit">
+    <t-button
+      t-class="btn {{ submitActived ? 'confirmBtn' : '' }}"
+      disabled="{{!submitActived}}"
+      loading="{{submitting}}"
+      bindtap="onSubmit"
+    >
       保存
     </t-button>
   </view>

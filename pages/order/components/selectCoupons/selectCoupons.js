@@ -1,7 +1,7 @@
 import dayjs from 'dayjs';
 import { couponsData } from './mock';
 
-const emptyCouponImg = `https://cdn-we-retail.ym.tencent.com/miniapp/coupon/ordersure-coupon-newempty.png`;
+const emptyCouponImg = `https://tdesign.gtimg.com/miniprogram/template/retail/coupon/ordersure-coupon-newempty.png`;
 
 Component({
   properties: {
@@ -19,8 +19,7 @@ Component({
       value: false,
       observer(couponsShow) {
         if (couponsShow) {
-          const { promotionGoodsList, orderSureCouponList, storeId } =
-            this.data;
+          const { promotionGoodsList, orderSureCouponList, storeId } = this.data;
           const products =
             promotionGoodsList &&
             promotionGoodsList.map((goods) => {
@@ -76,15 +75,7 @@ Component({
         couponResultList &&
         couponResultList.map((coupon) => {
           const { status, couponVO } = coupon;
-          const {
-            couponId,
-            condition = '',
-            endTime = 0,
-            name = '',
-            startTime = 0,
-            value,
-            type,
-          } = couponVO;
+          const { couponId, condition = '', endTime = 0, name = '', startTime = 0, value, type } = couponVO;
           if (status === 1) {
             selectedNum++;
             selectedList.push({
@@ -98,9 +89,7 @@ Component({
             key: couponId,
             title: name,
             isSelected: false,
-            timeLimit: `${dayjs(+startTime).format('YYYY-MM-DD')}-${dayjs(
-              +endTime,
-            ).format('YYYY-MM-DD')}`,
+            timeLimit: `${dayjs(+startTime).format('YYYY-MM-DD')}-${dayjs(+endTime).format('YYYY-MM-DD')}`,
             value: val,
             status: status === -1 ? 'useless' : 'default',
             desc: condition,
@@ -124,9 +113,7 @@ Component({
         }
       });
 
-      const couponSelected = couponsList.filter(
-        (coupon) => coupon.isSelected === true,
-      );
+      const couponSelected = couponsList.filter((coupon) => coupon.isSelected === true);
 
       this.setData({
         selectedList: [...selectedList, ...couponSelected],

@@ -1,7 +1,6 @@
 import Toast from 'tdesign-miniprogram/toast/index';
 
-const shortageImg =
-  'https://cdn-we-retail.ym.tencent.com/miniapp/cart/shortage.png';
+const shortageImg = 'https://tdesign.gtimg.com/miniprogram/template/retail/cart/shortage.png';
 
 Component({
   isSpecsTap: false, // 标记本次点击事件是否因为点击specs触发（由于底层goods-card组件没有catch specs点击事件，只能在此处加状态来避免点击specs时触发跳转商品详情）
@@ -91,10 +90,7 @@ Component({
     },
 
     overlimit(e) {
-      const text =
-        e.detail.type === 'minus'
-          ? '该商品数量不能减少了哦'
-          : '同一商品最多购买999件';
+      const text = e.detail.type === 'minus' ? '该商品数量不能减少了哦' : '同一商品最多购买999件';
       Toast({
         context: this,
         selector: '#t-toast',

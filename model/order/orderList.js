@@ -44,14 +44,12 @@ export function genOrders(params) {
               roomId: null,
               goodsMainType: 0,
               goodsViceType: 0,
-              goodsName:
-                '腾讯极光盒子4智能网络电视机顶盒6K千兆网络机顶盒4K高分辨率',
+              goodsName: '腾讯极光盒子4智能网络电视机顶盒6K千兆网络机顶盒4K高分辨率',
               specifications: [
                 { specTitle: '颜色', specValue: '贵族青' },
                 { specTitle: '类型', specValue: '尊享礼盒装' },
               ],
-              goodsPictureUrl:
-                'https://cdn-we-retail.ym.tencent.com/tsr/goods/dz-3b.png',
+              goodsPictureUrl: 'https://tdesign.gtimg.com/miniprogram/template/retail/goods/dz-3b.png',
               originPrice: '0',
               actualPrice: '9999',
               buyQuantity: 1,
@@ -81,10 +79,13 @@ export function genOrders(params) {
             receiverCountry: '宝安区',
             receiverArea: '',
             receiverAddress: '沙井中心路28号丽沙花都xx栋xx号',
+            receiverAddress: '沙井中心路28号丽沙花都xx栋xx号',
             receiverPostCode: '',
             receiverLongitude: '113.829127',
             receiverLatitude: '22.713649',
             receiverIdentity: '88888888205468',
+            receiverPhone: '17612345678',
+            receiverName: '测试用户',
             receiverPhone: '17612345678',
             receiverName: '测试用户',
             expectArrivalTime: null,
@@ -117,7 +118,7 @@ export function genOrders(params) {
           couponAmount: null,
           autoCancelTime: '1600352629291',
           orderStatusName: '待付款',
-          orderSatusRemark: '需支付￥0.20',
+          orderStatusRemark: '需支付￥0.20',
           logisticsLogVO: null,
           invoiceStatus: null,
           invoiceDesc: null,
@@ -160,10 +161,8 @@ export function genOrders(params) {
               roomId: null,
               goodsMainType: 0,
               goodsViceType: 0,
-              goodsName:
-                '白色短袖连衣裙荷叶边裙摆宽松韩版休闲纯白清爽优雅连衣裙',
-              goodsPictureUrl:
-                'https://cdn-we-retail.ym.tencent.com/tsr/goods/nz-09a.png',
+              goodsName: '白色短袖连衣裙荷叶边裙摆宽松韩版休闲纯白清爽优雅连衣裙',
+              goodsPictureUrl: 'https://tdesign.gtimg.com/miniprogram/template/retail/goods/nz-09a.png',
               originPrice: '40000',
               actualPrice: '29800',
               specifications: [
@@ -189,10 +188,8 @@ export function genOrders(params) {
               roomId: null,
               goodsMainType: 0,
               goodsViceType: 0,
-              goodsName:
-                '不锈钢刀叉勺套装家用西餐餐具ins简约耐用不锈钢金色银色可选',
-              goodsPictureUrl:
-                'https://cdn-we-retail.ym.tencent.com/tsr/goods/gh-2b.png',
+              goodsName: '不锈钢刀叉勺套装家用西餐餐具ins简约耐用不锈钢金色银色可选',
+              goodsPictureUrl: 'https://tdesign.gtimg.com/miniprogram/template/retail/goods/gh-2b.png',
               originPrice: '29900',
               actualPrice: '19900',
               specifications: [
@@ -218,10 +215,8 @@ export function genOrders(params) {
               roomId: null,
               goodsMainType: 0,
               goodsViceType: 0,
-              goodsName:
-                '纯色纯棉休闲圆领短袖T恤纯白亲肤厚柔软细腻面料纯白短袖套头T恤',
-              goodsPictureUrl:
-                'https://cdn-we-retail.ym.tencent.com/tsr/goods/nz-08a.png',
+              goodsName: '纯色纯棉休闲圆领短袖T恤纯白亲肤厚柔软细腻面料纯白短袖套头T恤',
+              goodsPictureUrl: 'https://tdesign.gtimg.com/miniprogram/template/retail/goods/nz-08a.png',
               originPrice: '31900',
               actualPrice: '26900',
               specifications: [
@@ -259,6 +254,7 @@ export function genOrders(params) {
             receiverLongitude: '113.829127',
             receiverLatitude: '22.713649',
             receiverIdentity: '88888888205468',
+            receiverPhone: '17612345678',
             receiverPhone: '17612345678',
             receiverName: '平均线',
             expectArrivalTime: null,
@@ -299,7 +295,7 @@ export function genOrders(params) {
           couponAmount: null,
           autoCancelTime: null,
           orderStatusName: '待发货',
-          orderSatusRemark: null,
+          orderStatusRemark: null,
           logisticsLogVO: null,
           invoiceStatus: null,
           invoiceDesc: null,
@@ -342,10 +338,8 @@ export function genOrders(params) {
               roomId: null,
               goodsMainType: 0,
               goodsViceType: 0,
-              goodsName:
-                '迷你便携高颜值蓝牙无线耳机立体声只能触控式操作简约立体声耳机',
-              goodsPictureUrl:
-                'https://cdn-we-retail.ym.tencent.com/tsr/goods/dz-2a.png',
+              goodsName: '迷你便携高颜值蓝牙无线耳机立体声只能触控式操作简约立体声耳机',
+              goodsPictureUrl: 'https://tdesign.gtimg.com/miniprogram/template/retail/goods/dz-2a.png',
               originPrice: '15900',
               actualPrice: '8900',
               specifications: [
@@ -371,10 +365,8 @@ export function genOrders(params) {
               roomId: null,
               goodsMainType: 0,
               goodsViceType: 0,
-              goodsName:
-                '白色短袖连衣裙荷叶边裙摆宽松韩版休闲纯白清爽优雅连衣裙',
-              goodsPictureUrl:
-                'https://cdn-we-retail.ym.tencent.com/tsr/goods/nz-09a.png',
+              goodsName: '白色短袖连衣裙荷叶边裙摆宽松韩版休闲纯白清爽优雅连衣裙',
+              goodsPictureUrl: 'https://tdesign.gtimg.com/miniprogram/template/retail/goods/nz-09a.png',
               originPrice: '40000',
               actualPrice: '29800',
               specifications: [
@@ -400,10 +392,8 @@ export function genOrders(params) {
               roomId: null,
               goodsMainType: 0,
               goodsViceType: 0,
-              goodsName:
-                '腾讯极光盒子4智能网络电视机顶盒6K千兆网络机顶盒4K高分辨率',
-              goodsPictureUrl:
-                'https://cdn-we-retail.ym.tencent.com/tsr/goods/dz-3a.png',
+              goodsName: '腾讯极光盒子4智能网络电视机顶盒6K千兆网络机顶盒4K高分辨率',
+              goodsPictureUrl: 'https://tdesign.gtimg.com/miniprogram/template/retail/goods/dz-3a.png',
               originPrice: '16900',
               actualPrice: '9900',
               specifications: [
@@ -429,10 +419,8 @@ export function genOrders(params) {
               roomId: null,
               goodsMainType: 0,
               goodsViceType: 0,
-              goodsName:
-                '带帽午休毯虎年款多功能加厚加大加绒简约多功能午休毯连帽披肩',
-              goodsPictureUrl:
-                'https://cdn-we-retail.ym.tencent.com/tsr/goods/muy-3a.png',
+              goodsName: '带帽午休毯虎年款多功能加厚加大加绒简约多功能午休毯连帽披肩',
+              goodsPictureUrl: 'https://tdesign.gtimg.com/miniprogram/template/retail/goods/muy-3a.png',
               originPrice: '39900',
               actualPrice: '29900',
               specifications: [
@@ -459,8 +447,7 @@ export function genOrders(params) {
               goodsMainType: 0,
               goodsViceType: 0,
               goodsName: '运动连帽拉链卫衣休闲开衫长袖多色运动细绒面料运动上衣',
-              goodsPictureUrl:
-                'https://cdn-we-retail.ym.tencent.com/tsr/goods/nz-17a.png',
+              goodsPictureUrl: 'https://tdesign.gtimg.com/miniprogram/template/retail/goods/nz-17a.png',
               originPrice: '39900',
               actualPrice: '25900',
               specifications: [
@@ -499,6 +486,7 @@ export function genOrders(params) {
             receiverLatitude: '22.713649',
             receiverIdentity: '88888888205468',
             receiverPhone: '17612345678',
+            receiverPhone: '17612345678',
             receiverName: '平均线',
             expectArrivalTime: null,
             senderName: '',
@@ -533,7 +521,7 @@ export function genOrders(params) {
           couponAmount: null,
           autoCancelTime: null,
           orderStatusName: '待收货',
-          orderSatusRemark: null,
+          orderStatusRemark: null,
           logisticsLogVO: null,
           invoiceStatus: null,
           invoiceDesc: null,
@@ -576,10 +564,8 @@ export function genOrders(params) {
               roomId: null,
               goodsMainType: 0,
               goodsViceType: 0,
-              goodsName:
-                '白色短袖连衣裙荷叶边裙摆宽松韩版休闲纯白清爽优雅连衣裙',
-              goodsPictureUrl:
-                'https://cdn-we-retail.ym.tencent.com/tsr/goods/nz-09a.png',
+              goodsName: '白色短袖连衣裙荷叶边裙摆宽松韩版休闲纯白清爽优雅连衣裙',
+              goodsPictureUrl: 'https://tdesign.gtimg.com/miniprogram/template/retail/goods/nz-09a.png',
               originPrice: '40000',
               actualPrice: '29800',
               specifications: [
@@ -618,6 +604,7 @@ export function genOrders(params) {
             receiverLatitude: '22.713649',
             receiverIdentity: '88888888205468',
             receiverPhone: '17612345678',
+            receiverPhone: '17612345678',
             receiverName: '平均线',
             expectArrivalTime: null,
             senderName: '',
@@ -646,7 +633,7 @@ export function genOrders(params) {
           couponAmount: null,
           autoCancelTime: null,
           orderStatusName: '已取消',
-          orderSatusRemark: null,
+          orderStatusRemark: null,
           logisticsLogVO: null,
           invoiceStatus: null,
           invoiceDesc: null,
@@ -689,10 +676,8 @@ export function genOrders(params) {
               roomId: null,
               goodsMainType: 0,
               goodsViceType: 0,
-              goodsName:
-                '不锈钢刀叉勺套装家用西餐餐具ins简约耐用不锈钢金色银色可选',
-              goodsPictureUrl:
-                'https://cdn-we-retail.ym.tencent.com/tsr/goods/gh-2b.png',
+              goodsName: '不锈钢刀叉勺套装家用西餐餐具ins简约耐用不锈钢金色银色可选',
+              goodsPictureUrl: 'https://tdesign.gtimg.com/miniprogram/template/retail/goods/gh-2b.png',
               originPrice: '29900',
               actualPrice: '19900',
               specifications: [
@@ -731,6 +716,7 @@ export function genOrders(params) {
             receiverLatitude: '22.713649',
             receiverIdentity: '88888888205468',
             receiverPhone: '17612345678',
+            receiverPhone: '17612345678',
             receiverName: '平均线',
             expectArrivalTime: null,
             senderName: '',
@@ -759,7 +745,7 @@ export function genOrders(params) {
           couponAmount: null,
           autoCancelTime: null,
           orderStatusName: '已取消',
-          orderSatusRemark: null,
+          orderStatusRemark: null,
           logisticsLogVO: null,
           invoiceStatus: null,
           invoiceDesc: null,
@@ -802,10 +788,8 @@ export function genOrders(params) {
               roomId: null,
               goodsMainType: 0,
               goodsViceType: 0,
-              goodsName:
-                '纯色纯棉休闲圆领短袖T恤纯白亲肤厚柔软细腻面料纯白短袖套头T恤',
-              goodsPictureUrl:
-                'https://cdn-we-retail.ym.tencent.com/tsr/goods/nz-08b.png',
+              goodsName: '纯色纯棉休闲圆领短袖T恤纯白亲肤厚柔软细腻面料纯白短袖套头T恤',
+              goodsPictureUrl: 'https://tdesign.gtimg.com/miniprogram/template/retail/goods/nz-08b.png',
               originPrice: '31900',
               actualPrice: '26900',
               specifications: [
@@ -850,6 +834,7 @@ export function genOrders(params) {
             receiverLatitude: '22.713649',
             receiverIdentity: '88888888205468',
             receiverPhone: '17612345678',
+            receiverPhone: '17612345678',
             receiverName: '平均线',
             expectArrivalTime: null,
             senderName: '',
@@ -890,7 +875,7 @@ export function genOrders(params) {
           couponAmount: null,
           autoCancelTime: null,
           orderStatusName: '交易完成',
-          orderSatusRemark: null,
+          orderStatusRemark: null,
           logisticsLogVO: null,
           invoiceStatus: null,
           invoiceDesc: null,
@@ -933,10 +918,8 @@ export function genOrders(params) {
               roomId: null,
               goodsMainType: 0,
               goodsViceType: 0,
-              goodsName:
-                '白色短袖连衣裙荷叶边裙摆宽松韩版休闲纯白清爽优雅连衣裙',
-              goodsPictureUrl:
-                'https://cdn-we-retail.ym.tencent.com/tsr/goods/nz-09a.png',
+              goodsName: '白色短袖连衣裙荷叶边裙摆宽松韩版休闲纯白清爽优雅连衣裙',
+              goodsPictureUrl: 'https://tdesign.gtimg.com/miniprogram/template/retail/goods/nz-09a.png',
               originPrice: '40000',
               actualPrice: '29800',
               specifications: [
@@ -975,6 +958,7 @@ export function genOrders(params) {
             receiverLatitude: '22.713649',
             receiverIdentity: '88888888205468',
             receiverPhone: '17612345678',
+            receiverPhone: '17612345678',
             receiverName: '平均线',
             expectArrivalTime: null,
             senderName: '',
@@ -1003,7 +987,7 @@ export function genOrders(params) {
           couponAmount: null,
           autoCancelTime: null,
           orderStatusName: '交易完成',
-          orderSatusRemark: null,
+          orderStatusRemark: null,
           logisticsLogVO: null,
           invoiceStatus: null,
           invoiceDesc: null,
@@ -1021,17 +1005,12 @@ export function genOrders(params) {
   const { pageNum, pageSize, orderStatus } = params.parameter;
   // 实现筛选
   if (orderStatus > -1) {
-    resp.data.orders = resp.data.orders.filter(
-      (order) => order.orderStatus === orderStatus,
-    );
+    resp.data.orders = resp.data.orders.filter((order) => order.orderStatus === orderStatus);
   }
   // 实现分页
   resp.data.pageNum = pageNum;
   resp.data.pageSize = pageSize;
-  resp.data.orders = resp.data.orders.slice(
-    (pageNum - 1) * pageSize,
-    pageNum * pageSize,
-  );
+  resp.data.orders = resp.data.orders.slice((pageNum - 1) * pageSize, pageNum * pageSize);
   return resp;
 }
 

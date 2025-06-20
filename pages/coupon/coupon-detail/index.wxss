@@ -30,6 +30,7 @@ page {
   white-space: pre-line;
   justify-content: flex-start;
   color: #333;
+  width: 440rpx;
 }
 
 .desc-group-wrap {

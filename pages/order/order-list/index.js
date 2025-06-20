@@ -1,8 +1,5 @@
 import { OrderStatus } from '../config';
-import {
-  fetchOrders,
-  fetchOrdersCount,
-} from '../../../services/order/orderList';
+import { fetchOrders, fetchOrdersCount } from '../../../services/order/orderList';
 import { cosThumb } from '../../../utils/util';
 
 Page({
@@ -23,8 +20,7 @@ Page({
     orderList: [],
     listLoading: 0,
     pullDownRefreshing: false,
-    emptyImg:
-      'https://cdn-we-retail.ym.tencent.com/miniapp/order/empty-order-list.png',
+    emptyImg: 'https://tdesign.gtimg.com/miniprogram/template/retail/order/empty-order-list.png',
     backRefresh: false,
     status: -1,
   },
@@ -107,9 +103,7 @@ Page({
                 title: goods.goodsName,
                 skuId: goods.skuId,
                 spuId: goods.spuId,
-                specs: (goods.specifications || []).map(
-                  (spec) => spec.specValue,
-                ),
+                specs: (goods.specifications || []).map((spec) => spec.specValue),
                 price: goods.tagPrice ? goods.tagPrice : goods.actualPrice,
                 num: goods.buyQuantity,
                 titlePrefixTags: goods.tagText ? [{ text: goods.tagText }] : [],
@@ -170,10 +164,7 @@ Page({
     };
     this.setData({ curTab: status, orderList: [] });
 
-    return Promise.all([
-      this.getOrderList(status, true),
-      this.getOrdersCount(),
-    ]);
+    return Promise.all([this.getOrderList(status, true), this.getOrdersCount()]);
   },
 
   onRefresh() {

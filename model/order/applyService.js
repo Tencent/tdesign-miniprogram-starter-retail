@@ -16,9 +16,8 @@ const orderResps = [
       boughtQuantity: 1,
       orderNo: '132222623132329291',
       goodsInfo: {
-        goodsName:
-          '迷你便携高颜值蓝牙无线耳机立体声只能触控式操作简约立体声耳机',
-        skuImage: 'https://cdn-we-retail.ym.tencent.com/tsr/goods/dz-2a.png',
+        goodsName: '迷你便携高颜值蓝牙无线耳机立体声只能触控式操作简约立体声耳机',
+        skuImage: 'https://tdesign.gtimg.com/miniprogram/template/retail/goods/dz-2a.png',
         specInfo: [
           {
             specId: '50456',
@@ -56,7 +55,7 @@ const orderResps = [
       orderNo: '132222623132329291',
       goodsInfo: {
         goodsName: '白色短袖连衣裙荷叶边裙摆宽松韩版休闲纯白清爽优雅连衣裙',
-        skuImage: 'https://cdn-we-retail.ym.tencent.com/tsr/goods/nz-09a.png',
+        skuImage: 'https://tdesign.gtimg.com/miniprogram/template/retail/goods/nz-09a.png',
         specInfo: [
           {
             specId: '50456',
@@ -94,7 +93,7 @@ const orderResps = [
       orderNo: '132222623132329291',
       goodsInfo: {
         goodsName: '腾讯极光盒子4智能网络电视机顶盒6K千兆网络机顶盒4K高分辨率',
-        skuImage: 'https://cdn-we-retail.ym.tencent.com/tsr/goods/dz-3a.png',
+        skuImage: 'https://tdesign.gtimg.com/miniprogram/template/retail/goods/dz-3a.png',
         specInfo: [
           {
             specId: '50456',
@@ -132,7 +131,7 @@ const orderResps = [
       orderNo: '132222623132329291',
       goodsInfo: {
         goodsName: '带帽午休毯虎年款多功能加厚加大加绒简约多功能午休毯连帽披肩',
-        skuImage: 'https://cdn-we-retail.ym.tencent.com/tsr/goods/muy-3a.png',
+        skuImage: 'https://tdesign.gtimg.com/miniprogram/template/retail/goods/muy-3a.png',
         specInfo: [
           {
             specId: '50456',
@@ -170,7 +169,7 @@ const orderResps = [
       orderNo: '132222623132329291',
       goodsInfo: {
         goodsName: '运动连帽拉链卫衣休闲开衫长袖多色运动细绒面料运动上衣',
-        skuImage: 'https://cdn-we-retail.ym.tencent.com/tsr/goods/nz-17a.png',
+        skuImage: 'https://tdesign.gtimg.com/miniprogram/template/retail/goods/nz-17a.png',
         specInfo: [
           {
             specId: '50456',
@@ -207,8 +206,45 @@ const orderResps = [
       boughtQuantity: 1,
       orderNo: '130169571554503755',
       goodsInfo: {
-        goodsName:
-          '纯色纯棉休闲圆领短袖T恤纯白亲肤厚柔软细腻面料纯白短袖套头T恤',
+        goodsName: '纯色纯棉休闲圆领短袖T恤纯白亲肤厚柔软细腻面料纯白短袖套头T恤',
+        skuImage: 'https://tdesign.gtimg.com/miniprogram/template/retail/goods/nz-08b.png',
+        specInfo: [
+          {
+            specId: '50456',
+            specTitle: '颜色',
+            specValue: '军绿色',
+          },
+          {
+            specId: '50459',
+            specTitle: '尺码',
+            specValue: 'XS',
+          },
+        ],
+      },
+    },
+    code: 'Success',
+    msg: null,
+    requestId: mockReqId(),
+    clientIp: mockIp(),
+    rt: 36,
+    success: true,
+  },
+  {
+    data: {
+      saasId: '88888888',
+      uid: '88888888205468',
+      storeId: '1000',
+      skuId: '19384938948343',
+      numOfSku: 1,
+      numOfSkuAvailable: 1,
+      refundableAmount: '26900',
+      refundableDiscountAmount: '0',
+      shippingFeeIncluded: '0',
+      paidAmountEach: '26900',
+      boughtQuantity: 1,
+      orderNo: '130169571554503755',
+      goodsInfo: {
+        goodsName: '纯色纯棉休闲圆领短袖T恤纯白亲肤厚柔软细腻面料纯白短袖套头T恤',
         skuImage: 'https://cdn-we-retail.ym.tencent.com/tsr/goods/nz-08b.png',
         specInfo: [
           {
@@ -235,9 +271,7 @@ const orderResps = [
 
 export function genRightsPreview(params) {
   const { orderNo, skuId } = params;
-  const resp = orderResps.find(
-    (r) => r.data.orderNo === orderNo && r.data.skuId === skuId,
-  );
+  const resp = orderResps.find((r) => r.data.orderNo === orderNo && r.data.skuId === skuId);
   return resp;
 }
 

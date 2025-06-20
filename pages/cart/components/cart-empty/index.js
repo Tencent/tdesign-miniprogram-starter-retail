@@ -2,8 +2,7 @@ Component({
   properties: {
     imgUrl: {
       type: String,
-      value:
-        'https://cdn-we-retail.ym.tencent.com/miniapp/template/empty-cart.png',
+      value: 'https://tdesign.gtimg.com/miniprogram/template/retail/template/empty-cart.png',
     },
     tip: {
       type: String,

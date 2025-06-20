@@ -9,10 +9,10 @@ const allGoods = [
     storeId: '1000',
     spuId: '0',
     title: '白色短袖连衣裙荷叶边裙摆宽松韩版休闲纯白清爽优雅连衣裙',
-    primaryImage: 'https://cdn-we-retail.ym.tencent.com/tsr/goods/nz-09a.png',
+    primaryImage: 'https://tdesign.gtimg.com/miniprogram/template/retail/goods/nz-09a.png',
     images: [
-      'https://cdn-we-retail.ym.tencent.com/tsr/goods/nz-09a.png',
-      'https://cdn-we-retail.ym.tencent.com/tsr/goods/nz-09b.png',
+      'https://tdesign.gtimg.com/miniprogram/template/retail/goods/nz-09a.png',
+      'https://tdesign.gtimg.com/miniprogram/template/retail/goods/nz-09b.png',
     ],
     video: null,
     available: 1,
@@ -23,11 +23,7 @@ const allGoods = [
     spuStockQuantity: 510,
     soldNum: 1020,
     isPutOnSale: 1,
-    categoryIds: [
-      '127880527393854975',
-      '127880527393854976',
-      '127880537778953984',
-    ],
+    categoryIds: ['127880527393854975', '127880527393854976', '127880537778953984'],
     specList: [
       {
         specId: '10011',
@@ -73,7 +69,7 @@ const allGoods = [
     skuList: [
       {
         skuId: '135676631',
-        skuImage: 'https://cdn-we-retail.ym.tencent.com/tsr/goods/nz-09a.png',
+        skuImage: 'https://tdesign.gtimg.com/miniprogram/template/retail/goods/nz-09a.png',
         specInfo: [
           {
             specId: '10011',
@@ -103,7 +99,7 @@ const allGoods = [
       },
       {
         skuId: '135676632',
-        skuImage: 'https://cdn-we-retail.ym.tencent.com/tsr/goods/nz-09a.png',
+        skuImage: 'https://tdesign.gtimg.com/miniprogram/template/retail/goods/nz-09a.png',
         specInfo: [
           {
             specId: '10011',
@@ -133,7 +129,7 @@ const allGoods = [
       },
       {
         skuId: '135681631',
-        skuImage: 'https://cdn-we-retail.ym.tencent.com/tsr/goods/nz-09a.png',
+        skuImage: 'https://tdesign.gtimg.com/miniprogram/template/retail/goods/nz-09a.png',
         specInfo: [
           {
             specId: '10011',
@@ -169,8 +165,8 @@ const allGoods = [
       },
     ],
     desc: [
-      'https://cdn-we-retail.ym.tencent.com/tsr/goods/nz-09c.png',
-      'https://cdn-we-retail.ym.tencent.com/tsr/goods/nz-09d.png',
+      'https://tdesign.gtimg.com/miniprogram/template/retail/goods/nz-09c.png',
+      'https://tdesign.gtimg.com/miniprogram/template/retail/goods/nz-09d.png',
     ],
     etitle: '',
   },
@@ -179,16 +175,16 @@ const allGoods = [
     storeId: '1000',
     spuId: '135686633',
     title: '纯色纯棉休闲圆领短袖T恤纯白亲肤厚柔软细腻面料纯白短袖套头T恤',
-    primaryImage: 'https://cdn-we-retail.ym.tencent.com/tsr/goods/nz-08b.png',
+    primaryImage: 'https://tdesign.gtimg.com/miniprogram/template/retail/goods/nz-08b.png',
     minSalePrice: '25900',
     minLinePrice: '31900',
     maxSalePrice: '26900',
     maxLinePrice: '31900',
     isSoldOut: false,
     images: [
-      'https://cdn-we-retail.ym.tencent.com/tsr/goods/nz-08a.png',
-      'https://cdn-we-retail.ym.tencent.com/tsr/goods/nz-08a1.png',
-      'https://cdn-we-retail.ym.tencent.com/tsr/goods/nz-08b.png',
+      'https://tdesign.gtimg.com/miniprogram/template/retail/goods/nz-08a.png',
+      'https://tdesign.gtimg.com/miniprogram/template/retail/goods/nz-08a1.png',
+      'https://tdesign.gtimg.com/miniprogram/template/retail/goods/nz-08b.png',
     ],
     groupIdList: ['15029', '14023'],
     spuTagList: [
@@ -364,8 +360,8 @@ const allGoods = [
     minProfitPrice: null,
     etitle: '',
     desc: [
-      'https://cdn-we-retail.ym.tencent.com/tsr/goods/nz-08c.png',
-      'https://cdn-we-retail.ym.tencent.com/tsr/goods/nz-08d.png',
+      'https://tdesign.gtimg.com/miniprogram/template/retail/goods/nz-08c.png',
+      'https://tdesign.gtimg.com/miniprogram/template/retail/goods/nz-08d.png',
     ],
   },
   {
@@ -374,12 +370,12 @@ const allGoods = [
     spuId: '135691628',
     title: '运动连帽拉链卫衣休闲开衫长袖多色运动细绒面料运动上衣',
     images: [
-      'https://cdn-we-retail.ym.tencent.com/tsr/goods/nz-17a.png',
-      'https://cdn-we-retail.ym.tencent.com/tsr/goods/nz-17a1.png',
-      'https://cdn-we-retail.ym.tencent.com/tsr/goods/nz-17b.png',
-      'https://cdn-we-retail.ym.tencent.com/tsr/goods/nz-17b1.png',
+      'https://tdesign.gtimg.com/miniprogram/template/retail/goods/nz-17a.png',
+      'https://tdesign.gtimg.com/miniprogram/template/retail/goods/nz-17a1.png',
+      'https://tdesign.gtimg.com/miniprogram/template/retail/goods/nz-17b.png',
+      'https://tdesign.gtimg.com/miniprogram/template/retail/goods/nz-17b1.png',
     ],
-    primaryImage: 'https://cdn-we-retail.ym.tencent.com/tsr/goods/nz-17a.png',
+    primaryImage: 'https://tdesign.gtimg.com/miniprogram/template/retail/goods/nz-17a.png',
     minSalePrice: '25900',
     minLinePrice: '39900',
     maxSalePrice: '25900',
@@ -604,8 +600,8 @@ const allGoods = [
     minProfitPrice: null,
     etitle: '',
     desc: [
-      'https://cdn-we-retail.ym.tencent.com/tsr/goods/nz-17c.png',
-      'https://cdn-we-retail.ym.tencent.com/tsr/goods/nz-17d.png',
+      'https://tdesign.gtimg.com/miniprogram/template/retail/goods/nz-17c.png',
+      'https://tdesign.gtimg.com/miniprogram/template/retail/goods/nz-17d.png',
     ],
   },
   {
@@ -613,10 +609,10 @@ const allGoods = [
     storeId: '1000',
     spuId: '135686623',
     title: '腾讯极光盒子4智能网络电视机顶盒6K千兆网络机顶盒4K高分辨率',
-    primaryImage: 'https://cdn-we-retail.ym.tencent.com/tsr/goods/dz-3a.png',
+    primaryImage: 'https://tdesign.gtimg.com/miniprogram/template/retail/goods/dz-3a.png',
     images: [
-      'https://cdn-we-retail.ym.tencent.com/tsr/goods/dz-3a.png',
-      'https://cdn-we-retail.ym.tencent.com/tsr/goods/dz-3b.png',
+      'https://tdesign.gtimg.com/miniprogram/template/retail/goods/dz-3a.png',
+      'https://tdesign.gtimg.com/miniprogram/template/retail/goods/dz-3b.png',
     ],
     minSalePrice: '9900',
     minLinePrice: '16900',
@@ -879,8 +875,8 @@ const allGoods = [
     soldNum: 102,
     isPutOnSale: 1,
     desc: [
-      'https://cdn-we-retail.ym.tencent.com/tsr/goods/dz-3c.png',
-      'https://cdn-we-retail.ym.tencent.com/tsr/goods/dz-3d.png',
+      'https://tdesign.gtimg.com/miniprogram/template/retail/goods/dz-3c.png',
+      'https://tdesign.gtimg.com/miniprogram/template/retail/goods/dz-3d.png',
     ],
     specList: [
       {
@@ -940,11 +936,11 @@ const allGoods = [
     storeId: '1000',
     spuId: '135681628',
     title: '带帽午休毯虎年款多功能加厚加大加绒简约多功能午休毯连帽披肩',
-    primaryImage: 'https://cdn-we-retail.ym.tencent.com/tsr/goods/muy-3a.png',
+    primaryImage: 'https://tdesign.gtimg.com/miniprogram/template/retail/goods/muy-3a.png',
     images: [
-      'https://cdn-we-retail.ym.tencent.com/tsr/goods/muy-3a.png',
-      'https://cdn-we-retail.ym.tencent.com/tsr/goods/muy-3a1.png',
-      'https://cdn-we-retail.ym.tencent.com/tsr/goods/muy-3b.png',
+      'https://tdesign.gtimg.com/miniprogram/template/retail/goods/muy-3a.png',
+      'https://tdesign.gtimg.com/miniprogram/template/retail/goods/muy-3a1.png',
+      'https://tdesign.gtimg.com/miniprogram/template/retail/goods/muy-3b.png',
     ],
     minSalePrice: '29900',
     minLinePrice: '39900',
@@ -1093,8 +1089,8 @@ const allGoods = [
       },
     ],
     desc: [
-      'https://cdn-we-retail.ym.tencent.com/tsr/goods/muy-3c.png',
-      'https://cdn-we-retail.ym.tencent.com/tsr/goods/muy-3d.png',
+      'https://tdesign.gtimg.com/miniprogram/template/retail/goods/muy-3c.png',
+      'https://tdesign.gtimg.com/miniprogram/template/retail/goods/muy-3d.png',
     ],
     isAvailable: 1,
     spuStockQuantity: 321,
@@ -1151,11 +1147,11 @@ const allGoods = [
     storeId: '1000',
     spuId: '135681626',
     title: '迷你便携高颜值蓝牙无线耳机立体声只能触控式操作简约立体声耳机',
-    primaryImage: 'https://cdn-we-retail.ym.tencent.com/tsr/goods/dz-2a.png',
+    primaryImage: 'https://tdesign.gtimg.com/miniprogram/template/retail/goods/dz-2a.png',
     images: [
-      'https://cdn-we-retail.ym.tencent.com/tsr/goods/dz-2a.png',
-      'https://cdn-we-retail.ym.tencent.com/tsr/goods/dz-2a1.png',
-      'https://cdn-we-retail.ym.tencent.com/tsr/goods/dz-2b.png',
+      'https://tdesign.gtimg.com/miniprogram/template/retail/goods/dz-2a.png',
+      'https://tdesign.gtimg.com/miniprogram/template/retail/goods/dz-2a1.png',
+      'https://tdesign.gtimg.com/miniprogram/template/retail/goods/dz-2b.png',
     ],
     minSalePrice: '29000',
     minLinePrice: '40000',
@@ -1300,8 +1296,8 @@ const allGoods = [
       },
     ],
     desc: [
-      'https://cdn-we-retail.ym.tencent.com/tsr/goods/dz-2c.png',
-      'https://cdn-we-retail.ym.tencent.com/tsr/goods/dz-2d.png',
+      'https://tdesign.gtimg.com/miniprogram/template/retail/goods/dz-2c.png',
+      'https://tdesign.gtimg.com/miniprogram/template/retail/goods/dz-2d.png',
     ],
     isAvailable: 1,
     spuStockQuantity: 366,
@@ -1358,11 +1354,11 @@ const allGoods = [
     storeId: '1000',
     spuId: '135681622',
     title: '简约餐盘耐热家用盘子菜盘套装多颜色简约餐盘耐热家用盘子',
-    primaryImage: 'https://cdn-we-retail.ym.tencent.com/tsr/goods/gh-1a.png',
+    primaryImage: 'https://tdesign.gtimg.com/miniprogram/template/retail/goods/gh-1a.png',
     images: [
-      'https://cdn-we-retail.ym.tencent.com/tsr/goods/gh-1a.png',
-      'https://cdn-we-retail.ym.tencent.com/tsr/goods/gh-1a2.png',
-      'https://cdn-we-retail.ym.tencent.com/tsr/goods/gh-1b.png',
+      'https://tdesign.gtimg.com/miniprogram/template/retail/goods/gh-1a.png',
+      'https://tdesign.gtimg.com/miniprogram/template/retail/goods/gh-1a2.png',
+      'https://tdesign.gtimg.com/miniprogram/template/retail/goods/gh-1b.png',
     ],
     minSalePrice: '129900',
     minLinePrice: '218000',
@@ -1370,8 +1366,8 @@ const allGoods = [
     maxLinePrice: '218000',
     isSoldOut: false,
     desc: [
-      'https://cdn-we-retail.ym.tencent.com/tsr/goods/gh-1c.png',
-      'https://cdn-we-retail.ym.tencent.com/tsr/goods/gh-1d.png',
+      'https://tdesign.gtimg.com/miniprogram/template/retail/goods/gh-1c.png',
+      'https://tdesign.gtimg.com/miniprogram/template/retail/goods/gh-1d.png',
     ],
     groupIdList: [
       '14023',
@@ -1569,11 +1565,11 @@ const allGoods = [
     storeId: '1000',
     spuId: '135681624',
     title: '不锈钢刀叉勺套装家用西餐餐具ins简约耐用不锈钢金色银色可选',
-    primaryImage: 'https://cdn-we-retail.ym.tencent.com/tsr/goods/gh-2b.png',
+    primaryImage: 'https://tdesign.gtimg.com/miniprogram/template/retail/goods/gh-2b.png',
     images: [
-      'https://cdn-we-retail.ym.tencent.com/tsr/goods/gh-2a.png',
-      'https://cdn-we-retail.ym.tencent.com/tsr/goods/gh-2a1.png',
-      'https://cdn-we-retail.ym.tencent.com/tsr/goods/gh-2b.png',
+      'https://tdesign.gtimg.com/miniprogram/template/retail/goods/gh-2a.png',
+      'https://tdesign.gtimg.com/miniprogram/template/retail/goods/gh-2a1.png',
+      'https://tdesign.gtimg.com/miniprogram/template/retail/goods/gh-2b.png',
     ],
     video: null,
     available: 1,
@@ -1584,11 +1580,7 @@ const allGoods = [
     spuStockQuantity: 0,
     soldNum: 102,
     isPutOnSale: 1,
-    categoryIds: [
-      '127880527393854975',
-      '127880527393854977',
-      '127880526789875961',
-    ],
+    categoryIds: ['127880527393854975', '127880527393854977', '127880526789875961'],
     specList: [
       {
         specId: '127904180600844800',
@@ -1726,8 +1718,8 @@ const allGoods = [
     spuTagList: [{ id: '19011', title: '2020秋季新款', image: null }],
     spuLimitList: null,
     desc: [
-      'https://cdn-we-retail.ym.tencent.com/tsr/goods/gh-2c.png',
-      'https://cdn-we-retail.ym.tencent.com/tsr/goods/gh-2d.png',
+      'https://tdesign.gtimg.com/miniprogram/template/retail/goods/gh-2c.png',
+      'https://tdesign.gtimg.com/miniprogram/template/retail/goods/gh-2d.png',
     ],
     etitle: '',
   },
@@ -1736,8 +1728,8 @@ const allGoods = [
     storeId: '1000',
     spuId: '135681628',
     title: '带帽午休毯虎年款多功能加厚加大加绒简约多功能午休毯连帽披肩',
-    primaryImage: 'https://cdn-we-retail.ym.tencent.com/tsr/goods/muy-3a.png',
-    images: ['https://cdn-we-retail.ym.tencent.com/tsr/goods/muy-3a.png'],
+    primaryImage: 'https://tdesign.gtimg.com/miniprogram/template/retail/goods/muy-3a.png',
+    images: ['https://tdesign.gtimg.com/miniprogram/template/retail/goods/muy-3a.png'],
     video: null,
     available: 1,
     minSalePrice: '29900',
@@ -1747,11 +1739,7 @@ const allGoods = [
     spuStockQuantity: 321,
     soldNum: 103,
     isPutOnSale: 1,
-    categoryIds: [
-      '127880527393854975',
-      '127880527393854977',
-      '127880526789875961',
-    ],
+    categoryIds: ['127880527393854975', '127880527393854977', '127880526789875961'],
     specList: [
       {
         specId: '127904180600844800',
@@ -1797,7 +1785,7 @@ const allGoods = [
     skuList: [
       {
         skuId: '135676629',
-        skuImage: 'https://cdn-we-retail.ym.tencent.com/tsr/goods/muy-3a.png',
+        skuImage: 'https://tdesign.gtimg.com/miniprogram/template/retail/goods/muy-3a.png',
         specInfo: [
           {
             specId: '127904180600844800',
@@ -1827,7 +1815,7 @@ const allGoods = [
       },
       {
         skuId: '135676630',
-        skuImage: 'https://cdn-we-retail.ym.tencent.com/tsr/goods/muy-3a.png',
+        skuImage: 'https://tdesign.gtimg.com/miniprogram/template/retail/goods/muy-3a.png',
         specInfo: [
           {
             specId: '127904180600844800',
@@ -1857,7 +1845,7 @@ const allGoods = [
       },
       {
         skuId: '135681629',
-        skuImage: 'https://cdn-we-retail.ym.tencent.com/tsr/goods/muy-3a.png',
+        skuImage: 'https://tdesign.gtimg.com/miniprogram/template/retail/goods/muy-3a.png',
         specInfo: [
           {
             specId: '127904180600844800',
@@ -1889,8 +1877,8 @@ const allGoods = [
     spuTagList: [{ id: '13001', title: '限时抢购', image: null }],
     spuLimitList: null,
     desc: [
-      'https://cdn-we-retail.ym.tencent.com/tsr/goods/muy-3c.png',
-      'https://cdn-we-retail.ym.tencent.com/tsr/goods/muy-3d.png',
+      'https://tdesign.gtimg.com/miniprogram/template/retail/goods/muy-3c.png',
+      'https://tdesign.gtimg.com/miniprogram/template/retail/goods/muy-3d.png',
     ],
     etitle: '',
   },

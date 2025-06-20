@@ -173,7 +173,7 @@ Page({
       codeShow: false,
     });
   },
-  onKnoeCode() {
+  onKnowCode() {
     this.setData({
       dialogShow: !this.data.dialogShow,
       codeShow: true,

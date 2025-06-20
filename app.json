@@ -1,34 +1,50 @@
 {
-  "pages": [
-    "pages/home/home",
-    "pages/usercenter/index",
-    "pages/usercenter/person-info/index",
-    "pages/usercenter/address/list/index",
-    "pages/usercenter/address/edit/index",
-    "pages/goods/list/index",
-    "pages/goods/details/index",
-    "pages/goods/category/index",
-    "pages/goods/search/index",
-    "pages/goods/result/index",
-    "pages/cart/index",
-    "pages/order/order-confirm/index",
-    "pages/order/receipt/index",
-    "pages/order/pay-result/index",
-    "pages/order/order-list/index",
-    "pages/order/order-detail/index",
-    "pages/goods/comments/index",
-    "pages/order/apply-service/index",
-    "pages/order/after-service-list/index",
-    "pages/order/after-service-detail/index",
-    "pages/goods/comments/create/index",
-    "pages/coupon/coupon-list/index",
-    "pages/coupon/coupon-detail/index",
-    "pages/coupon/coupon-activity-goods/index",
-    "pages/promotion-detail/index",
-    "pages/order/fill-tracking-no/index",
-    "pages/order/delivery-detail/index",
-    "pages/order/invoice/index",
-    "pages/usercenter/name-edit/index"
+  "pages": ["pages/home/home", "pages/category/index", "pages/cart/index", "pages/usercenter/index"],
+  "subpackages": [
+    {
+      "root": "pages/user",
+      "name": "user",
+      "pages": ["person-info/index", "address/list/index", "address/edit/index", "name-edit/index"]
+    },
+    {
+      "root": "pages/goods",
+      "name": "goods",
+      "pages": [
+        "list/index",
+        "details/index",
+        "search/index",
+        "result/index",
+        "comments/index",
+        "comments/create/index"
+      ]
+    },
+    {
+      "root": "pages/order",
+      "name": "order",
+      "pages": [
+        "order-confirm/index",
+        "receipt/index",
+        "pay-result/index",
+        "order-list/index",
+        "order-detail/index",
+        "apply-service/index",
+        "after-service-list/index",
+        "after-service-detail/index",
+        "fill-tracking-no/index",
+        "delivery-detail/index",
+        "invoice/index"
+      ]
+    },
+    {
+      "root": "pages/coupon",
+      "name": "coupon",
+      "pages": ["coupon-list/index", "coupon-detail/index", "coupon-activity-goods/index"]
+    },
+    {
+      "root": "pages/promotion",
+      "name": "promotion",
+      "pages": ["promotion-detail/index"]
+    }
   ],
   "tabBar": {
     "custom": true,
@@ -42,7 +58,7 @@
         "text": "首页"
       },
       {
-        "pagePath": "pages/goods/category/index",
+        "pagePath": "pages/category/index",
         "text": "分类"
       },
       {
