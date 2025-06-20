@@ -17,7 +17,7 @@
               <view>过时自动取消</view>
             </block>
           </block>
-          <block wx:elif="{{countDownTime === null}}">{{order.orderSatusRemark || ''}}</block>
+          <block wx:elif="{{countDownTime === null}}">{{order.orderStatusRemark || ''}}</block>
           <block wx:elif="{{countDownTime > 0}}">
             剩
             <t-count-down

@@ -63,7 +63,7 @@
           type=""
           placeholder="{{addressTagsIndex === 0 ? '请输入您的手机号':'请输入纳税人识别号'}}"
         />
-        <t-icon wx:if="{{addressTagsIndex === 1}}" name="help-circle" size="30rpx" bindtap="onKnoeCode" />
+        <t-icon wx:if="{{addressTagsIndex === 1}}" name="help-circle" size="30rpx" bindtap="onKnowCode" />
       </view>
     </t-cell>
     <t-cell
