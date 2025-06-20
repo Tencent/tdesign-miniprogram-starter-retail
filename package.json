@@ -1,6 +1,6 @@
 {
   "name": "@tencent/tdesign-miniprogram-starter-retail",
-  "version": "1.0.1",
+  "version": "0.2.0",
   "description": "",
   "main": "app.js",
   "scripts": {

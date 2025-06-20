@@ -125,7 +125,7 @@ Page({
   navToActivityDetail({ detail }) {
     const { index: promotionID = 0 } = detail || {};
     wx.navigateTo({
-      url: `/pages/promotion-detail/index?promotion_id=${promotionID}`,
+      url: `/pages/promotion/promotion-detail/index?promotion_id=${promotionID}`,
     });
   },
 });

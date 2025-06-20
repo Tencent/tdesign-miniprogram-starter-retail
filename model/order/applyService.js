@@ -229,6 +229,44 @@ const orderResps = [
     rt: 36,
     success: true,
   },
+  {
+    data: {
+      saasId: '88888888',
+      uid: '88888888205468',
+      storeId: '1000',
+      skuId: '19384938948343',
+      numOfSku: 1,
+      numOfSkuAvailable: 1,
+      refundableAmount: '26900',
+      refundableDiscountAmount: '0',
+      shippingFeeIncluded: '0',
+      paidAmountEach: '26900',
+      boughtQuantity: 1,
+      orderNo: '130169571554503755',
+      goodsInfo: {
+        goodsName: '纯色纯棉休闲圆领短袖T恤纯白亲肤厚柔软细腻面料纯白短袖套头T恤',
+        skuImage: 'https://cdn-we-retail.ym.tencent.com/tsr/goods/nz-08b.png',
+        specInfo: [
+          {
+            specId: '50456',
+            specTitle: '颜色',
+            specValue: '军绿色',
+          },
+          {
+            specId: '50459',
+            specTitle: '尺码',
+            specValue: 'XS',
+          },
+        ],
+      },
+    },
+    code: 'Success',
+    msg: null,
+    requestId: mockReqId(),
+    clientIp: mockIp(),
+    rt: 36,
+    success: true,
+  },
 ];
 
 export function genRightsPreview(params) {

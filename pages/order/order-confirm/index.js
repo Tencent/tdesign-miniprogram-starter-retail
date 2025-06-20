@@ -411,7 +411,7 @@ Page({
             icon: 'close-circle',
           });
           setTimeout(() => {
-            wx.redirectTo({ url: '/order/list' });
+            wx.redirectTo({ url: '/pages/order/order-list/index' });
           });
         } else if (err.code === 'ILLEGAL_CONFIG_PARAM') {
           Toast({
@@ -422,7 +422,7 @@ Page({
             icon: 'close-circle',
           });
           setTimeout(() => {
-            wx.redirectTo({ url: '/order/list' });
+            wx.redirectTo({ url: '/pages/order/order-list/index' });
           });
         } else {
           Toast({
