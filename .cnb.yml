@@ -11,3 +11,16 @@ main:
             auth_type: https
             username: ${GIT_USERNAME}
             password: ${GIT_ACCESS_TOKEN}
+  pull_request:
+    - name: commit-lint
+      stages:
+        - name: commit lint
+          image: cnbcool/commitlint
+  pull_request.mergeable:
+    - name: auto-merge
+      stages:
+        - name: CR 通过后自动合并
+          type: git:auto-merge
+          options:
+            mergeType: squash
+            removeSourceBranch: true
