@@ -10,6 +10,7 @@ const TitleConfig = {
 
 Page({
   data: {
+    pullDownRefreshing: false,
     pageLoading: true,
     serviceRaw: {},
     service: {},
@@ -37,9 +38,18 @@ Page({
   },
 
   // 页面刷新，展示下拉刷新
-  onPullDownRefresh_(e) {
-    const { callback } = e.detail;
-    return this.getService().then(() => callback && callback());
+  onPullDownRefresh_() {
+    this.setData({ pullDownRefreshing: true }, () => {
+      this.getService()
+        .then(() => {
+          this.setData({ pullDownRefreshing: false });
+        })
+        .catch(() => {
+          this.setData({
+            pullDownRefreshing: false,
+          });
+        });
+    });
   },
 
   init() {

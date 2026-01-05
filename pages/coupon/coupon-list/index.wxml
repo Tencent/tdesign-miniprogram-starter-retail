@@ -3,40 +3,35 @@
   bind:change="tabChange"
   tabList="{{list}}"
   t-class="tabs-external__inner"
-	t-class-item="tabs-external__item"
+  t-class-item="tabs-external__item"
   t-class-active="tabs-external__active"
   t-class-track="tabs-external__track"
 >
-	<t-tab-panel
-	  wx:for="{{list}}"
-	  wx:for-index="index"
-	  wx:for-item="tab"
-	  wx:key="key"
-	  label="{{tab.text}}"
-	  value="{{tab.key}}"
-	/>
+  <t-tab-panel
+    wx:for="{{list}}"
+    wx:for-index="index"
+    wx:for-item="tab"
+    wx:key="key"
+    label="{{tab.text}}"
+    value="{{tab.key}}"
+  />
 </t-tabs>
 <view class="coupon-list-wrap">
-	<t-pull-down-refresh
-	  t-class-indicator="t-class-indicator"
-	  id="t-pull-down-refresh"
-	  bind:refresh="onPullDownRefresh_"
-	  background="#fff"
-	>
-		<view class="coupon-list-item" wx:for="{{couponList}}" wx:key="key">
-			<coupon-card couponDTO="{{item}}" />
-		</view>
-	</t-pull-down-refresh>
-	<view class="center-entry">
-		<view class="center-entry-btn" bind:tap="goCouponCenterHandle">
-			<view>领券中心</view>
-			<t-icon
-			  name="chevron-right"
-			  color="#fa4126"
-			  size="40rpx"
-			  style="line-height: 28rpx;"
-			/>
-		</view>
-	</view>
+  <t-pull-down-refresh
+    t-class-indicator="t-class-indicator"
+    id="t-pull-down-refresh"
+    value="{{pullDownRefreshing}}"
+    bind:refresh="onPullDownRefresh_"
+    background="#fff"
+  >
+    <view class="coupon-list-item" wx:for="{{couponList}}" wx:key="key">
+      <coupon-card couponDTO="{{item}}" />
+    </view>
+  </t-pull-down-refresh>
+  <view class="center-entry">
+    <view class="center-entry-btn" bind:tap="goCouponCenterHandle">
+      <view>领券中心</view>
+      <t-icon name="chevron-right" color="#fa4126" size="40rpx" style="line-height: 28rpx" />
+    </view>
+  </view>
 </view>
-

@@ -64,8 +64,7 @@ Page({
     this.pullDownRefresh && this.pullDownRefresh.onPageScroll(e);
   },
 
-  onPullDownRefresh_(e) {
-    const { callback } = e.detail;
+  onPullDownRefresh_() {
     this.setData({
       pullDownRefreshing: true,
     }); // 下拉刷新时不显示load-more
@@ -74,7 +73,6 @@ Page({
         this.setData({
           pullDownRefreshing: false,
         });
-        callback && callback();
       })
       .catch((err) => {
         this.setData({

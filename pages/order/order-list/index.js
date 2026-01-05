@@ -48,13 +48,11 @@ Page({
     this.pullDownRefresh && this.pullDownRefresh.onPageScroll(e);
   },
 
-  onPullDownRefresh_(e) {
-    const { callback } = e.detail;
+  onPullDownRefresh_() {
     this.setData({ pullDownRefreshing: true });
     this.refreshList(this.data.curTab)
       .then(() => {
         this.setData({ pullDownRefreshing: false });
-        callback && callback();
       })
       .catch((err) => {
         this.setData({ pullDownRefreshing: false });
