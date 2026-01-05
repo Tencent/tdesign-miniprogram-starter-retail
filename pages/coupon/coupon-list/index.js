@@ -2,6 +2,7 @@ import { fetchCouponList } from '../../../services/coupon/index';
 
 Page({
   data: {
+    pullDownRefreshing: false,
     status: 0,
     list: [
       {
@@ -48,7 +49,7 @@ Page({
         throw new Error(`unknown fetchStatus: ${statusInFetch}`);
       }
     }
-    fetchCouponList(statusInFetch).then((couponList) => {
+    return fetchCouponList(statusInFetch).then((couponList) => {
       this.setData({ couponList });
     });
   },
@@ -68,9 +69,18 @@ Page({
     this.setData(
       {
         couponList: [],
+        pullDownRefreshing: true,
       },
       () => {
-        this.fetchList();
+        this.fetchList()
+          .then(() => {
+            this.setData({ pullDownRefreshing: false });
+          })
+          .catch(() => {
+            this.setData({
+              pullDownRefreshing: false,
+            });
+          });
       },
     );
   },

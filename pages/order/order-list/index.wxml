@@ -27,6 +27,7 @@
     background="#f5f5f5"
     use-loading-slot
     loading-size="60rpx"
+    value="{{pullDownRefreshing}}"
     bindrefresh="onPullDownRefresh_"
     t-class-indicator="t-class-indicator"
   >

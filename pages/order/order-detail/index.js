@@ -6,6 +6,7 @@ import { getAddressPromise } from '../../../services/address/list';
 
 Page({
   data: {
+    pullDownRefreshing: false,
     pageLoading: true,
     order: {}, // 后台返回的原始数据
     _order: {}, // 内部使用和提供给 order-card 的数据
@@ -68,9 +69,18 @@ Page({
   },
 
   // 页面刷新，展示下拉刷新
-  onPullDownRefresh_(e) {
-    const { callback } = e.detail;
-    return this.getDetail().then(() => callback && callback());
+  onPullDownRefresh_() {
+    this.setData({ pullDownRefreshing: true }, () => {
+      this.getDetail()
+        .then(() => {
+          this.setData({ pullDownRefreshing: false });
+        })
+        .catch(() => {
+          this.setData({
+            pullDownRefreshing: false,
+          });
+        });
+    });
   },
 
   getDetail() {

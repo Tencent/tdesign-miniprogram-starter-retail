@@ -1,6 +1,11 @@
 <wr-loading-content position="fixed" type="spinner" wx:if="{{pageLoading}}" />
 <view class="page-container">
-  <t-pull-down-refresh id="t-pull-down-refresh" bind:refresh="onPullDownRefresh_" t-class-indicator="t-class-indicator">
+  <t-pull-down-refresh
+    id="t-pull-down-refresh"
+    value="{{pullDownRefreshing}}"
+    bind:refresh="onPullDownRefresh_"
+    t-class-indicator="t-class-indicator"
+  >
     <!-- 页面内容 -->
     <view class="service-detail safe-bottom">
       <!-- 状态及描述 -->
