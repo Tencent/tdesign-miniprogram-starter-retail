@@ -7,10 +7,10 @@
 <p align="center">
   <a href="https://img.shields.io/github/stars/Tencent/tdesign-miniprogram-starter-retail">
     <img src="https://img.shields.io/github/stars/Tencent/tdesign-miniprogram-starter-retail" alt="License">
-  </a>  
+  </a>
   <a href="https://github.com/Tencent/tdesign-miniprogram-starter-retail/issues">
     <img src="https://img.shields.io/github/issues/Tencent/tdesign-miniprogram-starter-retail" alt="License">
-  </a>  
+  </a>
   <a href="https://github.com/Tencent/tdesign-miniprogram-starter-retail/LICENSE">
     <img src="https://img.shields.io/github/license/Tencent/tdesign-miniprogram-starter-retail" alt="License">
   </a>
@@ -30,7 +30,7 @@ TDesign 零售模版示例小程序采用 [TDesign 企业级设计体系小程�
 
 <p>请使用微信扫描以下二维码：</p>
 
- <img src="https://we-retail-static-1300977798.cos.ap-guangzhou.myqcloud.com/retail-mp/common/qrcode.jpeg" width = "200" height = "200" alt="模版小程序二维码" align=center />
+ <img src="https://tdesign.gtimg.com/miniprogram/template/retail/common/qrcode.jpg" width = "200" height = "200" alt="模版小程序二维码" align=center />
 
 ## :pushpin: 项目介绍
 
@@ -100,7 +100,8 @@ TDesign 零售模版示例小程序采用 [TDesign 企业级设计体系小程�
 
 ## :art: 代码风格控制
 
-`eslint` `prettier`
+- `eslint`
+- `prettier`
 
 ## :iphone: 基础库版本
 
@@ -108,12 +109,9 @@ TDesign 零售模版示例小程序采用 [TDesign 企业级设计体系小程�
 
 ## :dart: 反馈
 
-企业微信群
-TDesign 团队会及时在企业微信大群中同步发布版本、问题修复信息，也会有一些关于组件库建设的讨论，欢迎微信或企业微信扫码入群交流：
+有任何问题，建议通过 [Github issues](https://github.com/Tencent/tdesign-miniprogram/issues) 反馈或扫码加入用户微信群。
 
-<img src="https://oteam-tdesign-1258344706.cos.ap-guangzhou.myqcloud.com/site/doc/TDesign%20IM.png" width = "200" height = "200" alt="模版小程序页面详情" align=center />
-
-邮件联系：tdesign@tencent.com
+<img src="https://raw.githubusercontent.com/Tencent/tdesign/main/packages/site-components/src/images/groups/wx-group.png" width="200" />
 
 ## :link: TDesign 其他技术栈实现
 
@@ -124,4 +122,4 @@ TDesign 团队会及时在企业微信大群中同步发布版本、问题修复
 
 ## :page_with_curl: 开源协议
 
-TDesign 遵循 [MIT 协议](https://github.com/Tencent/tdesign-miniprogram-starter-retail/LICENSE)。
+TDesign 遵循 [MIT 协议](https://github.com/Tencent/tdesign-miniprogram/LICENSE)。
