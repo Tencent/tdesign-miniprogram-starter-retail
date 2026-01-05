@@ -18,7 +18,7 @@
 .receipt .t-input__wrapper {
   margin: 0 !important;
 }
-.srcoll-view-wrap {
+.scroll-view-wrap {
   margin-top: 20rpx;
 }
 .receipt .flex {

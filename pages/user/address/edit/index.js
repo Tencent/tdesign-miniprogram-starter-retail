@@ -230,8 +230,8 @@ Page({
               success(res) {
                 if (res.confirm) {
                   wx.openSetting({
-                    success(settinRes) {
-                      if (settinRes.authSetting[code] === true) {
+                    success(settingRes) {
+                      if (settingRes.authSetting[code] === true) {
                         resolve();
                       } else {
                         console.warn('用户未打开权限', name, code);

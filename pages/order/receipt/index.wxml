@@ -112,7 +112,7 @@
       visible="{{dialogShow}}"
       confirm-btn="我知道了"
     >
-      <view class="srcoll-view-wrap" slot="content">
+      <view class="scroll-view-wrap" slot="content">
         <scroll-view class="dialog-info" scroll-x="{{false}}" scroll-y="{{true}}">
           <view class="info-wrap">
             <view class="info" wx:if="{{!codeShow}}">

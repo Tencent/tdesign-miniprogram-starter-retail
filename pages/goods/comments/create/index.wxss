@@ -139,7 +139,7 @@ page {
   overflow: hidden;
 }
 
-.page-container .submmit-bar {
+.page-container .submit-bar {
   position: fixed;
   left: 0;
   right: 0;
@@ -151,7 +151,7 @@ page {
   height: 112rpx;
 }
 
-.page-container .submmit-bar-button {
+.page-container .submit-bar-button {
   border-radius: 48rpx !important;
   padding: 0 !important;
 }
