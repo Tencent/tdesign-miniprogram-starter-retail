@@ -15,9 +15,9 @@
     </view>
     <view class="invoice-detail-box-row">
       <view class="invoice-detail-box-title">发票内容</view>
-      <view class="invoice-detail-box-value">{{invoice.ontentType}}</view>
+      <view class="invoice-detail-box-value">{{invoice.contentType}}</view>
     </view>
-     <view class="invoice-detail-box-row">
+    <view class="invoice-detail-box-row">
       <view class="invoice-detail-box-title">发票金额</view>
       <view class="invoice-detail-box-value">{{invoice.money}}</view>
     </view>

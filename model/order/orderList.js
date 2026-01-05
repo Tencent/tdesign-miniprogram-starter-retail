@@ -868,7 +868,7 @@ export function genOrders(params) {
             buyerPhone: '18600008888', //手机
             email: '73900484@qq.com', //邮箱
             titleType: 2, //发票抬头 1-个人 2-公司
-            ontentType: 1, //发票内容 1-明细 2类别
+            contentType: 1, //发票内容 1-明细 2类别
             invoiceType: 5, //是否开票 0-不开 5-电子发票
             money: '1.54',
           },

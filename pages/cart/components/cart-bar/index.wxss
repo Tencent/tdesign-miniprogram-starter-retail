@@ -10,7 +10,7 @@
 .flex1 {
   flex: 1;
 }
-.algin-bottom {
+.align-bottom {
   text-align: end;
 }
 .cart-bar--fixed {
