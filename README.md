@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://tdesign.tencent.com/" target="_blank">
-    <img alt="TDesign Logo" width="200" src="https://tdesign.gtimg.com/site/TDesign.png">
+    <img alt="TDesign Logo" width="200" src="./docs/images/TDesign.png">
   </a>
 </p>
 
@@ -32,20 +32,28 @@ TDesign 零售模版示例小程序采用 [TDesign 企业级设计体系小程�
 
 零售行业模版小程序是个经典的单店版电商小程序，涵盖了电商的黄金链路流程，从商品->购物车->结算->订单等。小程序总共包含 28 个完整的页面，涵盖首页，商品详情页，个人中心，售后流程等基础页面。采用 mock 数据进行展示，提供了完整的零售商品展示、交易与售后流程。页面详情：
 
-<img src="https://tdesign.gtimg.com/miniprogram/template/retail/tdesign-starter-readmeV1.png" width = "650" height = "900" alt="模版小程序页面详情" align=center />
+<img src="./docs/images/tdesign-starter-readmeV1.png" width = "650" height = "900" alt="模版小程序页面详情" align=center />
 
 主要页面截图如下：
 
-<p align="center">
-    <img alt="example-home" width="200" src="https://tdesign.gtimg.com/miniprogram/template/retail/example/v1/home.png" />
-    <img alt="example-sort" width="200" src="https://tdesign.gtimg.com/miniprogram/template/retail/example/v2/sort.png" />
-    <img alt="example-cart" width="200" src="https://tdesign.gtimg.com/miniprogram/template/retail/example/v1/cart.png" />
-    <img alt="example-user-center" width="200" src="https://tdesign.gtimg.com/miniprogram/template/retail/example/v1/user-center.png" />
-    <img alt="example-goods-detail" width="200" src="https://tdesign.gtimg.com/miniprogram/template/retail/example/v1/goods-detail.png" />
-    <img alt="example-pay" width="200" src="https://tdesign.gtimg.com/miniprogram/template/retail/example/v1/pay.png" />
-    <img alt="example-order" width="200" src="https://tdesign.gtimg.com/miniprogram/template/retail/example/v1/order.png" />
-    <img alt="example-order-detail" width="200" src="https://tdesign.gtimg.com/miniprogram/template/retail/example/v2/order.png" />
-</p>
+<table>
+  <tr>
+    <td><img alt="example-home" width="200" src="./docs/images/example/home.png" /></td>
+    <td><img alt="example-sort" width="200" src="./docs/images/example/sort.png" /></td>
+  </tr>
+  <tr>
+    <td><img alt="example-cart" width="200" src="./docs/images/example/cart.png" /></td>
+    <td><img alt="example-user-center" width="200" src="./docs/images/example/user-center.png" /></td>
+  </tr>
+  <tr>
+    <td><img alt="example-goods-detail" width="200" src="./docs/images/example/goods-detail.png" /></td>
+    <td><img alt="example-pay" width="200" src="./docs/images/example/pay.png" /></td>
+  </tr>
+  <tr>
+    <td><img alt="example-order" width="200" src="./docs/images/example/order.png" /></td>
+    <td><img alt="example-order-detail" width="200" src="./docs/images/example/order-detail.png" /></td>
+  </tr>
+</table>
 
 ### 2. 项目构成
 
